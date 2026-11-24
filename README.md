@@ -1,6 +1,6 @@
 # Hair clip: a computer-assisted blow-up proof for curve diffusion flow
 
-Micah Warren (University of Oregon) and Jacob Ogden.
+Micah Warren (University of Oregon).
 
 **Status: work in progress. The proof is NOT complete; see "Status" below.**
 **License:** code under the MIT License (`LICENSE`); the mathematical texts (.tex, .pdf, .md write-ups) are all rights reserved by the authors until publication.
