@@ -1,0 +1,3 @@
+A_j (window sup, per unit Ybar): {0: '6.3922e+03', 1: '6.1862e+04', 2: '1.1230e+06', 3: '1.1393e+08'}  residual parts B_j: {0: '1.89e-06', 1: '1.34e-08', 2: '2.17e-07', 3: '2.96e-05'}
+limits: {'item3_E0': '4.412e-08', 'item3_E1': '4.112e-08', 'item3_E2': '2.015e-09', 'item3_E3': '1.807e-11', 'item2_E0': '6.014e-08', 'item2_E1': '1.401e-07', 'item2_E2': '3.278e-07', 'item4_K4_goodtime': '2.920e-11'}
+Ybar requirement 1.807e-11 (binding item3_E3); J at the end: 1.140e+02, 6.849e+01, 2.923e+01, 7.267e+03, 1.806e+06; routes Lambda/I0/I2; A3 parts {'sqrt_inflow': 90867248.96751447, 'sqrt_duhamel': 1496264.0596229366, 'G': 23051870.590893865}

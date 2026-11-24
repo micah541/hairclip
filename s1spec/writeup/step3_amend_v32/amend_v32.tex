@@ -1,0 +1,152 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,graphicx}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\title{Step 3 amendment v3.2 (adopted 12 Nov 2026; v3.1 kept intact):\\ Lemma O H6 and far-family constants}
+\author{}\date{12 November 2026}
+\begin{document}\maketitle
+
+\noindent\textbf{Status.} Adopted as v3.2; integrated in \fn{step3_proof_v32/}, \fn{lemmaO_v32/}, \fn{lemmaS_v32/}. No v3.1 file is changed. \textbf{Step 3 is not closed:} the outer ramp is now bounded by Lemma~R (\fn{lemmaO_v32/lemmaR.tex}), but the localisation of the far-field energies is open at every window edge in $60\lambda(\tau)\lesssim r<150\lambda_1$ (\S\ref{sec:ramp}, update; \fn{step3_gap_v32/gap_v32.tex}). All numbers are reproduced by the scripts in \S\ref{sec:files}; constants are in \fn{v32_constants.json}. Units are $\lambda_1$; $r$ is the distance along the $S_1$ ray; $t\in[t_1,T)$ with $T-t_1\le\lambda_1^4/(1-4\bar a)$, $\bar a\le2.19103\cdot10^{-7}$.
+
+\section{What changes, and what does not}
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \textbf{Far family:} $(M,K_2{=}K_3)=(0.15,\,0.3)$ instead of $(1,\,1.5)$. With the v3.1 values H6 fails: the cone cylinders reaching $r>475$ recover only $\times0.54$ ($K_2$) and $\times0.44$ ($K_3$).
+\item \textbf{H6 is proved} (Theorem~\ref{thm:H6}) by strip windows, the $|x|\le1$ covering and far members.
+\item \textbf{(H5) gets six data thresholds} (Table~\ref{tab:thr}); the old $L^2$ thresholds $0.14$ (cone), $1.0$ (far) are dropped.
+\item \textbf{Lemma S(B), strip:} the deviation is taken against the profile \emph{frozen at entry} (Proposition~\ref{prop:B}). As written, v3.1 has a gap here (\S\ref{sec:frozen}); the repair changes no box and no $\gamma'$, and moves the derived bounds by at most $9\cdot10^{-5}$ relative.
+\item \textbf{Edges of the strip energies (\S\ref{sec:ramp}).} v3.1 does not estimate them. The outer ramp is bounded by Lemma~R (certified). \textbf{All edges inside $r<150\lambda_1$ are open} (levels 1, 2): Theorem~\ref{thm:H6} is conditional on the strip statement, and the crude window bounds beyond $y=60$ (B3, W4) and the outer end of Lemma~S(A) are affected too.
+\item \textbf{Unchanged:} the cone family ($M=0.12$, $K_2=K_3=0.18$, centres $[200,380]$), the verifier, Lemma S(A), every (B) box and rate, the time ratios, \S5 of \fn{step3_proof.tex}.
+\end{enumerate}
+
+\section{Families and Lemma O constants}
+Cone: centres $r_m\in[200,380]$, unit $L_m=r_m/4$, $X=3$, cylinder $[r_m/4,7r_m/4]$, conclusion region ($|x|\le1$) $[3r_m/4,5r_m/4]$. Far: centres $\ge376$, unit $113$, $X=2$, conclusion region $\pm113$; the far conclusion regions cover $r\ge263$. Strip: $r\in[50,150)$.
+\begin{center}\small\begin{tabular}{lccc}\toprule
+ & cone (unchanged) & far v3.2 & far v3.1\\\midrule
+$M$; $K_2=K_3$ & $0.12$; $0.18$ & $0.15$; $0.3$ & $1$; $1.5$\\
+cutoff width $w$ & $0.271$ & $0.136$ & --\\
+needed ratio (with $(1-4\bar a)^{-1}$) & $1.6001\cdot10^{-7}$ & $6.134\cdot10^{-9}$ & $6.134\cdot10^{-9}$\\
+certified $t^*\ge$ & $3.683\cdot10^{-7}$ & $9.511\cdot10^{-8}$ & $1.249\cdot10^{-8}$\\
+margin & $2.30$ & $15.5$ & $2.04$\\
+$C_0\sqrt t$, $C_1\sqrt t$ & $0.00227$, $0.00748$ & $0.00093$, $0.00438$ & $0.0086$, $0.0371$\\
+$C_2\sqrt t$, $\sqrt{C_3t}$ & $0.03955$, $0.02392$ & $0.03810$, $0.02878$ & $0.3503$, $0.3210$\\\bottomrule
+\end{tabular}\end{center}
+The cone row is recomputed on a 14-point $w$ grid (v3.1: $w=0.317$, $t^*\ge3.701\cdot10^{-7}$); both are valid, and the deviations here all belong to $w=0.271$. $C_j$ do not depend on $t$, so a member of unit $L_m$ has the deviations of the table times $(50/L_m)^2$ (cone).
+
+\section{Amended hypothesis (H5)}
+Lemma O hypotheses H1--H5, H7, H9 hold arc by arc, with $M$ as above, and in addition (own cylinder units, whole cylinder):
+\begin{table}[h]\centering\small
+\begin{tabular}{lccc}\toprule
+ & slope $s_0$ & $\sup|h_0''|\le m_2$ & $\|h_0'''\|_{L^2}\le n_3$\\\midrule
+cone & $0.08$ (data $0.0573$, $\times1.40$) & $0.03$ ($0.0189$, $\times1.59$) & $0.004$ ($1.20\cdot10^{-3}$, $\times3.3$)\\
+far & $0.08$ ($0.0428$, $\times1.87$) & $0.04$ ($0.0208$, $\times1.93$) & $0.004$ ($7.2\cdot10^{-4}$, $\times5.6$)\\\bottomrule
+\end{tabular}\caption{New data thresholds; in brackets the step-4 certified value and its margin.}\label{tab:thr}\end{table}
+
+\noindent Far cylinders in $\lambda_1$ units: $|h_{xx}|\le3.53\cdot10^{-4}$, $|h_{xxx}|\le1.17\cdot10^{-5}$, $|h_{xxxx}|\le1.03\cdot10^{-7}$, $\|h_{xxx}\|_{L^2(|x|\le2L)}\le3.32\cdot10^{-6}$, slope $\le0.08$, $\int(h_0^{(5)})^2\le M^2=0.0225$ (cylinder units; data $0.229M^2$, $\times4.37$). Far jets against $M=0.15$: slope $\times3.5$, $j=3$ $\times418$, $j=4$ $\times12.4$. The thresholds are needed: with the data bounded only by $M=0.12$ the closure fails ($0.12+1.9\cdot0.0395>0.18$).
+
+\section{Lemma S(B) on the strip: frozen profile}\label{sec:frozen}
+\textbf{The gap in v3.1.} (H3), \S3.7 and D5 of \fn{step3_proof.tex} and \fn{lemmaS.tex} define the window deviation as $v=f-U$, $U=1.3056\,\alpha\,y^{p}$, $p=1.0246$, with the \emph{current} $\alpha(\tau)$; no passage freezes it. The forcing is then $R\simeq(\beta-pa\alpha)\,1.3056\,y^p$, and \fn{lemmaS_Bbox.py} (as \fn{lemmaS.tex} l.116) evaluates $F_j^2=\int\omega|\partial_s^jR|^2$ in entry coordinates. For a window fixed in physical space $y=r/\lambda(\tau)$ grows like $e^{\tau/4}$, so the forcing grows like $e^{0.256\tau}$, while step 3 certifies only $\sup|\beta|\le3.34\cdot10^{-9}$ and a floor for $\alpha$. Indeed
+\[\frac{d}{d\tau}\bigl[\alpha\lambda^{-p}\bigr]=(\beta-pa\alpha)\lambda^{-p}\qquad(\tilde\lambda=-p/4),\]
+so $U(\alpha(\tau),r/\lambda(\tau))$ is not controlled at fixed $r$: with $|\alpha|$ only below the floor $3.43\cdot10^{-7}$ it is unbounded as $\lambda\to0$. Hence ``window energies $\le2\times$ entry'' (B3) cannot be derived for all $\tau$ for this $v$; the integrated forcing reaches the strip sup $\approx0.012$ after $\approx37$ units of $\tau$. The full slope $f$ at fixed $r$ is nearly frozen, so only the bookkeeping is wrong. A second, related point: a $\tau$-uniform bound on the $\omega(\tau)$-normalised energy does not give a uniform physical bound (it loses $\lambda_1/\lambda$); the conversion $c_v=y_b/28$ at entry is correct only for the weight frozen at entry.
+
+\begin{proposition}[B$'$, physically fixed window]\label{prop:B}
+Let a window $r\in[r_E,1.5r_E]$ be present at $\tau_e$ ($\tau_e=\tau_1$ for the strip; the entry time through $y=48$ otherwise), $y_E=r_E/\lambda(\tau_e)$. Put $U_e(r)=1.3056\,\alpha(\tau_e)(r/\lambda(\tau_e))^p$, $v=f-U_e$, $z_j=(y\partial_y)^jv$, and $\hat E_j(\tau)=\int_{\rm window}\hat\omega z_j^2\,ds$ with the weight frozen at entry, $\hat\omega=28\lambda(\tau_e)/r$. Then $v$ solves the equation of Lemma S with forcing
+\[\hat R=b\cos\theta\,U_e'-y^{-4}(D-2)(D-3)\Phi(U_e),\qquad \Phi(U)=\frac{p(p-1)U}{(1+U^2)^2}-\frac{3p^2U^3}{(1+U^2)^3},\quad D=y\partial_y,\]
+(no $\beta$-term and no $a$-term, because $\partial_\tau U_e+(\tfrac14-a)yU_e'=0$ exactly), and for $j\le3$, under the boxes of H-B3,
+\[\hat E_j(\tau)\le e^{q\hat G_{\max}y_E^{-4}+29q\bar a/y_E}\bigl(\sqrt{\hat E_j(\tau_e)}+\Phi_j\bigr)^2+\frac{2}{\gamma_j'}\sum_{k<j}\hat G_{jk}y_E^{-4}\sup\hat E_k,\qquad q=\frac1{1-4\bar a},\]
+\[\Phi_j=4q\bar b\,p\Bigl(\int_{y_E}^{1.5y_E}\tfrac{28}{y}\tfrac{U^2}{y^2}\tfrac{dy}{y}\Bigr)^{1/2}+q\,c_j\Bigl(\int_{y_E}^{1.5y_E}\tfrac{28}{y}\tfrac{U^2}{y^8}\tfrac{dy}{y}\Bigr)^{1/2},\]
+with $c_j\ge\sup_{0<U\le0.1}|(D-4)^j(D-2)(D-3)\Phi|/U=(0.0520,\,0.1446,\,0.4324,\,1.2807)$. Unweighted: $\int z_j^2ds\le(1.5y_E/28)\hat E_j$ for all $\tau\ge\tau_e$.
+\end{proposition}
+\begin{proof}[Proof (changes against v3.1 only)]
+In the frozen weight the transport term contributes the rate $(\gamma+|1-2j|+1)\bar b/y(\tau)\le7\bar b/y(\tau)$ and the fourth-order terms $y(\tau)^{-4}\hat G_{jj}$; both are integrable along $y(\tau)=y_Ee^{\int(\frac14-a)}$, which gives the exponential (this is the factor $e^{Cy_E^{-4}}$ of v3.1; the $b$-exponent $8\bar a/y_E$ of the script becomes $29\bar a/y_E$, a change of $10^{-7}$). The forcing terms decay like $e^{-\tau/4}$ and $e^{-\tau}$ at fixed $r$, and $\frac{d}{d\tau}\sqrt{\hat E_j}\le\hat F_j$ integrates to $\Phi_j$. The coupling is bounded as in v3.1 (conservatively, $2/\gamma'\ge8>q$).
+\end{proof}
+\noindent\textbf{Rerun} (\fn{scratch_lemmaS/lemmaS_Bbox.py}, \fn{FROZEN=1}; without it the scratch copy reproduces the stored v3.1 JSON to $4\cdot10^{-16}$). Boxes, $\hat G$ and $\gamma'$ are identical.
+\begin{center}\resizebox{\textwidth}{!}{\begin{tabular}{lcccccc}\toprule
+window & box $(M_0,M_1)$ & $\gamma'_{0..3}$ & forcing v3.1 / frozen $\Phi_3$ & $E_B$ ($j=1,2,3$)$\cdot10^{5}$ & derived $|f|$, $y|f'|$, $|z_2|$ & $K_2,K_3$ ($L=50$)\\\midrule
+$[50,75]$ & $(0.1663,0.1672)$ & $.2496,.2498,.2473,.1810$ & $2.2\cdot10^{-6}$ / $6.9\cdot10^{-10}$ & $1.0714,1.0715,1.0731$ & $.0194,.0295,.0295$ & $.0236,.0249$\\
+$[75,112.5]$ & $(0.1747,0.1760)$ & $.2499,.2500,.2494,.2351$ & $2.6\cdot10^{-6}$ / $2.2\cdot10^{-10}$ & $1.0151,1.0151,1.0153$ & $.0284,.0407,.0407$ & $.0212,.0133$\\
+$[112.5,168.8]$ & $(0.1875,0.1894)$ & $.2500,.2500,.2499,.2466$ & $3.7\cdot10^{-6}$ / $9.4\cdot10^{-11}$ & $1.0034,1.0034,1.0035$ & $.0420,.0573,.0573$ & $.0195,.0072$\\
+$[168.8,253.1]$ & $(0.2068,0.2096)$ & $.2500,.2500,.2500,.2492$ & $5.6\cdot10^{-6}$ / $5.6\cdot10^{-11}$ & $1.0008,1.0008,1.0008$ & $.0623,.0815,.0815$ & $.0181,.0040$\\
+$[253.1,379.7]$ & $(0.2361,0.2404)$ & $.2500,.2500,.2500,.2498$ & $8.4\cdot10^{-6}$ / $4.1\cdot10^{-11}$ & $1.0002,1.0002,1.0002$ & $.0928,.1172,.1171$ & $.0171,.0022$\\\bottomrule
+\end{tabular}}\end{center}
+All entries agree with v3.1 to the digits shown (largest relative change of any derived bound: $8.9\cdot10^{-5}$, downward). The binding statement $K_2\le0.024$, $K_3\le0.025$, $|f|\le0.093$, $y|f'|\le0.118$ stands.
+
+\noindent\textbf{What else changes in Lemma S and the verifier.} Nothing in the verifier; nothing in Lemma S(A) (fixed rescaled $y\in[14,60]$, where $U(\alpha(\tau))$ with the $\beta$-forcing is correct). In (B): the definition of $v$ ((H3), \S3.7, B3, D4, \fn{lemmaS.tex} Summary items (3), H-B3, H-H6) and the forcing term in \fn{lemmaS_Bbox.py} and in the (B) part of \fn{lemmaS_F4B.py} (windows entering through $y=48$, $E_B=(3.15\cdot10^{-7},1.83\cdot10^{-4},0.250)$: same repair with $\tau_e$ the entry time; not rerun here, its forcing term only decreases).
+
+\section{H6}\label{sec:H6}
+\begin{theorem}[H6]\label{thm:H6}
+Assume (H5) as amended, Proposition~\ref{prop:B} on the strip windows at levels $0$--$2$ with the entry energies of (H3), and that the solution is smooth on $[t_1,t]$. Then for every cone and far cylinder, on its whole base and on $[t_1,t]$: slope $\le0.1354$ (cone), $0.0876$ (far); $|h_{xx}|\le0.1067$ (cone), $0.1313$ (far); $\|h_{xxx}\|_{L^2}\le0.0938$ (cone), $0.1255$ (far). In particular hypothesis (A) of Lemma O ($\tfrac14$, $K_2$, $K_3$) holds strictly in every cylinder.
+\end{theorem}
+\begin{proof}
+Let $\bar t$ be the supremum of times up to which (A) holds in every cylinder. On $[t_1,\bar t]$:
+
+\emph{1. Lemma O in every member} gives, on its conclusion region, $|g_x|\le C_1\sqrt t$, $|g_{xx}|\le C_2\sqrt t$, $\int_{-1}^1g_{xxx}^2\le C_3t$, $g=h-h_0$.
+
+\emph{2. Frames.} With curvature $k$, tangent angle $\phi$ in a frame and $|\tan\phi|\le s$: $h_{xx}=\sec^3\!\phi\,k$, $h_{xxx}=\sec^4\!\phi\,(k_\sigma+3\tan\phi\,k^2)$, $dx=\cos\phi\,d\sigma$. Hence for a target frame $c$ and a source frame $m$
+\[|h^c_{xx}|\le(1+s_c^2)^{3/2}|k|,\quad|k|\le|h^m_{xx}|,\quad|h^c_{xxx}|\le(1+s_c^2)^2\bigl(|h^m_{xxx}|+3(s_c+s_m)k^2\bigr),\quad dx_c\le(1+s_m^2)^{1/2}dx_m,\]
+and from the ray chart $|k|\le|f'|$, $|k_\sigma|\le|f''|+3|f|f'^2$.
+
+\emph{3. Covering.} A point $p$ of a cone cylinder $c$ lies in the strip ($r_p<150$), or in the conclusion region of the cone member $r_m=\min(4r_p/3,380)$ ($150\le r_p\le475$; $L_m\ge50$), or in that of the far member centred at $p$ ($r_p>475$). A point of a far cylinder lies in a cone conclusion region ($150\le r_p<263$) or in a far one.
+
+\emph{4. Slope.} At a covered point the tangent angle changes by at most $C_1\sqrt t$, so the slope in any frame is $\le\tan(\arctan s_0+C_1\sqrt t)\le0.0876$. On the strip the angle to the ray is $\le\arctan\sup|f|$ and the axis of $c$ makes the angle $\arctan|f(r_c,\tau_1)|$ with the ray: slope $\le\tan(\arctan0.0420+\arctan0.0928)\le0.1354$.
+
+\emph{5. $K_2$.} Covered: $L_c|k(p,t)|\le(1+s_0^2)^{3/2}m_2+(L_c/L_m)(50/L_m)^2C_2\sqrt t$; the data term carries no ratio because it is $L_c|k_0(p)|$. The worst case is $r_c=380$, $r_p=150$ ($L_m=50$, ratio $1.9$); beyond $475$ the deviation is $(L_c/113)C_2^{\rm far}\sqrt t$. Strip: $L_c|k|\le L_c\,y|f'|/y\le0.0497$.
+
+\emph{6. $K_3$.} Split the base into the strip and the pieces $[150,250]$, $[250,416.7]$, $[416.7,475]$ (members $200$, $333.3$, $380$) and one far piece. A member piece $P$ contributes
+\[(1+s_c^2)^2\Bigl[(1+s_m^2)^{1/4}(L_c/L_m)^{3/2}\bigl(n_3+\sqrt{C_3t}\,(50/L_m)^2\bigr)+3(s_c+s_m)(L_ck)^2|P|^{1/2}\Bigr],\]
+and the strip, window by window, $L_c^{3/2}$ times $y_0^{-3/2}(\sqrt{E^u_2}+\sqrt{E^u_1})+\bigl(p(p-1)U+3(|f|+s_c)(yf')^2\bigr)\bigl(\int y^{-4}\bigr)^{1/2}$; the squares are added. Only levels $\le2$ of (B) enter.
+
+\emph{7.} The bounds of the statement are strictly below $\tfrac14$, $K_2$, $K_3$ and uniform over the (compact) families, so $\bar t=t$.
+\end{proof}
+\begin{center}\small\begin{tabular}{lccc}\toprule
+closure item & bound & against & margin\\\midrule
+cone slope (strip worst; covered $0.0876$) & $0.1354$ & $0.25$ & $\times1.85$\\
+far slope & $0.0876$ & $0.25$ & $\times2.86$\\
+\textbf{cone $K_2$} (covered; strip $0.0497$) & $0.1067$ & $0.18$ & $\mathbf{\times1.69}$\\
+cone $K_3$ (strip $0.0194$; pieces $0.0805$, $0.0235$, $0.0155$, $0.0340$) & $0.0938$ & $0.18$ & $\times1.92$\\
+far $K_2$ & $0.1313$ & $0.3$ & $\times2.29$\\
+far $K_3$ (pieces $0.1050$, $0.0233$, $0.0459$, $0.0459$) & $0.1255$ & $0.3$ & $\times2.39$\\
+cone H4 (unchanged) / far H4 & $0.304M^2$ / $0.229M^2$ & $1$ & $\times3.28$ / $\times4.37$\\\bottomrule
+\end{tabular}\end{center}
+\emph{Robustness.} With all deviations taken at $\mu$ times the horizon every item still closes at $\mu=3.5$ (cone $K_2$, $K_3$ $\times1.04$), so $t^*$ ($\times2.30$) stays the binding time margin. With the strip energies multiplied by $2$, $4$, $10$, $30$ the smallest margin is $1.69$, $1.69$, $1.56$, $1.26$.
+
+\noindent\emph{Order in the bootstrap} (replaces D4/D5): D5a Lemma O conclusions from B4 and (H5); D4 windows, using D5a at their outer edge; D5b Theorem~\ref{thm:H6}, which improves B4. B4 reads: $K_2=K_3=0.18$ (cone), $0.3$ (far, $M=0.15$).
+
+\section{The edges of the strip energies}\label{sec:ramp}
+\textbf{Update (after Lemma R).} The outer ramp is moved to $[190,379.5]\lambda_1$ and bounded by Lemma~R (\fn{lemmaO_v32/lemmaR.tex}, \fn{lemmaS_v32/ramp_cert.json}, \fn{arb}): $R_4\le0.2076,0.1297,0.0811$ for the three members, $N_3^2\le742.2$, $\Delta_j\le(3.03\cdot10^{-9},8.94\cdot10^{-9},3.043\cdot10^{-5})$, i.e.\ $1.6\%$, $0.09\%$, $3.05\times$ the entry energies (the float budget below, $0.049$ for $1\times$, is superseded). With the five window energies of (H3) the strip energies are $\le5.0,5.0,7.9$ times the per-window values; at $\times8$ the H6 margins are $1.60$ (cone slope), $1.69$ ($K_2$), $1.69$ ($K_3$), $2.29$, $2.39$. \textbf{Open: the inner edge.} v3.1 has no term for the inner edge of a window either. For the ramp $[50,75]\lambda_1$: $c^{\rm in}_{22}=2.43\cdot10^{-4}$, $c^{\rm in}_{23}=3.36\cdot10^{-5}$ (certified); H6 needs about $N_2^2\le0.4$, $N_3^2\le3$ there; the available estimates give $0.7$ and $\sim10^3$. Lemma~R cannot reach it (time ratio $\gtrsim2.6\cdot10^{-6}$, no a-priori bounds). So the strip statement is not proved at levels 1, 2. \textbf{Wider gap.} The same edge-free computation underlies the crude window bounds beyond $y=60$ ($E_B$, $|f|\le\frac12$, curvature $\le S_1^f/r$) and the outer end of the shell energies of Lemma~S(A) is unquantified. Hence the main trapping argument is independent of the hand-off-level strip bounds and of H6, but not of the gap: it needs the crude far-field bounds, which have large numerical room (core margins $5.9$, $2.8$) but no complete proof. Not affected: the linear theory, Lemma~O and Lemma~R, the verifier given its inputs, and the core and inner-ramp computations of Lemma~S(A) given a crude box. Statement, feasibility of two repairs and a plan: \fn{step3_gap_v32/gap_v32.tex}, \fn{plan_uniformly_local_SB.md}. Frozen-profile reruns: \fn{lemmaS_F4B.py} ($E_B$ changes $\le10^{-7}$ relative) and $\alpha_1=1.25\cdot10^{-4}$ ($K_2=0.022$, $K_3=0.025$ unchanged). The remainder of this section is the earlier draft analysis.
+
+
+\textbf{Finding.} The (B) energies need a cutoff at the outer end of the window region; v3.1 places it on $[150,175]$ and says it enters ``only through $R_1^{-4}$'' (\fn{lemmaS.tex} l.154, D4: ``B4 at $[150,175]$''). \fn{lemmaS_Bbox.py} contains no such term. With the divergence-form tables of \fn{lemmaS_F1} and the decreasing cutoff (\fn{scratch_lemmaS/ramp_out.py}, arb sups), the commutator adds to $\hat E_j$ over all time at most $q\sum_{k\le j+1}c_{jk}N_k^2$, $N_k^2=\sup_t\int_{\rm ramp}z_k^2ds$; for $k=j+1$ the time average over $[t_1,T]$ suffices, because $\varepsilon(\tau)d\tau=y_E^{-4}dt/\lambda_1^4$.
+\begin{center}\resizebox{\textwidth}{!}{\begin{tabular}{lccccc}\toprule
+ramp & $c_{22}$, $c_{23}$ & $\Delta_0,\Delta_1,\Delta_2^{k\le2}$ / entry & $\overline{\int_{|x|\le1}h_{xxxx}^2}$ allowed ($\Delta_2\le1\times$, $9\times$ entry) & data\\\midrule
+$[150,175]$ (v3.1) & $2.0\cdot10^{-5}$, $1.2\cdot10^{-5}$ & $0.22$, $0.08$, $0.12$ & $1.2\cdot10^{-3}$, $1.2\cdot10^{-2}$ & $8.5\cdot10^{-5}$\\
+$[150,300]$ & $5.1\cdot10^{-7}$, $1.3\cdot10^{-7}$ & $0.012$, $0.003$, $0.011$ & $0.017$, $0.15$ & \\
+$[190,380]$ & $1.6\cdot10^{-7}$, $4.1\cdot10^{-8}$ & $0.0017$, $0.0004$, $0.0015$ & $0.049$, $0.44$ & $\le4\cdot10^{-4}$\\\bottomrule
+\end{tabular}}\end{center}
+(Second half of the table: float estimate with a blanket frame factor $1.1$, \fn{scripts/ramp_budget.py}; member units.)
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item \textbf{Levels 0 and 1 are bounded by B4 through D5a}: they need $z_k$, $k\le2$, on the ramp, i.e.\ exactly the Lemma O conclusions. On the v3.1 ramp they add $22\%$ and $8\%$ to the entry energies; on $[190,380]$ less than $0.2\%$.
+\item \textbf{Level 2 is not bounded.} It needs $z_3$ on the ramp, i.e.\ $h_{xxxx}$ in $L^2$, time-averaged. Neither B4 ($K_2$, $K_3$) nor the conclusion of Lemma O contains a fourth derivative. A Young step against the level-2 dissipation does not help (the $z_3^2$ coefficient is $\sim10^3$ times the dissipation coefficient). The crude bound obtainable from Lemma O's own $E_3$ dissipation ($\overline{\int g_4^2}\lesssim C_3\sqrt t/\sqrt{2a_{\min}}$) gives $\Delta_2\approx820$, $58$, $12$ times the entry energy on the three ramps.
+\item \textbf{What would close it (Lemma R, to be proved):} a level-4 companion of Lemma O, $\overline{\int_{-1}^1h_{xxxx}^2}\le\bar K_4^2$ on the conclusion regions of the members $r_m\in[253,380]$, with $\bar K_4^2\le0.049$ (rms $0.16$; data $\le4\cdot10^{-4}$, hypothesis H4 already gives $h_0^{(5)}\in L^2$), together with moving the ramp to $[190,380]$ (inside the hand-off windows of (H3) and inside the cone conclusion regions). H6 itself tolerates a strip energy $30$ times the entry value.
+\item Level 3 of (B) is not used by Theorem~\ref{thm:H6}.
+\end{itemize}
+
+\section{Stale values in v3.1 (independent of the amendment)}
+\begin{center}\resizebox{\textwidth}{!}{\begin{tabular}{llcc}\toprule
+where & quantity & stated (at $1.2\cdot10^{-7}$) & at $1.6001\cdot10^{-7}$, $w=0.317$\\\midrule
+\fn{lemmaO_v3.tex} table; H1 & $C_0\sqrt t$ (cone) & $0.0021$ & $0.00237$\\
+\fn{lemmaO_v3.tex} table; D5 & $C_1\sqrt t$; recovered slope & $0.0063$; $0.126$ & $0.00726$; $0.1273$\\
+\fn{lemmaO_v3.tex}, \fn{step3_proof.tex} l.245, D5 & $C_2\sqrt t$; recovered $|h_{xx}|$ & $0.035/0.034$; $0.154$ & $0.03946$; $0.1595$\\
+\fn{lemmaO_v3.tex} table & $\sqrt{\lceil X\rceil C_3t}$ & $0.0401$ & $0.0463$\\
+(H5), H5, \fn{t9.py} print, \fn{STEP4_RESULT} & cone $\|h_0'''\|$ threshold & $0.14$ & $0.1337$\\
+\fn{lemmaO_v3.tex}, \fn{step3_proof.tex} l.244 & slope margin & $0.1237$ & $0.1227$\\
+\fn{lemmaO_v3_consts.json} cone case & \fn{needed}, margin & $1.2\cdot10^{-7}$, $3.08$ & $1.6\cdot10^{-7}$, $2.31$\\\bottomrule
+\end{tabular}}\end{center}
+Also: \fn{lemmaO_v3.tex} H2 (far slope $0.11$) and H5 (far $2.12$) refer to the withdrawn $M\le3.69$ table; \fn{lemmaS_Bbox.py} omits the $b$-term and the $y^{-4}$ residual from $r_0$ and uses the $b$-flux exponent $8\bar a/y_E$ (all $\le10^{-7}$ relative); \fn{t9_lemmaO.py} used $C_0=0.0021$ (its \fn{--v32} option uses $0.0023$, valid for $w=0.271$, where $C_0\sqrt t\le0.00227$). None of these changes a conclusion.
+
+\section{Edits on adoption, and files}\label{sec:files}
+\textbf{Step 3.} \fn{step3_proof.tex}: (H3) and \S3.7, B3, D4 (frozen profile; outer edge); (H5) l.97; (W4) l.105; \S3.8 table and hypothesis list l.240--246; B4 l.263; D5 l.311 (replace by D5a/D5b); stale values. \fn{lemmaO_v3.tex}: table at $1.6\cdot10^{-7}$, far case, H5, H6. \fn{lemmaO_v3_consts.json}: key \fn{far_margin2}, cone \fn{needed}. \fn{lemmaS.tex}, \fn{lemmaS_Bbox.py}, \fn{lemmaS_F4B.py}: Proposition~\ref{prop:B}. New: Lemma R.\\
+\textbf{Step 4.} Far thresholds (\fn{t9_far.py}), far H4 at $M=0.15$ (\fn{h4loc.py}), the three cone data checks, the closure (\fn{t9_h6}), cone $C_0$ in \fn{t9_lemmaO.py}. Step 4 already carries these as \fn{--v32} variants; they agree with this draft except that \fn{v32_h6.py} here takes the strip third derivative in $L^2$ from levels $\le2$ (cone $K_3$ $0.0938$ instead of $0.0935$).\\
+\textbf{Files} (\fn{writeup/step3_amend_v32/}): \fn{v32_constants.json}; \fn{scripts/v32_cases.py} (Lemma O constants, arb); \fn{scripts/v32_h6.py} (Theorem~\ref{thm:H6}, arb, no sampling; env \fn{MU}, \fn{STRIPX}); \fn{scripts/ramp_budget.py} (float estimate); \fn{scripts/make_constants.py}; \fn{scratch_lemmaS/} (copies of the Lemma S scripts; \fn{lemmaS_Bbox.py} with \fn{FROZEN=1}, \fn{cres.py} for $c_j$, \fn{ramp_out.py y0 y1}). Run order: \fn{v32_cases.py}; in \fn{scratch_lemmaS}: \fn{cres.py}, then \fn{lemmaS_Bbox.py 1e-5 0.15} with env \fn{AL=1.5e-4}, \fn{ABAR=2.19103e-7}, \fn{BETA=3.33811e-9}, once without and once with \fn{FROZEN=1}, and \fn{ramp_out.py}; then \fn{v32_h6.py}, \fn{ramp_budget.py}, \fn{make_constants.py}.\\
+\textbf{Not certified here:} the window sups are IEEE doubles of the step-3 script (inflated by $10^{-6}$); the second half of the ramp table; $\cos\theta$ is taken constant along the ray in $\hat R$.
+\end{document}

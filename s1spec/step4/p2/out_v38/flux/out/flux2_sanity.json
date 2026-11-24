@@ -1,0 +1,71 @@
+{
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "flux2_sanity.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code",
+  "env": {
+   "F2_NCELL": null,
+   "F2_VTAG": "fin13v4c",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_coef.json": "97ae428fcb0730349ff076091a23421aa100baa3ede205fab3eeccfecfe95b68",
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_forms.pkl": "83c2a91dd65476f8f25ebe3fa29328465759e9c64b42bd4d7ef950cf872c09af",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/f2common.py": "4d813dc2c0af0dbf57717734d8ede9d147e0b170ff1d84518fa6980587f73242",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_sanity.py": "231674c62c2796438f2fe896e26e75614c0dbd49bbfecdedb007addd3530e6b6"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "label": "float diagnostic, not part of the proof",
+ "reflected": {
+  "Cp": 1.0,
+  "Sp": 0.01,
+  "Z_le_2Cp": true,
+  "Zmax": 0.4950674324515687,
+  "Zmin": 0.0,
+  "s": 0.05,
+  "slope_ok": true
+ },
+ "stage": "X6 flux2_sanity",
+ "tests": [
+  {
+   "K0_bound": 0.0002784404929924872,
+   "K0_defining": -7.28920050009811e-05,
+   "K0_le_bound": true,
+   "K0_reduced": -7.28920050009811e-05,
+   "K2lin": 0.000754102008104718,
+   "K2lin_bound": 0.012289390605586377,
+   "K2lin_le_bound": true,
+   "rel_diff": 0.0,
+   "test": "sin"
+  },
+  {
+   "K0_bound": 4.695837974665847e-06,
+   "K0_defining": -2.488709326906484e-08,
+   "K0_le_bound": true,
+   "K0_reduced": -2.488709326906484e-08,
+   "K2lin": 6.513438752928323e-05,
+   "K2lin_bound": 0.000614580692674487,
+   "K2lin_le_bound": true,
+   "rel_diff": 0.0,
+   "test": "gauss"
+  },
+  {
+   "K0_bound": 2.421426003434822e-07,
+   "K0_defining": -6.022203356458609e-08,
+   "K0_le_bound": true,
+   "K0_reduced": -6.022203356458609e-08,
+   "K2lin": 6.330818216708472e-07,
+   "K2lin_bound": 7.83500484861897e-06,
+   "K2lin_le_bound": true,
+   "rel_diff": 0.0,
+   "test": "cubic"
+  }
+ ]
+}

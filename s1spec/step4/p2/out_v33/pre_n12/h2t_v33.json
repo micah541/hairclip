@@ -1,0 +1,46 @@
+{
+ "item": "tightened (H2) shells [14, 60], v3.3 thresholds (1e-8, 1e-6, 1e-3)",
+ "label": "certified",
+ "rows": [
+  {
+   "j": 0,
+   "threshold": 1e-08,
+   "base": 8.009616491689675e-11,
+   "with_error": 8.012896342255056e-11,
+   "margin": 124.79881896470056,
+   "Ybar_limit": 4.969445028108072e-08,
+   "ok": true
+  },
+  {
+   "j": 1,
+   "threshold": 1e-06,
+   "base": 1.3352366190249991e-10,
+   "with_error": 4.705796928861562e-10,
+   "margin": 2125.038575011188,
+   "Ybar_limit": 9.75027887318591e-11,
+   "ok": true
+  },
+  {
+   "j": 2,
+   "threshold": 0.001,
+   "base": 2.9356901302010345e-10,
+   "with_error": 1.5587558914040862e-06,
+   "margin": 641.5372705338912,
+   "Ybar_limit": 2.5667105972514246e-11,
+   "ok": true
+  }
+ ],
+ "all_ok": true,
+ "min_margin": 124.79881896470056,
+ "Ybar": 1.0000000000000004e-12,
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/h2t_v33.py": "b184a02ab38a5978a292e7e2e0b74b8d395c04529de25c87ed2a5ecacc5b08b4",
+   "/home/claude/s1spec/step4/p2/out/h1slab/win_summary.json": "f3a48403bd4aaed575672978ee0e87336abca21cdbef3f54f4bd3aa7cc24f7df",
+   "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json": "6312bb98696838dc37d0eb92b6914dc34d3fdb89acd2417add1a046383b0a4c2",
+   "/home/claude/s1spec/step4/p2/t8se/constants/amp_A1_w180.json": "b7f319194090659642c94f987d9bca59b67e3459084e9a54c1a78e049c60d8ac"
+  }
+ }
+}

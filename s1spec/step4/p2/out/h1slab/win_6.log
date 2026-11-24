@@ -1,0 +1,8 @@
+  element 0: x_e 0.000 (1s)
+  element 10: x_e 3.433 (2s)
+  element 20: x_e 9.558 (4s)
+  element 30: x_e 20.491 (4s)
+  element 40: x_e 40.000 (5s)
+  element 50: x_e 162.284 (6s)
+geometry to x = 400 (7s); alpha [-0.000116 +/- 5.45e-7]
+windows E0..E3 max: ['3.354e-08', '1.219e-07', '3.634e-07', '9.446e-07'] at y = [253.0, 253.0, 252.5, 252.5] | shells E0..E2: ['7.696e-11', '1.275e-10', '2.836e-10'] (8s)

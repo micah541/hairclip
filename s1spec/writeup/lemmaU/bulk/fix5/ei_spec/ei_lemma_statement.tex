@@ -1,0 +1,68 @@
+% EI lemma: statement only (draft for verifier v4).  Source of truth: EI_SPEC.md in this directory.
+% NOT compiled (LaTeX is not installed in WSL).  Nothing here is closed.  Labels [sym]/[cert]/[hand]/[est] as in EI_SPEC.md.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{lemma}{Lemma}
+\newcommand{\nW}[1]{\|#1\|_W}
+\newcommand{\Dv}{\mathcal D_V}
+\begin{document}
+
+\section*{The $E_I$ inequality (draft statement, v4)}
+
+\paragraph{Setting.} $x=\sigma-\sigma_{\rm tip}$, $u=u_0+w$, $u_0=\alpha\hat\psi_3+\alpha^2\hat h_2$ ($C^4$ versions), $g=w'$, $v=\zeta g$,
+$\zeta$ the $C^3$ cutoff with inner ramp $\mathrm{IR}=[10.25,16.25]$, plateau $Z_1=[16.25,57]$, outer ramp $\mathrm{OR}=[57,60]$;
+$W=e^{-\psi}$, $V_j=\nW{v^{(j)}}$; $A,W_1,B,W_3,D_4=\|\tilde w^{(j)}\|_\rho$, $j=0,\dots,4$.
+$J^2=(1-ku)^2+u'^2$, $c=1-J^{-4}$, and
+\[
+N(w)=F(u_0+w)-F(u_0)-Lw=c\,w''''+N_{\rm low},\qquad
+N_{\rm low}=d_{010}w'''+d_{100}w''+d_{200}w''^2+d_{110}w''w'''+d_{300}w''^3+d_{000}.
+\]
+
+\paragraph{The $v$-equation.} With $L_1=-\partial^4-k^2\partial^2-(7km+\tfrac q4)\partial-8m^2-\tfrac52kp$,
+$K_3=[\partial^3,\zeta]g$, $K_4=[\partial^4,\zeta]g$, $Q_u=q/(1-ku)=q+\delta Q$, $C_u=\cos\theta/(1-ku)=\cos\theta+\delta C$,
+$E_A=u_0'qk/((1-ku)(1-ku_0))$, $E_B=u_0'k\cos\theta/((1-ku)(1-ku_0))$:
+\begin{align*}
+v_\tau={}&L_1v-[L_1,\zeta]g+(c\,v''')'-c\,K_4-c'K_3+\zeta N_{\rm low}'+\zeta c_0'w+\zeta\Phi_F'\\
+&+a\bigl[qv'+(q'-1)v\bigr]+b\bigl[\cos\theta\,v'-k\sin\theta\,v\bigr]-\zeta'(aQ_u+bC_u)g
++a\zeta A_1(u_0)'+b\zeta B_1(u_0)'\\
+&-\beta\zeta(\hat\psi_3'+2\alpha\hat h_2')-a\zeta\psi_1'-b\zeta\psi_2'
++a\bigl[(\delta Q\,v)'+\zeta(E_Aw)'\bigr]+b\bigl[(\delta C\,v)'+\zeta(E_Bw)'\bigr].
+\end{align*}
+
+\paragraph{Outer-ramp functionals.}
+\begin{align*}
+K_0^{\rm OR}&=\int_{57}^{60}Wv\Bigl(-[L_1,\zeta]g-cK_4-c'K_3-\zeta'(aQ_u+bC_u)g+\zeta c_0'w+\zeta(aE_A'+bE_B')w\Bigr)dx-\int_{57}^{60}(W\zeta v)'N_{\rm low}\,dx,\\
+K_2^{\rm OR}&=\int_{57}^{60}W\,D_2v\Bigl(-[L_1,\zeta]g-cK_4-c'K_3-\zeta'(aQ_u+bC_u)g+\zeta N_{\rm low}'+\zeta c_0'w+\zeta(aE_A'+bE_B')w\Bigr)dx,
+\end{align*}
+with $D_2v=(Wv'')''/W=v''''-2\psi'v'''+(\psi'^2-\psi'')v''$ and $\nW{D_2v}\le\Dv:=V_4+2\Psi_1V_3+\Psi_2V_2$.
+
+\begin{lemma}[$E_I$ inequality; hypotheses B-a to B-f of EI\_SPEC \S1.3]
+For a.e.\ $\tau$,
+\begin{align*}
+\tfrac12\tfrac{d}{d\tau}V_0^2\le{}&-\mu_1V_0^2-\tfrac12V_2^2
++a_fW_1^2+b_fB^2
++\bar cV_2^2+(C_1+2\Psi_1\bar c)V_1V_2+(\Psi_1C_1+\Psi_2\bar c)V_0V_2+V_0R_Q\\
+&+(V_1+\kappa_{Z}V_0)\bigl(d_{010}V_2+d_{100}V_1+A_1V_0+d_{200}s_ZV_1+d_{110}s_ZV_2+d_{300}s_Z^2V_1+h_{A0}|w(16.25)|+H_{A0}V_0\bigr)\\
+&+(V_1+\kappa_{\rm IR}V_0)\,r_{W\rho}\bigl(d^{i}_{010}W_3+d^{i}_{100}B+A^{i}_1W_1+A^{i}_0A+d^{i}_{200}S_{2r}B+d^{i}_{110}S_{2r}W_3+d^{i}_{300}S_{2r}^2B\bigr)\\
+&+V_0\,C_{0W}+F_{nW}(\alpha)(V_1+\kappa V_0)
++|(a,b)|\bigl(T_0V_0^2+T_{C0}W_1^2+|\alpha|N_{AB}V_0+N_{P12}V_0\bigr)\\
+&+|\beta|(N_{P3}+2|\alpha|N_{H2})V_0+|(a,b)|\,\mathcal R_{12}^{(0)}+K_0^{\rm OR},\\[4pt]
+\tfrac12\tfrac{d}{d\tau}V_2^2\le{}&-\tfrac12V_4^2-\mu_2V_2^2+E_1V_1V_2+E_0V_0V_2
++\Dv\Bigl[c_3D_4+c_2W_3+c_1B+c_0W_1+\bar cV_4+C_1V_3+R_Q+\Sigma_{Z}+r_{W\rho}R_5+C_{0W}+F^{(2)}_{nW}(\alpha)\\
+&\qquad+|(a,b)|\bigl(T_{C2}W_1+|\alpha|N_{AB}+N_{P12}\bigr)+|\beta|(N_{P3}+2|\alpha|N_{H2})\Bigr]\\
+&+|(a,b)|\bigl(T_2V_2^2+2Q_{2B}V_1V_2+Q_{2B}V_0(V_3+\Psi_1V_2)\bigr)+|(a,b)|\,\mathcal R_{12}^{(2)}+K_2^{\rm OR}.
+\end{align*}
+Here $C_1=C_A+C_B\max(s_Z,S_{2r})$ bounds $\sup|c'|$;
+$R_Q=\bar c^{\,i}(k_{41}D_4+k_{42}W_3+k_{43}B+k_{44}W_1)+(C_A^i+C_B^iS_{2r})(k_{31}W_3+k_{32}B+k_{33}W_1)$;
+$\Sigma_Z$ is the sum of the rows of the table in EI\_SPEC \S4.5 (level 2, plateau);
+$R_5$ is the inner-ramp sum of EI\_SPEC \S4.6, in which the monomial $d_{110}(w''w''''+w'''^2)$ is bounded by
+$d^i_{110}(S_{1z}D_4+S_{2z}W_3)$ with $S_{1z}\ge\sup_{\rm IR}|\zeta w''|$, $S_{2z}\ge\sup_{\rm IR}|\zeta w'''|$ expressed through $V_1,V_2,V_3$;
+$\mathcal R_{12}^{(0,2)}$ are the $O(k)$ remainders (EI\_SPEC \S4.9, T12);
+$|(a,b)|$ and $|\beta|$ are replaced by the modulation bounds with the strip part in state-dependent form.
+\end{lemma}
+
+\noindent\emph{Status of the proof.} Identities: \texttt{ei\_identities.py} (I1--I11, exact). The expansion of $N_{\rm low}'$,
+the regularity statement and all new constants are open (EI\_SPEC \S11). The outer-ramp functionals are bounded by the flux
+lemma (pointwise part $\le\mathtt{FLUX0}$, $\mathtt{FLUX2}$; the $g'''$ part and the endpoint term through the time-integrated lemma), which is
+not part of this lemma.
+\end{document}

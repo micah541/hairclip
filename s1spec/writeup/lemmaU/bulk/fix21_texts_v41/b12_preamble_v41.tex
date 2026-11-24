@@ -1,0 +1,41 @@
+% b12_preamble_v41.tex -- text v41 (fix21_texts_v41, 21 Nov 2026), built by fix21_texts_v41/tools/build_v41.py from fix19_texts_v40/b12_preamble_v40.tex (unchanged):
+% wording items W-1..W-5 and the retag item of the delta check fix20_delta_check/DELTA_CHECK_v40.md where they touch this file.  Not compiled.
+% b12_preamble_v41.tex -- text v40 (fix19_texts_v40, 21 Nov 2026), built by fix19_texts_v40/tools/build_v40.py from fix17_texts_v39/b12_preamble_v39.tex (unchanged):
+% fixes of the final review fix18_final_review/FINAL_REVIEW_v39.md (F-1..F-7, R-1..R-3) where they touch this file.  Not compiled.
+% b12_preamble_v41.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/b12_preamble_v38.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v41.tex; v38 retag fixes.  Not compiled.
+% b12_preamble_v41.tex -- shared preamble of the text v38 files (fix16_texts_v38); copy of fix12_texts/b12_preamble_v37.tex.
+% Original: shared preamble of the text v37 files (fix12_texts).  Copy of fix1/b12_text/b12_preamble.tex (unchanged)
+% with \newcommand -> \providecommand and the extra labels of v37.  Not compiled (no LaTeX on this machine).
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,longtable,array}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\providecommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\providecommand{\key}[1]{\texttt{\detokenize{#1}}}
+% labels
+\providecommand{\tC}{\textup{[cert]}}   % arb, outward rounding, project script + JSON key
+\providecommand{\tP}{\textup{[paper]}}  % proved by hand in this text
+\providecommand{\tH}{\textup{[hyp]}}    % hypothesis: hand-off threshold or literature fact
+\providecommand{\tE}{\textup{[est]}}    % estimate, not a bound
+\providecommand{\tB}{\textup{[B0]}}     % a place where review finding B0 acts (resolved, route (b): the profile difference d enters)
+\providecommand{\BzeroSlot}[1]{\fbox{\parbox{0.92\linewidth}{\small\textbf{[B0]} #1}}}
+% notation
+\providecommand{\E}{\mathfrak E}\providecommand{\B}{\mathfrak B}\providecommand{\Bh}{\hat B}\providecommand{\Eh}{\hat E^A}
+\providecommand{\Nb}{\bar N}\providecommand{\oh}{\hat o}\providecommand{\cD}{\mathcal D}
+\providecommand{\SA}{\textsf{A}}\providecommand{\SU}{\textsf{U}}\providecommand{\SZ}{\textsf{Z}}\providecommand{\SV}{\textsf{V}}
+\providecommand{\Uprof}{\mathcal U}     % the profile subtracted in (A); fixed by B0
+\providecommand{\Lam}{\Lambda}
+\setlist{itemsep=2pt,topsep=3pt}
+% ---- v37 additions
+\providecommand{\tS}{\textup{[sym]}}    % exact sympy identity, script named
+\providecommand{\tR}{\textup{[read]}}   % verified by reading the cited file
+\providecommand{\tHd}{\textup{[hand]}}  % hand derivation, not machine-checked
+\providecommand{\tL}{\textup{[Lean]}}   % theorem of the Lean development CWFlow, read from source (not compiled here)
+\providecommand{\eI}{\varepsilon_I}
+\providecommand{\OR}{\mathrm{OR}}

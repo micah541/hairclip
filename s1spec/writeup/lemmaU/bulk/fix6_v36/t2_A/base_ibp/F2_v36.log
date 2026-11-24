@@ -1,0 +1,10 @@
+C_eta = 15.83531249835125
+    ramp-L4 level 0 foot data term = 0 (Jfree2 1.14e-07, weight 0)
+    ramp-L4 level 1 foot data term = 1.79e-07 (Jfree2 1.14e-07, weight 1.57)
+    ramp S33 sup-free data: Kf 1.17e+04 Fmax 7.1e-05 JG 0.0815 J3 3.44e-10 -> 0.000476
+    ramp-L4 level 2 foot data term = 0.000803 (Jfree2 1.14e-07, weight 2.86e+03)
+M1core 0.52 Ghat core [2281, 2351, 77721]  Ghat ramp [2287, 3850, 235592]
+  gamma' [0.2463, 0.2462, 0.1236] E ['1.21e-07', '0.0000817', '0.0481'] S0_v 0.0037 S1_v 0.0935 
+    level 0 {'gamma_prime': '0.246', 'inflow': '1.07e-07', 'ramp_comm': '4.06e-09', 'forcing': '8.87e-12', 'coupling': '0', 'handoff': '1e-08'}
+    level 1 {'gamma_prime': '0.246', 'inflow': '7.71e-05', 'ramp_comm': '3.43e-06', 'forcing': '9.32e-12', 'coupling': '9.44e-13', 'handoff': '1e-06'}
+    level 2 {'gamma_prime': '0.124', 'inflow': '0.0187', 'ramp_comm': '0.0276', 'forcing': '3.88e-11', 'coupling': '2.44e-07', 'handoff': '0.001'}

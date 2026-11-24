@@ -1,0 +1,679 @@
+{
+ "flux2_lemma_v38.tex": [
+  {
+   "old": "1.9926\\cdot10^{-11}",
+   "new": "1.9925\\cdot10^{-11}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.Nbar.0.arb",
+   "dir": "up",
+   "old_raw": "1.9925095981136884959830E-11",
+   "new_raw": "1.9924875552003482406147E-11"
+  },
+  {
+   "old": "1.4620\\cdot10^{-12}",
+   "new": "1.4619\\cdot10^{-12}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.Nbar.2.arb",
+   "dir": "up",
+   "old_raw": "1.4619641070498431719579E-12",
+   "new_raw": "1.4618486560460035566204E-12"
+  },
+  {
+   "old": "2.8139\\cdot10^{-3}",
+   "new": "2.8137\\cdot10^{-3}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.Mbar.1.arb",
+   "dir": "up",
+   "old_raw": "0.0028138976991673248297502",
+   "new_raw": "0.0028136915054295663641285"
+  },
+  {
+   "old": "1.2629\\cdot10^{-3}",
+   "new": "1.2628\\cdot10^{-3}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.Mbar.2.arb",
+   "dir": "up",
+   "old_raw": "0.0012628010206410136654813",
+   "new_raw": "0.0012627012975050080131196"
+  },
+  {
+   "old": "1.5799\\cdot10^{-5}",
+   "new": "1.5796\\cdot10^{-5}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.m3c.arb",
+   "dir": "up",
+   "old_raw": "0.000015798247290297333144730",
+   "new_raw": "0.0000157958543275734784210648"
+  },
+  {
+   "old": "2.8104\\cdot10^{-7}",
+   "new": "2.8100\\cdot10^{-7}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.m3s.arb",
+   "dir": "up",
+   "old_raw": "2.8103341305483555171654E-7",
+   "new_raw": "2.80990723991415330350444E-7"
+  },
+  {
+   "old": "3.6765\\cdot10^{-3}",
+   "new": "3.6759\\cdot10^{-3}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json res.m4c.arb",
+   "dir": "up",
+   "old_raw": "0.0036764776909705676986861",
+   "new_raw": "0.0036758796142039996784488"
+  },
+  {
+   "old": "1.1052\\cdot10^{-20}",
+   "new": "1.1050\\cdot10^{-20}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.Cpp.arb",
+   "dir": "up",
+   "old_raw": "1.1051336000991299431689E-20",
+   "new_raw": "1.1049551611993275504292E-20"
+  },
+  {
+   "old": "4.3963\\cdot10^{-23}",
+   "new": "4.3960\\cdot10^{-23}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.Spp.arb",
+   "dir": "up",
+   "old_raw": "4.3962631834791807542670E-23",
+   "new_raw": "4.3959238303786064017122E-23"
+  },
+  {
+   "old": "1.0552\\cdot10^{-28}",
+   "new": "1.0551\\cdot10^{-28}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.Sp.arb",
+   "dir": "up",
+   "old_raw": "1.0551031640350036003516E-28",
+   "new_raw": "1.0550217192908658720294E-28"
+  },
+  {
+   "old": "2.6524\\cdot10^{-26}",
+   "new": "2.6519\\cdot10^{-26}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.Cp.arb",
+   "dir": "up",
+   "old_raw": "2.6523206402379126671512E-26",
+   "new_raw": "2.65189238687838684890301E-26"
+  },
+  {
+   "old": "3.2577\\cdot10^{-12}",
+   "new": "3.2575\\cdot10^{-12}",
+   "all": true,
+   "manual": "fix13_v37chain/flux/out/flux2_data.json res.Nbar.1 (up)"
+  }
+ ],
+ "continuation_v38.tex": [
+  {
+   "old": "(the verifier's ramp value $\\le7.12\\cdot10^{-3}$ on $[14,28]$,",
+   "new": "(the verifier's ramp value $\\le7.13\\cdot10^{-3}$ on $[14,28]$, i.e.\\ $0.05/\\times7.020454$ of \\fn{A_interface.json} \\key{res.tight.core.margins.ramp M0}; text v37 printed $7.12\\cdot10^{-3}$, below the asserted $7.1221\\cdot10^{-3}$, erratum K;",
+   "manual": "derived 0.05/ramp-M0 margin (A_interface res.tight.core.margins); up-rounded"
+  }
+ ],
+ "lemmaU_v38.tex": [
+  {
+   "old": "1.7313\\cdot10^{-6}",
+   "new": "1.7312\\cdot10^{-6}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json data_terms_late.D[0]",
+   "dir": "up",
+   "old_raw": "0.0000017312003363378492",
+   "new_raw": "0.0000017311323640130343"
+  },
+  {
+   "old": "2.5361\\cdot10^{-4}",
+   "new": "2.5358\\cdot10^{-4}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json data_terms_late.D[1]",
+   "dir": "up",
+   "old_raw": "0.00025360850401389995",
+   "new_raw": "0.00025357009700042576"
+  },
+  {
+   "old": "0.28595",
+   "new": "0.28593",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.M1z_hyp_check.zones_I_II.S1_2Bhat",
+   "dir": "up",
+   "old_raw": "0.2859452748727066",
+   "new_raw": "0.2859238276568365"
+  },
+  {
+   "old": "0.10435",
+   "new": "0.10434",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json res.tight.S1.arb",
+   "dir": "up",
+   "old_raw": "0.104346693073249445336406531737369426681798627843910357275265",
+   "new_raw": "0.104338735194944566135503940532792738759144064748862305124136"
+  },
+  {
+   "old": "7.1860\\cdot10^{-3}",
+   "new": "7.1857\\cdot10^{-3}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json res.tight.S0.arb",
+   "dir": "up",
+   "old_raw": "0.00718595231640051879287016668099598544042554381811221640658174",
+   "new_raw": "0.00718566285021062887465899135968501745061378348842646810644010"
+  },
+  {
+   "old": "2.6524\\cdot10^{-26}",
+   "new": "2.6519\\cdot10^{-26}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.Cp.arb",
+   "dir": "up",
+   "old_raw": "2.6523206402379126671512E-26",
+   "new_raw": "2.65189238687838684890301E-26"
+  },
+  {
+   "old": "0.025850",
+   "new": "0.025848",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_for_zone3_v36.json supersolution.Bhat[2]",
+   "dir": "up",
+   "old_raw": "0.02584930027504121",
+   "new_raw": "0.02584715620908737"
+  },
+  {
+   "old": "0.046958",
+   "new": "0.046957",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/out/zone3_interface.json cone_family.H6.at_Bhat_ref.K2_ufine",
+   "dir": "up",
+   "old_raw": "0.04695726375709165",
+   "new_raw": "0.0469566347205974"
+  },
+  {
+   "old": "0.054148",
+   "new": "0.054146",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/out/zone3_interface.json cone_family.H6.at_Bhat_ref.K3_ufine_strip",
+   "dir": "up",
+   "old_raw": "0.05414727147773505",
+   "new_raw": "0.054145223354421707"
+  },
+  {
+   "old": "6.8843\\cdot10^{-7}",
+   "new": "6.8824\\cdot10^{-7}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.alpha_F",
+   "dir": "up",
+   "old_raw": "6.884239010994646E-7",
+   "new_raw": "6.882315739296756E-7"
+  },
+  {
+   "old": "2.6776\\cdot10^{-3}",
+   "new": "2.6792\\cdot10^{-3}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.rho",
+   "dir": "down",
+   "old_raw": "0.002677666006622703",
+   "new_raw": "0.002679224749733546"
+  },
+  {
+   "old": "9.9001\\cdot10^{-10}",
+   "new": "9.8972\\cdot10^{-10}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.sqrt_LF",
+   "dir": "up",
+   "old_raw": "9.900006690033849E-10",
+   "new_raw": "9.897126414245387E-10"
+  },
+  {
+   "old": "1.0443\\cdot10^{-4}",
+   "new": "1.0442\\cdot10^{-4}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.EA[1].double",
+   "dir": "up",
+   "old_raw": "0.00010442842273508818",
+   "new_raw": "0.00010441306261675507"
+  },
+  {
+   "old": "1.8090\\cdot10^{-7}",
+   "new": "1.8087\\cdot10^{-7}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.Dsrc[0].arb",
+   "dir": "up",
+   "old_raw": "1.808920069858439560E-7",
+   "new_raw": "1.80864916425478389E-7"
+  },
+  {
+   "old": "9.8315\\cdot10^{-5}",
+   "new": "9.8300\\cdot10^{-5}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.Dsrc[1].arb",
+   "dir": "up",
+   "old_raw": "0.0000983147488029245819",
+   "new_raw": "0.00009829939347136920272"
+  },
+  {
+   "old": "8.7390\\cdot10^{-10}",
+   "new": "8.7383\\cdot10^{-10}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.B0.D_window_slope[0].arb",
+   "dir": "up",
+   "old_raw": "8.73891853012813511E-10",
+   "new_raw": "8.73827264919033464E-10"
+  },
+  {
+   "old": "5.2607\\cdot10^{-8}",
+   "new": "5.2603\\cdot10^{-8}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.B0.D_window_slope[1].arb",
+   "dir": "up",
+   "old_raw": "5.2606110991434299743E-8",
+   "new_raw": "5.26020036201042341E-8"
+  },
+  {
+   "old": "6.05091\\cdot10^{-6}",
+   "new": "6.05041\\cdot10^{-6}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.window_data.D_window_slope.arb",
+   "dir": "up",
+   "old_raw": "0.00000605090378163196789",
+   "new_raw": "0.00000605040279650139165"
+  },
+  {
+   "old": "5.5016\\cdot10^{-7}",
+   "new": "5.5010\\cdot10^{-7}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.rhoJ.arb",
+   "dir": "up",
+   "old_raw": "5.50157726068834866E-7",
+   "new_raw": "5.50093391781117435E-7"
+  },
+  {
+   "old": "2.0144\\cdot10^{-8}",
+   "new": "2.0142\\cdot10^{-8}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.coup[2].arb",
+   "dir": "up",
+   "old_raw": "2.01439791872542695E-8",
+   "new_raw": "2.014101664117620234E-8"
+  },
+  {
+   "old": "7.1914\\cdot10^{-10}",
+   "new": "7.1909\\cdot10^{-10}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.C1_0[0].arb",
+   "dir": "up",
+   "old_raw": "7.19133870216263545E-10",
+   "new_raw": "7.19080898819689196E-10"
+  },
+  {
+   "old": "4.3148\\cdot10^{-8}",
+   "new": "4.3145\\cdot10^{-8}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.C1_0[1].arb",
+   "dir": "up",
+   "old_raw": "4.31475636409032519E-8",
+   "new_raw": "4.31441950271388378E-8"
+  },
+  {
+   "old": "6.21886\\cdot10^{-3}",
+   "new": "6.21834\\cdot10^{-3}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.C1_0[2].arb",
+   "dir": "up",
+   "old_raw": "0.00621885466361744779",
+   "new_raw": "0.00621833844662229467"
+  },
+  {
+   "old": "1.6628\\cdot10^{-4}",
+   "new": "1.6626\\cdot10^{-4}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.C0[1].arb",
+   "dir": "up",
+   "old_raw": "0.000166276413064033306449766",
+   "new_raw": "0.000166251222302764413670735"
+  },
+  {
+   "old": "1.5227\\cdot10^{-9}",
+   "new": "1.5226\\cdot10^{-9}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.C1[0].arb",
+   "dir": "up",
+   "old_raw": "1.5226064504157489016500E-9",
+   "new_raw": "1.52255285416635298830995E-9"
+  },
+  {
+   "old": "5.5261\\cdot10^{-8}",
+   "new": "5.5258\\cdot10^{-8}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.C1[1].arb",
+   "dir": "up",
+   "old_raw": "5.5260932698483070644850E-8",
+   "new_raw": "5.5257380823664089906347E-8"
+  },
+  {
+   "old": "0.2606004",
+   "new": "0.2605999",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.C1_ref4.arb",
+   "dir": "up",
+   "old_raw": "0.260600391653949519",
+   "new_raw": "0.2605998754369560503"
+  },
+  {
+   "old": "114.783",
+   "new": "114.764",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_pm3ibp.json res.tight.export.2.C0.arb",
+   "dir": "up",
+   "old_raw": "114.782218016000085845968441389082337030227148667114477466475",
+   "new_raw": "114.763276608742194626069916556511871145815442556769334212262"
+  },
+  {
+   "old": "0.0698143",
+   "new": "0.0698138",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_lo_N2ref.json res.tight.export.2.C1.arb",
+   "dir": "up",
+   "old_raw": "0.0698142379036032946296872565396403081795905359378865327347222",
+   "new_raw": "0.0698137216866082679319041217944323809892323205653502114474793"
+  },
+  {
+   "old": "5.5949\\cdot10^{-4}",
+   "new": "5.5941\\cdot10^{-4}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json margins.late_window.B[1]",
+   "dir": "up",
+   "old_raw": "0.000559485120875936",
+   "new_raw": "0.0005594029345887316"
+  },
+  {
+   "old": "0.36718",
+   "new": "0.36712",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json margins.late_window.B[2]",
+   "dir": "up",
+   "old_raw": "0.3671710912820446",
+   "new_raw": "0.36711476353864125"
+  },
+  {
+   "old": "5.0429",
+   "new": "5.0426",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.N2[2].arb",
+   "dir": "up",
+   "old_raw": "5.0428638438338248282841",
+   "new_raw": "5.04255726281865992050169"
+  },
+  {
+   "old": "2.14041\\cdot10^{-7}",
+   "new": "2.14039\\cdot10^{-7}",
+   "all": true,
+   "manual": "step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json 1.5e-4.sup_ab (up)"
+  },
+  {
+   "old": "0.042432",
+   "new": "0.042430",
+   "all": true,
+   "manual": "fix13_v37chain/t2_A/out/hjw_rep.json kappa_J (incl. pad 1e-9; up)"
+  },
+  {
+   "old": "0.056798",
+   "new": "0.056789",
+   "all": true,
+   "manual": "fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.EA[2] (up)"
+  },
+  {
+   "old": "0.0552611",
+   "new": "0.0552518",
+   "all": true,
+   "manual": "fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.window_data.D_2 (up)"
+  },
+  {
+   "old": "116.3782",
+   "new": "116.3593",
+   "all": true,
+   "manual": "fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.C0_ref4 (up)"
+  },
+  {
+   "old": "0.0424300",
+   "new": "0.0424278",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json HJW.kappa_J_W1.arb",
+   "dir": "up",
+   "old_raw": "0.0424299508998575659",
+   "new_raw": "0.0424277341018609241"
+  },
+  {
+   "old": "1.3901\\cdot10^{-19}",
+   "new": "1.3900\\cdot10^{-19}",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json res.K2pt.arb",
+   "dir": "up",
+   "old_raw": "1.3900118221562854589634E-19",
+   "new_raw": "1.3899542588746360850152E-19"
+  },
+  {
+   "old": "3.4099\\cdot10^{-21}",
+   "new": "3.4098\\cdot10^{-21}",
+   "all": true,
+   "manual": "fix13_v37chain/flux/out/flux2_cert.json res.K0bar (up)"
+  }
+ ],
+ "main_v3_v38.tex": [
+  {
+   "old": "0.025850",
+   "new": "0.025848",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_for_zone3_v36.json supersolution.Bhat[2]",
+   "dir": "up",
+   "old_raw": "0.02584930027504121",
+   "new_raw": "0.02584715620908737"
+  },
+  {
+   "old": "2.14041\\cdot10^{-7}",
+   "new": "2.14039\\cdot10^{-7}",
+   "all": true,
+   "manual": "modsups_fin13v4c 1.5e-4.sup_ab (up)"
+  },
+  {
+   "old": "116.3782",
+   "new": "116.3593",
+   "all": true,
+   "manual": "A_interface r2_export.C0_ref4 (up)"
+  },
+  {
+   "old": "0.2606004",
+   "new": "0.2605999",
+   "all": true,
+   "manual": "A_interface r2_export.C1_ref4 (up)"
+  },
+  {
+   "old": "2.6776\\cdot10^{-3}",
+   "new": "2.6792\\cdot10^{-3}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.rho",
+   "dir": "down",
+   "old_raw": "0.002677666006622703",
+   "new_raw": "0.002679224749733546"
+  },
+  {
+   "old": "9.9001\\cdot10^{-10}",
+   "new": "9.8972\\cdot10^{-10}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.sqrt_LF",
+   "dir": "up",
+   "old_raw": "9.900006690033849E-10",
+   "new_raw": "9.897126414245387E-10"
+  },
+  {
+   "old": "6.8843\\cdot10^{-7}",
+   "new": "6.8824\\cdot10^{-7}",
+   "all": true,
+   "key": "step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json tail.alpha_F",
+   "dir": "up",
+   "old_raw": "6.884239010994646E-7",
+   "new_raw": "6.882315739296756E-7"
+  },
+  {
+   "old": "1.0443\\cdot10^{-4}",
+   "new": "1.0442\\cdot10^{-4}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.EA[1].double",
+   "dir": "up",
+   "old_raw": "0.00010442842273508818",
+   "new_raw": "0.00010441306261675507"
+  },
+  {
+   "old": "7.1860\\cdot10^{-3}",
+   "new": "7.1857\\cdot10^{-3}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json res.tight.S0.arb",
+   "dir": "up",
+   "old_raw": "0.00718595231640051879287016668099598544042554381811221640658174",
+   "new_raw": "0.00718566285021062887465899135968501745061378348842646810644010"
+  },
+  {
+   "old": "5.5949\\cdot10^{-4}",
+   "new": "5.5941\\cdot10^{-4}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json margins.late_window.B[1]",
+   "dir": "up",
+   "old_raw": "0.000559485120875936",
+   "new_raw": "0.0005594029345887316"
+  },
+  {
+   "old": "0.36718",
+   "new": "0.36712",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json margins.late_window.B[2]",
+   "dir": "up",
+   "old_raw": "0.3671710912820446",
+   "new_raw": "0.36711476353864125"
+  },
+  {
+   "old": "0.056798",
+   "new": "0.056789",
+   "all": true,
+   "manual": "fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json supersolution.EA[2] (up)"
+  }
+ ],
+ "step3_v38_main.tex": [
+  {
+   "old": "$S_1(2\\Bh)\\le0.28578\\le M_1^z=0.534$",
+   "new": "$S_1(2\\Bh)\\le0.28593\\le M_1^z=0.534$ (v37 \\key{supersolution.M1z_hyp_check}; text v37 printed $0.28578$, below the certified value, erratum K)",
+   "manual": "U_cert_v36_pass2.json (chain v37) supersolution.M1z_hyp_check.zones_I_II.S1_2Bhat = 0.2859238 (up)"
+  }
+ ],
+ "G1_export_k2_v38.tex": [
+  {
+   "old": "0.2606004",
+   "new": "0.2605999",
+   "all": true,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.C1_ref4.arb",
+   "dir": "up",
+   "old_raw": "0.260600391653949519",
+   "new_raw": "0.2605998754369560503"
+  },
+  {
+   "old": "5.52107\\cdot10^{-2}",
+   "new": "5.52015\\cdot10^{-2}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.window_data.D_window_const.arb",
+   "dir": "up",
+   "old_raw": "0.0552106598958735825",
+   "new_raw": "0.0552014185248182500"
+  },
+  {
+   "old": "6.05091\\cdot10^{-6}",
+   "new": "6.05041\\cdot10^{-6}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.r2_export.window_data.D_window_slope.arb",
+   "dir": "up",
+   "old_raw": "0.00000605090378163196789",
+   "new_raw": "0.00000605040279650139165"
+  },
+  {
+   "old": "5.50158\\cdot10^{-7}",
+   "new": "5.50094\\cdot10^{-7}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.rhoJ.arb",
+   "dir": "up",
+   "old_raw": "5.50157726068834866E-7",
+   "new_raw": "5.50093391781117435E-7"
+  },
+  {
+   "old": "1.95417\\cdot10^{-2}",
+   "new": "1.95385\\cdot10^{-2}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.parts.2.inflow.arb",
+   "dir": "up",
+   "old_raw": "0.0195416480320130634",
+   "new_raw": "0.0195384834749530143"
+  },
+  {
+   "old": "1.17567\\cdot10^{-2}",
+   "new": "1.17548\\cdot10^{-2}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.parts.2.ramp_comm.arb",
+   "dir": "up",
+   "old_raw": "0.0117566384307038688",
+   "new_raw": "0.0117547344063636472"
+  },
+  {
+   "old": "1.02358\\cdot10^{-2}",
+   "new": "1.02340\\cdot10^{-2}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.parts.2.top.arb",
+   "dir": "up",
+   "old_raw": "0.0102357334756324860",
+   "new_raw": "0.0102339689182414490"
+  },
+  {
+   "old": "3.72228\\cdot10^{-4}",
+   "new": "3.72168\\cdot10^{-4}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.parts.2.foot.arb",
+   "dir": "up",
+   "old_raw": "0.000372227452023806679",
+   "new_raw": "0.000372167172019506500"
+  },
+  {
+   "old": "1.06218\\cdot10^{-3}",
+   "new": "1.06199\\cdot10^{-3}",
+   "all": false,
+   "key": "writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json res.tight.parts.2.S33.arb",
+   "dir": "up",
+   "old_raw": "0.00106217972112239539",
+   "new_raw": "0.00106198748062813148"
+  },
+  {
+   "old": "5.83512\\cdot10^{-2}",
+   "new": "5.83419\\cdot10^{-2}",
+   "all": true,
+   "manual": "asm_design_N2ref4.json res.tight.E[2] (up)"
+  },
+  {
+   "old": "5.52611\\cdot10^{-2}",
+   "new": "5.52518\\cdot10^{-2}",
+   "all": true,
+   "manual": "asm_design_N2ref4.json res.tight.info[2].D (up)"
+  },
+  {
+   "old": "2.01687\\cdot10^{-8}",
+   "new": "2.01658\\cdot10^{-8}",
+   "all": true,
+   "manual": "asm_design_N2ref4.json res.tight.info[2].coup_rate (up)"
+  },
+  {
+   "old": "116.3782",
+   "new": "116.3593",
+   "all": true,
+   "manual": "asm_design_N2ref4.json res.tight.export.2.C0 (up)"
+  }
+ ],
+ "lemmaS_A_v38.tex": [
+  {
+   "old": "+\\sup|\\chi^{\\rm add}_1|\\le0.4390$",
+   "new": "+\\sup|\\chi^{\\rm add}_1|\\le0.4391$",
+   "manual": "text slip carried from v33/v37: 0.4390 < asserted 0.43902 = 0.52/ramp-M1 margin 1.184464 (A_interface res.tight.core.margins.ramp M1); now rounded up (erratum K)"
+  }
+ ]
+}

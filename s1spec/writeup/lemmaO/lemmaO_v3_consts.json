@@ -1,0 +1,358 @@
+{
+ "note": "all *_lower / *_upper are rigorous enclosure bounds (python-flint arb, 200 bits), rounded outward at 1e-6; slack = f*M pointwise (f=1/2 => K=1.5M); t* = min(t1*,t2*,t3*) of lemmaO_v3.tex Sec.3",
+ "cases": [
+  {
+   "name": "S1 cone, X=3",
+   "X": "3",
+   "M": "3/25",
+   "K2": "9/50",
+   "K3": "9/50",
+   "slack_factor": "1/2",
+   "w": "317/1000",
+   "kappa_upper": 0.36,
+   "C1_upper": 18.1465,
+   "C2_upper": 98.6224,
+   "C3_upper": 4451.46,
+   "Lambda1_upper": 15.0416,
+   "t1_star_lower": 1.09325e-05,
+   "t2_star_lower": 3.70128e-07,
+   "t3_star_lower": 1.61745e-06,
+   "t_star_lower": 3.70128e-07,
+   "needed": 1.2e-07,
+   "margin_factor_lower": 3.0844,
+   "g3_global_term_at_needed_time": 0.0400316,
+   "K3_minus_g3_global_term": 0.1399684,
+   "covering_number": 3,
+   "slope_actual_margin_lower": 0.12371388,
+   "slack_pointwise": 0.06,
+   "slack_L2_g3": 0.08485281374238571,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.00204508,
+    "C1": 0.00628612,
+    "C2": 0.0341638,
+    "sqrtC3t": 0.0231122
+   },
+   "slope_margin_to_quarter_lower": 0.07
+  },
+  {
+   "name": "S1 cone, X=2.4",
+   "X": "12/5",
+   "M": "3/25",
+   "K2": "9/50",
+   "K3": "9/50",
+   "slack_factor": "1/2",
+   "w": "97/500",
+   "kappa_upper": 0.36,
+   "C1_upper": 26.0858,
+   "C2_upper": 171.502,
+   "C3_upper": 12605.0,
+   "Lambda1_upper": 20.0111,
+   "t1_star_lower": 5.29046e-06,
+   "t2_star_lower": 1.22396e-07,
+   "t3_star_lower": 5.71202e-07,
+   "t_star_lower": 1.22396e-07,
+   "needed": 5e-08,
+   "margin_factor_lower": 2.4479200000000003,
+   "g3_global_term_at_needed_time": 0.0434828,
+   "K3_minus_g3_global_term": 0.1365172,
+   "covering_number": 3,
+   "slope_actual_margin_lower": 0.12416703000000001,
+   "slack_pointwise": 0.06,
+   "slack_L2_g3": 0.08485281374238571,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.00148165,
+    "C1": 0.00583297,
+    "C2": 0.038349,
+    "sqrtC3t": 0.0251048
+   },
+   "slope_margin_to_quarter_lower": 0.07
+  }
+ ],
+ "sweeps": [
+  {
+   "X": "3",
+   "M": "2/25",
+   "K": "1.5M",
+   "w": "271/1000",
+   "t_star_lower": 3.93045e-07
+  },
+  {
+   "X": "3",
+   "M": "1/10",
+   "K": "1.5M",
+   "w": "271/1000",
+   "t_star_lower": 3.82636e-07
+  },
+  {
+   "X": "3",
+   "M": "3/25",
+   "K": "1.5M",
+   "w": "271/1000",
+   "t_star_lower": 3.68334e-07
+  },
+  {
+   "X": "3",
+   "M": "3/20",
+   "K": "1.5M",
+   "w": "271/1000",
+   "t_star_lower": 3.44048e-07
+  },
+  {
+   "X": "3",
+   "M": "1/5",
+   "K": "1.5M",
+   "w": "339/1000",
+   "t_star_lower": 3.03655e-07
+  },
+  {
+   "X": "3",
+   "M": "3/10",
+   "K": "1.5M",
+   "w": "339/1000",
+   "t_star_lower": 2.36443e-07
+  },
+  {
+   "X": "12/5",
+   "M": "2/25",
+   "K": "1.5M",
+   "w": "19/100",
+   "t_star_lower": 1.25011e-07
+  },
+  {
+   "X": "12/5",
+   "M": "1/10",
+   "K": "1.5M",
+   "w": "19/100",
+   "t_star_lower": 1.24349e-07
+  },
+  {
+   "X": "12/5",
+   "M": "3/25",
+   "K": "1.5M",
+   "w": "19/100",
+   "t_star_lower": 1.22107e-07
+  },
+  {
+   "X": "12/5",
+   "M": "3/20",
+   "K": "1.5M",
+   "w": "19/100",
+   "t_star_lower": 1.17226e-07
+  },
+  {
+   "X": "12/5",
+   "M": "1/5",
+   "K": "1.5M",
+   "w": "19/100",
+   "t_star_lower": 1.0758e-07
+  },
+  {
+   "X": "12/5",
+   "M": "3/10",
+   "K": "1.5M",
+   "w": "119/500",
+   "t_star_lower": 8.8648e-08
+  }
+ ],
+ "far": [
+  {
+   "name": "far, X=2, f=1/2, largest certified M",
+   "X": "2",
+   "M": "369/100",
+   "K2": "1107/200",
+   "K3": "1107/200",
+   "slack_factor": "1/2",
+   "w": "19/100",
+   "kappa_upper": 11.07,
+   "C1_upper": 4417.21,
+   "C2_upper": 58312.5,
+   "C3_upper": 5816290000.0,
+   "Lambda1_upper": 487078.0,
+   "t1_star_lower": 1.7446e-07,
+   "t2_star_lower": 1.00108e-09,
+   "t3_star_lower": 1.17051e-09,
+   "t_star_lower": 1.00108e-09,
+   "needed": 1e-09,
+   "margin_factor_lower": 1.00108,
+   "g3_global_term_at_needed_time": 3.41066,
+   "K3_minus_g3_global_term": 2.12434,
+   "covering_number": 2,
+   "slope_actual_margin_lower": -3.579685,
+   "slack_pointwise": 1.845,
+   "slack_L2_g3": 2.6092240225783603,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.0326605,
+    "C1": 0.139685,
+    "C2": 1.844,
+    "sqrtC3t": 2.4117
+   },
+   "slope_margin_to_quarter_lower": -5.285
+  },
+  {
+   "name": "far, X=2, f=1, largest certified M",
+   "X": "2",
+   "M": "373/100",
+   "K2": "373/50",
+   "K3": "373/50",
+   "slack_factor": "1",
+   "w": "71/500",
+   "kappa_upper": 14.92,
+   "C1_upper": 7156.42,
+   "C2_upper": 116721.0,
+   "C3_upper": 27786300000.0,
+   "Lambda1_upper": 973456.0,
+   "t1_star_lower": 2.71661e-07,
+   "t2_star_lower": 1.02122e-09,
+   "t3_star_lower": 1.00142e-09,
+   "t_star_lower": 1.00142e-09,
+   "needed": 1e-09,
+   "margin_factor_lower": 1.00142,
+   "g3_global_term_at_needed_time": 7.45471,
+   "K3_minus_g3_global_term": 0.005289999999999573,
+   "covering_number": 2,
+   "slope_actual_margin_lower": -3.706306,
+   "slack_pointwise": 3.73,
+   "slack_L2_g3": 5.275016587651645,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.0456636,
+    "C1": 0.226306,
+    "C2": 3.69105,
+    "sqrtC3t": 5.27127
+   },
+   "slope_margin_to_quarter_lower": -7.21
+  },
+  {
+   "name": "far, X=12/5, f=1/2, largest certified M",
+   "X": "12/5",
+   "M": "41/10",
+   "K2": "123/20",
+   "K3": "123/20",
+   "slack_factor": "1/2",
+   "w": "1/5",
+   "kappa_upper": 12.3,
+   "C1_upper": 4856.9,
+   "C2_upper": 64764.6,
+   "C3_upper": 7549500000.0,
+   "Lambda1_upper": 609980.0,
+   "t1_star_lower": 1.78151e-07,
+   "t2_star_lower": 1.00192e-09,
+   "t3_star_lower": 1.11332e-09,
+   "t_star_lower": 1.00192e-09,
+   "needed": 1e-09,
+   "margin_factor_lower": 1.00192,
+   "g3_global_term_at_needed_time": 4.75905,
+   "K3_minus_g3_global_term": 1.3909500000000001,
+   "covering_number": 3,
+   "slope_actual_margin_lower": -4.003589,
+   "slack_pointwise": 2.05,
+   "slack_L2_g3": 2.899137802864845,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.0366329,
+    "C1": 0.153589,
+    "C2": 2.04804,
+    "sqrtC3t": 2.74764
+   },
+   "slope_margin_to_quarter_lower": -5.9
+  },
+  {
+   "name": "far, X=12/5, f=1, largest certified M",
+   "X": "12/5",
+   "M": "387/100",
+   "K2": "387/50",
+   "K3": "387/50",
+   "slack_factor": "1",
+   "w": "133/1000",
+   "kappa_upper": 15.48,
+   "C1_upper": 7462.35,
+   "C2_upper": 121959.0,
+   "C3_upper": 29119900000.0,
+   "Lambda1_upper": 1006340.0,
+   "t1_star_lower": 2.6895e-07,
+   "t2_star_lower": 1.00692e-09,
+   "t3_star_lower": 1.02864e-09,
+   "t_star_lower": 1.00692e-09,
+   "needed": 1e-09,
+   "margin_factor_lower": 1.00692,
+   "g3_global_term_at_needed_time": 9.34665,
+   "K3_minus_g3_global_term": -1.6066500000000001,
+   "covering_number": 3,
+   "slope_actual_margin_lower": -3.85598,
+   "slack_pointwise": 3.87,
+   "slack_L2_g3": 5.473006486383878,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.0463308,
+    "C1": 0.23598,
+    "C2": 3.85668,
+    "sqrtC3t": 5.39629
+   },
+   "slope_margin_to_quarter_lower": -7.49
+  },
+  {
+   "name": "far corner X=2 M=6.67 K=10.0",
+   "t_star_lower": 1.20366e-10,
+   "factor_below_1em9": 8.307993951780404
+  },
+  {
+   "name": "far corner X=2 M=5 K=10.0",
+   "t_star_lower": 2.9825e-10,
+   "factor_below_1em9": 3.3528918692372174
+  },
+  {
+   "name": "far corner X=2 M=10 K=15.0",
+   "t_star_lower": 1.78785e-11,
+   "factor_below_1em9": 55.93310400760691
+  },
+  {
+   "name": "far corner X=12/5 M=6.67 K=10.0",
+   "t_star_lower": 1.31715e-10,
+   "factor_below_1em9": 7.592149717192424
+  },
+  {
+   "name": "far corner X=12/5 M=5 K=10.0",
+   "t_star_lower": 3.05887e-10,
+   "factor_below_1em9": 3.2691811028255535
+  },
+  {
+   "name": "far corner X=12/5 M=10 K=15.0",
+   "t_star_lower": 1.73636e-11,
+   "factor_below_1em9": 57.59174364763068
+  }
+ ],
+ "far_margin2": {
+  "L": 113,
+  "case": {
+   "name": "far margin2 X=2 M=1",
+   "X": "2",
+   "M": "1",
+   "K2": "3/2",
+   "K3": "3/2",
+   "slack_factor": "1/2",
+   "w": "19/100",
+   "kappa_upper": 3.0,
+   "C1_upper": 463.842,
+   "C2_upper": 4504.96,
+   "C3_upper": 19707500.0,
+   "Lambda1_upper": 5776.14,
+   "t1_star_lower": 1.16198e-06,
+   "t2_star_lower": 1.23185e-08,
+   "t3_star_lower": 2.53711e-08,
+   "t_star_lower": 1.23185e-08,
+   "needed": 6.133187276793765e-09,
+   "margin_factor_lower": 2.0084989164785,
+   "g3_global_term_at_needed_time": 0.49167,
+   "K3_minus_g3_global_term": 1.00833,
+   "covering_number": 2,
+   "slope_actual_margin_lower": -0.7863257,
+   "slack_pointwise": 0.5,
+   "slack_L2_g3": 0.7071067811865476,
+   "deviation_upper_at_needed_time": {
+    "C0": 0.00880819,
+    "C1": 0.0363257,
+    "C2": 0.352804,
+    "sqrtC3t": 0.347663
+   },
+   "slope_margin_to_quarter_lower": -1.25
+  },
+  "note": "cylinder length unit L=113 lambda1, t1=1 (lambda1^4); jets in cylinder units M=1 => physical m_j<=L^(1-j)"
+ }
+}

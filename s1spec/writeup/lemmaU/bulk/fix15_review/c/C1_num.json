@@ -1,0 +1,33 @@
+{
+ "label": "[num] float sanity check, not a proof step",
+ "ok": true,
+ "rows": [
+  {
+   "dt": 1e-06,
+   "rel_defect": 3.0139617449646104e-06,
+   "dlnL_num": -0.13595130532451094,
+   "dlnL_formula": -0.13599999999999998,
+   "rel_defect_L": 0.00035804908447824714
+  },
+  {
+   "dt": 1e-07,
+   "rel_defect": 3.1499076614526553e-07,
+   "dlnL_num": -0.13599513293272025,
+   "dlnL_formula": -0.13599999999999998,
+   "rel_defect_L": 3.578725940977262e-05
+  }
+ ],
+ "args": {
+  "argv": [
+   "C1_num.py"
+  ],
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "grid": 1025,
+  "script": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/C1_num.py",
+   "sha256": "78ceb48d91f3b0f63b4ef5d146e46caa087b72cbc2a53b55308f09d0c768a61c"
+  },
+  "inputs": {}
+ }
+}

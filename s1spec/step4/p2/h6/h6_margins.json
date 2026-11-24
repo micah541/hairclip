@@ -1,0 +1,27 @@
+{
+ "args": {
+  "cases": "h6_cases.json",
+  "t9": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+  "t9_far": "/home/claude/s1spec/step4/p2/out/t9_far.json"
+ },
+ "recovered": {
+  "cone": 0.07331919530678584,
+  "far": 0.04548955924481716
+ },
+ "margins": {
+  "cone_K2_by_cover (ratio 3)": 1.136582759598572,
+  "cone_K3_L2 (pieces sum ratio^3 <= 37)": 1.1290710779013466,
+  "cone_inner_strip (M1core 0.1844, y >= 50)": 1.2893823179388568,
+  "cone_outer_strip_from_far": 6.537069736205722,
+  "far_self_cover (ratio 1)": 4.396613273908273,
+  "far_inner_strip_from_cone (113/50)": 1.2069905411666249,
+  "far_data_slope_vs_M": 2.3367669767922385,
+  "far_data_j2_vs_M": 4.812954337321693,
+  "far_data_j4_vs_M": 8.269997184188716,
+  "far_H5_L2 (K3 - sqrt(2 C3 t) vs data)": 243.44091248619566,
+  "cone_H5_L2 (K3 - sqrt(3 C3 t) vs data)": 156.07522282979195,
+  "far_H4 (0.0052 M2_old=1 -> M2_new=0.01)": 1.9346101760495253,
+  "tstar_cone (need 1.6e-7)": 5.692118750000001,
+  "tstar_far (need 6.13e-9)": 16.374683417869
+ }
+}

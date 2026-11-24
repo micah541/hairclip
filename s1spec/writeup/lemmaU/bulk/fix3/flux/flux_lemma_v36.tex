@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{lemma}{Lemma}\newtheorem{remark}{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}\newcommand{\key}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tE}{\textup{[est]}}\newcommand{\tR}{\textup{[read]}}
+\begin{document}
+\title{Flux lemma for the outer cutoff of $E_I$ (step 3, v3.6 replacement of the v3.1 \fn{lemmaS_cflux} lemma)}
+\date{16 November 2026 (fix round 3, unit F1)}\maketitle
+
+\noindent Scripts and outputs: \fn{/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/} (\fn{flux_reduce.py}, \fn{flux_cert.py}, \fn{flux_cert.json}, \fn{sanity_quad.py}); report \fn{FLUX_REPORT.md}. Labels: \tC\ arb with outward rounding; \tE\ estimate; \tR\ verified by reading.
+
+\section{Setting (the verifier's objects)}
+Coordinates and norms are those of the verifier \fn{step3nl_v33} (tag \fn{fin12f4}; \fn{ASSEMBLY.md} \S0, \S5, \S6). $x=\sigma-\sigma_{\rm tip}$, $\sigma_{\rm tip}\in[-2.249127,-2.249019]$; $g=w'$ is the uncut slope deviation; the outer cutoff is the septic $C^3$ smoothstep
+\[\zeta(x)=S_7\bigl(\tfrac{60-x}{3}\bigr)\ \text{on }[57,60],\quad \zeta=1\ (x\le57),\ \zeta=0\ (x\ge60),\qquad S_7(u)=u^4(35-84u+70u^2-20u^3)\]
+(\fn{agent_int/v3/int_f23.py}:14--18), and $v=\zeta g$. The weight is $W=e^{-\psi}$ with $\psi'=\varphi'=x/(3(1+x^2)^{1/3})$ on $x\ge38.25$. The verifier norms are $V_m=\|v^{(m)}\|_W$, and its energies are $\tfrac12V_0^2$, $\tfrac12V_2^2$ (weight $\varepsilon_I$). The linear operator on $v=w'$ is
+\[L_1=-\partial^4-k^2\partial^2-C\,\partial+e_0,\qquad C=7km+\tfrac q4\]
+(\fn{CERT_PLAN.md}:192; \fn{agent_sob/SOB_NOTES.md}:43--45). Here $(k,m,p,q)$ is the $S_1$ profile, with $k'=m$, $m'=p/4$, $p'=-kq$, $q'=1+kp$. The equation of $v$ is $v_\tau=L_1v-[L_1,\zeta]g+\zeta(\cdots)$ (\fn{ASSEMBLY.md} \S5). The quasilinear and forcing parts enter multiplied by $\zeta$ and are bounded by the verifier itself. The outer-cutoff flux is therefore the commutator of the \emph{linear} operator:
+\[\tilde H:=-[L_1,\zeta]g=4\zeta'g'''+6\zeta''g''+4\zeta'''g'+\zeta''''g+k^2(2\zeta'g'+\zeta''g)+C\zeta'g,\qquad\operatorname{supp}\tilde H\subset[57,60].\]
+Its contributions to $\frac12\frac d{d\tau}V_0^2$ and $\frac12\frac d{d\tau}V_2^2$ are
+\[K_0=\int W\,v\,\tilde H\,dx,\qquad K_2=\int (Wv'')''\,\tilde H\,dx .\]
+$K_2$ is written in the $H^4$-continuous form: $v\in W^{4,\infty}$ but $v\notin C^4$, and $\tfrac12\frac d{d\tau}V_2^2=\int(Wv'')''v_\tau$ after two integrations by parts. The verifier consumes \emph{pointwise-in-$\tau$} upper bounds $K_0\le\fn{FLUX0}=1.64\cdot10^{-20}$ and $K_2\le\fn{FLUX2}=8.0\cdot10^{-20}$ (\fn{closure.py}:144, \fn{rhs_iv.py}:171--187) \tR. It has no input for a time-integrated flux.
+
+\emph{Data.} $N_l^2(\tau):=\int_{57}^{60}W\,(\partial_x^lg)^2\,dx$. For $l\le2$, $N_l^2$ is bounded pointwise in $\tau$ by the shell energies of Lemma~S(A) (v35). These are the conversions of \fn{assembly_arb.f4b}, used by the certified v35 flux pipeline at $\beta_A=2$ with the $d$ and chart terms (\fn{asm_design_N2ref4.json}, \key{flux.beta.2}). $N_3^2$ is bounded only in time-integrated form, by the window export of (A) at level~1 (\fn{assembly_rep.export}, $\int_{\tau_a}^{\tau_a+T}\!\!\int y^{-4}(28/y)z_3^2\le C_0+C_1T$). Nothing in v3.3 bounds $\partial_x^4g$ on $[57,60]$, either pointwise or integrated in time.
+
+\section{Statement}
+\begin{lemma}[flux lemma, v3.6]\label{lem:flux}
+For every $\tau$, with $\zeta$, $W$, $L_1$ as above and the step-1 profile bounds on $\sigma\ge54.75$ ($|k|\le3.7\cdot10^{-44}$, $|m|\le8.9\cdot10^{-44}$, $|p|\le8.5\cdot10^{-43}$, $|q-\sigma|\le2\cdot10^{-86}$; \fn{step3/hstail.profile_bounds}):
+\begin{enumerate}
+\item[(a)] \emph{Level 0.} $K_0\le\sum_{l\le2}\kappa^{(0)}_lN_l^2$ with $\kappa^{(0)}=(8.4244,\,4.1592,\,2.2596)$ \tC.
+\item[(b)] \emph{Level 2, exact decomposition.} $K_2=P_2+T_3+O_4$, where
+\[P_2=\sum_{a\le b\le2}\int c_{ab}\,g^{(a)}g^{(b)},\qquad T_3=\int c_{33}\,(g''')^2,\]
+\[O_4=\int_{57}^{60}W\zeta\zeta''''\bigl(g\,g''''-4g'g'''\bigr)+2W'\zeta\zeta''''\,g\,g'''\,dx .\]
+The coefficients $c_{ab}$ are explicit polynomials in $W^{(n)},\zeta^{(i)},C^{(j)},(k^2)^{(j)}$ supported on $[57,60]$ (\fn{flux_forms.pkl}). Moreover $P_2\le\sum_{l\le2}\kappa^{(2)}_lN_l^2$ with $\kappa^{(2)}=(120.94,\,281.14,\,439.13)$, and $c_{33}\le12.488\,W$ \tC. The three coefficients of $O_4$ satisfy $\sup|\cdot|/W\le(10.371,\,41.483,\,26.606)$ \tC.
+\item[(c)] \emph{Obstruction.} $\zeta''''(57^+)=-\tfrac{280}{27}\ne0$. Hence $O_4$ cannot be integrated by parts to order $\le3$ without the point term $-W(57)\zeta''''(57^+)\,g(57)\,g'''(57)$. More generally, $K_2$ is not bounded on $H^3(57,60)$: any bound of $O_4$ needs $\int W(g'''')^2$ near $x=57$ (or the trace $g'''(57)$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Reduction} (\fn{flux_reduce.py}, sympy, exact). Expand $W v\tilde H$ and $(Wv'')''\tilde H$ into monomials $c(x)g^{(a)}g^{(b)}$ ($a\ge b$). A monomial with $a>2$ and $a>b$ is integrated by parts on $[57,60]$ only if $c$ vanishes identically at $x=57^+$ and at $x=60^-$:
+\[c\,g^{(a)}g^{(b)}=(c\,g^{(a-1)}g^{(b)})'-c'g^{(a-1)}g^{(b)}-c\,g^{(a-1)}g^{(b+1)},\qquad c\,g^{(b+1)}g^{(b)}=\tfrac12(cg^{(b)2})'-\tfrac12c'g^{(b)2}.\]
+The test uses the exact one-sided values $\zeta^{(i)}(57^+)=(1,0,0,0,-\frac{280}{27},\frac{1120}{27},\dots)$ and $\zeta^{(i)}(60^-)=(0,0,0,0,\frac{280}{27},\dots)$. Factors $W^{(n)},C^{(j)},(k^2)^{(j)}$ are treated as nonzero. The boundary terms are therefore zero, and the derivatives of $\zeta$ that occur are polynomials on the closed interval. (This replaces v3.1's reduction, which moved derivatives across $x=57,60$ as if $\zeta$ were smooth.) At level~0 every monomial reduces to $a\le2$. At level~2 the residue is the pair $(3,3)$, which is diagonal, plus the three monomials of $O_4$, whose coefficients contain $\zeta\zeta''''$ and do not vanish at $57^+$. The identity ``integrand $-$ reduced form $=$ total derivative'' is checked by the Euler operator, exactly. As an independent float check, a 30-digit quadrature of the defining integrals against the reduced forms for two test functions $g$ agrees to all digits (\fn{sanity_quad.json}; not part of the proof).
+
+\emph{Bounds} (\fn{flux_cert.py}, arb, 200 bits, 3000 cells of $[57,60]$). On each cell $\psi^{(j)}$ is evaluated exactly in $x$ and $(1+x^2)^{1/3}$. $\zeta^{(i)}$ is evaluated in mean-value form on the clipped cell of $u=(60-x)/3$. $C^{(j)},(k^2)^{(j)}$ come from the profile ODE with the step-1 balls, and $q\in\sigma\pm q_s$ with $\sigma=x+\sigma_{\rm tip}$. Integer powers are formed by products. Then
+\[\Gamma_{ab}=\sup|c_{ab}|/W\ (a\neq b),\qquad\Gamma_{aa}=\sup\max(c_{aa}/W,0).\]
+The one-sided diagonal is legitimate because only upper bounds of $K_j$ are needed; it uses the good sign of the drift ($C\ge13.68>0$ and $\zeta\zeta'\le0$). Off-diagonal pairs are split by $|c\,g_ag_b|\le\frac{|c|}2(\lambda g_a^2+g_b^2/\lambda)$ with fixed rationals. At level 0, $\lambda_{10}=\lambda_{20}=\frac34$ and $\lambda_{21}=\frac12$. At level 2, $\lambda_{10}=4$, $\lambda_{20}=16$, $\lambda_{21}=\frac32$. Then $|\int c\,g_ag_b|\le\sup(|c|/W)\int W|g_ag_b|$ gives (a) and (b). (c) follows from the stated value of $\zeta''''(57^+)$: for $g$ with $g(57)\ne0$ and $g''''$ concentrated near $57$, the term $\int W\zeta\zeta''''gg''''$ behaves like $-W(57)\zeta''''(57^+)g(57)g'''(57)$, which is not controlled by $\|g\|_{H^3}$.
+\end{proof}
+
+\section{Consequences for the verifier inputs}
+\begin{lemma}[transfer to the certified v35 flux pipeline]
+In the v35 pipeline (\fn{assembly_rep.py}, lines 336--362), the flux at $\beta_A=2$ is a monotone function of the coefficient vector $(\kappa_0,\kappa_1,\kappa_2)$ that is homogeneous of degree~1. It is $(\sqrt{R_C\,K(2E^A)}+\sqrt{K(E_d)})^2/(1-\beta_c)^2$ with $K(E)=\sum_l\kappa_lN_l(E)$ and $N_l\ge0$. So $\kappa^{\rm new}\le t\,\kappa^{\rm old}$ componentwise implies $K^{\rm new}\le t\,K^{\rm old}$. With $\kappa^{\rm old}$ from \fn{lemmaS_cflux.json} (rounded down) and $K^{\rm old}$ the certified arb values at $\beta_A=2$ \tC:
+\begin{center}\begin{tabular}{lcccc}\toprule
+& $t$ & $K^{\rm old}(\beta_A=2)$ & new bound & margin vs verifier\\\midrule
+$K_0$ & $0.80103$ & $4.8735\cdot10^{-21}$ & $3.9038\cdot10^{-21}$ & $\fn{FLUX0}/K_0\ge4.201$\\
+$P_2$ (part of $K_2$) & $4.3821$ & $1.3433\cdot10^{-20}$ & $5.8864\cdot10^{-20}$ & $\fn{FLUX2}/P_2\ge1.359$\\\bottomrule\end{tabular}\end{center}
+\end{lemma}
+
+\noindent\textbf{Status.} (a) closes the level-0 input: \fn{FLUX0} is valid with margin $\times4.20$ \tC, and the verifier need not be rerun for it. At level 2 only $P_2$ is a pointwise-in-$\tau$ quantity, and it is below \fn{FLUX2} ($\times1.359$ \tC). The rest of $K_2$ is not:
+\begin{itemize}
+\item $T_3$ and the $(3,1),(3,0)$ monomials of $O_4$ are bounded by $N_3^2$. They are time-integrated, affine in $T$, and available from the (A) export. Size: about $1.04\times$ the v3.1 ``honest'' $I_3\approx2.0\cdot10^{-21}+7.1\cdot10^{-25}T$ \tE.
+\item The $(4,0)$ monomial of $O_4$ needs local $\int\!\!\int W(g'''')^2$, which v3.3 does not supply. If $|z_4|$ is of the size of $|z_2|$, it is about $10^{-25}$ per unit $\tau$ \tE.
+\end{itemize}
+The verifier has no input that consumes a time-integrated flux (\fn{STEP3_REVIEW2.md} item 4; erratum A5). \textbf{So the level-2 input \fn{FLUX2} is not proved by v3.3 data.} The missing pieces are numerically negligible \tE\ but unproved.
+
+\begin{remark}[minimal repair, not carried out]
+\leavevmode
+\begin{enumerate}
+\item \emph{$L^1$ consumer (needed for $T_3$ in any case, whatever the cutoff).} Let $\varphi(\tau)=\mu\varepsilon_I(T_3+O_4)^+$, and suppose $\int_{\tau_a}^{\tau_b}\varphi\le C'+S'(\tau_b-\tau_a)$ on all windows. Let $s=\mu(\fn{FLUX0}-K_0)+\mu\varepsilon_I(\fn{FLUX2}-P_2)>S'$ be the slack. The reflected integral $Z(\tau)=2\sup_{\sigma\le\tau}\int_\sigma^\tau(\varphi-s)\in[0,2C']$ satisfies $Z'\ge2(\varphi-s)$. So $Y=\Lambda-Z$ obeys the verifier's inequality with the constant fluxes, at states with $\Lambda\in[Y,Y+2C']$. This is harmless if every rate cell has room $2C'$ above the barrier. That holds \tR: the march cushion is $\mathrm{Ly}_{hi}/\max(L_k,L_{k+1})-1\ge1.0\cdot10^{-3}$ with $L\ge2.5\cdot10^{-15}$, the tail anchor cell is $[L^*,1.01L^*]$ (\fn{ETA}=0.01), and $2C'\approx10^{-26}$ \tE. The lemma still has to be written and checked against \fn{closure.py}/\fn{TAIL_LEMMA.tex}, including the $J$ shifts of H-J-W, which are of relative size $\approx10^{-12}$ \tE. No verifier rerun is needed.
+\item \emph{The $(4,0)$ term.} Three options. (i) A small level-2 dissipation export $r_2>0$ from (A), giving window bounds for $\iint y^{-4}(28/y)z_4^2$. This needs a t2$\to$t4$\to$zone3 rerun. (ii) The identity $g''''=J^4(\tilde R-g_\tau)$, which turns $\int W\zeta\zeta''''gg''''$ into a total $\tau$-derivative plus terms of order $\le3$. This needs the pointwise box $S^v_0,S^v_1$ (available) and fifth jets of $\hat\psi_3,\hat h_2$ on $[54.75,57.75]$. (iii) A verifier rerun with a $C^5$ outer cutoff, for example the 11th-order smoothstep, for which the obstruction monomials vanish at both ends.
+\end{enumerate}
+\end{remark}
+\end{document}

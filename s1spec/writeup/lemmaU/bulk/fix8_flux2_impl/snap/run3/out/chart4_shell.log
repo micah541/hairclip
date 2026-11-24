@@ -1,0 +1,75 @@
+chi_0 built (0.5s, 89 MB)
+chi_1 built (0.8s, 90 MB)
+chi_2 built (1.7s, 90 MB)
+chi_3 built (5.5s, 91 MB)
+chi_4 built (20.5s, 92 MB)
+chi_0: no unresolved function/derivative                                         True
+chi_0: no b_5 (u^(6))                                                            True
+chi_0: no b_4                                                                    True
+chi_0: no k'''' (d_5)                                                            True
+chi_1: no unresolved function/derivative                                         True
+chi_1: no b_5 (u^(6))                                                            True
+chi_1: no b_4                                                                    True
+chi_1: no k'''' (d_5)                                                            True
+chi_2: no unresolved function/derivative                                         True
+chi_2: no b_5 (u^(6))                                                            True
+chi_2: no b_4                                                                    True
+chi_2: no k'''' (d_5)                                                            True
+chi_3: no unresolved function/derivative                                         True
+chi_3: no b_5 (u^(6))                                                            True
+chi_3: no b_4                                                                    True
+chi_3: no k'''' (d_5)                                                            True
+chi_4: no unresolved function/derivative                                         True
+chi_4: no b_5 (u^(6))                                                            True
+chi_0: d^2/db2 db2 == 0                                                          True
+chi_0: d^2/db2 db3 == 0                                                          True
+chi_0: d^2/db3 db3 == 0                                                          True
+chi_0 == 0 for a ray (d_i = 0, e = 0)                                            True
+  structure k=0 done (20.6s, 92 MB)
+chi_1: d^2/db2 db2 == 0                                                          True
+chi_1: d^2/db2 db3 == 0                                                          True
+chi_1: d^2/db3 db3 == 0                                                          True
+chi_1 == 0 for a ray (d_i = 0, e = 0)                                            True
+  structure k=1 done (20.6s, 92 MB)
+chi_2: d^2/db2 db2 == 0                                                          True
+chi_2: d^2/db2 db3 == 0                                                          True
+chi_2: d^2/db3 db3 == 0                                                          True
+chi_2 == 0 for a ray (d_i = 0, e = 0)                                            True
+  structure k=2 done (20.6s, 92 MB)
+chi_3: d^2/db2 db2 == 0                                                          True
+chi_3: d^2/db2 db3 == 0                                                          True
+chi_3: d^2/db3 db3 == 0                                                          True
+chi_3 == 0 for a ray (d_i = 0, e = 0)                                            True
+  structure k=3 done (20.9s, 92 MB)
+chi_4: d^2/db2 db3 == 0                                                          True
+chi_4: d^2/db2 db4 == 0                                                          True
+chi_4: d^2/db3 db3 == 0                                                          True
+chi_4: d^2/db3 db4 == 0                                                          True
+chi_4: d^2/db4 db4 == 0                                                          True
+chi_4: d^3/db2^3 == 0 (degree <= 2 in b2)                                        True
+chi_4 == 0 for a ray (d_i = 0, e = 0)                                            True
+  structure k=4 done (22.2s, 92 MB)
+chi_0: B_02 == 0 (n1_chart lemma (e))                                            True
+chi_0: B_03 == 0 (n1_chart lemma (e))                                            True
+chi_1: B_12 == 0 (n1_chart lemma (e))                                            True
+chi_1: B_13 == 0 (n1_chart lemma (e))                                            True
+chi_2: B_23 == 0 (n1_chart lemma (e))                                            True
+chi_0: no b2^2 term                                                              True
+chi_1: no b2^2 term                                                              True
+chi_2: no b2^2 term                                                              True
+chi_3: no b2^2 term                                                              True
+chi_0: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only                    True
+chi_1: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only                    True
+chi_2: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only                    True
+chi_3: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only                    True
+chi_4: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only                    True
+symbolic part done (23.2s, 92 MB)
+lambdified: B keys [(2, 2), (3, 2), (3, 3), (4, 2), (4, 3), (4, 4)] (24.7s, 127 MB)
+shell [54.75, 57.76] contains S = [57 + STIP, 60 + STIP]                         True
+Abar ['1.685e-44', '2.260e-42', '3.023e-40', '4.076e-38', '5.546e-36'] Bbar {'22': '3.540e-40', '32': '9.615e-38', '33': '2.586e-38', '42': '2.182e-35', '43': '8.832e-36', '44': '1.771e-36'} Q4 1.397e-36
+Pbar ['2.094e-02', '3.733e-04', '2.338e-07', '3.017e-09', '1.077e-10'] dbar ['1.301e-04', '2.419e-04', '4.705e-04', '9.398e-04', '1.909e-03'] rho_meas 2.220e-16
+regression: Abar_k (k <= 3, chart part incl. U-shift) on S <= n1_chart core sup_add_k True
+regression: chart e on S <= n1_chart core e                                      True
+chart4 coefficients small: max(Abar_4, Bbar_4i, Q4) <= 1e-30                     True
+float spot check level 4 (diagnostic): -0.002278627748583618 -0.002278627748583618 0.0
+X3 done sha b44093e760e01e07bb6bce2db76881462efb534d27afd9aa621b8e149e3e318e (201.3s, 131 MB)

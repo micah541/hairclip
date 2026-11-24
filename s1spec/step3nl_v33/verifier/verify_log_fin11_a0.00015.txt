@@ -1,0 +1,30 @@
+alpha1=0.00015 Ly1=2.500000e-15 sqrt=5.000000e-08  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=1.4691e-04 sqrtLy<=5.0124e-08 rate<=+0.03034 (lb +0.02984) cell 27.44s
+  tail anchor: a*=1.4691e-04 L*=2.5124e-15  rate_s bound U=+0.02607
+  k=   1 tau=  0.681 D=0.600 alpha<=1.2598e-04 sqrtLy<=5.0944e-08 rate<=+0.02705 (lb +0.02656) cell 18.1s
+  tail anchor: a*=1.2598e-04 L*=2.5953e-15  rate_s bound U=+0.01956
+  k=   2 tau=  1.281 D=0.600 alpha<=1.0803e-04 sqrtLy<=5.1581e-08 rate<=+0.02073 (lb +0.02023) cell 17.89s
+  tail anchor: a*=1.0803e-04 L*=2.6606e-15  rate_s bound U=+0.01446
+  k=   3 tau=  1.881 D=0.600 alpha<=9.2646e-05 sqrtLy<=5.2047e-08 rate<=+0.01499 (lb +0.01449) cell 17.84s
+  tail anchor: a*=9.2646e-05 L*=2.7089e-15  rate_s bound U=+0.01039
+  k=   4 tau=  2.481 D=0.600 alpha<=7.9449e-05 sqrtLy<=5.2432e-08 rate<=+0.01227 (lb +0.01177) cell 18.27s
+  tail anchor: a*=7.9449e-05 L*=2.7491e-15  rate_s bound U=+0.00708
+  k=   5 tau=  3.081 D=0.600 alpha<=6.8132e-05 sqrtLy<=5.2660e-08 rate<=+0.00722 (lb +0.00672) cell 16.92s
+  tail anchor: a*=6.8132e-05 L*=2.7730e-15  rate_s bound U=+0.00437
+  k=   6 tau=  3.681 D=0.600 alpha<=5.8427e-05 sqrtLy<=5.2812e-08 rate<=+0.00481 (lb +0.00431) cell 18.88s
+  tail anchor: a*=5.8427e-05 L*=2.7891e-15  rate_s bound U=+0.00212
+  k=   7 tau=  4.281 D=0.600 alpha<=5.0105e-05 sqrtLy<=5.2891e-08 rate<=+0.00248 (lb +0.00198) cell 16.31s
+  tail anchor: a*=5.0105e-05 L*=2.7974e-15  rate_s bound U=+0.00024
+  k=   8 tau=  4.881 D=0.600 alpha<=4.2969e-05 sqrtLy<=5.2969e-08 rate<=+0.00248 (lb +0.00198) cell 17.04s
+  tail anchor: a*=4.2969e-05 L*=2.8057e-15  rate_s bound U=-0.00135
+  k=   9 tau=  5.481 D=0.600 alpha<=3.6849e-05 sqrtLy<=5.2976e-08 rate<=+0.00021 (lb -0.00029) cell 15.8s
+  tail anchor: a*=3.6849e-05 L*=2.8064e-15  rate_s bound U=-0.00269
+  tail: rho=0.00269 alpha-condition OK (margin 1.772e+02); floor sqrt(L_F)=4.936e-10, alpha_F<= 3.433e-07
+  tail: V1 delta_t=0.2
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 7.4736e-04   (sup|w'| alone: 7.4736e-04);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: A_max<=5.3074e-08, W1_max<=6.6813e-07, sI1<=1.1603e-03, sI2<=1.5456e-02, M1_ramp<=4.3277e-01, far_w1<=1.1603e-03, far_w<=5.9059e-04, sr1<=7.4736e-04   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]
+  V1 march part: delta=0.2 max r1=+0.0138  sum Phi*D=1.306e-16  total/theta = 2.8964e-14
+  V1 tail: delta_t=0.2 r1*=-0.00268 Phi(a*)=2.398e-18
+  X parts (J=X/(theta*n_k)): {"Ly1_half": 1.25e-15, "march_r1plus": 6.75865652320335e-17, "march_Phi": 1.3062464521648209e-16, "tail_Lstar_half": 1.4032221349264641e-15, "tail_Phi_over_rho": 8.902717971545127e-16} slope {"Phi_LF_over_Lstar": 2.0812947233635867e-22, "F0": 3.280480000000001e-22}
+  UNCONDITIONAL: int V0^2 <= 6.0272e-12 + 8.637e-19(T-tau_t);  int V1^2 <= 8.4672e-12 + 1.213e-18(T-tau_t);  int V2^2 <= 1.8708e-12 + 2.681e-19(T-tau_t);  int V4^2 <= 6.2362e-08 + 8.936e-15(T-tau_t)
+RESULT alpha1=0.00015: rigorous max sqrt(Ly) <= 5.3074e-08   (float code: see baseline)  tail=True  runtime 595.9 s

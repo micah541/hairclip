@@ -1,0 +1,5 @@
+core: 29852 boxes, 0 failures
+tail: 2104 boxes, 0 failures
+asymptotic: 400 boxes in u in [0, 0.2871], 0 failures; tiny = 2.73e-23
+Lam = 1.7908188393112359  th = 0.0  beta = 0.25
+FAILURES: 0

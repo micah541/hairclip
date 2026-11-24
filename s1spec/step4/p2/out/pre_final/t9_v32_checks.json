@@ -1,0 +1,32 @@
+{
+ "checks": {
+  "cone_slope": {
+   "value": 0.057237974616532336,
+   "threshold": 0.08,
+   "margin": 1.397673494493168,
+   "ok": true
+  },
+  "cone_h2": {
+   "value": 0.018830495306785808,
+   "threshold": 0.03,
+   "margin": 1.5931604299961837,
+   "ok": true
+  },
+  "cone_N3": {
+   "value": 0.0012000153256993757,
+   "threshold": 0.004,
+   "margin": 3.333290762489868,
+   "ok": true
+  }
+ },
+ "all_ok": true,
+ "args": {
+  "source": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+  "thresholds": {
+   "slope": "0.08",
+   "K2": "0.03",
+   "N3": "0.004"
+  },
+  "units": "own cylinder units, whole cylinder (cone r_c 200-380)"
+ }
+}

@@ -1,0 +1,10 @@
+alpha1=0.0005 Ly1=1.000000e-14 sqrt=1.000000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8969e-04 sqrtLy<=1.0130e-07 rate<=+0.15939 (lb +0.15860) cell 33.04s
+  k=  10 tau=  2.584 D=0.426 alpha<=2.5798e-04 sqrtLy<=1.2575e-07 rate<=+0.04710 (lb +0.04660) cell 21.11s
+  k=  11 tau=  3.102 D=0.518 alpha<=2.2594e-04 sqrtLy<=1.2826e-07 rate<=+0.03812 (lb +0.03762) cell 21.04s
+  k=  12 tau=  3.702 D=0.600 alpha<=1.9376e-04 sqrtLy<=1.3060e-07 rate<=+0.03016 (lb +0.02966) cell 21.81s
+  k=  13 tau=  4.302 D=0.600 alpha<=1.6616e-04 sqrtLy<=1.3242e-07 rate<=+0.02309 (lb +0.02259) cell 21.65s
+  k=  14 tau=  4.902 D=0.600 alpha<=1.4250e-04 sqrtLy<=1.3376e-07 rate<=+0.01679 (lb +0.01629) cell 20.11s
+  tail anchor: a*=1.4250e-04 L*=1.7893e-14  rate_s bound U=+0.01156
+  k=  15 tau=  5.502 D=0.600 alpha<=1.2220e-04 sqrtLy<=1.3480e-07 rate<=+0.01293 (lb +0.01243) cell 18.62s
+  tail anchor: a*=1.2220e-04 L*=1.8172e-14  rate_s bound U=+0.00797

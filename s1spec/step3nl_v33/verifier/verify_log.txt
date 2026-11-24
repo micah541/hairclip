@@ -1,0 +1,66 @@
+alpha1=0.001 Ly1=1.720284e-12 sqrt=1.311596e-06  ADD=['b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=9.7939e-04 sqrtLy<=1.3309e-06 rate<=+0.17979 (lb +0.17889) cell 7.3s
+  k=  10 tau=  1.996 D=0.271 alpha<=5.9989e-04 sqrtLy<=1.6674e-06 rate<=+0.08155 (lb +0.08105) cell 6.8s
+  k=  18 tau=  5.725 D=0.600 alpha<=2.3088e-04 sqrtLy<=1.9493e-06 rate<=+0.02112 (lb +0.02062) cell 3.12s
+  k=  19 tau=  6.325 D=0.600 alpha<=1.9801e-04 sqrtLy<=1.9696e-06 rate<=+0.01735 (lb +0.01685) cell 3.09s
+  k=  20 tau=  6.925 D=0.600 alpha<=1.6982e-04 sqrtLy<=1.9844e-06 rate<=+0.01247 (lb +0.01197) cell 5.02s
+  k=  21 tau=  7.525 D=0.600 alpha<=1.4564e-04 sqrtLy<=1.9951e-06 rate<=+0.00891 (lb +0.00841) cell 6.44s
+  tail anchor: a*=1.4564e-04 L*=3.9803e-12  rate_s bound U=+0.00607
+  k=  22 tau=  8.125 D=0.600 alpha<=1.2490e-04 sqrtLy<=2.0030e-06 rate<=+0.00658 (lb +0.00608) cell 6.17s
+  tail anchor: a*=1.2490e-04 L*=4.0119e-12  rate_s bound U=+0.00370
+  k=  23 tau=  8.725 D=0.600 alpha<=1.0712e-04 sqrtLy<=2.0081e-06 rate<=+0.00428 (lb +0.00378) cell 6.12s
+  tail anchor: a*=1.0712e-04 L*=4.0325e-12  rate_s bound U=+0.00169
+  k=  24 tau=  9.325 D=0.600 alpha<=9.1870e-05 sqrtLy<=2.0105e-06 rate<=+0.00202 (lb +0.00152) cell 6.49s
+  tail anchor: a*=9.1870e-05 L*=4.0423e-12  rate_s bound U=-0.00002
+  k=  25 tau=  9.925 D=0.600 alpha<=7.8792e-05 sqrtLy<=2.0116e-06 rate<=+0.00089 (lb +0.00039) cell 6.1s
+  tail anchor: a*=7.8792e-05 L*=4.0466e-12  rate_s bound U=-0.00146
+  k=  26 tau= 10.525 D=0.600 alpha<=6.7575e-05 sqrtLy<=2.0100e-06 rate<=-0.00133 (lb -0.00183) cell 6.05s
+  tail anchor: a*=6.7575e-05 L*=4.0402e-12  rate_s bound U=-0.00270
+  tail: rho=0.00270 alpha-condition OK (margin 8.560e+00); floor sqrt(L_F)=2.436e-08, alpha_F<= 8.188e-07
+RESULT alpha1=0.001: rigorous max sqrt(Ly) <= 2.0143e-06   (float code: see baseline)  tail=True  runtime 202.6 s
+alpha1=0.002 Ly1=1.720284e-12 sqrt=1.311596e-06  ADD=['b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=1.9588e-03 sqrtLy<=1.3949e-06 rate<=+0.75692 (lb +0.75316) cell 5.89s
+  k=  10 tau=  0.477 D=0.046 alpha<=1.7703e-03 sqrtLy<=1.7638e-06 rate<=+0.51241 (lb +0.50986) cell 5.88s
+  k=  20 tau=  1.045 D=0.067 alpha<=1.5304e-03 sqrtLy<=2.2302e-06 rate<=+0.34696 (lb +0.34523) cell 7.04s
+  k=  30 tau=  1.907 D=0.105 alpha<=1.2275e-03 sqrtLy<=2.8162e-06 rate<=+0.22195 (lb +0.22085) cell 3.94s
+  k=  40 tau=  3.345 D=0.186 alpha<=8.4954e-04 sqrtLy<=3.5440e-06 rate<=+0.12254 (lb +0.12193) cell 4.75s
+  k=  50 tau=  6.426 D=0.476 alpha<=3.8617e-04 sqrtLy<=4.4177e-06 rate<=+0.04417 (lb +0.04367) cell 4.42s
+  k=  53 tau=  8.179 D=0.600 alpha<=2.4667e-04 sqrtLy<=4.6625e-06 rate<=+0.02457 (lb +0.02407) cell 8.85s
+  k=  54 tau=  8.779 D=0.600 alpha<=2.1158e-04 sqrtLy<=4.7178e-06 rate<=+0.01966 (lb +0.01916) cell 7.85s
+  k=  55 tau=  9.379 D=0.600 alpha<=1.8148e-04 sqrtLy<=4.7635e-06 rate<=+0.01607 (lb +0.01557) cell 7.37s
+  k=  56 tau=  9.979 D=0.600 alpha<=1.5566e-04 sqrtLy<=4.7995e-06 rate<=+0.01253 (lb +0.01204) cell 7.74s
+  tail anchor: a*=1.5566e-04 L*=2.3035e-11  rate_s bound U=+0.00854
+  k=  57 tau= 10.579 D=0.600 alpha<=1.3352e-04 sqrtLy<=4.8256e-06 rate<=+0.00906 (lb +0.00856) cell 7.81s
+  tail anchor: a*=1.3352e-04 L*=2.3287e-11  rate_s bound U=+0.00602
+  k=  58 tau= 11.179 D=0.600 alpha<=1.1453e-04 sqrtLy<=4.8453e-06 rate<=+0.00677 (lb +0.00628) cell 7.35s
+  tail anchor: a*=1.1453e-04 L*=2.3477e-11  rate_s bound U=+0.00389
+  k=  59 tau= 11.779 D=0.600 alpha<=9.8237e-05 sqrtLy<=4.8584e-06 rate<=+0.00451 (lb +0.00402) cell 7.81s
+  tail anchor: a*=9.8237e-05 L*=2.3604e-11  rate_s bound U=+0.00207
+  k=  60 tau= 12.379 D=0.600 alpha<=8.4266e-05 sqrtLy<=4.8651e-06 rate<=+0.00228 (lb +0.00178) cell 10.04s
+  tail anchor: a*=8.4266e-05 L*=2.3669e-11  rate_s bound U=+0.00052
+  k=  61 tau= 12.979 D=0.600 alpha<=7.2282e-05 sqrtLy<=4.8685e-06 rate<=+0.00116 (lb +0.00066) cell 5.23s
+  tail anchor: a*=7.2282e-05 L*=2.3702e-11  rate_s bound U=-0.00080
+  k=  62 tau= 13.579 D=0.600 alpha<=6.2004e-05 sqrtLy<=4.8686e-06 rate<=+0.00006 (lb -0.00044) cell 4.55s
+  tail anchor: a*=6.2004e-05 L*=2.3703e-11  rate_s bound U=-0.00192
+  k=  63 tau= 14.179 D=0.600 alpha<=5.3188e-05 sqrtLy<=4.8656e-06 rate<=-0.00104 (lb -0.00154) cell 12.35s
+  tail anchor: a*=5.3188e-05 L*=2.3674e-11  rate_s bound U=-0.00288
+  tail: rho=0.00288 alpha-condition OK (margin 2.779e+00); floor sqrt(L_F)=2.356e-08, alpha_F<= 2.576e-07
+RESULT alpha1=0.002: rigorous max sqrt(Ly) <= 4.8743e-06   (float code: see baseline)  tail=True  runtime 471.0 s
+ADD='abcd' alpha=0 Ly=1e-16: rigorous lower bound of max rate = +5.57257 at [9.902e-01 8.330e-05 4.131e-03 1.240e-01 3.974e+00]
+ADD='abcd' alpha=0.0001 Ly=1e-16: rigorous lower bound of max rate = +5.57457 at [9.857e-01 1.056e-04 4.136e-03 1.242e-01 3.977e+00]
+ADD='abcd' alpha=0 Ly=1e-14: rigorous lower bound of max rate = +5.57936 at [9.897e-01 9.011e-05 4.154e-03 1.242e-01 3.980e+00]
+ADD='abcd' alpha=0.0001 Ly=1e-14: rigorous lower bound of max rate = +5.57971 at [9.886e-01 1.064e-04 4.145e-03 1.243e-01 3.977e+00]
+ADD='abcd' alpha=0 Ly=1e-12: rigorous lower bound of max rate = +5.69159 at [0.989 0.053 0.004 0.127 4.034]
+ADD='abcd' alpha=0.0001 Ly=1e-12: rigorous lower bound of max rate = +5.65198 at [9.929e-01 2.689e-05 4.348e-03 1.249e-01 4.013e+00]
+AR1=1.85e-2
+ alpha 0.0 lb 5.69159
+ alpha 0.0001 lb 5.65198
+AR1=5e-3
+ alpha 0.0 lb 0.18561
+ alpha 0.0001 lb 0.18567
+AR1=2e-3
+ alpha 0.0 lb -0.01095
+ alpha 0.0001 lb 0.00014
+AR1=1e-3
+ alpha 0.0 lb -0.01095
+ alpha 0.0001 lb 0.00013

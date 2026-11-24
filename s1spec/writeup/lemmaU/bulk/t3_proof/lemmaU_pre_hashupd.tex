@@ -1,0 +1,495 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,longtable}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\key}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tP}{\textup{[paper]}}\newcommand{\tH}{\textup{[hyp]}}\newcommand{\tE}{\textup{[est]}}
+\newcommand{\E}{\mathfrak E}\newcommand{\B}{\mathfrak B}\newcommand{\Bh}{\hat B}\newcommand{\Eh}{\hat E^A}
+\newcommand{\Nb}{\bar N}\newcommand{\oh}{\hat o}\newcommand{\cD}{\mathcal D}
+\newcommand{\SA}{\textsf{A}}\newcommand{\SU}{\textsf{U}}\newcommand{\SZ}{\textsf{Z}}
+\title{Lemma U: the uniformly local far-field energy estimate of step 3 (v3.3)\\[2pt] \large proof text, bulk task 3}
+\author{}\date{13 November 2026. \emph{Not compiled}: no \LaTeX\ on this machine; balance checked by \fn{check_balance.py} (this directory).}
+\begin{document}\maketitle
+
+\noindent\textbf{Purpose.} This note proves Lemma~U, the uniformly local replacement of Lemma~S(B) of v3.1/v3.2. Lemma U closes Hypothesis (F1) of \fn{main.tex}. Together with the repaired Lemma~S(A) of bulk task~2 it gives the far-field part of the step-3 bootstrap. The statements are those of \fn{t1_statements/STATEMENTS_r2.tex} (with \fn{R2_DECISIONS.md}); the contract is \fn{CONTRACTS.md} Task~3 as amended by \fn{CONTRACTS_r2.md}, with the v3.3 values of the coordinator's message of Nov.~13 ($\beta_A=2$, $H^f_2=(10^{-6},5\cdot10^{-6},10^{-5})$, verifier \fn{fin12f4}).
+
+\noindent\textbf{Labels.} \tC: python-flint \fn{arb} with outward rounding, by the project script named next to it, with the JSON key that holds the number. \tP: proved in this text by hand. \tH: a hypothesis of the theorem (hand-off threshold, or a literature fact as in v3.2). \tE: not a bound; used only in remarks. Every number below carries one of these labels. Decimals are rounded outward (upper bounds up, lower bounds and margins down). A \emph{margin} is always threshold$/$bound.
+
+\noindent\textbf{Certified sources} (paths under \fn{/home/claude/s1spec/writeup/lemmaU/bulk/}; sha256 at the time of writing):
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item[\SA] \fn{t2_A_v33/out/A_interface.json} (\fn{ec2c22b6...}), report \fn{t2_A_v33/V33_A_REPORT.md}; key prefix \key{res.tight.} unless stated. Repaired Lemma~S(A), v3.3 verifier \fn{step3nl_v33} (tag \fn{fin12f4}).
+\item[\SU] \fn{t4_cert/out/U_cert_v33.json} (\fn{f2543e70...}), report \fn{t4_cert/T4_REPORT.md}; scripts \fn{u1_ghat.py}, \fn{u2_K.py}, \fn{u34_sweeps.py}, \fn{u5_enum.py}, \fn{assemble_U.py} (the latter run with \fn{--A} pointing at \SA).
+\item[\SZ] \fn{t5_zone3/out/zone3_interface.json} (\fn{9611888c...}), report \fn{t5_zone3/Z5_REPORT.md}; scripts \fn{zone3.py}, \fn{ramp_U.py}, \fn{z3lib.py} (rerun on the v3.3 U-fine $\Bh$, \fn{U_cert_for_zone3_v33.json}).
+\end{itemize}
+The non-v3.3 files (\fn{t2_A/out/A_interface.json}, \fn{t4_cert/out/U_cert.json}) are superseded and are not cited. Earlier derivations reused: \fn{phase2a/U_ramp/U_ramp.tex} (Lemma~T, Prop.~U; its Lemma~D is withdrawn and its Lemma~Y is not used), \fn{phase1/launch/launch_lemma.tex}, \fn{step3_gap_v32/gonogo/L4_general_weight.md}, \fn{step3_proof_v32/step3_proof_v32.tex} (cited as v3.2).
+
+\tableofcontents
+
+%======================================================================
+\section{Setting}\label{sec:set}
+\subsection{Frame, equation, deviation}
+We use the frame and notation of v3.2 \S2. In the far field the curve is a graph over the $S_1$ ray with slope $f$; $y=r/\lambda(\tau)$ is the rescaled radius and $s=\ln y$. The modulation obeys $\frac{d}{d\tau}\ln\lambda=-c(\tau)$, $c:=\frac14-a(\tau)$, with $|a|\le\bar a$, $|b|\le\bar b$, $|\beta|\le\bar\beta$ on the bootstrap interval. Write $c^\pm=\frac14\pm\bar a$, $q=(1-4\bar a)^{-1}$. The values $\bar a=\bar b=2.19103\cdot10^{-7}$, $\bar\beta=3.33811\cdot10^{-9}$ are D1 outputs \tC\ (\fn{step3nl_v33/V33_VERIFIER.md} l.32--33; the same six-digit values as \fn{fin11}).
+
+The exact far-field slope equation (\fn{lemmaS.tex} l.94) reads, in $s$,
+\begin{equation}\label{eq:V}
+\partial_\tau V=-\partial_y^2\bigl(\mathfrak a(V')V''+\mathfrak b(V')V'^2\bigr)-c\,\partial_sV+\beta_s\,\partial_sV,\qquad \beta_s:=b\cos\theta\,e^{-s},\ |\beta_s|\le\bar be^{-s}.
+\end{equation}
+\begin{definition}[one frozen profile; change (C5)]\label{def:v}
+$p=1.0246$, $U_1(r):=1.3056\,\alpha(\tau_1)\,(r/\lambda_1)^p$, frozen in physical space, and for \emph{every} centre
+\[
+v:=f-U_1,\qquad z_k:=\partial_s^kv\ (=(y\partial_y)^kv).
+\]
+Lemma~S(A) uses $v_A:=f-U(\alpha(\tau),y)$, $U(\alpha,y)=1.3056\,\alpha y^p$, and $z^A_k=\partial_s^kv_A$. The \emph{mismatch} is $\delta U:=v_A-v=U_1(y\lambda(\tau))-U(\alpha(\tau),y)$.
+\end{definition}
+By v3.2 Prop.~B$'$ (the computation $\partial_\tau U_1+(\frac14-a)yU_1'=0$), $v$ solves \eqref{eq:V} linearised about nothing, i.e.\ the same quasilinear equation with the forcing
+\begin{equation}\label{eq:R}
+\hat R=b\cos\theta\,U_1'-y^{-4}(D_y-2)(D_y-3)\Phi(U_1),\qquad D_y=y\partial_y .
+\end{equation}
+\begin{lemma}[profile mismatch]\label{lem:dU}
+Assume on $[\tau_1,\tau]$: $|\alpha|\le\alpha_1$, $|a|\le\bar a<\frac14$, $|\beta|\le\bar\beta$ and $\alpha_\tau=-\frac p4\alpha+\beta$. Then $|\partial_s^k\delta U(y,\tau)|\le p^kc_{\delta U}\,y^p$ for $k\ge0$, with
+\[
+c_{\delta U}=\frac{1.3056\,(\bar\beta+p\bar a\alpha_1)}{p\,(\frac14-\bar a)}\le1.7187\cdot10^{-8}\quad\tC\ \bigl(\SU\ \key{launch.c_dU}\bigr),\qquad \alpha_1=1.5\cdot10^{-4}\ \tH.
+\]
+\end{lemma}
+\begin{proof}\tP\ $\frac{d}{d\tau}\lambda^{-p}=p(\frac14-a)\lambda^{-p}$, so $\frac{d}{d\tau}[\alpha\lambda^{-p}]=(\beta-pa\alpha)\lambda^{-p}$, and $\delta U=1.3056\,r^p\int_{\tau_1}^{\tau}(\beta-pa\alpha)\lambda(t)^{-p}dt$ up to sign. Since $\lambda(t)^{-p}\le\lambda(\tau)^{-p}e^{-p(\frac14-\bar a)(\tau-t)}$, $|\delta U|\le1.3056\,y^p\sup|\beta-pa\alpha|/(p(\frac14-\bar a))$. Finally $(y\partial_y)^ky^p=p^ky^p$.
+\end{proof}
+\noindent Remark (why (C5)). A profile frozen at the launch time of each centre is unbounded on the far tail of a late centre's weight (\fn{STATEMENTS_r2.tex} Remark~2); with $U_1$ all centres share $v$, the term $\Delta_j$ of \fn{launch_lemma.tex} disappears, and (H2), (H3), Prop.~B$'$ are already stated for $f-U_1$.
+
+\subsection{Weight, centres, energies}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item $S(t)=t^3(10-15t+6t^2)$ on $[0,1]$ ($S=0$ for $t\le0$, $S=1$ for $t\ge1$); $S\in C^2$, $S'''$ jumps at $t=0,1$.
+\item $W(\sigma)=\bigl(e^{-\mu(\sigma+a_W)}+1+e^{\nu(\sigma-\ell_1-a_W)}\bigr)^{-1}$, $(\mu,\nu,a_W)=(4,4,0.3)$, $\ell_1=\ln1.5$. $W$ is log-concave and symmetric about $\sigma=\frac12\ell_1$, increasing for $\sigma\le\frac12\ell_1$ \tP\ ($W'/W=4(p_W-q_W)$ with $p_W,q_W$ the normalised weights of the two exponentials). $w_{\min}:=\min_{[0,\ell_1]}W=W(0)\ge0.73492$ \tC\ (\SU\ \key{launch.wmin}).
+\item $D(s)=1+g\,e^{-4s}$ with $g=361147$ (\SU\ \key{g}), $\theta:=ge^{-4s}/D$; $\phi(s)=\exp(K_be^{-s})$, $K_b=10^{-3}$, so $1\le\phi\le e^{K_b/28}$ on $y\ge28$.
+\item Inner cutoff $\eta(s)=S(\ln(y/28)/\ln2)$, fixed in $s$ ($\eta=0$ for $y\le28$, $=1$ for $y\ge56$). Outer cutoff $\chi=1-S(t)$, $t=\ln(r/(r_\chi\lambda_1))/\ell_1$, fixed in $r$: $\chi=1$ for $r\le r_\chi\lambda_1$, $\chi=0$ for $r\ge379.5\lambda_1$, with $r_\chi=253=379.5/1.5$ (change (R1)). $\sup|\chi'|=1.875/\ell_1$.
+\item \emph{Centres} $\rho\in(0,r_\chi\lambda_1]$ (physical radii). Launch time $\tau_\rho=\tau_1$ if $\rho\ge56\lambda_1$ (\emph{present} centres), else the unique $\tau_\rho$ with $\rho=56\lambda(\tau_\rho)$ (\emph{late} centres). $y_c:=\rho/\lambda(\tau_\rho)=\max(56,\rho/\lambda_1)$, $s_\rho(\tau)=\ln(\rho/\lambda(\tau))$.
+\item \emph{Weight} $\Psi_\rho(s,\tau)=\eta^2(s)\,\chi^2(s+\ln\lambda(\tau))\,W(s-s_\rho(\tau))\,D(s)\,\phi(s)$, and $\Theta:=WD$.
+\item \emph{Energies} $\E^\rho_j(\tau)=\int\Psi_\rho z_j^2\,ds$, $j=0,1,2$, $\tau\ge\tau_\rho$; $\varepsilon:=e^{-4s}$; \emph{dissipation} $\cD^\rho_j=\int\varepsilon\Psi_\rho\,\mathfrak a\,z_{j+2}^2\ge a_{\min}\int\varepsilon\Psi_\rho z_{j+2}^2$, $a_{\min}=(1+0.15^2)^{-2}$.
+\item (A)'s weight: $\omega=28/y$, $E^A_j=\int\omega\eta_A^2(z^A_j)^2$, $\eta_A=1$ on $[28,350]$ (\fn{STATEMENTS_r2.tex} \S3).
+\end{itemize}
+\subsection{Zones and boxes}\label{sec:zones}
+At a fixed $\tau$ the support of $\Psi_\rho$ lies in $\{y\ge28,\ r\le379.5\lambda_1\}$. It is split into: the \emph{inner ramp} $y\in[28,56]$ (inside (A)'s core $[28,60]$); \emph{zones I/II}: $y\ge56$, $r<r_\chi\lambda_1$; \emph{zone III} $=$ the \emph{outer ramp} $r_\chi\lambda_1\le r\le379.5\lambda_1$. Since $\lambda\le\lambda_1$ the inner and outer ramps are disjoint at every $\tau$. The coefficient box used everywhere on the support is
+\[
+\mathcal B:\quad |f|\le M_0=0.15,\quad |yf_y|\le M_1=0.52,\quad |z_0|\le M_0^z=0.16,\quad |z_1|\le M_1^z=0.534,\quad |U_1|\le U_{\max}=0.09
+\]
+(\SU\ \key{box}: $M_1^z=267/500$; design \fn{data56}). The separate $M_1^z$ is task 4's finding: $z_1=yf_y-pU_1$, so the box on $yf_y$ does not bound $z_1$ by $M_1$ (\S\ref{sec:M1z}).
+
+%======================================================================
+\section{Lemma T: transport identity for the moving weight}\label{sec:T}
+\begin{lemma}[T]\label{lem:T}
+Let $z(\cdot,\tau)$ be smooth with compact support in $\{\Psi_\rho>0\}$ closure, and let $\partial_\tau z_j=-c\,z_{j+1}+\partial_s^j(\beta_sz_1)+\mathcal N_j$, where $\mathcal N_j$ collects the fourth-order and forcing terms. Then:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \emph{(co-moving cancellation; exact)}
+\[
+\int\partial_\tau\Psi_\rho\,z_j^2+2\int\Psi_\rho z_j(-c\,z_{j+1})=c\int(\eta^2)'\chi^2\Theta\phi\,z_j^2-c\int\Psi_\rho\bigl(4\theta+K_be^{-s}\bigr)z_j^2 .
+\]
+\item \emph{(signs)} If $\bar a<\frac14$, $g,K_b\ge0$ and $\eta$ is nondecreasing, the first term (\emph{inflow}) is $\ge0$, supported on the inner ramp, and $\le c^+\int(\eta^2)'\chi^2\Theta\phi z_j^2$. The second is $-(1-4a)g\int\varepsilon\eta^2\chi^2W\phi z_j^2$ (\emph{damping}) $-cK_b\int e^{-s}\Psi_\rho z_j^2$ (\emph{$b$-absorber}), both $\le0$.
+\item \emph{($b$-term)} With $C_j:=\Gamma_1(\Theta)+|2j-1|+\delta_{j2}$, i.e.\ $C=(5,5,8)$ up to $\Gamma_1(\Theta)-4\le5.4\cdot10^{-22}$ \tC\ (\fn{t4_cert/out/u1_ghat.json} \key{weight.Theta.Gamma}), and $C_{21}=1$, all other $C_{jk}=0$:
+\[
+\Bigl|2\!\int\Psi_\rho z_j\partial_s^j(\beta_sz_1)\Bigr|\le\bar b\Bigl[(C_j+\tfrac{K_b}{28})\!\int e^{-s}\Psi_\rho z_j^2+\sum_kC_{jk}\!\int e^{-s}\Psi_\rho z_k^2\Bigr]+\frac{\bar b}{28}\!\int(\eta^2)'\chi^2\Theta\phi z_j^2+\bar b\!\int e^{-s}|(\chi^2)'|\eta^2\Theta\phi z_j^2 .
+\]
+If $c^-K_b\ge2\bar b(C_2+K_b/28)$ (true, factor $71$ \tP\ arithmetic, asserted in \fn{assemble_U.py}), the self terms use at most half of the $b$-absorber, and the remaining absorber gives, for every level $k$,
+\[
+\int_{\tau_\rho}^{\tau}\!\!\int e^{-s}\Psi_\rho z_k^2\le\frac{\B_k}{c^-K_b-\bar b(C_k+K_b/28)},
+\]
+where $\B_k$ is the level-$k$ right-hand side of Proposition~\ref{prop:U}.
+\item \emph{(cutoff parts of the $b$-term)} The inner-ramp part raises $c^+$ to $c^+_b:=\frac14+\bar a+\bar b/28$ in the inflow. On the outer ramp $e^{-s}=\lambda(\tau)/r\le\lambda(\tau)/(r_\chi\lambda_1)$ and $\int_{\tau_1}^\infty\lambda/\lambda_1\,d\tau\le1/c^-$, so the outer part is at most
+\[
+\Delta^{R,b}_j:=\frac{8\bar b\,\sup|\chi'|}{r_\chi(1-4\bar a)}\,\sup_{\rm outer}(D\phi)\,\sup_\tau\!\int_{\rm outer}z_j^2\,ds\qquad(\text{the factor }8\ge2\cdot2\text{ covers }|(\chi^2)'|\le2\sup|\chi'|\text{ and }1/c^-\le4q).
+\]
+Values: $\Delta^{R,b}\le(2.66\cdot10^{-12},3.26\cdot10^{-9},4.35\cdot10^{-8})$ \tC\ (\SZ\ \key{DeltaR_b}).
+\end{enumerate}
+\end{lemma}
+\begin{proof}\tP\ (i) $\frac{d}{d\tau}\ln\lambda=-c$ and $\frac{d}{d\tau}s_\rho=c$, so $\partial_\tau[\chi^2(s+\ln\lambda)W(s-s_\rho)]=-c\,\partial_s[\chi^2W]$, while $\eta,D,\phi$ do not depend on $\tau$. Since $c$ does not depend on $s$ and the support is compact, $2\int\Psi z_j(-cz_{j+1})=-c\int\Psi(z_j^2)'=c\int\Psi'z_j^2$. Adding, $-c\int\eta^2(\chi^2W)'D\phi z_j^2+c\int[(\eta^2)'\chi^2WD\phi+\eta^2(\chi^2W)'D\phi+\eta^2\chi^2W(D\phi)']z_j^2$; the $(\chi^2W)'$ terms cancel, and $(D\phi)'/(D\phi)=-4\theta-K_be^{-s}$.
+(ii) $c\in[c^-,c^+]$, $(\eta^2)'\ge0$, and $4c\theta D=(1-4a)ge^{-4s}$.
+(iii) $\partial_s^j(\beta_sz_1)=\beta_s\sum_{i=0}^j\binom ji(-1)^iz_{j+1-i}$ since $\beta_s'=-\beta_s$. The terms $i=0,1$ give $2\int\Psi\beta_sz_jz_{j+1}-2j\int\Psi\beta_sz_j^2=-\int\beta_s(\Psi'/\Psi-1+2j)\Psi z_j^2$. Write $\Psi'/\Psi=(\eta^2)'/\eta^2+(\chi^2)'/\chi^2+\Theta'/\Theta+\phi'/\phi$; the non-cutoff part is bounded by $\Gamma_1(\Theta)+K_b/28+|2j-1|$, and the cutoff parts give the last two terms (with $|\beta_s|\le\bar b/28$ on the inner ramp). For $j=2$ the term $i=2$ is $2\int\Psi\beta_sz_2z_1\le\bar b\int e^{-s}\Psi(z_2^2+z_1^2)$. For the integral bound: the level-$k$ inequality of Proposition~\ref{prop:U} retains $(c^-K_b-\bar b(C_k+K_b/28))\int e^{-s}\Psi z_k^2$ on its left side, and Lemma~\ref{lem:cmp} bounds the time integral of every retained term by $\B_k$.
+(iv) As stated; $\Delta^{R,b}$ is computed by \fn{zone3.py} (\key{DeltaR_detail.DeltaR_b_coefficient}) with the ramp norms of \S\ref{sec:outer}.
+\end{proof}
+\noindent Remark. Without $\phi$ the $b$-term is a rate $\bar bC/y$ on the inner tail at \emph{every} time; Lemma~U has no decay rate, so Gronwall does not close on an infinite horizon. $\phi$ supplies the decay $cK_be^{-s}$, at the cost $e^{K_b/28}-1=3.6\cdot10^{-5}$ on the weight constants: $\Gamma_m(\Theta\phi)\le\sum_k\binom mk\Gamma_k(\Theta)\phi_{m-k}$, $\tilde\kappa_\phi\le\tilde\kappa+K_b/28$, $\tilde\kappa_{2,\phi}\le\tilde\kappa_2+2\tilde\kappa K_b/28+(K_b/28)^2+K_b/28$ \tP\ (Leibniz, $\phi'/\phi=-K_be^{-s}$), giving $\Gamma(\Theta\phi)\le(4.0000358,16.000322,64.00218)$, $\tilde\kappa\le8.0000358$, $\tilde\kappa_2\le64.00061$ \tC\ (\SU\ \key{Gamma}, \key{kappa}, \key{kappa2}; relative effect on $\hat G$, $K$ $\le3.4\cdot10^{-5}$, \fn{u1_ghat.json} \key{phi_effect_rel}).
+
+%======================================================================
+\section{Launch data}\label{sec:launch}
+\begin{lemma}[launch data]\label{lem:launch}
+\textup{(a) Present centres} ($\rho=y_c\lambda_1$, $y_c\in[56,253]$). At $\tau_1$,
+\[
+\E^\rho_j(\tau_1)\le c_2(y_c)\,H_{2,j}+c_3(y_c)\,H_{3,j},\qquad c_2=\sup_{28\le y\le60}W(\ln\tfrac y{y_c})D\phi\tfrac y{28},\quad c_3=\sum_{k=0}^4\sup_{[y_k,1.5y_k]}W(\ln\tfrac y{y_c})\tfrac{1.5y_k}{28}D(y_k)\phi(y_k),
+\]
+$y_k=50\cdot1.5^k$, where $H_2=(10^{-8},10^{-6},10^{-3})$ (tightened (H2) on $[14,60]$) and $H_3=(2\cdot10^{-7},10^{-5},10^{-5})$ ((H3) on the windows $[y_k,1.5y_k]$) are hand-off thresholds \tH. $c_2,c_3$ per $y_c$-cell \tC\ (\SU\ \key{launch.c2}, \key{launch.c3}, cells \key{launch.c23_cells}).
+
+\textup{(b) Late centres} ($\rho<56\lambda_1$). Assume $E^A_j(\tau_\rho)\le\Eh_j$ and $\E^{\rho'}_j(\tau_\rho)\le\Bh'_j$ for every centre $\rho'$ launched by $\tau_\rho$. Then
+\[
+\E^\rho_j(\tau_\rho)\le\Bigl(\sqrt{C_A^D\Eh_j}+\sqrt{\Delta^{\rm in}_j}\Bigr)^2+q^D\Bh'_j,
+\]
+\[
+C_A^D=\sup_{[28,350]}W(\ln\tfrac y{56})D\phi\tfrac y{28},\quad q^D=D(350)\phi(350)\,\frac1{w_{\min}}\sum_{i\ge0}W(\sigma_0+i\ell_1),\ \sigma_0=\ln\tfrac{350}{56},\quad \Delta^{\rm in}_j=p^{2j}c_{\delta U}^2\!\int_{\ln28}^{\ln350}\!W(s-\ln56)D\phi\,e^{2ps}ds .
+\]
+Values: $C_A^D\le2.2429$, $q^D\le0.018509$, $\Delta^{\rm in}\le(3.131,3.287,3.451)\cdot10^{-12}$ \tC\ (\SU\ \key{launch.CA_D}, \key{launch.qD}, \key{launch.Delta_in}).
+\end{lemma}
+\begin{proof}\tP\ (a) At $\tau_1$, $v=f-U_1$ is the deviation of (H2) and of (H3) ($U(\alpha(\tau_1),y)=U_1$ at $\lambda=\lambda_1$). Cover $\{y\ge28,\ r\le379.5\lambda_1\}$ by $[28,60]$ and the five windows ($y_4=253.125$, $1.5y_4=379.69$). On each piece $\Psi_\rho\le W D\phi$ and $1=\omega\cdot y/28$, so $\int_{\rm piece}\Psi z_j^2\le\sup_{\rm piece}(WD\phi\,y/28)\int\omega z_j^2$. On a window $y/28\le1.5y_k/28$ and $D\phi$ is decreasing in $y$. Overlaps only add.
+
+(b) At $\tau_\rho$ the centre sits at $y=56$, and $v=v_A-\delta U$. On $[28,350]$, $\eta_A=1$; Minkowski in $L^2(\Psi\,ds)$ and the conversion of (a) give $(\sqrt{C_A^DE^A_j}+\sqrt{\Delta^{\rm in}_j})^2$ with Lemma~\ref{lem:dU} and $\Psi\le W(s-\ln56)D\phi$. Beyond $y=350$ cover $\{y\ge350,\ r\le379.5\lambda_1\}$ by windows $[\rho_i,1.5\rho_i]$, $\rho_i=350\cdot1.5^i\lambda(\tau_\rho)$, the last shifted down to end at $379.5\lambda_1$ (so $\rho_i\le r_\chi\lambda_1$: every $\rho_i$ is a centre). Each $\rho_i/\lambda(\tau_\rho)\ge350>56$, so $\rho_i$ is launched, and on its window $\Psi_{\rho_i}\ge w_{\min}\eta^2\chi^2D\phi$ with $\eta=1$; both energies carry the same factor $\chi^2D\phi$. Since \emph{the same} $v$ is used for both centres, $\int_{{\rm win}\,i}\chi^2D\phi z_j^2\le\Bh'_j/w_{\min}$; on window $i$, $W(s-\ln56)\le W(\sigma_0+i\ell_1)$ ($W$ decreasing there), and $D\phi\le D(350)\phi(350)$. The shifted last window is dominated by the next term of the sum. No mismatch term arises.
+\end{proof}
+
+%======================================================================
+\section{The interface with Lemma S(A): window form}\label{sec:D}
+\subsection{H-J-W}
+\begin{lemma}[H-J-W; \fn{STATEMENTS_r2.tex} Lemma 4]\label{lem:HJ}
+For the verifier norms $V_m$ ($m=0,1,2,4$) and the constants $J_m,s_m$ of \fn{unconditional()}, for all $\tau_1\le\tau_a\le\tau_a+T\le\tau'$: $\int_{\tau_a}^{\tau_a+T}V_m^2\le J_m(1+\kappa_J)+s_mT$, with $\kappa_J\le0.042351$ \tC\ (\SA\ \key{HJW.kappa_J}; $0.0423485$ from (W1) plus $1.93\cdot10^{-6}$ from the flux floor $F_0$ omitted on the march cells, erratum E-V1).
+\end{lemma}
+\noindent The proof is that of \fn{STATEMENTS_r2.tex} Lemma~4 (integrate the cell inequality, (W1) fails and is replaced by $\kappa_J$; (W2) is the verifier's tail lemma, not rerun \tH; (W3) holds with $F_0$ in $c_k$). It is not repeated here.
+
+\subsection{Lemma D in window form}
+\begin{lemma}[D, window form]\label{lem:D}
+Let $k\in\{0,1\}$. Assume on $[\tau_1,\tau']$:
+\begin{enumerate}[label=(D\arabic*),leftmargin=2.6em,itemsep=1pt]
+\item the level-$k$ inequality of the repaired (A),
+\[
+\tfrac{d}{d\tau}E^A_k+\gamma_k'E^A_k+r_k\,a_c\!\int_{\ln28}^{\ln350}\!\varepsilon\omega\,(z^A_{k+2})^2ds\le\mathfrak s_k(\tau)+2\sqrt{E^A_k}\,F_k+q_k,
+\]
+with $r_k=1.249$, $a_c=(1+0.11^2)^{-2}$, constants $F_k\ge0$, $q_k=\mathrm{coup}_k+\oh_k$, and a measurable $\mathfrak s_k\ge0$;
+\item $\int_{\tau_a}^{\tau_a+T}\mathfrak s_k\le D^{\rm src}_k(1+\rho_JT)$ for every window in $[\tau_1,\tau']$, $\rho_J=\max_ms_m/J_m$;
+\item $E^A_k\le\Eh_k$ on $[\tau_1,\tau']$.
+\end{enumerate}
+Then for all $\tau_1\le\tau_a\le\tau_a+T\le\tau'$,
+\[
+X_k(\tau_a,T):=\int_{\tau_a}^{\tau_a+T}\!\!\int_{\ln28}^{\ln350}\varepsilon\omega(z^A_{k+2})^2\le C0_k+C1_kT,\qquad
+C0_k=\frac{\Eh_k+D^{\rm src}_k}{r_ka_c},\quad C1_k=\frac{2F_k^2/\gamma_k'+\mathrm{coup}_k+\oh_k+\rho_JD^{\rm src}_k}{r_ka_c}.
+\]
+\end{lemma}
+\begin{proof}\tP\ $2\sqrt EF\le\frac{\gamma'}2E+2F^2/\gamma'$. Integrate (D1) over the window, drop $E^A_k(\tau_a+T)\ge0$ and $\frac{\gamma'}2\int E\ge0$, use (D2), and (D3) at $\tau_a$.
+\end{proof}
+\noindent\emph{Inputs} \tC\ (\SA): (D1) with $r_k=$ \key{r_export}, $a_c\ge0.97623$ (\key{amin_c}), $\gamma'\ge(0.24292,0.24106,0.11961)$ (\key{gp}), $F_k$ (\key{F2}), $\mathrm{coup}_k$ (\key{coup}), $\oh_k=\sum_i\kappa^o_{ki}\Nb_i^2$ (\key{kappa_o}, Proposition R5$'$ of \fn{STATEMENTS_r2.tex}); (D2) with $D^{\rm src}\le(1.7382\cdot10^{-7},9.7841\cdot10^{-5})$ (\key{Dsrc}) and $\rho_J\le5.4995\cdot10^{-7}$ (\key{rhoJ}; v3.3 slopes $\times4$), H-J-W carried through (A)'s conversions with $J_m(1+\kappa_J)$; (D3) is D3$'$ of the bootstrap. The export is affine in $\Nb^2$: $C1_k=C1^0_k+\sum_i\kappa^o_{ki}\Nb_i^2/(r_ka_c)$, $C1^0\le(3.8937\cdot10^{-12},4.9100\cdot10^{-11})$ (\key{C1_0}, rule \key{C1_rule}), $C0$ by \key{C0_rule}. At the certified supersolution: $C0\le(1.1168\cdot10^{-6},1.6546\cdot10^{-4})$, $C1\le(8.074\cdot10^{-10},1.2158\cdot10^{-8})$ (\SU\ \key{supersolution.C0}, \key{supersolution.C1}). No bound on $X_k(\tau_a,\infty)$ is needed.
+
+\begin{corollary}[layer cake]\label{cor:abel}
+Let $x\ge0$ be locally integrable with $\int_{\tau_a}^{\tau_a+T}x\le C0+C1\,T$ for $T\in[0,T^*]$, and $m:[0,\infty)\to[0,\infty)$ nonincreasing. Then $\int_0^{T^*}m(T)x(\tau_a+T)dT\le m(0)C0+C1\int_0^{T^*}m$.
+\end{corollary}
+\begin{proof}\tP\ $m(T)=\int_0^{m(0)}\mathbf 1\{m(T)>\lambda\}d\lambda$, and $\{T\le T^*:m(T)>\lambda\}$ is an interval starting at $0$ of length $T_\lambda$. By Tonelli the left side is $\int_0^{m(0)}\int_0^{T_\lambda}x\le\int_0^{m(0)}(C0+C1T_\lambda)d\lambda$, and $\int_0^{m(0)}T_\lambda d\lambda=\int_0^{T^*}m$.
+\end{proof}
+\begin{definition}[sweeps]\label{def:SX}
+For a centre with launch position $y_c$ and $x\ge0$ let $W_x(y):=W(\ln\frac y{y_c}-x)$ and
+\begin{align*}
+\bar m_{y_c}(x)&:=\sup_{y\in[28,56]}W_x(y)D\phi\tfrac y{28}, & S_X&:=\bar m_{y_c}(0), & \Sigma_X&:=\tfrac1{c^-}\!\int_0^\infty\bar m_{y_c}(x)dx,\\
+\Sigma_{\rm in}&:=\tfrac1{c^-}\!\int_0^\infty\sup_{[28,56]}(\eta^2)'D\phi\tfrac y{28}W_x\,dx, &
+\Sigma_E&:=\tfrac1{c^-}\!\int_0^\infty\sup_{[28,56]}(\tfrac{28}y)^3D\phi W_x\,dx, &
+\Sigma^{(j)}_{\rm rs}&:=\tfrac1{c^-}\!\int_0^\infty\sup_{[28,56]}\varepsilon\bigl[\hat G_{jj}D-(1-4\bar a)g\bigr]_+\eta^2\phi\tfrac y{28}W_x\,dx .
+\end{align*}
+\end{definition}
+\noindent All integrands are nonincreasing in $x$ and in $y_c$ \tP: the argument of $W$ is $\le\ln(56/y_c)\le0<\frac12\ell_1$, where $W$ is increasing. Hence the supremum over a $y_c$-cell is the value at its left end, and the cover sup over $y_c\in[56,253]$ is the value at $56$. At $y_c=56$ \tC\ (\SU\ \key{sweeps}, \fn{u34_sweeps.py}; $x$-tail bounded analytically with $W\le e^{4(\sigma+a_W)}$): $\Sigma_{\rm in}\le5.0892$, $\Sigma_E\le0.30846$, $S_X\le1.5243$, $\Sigma_X\le3.0081$, $\Sigma^{(2)}_{\rm rs}\le4.3350\cdot10^{-3}$, $\Sigma^{(0)}_{\rm rs}=\Sigma^{(1)}_{\rm rs}=0$ (asserted, by (R$<$2)). Per-$y_c$ values: \key{sweeps.per_yc}.
+
+\noindent\emph{Ramp geometry.} On the inner ramp $\chi=1$, $\eta\le1$, and $s-s_\rho(\tau)\le\ln\frac y{y_c}-c^-(\tau-\tau_\rho)$; since $W$ is increasing there, $\Theta\phi/\omega\le\bar m_{y_c}(c^-(\tau-\tau_\rho))$ on the ramp, and similarly for the other profiles. Note that $\bar m$ bounds the \emph{cutoff-free} weight $\Theta\phi$, not only $\Psi_\rho$.
+
+\begin{proposition}[data term; \fn{STATEMENTS_r2.tex} Prop.~8, sharpened]\label{prop:Xterm}
+Under Lemma~\ref{lem:D}, for every centre, $k\in\{0,1\}$ and $\tau_\rho\le\tau\le\tau'$,
+\[
+\int_{\tau_\rho}^{\tau}\!\!\int_{\ln28}^{\ln56}\varepsilon\,\Theta\phi\,(z^A_{k+2})^2\,ds\,d\tau\le\cD_k:=S_X\,C0_k+C1_k\,\Sigma_X .
+\]
+In particular the same bound holds with $\varepsilon\Psi_\rho\le\varepsilon\Theta\phi$.
+\end{proposition}
+\begin{proof}\tP\ $\varepsilon\Theta\phi=(\Theta\phi/\omega)\varepsilon\omega$. Apply Corollary~\ref{cor:abel} with $\tau_a=\tau_\rho$, $x(\tau)=\int_{\rm ramp}\varepsilon\omega(z^A_{k+2})^2$ (bounded by Lemma~\ref{lem:D} since $[28,56]\subset[28,350]$), and $m(T)=\bar m_{y_c}(c^-T)$, nonincreasing; $\int_0^\infty m=\Sigma_X$.
+\end{proof}
+\noindent At the late centre $\cD\le(1.7047\cdot10^{-6},2.5223\cdot10^{-4})$; the slope parts $C1_k\Sigma_X$ are $1.4\cdot10^{-3}$ and $1.5\cdot10^{-4}$ of $\cD_k$ \tC\ (\SU\ \key{data_terms_late}).
+
+%======================================================================
+\section{Proposition U}\label{sec:U}
+\subsection{Auxiliary lemmas}
+\begin{lemma}[comparison]\label{lem:cmp}
+Let $y\ge0$ be absolutely continuous on $[\tau_0,\tau]$ and $h,\sigma,\varphi\ge0$ integrable with $y'+h\le\sigma+2\varphi\sqrt y$ a.e. Then
+\[
+y(\tau)+\int_{\tau_0}^\tau h\le\Bigl(\sqrt{y(\tau_0)+\textstyle\int_{\tau_0}^\tau\sigma}+\int_{\tau_0}^\tau\varphi\Bigr)^2 .
+\]
+\end{lemma}
+\begin{proof}\tP\ Fix $\tau$ and put $Y(t)=y(t)+\int_{\tau_0}^th$, $A_\epsilon(t)=y(\tau_0)+\epsilon+\int_{\tau_0}^t\sigma$, $M_\epsilon=(\sqrt{A_\epsilon}+\int_{\tau_0}^t\varphi)^2$. Then $Y'\le\sigma+2\varphi\sqrt Y$ and $M_\epsilon'=\sigma(1+\int\varphi/\sqrt{A_\epsilon})+2\varphi\sqrt{M_\epsilon}\ge\sigma+2\varphi\sqrt{M_\epsilon}$, with $Y(\tau_0)<M_\epsilon(\tau_0)$. If $Y=M_\epsilon$ somewhere, at the first such $t^*$ we have $Y\le M_\epsilon$ on $[\tau_0,t^*]$, hence $(Y-M_\epsilon)'\le2\varphi(\sqrt Y-\sqrt{M_\epsilon})\le0$ there, so $(Y-M_\epsilon)(t^*)\le-\epsilon<0$: contradiction. Let $\epsilon\to0$.
+\end{proof}
+\begin{lemma}[sup-free cubic and quartic bounds on an interval]\label{lem:S}
+Let $I$ be an interval of length $\ell$, $\Xi>0$ on $I$ with $\sup_I\Xi\le R_\Xi\inf_I\Xi$ and $|\Xi'/\Xi|\le L$, $u$ smooth, $G:=\Xi^{1/2}u$. Then $\sup_IG^2\le\|G\|^2/\ell+2\|G\|\|G'\|$, $G'=\Xi^{1/2}(u'+\frac12(\Xi'/\Xi)u)$, $\|G'\|^2\le2\int\Xi u'^2+\frac{L^2}2\int\Xi u^2$, and
+\[
+\int_I\Xi|u|^3\le(\inf\Xi)^{-1/2}\bigl(\|G\|^3/\sqrt\ell+\sqrt2\|G\|^{5/2}\|G'\|^{1/2}\bigr),\qquad
+\int_I\Xi u^4\le(\inf\Xi)^{-1}\|G\|^2\bigl(\|G\|^2/\ell+2\|G\|\|G'\|\bigr).
+\]
+For time-dependent data with $\|G(\tau)\|^2\le P\inf\Xi(\tau)$ for all $\tau$, $J_F=\int\|G\|^2d\tau$, $J_G=\int\|G'\|^2d\tau$: $\iint\Xi|u|^3\le\sqrt P\,(J_F/\sqrt\ell+\sqrt2J_F^{3/4}J_G^{1/4})$ and $\iint\Xi u^4\le P\,(J_F/\ell+2\sqrt{J_FJ_G})$.
+\end{lemma}
+\begin{proof}\tP\ $G(x)^2\le G(x_0)^2+2\int_I|GG'|$ with $x_0$ a point where $G^2\le\|G\|^2/\ell$. Then $\int|u|^3\Xi=\int\Xi^{-1/2}|G|^3\le(\inf\Xi)^{-1/2}\sup|G|\,\|G\|^2$ and $\sqrt{a+b}\le\sqrt a+\sqrt b$; similarly $\int\Xi u^4\le(\inf\Xi)^{-1}\sup G^2\|G\|^2$. In time: $(\inf\Xi)^{-1/2}\|G\|\le\sqrt P$, then H\"older with exponents $(4/3,4)$ for $\int\|G\|^{3/2}\|G'\|^{1/2}$ and Cauchy--Schwarz for $\int\|G\|\|G'\|$.
+\end{proof}
+
+\subsection{Statement}
+\begin{proposition}[U]\label{prop:U}
+\textbf{Hypotheses.}
+\begin{enumerate}[label=(U\arabic*),leftmargin=2.6em,itemsep=1pt]
+\item \emph{Box} $\mathcal B$ of \S\ref{sec:zones} on the support of $\Psi_\rho$ for $\tau\in[\tau_\rho,\tau']$: on the inner ramp and core from B2$'$; on zones I/II from B3U(b,c) and, for $|z_1|\le M_1^z$, from B3U(a) via Lemma~\ref{lem:W} ($S_1(2\Bh)\le0.28528\le M_1^z$ \tC, \SU\ \key{supersolution.M1z_hyp_check}); on zone III from Z1 ($b_0,b_1,b_z$ of \S\ref{sec:outer}; $|z_1|\le b_1+pU_1(379.5\lambda_1)\le0.50786$ \tC).
+\item \emph{Rates} (design \fn{data56}, $y_R=56$): (R2) $(1-4\bar a)g\ge\hat G_{22}(1+g\,56^{-4})e^{K_b/28}$, margin $(1-4\bar a)56^4/(\hat G_{22}e^{K_b/28})\ge28.231$; (R$<$2) $s_k:=(1-4\bar a)g-\hat G_{kk}D(28)\phi(28)>0$, margins $\ge(4.432,6.697)$ ($k=0,1$); $\theta(28)\le0.37011\le\frac35$ (validity of the $\Gamma_m$ enclosures) \tC\ (\SU\ \key{rate_margin}, \key{R_lt2_margin}, \key{theta28}).
+\item \emph{(A) data}: $E^A_j\le\Eh_j$ on $[\tau_1,\tau']$ and Lemma~\ref{lem:D} with $C0,C1$ (D3$'$).
+\item \emph{Neighbours} (late centres): $\E^{\rho'}_j(\tau_\rho)\le\Bh'_j$ for every centre launched by $\tau_\rho$ (B3U(a): $\Bh'=2\Bh$).
+\item \emph{Outer ramp}: the conclusions of D5a on the members covering $[r_\chi,379.5]\lambda_1$, i.e.\ the ramp norms $N_k^2$ of \S\ref{sec:outer}.
+\item \emph{Modulation}: $|a|\le\bar a$, $|b|\le\bar b$, $|\beta|\le\bar\beta$, $|\alpha(\tau_1)|\le\alpha_1$ (D1, (H1)).
+\end{enumerate}
+\textbf{Conclusion.} For every centre, $\tau_\rho\le\tau\le\tau'$, and $j=0,1,2$ in this order,
+\[
+\E^\rho_j(\tau)+s_j\!\int_{\tau_\rho}^{\tau}\!\!\int\varepsilon\eta^2\chi^2W\phi z_j^2\,[j\le1]+\bigl(c^-K_b-\bar b(C_j+\tfrac{K_b}{28})\bigr)\!\int_{\tau_\rho}^{\tau}\!\!\int e^{-s}\Psi_\rho z_j^2\ \le\ \B_j:=\Bigl(\sqrt{\mathcal L_j+\mathcal I_j+\mathcal R^E_j+\mathcal R^X_j+\mathcal R^{\rm rs}_j+\mathcal F_j+\mathcal C_j+\mathcal B^b_j+\Delta_j}\ +\ \Phi_j\Bigr)^2,
+\]
+with $E^k_j:=(\sqrt{\Eh_j}+\sqrt{\delta U_j})^2$, $\delta U_j:=(p^jc_{\delta U}56^p)^2\ln2$, $J:=\varepsilon(28)\Sigma_E$, and:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item launch $\mathcal L_j$: Lemma~\ref{lem:launch} (present: $c_2H_{2,j}+c_3H_{3,j}$; late: $(\sqrt{C_A^D\Eh_j}+\sqrt{\Delta^{\rm in}_j})^2+q^D\Bh'_j$);
+\item inflow $\mathcal I_j=c^+_b\Sigma_{\rm in}E^k_j$;
+\item ramp energy terms $\mathcal R^E_j=\sum_{k\le j}K_{jk}\,J\,E^k_k$;
+\item ramp data terms $\mathcal R^X_j=\sum_{k>j}K_{jk}\mathcal X_k$, $\mathcal X_1=JE^k_1$, $\mathcal X_2=\min\{JE^k_2,(\sqrt{\cD_0}+\sqrt{Jp^4\delta U_0})^2\}$, $\mathcal X_3=(\sqrt{\cD_1}+\sqrt{Jp^6\delta U_0})^2$;
+\item ramp share of the rate $\mathcal R^{\rm rs}_j=\Sigma^{(j)}_{\rm rs}E^k_j$ ($=0$ for $j=0,1$);
+\item foot terms $\mathcal F_0=0$, $\mathcal F_1=\mathrm{footw}_1J_F$, $\mathcal F_2=\mathrm{footw}_2J_F+\mathcal S_{33}+\mathcal T_{223}$, with $J_F=JE^k_2$, $J_G=2(\mathcal X_3+\frac14L_{\max}^2J_F)$, $P_2=2R\,D(28)\phi(28)E^k_2$,
+\[
+\mathcal S_{33}=c_{33}\sqrt{P_2}\Bigl(\tfrac{J_F}{\sqrt{\ln2}}+\sqrt2J_F^{3/4}J_G^{1/4}\Bigr),\qquad\mathcal T_{223}=c_{223}\sqrt{P_2\bigl(\tfrac{J_F}{\ln2}+2\sqrt{J_FJ_G}\bigr)}\ \sqrt{\mathcal X_3};
+\]
+\item couplings $\mathcal C_j=\sum_{k<j}\hat G_{jk}\bigl[JE^k_k+D(28)\phi(28)\B_k/s_k\bigr]$;
+\item $b$-coupling $\mathcal B^b_2=\bar b\,\B_1/(c^-K_b-\bar b(C_1+K_b/28))$, $\mathcal B^b_0=\mathcal B^b_1=0$;
+\item outer ramp $\Delta_j=\Delta^R_jD(r_\chi)\phi(r_\chi)+\Delta^{R,b}_j$ (\S\ref{sec:outer});
+\item forcing $\Phi_j=\frac1{c^-}\Bigl[\frac{\bar b\,pU_{\max}}{y_c}\bigl(D(28)\phi(28)\!\int W(\sigma)e^{-2\sigma}d\sigma\bigr)^{1/2}+\frac{c'_jU_{\max}e^{2a_W}(D(28)\phi(28))^{1/2}}{4\cdot28^4}\bigl(\frac{28}{y_c}\bigr)^2\Bigr]$, $c'=(0.0520,0.1446,0.4324)$ (v3.2 Prop.~B$'$ \tP\ input).
+\end{itemize}
+All constants are certified (Table~\ref{tab:cert}); no rate model is used, and no Gronwall factor appears.
+\end{proposition}
+
+\subsection{Proof}\label{sec:Uproof}
+\noindent\textbf{Step 0: energy identity.} \tP\ Fix a centre and $j$. By (P1) (\S\ref{sec:boot}) $z_j$ is smooth and $\Psi_\rho$ has compact support in $\{y\ge28,\ r\le379.5\lambda_1\}$; $\Psi_\rho\in C^2$ in $s$ with $\Psi'''_\rho$ bounded and piecewise continuous (jumps at $y=56$ and at the end $r=r_\chi\lambda_1$ of the outer ramp, from $S'''$). So
+\[
+\tfrac{d}{d\tau}\E^\rho_j=\int\partial_\tau\Psi_\rho z_j^2+2\int\Psi_\rho z_j\bigl(-cz_{j+1}+\partial_s^j(\beta_sz_1)+\partial_s^j\mathcal Q+\partial_s^j\hat R\bigr),
+\]
+with $\mathcal Q$ the fourth-order quasilinear part of \eqref{eq:V}. Lemma~\ref{lem:T} handles the first, second and third terms. The forcing term is $\le2\sqrt{\E_j}\,\|\partial_s^j\hat R\|_{\Psi}$ (Step 9). The fourth-order term is written with the exact divergence-form tables of (A) (\fn{tables_exact.pkl}, $|{\rm coef}|$, no sign cancellations) for the weight $\Psi_\rho$; the reduction moves at most three derivatives onto the weight (table entries $m\le3$; \fn{L4_general_weight.md} \S3), which is legitimate for $\Psi\in C^2$ with $\Psi'''$ bounded. It gives $-2\cD^\rho_j$ plus pair and jet terms $\sum|{\rm coef}|A\,\Psi^{(m)}z_az_b(\cdots)$. Split
+\[
+\Psi^{(m)}=\eta^2\bigl(\chi^2\Theta\phi\bigr)^{(m)}+\chi^2\,{\rm rem}^\eta_m\,\Theta\phi+\eta^2\,{\rm rem}^\chi_m\,\Theta\phi,
+\]
+where ${\rm rem}^\eta_m=\sum_{l\ge1}\binom ml(\eta^2)^{(l)}(\Theta\phi)^{(m-l)}/(\Theta\phi)$ is supported on the inner ramp and ${\rm rem}^\chi_m$ on the outer ramp (disjoint). The first part (\emph{base}) is treated in Steps 1--2, the inner cutoff part in Steps 3--5, the outer one in Step 8.
+
+\noindent\emph{Point terms} (Lemma~P of \fn{STATEMENTS_r2.tex}). $(\eta^2)'''$ jumps at $y=56$ by $120/\ln^32$ and $(\chi^2)'''$ at $r=r_\chi\lambda_1$. A point term arises only if a term containing a third derivative of a cutoff is integrated by parts once more. Lemma~U never does this: every cutoff part is bounded directly (case (iii) of Lemma~P): the $K$-tables keep all pairs as data (\fn{u2_K.py}; \fn{u5_enum.json}: (A)'s native route creates the extra classes $(0,2)$ and $(2,4)$ by integrating pairs $(a,j+1)$ by parts, Lemma~U does not); $(2,2,3)$ goes by Cauchy--Schwarz (Step 4), not by Lemma~C's integration by parts; and the global identities of Step 1 differentiate $\eta^2,\chi^2$ at most twice ($(\Xi\eta\eta')'$ involves $\eta''$, the interpolation $(\Xi\eta^2)''$). Hence no point term occurs \tP.
+
+\noindent\textbf{Step 1: base quadratic terms and $\hat G$.} The base terms carry the full weight $\Xi:=\varepsilon\Psi_\rho$ (cutoffs inside) and are reduced as in (A) with the general-weight constants (\fn{L4_general_weight.md} \S2, identities I1--I5, sympy-checked for an arbitrary weight):
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item pairs with box-bounded coefficients: $|{\rm coef}|\,A_i^{(r)}(\mathcal B)\,\Gamma_m(\Theta\phi)$, then Young into $z_k^2$ ($k\le j$), $z_{j+1}^2$ and $z_{j+2}^2$;
+\item the $L^4$ classes $('L4',r,w)$: $X\le M_1^z(3N_3+\tilde\kappa N_2)$ with $X=\|z_2^2\|_\Xi$ (identity I1; the factor $z_1$ is bounded by $M_1^z$, \S\ref{sec:M1z});
+\item the class $\{2,3,3\}$ by one integration by parts with $\varphi=\frac12z_2|z_2|$: $\int\Xi|z_2|z_3^2\le\frac12X(\tilde\kappa N_3+N_4)$;
+\item the interpolation $N_{k+1}^2\le N_kN_{k+2}+\frac12\tilde\kappa_2N_k^2$;
+\item the cutoff remainders of these global identities: the interpolation remainder $\hat\rho\,Y_{j+1}$ (inner and outer ramps; it is in $K_{jj}$, Step 3, and in the outer $K$, Step 8), the $L^4$ foot (Step 5) and the S33 foot $\frac13\int(\Xi\eta\eta')'|z_2|^3$ (Step 5), and their outer analogues.
+\end{itemize}
+\emph{Dissipation budget} \tP\ (as (A); \fn{phase1/ghat/ghat_arb.py} \fn{budget_ok}, l.166): of $2\cD_j\ge2a_{\min}\int\Xi z_{j+2}^2$, $\frac32a_{\min}$ goes to the interpolation ($B_c=\frac32a_{\min}$ in $\hat G_{jj}=Y_j+Y_{j+1}(Y_{j+1}/(4B_c)+\tilde\kappa_2/2)$) and $\frac12a_{\min}$ to the Young steps, of which the fraction \fn{dfrac} $=2/25$, the $L^4$ items, and at level 2 a \emph{reserve} $a_{\min}/10$ for the S33/$L^4$ foot terms; the check is asserted at each level. The reserve is used \emph{locally}: the inner foot uses it on ${\rm supp}\,\eta'=[28,56]$, the outer foot (Step 8) on ${\rm supp}\,\chi'$; these sets are disjoint at every $\tau$, so the total use is $\le\frac{a_{\min}}{10}\int\Xi z_4^2$ (task 5's dissipation split, \fn{ramp_U.py} docstring l.21--22). The outer-foot Young steps with $\delta_o=10^{-3}$ add to the global $Y$: level 1 $Y_2$ $+0.0044$, level 2 $Y_2$ $+0.108$, $Y_3$ $+0.374$ (\fn{t5_zone3/out/ramp_U.json} \key{foot_out}); these adds are included in $\hat G$ (\fn{u1_ghat.json} \key{t5_Yadd}).
+
+The result is, pointwise in $\tau$,
+\[
+\text{base terms}\le-(\text{used dissipation})+\sum_{k\le j}\hat G_{jk}\int\varepsilon\Psi_\rho z_k^2,
+\]
+with $\hat G_{jj}\le(51322.5,33962.9,348341.1)$ and $\hat G_{10}\le4.938$, $\hat G_{20}\le27.984$, $\hat G_{21}\le458.53$ \tC\ (\SU\ \key{Ghat}; \fn{u1_ghat.py}, port of \fn{ghat_design_arb.run} with $\Theta\phi$ constants, $U_j$ in the A-coefficients, $U_{\max}=0.09$, $M_0^z=0.16$, $M_1^z=0.534$, the inner-ramp foot adds and task 5's outer-foot adds). The same box holds on the whole support (\S\ref{sec:zones}), so one $\hat G$ serves all regions and Lemma~L(i) of \fn{STATEMENTS_r2.tex} applies with a single region: no localisation is needed in Lemma~U. (The contract convention, $M_1^z=M_1$, no $\phi$, no adds, reproduces $\hat G_{22}=338258.77$, asserted.)
+
+\noindent\textbf{Step 2: rates.} \tP\ By Lemma~\ref{lem:T}(ii) the self-rate plus damping at level $j$ is $\int\varepsilon\eta^2\chi^2W\phi\,[\hat G_{jj}D-(1-4a)g]z_j^2$. The bracket is increasing in $\varepsilon$. For $j=2$, (R2) makes it $\le0$ for $y\ge56$; on $[28,56]$ its positive part is data: it is at most $\varepsilon[\hat G_{22}D-(1-4\bar a)g]_+\eta^2\phi$ times $W$, and the conversion of Step 6 gives $\mathcal R^{\rm rs}_2=\Sigma^{(2)}_{\rm rs}E^k_2$. For $j=0,1$, (R$<$2) gives bracket $\le-s_j$ everywhere on the support ($\phi$ in (R$<$2) only adds room); the surplus $s_j\int\varepsilon\eta^2\chi^2W\phi z_j^2$ is kept on the left. Cross rates $\hat G_{jk}$, $k<j$: Step 7.
+
+\noindent\textbf{Step 3: inner cutoff commutators.} The inner cutoff parts of all pairs, the top pair $(j+1,j+1)$ included, are bounded by $|{\rm coef}|A\,|{\rm rem}^\eta_m|$ with the A-coefficients on the core box $(0.11,0.52)$ of B2$'$ and $U_{\rm ramp}=1/80$; the pair $(k,k)$ enters column $k$ with weight $1$, a mixed pair $(a,b)$ with $\frac12$ in each of the columns $a,b$ (Young). Per unit $\varepsilon\Theta\phi$, the column sums are $K_{jk}$ \tC\ (\SU\ \key{K}; \fn{u2_K.py}, branch and bound over $t\in[0,1]$, $g\in[3\cdot10^5,6.4\cdot10^5]$, all centres $s_\rho\ge\ln56$):
+\begin{center}\small\begin{tabular}{@{}cccccc@{}}\toprule $j\backslash k$&0&1&2&3\\\midrule 0&$8034.21$&$724.89$&&\\ 1&$0.08152$&$6336.94$&$545.59$&$0.58700$\\ 2&$0.87186$&$528.62$&$23425.98$&$555.62$\\\bottomrule\end{tabular}\end{center}
+They include the interpolation remainder $\hat\rho\,Y_{j+1}$ with the global $Y_{j+1}$ (in $K_{jj}$) and the folded cubic classes (Step 4). \emph{No multiplier}: the honest $K_S=1$; the factor $1.33$ of P2 was a comparison with \fn{feas_P}, not a bound (\fn{T4_REPORT.md} \S3 item 4). Column $k$ multiplies $\iint_{\rm ramp}\varepsilon\Theta\phi z_k^2$; for $k\le j$ this is $\le JE^k_k$ (Step 6), giving $\mathcal R^E_j$; for $k>j$ it is $\le\mathcal X_k$ (Step 6), giving $\mathcal R^X_j$. The enumerator cross-check of task 4 (\fn{u5_enum.json}) finds no class of (A)'s enumerator missing and weights within $1.2\%$ (always (A) $\le$ P2).
+
+\noindent\textbf{Step 4: inner cubic classes.} The cutoff$\times$jet classes reducible by $|z_0|\le0.11$ (on the ramp, $|v|\le|v_A|+|\delta U|\le0.0153+c_{\delta U}56^p$) and $|z_1|\le M_1^z$ are folded into $K$. Two genuinely cubic classes remain \tP:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item $(2,2,2)$: $\int|c|\varepsilon\Theta\phi|z_2|^3$, weight in $c_{33}$ ($72.35$ of $c_{33}\le108.03$; the remaining $35.67$ is the exact foot $W_{33}C_\eta/3$ of Step 5) \tC\ (\SU\ \key{c33});
+\item $(2,2,3)$: by Cauchy--Schwarz in space-time, $\iint|c|\varepsilon\Theta\phi z_2^2|z_3|\le c_{223}(\iint\varepsilon\Theta\phi z_2^4)^{1/2}(\iint_{\rm ramp}\varepsilon\Theta\phi z_3^2)^{1/2}$ with $c_{223}=\sup|c|\le7.3284$ \tC\ (\SU\ \key{c223}). The $L^4$ factor is bounded by Lemma~\ref{lem:S} (quartic form, below), and the last factor by $\mathcal X_3$. This is $\mathcal T_{223}$. It avoids the point term at $y=56$ that the integration-by-parts route of Lemma~C would produce (the class has only $m=1$, so that route would also be valid; it is not used).
+\end{itemize}
+\emph{Application of Lemma~\ref{lem:S}} on $I=[\ln28,\ln56]$, $\ell=\ln2$, $\Xi=\varepsilon\Theta\phi$, $u=z_2$: $|\Xi'/\Xi|\le L_{\max}\le3.5352$, $\sup\Xi/\inf\Xi\le R\le11.593$ \tC\ (\SU\ \key{L_max}, \key{R_ratio}); $\|G\|^2=\int_I\Xi z_2^2\le\sup_I\Xi\int_Iz_2^2\le R\,D(28)\phi(28)\inf_I\Xi\cdot2\int_I\omega z_2^2$ (since $1/\omega\le2$; the factor $D(28)\phi(28)$ is kept as in the certified assembly and is conservative), and $\int_I\omega z_2^2\le E^k_2$ (Minkowski with $\delta U$). So $P=P_2$. $J_F=\iint\Xi z_2^2\le JE^k_2$ (Step 6), and $J_G\le2(\iint\Xi z_3^2+\frac14L_{\max}^2J_F)\le2(\mathcal X_3+\frac14L_{\max}^2J_F)$. This gives $\mathcal S_{33}$ (with $c_{33}$) and $\mathcal T_{223}$.
+
+\noindent\textbf{Step 5: inner foot terms.} The cutoff parts of the global identities of Step 1 on the inner ramp are (\fn{L4_general_weight.md} \S2(c)): in the $L^4$ identity $|2\int\Xi\eta\eta'z_1z_2^3|\le2M_1^z\eta'_{\max}X_\eta F_2^{1/2}$ with the cutoff-free datum $F_2=\int_{\rm ramp}\Xi z_2^2$; in the $\{2,3,3\}$ identity the exact foot $\frac13\int(\Xi\eta\eta')'|z_2|^3$, $|(\Xi\eta\eta')'|\le C_\eta\Xi$, $C_\eta\le13.376$ \tC\ (\SU\ \key{C_eta}). The first is Young'd against the $z_3$-coefficient and the level-2 reserve (Step 1), leaving $\mathrm{footw}_j\iint_{\rm ramp}\Xi z_2^2\le\mathrm{footw}_jJ_F$, $\mathrm{footw}\le(0,2.6361,2663.3)$ \tC\ (\SU\ \key{footw}); the second is part of $c_{33}$ in $\mathcal S_{33}$. Total S33$+$foot$+(2,2,3)$ at level 2 is $1.69\cdot10^{-3}\Bh_2$ \tC\ (\SU\ \key{S33_foot_over_Bhat2}).
+
+\noindent\textbf{Step 6: conversion to (A)'s data.} \tP\ Fix $\tau\ge\tau_\rho$. On the inner ramp $v=v_A-\delta U$; with Lemma~\ref{lem:dU} and $\int_{\ln28}^{\ln56}\omega\,ds=\frac12\le\ln2$, Minkowski gives $(\int_{\rm ramp}\omega z_k^2)^{1/2}\le\sqrt{\Eh_k}+\sqrt{\delta U_k}$, i.e.\ $\int_{\rm ramp}\omega z_k^2\le E^k_k$. For a profile $F(y)$, $\int_{\rm ramp}F\,\Theta\phi\,z_k^2\le\sup_y[F\,W_x\,D\phi\,y/28]\int\omega z_k^2$ with $x=c^-(\tau-\tau_\rho)$ (ramp geometry, \S\ref{sec:D}); integrating in $\tau$, $d\tau=dx/c^-$, gives $\Sigma_{\rm in}$ (inflow, with $c^+_b$ from Lemma~\ref{lem:T}(ii),(iv)), $\Sigma_E$ ($F=\varepsilon$: $\varepsilon\,y/28=\varepsilon(28)(28/y)^3$, hence $J=\varepsilon(28)\Sigma_E$) and $\Sigma_{\rm rs}$. For $z_{k+2}$ ($k=0,1$), (A) controls only the time integral: Proposition~\ref{prop:Xterm} gives $\iint\varepsilon\Theta\phi(z^A_{k+2})^2\le\cD_k$, and Minkowski in $L^2(\varepsilon\Theta\phi\,ds\,d\tau)$ adds $\iint\varepsilon\Theta\phi(\partial_s^{k+2}\delta U)^2\le p^{2(k+2)}c_{\delta U}^256^{2p}\int d\tau\int_{\rm ramp}\varepsilon\Theta\phi\le Jp^{2k+4}\delta U_0$. For $z_2$ at level 1 also (A)'s level-2 \emph{energy} gives $JE^k_2$; the minimum is valid. This is $\mathcal X_2,\mathcal X_3$.
+
+\noindent\textbf{Step 7: couplings.} \tP\ For $k<j$, $\hat G_{jk}\iint\varepsilon\Psi_\rho z_k^2$. By the level-$k$ conclusion (already proved, levels in the order $0,1,2$), $s_k\iint\varepsilon\eta^2\chi^2W\phi z_k^2\le\B_k$, and $\varepsilon\Psi_\rho\le D(28)\,\varepsilon\eta^2\chi^2W\phi$; hence $\iint\varepsilon\Psi_\rho z_k^2\le D(28)\B_k/s_k$. The certified assembly also adds the ramp part $JE^k_k$ and uses $D(28)\phi(28)$; both only enlarge $\mathcal C_j$. The $b$-coupling $\bar b\iint e^{-s}\Psi z_1^2$ at level 2 is bounded by Lemma~\ref{lem:T}(iii): $\mathcal B^b_2$.
+
+\noindent\textbf{Step 8: the outer ramp (Lemma R ramp, hand-derived steps of task 5).}\label{sec:outer} On the outer ramp, $\eta=1$ and $y\ge r_\chi\lambda_1/\lambda(\tau)$. Put $\varepsilon_{\rm e}(\tau):=(\lambda(\tau)/(r_\chi\lambda_1))^4$, the value of $\varepsilon$ at the ramp entry. Then $\varepsilon\le\varepsilon_{\rm e}(\tau)e^{-4t\ell_1}$ on the ramp, $\Psi\le D(r_\chi)\phi(r_\chi)W$ with $W\le1$, and, since $dt=\lambda^4d\tau$,
+\begin{equation}\label{eq:eedge}
+\int_{\tau_1}^{\tau'}\varepsilon_{\rm e}(\tau)\,G(\tau)\,d\tau=(r_\chi\lambda_1)^{-4}\int_{t_1}^{T_{\tau'}}G\,dt,\qquad \int_{\tau_1}^{\infty}\varepsilon_{\rm e}\,d\tau\le q\,r_\chi^{-4}
+\end{equation}
+($\lambda^4\le\lambda_1^4e^{-(1-4\bar a)(\tau-\tau_1)}$). \emph{Data} (D5a; \tC\ \SZ\ \key{DeltaR_detail.N_sq}, \fn{zone3.py} \fn{ramp_N}): $N_k^2\ge\sup_\tau\int_{\rm ramp}z_k^2ds$ for $k=0,1,2$, and $N_3^2\ge(\lambda_1^4q)^{-1}\int_{t_1}^{T_{\tau'}}\int_{\rm ramp}z_3^2\,ds\,dt$; values $N^2\le(8.280\cdot10^{-5},0.10149,1.3567,25350)$. The ramp is cut at $331.5$; $[253,331.5]$ lies in the conclusion region $[251.44,348.56]$ of the cone member centred at $300\lambda_1$ and $[331.5,379.5]$ in that of the member at $380\lambda_1$ ($[331.44,428.56]$), $L=50\lambda_1$ (asserted in arb, \key{DeltaR_detail.pieces}). The box on the ramp is Z1: $|f|\le b_0\le0.10032$, $|r\partial_rf|\le b_1\le0.41974$, $|z_0|\le b_z\le0.014291$, primary, margins $\times1.495,\times1.238,\times11.19$ against $(0.15,0.52,0.16)$ \tC\ (\SZ\ \key{box_III_380}).
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item \emph{Pairs.} The outer cutoff parts of all pairs, per unit $\varepsilon_{\rm e}\Theta\phi$, with $\sup e^{-4t\ell_1}$ included: $K^o_{jk}$ \tC\ (\fn{ramp_U.py}, exact tables mirrored to $\chi=1-S$, $\hat G_{22}=338258.77$ reproduced as a check). Cutoff$\times$jet classes are folded with $|z_0|\le b_z$, $|z_1|\le b_1+pU_1(379.5\lambda_1)$. Contribution $\le q\,r_\chi^{-4}\sup(D\phi)\sum_kK^o_{jk}N_k^2$ by \eqref{eq:eedge}.
+\item \emph{$(2,2,2)$ and the S33 foot} \tP: $\int_{\rm ramp}|z_2|^3\le\sup_{\rm ramp}|z_2|\int z_2^2\le\sup|z_2|\,N_2^2$, and by Lemma~\ref{lem:S} with $\Xi=1$, $\ell=\ell_1$: $\sup|z_2|^2\le\|z_2\|^2/\ell_1+2\|z_2\|\|z_3\|$. By \eqref{eq:eedge} the time integral is an average over $[t_1,T_{\tau'}]$ times $(r_\chi\lambda_1)^{-4}(T_{\tau'}-t_1)\le q\,r_\chi^{-4}$; Jensen then Cauchy--Schwarz for the average:
+\[
+\overline{\sup|z_2|}\le\bigl(\overline{\sup|z_2|^2}\bigr)^{1/2}\le\bigl(N_2^2/\ell_1+2N_2N_3\bigr)^{1/2}=:\mathrm{sob},\qquad C_{222}:=N_2^2\,\mathrm{sob}.
+\]
+(Here the average over the actual interval is bounded by $N_3^2$ because $N_3^2$ bounds the integral normalised by $\lambda_1^4q\ge T_{\tau'}-t_1$, and the prefactor uses the same normalisation.) The S33 foot is $\frac13\int(\varepsilon\Theta\chi\chi')'|z_2|^3\le\frac13C_\xi\,\varepsilon_{\rm e}\int|z_2|^3$ with $C_\xi=\sup e^{-4t\ell_1}|L\chi\chi'+\chi'^2+\chi\chi''|$ (\fn{ramp_U.json} \key{CXI}).
+\item \emph{$(2,2,3)$} \tP: $\int|z_2|^2|z_3|\le\sup|z_2|\,\|z_2\|\|z_3\|\le\sup|z_2|\,N_2\|z_3\|$; Cauchy--Schwarz in time: average $\le N_2\,\mathrm{sob}\,N_3=:C_{223}$.
+\item \emph{$L^4$ foot} \tP: as Step 5 with $\eta'_{\max}\to\sup|\chi'|=1.875/\ell_1$; the $z_3$ and global parts go into $Y$ with $\delta_o=10^{-3}$ (Step 1), the $z_4$ part uses the level-2 reserve $a_{\min}/10$ on ${\rm supp}\,\chi'$ only (Step 1). Data weight $\mathrm{footw}^{\rm out}_jN_2^2$ (\fn{ramp_U.json} \key{foot_out}).
+\item \emph{Interpolation remainder} $\hat\rho\,Y_{j+1}$ on the outer ramp: in $K^o_{jj}$.
+\end{itemize}
+Hence
+\[
+\Delta^R_j\le q\,r_\chi^{-4}\sup_{\rm ramp}(D\phi)\Bigl[\sum_kK^o_{jk}N_k^2+g^{(222)}_jC_{222}+g^{(223)}_jC_{223}+\tfrac13W_{33,j}C_\xi C_{222}+\mathrm{footw}^{\rm out}_jN_2^2\Bigr],
+\]
+$\Delta^R\le(4.4986\cdot10^{-8},6.7955\cdot10^{-6},0.011480)$ \tC\ (\SZ\ \key{DeltaR}; level-2 parts: $z_3$ pair $0.011297$, $L^4$ foot $1.6\cdot10^{-4}$, genuine cubic $9.2\cdot10^{-6}$, S33 foot $3.7\cdot10^{-7}$; \key{DeltaR_detail.parts}). $\sup(D\phi)$ uses $g\le6\cdot10^5$; the assembly multiplies once more by $D(253)\phi(253)\le1+9\cdot10^{-5}$ (conservative double count). The data $N_k^2$ depend only on B4, the hand-off thresholds (H3), (H5), $\alpha_1$, and D1; never on B2$'$ or B3U (\SZ\ \key{inputs_used}).
+
+\noindent\textbf{Step 9: forcing.} \tP\ $\frac{d}{d\tau}\E_j\le\cdots+2\sqrt{\E_j}\|\partial_s^j\hat R\|_\Psi$. With $|\beta_s|\le\bar be^{-s}$ and $|\partial_sU_1|\le pU_{\max}$ on the support, $\|\beta_s\partial_s^{j+1}U_1\|_\Psi\le\bar bpU_{\max}(D(28)\phi(28)\int We^{-2\sigma})^{1/2}e^{-s_\rho(\tau)}$; for the second part of \eqref{eq:R}, $|\partial_s^j[y^{-4}(D_y-2)(D_y-3)\Phi(U_1)]|\le c'_jU_1y^{-4}$ (v3.2 Prop.~B$'$, $U\le0.1$) so $\|\cdot\|_\Psi^2\le c_j'^2U_{\max}^2D(28)\phi(28)\,28^{-4}\sup_s(We^{-4s})/4$ (the factor $28^{-4}/4$ from $\int_{\ln28}^\infty e^{-4s}ds$), and $We^{-4\sigma}\le e^{4a_W}$ gives $\sup_sWe^{-4s}\le e^{4a_W}y_\rho(\tau)^{-4}$, $y_\rho(\tau)=\rho/\lambda(\tau)$; this is the second term. Finally $\int_{\tau_\rho}^\infty y_\rho^{-k}d\tau\le y_c^{-k}/(kc^-)$. Values: late $\Phi\le(6.434\cdot10^{-9},1.4217\cdot10^{-8},3.8404\cdot10^{-8})$, per present cell \key{margins.present_rows} via \key{launch.Phi} \tC\ (\fn{u34_sweeps.py}; $\int We^{-2\sigma}\le1.28799$).
+
+\noindent\textbf{Step 10: summation.} \tP\ Collect Steps 0--9: a.e.\ in $\tau$,
+\[
+\tfrac{d}{d\tau}\E_j+s_j[j\le1]\!\int\!\varepsilon\eta^2\chi^2W\phi z_j^2+\bigl(c^-K_b-\bar b(C_j+\tfrac{K_b}{28})\bigr)\!\int\!e^{-s}\Psi z_j^2\le\sigma_j(\tau)+2\varphi_j(\tau)\sqrt{\E_j},
+\]
+where $\sigma_j\ge0$ collects the inflow, ramp, rate-share, foot, coupling, $b$-coupling and outer-ramp densities, whose time integrals over $[\tau_\rho,\tau]$ are bounded in Steps 2--8 by $\mathcal I_j+\mathcal R^E_j+\mathcal R^X_j+\mathcal R^{\rm rs}_j+\mathcal F_j+\mathcal C_j+\mathcal B^b_j+\Delta_j$, and $\int\varphi_j\le\Phi_j$. Lemma~\ref{lem:cmp} with $y(\tau_\rho)=\E_j(\tau_\rho)\le\mathcal L_j$ (Lemma~\ref{lem:launch}) gives the conclusion. All rates are $\le0$ after Step 2, so no Gronwall factor appears.\qed
+
+\subsection{The bound on $|z_1|$ ($M_1^z$; task 4)}\label{sec:M1z}
+The factors $z_1$ of the identities (pairs with a low index $1$, the $L^4$ identity, the $\{2,3,3\}$ integration by parts, the foot adds) are bounded by $M_1^z=0.534$, while the A-coefficients keep $|f_s|\le M_1=0.52$. This is asserted region by region \tC: core $[28,60]$: $0.52+pU_1(60\lambda_1)+pc_{\delta U}60^p<M_1^z$ (\fn{u1_ghat.json} \key{M1z_core_check}); zones I/II: $S_1(2\Bh)\le0.28528$ (Lemma~\ref{lem:W} at the hypothesis level B3U(a)); zone III: $b_1+pU_1(379.5\lambda_1)\le0.50786$ (\SU\ \key{supersolution.M1z_hyp_check}). Cost: $\hat G_{22}$ $+2.9\%$, rate margin $\times29.07\to\times28.23$.
+
+%======================================================================
+\section{Window Sobolev}\label{sec:W}
+\begin{lemma}[window Sobolev]\label{lem:W}
+Let $\rho$ be a launched centre at time $\tau$ ($\tau_\rho\le\tau$) with $56\lambda(\tau)\le\rho$ and $1.5\rho\le r_\chi\lambda_1$, and let $\E^\rho_j(\tau)\le B_j$, $j=0,1,2$. Then on the window $r\in[\rho,1.5\rho]$
+\[
+|v|\le S_0(B):=\Bigl(\frac{B_0}{w_{\min}\ell_1}+\frac{2\sqrt{B_0B_1}}{w_{\min}}\Bigr)^{1/2},\qquad |z_1|\le S_1(B):=\Bigl(\frac{B_1}{w_{\min}\ell_1}+\frac{2\sqrt{B_1B_2}}{w_{\min}}\Bigr)^{1/2},
+\]
+hence $|f|\le\bar U+S_0(B)$ and $|yf_y|\le p\bar U+S_1(B)$ there, with $\bar U=U_1(1.5\rho)$.
+\end{lemma}
+\begin{proof}\tP\ On the window $\eta=1$ (as $y\ge56$), $\chi=1$ (as $r\le r_\chi\lambda_1$), $D\phi\ge1$ and $W\ge w_{\min}$ ($\sigma\in[0,\ell_1]$), so $\int_{\rm win}z_k^2\le B_k/w_{\min}$. Apply Lemma~\ref{lem:S} with $\Xi=1$, $\ell=\ell_1$, $u=z_0$ and $u=z_1$. Finally $f=U_1+v$, $yf_y=pU_1+z_1$, and $U_1$ is increasing in $r$.
+\end{proof}
+\noindent\emph{Covering.} Every point of zones I/II, $r\in[56\lambda(\tau),r_\chi\lambda_1)$, lies in such a window: take $\rho=r$ if $r\le r_\chi\lambda_1/1.5$, else $\rho=r_\chi\lambda_1/1.5$ ($\ge56\lambda_1\ge56\lambda(\tau)$) \tP. Late centres have $\rho<56\lambda_1$, so $\bar U\le U_1(84\lambda_1)$; present centres in a $y_c$-cell use $\bar U$ at the right end of the cell (\SU\ \key{margins.present_rows[].Ubar}).
+
+%======================================================================
+\section{The bootstrap}\label{sec:boot}
+\subsection{Standing facts}
+As v3.2 \S4.1, quoted from the literature \tH: (P1) local well-posedness and continuation for smooth closed immersed data, with smoothness of the solution on compact time intervals; (P2) modulation along the flow; (P3) continuity of all controlled quantities in $\tau$. In addition we use, as in v3.2, that on the bootstrap interval the curve is a graph over the $S_1$ ray on $\{y\ge28,\ r\le379.5\lambda_1\}$ (from B2$'$, B3U(b), B4/D5a), so $f$ and $z_j$ are smooth there.
+
+\subsection{Lemma N (H-O derived)}
+\begin{lemma}[N]\label{lem:N}
+Assume B3U(a) at the level $\beta\Bh$, B3U(b), and Z2, Z3 of D5a. Then on the outer annulus $O=\{350\le y\le700\}$ of (A), for $\tau\in[\tau_1,\tau']$: H-O1, $|f|\le\frac12$, $|yf_y|\le1$; and H-O2$'$, $\sup_\tau\int_O(z^A_k)^2ds\le\Nb_k^2$ with
+\[
+\Nb_k^2=2\Bigl(\sqrt{\beta\Bh_k/w_{\min}}+p^kc_{\delta U}700^p\sqrt{\ell_1}\Bigr)^2+n^{\rm III}_k .
+\]
+\end{lemma}
+\begin{proof}\tP\ Split $O$ at $r=r_\chi\lambda_1$. The part with $r\ge r_\chi\lambda_1$ is nonempty only for $\tau-\tau_1\le\tau_{\rm III}=\ln(700/r_\chi)/c^-\le4.0708$ \tC\ (\SZ\ \key{tau_III}); there the box $|f|\le0.22757$, $|rf_r|\le0.54234$ ($\times2.19$, $\times1.84$ against $(\frac12,1)$, \key{box_III_700}) and $\int(z^A_k)^2\le n^{\rm III}_k$, $n^{\rm III}\le(0.071446,0.32707,3.0445)$ \tC\ (\key{n_III}) are Z2, Z3. The part with $r<r_\chi\lambda_1$ has $s$-length $\le\ln2<2\ell_1$ and is covered by two windows $[\rho_i,1.5\rho_i]$ with $1.5\rho_i\le r_\chi\lambda_1$ and $\rho_i\ge\frac{350}{1.5}\lambda(\tau)>56\lambda(\tau)$, so both are launched; on each, $\int z_k^2\le\beta\Bh_k/w_{\min}$ (as in Lemma~\ref{lem:W}). Then $z^A_k=z_k+\partial_s^k\delta U$ with $|\partial_s^k\delta U|\le p^kc_{\delta U}700^p$ (Lemma~\ref{lem:dU}); Minkowski on each window, and $(a+b)^2$ summed over two windows. The box on $r<r_\chi\lambda_1$ is B3U(b), inside $(\frac12,1)$.
+\end{proof}
+\noindent At $\beta=2$ and the certified $\Bh$: $\Nb^2\le(0.071473,0.33010,5.0344)$, below $4\times$\key{N2_ref} (ratios $0.18,0.42,0.26$) \tC\ (\SU\ \key{supersolution.N2}). Rule: \SA\ \key{lemmaN}.
+
+\subsection{Bootstrap set}
+$\mathrm{BS}_U(\tau')$: on $[\tau_1,\tau']$,
+\begin{description}[leftmargin=1.2em,itemsep=1pt]
+\item[B1] as v3.2 (barrier of the verifier, now \fn{fin12f4}).
+\item[B2$'$] core $y\in[28,60]$: $\sup|v_A|\le0.0153$, $|f|\le0.11$, $|yf_y|\le0.52$; $E^A_j\le\beta_A\Eh_j$, $\beta_A=2$ (v3.3), $E^A$ over $[14,700]$.
+\item[B3U] (a) $\E^\rho_j(\tau)\le2\Bh_j$ for every centre with $\tau_\rho\le\tau$, $j=0,1,2$; (b) $|f|\le0.15$, $|yf_y|\le0.52$ on $\{y\ge56,\ r<r_\chi\lambda_1\}$; (c) $|v|\le0.16$ there.
+\item[B4] the a-priori bounds of Lemma~O on the fixed-$L$ family of task 5: cone members $L=50\lambda_1$, $X=3$, centres $[300,380]\lambda_1$, $(M,K)=(0.12,0.18)$; far members $L=113\lambda_1$, $X=2$, centres $\ge490\lambda_1$ (a subset of v3.2's far family), $(M,K)=(0.15,0.3)$.
+\end{description}
+B3 of v3.2 is dropped. $(\Eh,\Bh)$ are the certified numbers of Proposition~\ref{prop:close}.
+
+\noindent\emph{The level $\beta_A$.} The only consumer of $E^A$ at the hypothesis level is the verifier (D1), through the flux constants $K_0,K_2$, which are linear in $E^A$ (\fn{assembly_arb.py}, \fn{f4b}). Lemma~U, Lemma~\ref{lem:D} and Lemma~\ref{lem:N} use the derived $\Eh$. The open--closed argument needs only $\Eh<\beta_A\Eh$. Written parametrically: any $\beta_A>1$ with $\beta_AK_i(\Eh)\le\fn{FLUX}_i$ is admissible. v3.3: $\beta_A=2$, $\fn{FLUX0}=1.64\cdot10^{-20}$, $\fn{FLUX2}=8.0\cdot10^{-20}$ (verifier rerun with the flux inputs $\times4$, \fn{step3nl_v33/V33_VERIFIER.md}); margins $\fn{FLUX0}/(2K_0(\Eh))\ge3.505$, $\fn{FLUX2}/(2K_2(\Eh))\ge6.196$ \tC\ (\SA\ \key{core.flux_margin.2}). B3U keeps the factor $2$.
+
+\subsection{Order}
+\begin{center}\small\begin{tabular}{@{}p{0.12\linewidth}p{0.48\linewidth}p{0.34\linewidth}@{}}\toprule
+step & consumes & produces\\\midrule
+D1 verifier & B1; B2$'$ ($S_0^v,S_1^v$ on $[34.25,60]$; fluxes at $\beta_A\Eh$) & $J_m,s_m$ (H-J-W, Lemma~\ref{lem:HJ}); $\bar a,\bar b,\bar\beta$; ramp values\\
+D5a & B4; (H5) and the hand-off data of zone III; horizon from D1 & Z1--Z3; $N_k^2$, $\Delta^R$, $\Delta^{R,b}$\\
+D3$'$ (A) & D1; (H2), (H2f); B2$'$ box; box on $(60,350]$: B3U(b,c) for $r<r_\chi\lambda_1$, Z1 beyond; on $O$: Lemma~\ref{lem:N} with $\beta=2$ & $E^A\le\Eh$; $\gamma'$; $C0,C1$ (Lemma~\ref{lem:D}); core box strictly\\
+U-crude & $\Eh,C0,C1$ (D3$'$); D1; (H2), (H3), $\alpha_1$; box: B2$'$, B3U, Z1; neighbours at $2\Bh$ (B3U(a)); $\Delta^R$ (D5a) & $\E^\rho_j\le\Bh_j$ (Prop.~\ref{prop:U}); B3U(b,c) strictly (Lemma~\ref{lem:W})\\
+U-fine & U-crude, centres $\rho\in[150,168.67]\lambda_1$ & $K_2,K_3$ on $[150,r_\chi)\lambda_1$ (Prop.~\ref{prop:fine})\\
+D5b / H6 & D5a; (H5); U-fine & B4 strictly\\
+D6 & D1 & B1 strictly\\\bottomrule\end{tabular}\end{center}
+D5a uses neither B2$'$ nor B3U. (A) uses Lemma~U only through B3U at the hypothesis level; U-crude uses the \emph{derived} $\Eh,C0,C1$. H-O is not a hypothesis: it is Lemma~\ref{lem:N}. No step uses its own conclusion.
+
+\subsection{Closure}
+Write $\mathcal A_j(\beta)$ for (A)'s level-$j$ bound with outer data $\Nb(\beta)$ of Lemma~\ref{lem:N}: $\mathcal A_j(\beta)=E^{A,0}_j+\frac1{\gamma'_j}\bigl(\sum_k\kappa^o_{jk}\Nb_k(\beta)^2+2\sum_{k<j}\hat G^{\rm core}_{jk}28^{-4}(\mathcal A_k-E^{A,0}_k)\bigr)$ (\SA\ \key{EA_of_N2}, \key{EA0}), and $C1(\beta)$ as in Lemma~\ref{lem:D}. Write $\mathcal U_j(\beta)$ for the supremum over centres of $\B_j$ of Proposition~\ref{prop:U} with $\Eh=\mathcal A(\beta)$, $C0,C1(\beta)$ and $\Bh'=\beta\Bh$.
+\begin{proposition}[closure]\label{prop:close}
+Let $\Eh,\Bh\in(0,\infty)^3$ satisfy
+\begin{enumerate}[label=(K\arabic*),leftmargin=2.6em,itemsep=1pt]
+\item $\mathcal A_j(2)\le\Eh_j$; the core conclusions of (A) at $\Eh$ strictly inside B2$'$; fluxes at $\beta_A\Eh$ below \fn{FLUX0}, \fn{FLUX2};
+\item $\mathcal U_j(2)\le\Bh_j$ for the late centre and every present $y_c$-cell of a cover of $[56,253]$;
+\item window Sobolev at the centres' own bounds: $\bar U+S_0<0.15$, $p\bar U+S_1<0.52$, $S_0<0.16$ for the late centre and every present cell of a cover of $[56,168.67]$; and $S_1(2\Bh)\le M_1^z$;
+\item Z1--Z3; H-J-W; (R2), (R$<$2); the segment conditions of (A) at the box;
+\item D5b and D6 as in v3.2, with U-fine;
+\item at $\tau_1$: $H_2+H^f_2<\Eh$ componentwise, and the hand-off gives B1, the B2$'$ box and B4.
+\end{enumerate}
+Then $\mathrm{BS}_U$ holds on $[\tau_1,\tau_{\max})$.
+\end{proposition}
+\noindent\emph{Certified values} \tC: (K1) \SU\ \key{supersolution.K1_ok}, with $\Eh\le(1.1879\cdot10^{-6},1.0391\cdot10^{-4},0.056589)$ (\key{supersolution.EA}); core $S_0^v\le7.1375\cdot10^{-3}$, margin $\times2.143$ against $0.0153$, core M1 $\times4.442$, M0 $\times5.463$, core $\hat G_{22}$ $\times1.917$, ramp M1 $\times1.184$ (\SA\ \key{core.margins}); fluxes as above. (K2) \key{supersolution.K2_ok}, $\Bh\le(4.8732\cdot10^{-6},5.5667\cdot10^{-4},0.36561)$ (\key{supersolution.Bhat}; fixed point of $\Bh=\mathcal U(2)$ times $1+10^{-6}$, then verified in arb; per-cell slack \key{supersolution.slack_K2}). (K3) \key{supersolution.K3_ok}: late M1 $\times2.358$, late M0 $\times4.900$, present M1 $\ge\times2.775$ (at $y_c\in[56,60]$), present M0 $\ge\times2.225$ (at $[159,168.67]$), M0z $\ge\times13.04$ (\key{margins}). (K4) \S\ref{sec:outer}, Lemma~\ref{lem:HJ}, (U2); segments \SA\ \key{segments} (both boxes true). (K5) Proposition~\ref{prop:fine}. (K6) $H_2+H^f_2=(1.01\cdot10^{-6},6\cdot10^{-6},1.01\cdot10^{-3})$ (\SA\ \key{IC.E_tau1}) $<\Eh$ (thinnest $\times1.17$ at level 0); B1, B2$'$, B4 at $\tau_1$ from (H1)--(H5) \tH\ as in v3.2, B4 for the fixed-$L$ geometry pending task~6.
+
+\begin{proof}\tP\ \emph{Implication step.} Assume $\mathrm{BS}_U(\tau')$. Follow the order table. D1 and D6 use B1, B2$'$ (fluxes at $\beta_A\Eh$ by (K1)) and give H-J-W and B1 strictly. D5a uses B4 and D1 only, and gives Z1--Z3, $N_k^2$, $\Delta^R$. For D3$'$: Lemma~\ref{lem:N} with $\beta=2$ turns B3U, Z2, Z3 into H-O1, H-O2$'$; the box on $(60,350]$ is B3U(b,c) where $r<r_\chi\lambda_1$ and Z1 beyond; Proposition R5$'$ and the certified (A) give $E^A\le\mathcal A(2)\le\Eh<\beta_A\Eh$ by (K1), the core box strictly, and Lemma~\ref{lem:D} with $C0$, $C1(2)$. U-crude: Proposition~\ref{prop:U} with these data, neighbour energies $\le2\Bh$ (B3U(a)), the box (U1) and (K4) gives $\E^\rho_j(\tau)\le\B_j\le\mathcal U_j(2)\le\Bh_j<2\Bh_j$ for every launched centre and every $\tau\in[\tau_\rho,\tau']$, by (K2); here present centres in a $y_c$-cell are bounded by the cell value (all sweeps and launch constants are monotone in $y_c$, \S\ref{sec:D}). Lemma~\ref{lem:W} with these bounds and the covering of \S\ref{sec:W} gives B3U(b,c) strictly by (K3). U-fine and D5b give B4 strictly by (K5). So every inequality of $\mathrm{BS}_U$ holds on $[\tau_1,\tau']$ with a strictly smaller right-hand side; moreover the strict versions have a uniform gap: $E^A\le\Eh$, $\E\le\Bh$, and the boxes with the margins quoted.
+
+\emph{Nonempty.} At $\tau_1$ only present centres exist. $E^A_j(\tau_1)\le H_{2,j}+H^f_{2,j}<\Eh_j$ by (K6) (Remark~IC of \fn{STATEMENTS_r2.tex}: $\eta_A\le1$, $z^A_j(\tau_1)=\partial_s^j(f-U_1)$). $\E^\rho(\tau_1)\le\mathcal L(y_c)\le\B\le\Bh$ by Lemma~\ref{lem:launch}(a) and (K2). B3U(b,c) at $\tau_1$ follow from these by Lemma~\ref{lem:W} and (K3). B1, B2$'$ box, B4 by (K6). Hence $\mathrm{BS}_U(\tau_1)$.
+
+\emph{Closed.} Let $\tau^*=\sup\{\tau':\mathrm{BS}_U(\tau')\}$ and suppose $\tau^*<\tau_{\max}$. Each condition of $\mathrm{BS}_U$ is of the form $Q(\tau)\le c$ for a quantity continuous in $\tau$ ((P3)), except B3U(a), which is $\sup_{\rho:\tau_\rho\le\tau}\E^\rho_j(\tau)\le2\Bh_j$. The map $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ is jointly continuous on the closed set $\mathcal K=\{(\tau,\rho):\tau\ge\tau_\rho,\ 0<\rho\le r_\chi\lambda_1\}$ \tP: the integrand $\Psi_\rho z_j^2$ is continuous in $(s,\tau,\rho)$ ($\Psi_\rho$ depends on $\rho$ through $W(s-\ln(\rho/\lambda(\tau)))$, smooth; $z_j$ smooth by (P1) and the graph property; $\lambda$ continuous by (P2)), and for $\tau$ in a compact interval the support lies in the compact set $\{28\le y,\ r\le379.5\lambda_1\}$, so dominated convergence applies. The launch set $\{\rho:\tau_\rho\le\tau\}=[56\lambda(\tau),r_\chi\lambda_1]$ varies continuously with $\tau$ ($\lambda$ continuous, strictly decreasing). Hence $\{\tau:\ \sup_{\rho:\tau_\rho\le\tau}\E^\rho_j(\tau)\le2\Bh_j\}$ is closed, and $\mathrm{BS}_U(\tau^*)$ holds.
+
+\emph{Open.} By the implication step, on $[\tau_1,\tau^*]$ every quantity is below its derived bound, which is strictly below the bootstrap level. Continuity of the finitely many scalar quantities gives the strict inequalities on $[\tau^*,\tau^*+\delta]$. For B3U(a), use uniform continuity of $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ on the compact set $\mathcal K_1=\{(\tau,\rho)\in\mathcal K:\tau\in[\tau_1,\tau^*+1],\ \rho\ge56\lambda(\tau^*+1)\}$. Centres launched by $\tau^*$ have $\E\le\Bh$ at $\tau^*$, so $\E<2\Bh$ on $[\tau^*,\tau^*+\delta]$. A centre launched at $\tau_\rho\in(\tau^*,\tau^*+\delta]$ has $\rho\in[56\lambda(\tau^*+\delta),56\lambda(\tau^*))$, and its point $(\tau_\rho,\rho)$ lies within distance $o(1)$ (as $\delta\to0$) of $(\tau^*,\rho_0)$, $\rho_0=56\lambda(\tau^*)$, which is launched at $\tau^*$ with $\E^{\rho_0}(\tau^*)\le\Bh$; by uniform continuity on $\mathcal K_1$, $\E^\rho(\tau)<2\Bh$ for $\tau\in[\tau_\rho,\tau^*+\delta]$ once $\delta$ is small. (No launch bound at the hypothesis level is needed here; the launch bound $\mathcal L\le\Bh$ of a centre launched later is part of the implication step for the next $\tau'$.) Hence $\mathrm{BS}_U(\tau^*+\delta)$, contradicting the definition of $\tau^*$. So $\tau^*=\tau_{\max}$, and $\mathrm{BS}_U$ holds on $[\tau_1,\tau_{\max})$.
+\end{proof}
+
+\begin{definition}[loop gain]\label{def:gain}
+$G_j:=(\mathcal U_j(2)-\mathcal U_j(0))/\Bh_j$. A fixed point of $\Bh=\mathcal U(2)$ needs $G<1$.
+\end{definition}
+\noindent Certified \tC\ (\SU\ \key{loop_gain}): $G\le(1.22\cdot10^{-7},0.037169,0.039035)$; at level 2, $0.037017$ through the neighbour launch term ($2q^D$) and $0.0020171$ through (A) (Lemma~\ref{lem:N}). The fixed-point iteration converged in 9 steps; (K2) is then verified directly, so $G$ is a diagnostic, not an input.
+
+%======================================================================
+\section{U-fine (statement)}\label{sec:fine}
+\begin{proposition}[U-fine]\label{prop:fine}
+Under the hypotheses of Proposition~\ref{prop:U}, every present centre with $\rho\in[150,168.67]\lambda_1$ satisfies $\E^\rho_j\le\Bh^{\rm fine}_j$ on $[\tau_1,\tau']$, $\Bh^{\rm fine}\le(4.8717\cdot10^{-6},2.6258\cdot10^{-4},0.025780)$ \tC\ (\SU\ \key{ufine.Bhat}: maximum of $\B_j$ over the cells $[150,159]$, $[159,168.67]$). The windows $[\rho,1.5\rho]$ with $\rho=150\lambda_1$ and $\rho=r_\chi\lambda_1/1.5$ cover $[150,r_\chi)\lambda_1$ and do not enter the ramp; Lemma~\ref{lem:W} gives, in cylinder units $L_c=50\lambda_1$, $K_2\le0.046937$ and the strip part $K_3\le0.054081$ against $0.18$ \tC\ (\SZ\ \key{ufine.K2_at_Bhat_ref}, \key{ufine.K3_strip_at_Bhat_ref}). With D5a on the fixed-$L$ family, H6 (D5b) holds with minimum margin $\times1.860$ (far $K_3$), cone slope $\times2.46$, cone $K_2$ $\times2.54$, cone $K_3$ $\times2.51$, and $t^*$ margin $\times2.30$ \tC\ (\SZ\ \key{cone_family.H6.at_Bhat_ref}, \key{acceptance}).
+\end{proposition}
+\noindent $\Bh^{\rm fine}$ is not a separate hypothesis: it is the value of $\B$ at those centres in Proposition~\ref{prop:U}, so it is derived inside U-crude at the conclusion level. Task 5's design requirement ($\Bh^{\rm fine}_2\le0.106$ with $\Bh^{\rm fine}_0\le5\cdot10^{-6}$, $\Bh^{\rm fine}_1\le10^{-3}$) is met; its thinnest entry is $\Bh^{\rm fine}_0$ at $\times1.026$, but H6 is computed at the actual $\Bh^{\rm fine}$, so that requirement is a design target, not an inequality of the proof.
+
+%======================================================================
+\section{Certified inputs}\label{sec:table}
+{\small
+\begin{longtable}{@{}p{0.27\linewidth}p{0.20\linewidth}p{0.08\linewidth}p{0.38\linewidth}@{}}
+\caption{Inputs of Lemma U and of its bootstrap. \SA, \SU, \SZ\ as on page 1.}\label{tab:cert}\\
+\toprule quantity & value & label & source (file: key; script)\\\midrule\endfirsthead
+\toprule quantity & value & label & source\\\midrule\endhead
+$\bar a=\bar b$, $\bar\beta$ & $2.19103\cdot10^{-7}$, $3.33811\cdot10^{-9}$ & \tC & verifier \fn{fin12f4}, \fn{V33_VERIFIER.md} l.32--33\\
+H-J-W $\kappa_J$ & $\le0.042351$ & \tC & \SA: \key{HJW.kappa_J}; \fn{hjw_rep.py}\\
+$\Eh$ & $(1.1879\cdot10^{-6},1.0391\cdot10^{-4},0.056589)$ & \tC & \SU: \key{supersolution.EA} ($=\mathcal A(2)$, rule \SA\ \key{EA_of_N2})\\
+$\gamma'$ & $\ge(0.24292,0.24106,0.11961)$ & \tC & \SA: \key{gp}\\
+$\kappa^o_{jk}$ & matrix ($\kappa^o_{22}\le1.243\cdot10^{-5}$) & \tC & \SA: \key{kappa_o}; \fn{outer_L2.py}\\
+$D^{\rm src}$, $\rho_J$, $r_k$, $a_c$ & $(1.7382\cdot10^{-7},9.7841\cdot10^{-5})$, $5.4995\cdot10^{-7}$, $1.249$, $\ge0.97623$ & \tC & \SA: \key{Dsrc}, \key{rhoJ}, \key{r_export}, \key{amin_c}\\
+$C0$, $C1$ & $(1.1168\cdot10^{-6},1.6546\cdot10^{-4})$, $(8.074\cdot10^{-10},1.2158\cdot10^{-8})$ & \tC & \SU: \key{supersolution.C0}, \key{.C1}\\
+fluxes at $\beta_A=2$ & $\times3.505$, $\times6.196$ & \tC & \SA: \key{core.flux_margin.2}\\
+core $S_0^v$, M1, M0, $\hat G_{22}$ & $\times2.143$, $\times4.442$, $\times5.463$, $\times1.917$ & \tC & \SA: \key{core.margins}\\
+$E^A(\tau_1)$ rule & $H_2+H^f_2$ & \tP & \SA: \key{IC}\\
+$\Gamma_m,\tilde\kappa,\tilde\kappa_2$ of $\Theta\phi$ & $(4.0000358,16.000322,64.00218)$, $8.0000358$, $64.00061$ & \tC & \SU: \key{Gamma}, \key{kappa}, \key{kappa2}; \fn{u1_ghat.py}\\
+$\hat G_{jk}$ & $\hat G_{22}\le348341.1$ & \tC & \SU: \key{Ghat}\\
+$g$, $D(56)$, $D(28)$, $\theta(28)$ & $361147$, $1.0368$, $1.5876$, $0.37011$ & \tC & \SU: \key{g}, \key{D56}, \key{D28}, \key{theta28}\\
+(R2), (R$<$2) margins & $\times28.231$; $\times4.432,\times6.697$ & \tC & \SU: \key{rate_margin}, \key{R_lt2_margin}\\
+$K_{jk}$, $\mathrm{footw}$ & table of Step 3; $(0,2.6361,2663.3)$ & \tC & \SU: \key{K}, \key{footw}; \fn{u2_K.py}\\
+$c_{33}$, $c_{223}$, $C_\eta$, $L_{\max}$, $R$ & $108.03$, $7.3284$, $13.376$, $3.5352$, $11.593$ & \tC & \SU: \key{c33}, \key{c223}, \key{C_eta}, \key{L_max}, \key{R_ratio}\\
+sweeps at $y_c=56$ & $\Sigma_{\rm in}5.0892$, $\Sigma_E0.30846$, $S_X1.5243$, $\Sigma_X3.0081$, $\Sigma^{(2)}_{\rm rs}4.335\cdot10^{-3}$ & \tC & \SU: \key{sweeps}; \fn{u34_sweeps.py}\\
+monotonicity of sweeps in $x$, $y_c$ & & \tP & \S\ref{sec:D}\\
+launch: $C_A^D$, $q^D$, $\Delta^{\rm in}$, $c_2$, $c_3$ & $2.2429$, $0.018509$, $\le3.451\cdot10^{-12}$, per cell & \tC & \SU: \key{launch.*}\\
+$w_{\min}$, $c_{\delta U}$ & $\ge0.73492$, $\le1.7187\cdot10^{-8}$ & \tC & \SU: \key{launch.wmin}, \key{launch.c_dU}\\
+$\Phi_j$ (late) & $\le3.8404\cdot10^{-8}$ & \tC & \SU: \key{launch.Phi}\\
+$c'_j$ & $(0.0520,0.1446,0.4324)$ & \tP & v3.2 Prop.~B$'$ (l.245)\\
+Z1 box on $[253,379.5]\lambda_1$ & $(0.10032,0.41974,0.014291)$ & \tC & \SZ: \key{box_III_380}; \fn{z3lib.py}\\
+Z2 box on $[253,700]\lambda_1$ & $(0.22757,0.54234)$ & \tC & \SZ: \key{box_III_700}\\
+$n^{\rm III}$, $\tau_{\rm III}$ & $(0.071446,0.32707,3.0445)$, $4.0708$ & \tC & \SZ: \key{n_III}, \key{tau_III}\\
+$N_k^2$ (outer ramp) & $(8.28\cdot10^{-5},0.10149,1.3567,25350)$ & \tC & \SZ: \key{DeltaR_detail.N_sq}\\
+$\Delta^R$, $\Delta^{R,b}$ & $(4.4986\cdot10^{-8},6.7955\cdot10^{-6},0.011480)$, $\le4.35\cdot10^{-8}$ & \tC & \SZ: \key{DeltaR}, \key{DeltaR_b}; \fn{ramp_U.py}, \fn{zone3.py}\\
+covering of the ramp by members & true & \tC & \SZ: \key{acceptance.covering_asserts}\\
+$\Bh$ & $(4.8732\cdot10^{-6},5.5667\cdot10^{-4},0.36561)$ & \tC & \SU: \key{supersolution.Bhat}; \fn{assemble_U.py}\\
+$\Nb^2$ at $\beta=2$ & $(0.071473,0.33010,5.0344)$ & \tC & \SU: \key{supersolution.N2}\\
+(K1)--(K3) & true & \tC & \SU: \key{supersolution.K1_ok,K2_ok,K3_ok}\\
+window margins & late M1 $\times2.358$, M0 $\times4.900$; present M1 $\times2.775$, M0 $\times2.225$ & \tC & \SU: \key{margins}\\
+$M_1^z$ checks & $0.28528$, $0.50786\le0.534$ & \tC & \SU: \key{supersolution.M1z_hyp_check}\\
+loop gain & $\le0.039035$ & \tC & \SU: \key{loop_gain}\\
+U-fine $\Bh$, $K_2$, $K_3$, H6 & $(4.8717\cdot10^{-6},2.6258\cdot10^{-4},0.025780)$; $0.046937$; $0.054081$; $\times1.860$ & \tC & \SU: \key{ufine}; \SZ: \key{ufine}, \key{cone_family.H6}\\
+Lemmas T, launch, D, layer cake, comparison, S, W, N; Prop.~U assembly; open--closed & & \tP & this text\\
+(H1)--(H5), (H2) tightened, (H2f), $\alpha_1$, fixed-$L$ cylinder data & see \S\ref{sec:hyp} & \tH & hand-off\\
+(P1)--(P3), graph property; verifier tail lemma (W2) & & \tH & literature / v3.2\\\bottomrule
+\end{longtable}}
+
+%======================================================================
+\section{What remains a hypothesis}\label{sec:hyp}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{(H2), tightened}: $E_j(t_1)\le(10^{-8},10^{-6},10^{-3})$ on $[14,60]$. Step 4 meets it by $\times25.7$ or more (\fn{gonogo}, C2), but it is a v3.3 hand-off item to be added to the step-4 manifest by task 6.
+\item \textbf{(H3)}: window energies $\le(2\cdot10^{-7},10^{-5},10^{-5})$ on $[y_w,1.5y_w]$, $y_w\in[50,253.125]$; used by the present centres (Lemma~\ref{lem:launch}(a)) and by task 5 (Z1, Z3, $N_k^2$). Unchanged from v3.2 (step-4 margins $\times5.7,\times78.7,\times26.6$, \SZ\ \key{handoff_thresholds}).
+\item \textbf{(H2f)}: $G_j=\int_{\ln60}^{\ln700}\frac{28}y(\partial_s^j(f-U_1))^2ds\le(10^{-6},5\cdot10^{-6},10^{-5})$ at $t_1$; the datum of (A) beyond $y=60$. \emph{Not certified on step-4 data}: task 6 (approved by Micah) must certify it. Probe on the base curve only: $(3.13\cdot10^{-7},1.00\cdot10^{-6},2.43\cdot10^{-6})$ \tE, i.e.\ about $\times3.2$, $\times5$, $\times4$ before the error term.
+\item \textbf{$\alpha_1$}: $|\alpha(\tau_1)|\le1.5\cdot10^{-4}$ (step 4: $\times1.27$).
+\item \textbf{(H5) and Lemma~O data for the fixed-$L$ cone cylinders} ($L=50\lambda_1$, $X=3$, centres $[300,380]\lambda_1$): slope $\le0.08$, $|h_0''|\le0.03$, $\|h_0'''\|_{L^2}\le0.004$, jets $\le0.12$, $\int(h_0^{(5)})^2\le0.0144$, graph with $\sup|h_0|\le H-0.00227$ (\SZ\ \key{step4_reruns}). New geometry: step-4 stages \fn{t9_cone_kch}, \fn{h4loc}, Lemma~O H1 to be rerun (task 6). Far data unchanged (centres $\ge490$ are a subset).
+\item \textbf{(P1)--(P3)} and the graph property, as in v3.2 (literature).
+\item \textbf{Verifier tail lemma} (W2 of Lemma~\ref{lem:HJ}): taken from the verifier, not rerun.
+\end{enumerate}
+Given these, every inequality used in Proposition~\ref{prop:U} and Proposition~\ref{prop:close} is either proved here \tP\ or tied to one key of \SA, \SU\ or \SZ.
+
+%======================================================================
+\section{Gaps and items for other tasks}\label{sec:gaps}
+No mathematical gap that the certified inputs do not cover was found. The items below are bookkeeping, or checks that a reviewer should make on the code; none changes a margin at the quoted digits.
+\begin{enumerate}[label=(G\arabic*),leftmargin=2.6em,itemsep=2pt]
+\item \emph{(task 4/2) $\beta_A$ label.} \SU\ records \key{supersolution.beta_A} $=1.25$, read from the \key{beta_A} field of \SA, which still says \fn{5/4} although v3.3 adopts $\beta_A=2$ (\fn{V33_A_REPORT.md}). Lemma~U does not consume $\beta_A$ (only the flux rows of (K1) do, and those are cited at $\beta_A=2$ from \key{core.flux_margin.2}). Relabel in the next export.
+\item \emph{(task 4) verifier provenance.} \fn{t4lib.verifier_sups} reads $\bar a,\bar\beta$ from \fn{step3nl/verifier/final_alpha_points_5e-8.json} (fin11). The v3.3 verifier is \fn{step3nl_v33}; the six-digit round-ups agree (\fn{V33_VERIFIER.md} l.32--33), so no number changes; repoint the path for v3.3 records.
+\item \emph{(task 4) $b$-term constants.} \fn{assemble_U.py} uses $C_1=5$, $C_2=8$; the proof needs $\Gamma_1(\Theta)+\dots$ with $\Gamma_1(\Theta)\le4+5.4\cdot10^{-22}$. Effect $\sim10^{-25}$ relative on a $5\cdot10^{-7}$ term; for rigour of the record, use the enclosure.
+\item \emph{(task 4) (R$<$2) acceptance.} The level-0 margin is $\times4.43$, below the contract's report line $5$; it is a strict inequality and enters only the coupling surplus ($\mathcal C$ is $1.3\cdot10^{-6}$ of $\B_2$). Report only.
+\item \emph{(task 5) normalisation of $N_3^2$.} Step 8 needs $N_3^2\ge(\lambda_1^4q)^{-1}\int_{t_1}^{T_{\tau'}}\int_{\rm ramp}z_3^2\,ds\,dt$, i.e.\ an \emph{integral} bound normalised by the full horizon length (so that it bounds the average over any shorter actual interval with the same prefactor $q r_\chi^{-4}$). \SZ\ describes $N_3^2$ as ``time average over the horizon''; confirm in \fn{zone3.py} / Lemma~R that it is this integral form (a sup-in-time bound would also do).
+\item \emph{(task 8) point terms.} Step 0 asserts that no step of \fn{u2_K.py}, \fn{ramp_U.py} or the $\hat G$ pipeline integrates by parts a term containing $(\eta^2)'''$ or $(\chi^2)'''$ (Lemma~P case (iii) for every cutoff part of Lemma~U). \fn{u5_enum.json} supports this for the inner ramp; the reviewer should confirm it for the outer ramp and for the global identities.
+\item \emph{(task 8) design choices to review.} (A)'s ramp coefficient box set to the core box (ramp M1 $\times1.184$, task 2 A5); the far family restricted to centres $\ge490$ (zone III $b_1$ margin $\times1.238$, task 5); $M_1^z=0.534$ per region (task 4).
+\item \emph{(task 7) wording.} The conditional statement for main\_v2 is: certified given (H2) tightened, (H2f), the fixed-$L$ cylinder data, and the literature facts; (F1) is closed by this lemma once task 6 certifies the hand-off items.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,12 @@
+  slab 10: polished in 32 it, max|E| 8.3e-34 (21s)
+  slab 11: polished in 33 it, max|E| 9.7e-34 (23s)
+  slab 12: polished in 32 it, max|E| 8.9e-34 (16s)
+  slab 13: polished in 32 it, max|E| 9.7e-34 (12s)
+  slab 14: polished in 48 it, max|E| 9.5e-34 (21s)
+  slab 15: polished in 29 it, max|E| 9.0e-34 (12s)
+slab 10 k=29.3: R2=1.4e-11 R1=3.4e-12 Rs=2.0e-12 RIs=1.1e-14 RF0=2.6e-09 RF1=9.7e-09 RF2=1.2e-07 RF3=2.7e-06 RF4=9.2e-04
+slab 11 k=30.4: R2=2.2e-14 R1=4.8e-15 Rs=4.0e-14 RIs=1.8e-17 RF0=3.8e-12 RF1=1.7e-11 RF2=2.7e-10 RF3=4.8e-09 RF4=7.9e-06
+slab 12 k=31.6: R2=2.1e-16 R1=3.5e-15 Rs=3.9e-14 RIs=2.4e-18 RF0=6.8e-12 RF1=1.6e-11 RF2=1.1e-10 RF3=1.8e-09 RF4=8.8e-07
+slab 13 k=32.8: R2=2.0e-17 R1=2.7e-15 Rs=3.9e-14 RIs=2.3e-18 RF0=5.4e-12 RF1=1.3e-11 RF2=8.6e-11 RF3=1.4e-09 RF4=2.4e-07
+slab 14 k=34.1: R2=1.8e-17 R1=2.0e-15 Rs=3.9e-14 RIs=2.3e-18 RF0=4.2e-12 RF1=1.0e-11 RF2=6.7e-11 RF3=1.1e-09 RF4=1.3e-07
+slab 15 k=35.4: R2=1.8e-17 R1=1.4e-15 Rs=3.8e-14 RIs=2.3e-18 RF0=3.1e-12 RF1=7.4e-12 RF2=5.0e-11 RF3=8.3e-10 RF4=1.1e-07

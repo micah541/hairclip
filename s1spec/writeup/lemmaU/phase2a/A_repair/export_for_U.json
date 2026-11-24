@@ -1,0 +1,59 @@
+{
+ "EA": [
+  1.960308130108919e-07,
+  9.259696881151523e-05,
+  0.06961234630043245
+ ],
+ "gp": [
+  0.24292641873299167,
+  0.2413965105460576,
+  0.12087942502425043
+ ],
+ "D": [
+  1.3992620605957208e-07,
+  7.591762653276395e-05,
+  71.37716238182412
+ ],
+ "D_slope": [
+  5.060048191097027e-09,
+  5.854409579707295e-09,
+  0.00015774633185724075
+ ],
+ "D_from_any_tau_a_with_E_tau_a_le_EA": [
+  2.924962584671689e-07,
+  0.00015103934484257786,
+  141.7303261601272
+ ],
+ "amin": 0.9762322494008643,
+ "kappa": [
+  1.249,
+  1.249,
+  0.000999
+ ],
+ "cD_constant_part": [
+  0.8703427309165411,
+  0.9996810057808048,
+  0.999980762028109
+ ],
+ "note": "D_k <= D[k] + D_slope[k]*T, T = horizon measured from tau_1 (any tau_rho >= tau_1). Horizon-free D is NOT certified: the slope (forcing 2F^2/gamma', coupling, outer rate R5 at placeholder H-O values) is a persistent per-unit-tau source. Level 2 exports only the eps4 reserve. Labels: [cert] given v3.1 hypotheses + H-O1/H-O2 placeholders (outer rate only).",
+ "args": {
+  "argv": [
+   "rigor/export_for_U.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/phase2a/A_repair",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "OMP_NUM_THREADS": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/phase2a/A_repair/out/assembly_rep.json": "5986dc39463e4c8a9ad8f051ad05a2bb357ecbc15fd3c9570f5939fa2cb02a5f",
+   "/home/claude/s1spec/writeup/lemmaU/phase2a/A_repair/out/outer_rep.json": "884597e324682e81dafd2791dab6654722e4d440e9431dc97a4ed18f491a3322",
+   "/home/claude/s1spec/writeup/lemmaU/phase2a/A_repair/rigor/export_for_U.py": "b53f1162f801049c28cbc9501f6a85605d9dedb030f9b3a71416ec0f826ee4cb"
+  },
+  "flint": "0.9.0",
+  "sympy": "1.14.0"
+ }
+}

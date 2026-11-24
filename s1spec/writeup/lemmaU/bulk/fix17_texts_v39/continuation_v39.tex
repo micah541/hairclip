@@ -1,0 +1,141 @@
+% continuation_v39.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/continuation_v38.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v39.tex; v38 retag fixes.  Not compiled.
+% continuation_v39.tex -- step 3, text v38: from the bootstrap to the theorem.  Built by fix16_texts_v38/tools/build_texts_v38.py from
+% fix12_texts/continuation_v37.tex (unchanged).  New in v38: Definition/Lemma GS replaced by the fix-14 text (GS_lemma.tex section 6;
+% X_S = 60, certified at tau_1 and strictly improved); the bootstrap is BS of bootstrap_v39.tex; (S4.1) by C-1; v37/fin13v4c numbers.
+% Standalone, or \input by step3_v37_main.tex (which defines \stepmain).  Labels are prefixed C:.
+% Not compiled (no LaTeX here); balance checked by check_balance.py, see B12_REPORT.md.
+\ifdefined\stepmain\else
+\documentclass[11pt]{article}
+\input{b12_preamble_v39}
+\input{numbers_A_v39}
+\title{Step 3, text v39: continuation, conclusion and the single singular point\\[2pt]\large replacing the uses of B3, (B) and the level-3 strip in v3.2 \S4.3--\S5}
+\author{}\date{20 November 2026 (text v39). \emph{Not compiled.}}
+\begin{document}\maketitle
+\fi
+
+\section{What this section does}\label{C:sec:intro}
+Proposition~\ref{BS:prop:close} of \fn{bootstrap_v39.tex} (with \fn{lemmaU.tex} Proposition ``closure'' for the far-field members) proves that the bootstrap set $\mathrm{BS}$ holds on $[\tau_1,\tau_{\max})$, where $\tau_{\max}$ is the end of the rescaled interval of existence. v3.2 then shows $\tau_{\max}=\infty$ (Proposition~4.1 of \fn{step3_proof_v32.tex}, l.354) and derives the conclusions (v3.2 \S5). Both arguments use quantities that v3.3 no longer has: the window bootstrap B3 and Lemma~S(B) (``(B) and Lemma~O beyond'', ``the shell energies up to level 2 (with the strip to level 3)'', ``curvature $\le S_1^f/r$ for $r\le150\lambda_1$''). This section redoes them with what v3.3 provides: B1 and the verifier (D1, D6), B2$'$ and the repaired Lemma~S(A) (\fn{lemmaS_A_v39.tex}), B3U and Lemma~U with window Sobolev and U-fine, the zone-III statements Z1--Z3 of D5a (\fn{t5_zone3/Z5_REPORT.md}), and B4 (Lemma~O on the fixed-$L$ cone family and the far family with centres $\ge490\lambda_1$).
+
+\noindent\emph{Result.} The continuation goes through with no level-3 or pointwise-$z_2$ quantity, provided the continuation criterion (P1) is used in its $L^2$ form (Proposition~\ref{C:prop:global}). In text v38 (P1$'$) and (P2$'$) are no longer bare literature items: they are the regularity lemma U-1 and Proposition~(P2$'$) of \fn{fix17_texts_v39/U1_regularity_v39.tex} \tH, whose inputs are Micah Warren's Lean theorems \fn{exists_flow_of_immersion}, \fn{flow_unique_of_immersion} \cite{CWFlow} (existence and uniqueness) and the smooth-extension step (D1) inside the proof of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002} (the criterion); see \S\ref{C:sec:cont}. This is a change of wording against v3.2, whose criterion asked for ``the curvature and its first derivatives'' and was not supplied even in v3.2 near the tip (there $\Lambda$ controls $\tilde w''$ only in $L^2_\rho$). No quantitative gap was found. The items that remain are listed in \S\ref{C:sec:gaps}.
+
+\noindent\emph{Labels} as in \fn{lemmaS_A_v39.tex}: \tC, \tP, \tH, \tE, \tB. \SU, \SZ, \SV\ denote \fn{fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json} (chain v37; sha256 \fn{645b3a80...}), \fn{fix13_v37chain/t5_zone3/out/zone3_interface.json} (\fn{9fcafb6b...}) and the verifier \fn{step3nl_v4c} (\fn{V4C_REPORT.md}, tag \fn{fin13v4c}, \fn{runs/P}). The v35 and v36 files, \fn{fin12f4} and \fn{fin13v4b} are superseded (erratum sections F, K).
+
+\section{The graph property}\label{C:sec:graph}
+v3.2 and \fn{lemmaU.tex} (\S7.1) use as a standing fact that the far curve is a graph over the $S_1$ ray. Since the boxes B2$'$, B3U(b) are statements about the slope $f$ of that graph, the property belongs inside the bootstrap. Let $\Gamma(\tau)$ be the rescaled curve and let $\Gamma_{\rm tip}(\tau)$ be its arc that contains the tip and continues along the two arms of $S_1$ (the even symmetry makes the two arms equivalent; other arcs of the immersed curve are irrelevant because CDF is local and all estimates below are arc by arc, as in v3.2 Remark~2.2).
+
+\begin{definition}[G]\label{C:def:G}
+$\mathrm{G}(\tau)$: on $\Omega(\tau):=\{14\le y,\ r\le700\lambda_1\}$ the arc $\Gamma_{\rm tip}(\tau)$ is a normal graph over the $S_1$ ray with slope $|f|\le\frac12$, and for every member of the Lemma~O families of B4 the arc is a graph over the member's cylinder as in Lemma~O (H1).
+\end{definition}
+
+\begin{lemma}[G is part of the bootstrap]\label{C:lem:G}
+Add $\mathrm{G}$ to $\mathrm{BS}_U$. Then the extended set is nonempty, closed and open in the sense of the proof of Proposition ``closure'' of \fn{lemmaU.tex}.
+\end{lemma}
+\begin{proof}\tP\ \emph{At $\tau_1$}: (H4) (graph over the ray) and (H5) (Lemma~O H1 for every member) \tH; the slope is $|f|\le0.11$ on $[28,60]$ (B2$'$ at $\tau_1$), $\le0.15$ on zones I/II (Lemma~U at $\tau_1$ with window Sobolev), $\le0.2276$ on $[253,700]\lambda_1$ (Z2) \tC. \emph{Strictness}: under the extended $\mathrm{BS}_U(\tau')$ the derived slope bounds are $|f|\le0.11$ on $[14,60]$ (the verifier's ramp value $\le7.13\cdot10^{-3}$ on $[14,28]$, i.e.\ $0.05/\times7.020454$ of \fn{A_interface.json} \key{res.tight.core.margins.ramp M0}; text v37 printed $7.12\cdot10^{-3}$, below the asserted $7.1221\cdot10^{-3}$, erratum K; B2$'$ on the core), $|f|<0.15$ on $\{y\ge56,\ r<r_\chi\lambda_1\}$ (window Sobolev, margins $\ge\times2.225$, \SU\ \key{margins}), $|f|\le0.1003$ on $[253,379.5]\lambda_1$ (Z1) and $\le0.2276$ on $[253,700]\lambda_1$ (Z2), all $<\frac12$; Lemma~O itself gives graph persistence on each cylinder up to its time $t^*$, and the horizon is below $t^*$ (B4, D5a, margins $\times2.30$ and $\times15.5$). \emph{Closed}: by (P1) the solution is smooth on $[\tau_1,\tau^*]$; $\Omega(\tau)$ is compact in physical space ($14\lambda(\tau)\le r\le700\lambda_1$), so a $C^1$ limit of normal graphs with $|f|\le\frac12$ over the fixed ray is such a graph. \emph{Open}: at $\tau^*$ the slope is $<\frac12$ with a uniform gap on the compact set $\Omega(\tau^*)$; normal graphs over a fixed $C^2$ curve with slope bounded away from the critical value are stable under $C^1$-small perturbations, and $\Omega(\tau)$ moves continuously; hence G holds on $[\tau^*,\tau^*+\delta]$.
+\end{proof}
+\noindent\emph{Hand-off range.} G at $\tau_1$ needs (H4) on $[14,700]$; v3.2's (H4) reads ``graph over the $S_1$ ray on $y\in[48,350]$'' (review M7). The verifier's decomposition covers $x\le60$ ($y\le57.75$), and the step-4 (H2f) stage evaluates $f$ on $x\in[45,725]$ (\fn{step4/p2/v33/h2f_win.py}), which implies the graph property there; the wording of (H4) must be extended to $y\in[48,700]$ (\S\ref{C:sec:gaps}, item 2).
+
+\begin{definition}[GS: graph over $S_1$ near the tip]\label{C:def:GS}
+$\mathrm{GS}(\tau)$: there is $u\in C^1([-60,60])$ with $\sup|ku|\le\frac12$, $\sup|u'|\le1$ such that $x\mapsto\Psi(x,u(x))$ reparametrises a sub-arc of $\Gamma_{\rm tip}(\tau)$ containing the tip (\fn{GS_lemma_v39.tex}, Definition GS; the range is $60$, the end of the verifier boxes; $\mathrm{GS}^\circ$, the open relaxation with $\sup|ku|<1$, $\sup|u'|<2$, defines the domain of the modulation functions, review C-5). This is the chart in which the verifier's $w$ and $E_I$ (on $x\in[10.25,60]$) are defined.
+\end{definition}
+\begin{lemma}[GS is part of the bootstrap]\label{C:lem:GS}
+GS is a member of $\mathrm{BS}$ (\fn{bootstrap_v39.tex}, Definition~\ref{BS:def}); it holds on $[\tau_1,\tau_{\max})$ with $\sup|ku|\le5.40\cdot10^{-4}$, $\sup|u'|\le0.0410$.
+\end{lemma}
+\begin{proof}\tHd, \tC. \emph{At $\tau_1$}: certified on $|x|\le60\frac14$ with $\sup|ku|\le6.52\cdot10^{-3}$, $\sup|u'|\le0.0542$ (\fn{fix14_interface/GS_tau1.json}; tube lemma T on step~4's base of slab 180, P2's boxes and the hand-off frame; \fn{GS_lemma_v39.tex} Lemma GS-1) \tC. \emph{Strictness}: under $\mathrm{BS}$ the verifier's asserted boxes, B1(b), the B2$'$ input $S^V_0$ and the cell sups of $\hat\psi_3,\hat h_2,k_{S_1}$ give $\sup|ku|\le5.3903\cdot10^{-4}$, $\sup|u'|\le0.040936$ (\fn{fix15_review/c/GS_boot_v4c.json}, on the \fn{fin13v4c} production run; Lemma GS-2) \tC. \emph{Open and closed}: Lemmas GS-3 and GS-4 of \fn{GS_lemma_v39.tex} \tHd, inside Proposition~\ref{BS:prop:close}. (The sketch of text v37 is withdrawn: its global-sup argument fails because $|u|\approx1.1$ near $x=60$; \fn{GS_lemma_v39.tex} \S6, erratum K.)
+\end{proof}
+
+\section{Uniform bounds on $[\tau_1,\tau_{\max})$, region by region}\label{C:sec:bounds}
+By Proposition~\ref{BS:prop:close}, all of the following hold for every $\tau\in[\tau_1,\tau_{\max})$, with constants independent of $\tau$. ``Pointwise $\kappa$'' means a bound on the rescaled curvature $\kappa_\Gamma$; ``$L^2$ $\kappa_s$'' means a bound on $\int(\partial_s\kappa_\Gamma)^2$ over the region (or over each window).
+\begin{center}\small\begin{tabular}{@{}p{0.2\linewidth}p{0.42\linewidth}p{0.32\linewidth}@{}}\toprule
+region (rescaled) & bounds and source & what they give\\\midrule
+tip, $x\le16.25$ & B1: $\Lambda\le L+2C'$ (barrier plus the absorbed flux constant), so $\|\tilde w\|_\rho\le5.31\cdot10^{-8}$, $\|\tilde w''\|_\rho\le\sqrt{\Lambda/\varepsilon}\le1.68\cdot10^{-5}$ ($\varepsilon=10^{-5}$); $\max(|w|,|w'|)\le7.48\cdot10^{-4}$ on $[10.25,16.25]$ (\SV\ \key{S_ramp_max_along_trajectory}$\le\SrampV$; peak $\sqrt\Lambda\le\peakV$) & $\kappa_\Gamma-\kappa_{S_1}$ in $L^2$ (only)\\
+intermediate, $x\in[16.25,60]$ & D1: $|w'|\le\sIoneV$, $|w''|\le\sItwoV$ (\SV\ \key{far_max.sI1}, \key{sI2}); $V_2^2\le\Lambda/(\mu\varepsilon_I)$ pointwise in $\tau$ & pointwise $\kappa$; $L^2$ $\kappa_s$\\
+core $y\in[28,60]$ & B2$'$: $|f|\le0.11$, $|yf_y|\le0.52$; $E^A_j\le2\Eh_j$ ($j\le2$) & pointwise $\kappa\le C/y$; $L^2$ $\kappa_s$\\
+zones I/II: $y\ge56$, $r<253\lambda_1$ & B3U(b): $|f|\le0.15$, $|yf_y|\le0.52$; B3U(a): $\E^\rho_j\le2\Bh_j$ on every window $[\rho,1.5\rho]$ ($j\le2$) & pointwise $\kappa\le C/y$; $L^2$ $\kappa_s$ per window\\
+zone III, $[253,379.5]\lambda_1$ & Z1 (from D5a): $|f|\le0.10032$, $|rf_r|\le0.41974$; cone members of B4 & pointwise $\kappa\le C/y$\\
+$r\ge251.44\lambda_1$ & B4/D5a: on each member, $|h_{xx}|\le K_2$, $\|h_{xxx}\|_{L^2}\le K_3$ in cylinder units, slope $<\frac14$; cone $(0.18,0.18)$, far $(0.3,0.3)$ & pointwise $\kappa\le K/L_m$; $L^2$ $\kappa_s$\\\bottomrule\end{tabular}\end{center}
+The cone members (centres $[300,380]\lambda_1$, $L=50\lambda_1$) cover $[251.44,428.56]\lambda_1$ and the far members (centres $\ge490\lambda_1$, $L=113\lambda_1$) cover $r\ge379.25\lambda_1$ \tC\ (\SZ\ \key{acceptance.covering_asserts}); the rest of the closed curve at distance $\ge150\lambda_1$ from the centre is covered by the far family as in v3.2 (H5) \tH\ (see \S\ref{C:sec:gaps}, item 3). The conversion from $(f,yf_y)$ to curvature: $\Gamma_{\rm tip}$ is a normal graph $u$ over $S_1$ with $u_x=f$ (in the far field) and $u,u_x$ small relative to the local scale; then $|\kappa_\Gamma-\kappa_{S_1}|\le c_g(|u_{xx}|+|\kappa_{S_1}|(|u|\,|\kappa_{S_1}|+u_x^2)+|\kappa_{S_1}'||u|)$ with a geometric constant $c_g$, and $y|u_{xx}|=|yf_y|$ \tP. Together with $|\kappa_{S_1}(y)|\le C_{S_1}/y$ on $y\ge28$ (the conical end of $S_1$; the constant is a property of the step-1 enclosures, not recomputed here) this gives $|\kappa_\Gamma|\le C/y$ on $\{28\le y,\ r<253\lambda_1\}$, i.e.\ $|\kappa_{\rm phys}|\le C/r$ in physical variables.
+
+\noindent\emph{What is not used.} No pointwise bound on $z_2$ (the level-3 box $|z_2|\le0.5$ of v3.1/v3.2 B3), no level-3 energy on the strip, and no window statement of Lemma~S(B).
+
+\section{Continuation: $\tau_{\max}=\infty$}\label{C:sec:cont}
+\noindent\textbf{Standing facts.} (P1$'$) and (P2$'$) are proved in \fn{fix17_texts_v39/U1_regularity_v39.tex} \tH\ from the cited inputs below; (P3$'$) remains a literature item \tH.
+\begin{enumerate}[label=(P\arabic*$'$),leftmargin=3em]
+\item \emph{Local well-posedness, uniqueness, and the blow-up criterion.} For a smooth closed immersed plane curve, CDF has a unique smooth solution on a maximal interval $[t_1,T_{\max})$ (Lemma ``maximal smooth solution'' of \fn{U1_regularity_v39.tex}), and if $T_{\max}<\infty$ then $\sup_{t<T_{\max}}\int_{\gamma(t)}\kappa^2ds=\infty$ (Lemma ``blow-up criterion, the form needed'' there). Inputs:
+  \begin{itemize}[leftmargin=*]
+  \item \emph{existence} (L1) \fn{exists_flow_of_immersion} and \emph{uniqueness} (L2) \fn{flow_unique_of_immersion} of the Lean development \fn{HSLflow-Whitney/CWFlow} \cite{CWFlow} (commit \fn{d72b7447edb0c830331a76152559902c23a4092e}, files \fn{Flow/Main.lean}, \fn{Flow/UniqueMain.lean}), instantiated at $E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$, $J=i$; at $n=1$ the Lean velocity is $-k_{ss}N$ with no tangential part \tS\ (\fn{U1_sym.py} S1--S4). The statements were read from source; the build was not run, and the $n=1$ instance has not been elaborated in Lean;
+  \item \emph{criterion} (D1): ``bounded $\int\kappa^2ds$ on $[0,T)$, $T<\infty$, implies smooth extension to $[0,T]$'', a step inside the proof of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002} (\fn{writeup/lit_P1/P1_CONFIRMATION.md}); the rate of Theorem~3.1, $\int\kappa^2ds\ge c(T-t)^{-1/4}$, and Chou \cite{Chou2003} are not needed;
+  \item \emph{smoothness at $t_1$} (H6/S4.1): Theorem C-1 of \fn{C1_identification_v39.tex} \tHd: the step-4 solution is the smooth Lean flow from $\Gamma_0$ on $[0,t(27.15)]\ni t_1$ (P1 identified by uniqueness in $C^0H^5\cap C^1L^2$, P2 through its a-priori form Lemma (P2-a)); step~4's sentence ``smooth for $t>0$ by parabolic regularity'' (\fn{step4_proof.tex} l.672, [A]) is no longer used; the step-4 wording is \fn{step4_handoff_v39.tex} item (3) (text v39).
+  \end{itemize}
+\item \emph{Modulation} (P2$'$): Proposition ``(P2$'$): modulation'' of \fn{U1_regularity_v39.tex}: on the closed set $\mathfrak B_{\rm mod}$ of Definition~\ref{BS:def} (GS on $|x|\le60$, the validity box, and B1 in the form $\Lambda\le L+2C'$), with the modulation functions defined on the open set $\mathcal O$ built from $\mathrm{GS}^\circ$, the modulation ODE has a $C^1$ solution, the constraints are conserved, and it continues until $t\to T_{\max}$ or the box fails \tH\ (matrix invertibility from \fn{MOD_IBP.md}, Neumann bound $\nu\le0.0466$, \tR). Theorem U-1 there also gives that $\Lambda$ and every energy used by the verifier, by Lemma~S(A) and by the flux lemma are $C^1$ in $\tau$, with their identities at every $\tau$.
+\item \emph{Continuity and interior parabolic regularity}: on a space--time region where the curve is a graph with bounded slope, bounded curvature and $\kappa_s$ bounded in $L^2$, all derivatives are bounded on interior subregions \tH\ (literature; reference to be supplied by the authors).
+\end{enumerate}
+CDF decreases length: $\frac{d}{dt}L=-\int\kappa_s^2ds\le0$, so $L(t)\le L(t_1)$ \tP.
+
+\begin{proposition}[global existence in rescaled time]\label{C:prop:global}
+$\tau_{\max}=\infty$, and $\mathrm{BS}$ (Definition~\ref{BS:def}, which contains G and GS) holds for all $\tau\ge\tau_1$.
+\end{proposition}
+\begin{proof}\tP\ Suppose $\tau_{\max}<\infty$. By B1, GS (Lemma~\ref{C:lem:GS}) and (P2$'$) the modulation exists on $[\tau_1,\tau_{\max})$ and $\lambda(\tau)\ge\lambda_*:=\lambda_1e^{-(\frac14+\bar a)(\tau_{\max}-\tau_1)}>0$; hence $T_{\max}=t_1+\int_{\tau_1}^{\tau_{\max}}\lambda^4d\tau<\infty$. We show that $\int_{\gamma(t)}\kappa^2ds$ is bounded on $[t_1,T_{\max})$, contradicting (P1$'$).
+
+Split the physical curve $\gamma(t)=p(t)+\lambda\Gamma(\tau)$ into the regions of \S\ref{C:sec:bounds}. In physical variables $\kappa=\kappa_\Gamma/\lambda$, $ds=\lambda\,ds_\Gamma$.
+(i) \emph{Tip}: $\int_{\rm tip}\kappa^2ds=\lambda^{-1}\int_{x\le16.25}\kappa_\Gamma^2ds_\Gamma\le\lambda_*^{-1}\bigl(2\sup|\kappa_{S_1}|^2\,\ell_{\rm tip}+2c_g'\int_{x\le16.25}(w''^2+w'^2+w^2)\bigr)$, where $\ell_{\rm tip}$ bounds the arclength of the tip region ($|w'|$ small) and the last integral is $\le\rho(16.25)^{-1}(\|\tilde w\|_\rho^2+\|\tilde w'\|_\rho^2+\|\tilde w''\|_\rho^2)$, bounded by B1 (the weight $\rho=\exp(-\frac14(1+x^2)^{2/3})$ is bounded below on $x\le16.25$).
+(ii) \emph{Every other region}: the physical curvature is bounded pointwise, uniformly in $t$: by $C/(14\lambda_*)$ on the intermediate zone, the core and zones I/II and zone III ($|\kappa_\Gamma|\le C/y$, $y\ge14$), and by $\max K/L_m\le0.3/(50\lambda_1)$ on the Lemma~O members. Hence $\int_{\rm rest}\kappa^2ds\le C'^2L(t)\le C'^2L(t_1)$.
+So $\sup_{t<T_{\max}}\int\kappa^2ds<\infty$, a contradiction. Hence $\tau_{\max}=\infty$; Proposition~\ref{BS:prop:close} then gives $\mathrm{BS}$ for all $\tau\ge\tau_1$.
+\end{proof}
+\noindent\emph{Which norm (P1) needs.} Only the total $L^2$ norm of the curvature. Neither $\kappa_s$ pointwise nor any level-3 quantity is needed. v3.2's proof asked for ``the curvature and its first derivatives'' and quoted the strip to level 3; near the tip it had only $\tilde w''\in L^2_\rho$, i.e.\ curvature in $L^2$, so v3.2's own argument also needs the $L^2$ form. This is the only change to the statement of (P1).
+
+\section{Conclusion}\label{C:sec:concl}
+\subsection{Scale, finite time, rate}
+Unchanged from v3.2 \S5.1--5.2, with the \fn{fin13v4c} verifier values \tC\ (\SV\ \fn{modsups_fin13v4c}): $\bar a,\bar b\le\abarV$, $\bar\beta\le\betabarV$. Since $\lambda_\tau=-(\frac14-a)\lambda$: $\lambda(\tau)\in\lambda_1e^{-(\frac14\pm\bar a)(\tau-\tau_1)}$, $\lambda\to0$; $T-t(\tau)=\int_\tau^\infty\lambda^4\in[\lambda(\tau)^4/(1+4\bar a),\lambda(\tau)^4/(1-4\bar a)]$, so $T-t_1\le\lambda_1^4/(1-4\bar a)<\infty$ and $\lambda(t)=(T-t)^{1/4}(1+O(\bar a))$ \tP. The tip curvature is $(k_0+O(\|\tilde w\|_{H^2_\rho}))/\lambda\to\infty$ with $k_0=1.539820638\ne0$ (step~1; the correction is the $L^2$-controlled deviation of \S\ref{C:sec:bounds}, so the statement is ``$\int_{\rm tip}\kappa^2ds\to\infty$'', which is what (P1$'$) needs to identify $T$ as the maximal time) \tP.
+
+\subsection{A single singular point}\label{C:sec:point}
+v3.2 \S5.3 with the far-field input replaced. The centre moves by $|p_\tau|\le C\bar b\lambda$, so $p(t)\to p_*$ with $|p_*-p(t_1)|\le C\bar b\lambda_1/(\frac14-\bar a)$ (frame convention of v3.2 \S6 item 5) \tP. Fix $r_0>0$ and $t_0<T$ with $56\lambda(t)\le r_0/2$ and $|p(t)-p_*|\le r_0/2$ for $t\ge t_0$. For $t\in[t_0,T)$, a point of $\Gamma_{\rm tip}$ at distance $\ge r_0$ from $p_*$ has $r\ge r_0/2\ge56\lambda(t)$, so it lies in zones I/II, zone III or a Lemma~O member. There:
+\begin{itemize}[leftmargin=*]
+\item for $56\lambda(t)\le r<253\lambda_1$: $|\kappa_{\rm phys}|\le C/r\le2C/r_0$ (B3U(b) with \S\ref{C:sec:bounds}; this replaces v3.2's ``curvature $\le S_1^f/r$ from the windows (B) for $r\le150\lambda_1$'');
+\item for $r\ge251.44\lambda_1$: $|h_{xx}|\le K_2$, $\|h_{xxx}\|_{L^2}\le K_3$ on every member (B4), so $|\kappa_{\rm phys}|\le0.3/(50\lambda_1)$.
+\end{itemize}
+On $[t_1,t_0]$ the solution is smooth. Hence the curvature is bounded on $[t_1,T)\times\{|\gamma-p_*|\ge r_0\}$ for every $r_0>0$, while it is unbounded at the tip. All statements are arc by arc; in the parametrisation by physical arclength from the tip, the points with bounded rescaled $y$ converge to the tip parameter as $t\uparrow T$, so the singular set in the parameter domain is the single tip parameter, whose image is $p_*$. (Other arcs, including the crossing arms of $S_1$ at rescaled distance $O(1)$, pass through $p_*$ in the limit; they belong to parameters converging to the tip parameter.) The curve stays immersed up to $T$.
+
+\subsection{Smoothness of the far curve up to $T$}
+On $\{|\gamma-p_*|\ge r_0\}$ the curve is, uniformly for $t\in[t_0,T)$, a graph with bounded slope (over the $S_1$ ray scaled by $\lambda$, or over a Lemma~O cylinder), with bounded curvature and with $\kappa_s$ bounded in $L^2$ on each window $[\rho,1.5\rho]$ (B3U(a): $\E^\rho_2\le2\Bh_2$ controls $\int(r\partial_r)^2(f-U_1)$ in the physical variable $r$, because $z_k=(y\partial_y)^k=(r\partial_r)^k$ and $U_1$ is frozen in physical space) or on each Lemma~O member. By (P3$'$) all derivatives are bounded there, $\gamma(t)\to\gamma(T)$ in $C^\infty$ away from $p_*$, and $\gamma(T)\setminus\{p_*\}$ is smooth \tP.
+
+\subsection{The conclusions (W1)--(W5), v3.3 form}\label{C:sec:W}
+For all $\tau\ge\tau_1$:
+\begin{description}[leftmargin=1.2em]
+\item[(W1) trapping] $|\alpha|\le1.5\cdot10^{-4}$, $\sqrt\Lambda\le5.31\cdot10^{-8}$ (peak $\peakV$); after the tail start the barrier decays at rate $\rho\ge\rhoTailV$ to the floor $\sqrt{\Lambda_F}\le\sqrtLFV$, and eventually $|\alpha|\le\alpha_F=\alphaFV$ \tC\ (\SV, \fn{rate_table_fin13v4c_a0.00015.json}; the whole-tail $\alpha$-condition holds with ratio lhs$/$rhs $\times\tailAlphaMarV$, review R-3 and A-2 (text v37 printed the difference lhs$-$rhs, $177.07$, as a margin); the \fn{fin12f4} values $2.6930\cdot10^{-3}$, $9.872\cdot10^{-10}$, $6.8666\cdot10^{-7}$ are superseded). With the time-integrated outer-ramp flux (flux lemma v2, \fn{flux2_lemma_v39.tex}) these hold for $Y=\Lambda-Z$, and $\Lambda\le L(\tau)+2C'$, $2C'\le\TwoCprimeV$ (relative change of $\sqrt\Lambda$ at the floor below $3\cdot10^{-8}$); $A\le5.31\cdot10^{-8}$, $W_1\le6.683\cdot10^{-7}$; $\bar a,\bar b\le\abarV$, $\bar\beta\le\betabarV$.
+\item[(W2) tip] $\max(|w|,|w'|)\le7.48\cdot10^{-4}$ on $[10.25,16.25]$; on $x\ge16.25$: $|w'|\le\sIoneV$, $|w''|\le\sItwoV$ \tC\ (\SV).
+\item[(W3) shells] $E^A_j\le\Eh_j$, $\Eh\le\EhV$ (G-A1 fixed: R-sup route, \fn{fix1/M14_REPORT.md}); core $\sup|v_A|\le\SzerovV$, $|yf_y|\le0.52/\MarMoneV$, $|f|\le0.11/\MarMzeroV$ \tC\tB.
+\item[(W4) far field] Every centre $\rho\le253\lambda_1$ launched by $\tau$ has $\E^\rho_j(\tau)\le\Bh_j$, $\Bh\le\BhV$ \tC\ (\SU\ \key{supersolution.Bhat}); on $\{y\ge56,\ r<253\lambda_1\}$: $|f|\le0.15$ and $|yf_y|\le0.52$ with the margins \UmarV, $|f-U_1|\le0.16$ \tC\ (\SU\ \key{margins}); on $[253,379.5]\lambda_1$: $|f|\le0.10032$, $|rf_r|\le0.41974$ (Z1); on $r\ge251.44\lambda_1$ the curve is a graph over the Lemma~O members with the a-priori bounds of B4, arc by arc. In particular $|f|\le0.15$ on $\{28\le y,\ r<379.5\lambda_1\}$ and the curvature is $\le C/r$ there. (This replaces v3.2's ``$|f|\le\frac12$ on $[48,R(\tau)]$ and curvature $\le S_1^f/r$''; $R(\tau)$ and $S_1^f$ are not used in v3.3.)
+\item[(W5) consequences] $\lambda\to0$, $T<\infty$, $T-t_1\le\lambda_1^4/(1-4\bar a)$, $\lambda(t)=(T-t)^{1/4}(1+O(\bar a))$, $p(t)\to p_*$, the singular set at $T$ is $\{p_*\}$, and the curve is smooth up to $T$ away from $p_*$ (\S\ref{C:sec:concl}).
+\end{description}
+
+\section{Where v3.2 used level 3, B3 or (B), and what replaces it}\label{C:sec:map}
+\begin{center}\small\begin{tabular}{@{}p{0.37\linewidth}p{0.57\linewidth}@{}}\toprule
+v3.2 (\fn{step3_proof_v32.tex}) & v3.3\\\midrule
+Prop.~4.1 (l.354--358): ``shell energies up to level 2 (with the strip to level 3)'', ``(B) and Lemma~O beyond'' & Proposition~\ref{C:prop:global}: total $L^2$ of $\kappa$ from B1, B2$'$, B3U(b), Z1, B4; no level 3\\
+\S5.3 (l.378--383): ``windows (B) (curvature $\le S_1^f/r$ for $r\le150\lambda_1$)'' & \S\ref{C:sec:point}: B3U(b) on $56\lambda\le r<253\lambda_1$, B4 on $r\ge251.44\lambda_1$\\
+\S5.4: ``graph with bounded slope over the cylinders (resp.\ over the ray in the windows)'' & same, with the windows of Lemma~U (B3U(a,b))\\
+B3 (l.296): $|f|\le\frac12$ on $[48,R(\tau)]$, window energies $\le2\times$ entry, $|z_2|\le0.5$ & B3U(a)--(c); no pointwise $z_2$\\
+D3 uses B3 as $|V|\le\frac12$ beyond $y=60$ & (A) uses B3U(b,c) and Z1 on $(60,350]$, Lemma~N on $O$\\
+D4 (windows) and D5b on the strip at levels 0--2, conditional on the inner-edge item & U-fine (levels 0--2) and D5b/H6 with margin $\times1.860$ (\fn{lemmaU.tex} Prop.~``U-fine'', \SZ\ \key{cone_family.H6})\\
+(W3), (W4) of Theorem~W & \S\ref{C:sec:W}\\\bottomrule\end{tabular}\end{center}
+
+\section{Gaps and items}\label{C:sec:gaps}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{(P1$'$), (P2$'$)} \tH: proved in \fn{U1_regularity_v39.tex} from (L1), (L2) \cite{CWFlow} and DKS (D1) \cite{DKS2002}; U-1 was reviewed (\fn{fix11_review/REVIEW_v4b_v36_proofs.md} part C: sound modulo items; text v38 applies D-1, D-5, C-5). Open there: the Lean build at commit \fn{d72b744} was not run and the $n=1$ instance ($E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$) was not elaborated (suggested check for Micah: a short Lean file instantiating both theorems); the gluing lemma and the closure of \fn{IsFlow} under the reflection are written mathematics, not Lean; (D1) is a step inside the proof of DKS Theorem~3.1, not its statement, and DKS has not been re-read (pp.~1234--35, including the uniform bounds on $\partial_s^m\kappa$ used in C-1); (H6) smoothness at $t_1$ is now Theorem C-1 (\fn{C1_identification_v39.tex}, with its own gaps).
+\item \textbf{(GS) at $\tau_1$}: certified by GS-1 (\fn{GS_tau1.json}); step~4's hand-off list with GS next to (H1) is \fn{step4_handoff_v39.tex} item (4) (text v39; \fn{step4_proof.tex} is not edited, proposed edits in \fn{STEP4_PATCH_NOTE_v39.md}). The strictness step is certified (\fn{GS_boot_v4c.json}). Both are pinned: stages 23 and 24 of \fn{FINAL_manifest_v38.json} (29 stages, \fn{be909bbf...}).
+\item \textbf{(H4) range.} G at $\tau_1$ needs the graph property on $y\in[14,700]$ (verifier zone $y\le57.75$ plus (H4)). v3.2's (H4) says $[48,350]$. The step-4 v33 (H2f) stage implies the graph property on $x\in[45,725]$; the hand-off list must state it (also review M7).
+\item \textbf{Far-family coverage} (review M9): \emph{closed}. Step 4 stage \fn{h4far_v33} (\fn{FINAL\_manifest\_v33.json}, 21 stages, \fn{8bc47e83...}; \fn{step4/p2/v33/M9_REPORT.md}), re-pinned on zone~III of chain v37 as stage 18 of \fn{FINAL_manifest_v38.json} (29 stages, \fn{be909bbf...}) (same rows, same margin), certifies Lemma~O H4 for every far centre at radius $\ge490\lambda_1$ through the far end and the mirror arm, minimum margin $\times15.58$ \tC\ (\key{M9_H4_far.min_margin}$=15.5878$). (W4) and bound (ii) in the proof of Proposition~\ref{C:prop:global} are therefore unconditional in this respect.
+\item \textbf{Constants not recomputed}: $c_g$, $C_{S_1}$ (\S\ref{C:sec:bounds}) and $\ell_{\rm tip}$ are finite geometric constants; the continuation and the single-point argument need only their finiteness. They are not certified numbers and are not quoted as such.
+\item \textbf{Inherited conventions} (v3.2 \S6 item 5): the frame convention $\lambda_\tau=-(\frac14-a)\lambda$, $p_\tau=O(\lambda b)$, and $k_0\ne0$ at the tip (here $k_0=1.539820638$ from step~1).
+\end{enumerate}
+No level-3 or pointwise-$z_2$ quantity is needed anywhere in this section.
+
+\ifdefined\stepmain\else
+\begin{thebibliography}{9}
+\bibitem{DKS2002} G. Dziuk, E. Kuwert, R. Sch\"atzle, Evolution of elastic curves in $\mathbb R^n$: existence and computation, SIAM J. Math. Anal. 33(5) (2002) 1228--1245. (Entry \fn{DziukKuwertSchatzle2002} of \fn{writeup/main/main.bib}.)
+\bibitem{Chou2003} K.-S. Chou, A blow-up criterion for the curve shortening flow by surface diffusion, Hokkaido Math.\ J.\ 32(1) (2003) 1--19. (Entry \fn{Chou2003} of \fn{writeup/main/main.bib}.)
+\bibitem{CWFlow} M. Warren, Lean development \fn{HSLflow-Whitney}, directory \fn{CWFlow/}, \fn{github.com/micah541/HSLflow-Whitney}, commit \fn{d72b7447edb0c830331a76152559902c23a4092e} (19 Nov 2026); theorems \fn{exists_flow_of_immersion}, \fn{flow_unique_of_immersion}.
+\end{thebibliography}
+\end{document}
+\fi

@@ -1,0 +1,12 @@
+alpha1=0.0005 Ly1=1.000000e-14 sqrt=1.000000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8970e-04 sqrtLy<=1.0131e-07 rate<=+0.15947 (lb +0.15868) cell 46.08s
+  k=  10 tau=  2.567 D=0.425 alpha<=2.5922e-04 sqrtLy<=1.2576e-07 rate<=+0.04723 (lb +0.04673) cell 27.39s
+  k=  11 tau=  3.083 D=0.517 alpha<=2.2714e-04 sqrtLy<=1.2827e-07 rate<=+0.03826 (lb +0.03776) cell 44.89s
+  k=  12 tau=  3.683 D=0.600 alpha<=1.9483e-04 sqrtLy<=1.3062e-07 rate<=+0.03031 (lb +0.02981) cell 45.39s
+  k=  13 tau=  4.283 D=0.600 alpha<=1.6713e-04 sqrtLy<=1.3246e-07 rate<=+0.02324 (lb +0.02274) cell 36.12s
+  k=  14 tau=  4.883 D=0.600 alpha<=1.4337e-04 sqrtLy<=1.3381e-07 rate<=+0.01695 (lb +0.01645) cell 24.78s
+  tail anchor: a*=1.4337e-04 L*=1.7905e-14  rate_s bound U=+0.01185
+  k=  15 tau=  5.483 D=0.600 alpha<=1.2300e-04 sqrtLy<=1.3487e-07 rate<=+0.01309 (lb +0.01259) cell 23.89s
+  tail anchor: a*=1.2300e-04 L*=1.8189e-14  rate_s bound U=+0.00825
+  k=  16 tau=  6.083 D=0.600 alpha<=1.0553e-04 sqrtLy<=1.3563e-07 rate<=+0.00948 (lb +0.00898) cell 25.24s
+  tail anchor: a*=1.0553e-04 L*=1.8397e-14  rate_s bound U=+0.00532

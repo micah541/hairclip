@@ -1,0 +1,36 @@
+{
+ "args": {
+  "lemmaO": "writeup/lemmaO/lemmaO_v3_consts.json",
+  "t9": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+  "t9_far": "/home/claude/s1spec/step4/p2/out/t9_far.json",
+  "C2c_at_1p6e7": 0.039448958253081104,
+  "C2f": 0.3528040000000001
+ },
+ "cone_by_overlap": {
+  "inner_ratio": 4,
+  "recovered_p_units": 0.05827957061187811,
+  "recovered_c_units": 0.23311828244751245,
+  "K2": 0.18,
+  "margin": 0.7721402118708889,
+  "max_ratio_ok": 3.0885608474835555
+ },
+ "far_by_overlap": {
+  "ratio": 1,
+  "recovered": 0.3735812592448173,
+  "K": 1.5,
+  "margin": 4.015190705851259
+ },
+ "cone_outer_from_far": {
+  "L_cone_last": 95,
+  "far_recovered_in_cone_units": 0.3140727400730765,
+  "K2": 0.18,
+  "margin": 0.5731156418036111,
+  "far_C2sqrt_needed": 0.19332800391307742
+ },
+ "far_inner_from_cone": {
+  "L_p_min": 37.5,
+  "cone_recovered_in_far_units": 0.1756157727771261,
+  "K": 1.5,
+  "margin": 8.54137402512045
+ }
+}

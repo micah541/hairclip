@@ -1,0 +1,795 @@
+{
+ "DeltaR": [
+  {
+   "arb": "[4.4985210485884276437e-8 +/- 3.10e-28]",
+   "double": 4.498521048588428e-08,
+   "label": "cert"
+  },
+  {
+   "arb": "[6.7971477313725111045e-6 +/- 5.40e-27]",
+   "double": 6.797147731372512e-06,
+   "label": "cert"
+  },
+  {
+   "arb": "[0.011479990906143129961 +/- 1.06e-22]",
+   "double": 0.011479990906143132,
+   "label": "cert"
+  }
+ ],
+ "DeltaR_b": [
+  {
+   "arb": "[2.6531349470251601275e-12 +/- 6.26e-33]",
+   "double": 2.6531349470251605e-12,
+   "label": "cert"
+  },
+  {
+   "arb": "[3.2518205063110438286e-9 +/- 2.41e-30]",
+   "double": 3.251820506311044e-09,
+   "label": "cert"
+  },
+  {
+   "arb": "[4.3471808326800395967e-8 +/- 4.03e-28]",
+   "double": 4.3471808326800404e-08,
+   "label": "cert"
+  }
+ ],
+ "DeltaR_detail": {
+  "DeltaR_b_coefficient": "8 bbar (1.875/ln1.5)/(r_chi (1 - 4 abar)) sup(D phi) N_j^2",
+  "N_sq": [
+   {
+    "arb": "[8.2799568518049885386e-5 +/- 6.13e-26]",
+    "double": 8.27995685180499e-05,
+    "label": "cert"
+   },
+   {
+    "arb": "[0.10148346774542999009 +/- 3.47e-21]",
+    "double": 0.10148346774543,
+    "label": "cert"
+   },
+   {
+    "arb": "[1.3566769290021744096 +/- 4.48e-20]",
+    "double": 1.3566769290021747,
+    "label": "cert"
+   },
+   {
+    "arb": "[25349.011276009709319 +/- 1.67e-17]",
+    "double": 25349.011276009714,
+    "label": "cert"
+   }
+  ],
+  "N_sq_meaning": "k <= 2: sup_t int_ramp z_k^2 ds; k = 3: time average over the horizon",
+  "cut": 331.5,
+  "folded_classes": [
+   {
+    "cls": [
+     0,
+     1,
+     2
+    ],
+    "level": 1,
+    "to": [
+     1,
+     2
+    ],
+    "weight": 0.006622700808892687
+   },
+   {
+    "cls": [
+     1,
+     1,
+     2
+    ],
+    "level": 1,
+    "to": [
+     1,
+     2
+    ],
+    "weight": 26.215071901861794
+   },
+   {
+    "cls": [
+     1,
+     1,
+     3
+    ],
+    "level": 1,
+    "to": [
+     1,
+     3
+    ],
+    "weight": 1.448084140810578
+   },
+   {
+    "cls": [
+     1,
+     2,
+     2
+    ],
+    "level": 1,
+    "to": [
+     2,
+     2
+    ],
+    "weight": 1.448084140810578
+   },
+   {
+    "cls": [
+     0,
+     2,
+     2
+    ],
+    "level": 2,
+    "to": [
+     2,
+     2
+    ],
+    "weight": 0.10049046520626656
+   },
+   {
+    "cls": [
+     0,
+     2,
+     3
+    ],
+    "level": 2,
+    "to": [
+     2,
+     3
+    ],
+    "weight": 0.006622700808892687
+   },
+   {
+    "cls": [
+     1,
+     2,
+     2
+    ],
+    "level": 2,
+    "to": [
+     2,
+     2
+    ],
+    "weight": 397.77801335899323
+   },
+   {
+    "cls": [
+     1,
+     2,
+     3
+    ],
+    "level": 2,
+    "to": [
+     2,
+     3
+    ],
+    "weight": 40.55592322604839
+   },
+   {
+    "cls": [
+     1,
+     3,
+     3
+    ],
+    "level": 2,
+    "to": [
+     3,
+     3
+    ],
+    "weight": 1.448084140810578
+   }
+  ],
+  "genuine_cubic": {
+   "0": {},
+   "1": {},
+   "2": {
+    "(2, 2, 2)": 144.21770952500935,
+    "(2, 2, 3)": 9.504491192844265
+   }
+  },
+  "mechanical_note": "contract-mechanical rerun (omega = 28/y weight x 379.5/28, Umax 0.05, jet-free): comparison only, NOT a bound for the Lemma-U weight",
+  "mechanical_ramp_out_omega_weight": [
+   6.693698577365958e-08,
+   9.666460664861211e-07,
+   0.016691966982511335
+  ],
+  "parts": [
+   {
+    "L4_foot": 0.0,
+    "S33_foot": 0.0,
+    "cubic": 0.0,
+    "pairs": {
+     "0": 2.715704102349833e-10,
+     "1": 4.47136400756493e-08
+    }
+   },
+   {
+    "L4_foot": 1.4532717740787815e-06,
+    "S33_foot": 0.0,
+    "cubic": 0.0,
+    "pairs": {
+     "0": 6.757574645970333e-14,
+     "1": 2.6110798359067385e-07,
+     "2": 6.024541006070632e-07,
+     "3": 4.480313805520247e-06
+    }
+   },
+   {
+    "L4_foot": 0.00015989433839763923,
+    "S33_foot": 3.66089524882429e-07,
+    "cubic": 9.24745587149749e-06,
+    "pairs": {
+     "0": 1.0630302240825863e-12,
+     "1": 2.3255702836648437e-08,
+     "2": 1.3214109010490387e-05,
+     "3": 0.011297245656572755
+    }
+   }
+  ],
+  "pieces": [
+   {
+    "D1": 0.41973115231324437,
+    "L": 50.00000000000001,
+    "N2f": 0.5466046514689528,
+    "inside_conclusion_region": true,
+    "kap2": 0.06954620000000002,
+    "kap3": 0.027912300000000004,
+    "member_centre": 300.00000000000006,
+    "n": [
+     0.007428664760224297,
+     0.2580805852398519,
+     0.8056664236368593,
+     92.73439793010662
+    ],
+    "piece": [
+     253.00000000000003,
+     331.50000000000006
+    ]
+   },
+   {
+    "D1": 0.41973115231324437,
+    "L": 50.00000000000001,
+    "N2f": 0.6536234487460789,
+    "inside_conclusion_region": true,
+    "kap2": 0.06954620000000002,
+    "kap3": 0.027912300000000004,
+    "member_centre": 380.00000000000006,
+    "n": [
+     0.0052549508464163185,
+     0.18675620275558605,
+     0.8411768796313696,
+     129.41925172303522
+    ],
+    "piece": [
+     331.50000000000006,
+     379.50000000000006
+    ]
+   }
+  ],
+  "pref": {
+   "arb": "[2.4410889640231174165e-10 +/- 3.45e-30]",
+   "double": 2.441088964023118e-10,
+   "label": "cert"
+  },
+  "pref_meaning": "q r_chi^-4 sup(D phi), g <= 6e5"
+ },
+ "acceptance": {
+  "DeltaR2": 0.011479990906143132,
+  "DeltaR2_ok": true,
+  "H6_min_margin_at_Bhat_ref": 1.8608671374173327,
+  "H6_min_margin_at_fine_est": 1.8608671374173327,
+  "HO1_ok": true,
+  "box_margin_min": 1.238888267249521,
+  "covering_asserts": true,
+  "decision": "primary",
+  "tstar_margin": 2.3019436285232175
+ },
+ "args": {
+  "argv": [
+   "zone3.py",
+   "--ucert",
+   "../t4_cert/out/U_cert_for_zone3_r3_pass1.json",
+   "--ucert_full",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t4_cert/out/U_cert_r3_pass1.json"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "../t4_cert/out/U_cert_for_zone3_r3_pass1.json": "71362358e1c8541c522d15dfdf789d729fbaa30b54e4ff12073597b54836843e",
+   "/home/claude/s1spec/writeup/lemmaO_v32/lemmaO_v32_consts.json": "c64ae6b534f69aac8fd028d5494a39579a9b7b506b714bc52742fe45dc327f9c",
+   "/home/claude/s1spec/writeup/lemmaO_v32/lemmaR_consts.json": "56b67482b972e8ff9d83565d2d4586c5cef230a6c22d4f4f237713e3329a4820",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t4_cert/out/U_cert_r3_pass1.json": "fb877fdae4fca9bc6fd12700c54f96811a007df499a3dbc4ec39366522a9a117",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t5_zone3/out/ramp_U.json": "55317ce5a31e8e3c3b3c4b86e85ef9569bb6d5e99190b68b0f21e4cba1a0c0de",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t5_zone3/z3lib.py": "fa59483e58723f866d9edd2ea1642d5c204c56cd0bff85c1e1b31fa2b883d970",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t5_zone3/zone3.py": "ea97bdbc042e5bf8c129e24d3ed6ddec5dc19a7a8bdbe879c299eac8d98b9a93",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t1_statements/r2_probe/ramp_out_253_379.5_box0.15_0.52.json": "b5dd32b18f9f07dec1c8da3541841dfd8e0c57285c57d4f7ae05cc7b0324448d"
+  },
+  "prec": 128,
+  "python": "3.14.4"
+ },
+ "box_III_380": {
+  "b0": {
+   "arb": "[0.10031440468500917000 +/- 3e-25]",
+   "at_r": 253.0,
+   "double": 0.10031440468500918,
+   "label": "cert"
+  },
+  "b1": {
+   "arb": "[0.41973115231324430000 +/- 3e-25]",
+   "at_r": 379.25,
+   "double": 0.41973115231324437,
+   "label": "cert"
+  },
+  "bz": {
+   "arb": "[0.014290166637213893000 +/- 3e-26]",
+   "at_r": 379.25,
+   "double": 0.014290166637213894,
+   "label": "cert"
+  },
+  "cells": 506,
+  "margins": {
+   "against": [
+    0.15,
+    0.52,
+    0.16
+   ],
+   "b0": 1.4952987107983682,
+   "b1": 1.238888267249521,
+   "bz": 11.196510443995402
+  },
+  "region": [
+   253,
+   379.5
+  ]
+ },
+ "box_III_700": {
+  "HO1_ok": true,
+  "against": [
+   0.5,
+   1.0
+  ],
+  "b0": {
+   "arb": "[0.22756915442676057000 +/- 1e-25]",
+   "double": 0.2275691544267606,
+   "label": "cert"
+  },
+  "b1": {
+   "arb": "[0.54233820720091530000 +/- 3e-25]",
+   "double": 0.5423382072009154,
+   "label": "cert"
+  },
+  "beyond_379_5": {
+   "b0": {
+    "at_r": 699.5,
+    "value": 0.22756915442676057
+   },
+   "b1": {
+    "at_r": 699.5,
+    "value": 0.5423382072009153
+   },
+   "bz": null
+  },
+  "region": [
+   253,
+   700
+  ]
+ },
+ "cone_family": {
+  "H6": {
+   "Bhat2_break_even_for_margin_1_5": 0.1201853692255645,
+   "Bhat_fine_est": [
+    "1.175874553953135e-05",
+    "0.0006041055520934231",
+    "0.03277750319144364"
+   ],
+   "Bhat_ref": [
+    "4.872239699828578e-06",
+    "0.0002626601340658611",
+    "0.025841574509474722"
+   ],
+   "Bhat_source": "../t4_cert/out/U_cert_for_zone3_r3_pass1.json",
+   "at_Bhat_ref": {
+    "K2_ufine": 0.046955128843890706,
+    "K3_ufine_strip": 0.054139941856949265,
+    "S0": 0.010663200864353812,
+    "S1": 0.08928293722248229,
+    "cone": {
+     "K2": {
+      "against": 0.18,
+      "bound": 0.07063874728464128,
+      "covered": 0.07063874728464127,
+      "margin": 2.548176559172033,
+      "ufine": 0.047682650500643804
+     },
+     "K3": {
+      "against": 0.18,
+      "bound": 0.07169443841748462,
+      "margin": 2.510654996024101,
+      "parts": {
+       "far_428_530": 0.013459286212568462,
+       "fixedL_253_350": 0.0320180182141746,
+       "fixedL_350_428": 0.031664701483033034,
+       "ufine": 0.054139941856949265
+      }
+     },
+     "slope": {
+      "against": 0.25,
+      "covered": 0.08752968841359846,
+      "margin": 2.4629853451656287,
+      "ufine": 0.10150283699036308
+     }
+    },
+    "far": {
+     "K2": {
+      "against": 0.3,
+      "bound": 0.13125309104310592,
+      "covered": 0.1312530910431059,
+      "margin": 2.285660456571453,
+      "ufine": null
+     },
+     "K3": {
+      "against": 0.3,
+      "bound": 0.16121516360182767,
+      "margin": 1.8608671374173327,
+      "parts": {
+       "far1": 0.04580470564721563,
+       "far2": 0.04580470564721563,
+       "fixedL_253_350": 0.1047940633648541,
+       "fixedL_350_428": 0.10398264826301967
+      }
+     },
+     "slope": {
+      "against": 0.25,
+      "covered": 0.08752968841359846,
+      "margin": 2.856173768364066,
+      "ufine": null
+     }
+    },
+    "min_margin": 1.8608671374173327,
+    "ufine_windows": [
+     {
+      "D1": 0.1408653865316721,
+      "F0": 0.06100718808784572,
+      "rho": 150.00000000000003,
+      "yb": 225.00000000000003
+     },
+     {
+      "D1": 0.1474521301247027,
+      "F0": 0.06743578812008329,
+      "rho": 168.66666666666669,
+      "yb": 253.00000000000003
+     }
+    ]
+   },
+   "at_fine_est": {
+    "K2_ufine": 0.0568271887909585,
+    "K3_ufine_strip": 0.06366634493015183,
+    "S0": 0.01639588955767043,
+    "S1": 0.11889911706368568,
+    "cone": {
+     "K2": {
+      "against": 0.18,
+      "bound": 0.07063874728464128,
+      "covered": 0.07063874728464127,
+      "margin": 2.548176559172033,
+      "ufine": 0.05792104183179864
+     },
+     "K3": {
+      "against": 0.18,
+      "bound": 0.07913509128376435,
+      "margin": 2.2745914243600485,
+      "parts": {
+       "far_428_530": 0.013459286212568462,
+       "fixedL_253_350": 0.0320180182141746,
+       "fixedL_350_428": 0.031664701483033034,
+       "ufine": 0.06366634493015183
+      }
+     },
+     "slope": {
+      "against": 0.25,
+      "covered": 0.08752968841359846,
+      "margin": 2.2104264990209077,
+      "ufine": 0.11310034516449002
+     }
+    },
+    "far": {
+     "K2": {
+      "against": 0.3,
+      "bound": 0.13125309104310592,
+      "covered": 0.1312530910431059,
+      "margin": 2.285660456571453,
+      "ufine": null
+     },
+     "K3": {
+      "against": 0.3,
+      "bound": 0.16121516360182767,
+      "margin": 1.8608671374173327,
+      "parts": {
+       "far1": 0.04580470564721563,
+       "far2": 0.04580470564721563,
+       "fixedL_253_350": 0.1047940633648541,
+       "fixedL_350_428": 0.10398264826301967
+      }
+     },
+     "slope": {
+      "against": 0.25,
+      "covered": 0.08752968841359846,
+      "margin": 2.856173768364066,
+      "ufine": null
+     }
+    },
+    "min_margin": 1.8608671374173327,
+    "ufine_windows": [
+     {
+      "D1": 0.17048156637287548,
+      "F0": 0.06673987678116235,
+      "rho": 150.00000000000003,
+      "yb": 225.00000000000003
+     },
+     {
+      "D1": 0.1770683099659061,
+      "F0": 0.07316847681339991,
+      "rho": 168.66666666666669,
+      "yb": 253.00000000000003
+     }
+    ]
+   }
+  },
+  "L": 50,
+  "R4": {
+   "arb": "[0.36603500000000000000 +/- 1e-25]",
+   "double": 0.36603500000000005,
+   "label": "cert"
+  },
+  "R4_label": "cert (lemmaR_consts.json, L = 50)",
+  "X": 3,
+  "centres": [
+   300,
+   380
+  ],
+  "covering": {
+   "cone_covers": [
+    251.43700771708643,
+    428.56299228291357
+   ],
+   "cone_covers_253_379_5": true,
+   "cone_members": "L = 50, X = 3, centres [300, 380]: conclusion |r - r_c| <= 50(1 - e_cone)",
+   "e_cone": 0.028740154341727785,
+   "e_far": 0.019952922504585992,
+   "far_covers_379_5_700": true,
+   "far_covers_from": 379.2546802430183,
+   "far_members": "L = 113, X = 2, centres >= 490 (subset of the v3.2 family, centres >= 376)"
+  },
+  "slope_check": "closure slope margins in H6; the step-4 data check (slope <= 0.08 on fixed-L cylinders) is task 6",
+  "tstar_margin": 2.3019436285232175
+ },
+ "decision": "primary",
+ "handoff_thresholds": [
+  {
+   "margin_label": "probe (base curve only, r2_probe/far_summary.json); treat as est",
+   "name": "(H2f)",
+   "new": true,
+   "region": "y in [60, 700] at t_1, G_j = int (28/y)(d_s^j (f - U_1))^2 ds",
+   "step4_margin_if_known": [
+    1.5,
+    4.9,
+    4.0
+   ],
+   "used_by_task5": false,
+   "value": [
+    5e-07,
+    5e-06,
+    1e-05
+   ]
+  },
+  {
+   "name": "(H3) windows",
+   "new": false,
+   "region": "[y_w, 1.5 y_w], y_w = 50 ... 253.125 (to 379.69)",
+   "step4_margin_if_known": [
+    5.7,
+    78.7,
+    26.6
+   ],
+   "used_by_task5": "Z1 data (|f|, |v|, y|f'| at t_1), Z3, Z4",
+   "value": [
+    2e-07,
+    1e-05,
+    1e-05
+   ]
+  },
+  {
+   "name": "alpha_1",
+   "new": false,
+   "region": "hand-off",
+   "step4_margin_if_known": 1.27,
+   "used_by_task5": "U_1 in Z1/Z3/Z4",
+   "value": 0.00015
+  },
+  {
+   "name": "(H5) cone data, fixed-L cylinders",
+   "new": true,
+   "note": "same values as v3.2; NEW GEOMETRY (v3.2: units r_m/4, centres [200, 380]); step 4 must rerun t9_cone_kch for it",
+   "region": "every cylinder [r_c - 150, r_c + 150], r_c in [300, 380], L = 50 units, X = 3",
+   "step4_margin_if_known": null,
+   "value": {
+    "L2_h3_n3": 0.004,
+    "h2_m2": 0.03,
+    "slope_s0": 0.08
+   }
+  },
+  {
+   "name": "Lemma O H1-H4, H7 for fixed-L cylinders",
+   "new": true,
+   "note": "new geometry; rerun h4loc (cone cylinders) and the Lemma O H1 graph check",
+   "region": "same cylinders",
+   "step4_margin_if_known": null,
+   "value": {
+    "H1": "sup|h0| <= H - 0.00227 (C0 sqrt t, L=50)",
+    "H3": "|h0^(j)| <= 0.12, j = 2,3,4",
+    "H4": "int (h0^(5))^2 <= 0.0144",
+    "H7": "ratio 1.6001e-7 (= 50^-4 q), t* margin 2.30"
+   }
+  },
+  {
+   "name": "(H5) far data",
+   "new": false,
+   "region": "far cylinders, L = 113",
+   "step4_margin_if_known": [
+    1.87,
+    1.93,
+    5.6
+   ],
+   "value": {
+    "L2_h3": 0.004,
+    "h2": 0.04,
+    "slope": 0.08
+   }
+  }
+ ],
+ "inputs_used": {
+  "DeltaR": "B4, D1 (abar, bbar), (H3), (H5) incl. n3 = 0.004, Lemma R (R4, L = 50), zone-III box; global Y_{j+1} of the widened design; g <= 6e5",
+  "box_III_380": "B4 (fixed-L cone members, far members), D1 (abar for the horizon), (H3) thresholds, alpha_1 <= 1.5e-4, (H5) s0 = 0.08, m2 = 0.03 (cone), 0.04 (far)",
+  "box_III_700": "as box_III_380, plus (H5) far m2 = 0.04 chained beyond 379.69",
+  "cone_family": "B4, D1, (H5), Lemma O/R constants; H6 also U-fine Bhat (task 4)",
+  "n_III": "B4, D1, (H3), (H5), Lemma O C_j, c_deltaU [hyp]; not (H2f)",
+  "never": "B2prime, B3U"
+ },
+ "n_III": [
+  {
+   "arb": "[0.071445576211536958936 +/- 2.95e-22]",
+   "double": 0.07144557621153698,
+   "label": "cert"
+  },
+  {
+   "arb": "[0.32706761097452894642 +/- 3.69e-21]",
+   "double": 0.327067610974529,
+   "label": "cert"
+  },
+  {
+   "arb": "[3.0444191393439274474 +/- 4.38e-20]",
+   "double": 3.044419139343928,
+   "label": "cert"
+  }
+ ],
+ "n_III_note": "sup_tau int over {350 <= y <= 700, r >= 253 lambda_1} of (z^A_k)^2 ds; nonempty only for tau - tau_1 <= tau_III; z^A = z + d_s^k deltaU with c_deltaU <= 2e-8 [hyp, task 4 certifies]; pieces below",
+ "n_III_pieces": [
+  {
+   "D1": 0.41973115231324437,
+   "L": 50.00000000000001,
+   "N2f": 0.5466046514689528,
+   "kap2": 0.06954620000000002,
+   "kap3": 0.027912300000000004,
+   "n": [
+    0.007428664760224297,
+    0.2580805852398519,
+    0.8056664236368593
+   ],
+   "piece": [
+    253.00000000000003,
+    331.50000000000006
+   ]
+  },
+  {
+   "D1": 0.41973115231324437,
+   "L": 50.00000000000001,
+   "N2f": 0.6536234487460789,
+   "kap2": 0.06954620000000002,
+   "kap3": 0.027912300000000004,
+   "n": [
+    0.0052549508464163185,
+    0.18675620275558605,
+    0.8411768796313696
+   ],
+   "piece": [
+    331.50000000000006,
+    379.50000000000006
+   ]
+  },
+  {
+   "D1": 0.4368311203327371,
+   "L": 113.00000000000001,
+   "N2f": 0.5215730841145175,
+   "kap2": 0.07809370000000002,
+   "kap3": 0.03277070000000001,
+   "member_centre": 490.00000000000006,
+   "n": [
+    0.21955574122598953,
+    0.39146093459852205,
+    0.9153842907118602
+   ],
+   "piece": [
+    379.50000000000006,
+    600.5000000000001
+   ]
+  },
+  {
+   "D1": 0.5218137597817493,
+   "L": 113.00000000000001,
+   "N2f": 0.6513009187175153,
+   "kap2": 0.07809370000000002,
+   "kap3": 0.03277070000000001,
+   "member_centre": 650.2500000000001,
+   "n": [
+    0.15215406957985653,
+    0.268936261348149,
+    0.9218267310030772
+   ],
+   "piece": [
+    600.5000000000001,
+    700.0000000000001
+   ]
+  }
+ ],
+ "provisional": false,
+ "r_chi": 253,
+ "step4_reruns": [
+  {
+   "check": "slope <= 0.08, |h0''| <= 0.03, ||h0'''||_L2 <= 0.004, jets <= 0.12 (L = 50 units)",
+   "input": "fixed-L geometry: L = 50, X = 3, centres [300, 380] (cell cover), cylinders [r_c - 150, r_c + 150]",
+   "stage": "t9_cone_kch"
+  },
+  {
+   "check": "int (h0^(5))^2 <= M^2 = 0.0144",
+   "input": "same geometry",
+   "stage": "h4loc (cone cylinders)"
+  },
+  {
+   "check": "graph over [-3, 3] with sup|h0| <= H - 0.00227",
+   "input": "same geometry",
+   "stage": "Lemma O H1 (graph, C0) for cone cylinders"
+  },
+  {
+   "check": "\u2014",
+   "input": "superseded by this task's H6 (zone3_interface.json cone_family.H6); keep the far-family data rows",
+   "stage": "t9_h6_v32"
+  },
+  {
+   "check": "(5e-7, 5e-6, 1e-5)",
+   "input": "geometry to x = 730; needs Micah's approval (R2_DECISIONS.md)",
+   "stage": "(H2f) window stage, y in [60, 700]"
+  }
+ ],
+ "tau_III": {
+  "arb": "[4.0707669529325445066 +/- 7.76e-21]",
+  "double": 4.070766952932545,
+  "label": "cert"
+ },
+ "ufine": {
+  "Bhat_ref": [
+   "4.872239699828578e-06",
+   "0.0002626601340658611",
+   "0.025841574509474722"
+  ],
+  "K2_at_Bhat_ref": 0.046955128843890706,
+  "K2_at_fine_est": 0.0568271887909585,
+  "K3_strip_at_Bhat_ref": 0.054139941856949265,
+  "K3_strip_at_fine_est": 0.06366634493015183,
+  "rule": "windows [rho, 1.5 rho], rho = 150 and 253/1.5 (none enters the ramp); Eu_j = Bhat_j/w_min; S_0, S_1 window Sobolev (s-length ln1.5); K2 = max_w (50/rho_w)(p U_1(1.5 rho_w) + S_1); K3 strip part as lemmaO_v32_h6.py strip formula with L_c = 50; |f| <= U_1(1.5 rho) + S_0",
+  "w_min": {
+   "arb": "[0.73492159622070925536 +/- 2.94e-21]",
+   "double": 0.7349215962207094,
+   "label": "cert"
+  }
+ }
+}

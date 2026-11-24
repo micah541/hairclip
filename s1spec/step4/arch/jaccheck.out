@@ -1,0 +1,8 @@
+p2_t0.1      t=0.1000 k=3.12 L=99.601 N=1024 Neff(1e-13)=366 | eig(J): n+=10 max=2.06 sum+=12.2 | sym L2: n+=21 max=49.7 | sym H1: n+=6 max=22.9  (rates per unit t)
+p2_t0.5      t=0.5000 k=2.7 L=90.182 N=1024 Neff(1e-13)=289 | eig(J): n+=7 max=1.26 sum+=6.42 | sym L2: n+=17 max=32.6 | sym H1: n+=6 max=12.5  (rates per unit t)
+p2_t2.0      t=2.0000 k=2.2 L=70.441 N=1024 Neff(1e-13)=188 | eig(J): n+=5 max=1.06 sum+=3.74 | sym L2: n+=12 max=22.6 | sym H1: n+=6 max=5.5  (rates per unit t)
+p2_t3.0      t=3.0000 k=1.99 L=61.322 N=1024 Neff(1e-13)=152 | eig(J): n+=3 max=1.15 sum+=2.34 | sym L2: n+=11 max=20.5 | sym H1: n+=6 max=3.68  (rates per unit t)
+p2_t4.5      t=4.5000 k=2.77 L=52.125 N=1024 Neff(1e-13)=165 | eig(J): n+=3 max=7.08 sum+=16.6 | sym L2: n+=11 max=31.2 | sym H1: n+=4 max=13.9  (rates per unit t)
+p2_t4.59     t=4.5900 k=5.03 L=49.953 N=1024 Neff(1e-13)=278 | eig(J): n+=3 max=102 sum+=174 | sym L2: n+=14 max=159 | sym H1: n+=3 max=147  (rates per unit t)
+p2_k10       t=4.5983 k=10 L=48.879 N=1024 Neff(1e-13)=473 | eig(J): n+=3 max=1.76e+03 sum+=2.7e+03 | sym L2: n+=22 max=2.31e+03 | sym H1: n+=3 max=2.23e+03  (rates per unit t)
+p2_k20       t=4.5988 k=20 L=48.424 N=2048 Neff(1e-13)=928 | eig(J): n+=3 max=2.88e+04 sum+=4.21e+04 | sym L2: n+=36 max=3.48e+04 | sym H1: n+=3 max=3.43e+04  (rates per unit t)

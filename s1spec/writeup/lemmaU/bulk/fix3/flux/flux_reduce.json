@@ -1,0 +1,93 @@
+{
+ "res": {
+  "0": {
+   "pairs": [
+    "0,0",
+    "1,0",
+    "2,0",
+    "2,1"
+   ],
+   "stuck_monomials": {},
+   "euler_check": true,
+   "ends_vanish": {
+    "0,0": false,
+    "1,0": true,
+    "2,0": true,
+    "2,1": true
+   }
+  },
+  "2": {
+   "pairs": [
+    "0,0",
+    "1,0",
+    "1,1",
+    "2,0",
+    "2,1",
+    "2,2",
+    "3,0",
+    "3,1",
+    "3,3",
+    "4,0"
+   ],
+   "stuck_monomials": {
+    "(4, 0)": 1,
+    "(3, 1)": 1,
+    "(3, 0)": 1
+   },
+   "euler_check": true,
+   "ends_vanish": {
+    "0,0": false,
+    "1,1": true,
+    "3,3": true,
+    "2,2": false,
+    "2,0": false,
+    "1,0": true,
+    "2,1": false,
+    "4,0": false,
+    "3,1": false,
+    "3,0": false
+   }
+  }
+ },
+ "zeta_end_values": {
+  "57": [
+   "1",
+   "0",
+   "0",
+   "0",
+   "-280/27",
+   "1120/27",
+   "-5600/81",
+   "11200/243"
+  ],
+  "60": [
+   "0",
+   "0",
+   "0",
+   "0",
+   "280/27",
+   "1120/27",
+   "5600/81",
+   "11200/243"
+  ]
+ },
+ "outputs": {
+  "flux_forms.pkl": "56202f4023447377fc701a5a833d2245c61ccf3b8ba9271ba61e57140fef27ba"
+ },
+ "args": {
+  "argv": [
+   "flux_reduce.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "sympy": "1.14.0",
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/flux_reduce.py": "aeee7669072fc4bb54d0fea3379f74528ec2e43a89c9349997c4bc104cbd567b"
+  },
+  "runtime_s": 3.9
+ }
+}

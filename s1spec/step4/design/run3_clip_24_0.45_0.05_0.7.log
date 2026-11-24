@@ -1,0 +1,8 @@
+clip_24_0.45_0.05_0.7 clip:24:0.45:0.05:0.7 L0=103.2739 N0=32768 kmax0=42.32 closure=9.16e-09 min-gap(non-adjacent)=0.0029 area=34.1866
+  t=0.00000000 kmax=42.32 N=32768 ncross=0  wall=0s
+  t=0.67648278 kmax=2.48 N=1024 ncross=4 |X|=1.041e+00 wall=13s
+  t=1.99079917 kmax=2.15 N=1024 ncross=4 |X|=1.374e+00 wall=15s
+  t=4.55150875 kmax=1.81 N=1024 ncross=2 |X|=1.502e+00 wall=18s
+  t=5.13486065 kmax=8.80 N=1024 ncross=2 |X|=5.534e-02 wall=20s
+  t=5.13578615 kmax=45.88 N=4096 ncross=2 |X|=1.909e-03 wall=25s
+snap 100 kmax=100.15 N=8192 L=44.4225 t=5.1357873526 wall=31s |X|=3.964e-04 |Lam|=1.499e+00

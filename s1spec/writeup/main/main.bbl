@@ -1,0 +1,146 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{AlexanderGardnerJones1990}
+J.~Alexander, R.~Gardner, and C.~Jones, \emph{A topological invariant arising
+  in the stability analysis of travelling waves}, J. Reine Angew. Math.
+  \textbf{410} (1990), 167--212.
+
+\bibitem{AsaiGiga2014}
+T.~Asai and Y.~Giga, \emph{On self-similar solutions to the surface diffusion
+  flow equations with contact angle boundary conditions}, Interfaces Free
+  Bound. \textbf{16} (2014), no.~4, 539--573.
+
+\bibitem{BernoffBertozziWitelski1998}
+A.~J. Bernoff, A.~L. Bertozzi, and T.~P. Witelski, \emph{Axisymmetric surface
+  diffusion: dynamics and stability of self-similar pinchoff}, J. Stat. Phys.
+  \textbf{93} (1998), 725--776.
+
+\bibitem{Blatt2010}
+S.~Blatt, \emph{Loss of convexity and embeddedness for geometric evolution
+  equations of higher order}, J. Evol. Equ. \textbf{10} (2010), no.~1, 21--27.
+
+\bibitem{ChenHou2022}
+J.~Chen and T.~Y. Hou, \emph{Stable nearly self-similar blowup of the {2D}
+  {B}oussinesq and {3D} {E}uler equations with smooth data {I}: Analysis},
+  arXiv:2210.07191, 2022.
+
+\bibitem{ChenHou2023}
+\bysame, \emph{Stable nearly self-similar blowup of the {2D} {B}oussinesq and
+  {3D} {E}uler equations with smooth data {II}: Rigorous numerics},
+  arXiv:2305.05660, 2023.
+
+\bibitem{Chou2003}
+K.-S. Chou, \emph{A blow-up criterion for the curve shortening flow by surface
+  diffusion}, Hokkaido Math. J. \textbf{32} (2003), no.~1, 1--19.
+
+\bibitem{DziukKuwertSchatzle2002}
+G.~Dziuk, E.~Kuwert, and R.~Sch{\"a}tzle, \emph{Evolution of elastic curves in
+  {$\mathbb{R}^n$}: existence and computation}, SIAM J. Math. Anal. \textbf{33}
+  (2002), no.~5, 1228--1245.
+
+\bibitem{EGMWW2015}
+M.~Edwards, A.~Gerhardt-Bourke, J.~McCoy, G.~Wheeler, and V.-M. Wheeler,
+  \emph{The shrinking figure eight and other solitons for the curve diffusion
+  flow}, J. Elasticity \textbf{119} (2015), no.~1, 191--211.
+
+\bibitem{ElliottGarcke1997}
+C.~M. Elliott and H.~Garcke, \emph{Existence results for diffusive surface
+  motion laws}, Adv. Math. Sci. Appl. \textbf{7} (1997), no.~1.
+
+\bibitem{EscherIto2005}
+J.~Escher and K.~Ito, \emph{Some dynamic properties of volume preserving
+  curvature driven flows}, Math. Ann. \textbf{333} (2005), no.~1, 213--230.
+
+\bibitem{EscherMayerSimonett1998}
+J.~Escher, U.~F. Mayer, and G.~Simonett, \emph{The surface diffusion flow for
+  immersed hypersurfaces}, SIAM J. Math. Anal. \textbf{29} (1998), no.~6,
+  1419--1433.
+
+\bibitem{GigaIto1998}
+Y.~Giga and K.~Ito, \emph{On pinching of curves moved by surface diffusion},
+  Commun. Appl. Anal. \textbf{2} (1998), no.~3.
+
+\bibitem{GigaIto1999}
+\bysame, \emph{Loss of convexity of simple closed curves moved by surface
+  diffusion}, Topics in Nonlinear Analysis, Progr. Nonlinear Differential
+  Equations Appl., vol.~35, Birkh{\"a}user, Basel, 1999, pp.~305--320.
+
+\bibitem{GomezSerrano2019}
+J.~G{\'o}mez-Serrano, \emph{Computer-assisted proofs in {PDE}: a survey}, SeMA
+  J. (2019), doi:10.1007/s40324-019-00186-x.
+
+\bibitem{Grayson1987}
+M.~A. Grayson, \emph{The heat equation shrinks embedded plane curves to round
+  points}, J. Differential Geom. \textbf{26} (1987), no.~2, 285--314.
+
+\bibitem{Johansson2017}
+F.~Johansson, \emph{Arb: efficient arbitrary-precision midpoint-radius interval
+  arithmetic}, IEEE Trans. Comput. \textbf{66} (2017), no.~8, 1281--1292.
+
+\bibitem{CAPD2021}
+T.~Kapela, M.~Mrozek, D.~Wilczak, and P.~Zgliczy{\'n}ski, \emph{{CAPD::DynSys}:
+  a flexible {C++} toolbox for rigorous numerical analysis of dynamical
+  systems}, Commun. Nonlinear Sci. Numer. Simul. \textbf{101} (2021), Paper No.
+  105578.
+
+\bibitem{KapitulaPromislow2013}
+T.~Kapitula and K.~Promislow, \emph{Spectral and dynamical stability of
+  nonlinear waves}, Applied Mathematical Sciences, vol. 185, Springer, 2013.
+
+\bibitem{Krawczyk1969}
+R.~Krawczyk, \emph{{N}ewton-{A}lgorithmen zur {B}estimmung von {N}ullstellen
+  mit {F}ehlerschranken}, Computing \textbf{4} (1969), 187--201.
+
+\bibitem{LatushkinSukhtayev2010}
+Y.~Latushkin and A.~Sukhtayev, \emph{The algebraic multiplicity of eigenvalues
+  and the {E}vans function revisited}, Math. Model. Nat. Phenom. \textbf{5}
+  (2010), no.~4, 269--292.
+
+\bibitem{MayerSimonett2000}
+U.~F. Mayer and G.~Simonett, \emph{Self-intersections for the surface diffusion
+  and the volume-preserving mean curvature flow}, Differential Integral
+  Equations \textbf{13} (2000), no.~7--9, 1189--1199.
+
+\bibitem{MiuraOkabe2021}
+T.~Miura and S.~Okabe, \emph{On the isoperimetric inequality and surface
+  diffusion flow for multiply winding curves}, Arch. Ration. Mech. Anal.
+  \textbf{239} (2021), no.~2, 1111--1129.
+
+\bibitem{Mullins1957}
+W.~W. Mullins, \emph{Theory of thermal grooving}, J. Appl. Phys. \textbf{28}
+  (1957), no.~3, 333--339.
+
+\bibitem{RybkaWheeler2024}
+P.~Rybka and G.~Wheeler, \emph{A classification of solitons for the surface
+  diffusion flow of entire graphs}, arXiv:2407.13250, 2024.
+
+\bibitem{vandenBergBredenSheombarsing2024}
+J.~B. van~den Berg, M.~Breden, and R.~Sheombarsing, \emph{Validated integration
+  of semilinear parabolic {PDE}s}, Numer. Math. \textbf{156} (2024), no.~4,
+  1219--1287.
+
+\bibitem{Wheeler2012}
+G.~Wheeler, \emph{Surface diffusion flow near spheres}, Calc. Var. Partial
+  Differential Equations \textbf{44} (2012), no.~1--2, 131--151.
+
+\bibitem{Wheeler2013}
+\bysame, \emph{On the curve diffusion flow of closed plane curves}, Ann. Mat.
+  Pura Appl. (4) \textbf{192} (2013), 931--950.
+
+\bibitem{Wheeler2026}
+\bysame, \emph{Pinchoff by surface diffusion}, arXiv:2608.21882v1, 2026.
+
+\bibitem{Zgliczynski2004}
+P.~Zgliczy{\'n}ski, \emph{Rigorous numerics for dissipative partial
+  differential equations {II}. {P}eriodic orbit for the
+  {K}uramoto--{S}ivashinsky {PDE}---a computer-assisted proof}, Found. Comput.
+  Math. \textbf{4} (2004), no.~2, 157--185.
+
+\end{thebibliography}

@@ -1,0 +1,83 @@
+{
+ "label": "certified (arb cells, outward), base curve on the widened parameter balls; error part not included",
+ "G_60_700": [
+  3.1262278435687826e-07,
+  1.003069700306695e-06,
+  2.4301676022208376e-06,
+  3.942987200737124e-06
+ ],
+ "G_60_379p5": [
+  4.838152380196491e-08,
+  1.7922934600974793e-07,
+  5.439635028506856e-07,
+  1.500339108227696e-06
+ ],
+ "G_379p5_700": [
+  2.646272245291115e-07,
+  8.251995819802047e-07,
+  1.89008163159926e-06,
+  2.4516296335876102e-06
+ ],
+ "worst_ball": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "info_379p5_700": {
+  "sup_f": 0.12338436394929887,
+  "sup_yfy": 0.12483632855582984,
+  "sup_z": [
+   0.0028662940918155445,
+   0.0048249537128999065,
+   0.006523044549568718,
+   0.006041324332747805
+  ]
+ },
+ "min_cos_phi": 0.992032822687533,
+ "balls": 32,
+ "tc_cover": [
+  -1.0,
+  1.0
+ ],
+ "reused_balls": [],
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_0.json": "2f392aa8d9e9c03a9ead71e41fda0214a2eca4ca3428c48fd6fef579acad6729",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_1.json": "05a1596206555e4d6c46739be5509587c40abe3731fe16a5e5e773eacdc2689f",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_2.json": "4ba54177804ac7a5d18b2f8dbf12624a2c8a4731d4f2b349626f2abc00eaa324",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_3.json": "d6d99325e8e9760605d013ad6082dada1f4f51db32b4edb7b8d1b7aa9be0018c",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_4.json": "37690a9cf48363483c59a08921eec1ad5602d5d6a7df7f0ed9db9c6c134e2426",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_5.json": "38638ee7a5f37ea9be5d305e2acf040665e0bc7a4dbfbedff7d887b7bc722f02",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_6.json": "cff9de7eea4108cfb23dc679e4ce81af30368afc7a18683a3f10dc436648a061",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_7.json": "a64e6ea98601f3e2734d19e2ad34e8c502d6d27adfbd913a7062b5cd6ecfdaf3",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_8.json": "8ae16fc17863a463796ee6a9dcee04a67c935c0d80ca38cc175d752748528530",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_9.json": "223162ed2f18efb1acd0df24a2564d0988407a6215a5311327f093481089c7ad",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_10.json": "de8e57fbb67a5da134abaa88231ba9b55d4fe7c137ebcd457695bf0ef86e94cc",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_11.json": "b645120eb09ea2cb12f30c093f95d92f1b9f9bdbb61d0a3b71db4e158e257a2d",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_12.json": "a188d785126555c8c7db5cb86ce6be58a46262b5f61b98f4e583ab61798ed0f0",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_13.json": "58a3ec394ffeea53a7baf214b9a39267d9e4759032a73d27ceecd89765f9dc92",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_14.json": "233166a45a87085e0f7accaa08af6626327f31e685501c0f97f0bf759dfb15d7",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_15.json": "bc1df4c7263bf8134be658e1f094494cee14f935809466772f8f4f1c600f3746",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_16.json": "a9d0ee193ab6848706fea9c0ce5d13b643e781d848d605638db269a996cfc8b1",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_17.json": "bed0335cda9a08552817fa01e0b3984b8e72cc2d48045fbb04c6942ce7f8b2e7",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_18.json": "5c91b741669c984c1fa138c0b9e4493fed3dd0eb863a30b4f4c8c13253f11677",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_19.json": "9a3d98e58d0165717b4538746209f7e358a262d7a8a8e8f5125ab420b27a7bc1",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_20.json": "882a8efccd1b817177f70998594364468d53c8e47eb286af4a0eda1b2523158c",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_21.json": "a944a605c71e8b544ef741e014e2f8f68e3ec22b0ccd96713a016a4eff7be63d",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_22.json": "92a0f11714abebdaceec2f8665fa32be69d18ef1703db8fca2c88b7c7f21d9d1",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_23.json": "ec57b3b89559b3f9b9bfbc5a8ac5944223f20ebe73e1758848c559f273627c75",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_24.json": "b6427b9922b5fde40671145cbf8f3d9fb9fd33289b7bb308be3864967b4681a5",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_25.json": "2010f81639602041a477b8ec1c9765242c0f855e829d6e76b0d2a9e240929f1f",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_26.json": "a83883faf80b5b2466cd692d2df5cab7d82a0a5726f2468cdfe0112f63d68e80",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_27.json": "127c55b01d2229ed6b0fa788a0cd51bcc57e74bf7283f635861c521c07d79680",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_28.json": "9950bc2cca8978f5576569f477678022f004831b9216a15bbdde4ebbb994b194",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_29.json": "ef27e0ef5d10ac45922c834bed3c5a23de81e50671477b49cb299cdc29900f40",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_30.json": "561c38b069d554440b7ebf8516aef529a24494854849e274be300820f512c780",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/win_31.json": "55ccb8709c3b2f84237ca602c688e8ea4f9c556019352b7aa0693d48c3c41764",
+   "/home/claude/s1spec/step4/p2/v33/h2f_win.py": "1718eee5ff13cf6240423d1313177cb964a1b60d34e3a93fc134ce98e1051257"
+  }
+ }
+}

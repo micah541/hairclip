@@ -1,0 +1,6 @@
+{
+ "L0=DF(0)": "0",
+ "lin_identity_residual": "0",
+ "quad_identity_residual": "0",
+ "QR_vanishes_to_second_order": "True"
+}

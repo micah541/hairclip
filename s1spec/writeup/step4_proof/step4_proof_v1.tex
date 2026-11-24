@@ -1,0 +1,630 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,enumitem,array,xcolor}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{namedthm*}{\thisthmname}
+\newcommand{\thisthmname}{}
+\newenvironment{named}[1]{\renewcommand{\thisthmname}{#1}\begin{namedthm*}}{\end{namedthm*}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textnormal{\textsc{[C]}}}
+\newcommand{\tA}{\textnormal{\textsc{[A]}}}
+\newcommand{\tD}{\textnormal{\textsc{[D]}}}
+\newcommand{\tF}{\textnormal{\textsc{[F]}}}
+\newcommand{\tO}{\textnormal{\textsc{[O]}}}
+\newcommand{\todo}[1]{\textcolor{red!65!black}{\textsf{\small[TODO: #1]}}}
+\newcommand{\OPEN}[1]{\textcolor{red!75!black}{\textbf{\textsf{[open #1]}}}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\kt}{\tilde\kappa}
+\newcommand{\Gt}{\tilde\Gamma}
+\newcommand{\lt}{\tilde\ell}
+\newcommand{\Yb}{\bar Y}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cB}{\mathfrak B}
+\newcommand{\Lam}{\Lambda}
+\setlist{itemsep=2pt,topsep=3pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\title{Step 4 of the hair-clip proof: from the embedded clip $\Gamma_0$ to the step-3 trapping set near $S_1$\\[2pt]
+\large The initial curve, the validated Fourier phase P1, the shadowing phase P2 and the hand-off}
+\author{Micah Warren \and Jacob Ogden}
+\date{Draft of November 11, 2026}
+\begin{document}
+\sloppy
+\maketitle
+\begin{center}\fbox{\parbox{0.95\linewidth}{\small\textbf{Status} (draft v1, Nov~11, 2026). The chain $\Gamma_0\to$ P1 $\to$ switch $\to$ P2 $\to$ hand-off sub-window $W'$ is computed in \fn{arb} with outward rounding (\fn{STEP4_RESULT.md}, status of 15:37 PT). The independent review (\fn{step4/STEP4_REVIEW.md}) concludes that \textbf{Theorem~4 is not yet proved as stated}, and finds nothing that makes it false. Three items are open:
+\OPEN{A1} Lemma~O hypothesis H4, $\int(h_0^{(5)})^2\le M^2$, is not delivered, and on the certified $D_2(\tau^*)$ it fails by $\times4.8$ to $\times252$ (\S\ref{ss:H4});
+\OPEN{A2} the nonlinear terms of the tip and $E_I$ energies enter the certified comparison (Y) only through the allowance $\mathrm{DN}=10^{-6}$ (\S\ref{ss:Y});
+\OPEN{A3} the tip pointwise box $\abs e,\abs{e'}\le2\cdot10^3\Yb/\sqrt{\mu_e}$ has no certified derivation, and its constant is too small near $x=34.25$ (\S\ref{ss:boxes}).
+The nine (B) findings are marked \todo{B$n$} where they apply. The (C) findings are applied in the text. Thinnest margins, with B2 applied: far box $\abs{e'}$ $\times1.29$; $x^2\abs{e'''}$ $\times1.76$ ($\times1.85$ in $\Yb$); cone $K_4$ $\times1.61$; $Y(\tau_a)$ against $\Yb$ $\times1.61$; $\abs\alpha$ $\times1.33$; $\sqrt\Lam$ $\times2.18$. Every number is quoted from the file named next to it. Nothing was recomputed for this draft, except the hashes of \S\ref{s:repro} and the maxima of Table~\ref{tab:res}, which were read off the stored per-slab norms. The main theorem is stated for a shrinker $S_1$ in the certified set (B8). The agents are now closing A1--A3 and B1--B9. Their results replace the marked passages.}}\end{center}
+
+\begin{abstract}
+\noindent Step 4 of the computer-assisted proof that an embedded symmetric ``hair-clip'' curve develops, under curve diffusion flow (CDF), a finite-time singularity modelled on the non-embedded one-loop shrinker $S_1$ is the \emph{certified passage} from an explicit initial curve $\Gamma_0$ into the trapping set of step~3. It has four parts. (i)~$\Gamma_0$ is an exact sine series for the tangent angle, closed by a Krawczyk test and certified embedded (\S\ref{s:G0}). (ii)~P1 validates the flow in Fourier variables up to $k_{\max}\approx29.35$, through 96 slabs with Lohner blocks and Duhamel tail bounds; a Galerkin-limit lemma makes this an existence and uniqueness theorem (\S\ref{s:P1}). (iii)~P2 shadows a polished piecewise-polynomial base solution in rescaled variables up to $k\approx2.37\cdot10^4$. A comparison system for modulated tip, intermediate and far-field energies controls the error (\S\ref{s:base}--\ref{s:P2}). (iv)~The hand-off computes the step-3 coordinates and checks the hypotheses (H1)--(H6) of step~3 (\S\ref{s:T9}). \S\ref{s:main} combines steps~1--4 into the main theorem, \S\ref{s:repro} lists the reproduction kits, and \S\ref{s:rel} is a brief note on related work.
+
+\smallskip\noindent\textbf{Status tags.} \tC\ certified by interval/ball arithmetic, or a proof whose only non-closed-form step is so certified; \tA\ analytic argument, standard or from the literature; \tD\ derived on paper in a design note, not machine-checked; \tF\ float only; \tO\ open. \OPEN{An}: review gap; \todo{\dots}: to be confirmed or fixed.
+\end{abstract}
+
+\tableofcontents
+
+\section{Summary and Theorem 4}\label{s:sum}
+
+\subsection{Conventions}
+CDF moves a closed plane curve with normal velocity $-\kappa_{ss}$. Everything is symmetric about the $x$-axis. In Fourier variables (P1) the tangent angle is $\theta(\alpha)=-\pi/2+\alpha+\sum_{n\ge1}u_n\sin n\alpha$, $\alpha\in[0,2\pi]$, where $\alpha$ is proportional to arclength. The sine class is invariant under the flow, and invariance of the class is the symmetry. Near the singularity (P2, step~3) we write $\gamma=c\,e_1+\lambda\,\Gamma$, $d\tau=\lambda^{-4}dt$, $a:=\tfrac14+\lambda_\tau/\lambda$, $b:=-c_\tau/\lambda$. Then
+\[
+\ip{\Gamma_\tau}{\nu}=-\kappa_{ss}+(\tfrac14-a)\ip\Gamma\nu+b\ip{e_1}\nu,
+\]
+which is the frame of \fn{step3_proof.tex} \S1.1 ($\lambda_\tau/\lambda=-(\frac14-a)$). We write $x$ for arclength from the tip and $y:=x-X_0$, $X_0:=2.2490776515$. The step-3 objects are taken from step~3 without change: $S_1$, $\hat\psi_3$, $\hat h_2$ (\fn{agent_int/v3/c4fun.py}), the cutoff $\chi=\chi_{32}$, the weight $\rho$, the constraint functions $f_1,f_2,f_3$, the functional $\Lam=E+\mu E_I$ ($\mu=0.08$), the shells, the windows and Lemma~O. ``Time since $\Gamma_0$'' is the CDF time. The clip time of the float runs is larger by $0.001$, because $\Gamma_0$ was taken at $t=0.001$ of the original clip run.
+
+\subsection{The chain}
+\begin{center}\small
+\begin{tabular}{@{}p{0.17\linewidth}p{0.55\linewidth}p{0.20\linewidth}@{}}\toprule
+link & result (file) & status\\\midrule
+$\Gamma_0$ (T2) & 3762 sine modes; $b_2$ by Krawczyk (half-width $8.14\cdot10^{-24}$); embedded (\fn{t2/gamma0_final.json}, \fn{final.log}) & \tC\\
+P1 (T3), slabs 0--96 & $t_{96}=4.597850539485830831\pm7.8\cdot10^{-19}$; $k_{\max}\in[29.352874545325,29.352874545328]$ (\fn{t3/p1/status.json}) & \tC; Lemma~\ref{lem:gal}\\
+base v2 (T1) & 181 slabs, $\tau\in[0,27.15]$, $k$ $26.25\to2.37\cdot10^4$; slab 0 = P1 slab 95 exactly (\fn{t1/polished_v2}) & exact data\\
+(SE) correction & comoving bump on $x/\lt\in[0.6,0.8]$; far end exactly on the axis; $\abs{a_2}\le1.58\cdot10^{-14}$ (\fn{p2/out/se_corr.json}) & \tC, \todo{B1}\\
+switch (A) & P1 slab 96 $\leftrightarrow$ base slab 2; IFT contraction $4.18\cdot10^{-9}$; $Y(\tau_a)\le6.21\cdot10^{-13}$ (\fn{switch_s2.json}) & \tC; $\times1.61$\\
+T7 & 26 coercivity certificates, $c_I\ge0.05284$; $\varrho_c\ge0.0471$; Lemma~4a (\fn{t7/constants.json}) & \tC\ (linear part)\\
+(Y) & level $\le1.33\cdot10^{-13}$, majorant $\Yb=10^{-12}$ (\fn{ycomp_fin.json}) & \tC\ \OPEN{A2}\\
+far field (T8) & Lemmas F, B, J, N3$'$; item limits $\Yb\le5.048\cdot10^{-12}$ (item 4), $1.794\cdot10^{-11}$ (item 3) (\fn{amp_n3_fin.json}) & \tC; \todo{B6}\\
+boxes & far $\abs{e'},x\abs{e''},x^2\abs{e'''}\le5.43\cdot10^{-4},7.54\cdot10^{-5},5.69\cdot10^{-3}$ against $7\cdot10^{-4},1.65\cdot10^{-4},10^{-2}$ & \tC\ \todo{B2}; tip \OPEN{A3}\\
+hand-off (T9) & (H1)--(H5) at $W'$ (Table~\ref{tab:handoff}); Lemma O H4 missing & \OPEN{A1}, \todo{B3--B5}\\\bottomrule
+\end{tabular}\end{center}
+
+\subsection{Theorem 4}
+\begin{named}{Theorem 4 (step 4)}
+Let $S_1$ be a shrinker in the certified set of step~1, i.e.\ the profile of a zero of the shooting function $M$ in the certified parallelepiped $Y$ of \fn{s1_tight/in_br2.txt} (\S\ref{ss:S1}). Let $\Gamma_0$ be the closed curve
+\[
+X(\alpha)=X_0'+\frac{L_0}{2\pi}\int_0^\alpha e^{i\theta(a)}\,da,\qquad\theta(\alpha)=-\frac\pi2+\alpha+\sum_{n=1}^{3762}b_n\sin n\alpha,\qquad\alpha\in[0,2\pi],
+\]
+with the data of \fn{t2/gamma0_final.json}: $b_n$ the stored doubles (\fn{b_hex}) for $n\neq2$; $b_2$ the unique zero of $C(b_2)=\int_0^\pi\cos(\theta(\alpha)+\frac\pi2)\,d\alpha$ in
+\[
+[-1.00245655773267901818047080,\ -1.00245655773267901818045451];
+\]
+$L_0=\texttt{0x1.9e9c2d62f0874p+6}=103.65251688569134$; $X_0'=(\texttt{-0x1.bff02d9838f3cp-1},0)$. Let $\gamma$ be the CDF evolution of $\Gamma_0$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\Gamma_0$ is smooth, embedded and symmetric about the $x$-axis.
+\item The solution $\gamma$ exists and is smooth and symmetric on $[0,t_1]$, for a time $t_1\in[4.5978580262,\,4.5978580263]$, and $k_{\max}(\gamma(t_1))\in[2.36\cdot10^4,\,2.38\cdot10^4]$.
+\item There are $\lambda_1>0$ and $c_1\in\mathbb R$ such that $\Gamma_1:=(\gamma(t_1)-c_1e_1)/\lambda_1$ satisfies the hand-off hypotheses (H1)--(H6) of Theorem~W of step~3 (\fn{step3_proof.tex}, v3.1), with the values and margins of Table~\ref{tab:handoff}.
+\end{enumerate}
+\end{named}
+
+\noindent\textbf{Status of the proof.} Part (a) is \tC\ (\S\ref{s:G0}). Part (b) is \tC\ up to $t_{96}$ (\S\ref{s:P1}). After $t_{96}$ it rests on Theorem~P2 (\S\ref{s:P2}), which is closed modulo \OPEN{A2} and \OPEN{A3}. The interval for $t_1$ and the $k_{\max}$ enclosure are quoted from \fn{STEP4_RESULT.md}~\S5; no script produces them \todo{B7: script $t_1$ and $k_{\max}$, using $\int\abs{x_1}$ and the clock shift $\int\vartheta$, $\bar\vartheta\le6.2\cdot10^{-8}$}. $t_1=t(\tau^*)$ at a good time $\tau^*\in W'$ (Corollary~C5), and the interval is the image of $W'$ under the clock. Part (c) is certified for (H1)--(H4) and (H6), modulo B3--B5. (H5) is not delivered: Lemma~O's H4 is missing \OPEN{A1}. The hypotheses (H1)--(H6) are verified for \emph{every} shrinker in the certified set: all $S_1$ objects used are enclosures valid for every zero of $M$ in $Y$ (\S\ref{ss:S1}).
+
+\begin{table}[ht]\centering\small
+\caption{Hand-off items at $\tau^*\in W'$ (slab 180, $t_c\in[1-\frac1{512},1]$, $\Delta\tau=1.46\cdot10^{-4}$, $k\approx2.37\cdot10^4$). Base values are in \fn{arb}. The error enters at $\Yb=10^{-12}$; ``$\Yb$-limit'' is the largest $\Yb$ for which the item holds. Files are in \fn{step4/p2/out/}.}\label{tab:handoff}
+\begin{tabular}{@{}p{0.20\linewidth}p{0.21\linewidth}p{0.36\linewidth}p{0.15\linewidth}@{}}\toprule
+item & step-3 requirement & certified (file) & margin\\\midrule
+(H1) $\alpha$ & $\abs\alpha\le1.5\cdot10^{-4}$ & $\alpha\in[-1.129667,-1.129606]\cdot10^{-4}$ over $W'$, plus $C_\alpha\Yb\le7.2\cdot10^{-13}$ (\fn{t9_h1_K_coh_tip32.json}, \fn{t9_h1_clam.json}) & $\times1.33$ \todo{B3}\\
+(H1) $\sqrt\Lam$ & $\le5\cdot10^{-8}$ & base $\le2.291\cdot10^{-8}$ (32 balls), plus $C_\Lam\Yb\le2.41\cdot10^{-11}$; total $\le2.293\cdot10^{-8}$; $\Yb$-limit $1.586\cdot10^{-9}$ & $\times2.18$ \todo{B3}\\
+(H2) shells $[14,60]$ & $E_{0,1,2}\le(2\cdot10^{-7},10^{-4},0.2)$ & base $(2.84\cdot10^{-12},3.66\cdot10^{-12},8.93\cdot10^{-11})$; $\Yb$-limit $5.86\cdot10^{-8}$ (\fn{t9_win_tight.json}) & $\times5.9\cdot10^4$ in $\Yb$ \todo{B4}\\
+(H3) windows & $E_0\le2\cdot10^{-7}$, $E_{1,2,3}\le10^{-5}$ ($y\in[50,253]$) & base $(1.44\cdot10^{-8},5.20\cdot10^{-8},1.71\cdot10^{-7},4.70\cdot10^{-7})$; $\Yb$-limit $1.794\cdot10^{-11}$ ($E_3$) & $\times17.9$ in $\Yb$ \todo{B4}\\
+(H3) $K_4$ & $\le0.06$ on $y\in[50,350]$ & base $3.17\cdot10^{-4}$; total $3.31\cdot10^{-2}$ (\fn{t9_cone_kch.json}) & $\times1.81$ \todo{B4, B5}\\
+(H4) graph over ray & graph on $y\in[48,350]$ & $\abs{\theta-\Theta}\le0.0779+5.43\cdot10^{-4}$ & ---\\
+(H5) cone, $r_c\in[200,380]$ & $K_{2,3,4}\le0.12$, $N_3\le0.14$ & $K_2\le1.89\cdot10^{-2}$, $K_3\le4.86\cdot10^{-4}$, $K_4\le7.45\cdot10^{-2}$; $N_3\le1.19\cdot10^{-3}$; slope $\le0.0573$ & $\times6.3$, $246$, $\mathbf{1.61}$, $117$ \todo{B5}\\
+(H5) far, $x\ge150$ & $\abs{h''}\le8.8\cdot10^{-3}$, $\abs{h'''}\le7.0\cdot10^{-5}$, $\abs{h''''}\le6.2\cdot10^{-7}$; slope $\le0.21$; $\norm{h'''}_{L^2}\le113^{-3/2}$ & $1.79\cdot10^{-4}$, $2.62\cdot10^{-8}$, $4.22\cdot10^{-8}$; $0.0416$; $5.56\cdot10^{-7}$ (\fn{t9_far.json}) & $\times49$, $2679$, $14.7$, $5.0$, $1499$ \todo{B5}\\
+(H5) Lemma O H4 & $\int(h_0^{(5)})^2\le M^2$ & \textbf{not checked}; fails by $\times4.8$--$\times252$ on the current $D_2(\tau^*)$ & \OPEN{A1}\\
+(H5) Lemma O H1, H6 & graph height; centres & not scripted (expected to hold) & \todo{A1}\\
+(H6) regularity & smooth; forcing from $\alpha$ & Lemma~\ref{lem:gal}, Theorem~P2 & \tA\\\bottomrule
+\end{tabular}\end{table}
+
+\subsection{Open items (review of Nov~11) and where they enter}\label{ss:open}
+\begin{center}\small
+\begin{tabular}{@{}p{0.06\linewidth}p{0.62\linewidth}p{0.25\linewidth}@{}}\toprule
+id & finding (\fn{STEP4_REVIEW.md}) & here\\\midrule
+A1 & Lemma O H4 not delivered; fails on certified $D_2(\tau^*)$ (cause: $\abs{W'}=1.46\cdot10^{-4}$) & \S\ref{ss:H4}, Thm 4(c), \S\ref{s:main}\\
+A2 & nonlinear terms missing from (Y): only $\mathrm{DN}=10^{-6}$; top-coefficient loss $\sup\tilde A^+\le0.0119$ on the far $E_I$ not charged & \S\ref{ss:Y}, \S\ref{ss:proofP2}\\
+A3 & tip box $2\cdot10^3\Yb/\sqrt{\mu_e}$ uncertified; sharp constant $1.35\cdot10^4$ at $x=34.25$ & \S\ref{ss:boxes}, Lemma~4a, N3$'$\\
+B1 & (SE) majorants in \fn{se_corr.py} underived; they dominate the far residual norms & \S\ref{ss:SE}, Table~\ref{tab:res}\\
+B2 & far-box margins were reported against $\eta_F$; true margins $\times1.29,2.19,1.76$ & \S\ref{ss:boxes}\\
+B3 & H1: IFT is a Newton step with a typed remainder ball; typed fall-backs & \S\ref{ss:alpha}\\
+B4 & typed base values in \fn{camp.py} on the wrong side ($\le10^{-4}$ relative) & \S\ref{ss:win}\\
+B5 & typed allowances in \fn{t9.py}, \fn{t9_far.py} & \S\ref{ss:cone}\\
+B6 & $\abs x\le C_x\Yb$ omits the residual part $x_r$ and the nonlinear part of (M) & \S\ref{ss:far}\\
+B7 & unscripted: $Y_0$ in (Y); placement of $F_j(\tau_0)$; $t_1$, $k_{\max}$; (H6) & \S\ref{ss:switch}, Thm 4\\
+B8 & $S_1$ non-uniqueness: state for a shrinker in the certified set; check that \fn{outA5.txt} hulls contain \fn{prof_tip} & \S\ref{ss:S1}, \S\ref{s:main}\\
+B9 & rounding spots (round-to-nearest outputs, a float tiling of cells) & \S\ref{ss:alpha}, \S\ref{ss:res}\\\bottomrule
+\end{tabular}\end{center}
+
+\section{\texorpdfstring{The initial curve $\Gamma_0$}{The initial curve Gamma0}}\label{s:G0}
+\emph{Sources:} \fn{t2/gamma0.py}, \fn{t2/final.log}, \fn{t2/gamma0_final.json}, \fn{t3/T3_REPORT.md} \S1. (\fn{T2_REPORT.md} describes the unslaved predecessor. Its closure width $4\cdot10^{-16}$ is superseded.)
+
+\paragraph{Definition.} $\Gamma_0$ is the curve of Theorem~4. Its tangent angle is the exact sine series $\theta=-\pi/2+\varphi$, $\varphi=\alpha+\sum_{n\le3762}b_n\sin n\alpha$. The point $\alpha=0$ is an axis crossing with $\theta(0)=-\pi/2$, and the half-curve $\alpha\in[0,\pi]$ lies in $\{y<0\}$. The coefficients are exact doubles except $b_2$, which is the exact dyadic root of the closure condition $C(b_2)=\int_0^\pi\cos\varphi=0$ (then $\operatorname{Im}X(\pi)=0$). The curve was obtained from the float snapshot of the clip run at $t=0.001$ (\fn{p2_t0.001.npz}) by truncation and two slaving passes. These steps define $\Gamma_0$; they are not part of the proof, and the closeness of $\Gamma_0$ to the snapshot is not certified (and not needed).
+\begin{itemize}
+\item \emph{Truncation.} $M=3762$, chosen by $\sum_{n>M}n^4\abs{b_n}\le10^{-12}$ (tail $9.96\cdot10^{-13}$). The discarded even part has $\max\abs{a_n}=7.3\cdot10^{-11}$.
+\item \emph{Slaving} (T3 option (c)). The float snapshot is off the slow manifold of the Galerkin flow ($10^{-10}$ at $n=186$--$350$). A polynomial slab cannot carry that layer: a slab $\Delta t=t/2$ from the raw curve has residual $2\cdot10^{-3}$. Pass~1 replaces modes $186..1000$ by the $s=0$ values of a free-start Lobatto collocation on $[0,1.8t]$ ($\abs{\Delta b_n}\le1.6\cdot10^{-10}$). Pass~2 replaces modes $\ge250$ by the $s=0$ values of slab~1's own base (largest change $5.5\cdot10^{-18}$, at $n=250$), so slab~1 starts with mismatch $9.4\cdot10^{-23}$. Modes $\le185$ and $>1000$ keep the snapshot values.
+\end{itemize}
+
+\begin{proposition}[$\Gamma_0$ \tC]\label{prop:G0}
+(i) \emph{Closure.} Validated quadrature (Taylor models of degree $24$ per arc with rigorous remainder, 512 leaves) gives $C(m)\in[\pm4.07\cdot10^{-24}]$ at the centre $m$. On $X=m\pm8.137\cdot10^{-24}$ the Krawczyk operator satisfies $K(X)\subset\operatorname{int}X$ with $\abs{1-C'(X)/c'}\le3.01\cdot10^{-12}$ ($c'=-1.99704$). So $C$ has a unique zero $b_2^*\in X$, and $\Gamma_0$ is closed. Also $\operatorname{Re}X(\pi)=-0.8227219774300355680063\pm3.71\cdot10^{-23}$ and $\abs{\operatorname{Im}X(\pi)}\le3.29\cdot10^{-22}$.
+(ii) \emph{Embeddedness.} With $b_2\in X$, the half-curve splits into 701 arcs, each of total turning $\le0.04997<\pi/2$, with adjacent pairs turning $\le0.0960<\pi$; so each arc and each adjacent pair is injective. The boxes of non-adjacent arcs are pairwise disjoint after 3 refinement rounds (minimal $L^\infty$ separation $8.89\cdot10^{-3}$). The middle arcs $49..655$ have certified $y<0$. On the left zone (arcs $0..48$) $\varphi\in(-1.5,1.5)$, so $y$ strictly decreases from $y(0)=0$. On the right zone ($656..700$) $\varphi\in(1.6,4.7)$, so $y(\alpha)=\frac{L_0}{2\pi}\int_\alpha^\pi\cos\varphi<0$, using $y(\pi)=0$, i.e.\ $C(b_2^*)=0$. Hence the half-curve is injective and meets the axis exactly at its two endpoints. These are distinct ($X(0)\approx-0.8749$, $X(\pi)\approx-0.8227$). With the mirror image, $\Gamma_0$ is embedded. The slot half-gap is $\ge0.0248219$ (float $0.0248223$).
+\end{proposition}
+\noindent The disjointness test rounds the \fn{arb} bounds outward to doubles with \fn{nextafter}. The right-zone sign argument uses the exact closure at $b_2^*$, not the box bound $\abs{\operatorname{Im}X(\pi)}\le3.3\cdot10^{-22}$. The review checked: $M_0=1000$ and $N_c=4000\ge3762$ in P1's first slab, so every $\Gamma_0$ mode is in the centre or in the box; the $b_2$ interval enters the initial radii correctly; $L_0$ matches.
+
+\section{P1: validated Fourier slabs and the Galerkin-limit lemma}\label{s:P1}
+\emph{Sources:} \fn{t3/T3_DESIGN.md} \S0--6, \fn{t3/T3_REPORT.md}, \fn{t3/slab.py}, \fn{t3/run_p1.py}, \fn{t3/p1/ckpt/slab_NNNNN.json}, \fn{t3/p1/status.json}.
+
+\subsection{Equation}
+Let $\theta=-\pi/2+\alpha+\mathrm{th}$, $\mathrm{th}=\sum_{n\ge1}u_n\sin n\alpha$, and clock $\tau'$ with $d\tau'=(2\pi/L)^4dt$. Then, with $\lambda_n=n^4-n^2$,
+\[
+u_n'=-\lambda_nu_n+N_n(u),\qquad N=-\partial_\alpha\bigl(v^2+\tfrac13v^3\bigr)+(1+v)\,\partial_\alpha^{-1}\bigl(w^2-\ip{w^2}{}\bigr),\quad v=\mathrm{th}_\alpha,\ w=\mathrm{th}_{\alpha\alpha},
+\]
+where $\partial^{-1}$ is the zero-mean antiderivative. This is the CDF equation after one integration by parts, checked against \fn{hls.py} in floats. The slaved quantities are $(\ln L)'=-\frac12\sum n^4u_n^2$, $t'=(L/2\pi)^4$ and $X_0'=(L/2\pi)(\sum n^3u_n,0)$. They are propagated by exact Chebyshev algebra in \fn{arb}.
+
+\subsection{One slab}
+On a slab $s\in[0,h]$, with $h\,\theta_{\max}^4\approx2$:
+\begin{enumerate}[label=(\arabic*),leftmargin=*]
+\item \emph{Base.} $\bar u$ is a Chebyshev--Lobatto polynomial of degree $K=24$ ($K=16$ in the swing) in $s$, for $M$ modes. It is computed by a float collocation Newton step and then polished three times against the \fn{arb} collocation residual. The centre is carried as exact 128-bit midpoints. The residual $r=\bar u'+\Lambda\bar u-N(\bar u)$ (degree $3K$) is enclosed exactly.
+\item \emph{Error split.} $e=u-\bar u=P(s)\rho+z(s)$ with $\abs{\rho_i}\le w_i$. Here $P$ solves the variational equation on the slow block $n\le M_a$, $\lambda_{M_a}h\le8$, with slaved high rows. Its defect $D=P'+\Lambda P-JP$ is enclosed in \fn{arb}.
+\item \emph{Bounds on $z$.} $z'=-\Lambda z+Jz+Q(e)-r-D\rho$. On ten sub-intervals, componentwise Duhamel bounds with exact $e^{-\lambda_ns}$ are used for $n\le N_c=4M$, with a tail $T\,n^{-6}$ beyond. A strict \fn{arb} isolation check (first-exit argument) closes the bounds with a 3\% margin. Intra-slab absorption moves the $z_a$ part into $\rho$.
+\item \emph{Lohner step} at $s=h$: QR of $P_a(h)\,\mathrm{diag}(w)$ with column sorting; new $w'$, box and tail. Block and $M$ are resized by exact changes of representation.
+\end{enumerate}
+
+\subsection{Galerkin-limit lemma}
+Let $Y=(Z_1,\dots,Z_{N_c},T(N_c+1)^{-6},\dots)$ and $W=\{z:\abs{z_n}\le Y_n\ \forall n\}$. Let $\hat J,\hat Q$ be the componentwise majorants (\fn{T3_DESIGN.md} \S3), so that $\abs{(Jz)_n}\le\hat J(Y)_n$ and $\abs{Q_n(s,P\rho+z)}\le\hat Q(Y)_n$ for $z\in W$, $s\in I=[0,\Delta]$. Let $\abs{r_n}\le\hat r_n$, $\abs{(D\rho)_n}\le\hat d_n$, and $F_n:=\hat J(Y)_n+\hat Q(Y)_n+\hat r_n+\hat d_n$. Put $g_n(t)=e^{-\lambda_nt}a_n+\phi_n(t)F_n$ with $\phi_n(t)=(1-e^{-\lambda_nt})/\lambda_n$.
+\begin{lemma}[first exit and Galerkin limit; \fn{T3_DESIGN.md} \S6]\label{lem:gal}
+Assume the isolation condition \textup{(H)}: $Y_n>\max(a_n,g_n(\Delta))$ for all $n$. This is checked in \fn{arb} componentwise for $n\le N_c$, and through the strict tail inequality on $T$ for $n>N_c$. Let $u(0)$ be data in the sine class with $z(0)=u(0)-\bar u(0)-P(0)\rho$, $\abs{z_n(0)}\le a_n$. Then there is a unique solution $u\in C^0(I;H^5)\cap C^1(I;L^2)$ of $u_s=-(\partial^4+\partial^2)u+N(u)$ in the sine class, with $z(s)\in W$ for all $s\in I$ and $\abs{z_n(\Delta)}\le g_n(\Delta)$.
+\end{lemma}
+\begin{proof}
+\emph{1. Galerkin systems.} For $N\ge M$, $u^N$ solves $u^{N\prime}_n=-\lambda_nu^N_n+N_n(u^N)$ for $n\le N$, with $u^N_m\equiv0$ for $m>N$ and $u^N(0)=\Pi_Nu(0)$. This is a polynomial ODE, so a local solution exists and continues while bounded. The difference $z^N=u^N-\bar u-P\rho$ satisfies $z^{N\prime}_n=-\lambda_nz^N_n+F^N_n$ with $F^N_n=(Jz^N)_n+Q_n-r_n-(D\rho)_n$.
+\emph{2. First exit.} $\abs{z_n^N(0)}\le a_n<Y_n$. Let $s^*=\sup\{s\le\Delta:z^N([0,s])\subset W\}>0$. On $[0,s^*]$ we have $\abs{F_n^N}\le F_n$, and Duhamel gives $\abs{z^N_n(s^*)}\le g_n(s^*)$. Since $g_n'=e^{-\lambda_nt}(F_n-\lambda_na_n)$ has constant sign, $g_n(s^*)\le\max(g_n(0),g_n(\Delta))<Y_n$. Finitely many coordinates move, so continuity gives $s^*=\Delta$.
+\emph{3. Compactness.} Uniformly in $N$, $\abs{u^N_n}\le B_n:=\sup_I\abs{\bar u_n}+\sup_I\abs{(P\rho)_n}+Y_n$, and $B_n=Tn^{-6}$ for large $n$. The convolution sums in $N_n$ involve $\sum m^kB_m$ with $k\le3$, which converge since $6>4$. So $\abs{\partial_su^N_n}\le\lambda_nB_n+\tilde N_n$. Arzel\`a--Ascoli and a diagonal argument give a subsequence converging for every $n$, uniformly on $I$.
+\emph{4. Limit.} In the mild form $u_n^N(s)=e^{-\lambda_ns}u_n(0)+\int_0^se^{-\lambda_n(s-\sigma)}N_n(u^N)d\sigma$, dominated convergence passes to the limit, and the closed bounds persist.
+\emph{5. Regularity.} For $n$ large, $\abs{u_n}\le Tn^{-6}$ and $\abs{N_n}\le Cn^{-4}$. So $u\in C^0H^5\cap C^1L^2$, and $u$ solves the PDE in $L^2$.
+\emph{6. Uniqueness.} For two solutions, $\delta=u-u^\infty$ satisfies $\frac12\frac d{ds}\norm\delta^2=-\norm{\delta_{\alpha\alpha}}^2+\norm{\delta_\alpha}^2+\ip{N(u)-N(u^\infty)}\delta$. Each term of the difference is bounded by $C_A(\norm{\delta_\alpha}^2+\norm{\delta_\alpha}\norm\delta+\norm{\delta_{\alpha\alpha}}\norm\delta)$, with $C_A$ depending on $\norm{v}_\infty,\norm w_\infty$ of both solutions ($H^5\subset C^3$). Interpolation and Gr\"onwall give $\delta\equiv0$.
+\end{proof}
+\noindent Steps 1--5 also give existence from $H^5$ data, so chaining sub-intervals and slabs \emph{constructs} the solution on all of P1. No external existence theorem is used before $t_{96}$. The review found the lemma complete as written.
+
+\subsection{Results \tC}
+P1 was run from $\Gamma_0$ through 96 validated slabs: graded slabs $\Delta t=t/2$ to $t\approx0.03$, then $h=2/\theta_{\max}^4$, the swing and the approach. The run used the M-step rule $\max(80,0.15M)$. It stopped at slab 95 ($k_{\max}\ge25$, certified $26.2537786005$) and was then extended by one slab to the switch state.
+\begin{center}\small\begin{tabular}{@{}ll@{}}\toprule
+quantity at slab 96 (\fn{t3/p1/status.json}) & value\\\midrule
+time since $\Gamma_0$ & $t_{96}=4.597850539485830831\pm7.8\cdot10^{-19}$\\
+$L$, $X_0$ & $48.29333418442305\pm3.7\cdot10^{-15}$, $0.84121611132611\pm4.3\cdot10^{-15}$\\
+$k_{\max}$ & $[29.352874545325992,\,29.352874545327012]$\\
+$M$, block $M_a$, $\theta_{\max}$ & $2800$ ($3200$ next), $285\to319$, $225.61$\\
+$\abs e_j=\sum n^j\abs{e_n}$, $j=0..4$ & $4.58\cdot10^{-15},4.68\cdot10^{-13},6.87\cdot10^{-11},1.29\cdot10^{-8},2.97\cdot10^{-6}$\\
+physical $C^2$, $C^5$ (lead) & $1.97\cdot10^{-13}$, $8.50\cdot10^{-10}$\\
+residual (truncation part), CPU & $2.52\cdot10^{-11}$, $6.24$ h (1 core)\\\bottomrule\end{tabular}\end{center}
+The T5 design asked for $C^2\le3\cdot10^{-14}$ at the switch (hypothesis (I)). It is not met, and it is not needed: the switch (\S\ref{ss:switch}) computes the modulated initial error directly from the P1 enclosure. In the float runs the curve first self-intersects at clip time $t\approx0.0028$ (\fn{T3_REPORT.md} \S1), i.e.\ inside the first P1 slabs. This plays no role in P1, which is a computation in Fourier variables and is insensitive to embeddedness.
+
+\section{The base}\label{s:base}
+\emph{Sources:} \fn{t1/POLISH_V2.md}, \fn{t1/polished_v2/manifest.json}, \fn{STEP4_DESIGN.md} \S21--22.
+
+The P2 base is a half curve $\Gt(x,\tau)$, $x\in[0,\lt(\tau)]$, given by its curvature $\kt$. In $x$, $\kt$ is a $C^4$ piecewise polynomial with exact symmetry at both ends ($\kt'=\kt'''=0$ at $x=0,\lt$). The discretisation is weak (Legendre--Galerkin), on a geometric mesh whose outer knots move with $\lt$. In $\tau$ it is degree-8 Radau collocation per slab, continuous across slabs. Exact quadrature then gives $\Gt$ and the scalars $\tilde a,\tilde b$.
+
+\paragraph{Seed.} Slab~0 is P1 slab~95 \emph{exactly}. The 2800-term series of slab~95 was evaluated in \fn{arb} at 192 bits, by blocked \fn{arb_mat} products: $\sum_qe^{iqB\alpha}\sum_rc_{qB+r}e^{ir\alpha}$ with $B=64$, because Horner on $\abs z=1$ inflates radii like $(\abs{\cos}+\abs{\sin})^n$. This gives $k=26.2537786005622$, $\lambda=K_0/\kappa_{\rm tip}$, $\lt=411.97336$ and a mesh of $N=120$ elements. The nodal $\kt^{(0..4)}$ are exact at the knots. The bubbles match the Legendre moments 0 and 1. A zero-mean bump of size $7.6\cdot10^{-23}$ removes the far-point offset $3.4\cdot10^{-21}$. The seed is stored as exact 128-bit dyadics. Sampled agreement, at 300 random points: $\abs{\kappa_h-\kappa_{P1}}\le4.7\cdot10^{-17}$ for $x\le40$ \tF. This check is not used: the switch encloses the mismatch rigorously.
+
+\paragraph{Store.} The store \fn{polished_v2/} has 181 slabs, $\tau\in[0,27.15]$, $\Delta\tau=0.15$, $k$ from $26.2538$ to $23718.7$, and $N$ from $120$ to $171$ elements ($844\to1201$ DOF). The maximal polish residual is $9.7\cdot10^{-27}$. Fresh-process reloads of slabs 0, 1, 160, 170, 180 give bit-identical norms. A server restart interrupted the polish after slab 164; it was resumed losslessly, with Newton paths that differ only within $\abs E<10^{-26}$. At slab 180, $\lt\in[3.56,3.70]\cdot10^5$ (T6 scalars; the value $6.7\cdot10^5$ in \fn{T7_REPORT.md} \S4 is stale).
+
+\paragraph{(SE) defect of the stored base.} At slab ends the tilt is $\le4.2\cdot10^{-28}$. Inside slabs, at the Radau stage rows, the tilt is $\le3.2\cdot10^{-18}$ and the far-point offset $h=\operatorname{Im}\Gt(\lt)$ is $\le1.05\cdot10^{-15}$ (rescaled). The cause is that $\int\kt$ and $h$ are nonlinear in the moving outer mesh, and $\mathrm{Leg}_0$ conserves $\int\kt$ only at the collocation nodes. This motivates the correction of \S\ref{ss:SE}.
+
+\begin{remark}[development notes]
+(1) \emph{Mis-seeded base, caught and fixed.} The first base (\fn{t1/polished}) was seeded from the float snapshot \fn{p2_k20} of the original clip's HLS run, not from P1's validated trajectory. The assembly found this at the switch (Nov~10). The float mismatch, minimised over scale, shift and clock, was $Y(\tau_0)\approx2.8\cdot10^{-9}$. That is $\times173$ over the budget of the time, with a clock offset of $7\cdot10^{-6}$; the comparison certifies a decay of only $\approx0.05$ per unit $\tau$, so P2 could not close on that base. The base was rebuilt from P1's exact centre (\fn{polished_v2}). The float switch mismatch fell to its floor $\approx10^{-14}$, and the certified modulated mismatch is $6.2\cdot10^{-13}$. All T6, T7 and T8 results on the old base are archived (\fn{constants_v1.json}, \fn{t8/constants/*_v1}) and superseded. The lesson: the base must continue the validated trajectory. An independent float run of ``the same'' curve is not enough.
+(2) \emph{Hand-off scale.} The float go/no-go (milestone 1) met the outer-window thresholds of step 3 only from $k\approx1.6$--$2.3\cdot10^4$. The deviation there is $-40(y/k)^3$, so the window energies scale like $k^{-5.9}$. The hand-off was therefore raised to $k\approx2.3\cdot10^4$, and step 3 moved to $\alpha_1=1.5\cdot10^{-4}$.
+\end{remark}
+
+\section{P2: shadowing the base}\label{s:P2}
+\emph{Sources:} \fn{t5/T5_DESIGN.md} (design; tags \tD), \fn{t7/T7_REPORT.md}, \fn{t8/LEMMA_F.tex} (= \fn{LEMMA_F.md}), \fn{t6/T6_REPORT.md}, \fn{p2/*.py}, \fn{STEP4_RESULT.md}. The statement below consolidates T5 with the choices made later: the fixed late-base constraint functions of T7, levels $j\le3$ only, the boxes of Lemma~4a and N3$'$, and the (SE)-corrected base (review C).
+
+\subsection{Objects}\label{ss:objects}
+\emph{Base.} Let $\hat\kappa$ be the (SE)-corrected base curvature (\S\ref{ss:SE}), and $\Gt,\tilde a,\tilde b$ the corresponding curve and scalars. Put $c:=\frac14-\tilde a$. Derived quantities: the frame $\tilde T,\tilde\nu$; $\tilde p=\ip\Gt{\tilde\nu}$, $\tilde q=\ip\Gt{\tilde T}$, $\tilde n=\ip{e_1}{\tilde\nu}$, $\tilde t_1=\ip{e_1}{\tilde T}$; the normal velocity $\tilde V=\ip{\partial_\tau\Gt|_x}{\tilde\nu}$; the transport $\varpi=\int_0^x\kt\tilde V$; and $Q:=\int_0^x\kt'^2$.
+\emph{Residual.} $r:=\tilde V+\kt_{xx}-c\tilde p-\tilde b\tilde n$, with $S_1=\int_0^xr$ and $S_2=\int_0^x(x-x')r\,dx'$. Exactly, $r+iA=e^{i\theta}\int_0^xe^{-i\theta}\rho_\theta$, with $A'=\kt r$; this is T6's identity.
+\emph{Linearisation} (signs confirmed symbolically in T1 \fn{signs.py}):
+\[
+\cL e=-e''''+b_2e''+b_1e'+b_0e,\quad b_2=-\kt^2,\quad b_1=-5\kt\kt'-c\tilde q-\tilde b\tilde t_1+\varpi=-cy+\beta,\quad b_0=c+c_0,
+\]
+with $\beta:=Q-cX_0-6\kt\kt'+A$ and $c_0:=-3\kt'^2-4\kt\kt''$. The terms $-c\tilde q$ and $-\tilde b\tilde t_1$ cancel exactly in $b_1$.
+\emph{Constraints and directions.} $\varphi_1=\chi p_L$ and $\varphi_2=\chi n_L$ are fixed functions of a late base (\fn{t7/phi_store.json}, exactly $C^4$); $\varphi_3=\chi\hat\psi_3$. The directions are $g=(\tilde p,\tilde n,\tilde V/n)$, $n=\norm{\chi\tilde V}_\rho$, each normalised in $L^2_\rho$.
+\emph{Energies of the error $e$.} Let $u=\chi e$ and $v=\zeta_\infty e'$, where $\zeta_\infty$ is the step-3 ramp on $[10.25,16.25]$ and equals $1$ beyond. Set $A,W_1,B,W_3,D_4=\norm{u^{(j)}}_\rho$ and $V_j=\norm{v^{(j)}}_{W_\infty}$, with $W_\infty=(1+x^2)^{-2}$ on all of $[10.25,\lt]$. Then
+\[
+\Lam_e=A^2+\eps B^2+\mu_e(V_0^2+\eps_IV_2^2),\qquad Y=\sqrt{\Lam_e},\qquad\eps=10^{-5},\ \eps_I=3\cdot10^{-5},\ \mu_e=0.036 .
+\]
+Since $W_{\rm step3}\le W_\infty$ (checked by the review: the blend has $\phi'\ge4x/(1+x^2)$ for $x\ge6.4$), the step-3 functional satisfies $\Lam^{S3}[e]\le(0.08/\mu_e)\Lam_e$. The far energies $F_j$, $D_j$ (levels $j\le3$) are those of Lemma~F (\S\ref{ss:far}).
+\emph{Boxes.} $\mathbb B$: on $[0,34.25]$, $\abs e,\abs{e'}\le\eta_1$, with no condition on $e''$ (Lemma~4a); $B\le\eta_B=10^{-4}$; $\abs\vartheta\le10^{-3}$. $\mathbb B'$: for $y\ge28$, $\abs e\le1.25\,E(x)$, $\abs{e'}\le\zeta_1=7\cdot10^{-4}$, $x\abs{e''}\le\zeta_2=1.65\cdot10^{-4}$, $x^2\abs{e'''}\le\zeta_3=10^{-2}$; for $y<28$, $\abs e,\abs{e'}\le\eta_1(\Yb):=1.25\cdot2\cdot10^3\Yb/\sqrt{\mu_e}$ \OPEN{A3} and $x\abs{e''},x^2\abs{e'''}\le\eta_F=10^{-2}$. Here $E:=1.06\cdot10^4\Yb+\sqrt{F_0}\,y^{3/2}/\sqrt{84}$.
+
+\subsection{The shadowing theorem}
+\begin{named}{Theorem P2 (shadowing; consolidated from T5 \S1.3)}
+Assume:
+\begin{itemize}[leftmargin=2em]
+\item[(I)] at $\tau_a$ the true curve has a modulated decomposition over the base, with $Y(\tau_a)\le6.21\cdot10^{-13}$ and $F_j(\tau_a)\le F_j^0=(4\cdot10^{-23},3\cdot10^{-22},5\cdot10^{-19},3.4\cdot10^{-15})$ (\S\ref{ss:switch});
+\item[(B)] the base is exactly symmetric at both ends, with $\hat\kappa\in C^4$ and $\hat\kappa^{(5)}\in L^\infty$, enclosed jets, (SE) exact, and $n\ge n_{\min}=2.33\cdot10^{-4}$;
+\item[(R)] the residual norms of Table~\ref{tab:res} hold per slab;
+\item[(C)] T7's constants and certificates hold (\S\ref{ss:coer});
+\item[(F)] T8's per-slab constants of Lemmas F, J, N3$'$ hold (\S\ref{ss:far});
+\item[($\mathbb B$)] the bars stay strictly inside $\mathbb B\cup\mathbb B'$ (\S\ref{ss:boxes}).
+\end{itemize}
+Then the CDF solution through the P1 enclosure exists on $[t_a,t_1]$, and there are $C^1$ functions $\lambda>0$, $c$ and $t$ of the label $\tau\in[\tau_a,\tau^*]$, with $t_\tau=\lambda^4(1-\vartheta)$ and $\abs\vartheta\le6.2\cdot10^{-8}$, such that
+\[
+\frac{\gamma(t(\tau))-c(\tau)e_1}{\lambda(\tau)}=\Gt(\cdot,\tau)+e(\cdot,\tau)\,\tilde\nu(\cdot,\tau),\qquad\ip{\chi e}{\varphi_j}_\rho=0\ (j=1,2,3),
+\]
+\[
+\sqrt{\Lam_e(\tau)}\le\Yb=10^{-12},\qquad\sqrt{F_j(\tau)}\le A_j\Yb+B_j\ (j\le3),\qquad D_2(\tau^*)\le1.224\cdot10^{-8}
+\]
+at a good time $\tau^*\in W'$, with $A_j,B_j$ as in Table~\ref{tab:far}. The sizes of $\ln(\lambda/\tilde\lambda)$, of $c-\tilde c$ and of the clock shift are not needed, except for the time interval $t_1$ of Theorem~4(b).
+\end{named}
+\noindent\emph{Status.} The theorem is \tC\ in its linear part and in the far levels. Two parts are cited but not certified: the tip and $E_I$ nonlinear terms \OPEN{A2} and the tip box \OPEN{A3}.
+
+\subsection{Proof}\label{ss:proofP2}
+\emph{Step 1: representation \tD.} For the true solution put $\Gamma=(\gamma-ce_1)/\lambda$ as a function of the label $\tau$, with $t_\tau=\lambda^4(1-\vartheta)$. Then $\ip{\Gamma_\tau}\nu=-(1-\vartheta)\kappa_{ss}+(\frac14-a)\ip\Gamma\nu+b\ip{e_1}\nu$. Subtract the base identity and write $\Gamma$ as a normal graph over $\Gt(\tau)$. The $\vartheta$-direction becomes $\tilde V$, and
+\[
+e_\tau=\cL e-\sum_{i=1}^3x_ig_i-(1-\vartheta)r+\cN(e)+\cQ(x;e),\quad x_1=(a-\tilde a)-\vartheta c,\ x_2=-(b-\tilde b)-\vartheta\tilde b,\ x_3=n\vartheta .
+\]
+Here $\cN$ is the quadratic remainder of the graph operator and $\cQ$ is bilinear in $x$ and the jets of $e$. Since $e''=\kappa-\kt+\dots$ with $\kappa$ smooth, $e\in W^{7,\infty}$ when $\hat\kappa\in C^4$ with $\hat\kappa^{(5)}\in L^\infty$, which is enough for every identity below. The inequalities hold a.e.\ in $\tau$ and are integrated.
+
+\emph{Step 2: modulation (M) \tD/\tC.} Differentiate the constraints and integrate by parts onto the smooth $\varphi_j$, as in step 3's \fn{MOD_IBP}:
+\[
+\sum_ix_i(M_{ij}+E_{ij}(e))=\ip e{\ell_j}_\rho-(1-\vartheta)\ip{S_2}{\rho^{-1}(\rho\varphi_j)''}_\rho+\ip{\chi\cN}{\varphi_j}_\rho+\text{strip},
+\]
+with $M_{ij}=\ip{\chi g_i}{\varphi_j}_\rho$, $\ell_j=\rho^{-1}\cL^\dagger(\rho\varphi_j)$, $\cL^\dagger\psi=-\psi''''+(b_2\psi)''-(b_1\psi)'+b_0\psi$, and $\abs{E_{ij}}\le\bar e(A+W_1)$. Hence $\abs x\le C_xA+x_r+(\text{nonlinear})$ with $x_r=\bar m\abs{c_\varphi}\cR_2$; the constants are certified by T7 (\S\ref{ss:mod}). The residual enters only through $S_2$. Existence and continuity of $(\lambda,c,t)$ follow from the implicit function theorem with matrix $M+E$, which is valid while $\bar m\bar e(A+W_1)<\frac12$.
+
+\emph{Step 3: clock.} By (M), $\abs\vartheta=\abs{x_3}/n\le C_x\Yb/n_{\min}\le6.2\cdot10^{-8}$, far inside $10^{-3}$. The third direction is an exact symmetry, the shift of $\tau$ along the base orbit, so $Y$ is not forced by the accumulated clock shift, and the $2\times2$ system of T5 \S2.3 is triangular.
+
+\emph{Step 4: energy inequalities \tD\ (structure of step 3), constants \tC.} The four inequalities of T5 \S2.4 are, with $\Phi_1\ge\sup\abs{\rho'/\rho}$ and $\Phi_2\ge\sup\abs{\rho''/\rho}$ on $[0,34.25]$,
+\begin{align*}
+\tfrac12\tfrac d{d\tau}A^2&\le-c_IA^2-\theta_0B^2+(s_A+s_B)V_0^2+\cR_2\bigl(B+2\Phi_1W_1+(\Phi_2+\bar mc_\varphi)A\bigr)+N_0,\tag{E0}\\
+\tfrac\eps2\tfrac d{d\tau}B^2&\le\eps\bigl[-\tfrac12D_4^2+G_{22}B^2+G_{12}W_1B+(G_{02}+G_x)AB\\&\qquad+\cR_s(D_4+2\Phi_1W_3+\Phi_2B)+\text{strip}_2\bigr]+N_2,\tag{E2}\\
+\tfrac12\tfrac d{d\tau}V_0^2&\le-\mu_1V_0^2-\tfrac12V_2^2+a_fW_1^2+b_fB^2+\cR_1(V_2+2\Psi_1V_1+\Psi_2V_0)+\abs x\gamma_0V_0+N_{I0},\tag{I0}\\
+\tfrac{\eps_I}2\tfrac d{d\tau}V_2^2&\le\eps_I\bigl[-\tfrac12V_4^2-\mu_2V_2^2\\&\qquad+(c_3D_4+c_2W_3+c_1B+c_0W_1+\cR^I_s+\abs x\gamma_2)(V_4+2\Psi_1V_3+2c_{1W}V_2)\bigr]+N_{I2}.\tag{I2}
+\end{align*}
+In (E0) the residual is paired weakly: $\ip{\chi r}u_\rho=\int S_2(\rho\chi u)''$, so only $\kt$ is needed. In (I0), $\ip{\zeta r_x}v_W=\int S_1(W\zeta v)''$. At the far end, $b_1(\lt)=\varpi(\lt)=-\lt_\tau$ there, so the transport boundary term cancels the moving-domain term. The certified quadratic form, i.e.\ \fn{closure_cert.py} in linear mode with the constants of (C), gives
+\[
+\mathfrak Q_c(z)\ge\varrho_c\Lam_e+\tfrac{\theta_0}4B^2+\tfrac\eps8D_4^2+\tfrac{\mu_e}8V_2^2+\tfrac{\mu_e\eps_I}8V_4^2=:\varrho_c\Lam_e+\mathfrak D,\qquad z=(A,B,D_4,V_0,V_2,V_4),
+\]
+with $\min\varrho_c=0.0471$. The nonlinear terms $N_0,N_2,N_{I0},N_{I2}$ are not written out; T5 \S2.5 is a sketch. In the certified run they are represented only by the rate allowance $\mathrm{DN}=10^{-6}$ \OPEN{A2}. Terms such as $\eta_1n_4D_4A$ in (E0) and $\eps\eta_1n_4D_4^2$ in (E2) contain $D_4$, which $\Lam_e$ does not bound; they need a slice of $\mathfrak D$, not a rate loss. On the far part of $E_I$ the top coefficient is perturbed by $\tilde A\approx4\kt e$, with certified $\sup\tilde A^+\le0.0119$. T8 charges this to every $\theta_j$ (TOPLOSS), but nothing charges it to $\frac12V_2^2$ and $\frac12V_4^2$ in (Y). The review estimates that a loss of $10^{-2}$ in $\varrho_c$ raises the (Y) level to $\approx1.7\cdot10^{-13}$, still far below $\Yb$, and that moving the top loss out of Lemma~J's share raises the $J$'s by 20--25\% and thins the level-3 far box and item~4 by $\approx10\%$ \tF.
+
+\emph{Step 5: comparison.} By Lemma~\ref{lem:Y} (\S\ref{ss:Y}), $Y\le\Yb=10^{-12}$ on $[\tau_a,\tau^*]$, as long as $\mathbb B\cup\mathbb B'$ holds.
+
+\emph{Step 6: far field.} Lemmas F, B, J and N3$'$ and Corollary~C (\S\ref{ss:far}) give $\sqrt{F_j}\le A_j\Yb+B_j$ and $D_2(\tau^*)$.
+
+\emph{Step 7: closing.} Run the continuity argument on the largest interval on which $\mathbb B\cup\mathbb B'$ holds. Steps 2--6 and the pointwise bounds of \S\ref{ss:boxes} give $\mathbb B\cup\mathbb B'$ with strict inequalities, so the interval is all of $[\tau_a,\tau^*]$. The bounds control the curvature and its derivatives, so the solution continues: this is the continuation fact (P1) of step 3, from the literature \tA. No tail lemma and no barrier march (as in step 3) are needed. The system is linear with small coefficients, and the horizon is finite ($\Delta\tau\le27.15$).\hfill$\square$
+
+\subsection{The switch}\label{ss:switch}
+\emph{Source:} \fn{p2/switch.py}, \fn{p2/out/switch_s2.json}, \fn{switch_s2_fin.log}.
+
+P1 slab 96 is compared with base slab 2 at $t_{c,a}=982986695892350/2^{50}=0.873067570143915$ ($\tau_a=0.44048$ on the base axis; $k_{\rm tip}=29.3528745453264\pm4.8\cdot10^{-14}$). The P1 ball is converted into the base chart: $\alpha=\pi-s\,x$, $\kappa=-s\theta_\alpha$, $\lambda_{P}=K_0/\kappa_{\rm tip}$, ball norms with the $n^{-6}$ tail, the length factor, and 1902 cells. An a-priori ball feeds the IFT for $(\lambda_0,c_0,\tau_0)$.
+\begin{center}\small\begin{tabular}{@{}p{0.30\linewidth}p{0.42\linewidth}p{0.22\linewidth}@{}}\toprule
+quantity & value & role\\\midrule
+IFT: $\bar m$, contraction $q$, clock shift $s$ & $5.104$, $4.18\cdot10^{-9}$, $\le1.24\cdot10^{-12}$ & start inside its a-priori ball\\
+raw $Y$ (no modulation) & $2.18\cdot10^{-14}$ ($A=2.18\cdot10^{-14}$, $B=2.20\cdot10^{-14}$) & ---\\
+modulated $Y(\tau_a)$ & $6.2031\cdot10^{-13}$ ($A=6.203\cdot10^{-13}$, $B=1.512\cdot10^{-12}$) & initial value of (Y)\\
+$F_j(\tau_a)$, $j=0..3$ & $3.75\cdot10^{-23}$, $2.45\cdot10^{-22}$, $4.72\cdot10^{-19}$, $3.19\cdot10^{-15}$ & rounded up into \fn{--F0} $4,3,5,3.4$\\\bottomrule\end{tabular}\end{center}
+The modulation moves the frame onto the constraint manifold, which is why the modulated $Y$ is larger than the raw one. \fn{STEP4_RESULT.md} quotes $Y(\tau_a)\le6.20\cdot10^{-13}$ and $F_j\le3.7\cdot10^{-23},\dots$. These are round-to-nearest; the correctly rounded bounds are those above. The margin against $\Yb$ is $10^{-12}/6.2031\cdot10^{-13}=1.61$. \todo{B7: \fn{ycomp.py} is run without $Y_0$, so $Y(\tau_a)\le\Yb$ is not machine-checked (it holds); \fn{camp.py} places $F_j(\tau_0)$ at the start of slab~2 although the switch is $94\%$ through it, over-counting the decay by $\approx1.7\%$ in $\sqrt F$ (negligible)} \todo{B9: \fn{switch.py} l.295, 338, \fn{arb(float(a.lower()))} is not outward ($\le1$ ulp)}.
+
+\subsection{The modulation constants}\label{ss:mod}
+From T7 (C3), per slab (\fn{c2r3}): $\bar m\le5.40$, $\bar\ell\le9.57$, $C_x\le7.63$, $C_{x,\rm full}\le7.82$, $n_{\min}\ge2.33\cdot10^{-4}$ (at slab 180), and $c_\varphi=(1.895,1.534,0.318)$ for normalised $\varphi_j$, with Euclidean norm $\abs{c_\varphi}\le2.459$ over all certificates. At $\tau_c$, from $k=27$ to $1.6\cdot10^4$: $\bar m$ $5.06\to5.39$, $\bar\ell$ $9.56\to9.41$, $n_V=\norm{\chi V_s}$ from $0.167$ down to $3.4\cdot10^{-4}$. The residual corrections to the directions ($\tilde V=V_s+r$ in $g_3$, $b_1\mathrel{+}=\int\kt r$) cost at most $9.7\cdot10^{-9}$ in $c_I$ (\fn{merge.py}, from \fn{t6/residuals.json}). The modulation norms after \fn{fargref} are $C_{\gamma0}\le0.2068$, $C_{\gamma2}\le0.0159$, $G_x\le14.06$. The ``sawtooth'' in $\sqrt{\hat\Gamma_0}$ before outer-element insertions was an artefact of the $t_c$-hull of the moving knots, and four $t_c$-balls per slab remove it. \todo{B6: T8 (\fn{camp.py} l.124, \fn{n3far}) uses $\abs x\le C_x\Yb$ with $C_x=7.82$, i.e.\ without $x_r$ ($\le3.3\cdot10^{-14}$ at slab 2, $\approx0.4\%$ of $C_x\Yb$) and without the nonlinear part of (M). Fix: use the constant majorant $Y\le6.3\cdot10^{-13}$ or add $x_r$.}
+
+\subsection{The (SE) correction}\label{ss:SE}
+\emph{Source:} \fn{p2/se_corr.py}, \fn{p2/out/se_corr.json}, \fn{se_corr_v2.log}. Lemma~F needs the symmetric-end hypothesis (SE), $\cB^S_j\le0$ (\S\ref{ss:far}), and it holds with $\cB^S_j=0$ when the base is symmetric about the axis at its far end. The stored base meets this only at slab ends (\S\ref{s:base}). The implemented correction is a \emph{comoving} curvature bump, not the static shift proposed in \fn{STEP4_RESULT_v1_stopped.md} \S2(ii) (review C):
+\[
+\hat\kappa=\kt+\delta\kappa,\quad\delta\kappa=\frac{a_1}{\lt}b_1(u)+\frac{a_2}{\lt^2}b_2(u),\quad u=\frac x{\lt(\tau)}\in[0.6,0.8],
+\]
+\[
+b_1=B,\quad b_2=B',\quad B(u)=\frac{\psi((u-0.6)/0.2)}{0.2\,I_\psi},
+\]
+with $\psi=t^6(1-t)^6$ ($C^5$), $\int B=1$, $\int b_2=0$ and $\int ub_2=-1$. Here $a_1=-\delta(\tau)$ is the turning defect, and $a_2$ solves $a_2J_2=-(h+a_1\lt J_1+N)$, with $h$ the far-point height and $N$ the quadratic part. Then the corrected base turns by exactly $\pi$ and its far point lies on the axis, so (SE) holds exactly: in the corrected scalars, $\sup\abs{\tilde q(\lt)}$ and $\sup\abs{\tilde t_1(\lt)}$ are $0$. On $x<0.6\lt$, i.e.\ on the whole tip region, nothing changes, so $\cR_2$, $\cR_s$ and the T7 certificates are untouched. The certified sizes over all slabs are $\abs{a_1}\le6.51\cdot10^{-18}$, $\abs{a_2}\le1.58\cdot10^{-14}$, $\abs h\le1.43\cdot10^{-14}$, $\abs{h'}\le9.04\cdot10^{-13}$ and $\abs{\delta r}\le4.97\cdot10^{-12}$, with $\cos\ge0.977$ on the bump. The increments of the far T6 norms are added per slab. Their maxima, relative to the uncorrected T6 values, are $\times124$ ($\cR_1$), $\times157$, $\times190$, $\times309$ ($\cR^F_{1,2,3}$). The far T7 constants are recomputed with jets widened by the certified widths ($\kt$: $3.1\cdot10^{-17}$; $p,q$: $4.9\cdot10^{-13}$; $V,\varpi$: $5.1\cdot10^{-12}$), and they move by at most $8.7\cdot10^{-7}$ relative (\fn{T7_REPORT.md} \S9). The rounding fix moves each widened hull end one ulp outward with \fn{nextafter}.
+\todo{B1: the majorants in \fn{se_corr.py} (\fn{quad = 20 dsum^2 (1+Ks)^3}, \fn{4^j 3 Ks^2}, \fn{8(...)^2}, \fn{10 Lh^2 (n+4) Yn_rad_max}) have no written derivation, and the existence of the root $a_2$ is not argued. These increments now set $\cR_1$ and the residual parts $B_j$ of $\sqrt{F_j}$, and hence the thinnest box margin ($\abs{e'}$, $\times1.29$). Fix: a lemma with its derivation, or the corrected residual computed directly with T6's engine.}
+
+\subsection{The comparison system (Y)}\label{ss:Y}
+\emph{Source:} \fn{p2/ycomp.py}, \fn{p2/out/ycomp_fin.json}. This is the pairing that \fn{STEP4_RESULT} refers to as its ``P2 section'' (review C). All residual norms are multiplied by $1.001\ge\abs{1-\vartheta}$. Interpolations: $W_1\le(\frac12+\sqrt{c_1})A+\frac12B$, $W_3\le(\frac12+\sqrt{c_1})B+\frac12D_4$, $V_1\le(\frac12+\sqrt{c_{1W}})V_0+\frac12V_2$, $V_3\le(\frac12+\sqrt{c_{1W}})V_2+\frac12V_4$, with $c_1=0.5804$ and $c_{1W}\le0.09435$. Weak-pairing constants: $(\rho\chi u)''/\rho=\chi u''+2(\chi'+\chi\rho'/\rho)u'+(\chi''+2\chi'\rho'/\rho+\chi\rho''/\rho)u$, so $c_{W1}=2(\chi_1+\Phi_1)$ and $c_A=\chi_2+2\chi_1\Phi_1+\Phi_2$, with $\chi_1=0.73$, $\chi_2=0.84$, $\Phi_1=1.083$, $\Phi_2=1.3$. The review rechecked $\sup\abs{\chi'}=0.729$, $\sup\abs{\chi''}=0.835$, $\sup\abs{\rho'/\rho}=1.082$ and $\sup\abs{\rho''/\rho}\approx1.16$. With $x_r=\bar m\abs{c_\varphi}\cR_2$:
+\begin{align*}
+r_B&=(1+\tfrac12c_{W1})\cR_2+\eps\cR_s(2\Phi_1k_A+\Phi_2)+\eps g_{2E}x_r,\quad r_{D4}=\eps\cR_s(1+\Phi_1),\quad r_{I2}=\mu_e\eps_I(\cR^I_s+g_2x_r),\\
+r_{V2}&=\mu_e\cR_1(1+\Psi_1)+r_{I2}(2\Psi_1k_V+2c_{1W}),\quad r_{V4}=r_{I2}(1+\Psi_1),\\
+r_A&=(c_A+c_{W1}k_A)\cR_2+\sqrt3\,x_r,\quad r_{V0}=\mu_e\bigl(\cR_1(2\Psi_1k_V+\Psi_2)+g_0x_r\bigr),
+\end{align*}
+with $k_A=\frac12+\sqrt{c_1}$, $k_V=\frac12+\sqrt{c_{1W}}$, $\Psi_1\le0.38851$, $\Psi_2=2c_{1W}$, and $g_0,g_2,g_{2E}$ the per-slab modulation norms (\fn{farg}). Half of the reserve $\mathfrak D$ is kept for Lemma~J ($\kappa_{\mathfrak D}=\frac12$). The other half is shared out as $\theta_0/8$ (B), $\eps(\frac1{16}-3\cdot10^{-9})$ ($D_4$; the slice $3\cdot10^{-9}$ is reserved for Lemma~4a's cubic term), $\mu_e/16$ ($V_2$) and $\mu_e\eps_I/16$ ($V_4$). Young's inequality on each pair gives
+\[
+\tfrac12\Lam_e'\le-\varrho_m\Lam_e-\kappa_{\mathfrak D}\mathfrak D+a_cY+\Xi'^2,\qquad\varrho_m=\varrho_c-\delta_{T6}-\mathrm{DN},
+\]
+\[
+a_c=r_A+\frac{r_{V0}}{\sqrt{\mu_e}},\qquad\Xi'^2=\sum_{k\in\{B,D_4,V_2,V_4\}}\frac{r_k^2}{4\,\mathrm{share}_k}.
+\]
+\begin{lemma}[constant majorant \tC\ modulo A2]\label{lem:Y}
+Let $\mathrm{lev}_m:=a_c/\varrho_m+\Xi'_m/\sqrt{\varrho_m}$ on slab $m$. If $Y(\tau_a)\le Y_c$ and $\mathrm{lev}_m\le Y_c$ for all slabs, then $Y\le Y_c$ on $[\tau_a,\tau^*]$.
+\end{lemma}
+\begin{proof}
+With $Y_c=\mathrm{lev}+\delta$, $\delta\ge0$, write $\varrho Y_c^2-a_cY_c-\Xi'^2=Y_c(\varrho Y_c-a_c)-\Xi'^2\ge\Xi'(\sqrt\varrho Y_c-\Xi')\ge0$. So at any time with $Y=Y_c$ we have $(Y^2)'\le0$. Apply this with $Y_c+\delta'$, $\delta'\downarrow0$, as a strict first-touch argument.
+\end{proof}
+\noindent\emph{Result} (\fn{ycomp_fin.json}): $\max_m\mathrm{lev}_m=1.3282\cdot10^{-13}$, at slab 2 ($k=28.3$; $\varrho=0.0612$, $a_c=4.69\cdot10^{-15}$, $\Xi'=1.39\cdot10^{-14}$). The level is $1.29\cdot10^{-14}$ at slab 12, $1.08\cdot10^{-14}$ at slab 102 and $1.22\cdot10^{-14}$ at slab 180. So $\Yb=Y_c=10^{-12}$, a margin $\times7.5$ over the level and $\times1.61$ over $Y(\tau_a)$. \OPEN{A2}: the rate allowance $\mathrm{DN}=10^{-6}$ is justified in the code by ``actual box $\abs e,\abs{e'}\le10^{-8}$'', which is the tip box only. The fix is the analogue of N3$'$ for (E0), (E2), (I0), (I2), with $\cQ$ and $E_{ij}$, T7's $n_j$ per $x$-range and T8's cancellation for the $x$-growing terms; then rerun \fn{closure_cert.py} with reduced dissipation and Gårding constants, and reallocate the shares. \todo{B9: \fn{ycomp.py} l.12, \fn{up()} is round-to-nearest (output only).}
+
+\subsection{Coercivity: the T7 certificates and Lemma 4a}\label{ss:coer}
+\emph{Source:} \fn{t7/T7_REPORT.md} \S1--5, 9; \fn{t7/constants.json}.
+
+\paragraph{(C1)+(C2) \tC.} The constrained form is
+\[
+\cB_\tau(u):=\ip{\cL u}u_\rho-\sum_{i,j}\ip{\chi g_i}u_\rho(M^{-T})_{ij}\ip u{\ell_j}_\rho .
+\]
+For each of 26 intervals $I$ covering $\tau\in[0,27.15]$, every $\tau\in I$, $\theta_I=0.025$, and every even $u\in H^4_\rho$ with $\operatorname{supp}u\subset[0,34.25]$ and $\ip u{\varphi_j}_\rho=0$, we have $\cB_\tau(u)\le-c_I\norm u_\rho^2-\theta_I\norm{u''}_\rho^2$. One certificate runs at $\tau_c$ (Hermite block, Haynsworth inertia, tail and leak). It certifies $Q_c-\sum_e(\mu^0_e\norm w_e^2+\mu^1_e\norm{w'}_e^2)-c_R\norm w^2\ge0$, which covers all of $I$. The local coefficients $C_{22},C_{21},C_{11}$ do not depend on $\tau$. After integration by parts the change of the local form is $\int[-2\delta C_{20}w'^2+(\delta C_{20}''-\delta C_{10}'+\delta C_{00})w^2]$, and $\mu^{0,1}_e$ are its sups over each element and $I$, with 2 $t_c$-balls per slab. For the rank-3 part, $c_R$ is reserved as $1.6\,n_{\rm side}(F_ce^{0.3H}L+10^{-3})$, where $F_c$ is the exact operator norm of $d\Pi/d\tau$ on the constraint space. \fn{c2r3.py} certifies $V=\int\norm{d\Pi/d\tau}_Zd\tau$ per slab, and $\sum V\le0.66\,c_R$ on every side.
+\begin{center}\small\begin{tabular}{@{}llllll@{}}\toprule
+ids & slabs/interval & $k_c$ & $c_I$ & $c(\tau_c)$ & $c_R$\\\midrule
+0--5 & 2 & 27--40 & 0.0629--0.0660 & 0.0713--0.0730 & 0.0052--0.0064\\
+6--15 & 4 & 45--174 & 0.0599--0.0654 & 0.0700--0.0724 & 0.0050--0.0101\\
+16--22 & 10 & 226--2151 & 0.0576--0.0614 & 0.0694--0.0700 & 0.0086--0.0118\\
+23--25 & 20/20/19 & $3.8\cdot10^3$--$1.6\cdot10^4$ & 0.0528--0.0530 & 0.0700 & 0.0170--0.0172\\\bottomrule\end{tabular}\end{center}
+So $\min c_I=0.05284$ (id 23, $k_c=3776$), against $\omega_{\rm eff}=0.045$ used by the closure.
+
+\paragraph{(C4) and the closure \tC.} The $E_I$ Gårding function on the whole far curve has raw infimum $0.1359$ ($k=26.3$, $x=10.25$; Hardy $\le1.83\cdot10^{-4}$). With the split at $\mu_f=0.15$ (below the floor only on $x\le10.52$, where $\chi=1$; $a_\mu\le2.5\cdot10^{-13}$ is added to $a_f$), $\mu_1=0.15$ on all 181 slabs and $\mu_2\ge0.643$. Against T8's maximal far rate $\lambda_{\max}=0.2520$ this gives $2\mu_1/\lambda_{\max}-1=0.190$. The E2 level has $G_{22},G_{12},G_{02}\le15.63,19.37,12.74$; the strip has $s_B=3.47\cdot10^{-5}$, $s_A=2.18\cdot10^{-4}$; the ramp has $a_f=0.0696$, $b_f=0.0394$, $c_{3..0}=0.448,0.539,0.449,0.425$ (\fn{T7_REPORT.md}; the JSON values are $\le0.4482,0.5390,0.4486,0.4251$), $\Psi_1\le0.38851$, $c_{1W}\le0.09435$. \fn{closure_cert.py} at $\mu_e=0.036$ (AM--GM relaxation and \fn{arb} $LDL^T$ on $6\times6$) certifies all 26 intervals, with $\min\varrho_c=0.0471$ (id 24, $k_c=7994$) and range $0.0471$--$0.0634$. The bound $\abs{e(x)}\le K_e\Yb$ holds for $x\le x_a=14+X_0$, with $K_e\le890.6$.
+
+\begin{named}{Lemma 4a (tip nonlinearity without a pointwise bound on $e''$; \fn{T7_REPORT.md} \S4a)}
+Let $\Omega=[0,34.25]$ and $w=\abs e+\abs{e'}$. Write the graph operator as $F=A_4e''''+A_3e'''+A_2$ and $N=F(e)-F(0)-DF(0)e$.
+(i) \emph{Structure} (checked symbolically, \fn{nl7.derive}, \fn{poly_check}). $\mathsf a=1-\kt e$ and $\mathsf J=(\mathsf a^2+e'^2)^{1/2}$ contain no $e''$, so $F$ is a polynomial in $e''$: $A_4=A_4(e,e')$, $A_3=A_{30}+A_{31}e''$ with $A_{31}=10e'/\mathsf J^6$, and $A_2=A_{20}+A_{21}e''+A_{22}e''^2+A_{23}e''^3$ with $A_{22}=-3\kt$ at $e=e'=0$ and $A_{23}=3(\mathsf a^2-5e'^2)/\mathsf J^8$.
+(ii) If $\abs e,\abs{e'}\le\eta_1=10^{-5}$ on $\Omega$, then for all $e'',e''',e''''$
+\[
+\abs N\le n_4w\abs{e''''}+n_3^*(w+\abs{e''})\abs{e'''}+n_2^*(w+\abs{e''})^2+m_{23}\abs{e''}^3,
+\]
+with $n_4=\sup\abs{\nabla A_4}$, $n_3^*=\max(\sup\abs{\nabla A_{30}},\sup\abs{A_{31}})$, $n_2^*=\max(\frac12\sup\abs{\nabla^2A_{20}},\frac12\sup\abs{\nabla A_{21}},\sup\abs{A_{22}})$, $m_{23}=\sup\abs{A_{23}}$. The gradients are taken in $(e,e')$, and the sups are \fn{arb} bounds over the cells of $\Omega$, the slab and the $(e,e')$-box. Certified values: $n_4\le6.17$, $n_3^*\le9.26$, $n_2^*\le16.9$, $m_{23}\le3.0003$, all maximal at $k\approx26$.
+(iii) $S:=\sup_\Omega\abs{e''}$ satisfies $S^2\le S_W^2+2K_{\rm reg}BW_3$, with $S_W^2:=(V_1^2/18+2V_1V_2)/W(34.25)$, $K_{\rm reg}=1/\rho(16.25)\le3.021\cdot10^4$ and $W(34.25)\ge7.25\cdot10^{-7}$.
+\end{named}
+\begin{proof}
+(ii) $N=[A_4-A_4(0)]e''''+[A_{30}-A_{30}(0)+A_{31}e'']e'''+[A_{20}-A_{20}(0)-\nabla A_{20}(0)\cdot(e,e')]+[A_{21}-A_{21}(0)]e''+A_{22}e''^2+A_{23}e''^3$. Apply the mean-value and Taylor theorems in $(e,e')$ to each bracket.
+(iii) On $[16.25,34.25]$, $\zeta=1$ and $e''=v'$. The Sobolev bound $f^2\le L^{-1}\int f^2+2\int\abs{ff'}$ ($L=18$), with $W\ge W(34.25)$, gives $\abs{e''}\le S_W$. On $[0,16.25]$, $\chi=1$ and $\rho\ge1/K_{\rm reg}$, so $e''(x)^2\le e''(16.25)^2+2\int_x^{16.25}\abs{e''e'''}\le S_W^2+2K_{\rm reg}BW_3$.
+\end{proof}
+\noindent\emph{Use.} T5's estimates use the box only through the constants $n_j$, with $n_3\to n_3^*$ and $n_2\to n_2^*$. The new term $m_{23}\abs{e''}^3\le m_{23}Se''^2$ adds at most $\eta_1m_{23}S(B^2+\sigma^2V_1^2)$ to (E0), with $\sigma^2=\sup_{\rm strip}\rho/W\le2.8\cdot10^{-5}$, and at most $\eps m_{23}S^2(B+\sigma V_1)(D_4+2\Phi_1W_3+\Phi_2B)$ to (E2). By (iii) and Young's inequality (\fn{merge.tip_lemma}) both are $\le\delta\Lam_e+\beta\eps D_4^2$. At $\Yb=10^{-12}$ with the box $\abs e,\abs{e'}\le1.05\cdot10^{-8}$: $S_W\le1.14\cdot10^{-6}$, $\delta\le4.0\cdot10^{-9}$ (inside DN) and $\beta\le3.0\cdot10^{-9}$, which is the reserved slice. \OPEN{A3}: that box is the tip box of \S\ref{ss:boxes}. With the sharp constant, $\beta\approx4.8\cdot10^{-9}$ is needed, so the reserved slice is short.
+
+\subsection{The far field: Lemmas F, B, J and N3\texorpdfstring{$'$}{'}}\label{ss:far}
+\emph{Sources:} \fn{t8/LEMMA_F.tex} \S1--6; scripts \fn{p2/t8se/} (\fn{lfsym.py}, \fn{cforms.py}, \fn{n3sym.py}, \fn{n3qsym.py}, \fn{n3wcheck.py}, \fn{cconst.py}, \fn{merge.py}, \fn{camp.py}, \fn{n3far.py}); outputs \fn{constants/constants_fin.json}, \fn{n3_fin.json}, \fn{amp_n3_fin.json}. All are on base v2, slabs 2--180. (The slabs 5--187 and the placeholders of \fn{T8_REPORT.md} \S1--5 and \fn{LEMMA_F.md} \S6.4 refer to the superseded base; review C.)
+
+\paragraph{Setting.} On $y\ge y_a\ge14.001$ we have $\zeta_\infty=1$ and $v=e'$. Differentiating the error equation once gives
+\[
+v_\tau=-v''''-c\,y\,v'+(\beta v+b_2v'+c_0e)'+f,\qquad f=-x_1g_1'-x_2g_2'-x_3(g^s_3+g^r)'-r'+(\cN+\cQ)',
+\]
+with $g_3=\tilde V/n=g^s_3+g^r+r/n$, $g_3^s=(c\tilde p+\tilde b\tilde n)/n$ and $g^r=-\kt''/n$. The clock factor drops out of the residual forcing. Write $w_m:=\partial_x^mv$ and $w_{-1}:=e$. \emph{Parities.} About $x=\lt$ on the doubled curve, $\kt,b_2,c_0,e$ are even, $w_m$ has parity $(-1)^{m+1}$, and $b_1+\lt_\tau$ is odd up to the constant $D:=b_1(\lt)+\lt_\tau=A(\lt)+\eps_\ell$. On the corrected base $\abs D\le5.86\cdot10^{-12}$ (\fn{p2/t6/residuals.json}, scalars). \emph{Weights.} $T_j=28\,\eta_j(y)^2Y_\ell^{2j-2}$. Here $\eta_j=S(\ln(y/y_a)/\ln(y_b/y_a))$, with the $C^3$ smoothstep $S(u)=u^4(35-84u+70u^2-20u^3)$ and the ramp $[y_a,y_b]=[14,22]$ for all $j$ (design \fn{opt4n}, $\delta_P=(\frac14,\frac14,\frac14,\frac32)$). $Y_\ell=y_\ell\Phi(y/y_\ell)$ is a far-end flattening that is even about $\lt$: $\Phi(s)=s$ for $s\le\frac12$, and $\Phi'=1-\psi(2s-1)$ with $\psi(u)=u^5(\frac{21}4-\frac{49}8u+\frac{15}8u^2)$. The properties used are: (W1) $T_j\in W^{4,\infty}$; (W2) $T_j=0$ for $y\le y_a$ and $T_j\asymp(y-y_a)^8$ there; (W3) $T_j$ is even about $\lt$. \emph{Energies.} $F_j=\int_{x^*}^{\lt}T_jw_j^2$, $D_j=\int T_jw_{j+2}^2$, $N_{j+1}^2=\int T_jw_{j+1}^2$. The ramp data are $V_m=(\int_RW(\partial^mv)^2)^{1/2}$, at most T5's $V_m$. They dominate the step-3 window energies whenever $\eta_j\ge S(\ln(y/14)/\ln2)$, which holds for every log-ramp $[14,y_b]$ with $y_b\le28$.
+
+\paragraph{The identity $(I_j)$ \tC\ (machine-checked, \fn{lfsym.py}, Euler-operator test).} With $T=T_j$ and $\doteq$ meaning equality modulo a total $x$-derivative,
+\[
+2Tw_j\partial^j[v_\tau-f]\doteq-2Tw_{j+2}^2+P_jw_{j+1}^2+q_jw_j^2+\sum_{i=-1}^{j-1}p_{ji}w_jw_i+X_j,
+\]
+where $P_j=4T''+2\kt^2T$; $q_j=-T''''+(cy-\beta)T'+(1-2j)cT+(2j+1)\beta'T+(Tb_2)''-(j+1)(Tb_2')'+j(j+1)Tb_2''+2c_0T$;
+\[
+p_{ji}=2\tbinom{j+1}{j+1-i}T\beta^{(j+1-i)}[i\ge0,\,j+1-i\ge2]+2\tbinom{j+1}{j+2-i}Tb_2^{(j+2-i)}[1\le i\le j-1]+2\tbinom{j+1}{j-i}Tc_0^{(j-i)}[i\le j-1];
+\]
+and $X_j$ keeps all coefficient derivatives at $\kt^{(\le5)}$, via integrations by parts onto $Tw_jw_i$. The pairs present at $j=3$ are $(3,e),(3,0..2),(4,e)$.
+
+\begin{named}{Lemma F (far-field energies of the error; \fn{LEMMA_F.tex} \S2)}
+Let $j\in\{0,\dots,3\}$, let the weights satisfy (W1)--(W3), with $y_{a,i}<y_{b,j}$ for $i<j$, and assume (SE). Fix $a=0.01$, $\nu=10^{-3}$, $\delta_P\in(0,1.5]$, $\delta_s\in(0,\frac12]$. Let $n_j$ be the number of $(j+1,\cdot)$-pairs in $(I_j)$ plus one, and $\eps_j=\abs D/m_j$. Define
+\begin{gather*}
+\hat q_j=\partial_\tau T_j+q_j+\tfrac12P_j''+\frac{P_j^2}{4\delta_PT_j}+\Bigl(\frac{an_j}4+\frac{\eps_j}2\Bigr)(T_j'')^++\nu\abs{T_j''},\quad\Delta F_j=\frac{an_j}8+\eps_j\Bigl(\frac2{y_\ell}+\frac54\Bigr),\\
+\lambda_j=-\sup_{C_j}\frac{\hat q_j}{T_j}-\Delta F_j,\qquad\theta_j=2-\delta_P-\frac{an_j}2-\delta_s-\eps_j,
+\end{gather*}
+$k_{jj}=\sup_{R_j}(\hat q_j+(\lambda_j+\Delta F_j)T_j)^+/W$, $c_{ji}=\sup_{C_j}\abs{p_{ji}}/\sqrt{T_jT_i}$ and $r_{ji}=\sup_{R_j}\abs{p_{ji}}/W$, with the $e$-terms and the $(j+1,0)$-pairs as in \fn{LEMMA_F.tex} \S2. The $e$-terms use $\hat e(x)=K_e+\tilde I(x)/\sqrt{\mu_e}$, $\tilde I^2=\int_{x^*}^xW^{-1}$, $\hat\eps_0=\hat e(x_1)$ and $H^2=\int_{x_1}^xT_0^{-1}$. The modulation norms are $\gamma_j=(\sum_i\int T_j(\partial^{j+1}g_i^s)^2)^{1/2}$ and $\gamma^r_j=(\int T_j(\partial^{j-1}g^r)^2)^{1/2}$. The residual norms are $\cR_j=(\int T_j(\partial^{j-1}r)^2)^{1/2}$ and $\hat\cR_j^2=\frac8a\int\frac{T_j'^2}{T_j}\rho_j^2+\nu^{-1}\int\abs{T_j''}\rho_j^2$, with $\rho_j=\partial^{j-1}(r+x_3g^r)$ and $\partial^{-1}r:=-\int_x^{\lt}r$. If $\lambda_j>0$ and $\theta_j>0$, then along the linear part of the equation, for a.e.\ $\tau$,
+\[
+F_j'\le-\lambda_jF_j-\theta_jD_j+2\sqrt{F_j}\,g_j+h_j,\tag{F}
+\]
+\[
+g_j=\sum_{i<j}\tfrac12c_{ji}\sqrt{F_i}+\abs x\gamma_j+\tfrac12a_j\Yb,\quad h_j=\sum_{i<j}d_{ji}F_i+\mathcal I_j+e_j\Yb^2+\delta_s^{-1}(\cR_j+\abs x\gamma^r_j)^2+\hat\cR_j^2,
+\]
+\[
+\mathcal I_j=k_{jj}V_j^2+\sum_{i<j}(k_{ji}V_i^2+r_{ji}V_jV_i)+re_jV_j\Yb .
+\]
+\end{named}
+\begin{proof}[Proof (\fn{LEMMA_F.tex} \S3)]
+\emph{3.1.} $T_j$ vanishes to order 8 at $y_a$, so nothing happens at $x^*$. At the moving end, after inserting $(I_j)$, what remains is $F_j'=\int[(\partial_\tau T_j)w_j^2+\text{density of }(I_j)]+\cB^D_j+\cB^S_j$. Here $\cB^D_j=D\,T_j(\lt)w_j(\lt)^2$ is the transport defect (Lemma~B), and $\cB^S_j$ is the sum of the fluxes at $\lt$ of the fourth-order, $b_2$-, $c_0$-, forcing and $X_j$-terms. $\cB^S_j$ contains no $b_1$, and $\cB^S_j=0$ under (SE) (closed-curve argument below).
+\emph{3.3.} (S1) $\int Pw_{j+1}^2=-\int Pw_jw_{j+2}+\frac12\int P''w_j^2$, and $\abs{\int Pw_jw_{j+2}}\le\delta_PD_j+(4\delta_P)^{-1}\int(P^2/T)w_j^2$. (S2) For $0\le i<j$: $\int\abs{p}\abs{w_jw_i}\le c_{ji}\sqrt{F_jF_i}$ on $C_j$ and $\le r_{ji}V_jV_i$ on $R_j$. (S3) $N_{j+1}^2\le D_j+\frac14F_j+\frac12\int(T'')^+w_j^2$, then $\abs{\int pw_{j+1}w_i}\le\frac a2N_{j+1}^2+M_i^2/(2a)$. (S4) $\abs{\int pw_{j+2}e}\le\delta_6D_j+(4\delta_6)^{-1}\int(p^2/T)e^2$. (S5) $e=e(x^*)+\int_{x^*}^xv$ gives $\abs e\le\hat e\,\Yb$ on $R_0$ and $\abs e\le\hat\eps_0\Yb+H\sqrt{F_0}$ on $C_0$. (S6) For the residual and rough modulation, two integrations by parts give $-2\int(Tw_j)''\rho_j$, which is bounded by $\delta_sD_j+\delta_s^{-1}(\cR_j+\abs x\gamma_j^r)^2+\frac a2N_{j+1}^2+\hat\cR_j^2+\nu\int\abs{T''}w_j^2$. For the smooth modulation, Cauchy--Schwarz gives $2\abs x\sqrt{F_j}\gamma_j$.
+\emph{3.4.} Collect the $w_j^2$-terms as $\int\hat q_jw_j^2+\Delta F_jF_j$: $\le-\lambda_j\int_{C_j}T_jw_j^2$ on the core, and $\le-\lambda_j\int_{R_j}T_jw_j^2+k_{jj}V_j^2$ on the ramp. The $D_j$-coefficient is $-\theta_j$.
+\end{proof}
+
+\begin{named}{Lemma B (transport defect)}
+With $m_j=(\Phi(\frac12)/\Phi(1))^{2j-2}$ for $j\ge2$, $m_0=m_1=1$ ($\Phi(\frac12)=\frac12$, $\Phi(1)=0.8828125$) and $\eps_j=\abs D/m_j$: $\abs{\cB^D_j}\le\eps_j[(2/y_\ell+\frac54)F_j+D_j+\frac12\int(T_j'')^+w_j^2]$.
+\end{named}
+\begin{proof}
+$P=\{y_\ell/2\le y\le y_\ell\}$ has length $d=y_\ell/2$, lies in $C_j$, and $T_j\ge m_jT_j(\lt)$ on $P$. The trace inequality $f(\lt)^2\le d^{-1}\int_Pf^2+2\norm f_{L^2(P)}\norm{f'}_{L^2(P)}$ with $f=w_j$ gives $T_j(\lt)w_j(\lt)^2\le m_j^{-1}((2/y_\ell+1)F_j+N_{j+1}^2)$. Conclude with (S3).
+\end{proof}
+\noindent\emph{(SE): $\cB^S_j\le0$.} If the error, the base coefficients and the residual are symmetric about the far-end normal line, write $2F_j$ as an integral over the doubled far field $[x^*,2\lt-x^*]$. On it the equation holds with the even/odd continuations. Under $x\mapsto2\lt-x$ every density is even, and the transport/$\partial_\tau T$ pair is mirror-symmetric, so no flux appears at $\lt$. The evenness of $T_j$ (W3) is what kills the fourth-order fluxes. On the corrected base the far end lies exactly on the axis (\S\ref{ss:SE}), so (SE) holds with $\cB^S_j=0$.
+
+\begin{named}{Lemma J (time-weighted ramp data; \fn{LEMMA_F.tex} \S4)}
+Assume $\frac12\Lam_e'\le-\varrho\Lam_e-\kappa_{\mathfrak D}\mathfrak D+a_cY+\Xi'^2$ with $\kappa_{\mathfrak D}=\frac12$, and $\Yb'=-\varrho\Yb+\Phi$, $\Phi=a_c+\sqrt\varrho\Xi'$, $\sqrt{\Lam_e}\le\Yb\le1$, $\Yb\ge\Xi'/\sqrt\varrho$. Let $0<\lambda<2\min(\mu_1,\mu_2)$, $\omega(s)=e^{-\lambda(\tau-s)}$ and $J_X=\int_{\tau_0}^\tau\omega X^2$. Then:
+(1) $\int\omega\mathfrak D\le\mathfrak B:=\kappa_{\mathfrak D}^{-1}[\frac12+(\bar\varrho-\lambda/2)^+/\lambda]$;
+(2) $J_A\le1/\lambda$, $J_B\le4\mathfrak B/\theta_0$, $J_{D_4}\le8\mathfrak B/\eps$, $J_{W_1}\le\sqrt{J_AJ_B}+c_1J_A$, $J_{W_3}\le\sqrt{J_BJ_{D_4}}+c_1J_B$;
+(3) $(\mu_1-\lambda/2)J_{V_0}+\frac12J_{V_2}\le K+C_x\gamma_0\sqrt{J_AJ_{V_0}}$, with $K=\frac12\omega(\tau_0)/\mu_e+a_fJ_{W_1}+b_fJ_B$;
+(4) $J_{V_4}\le2\omega(\tau_0)/(\mu_e\eps_I)+M(\lambda)(c_3\sqrt{J_{D_4}}+c_2\sqrt{J_{W_3}}+c_1^I\sqrt{J_B}+c_0^I\sqrt{J_{W_1}}+C_x\gamma_2\sqrt{J_A})^2$, with $M(\lambda)=\min_\kappa4[(1+\Psi_1/\kappa)^2+(\Psi_1\kappa+2\Psi_1\sqrt{c_{1W}}+2c_{1W})^2/(4(\mu_2-\lambda/2))]$;
+(5) $J_{V_1}\le\sqrt{J_{V_0}J_{V_2}}+c_{1W}J_{V_0}$ and $J_{V_3}\le\sqrt{J_{V_2}J_{V_4}}+c_{1W}J_{V_2}$;
+(6) the residual terms of (I0), (I2) are absorbed with $\delta=10^{-3}$ and $\Yb_*=10^{-12}$.
+\end{named}
+\begin{proof}
+(1) Multiply the closure by $\omega$ and integrate. Since $Y\le\Yb$ and $\Xi'^2\le\sqrt\varrho\Xi'\Yb$, we have $a_cY+\Xi'^2\le\Phi\Yb$, and $\int\omega\Phi\Yb=\frac12\Yb(\tau)^2-\frac12\omega(\tau_0)\Yb(\tau_0)^2+\int\omega(\varrho-\lambda/2)\Yb^2$. (2) follows from $\Lam_e\le\Yb^2\le1$, (1), the interpolations and Cauchy--Schwarz in time. (3), (4): multiply (I0), (I2) by $\omega$, use Young's inequality, and apply Minkowski in time.
+\end{proof}
+\noindent\emph{Certified inputs} (\fn{amp_n3_fin.json}, \fn{inputs.t7}): $\mu_e=0.036$, $\varrho=0.04713$, $\theta_0=0.025$, $\mu_1=0.15$, $\mu_2=0.6430$, $a_f=0.0696$, $b_f=0.0394$, $c^I=(0.4251,0.4486,0.5390,0.4482)$, $c_{1W}\le0.09435$, $\Psi_1\le0.38851$, $C_{\gamma0}\le0.2069$, $K_e=890.6$, $\kappa_{\mathfrak D}=\frac12$. Result per unit $\Yb^2$: $J_0..J_4=(114.0,68.5,29.2,7.27\cdot10^3,1.81\cdot10^6)$, with 74\% of $J_4$ from the $D_4$ term, i.e.\ the $1/\sqrt\eps$ loss. $\varrho_c$ does not affect $\Yb$; it enters T8 only through $(\varrho_c-\lambda/2)^+$, and $\lambda/2\ge0.1196$.
+
+\begin{named}{Corollary C (comparison and hand-off; \fn{LEMMA_F.tex} \S5)}
+\emph{C1.} If $F'\le-\lambda F+2g\sqrt F+h$ with $\lambda,g,h\ge0$, then $\sqrt F\le\sqrt H+G$, where $H=e^{-\int\lambda}F(\tau_0)+\int e^{-\int_s^\tau\lambda}h$ and $G=\int e^{-\frac12\int_s^\tau\lambda}g$.
+\emph{C2.} Apply C1 level by level, with $\sqrt{F_i}\le\sqrt{H_i}+G_i$ for $i<j$ inside $g_j,h_j$ and $\int\omega h_j$ bounded through Lemma~J (\fn{amp.py}, \fn{camp.py}: per-slab sups at $\theta=0,\frac12,1$, running sup of $k_{jm}$).
+\emph{C3} (windows). $z_j=(y\partial_y)^jv=\sum_mS(j,m)y^mw_m$, so $\sqrt{E_j^{[y,1.5y]}}[\mathrm{err}]\le\kappa_{\rm ch}\sum_mS(j,m)\sqrt{F_m}+c_{0,j}$; for $E_3$ the sum is $\sqrt{F_3}+3\sqrt{F_2}+\sqrt{F_1}$.
+\emph{C4} (pointwise level 3). For $I=[y,1.5y]$: $\sup_I\abs{w_3}^2\le\int_Iw_3^2/\abs I+2\norm{w_3}_{L^2(I)}\norm{w_4}_{L^2(I)}$, with $\norm{w_3}^2\le F_3/(28y^4)$ and $\norm{w_4}^2\le D_2(\tau^*)/(28y^2)$.
+\emph{C5} (good time). Integrating (F) at $j=2$ over $W'$ gives $\int_{W'}D_2\le\theta_2^{-1}[F_2(\tau_a')+\int(2g_2\sqrt{F_2}+h_2)]$, so there is $\tau^*\in W'$ with $D_2(\tau^*)\le\abs{W'}^{-1}\int_{W'}D_2$. All hand-off items are evaluated with sups over $W'$, so they hold at $\tau^*$. Level 4 is not used anywhere.
+\end{named}
+\noindent C1 is proved by comparison with $Z=(\sqrt H+G)^2$, which satisfies $Z'\ge-\lambda Z+2g\sqrt Z+h$: on an interval where $F>Z>0$, $(F-Z)'\le(-\lambda+g/\sqrt Z)(F-Z)$, and Gr\"onwall from the last time with $F\le Z$ concludes.
+
+\paragraph{Lemma N3$'$: nonlinear and modulation terms at levels 0--3.} \emph{Operator.} Let $\mathsf a=1-\kt e$ and $\mathsf J^2=\mathsf a^2+e'^2$. At the base modulation and with the clock fixed,
+\[
+F(e)=\frac{\mathsf J}{\mathsf a}\Bigl[-\kappa_{ss}+\frac{c(-\tilde qe'+(\tilde p+e)\mathsf a)+\tilde b(-\tilde t_1e'+\tilde n\mathsf a)}{\mathsf J}\Bigr]-\tilde V+\frac{e'(\varpi-e\tilde\theta_\tau)}{\mathsf a},
+\]
+$F=A_4e''''+A_3e'''+A_2$ with $A_4=-\mathsf J^{-4}$, and $\cN:=F(e)-F(0)-DF(0)e=\tilde Ae''''+\tilde Be'''+\tilde C$, where $\tilde A=1-\mathsf J^{-4}$, $\tilde B=A_3(z)-A_3(0)$, $\tilde C=A_2(z)-A_2(0)-\nabla A_2(0)\cdot z$ and $z=(e,e',e'')$. \emph{Cancellation} (\fn{n3sym.py}, symbolic). Insert $\varpi=-\kt\kt'+Q+c(\tilde q-x)+\tilde b\tilde t_1+A$, $\tilde\theta_\tau=-\kt'''-\kt^2\kt'+\kt Q-cx\kt+\rho_\theta$ and $\tilde V=-\kt''+c\tilde p+\tilde b\tilde n+r$. The quadratic tangential parts cancel the quadratic parts $-c\tilde q\kt ee'/\mathsf a$ and $-\tilde b\tilde t_1\kt ee'/\mathsf a$ of the normal velocity, so
+\[
+\cN=\cN_K+(\kt'''-r')ee'/\mathsf a,
+\]
+with $\cN_K$ the nonlinear part of $-(\mathsf J/\mathsf a)\kappa_{ss}$. Thus $\cN$ depends on none of $c,\tilde b,\tilde p,\tilde q,\tilde n,\tilde t_1,x,Q,A$, and no coefficient grows with $x$. T7's growth of $n_2$ on the bend ($x^2n_2\le6.2\cdot10^{14}$) is an artefact of the interval hull of the cancelling sum. \emph{Modulation} (\fn{n3qsym.py}). $\cN+\cQ=(1-\vartheta)\cN+\vartheta e''''+\vartheta\kt^2e''-\vartheta c_0e+\vartheta P+g\,e'-(\vartheta c+x_1)e$, with $P=(\kt'''-r')ee'/\mathsf a$, $g=U/\mathsf a+5\vartheta\kt\kt'$ and $U=(x_1+\vartheta c)\tilde q+(x_2+\vartheta\tilde b)\tilde t_1$. The first five terms have the structure of $\cN$ and go through the weak form. The last two carry $U\approx(x_1+\vartheta c)x$ and go through the strong form; $g(\lt)=0$ on the corrected base. \emph{Weak form, level 3.} $S:=2\int T_3w_3\partial^4\cN=2\int(T_3w_3)''\partial^2\cN$ with $\partial^2\cN=\tilde Aw_5+a_4w_4+a_3w_3+a_\flat$, $a_4=2\tilde A'+\tilde B$, $a_3=\tilde A''+2\tilde B'+(\partial_{e''}A_3)e'''+\partial_{e''}\tilde C$. This is linear in the free jets $w_3,w_4,w_5$, so \emph{there are no trilinear classes}. One more integration by parts gives
+\[
+S=2\!\int\!T\tilde Aw_5^2+\!\int\!\Psi_{45}w_4w_5+\!\int\!\Psi_{35}w_3w_5+\!\int\!\Psi_{34}w_3w_4+\!\int\!\Psi_{33}w_3^2+2\!\int\!(Tw_5+2T'w_4+T''w_3)a_\flat,
+\]
+with $\Psi_{45}=2Ta_4$, $\Psi_{35}=2Ta_3+4T''\tilde A-T'(6\tilde A'+4\tilde B)$, $\Psi_{34}=T'(4a_3-6\tilde A''-4\tilde B')-2T''\tilde B+2T'''\tilde A$ and $\Psi_{33}=2T''a_3$ (\fn{n3wcheck.py}). Levels 0--2 are analogous, with $j+1$ terms in $\alpha_\flat$. \emph{Majorants.} Per $x$-range (the ramp, $[x_b,30.25]$, $[30.25,34.25]$ and dyadic ranges $[2^k\cdot34.25,2^{k+1}\cdot34.25]$ up to $\lt$), the base data are \fn{arb} hulls of $\kt^{(\le5)}$, $r',r'',r'''$, $\tilde p,\tilde q,\tilde n,\tilde t_1$. The box enters through $(Z_0,Z_1,Z_2,Z_3)=(1.25E(x_{hi}),\zeta_1,\zeta_2/x_{lo},\zeta_3/x_{lo}^2)$ for $y\ge28$ and $(\eta_1,\eta_1,\eta_F/x_{lo},\eta_F/x_{lo}^2)$ below. Mean-value forms over the convex box bound $\tilde A^+,\abs{\tilde A^{(k)}},\abs{\tilde B},\dots$. Young's inequality with fixed weights produces $\Delta\theta_3,\Delta\sigma_3,\Delta k_{33},\Delta d_{3m},\Delta k_{3m},\Delta c_{3m},hf_3$ (explicit formulas in \fn{LEMMA_F.tex} \S6.1).
+
+\begin{named}{Lemma N3$'$}
+Assume $\mathbb B'$, (SE), $\abs x\le C_x\Yb$ and $\abs\vartheta\le C_x\Yb/n$. Then (F) holds at each $j\le3$ for the equation with $\cN+\cQ$ included, provided $\theta_j,\lambda_j,k_{jj},k_{jm},c_{jm}$ are replaced by $\theta_j-\Delta\theta_j$, $\lambda_j-\Delta\sigma_j$, $k_{jj}+\Delta k_{jj}$, $k_{jm}+\Delta k_{jm}$, $c_{jm}+\Delta c_{jm}$, and $h_j$ gains $\sum_{m<j}\Delta d_{jm}F_m+hf_j$. All of these are per-slab \fn{arb} bounds.
+\end{named}
+\noindent The hypothesis $\abs x\le C_x\Yb$ omits $x_r$ and the nonlinear part of (M) \todo{B6}. The box $\mathbb B'$ uses the tip value $\eta_1$ \OPEN{A3}.
+
+\begin{table}[ht]\centering\small
+\caption{Far-field constants and amplification on base v2 (\fn{constants_fin.json} summary before N3$'$; \fn{n3_fin.json}; \fn{amp_n3_fin.json}). $\sqrt{F_j}\le A_j\Yb+B_j$, where $B_j$ is the $\Yb$-independent part (initial data and residual).}\label{tab:far}
+\begin{tabular}{@{}cccccccc@{}}\toprule
+$j$ & $\min\lambda_j$ & $\theta_j$ & $\Delta\theta_j$ (N3$'$) & $\Delta\sigma_j$ & $A_j$ & $B_j$ & $\sqrt{F_j}$ at $\Yb=10^{-12}$\\\midrule
+0 & 0.2400 & 1.2253 & $\le0.025$ & $\le5.7\cdot10^{-4}$ & $6.57\cdot10^3$ & $1.80\cdot10^{-6}$ & $1.80\cdot10^{-6}$\\
+1 & 0.2487 & 1.2253 & $\le0.026$ & $\le1.1\cdot10^{-3}$ & $6.29\cdot10^4$ & $1.30\cdot10^{-8}$ & $7.59\cdot10^{-8}$\\
+2 & 0.2484 & 1.2253 & $\le0.026$ & $\le1.1\cdot10^{-3}$ & $1.16\cdot10^6$ & $2.04\cdot10^{-7}$ & $1.37\cdot10^{-6}$\\
+3 & 0.2456 & 0.2201 & $\le0.087$ & $\le2.8\cdot10^{-3}$ & $1.16\cdot10^8$ & $1.82\cdot10^{-5}$ & $1.34\cdot10^{-4}$\\\bottomrule
+\end{tabular}\end{table}
+\noindent\emph{Results.} $\sup\tilde A^+=0.0119$, at slab 180 and $x\in[2.8,3.7]\cdot10^5$, where $\sup\abs{\kt e}\le2.99\cdot10^{-3}$ on the 1.25-box. The top loss $2\sup\tilde A^+=0.0238$ is kept at every level, and \fn{cconst}'s \fn{TOPLOSS}$=0.0196$ counts it a second time (conservative). Level 3: $\theta_3$ goes from $0.220$ to $\ge0.133$; $\Delta k_{33}\le1.6\cdot10^9$ ($+0.15\%$); $\Delta d_{3m}\le(3.4\cdot10^4,16,0.032)$; $hf_3\le1.2\cdot10^{-17}$. For $\cQ$: $\bar x=C_x\Yb=1.45\cdot10^{-11}$ and $\bar\vartheta\le6.2\cdot10^{-8}$ (at $\Yb=1.85\cdot10^{-12}$). The strong-form share of $\Delta\sigma_j$ is $\le1.8\cdot10^{-6}$. At $\Yb=10^{-12}$ and the good time in $W'$: $D_2(\tau^*)\le1.224\cdot10^{-8}$ and the error part of $K_4$ is $0.0133$. The item limits are $\Yb\le5.048\cdot10^{-12}$ (item 4, $K_4$, binding), $1.794\cdot10^{-11}$ (item 3, $E_3$) and $5.86\cdot10^{-8}$ (item 2, $E_0$). The initial data contribute $\le3.8\%$ of each $\sqrt{F_j}$.
+
+\subsection{The nonlinear boxes}\label{ss:boxes}
+\emph{Source:} \fn{p2/boxes.py} (C4 on $I\subset[y/1.5,1.5y]$ with $\abs I\ge y/3$), with $\sqrt{F_j}\le A_j\Yb+B_j$ per slab. For example, $\abs{e'}^2\le\frac{6.75}{28}yF_0+\frac3{28}y\sqrt{F_0F_1}$, up to $y_\ell$.
+\begin{center}\small\begin{tabular}{@{}p{0.17\linewidth}p{0.25\linewidth}p{0.24\linewidth}p{0.08\linewidth}p{0.17\linewidth}@{}}\toprule
+box quantity & bound at $\Yb=10^{-12}$ & box assumed by N3$'$ & margin & at $\Yb=1.85\cdot10^{-12}$\\\midrule
+far $\abs{e'}$ ($y\ge28$) & $5.421\cdot10^{-4}$ & $\zeta_1=7\cdot10^{-4}$ & $\mathbf{\times1.29}$ & $5.47\cdot10^{-4}$\\
+far $x\abs{e''}$ & $7.532\cdot10^{-5}$ & $\zeta_2=1.65\cdot10^{-4}$ & $\times2.19$ & $1.29\cdot10^{-4}$\\
+far $x^2\abs{e'''}$ & $5.689\cdot10^{-3}$ & $\zeta_3=10^{-2}$ & $\times1.76$ & $9.83\cdot10^{-3}$\\
+$\abs{\kt e}$ & $\le2.40\cdot10^{-3}$ & $2.99\cdot10^{-3}$ (1.25-box) & $\times1.25$ & ---\\
+tip $\abs e,\abs{e'}$ ($x\le34.25$) & $2\cdot10^3\Yb/\sqrt{\mu_e}=1.05\cdot10^{-8}$ \OPEN{A3} & $\eta_1=1.32\cdot10^{-8}$; T5 box $10^{-5}$ & --- & $2.44\cdot10^{-8}$\\
+$B\le\Yb/\sqrt\eps$ & $3.2\cdot10^{-10}$ & $\eta_B=10^{-4}$ & $\times3\cdot10^5$ & ---\\\bottomrule\end{tabular}\end{center}
+The far $\abs{e'}$ bound hardly depends on $\Yb$: it is the residual part $B_0=1.79\cdot10^{-6}$ (\todo{B1}). The $x^2\abs{e'''}$ box closes up to $\Yb\approx1.88\cdot10^{-12}$, so the far-box limit is $\Yb\le1.85\cdot10^{-12}$ ($\times1.85$ in $\Yb$). \todo{B2: \fn{STEP4_RESULT.md} \S1 reports the margins $\times18,\times132,\times1.85$ against $\eta_F=10^{-2}$; the boxes assumed by N3$'$ give $\times1.29,\times2.19,\times1.76$. \fn{boxes.py} should read the boxes from \fn{n3_fin.json} and assert all four, including that $\sqrt{F_0}$ with N3$'$ stays inside the factor $1.25$ of the $\abs e$ box ($\sqrt{F_0}$ moves by $\le0.12\%$).}
+\OPEN{A3}: the tip box $\abs e,\abs{e'}\le2\cdot10^3\Yb/\sqrt{\mu_e}$ on $x\le34.25$ has a single source, T5 \S2.5 (``$\lesssim$'', \tD). It is used by Lemma~4a, by N3$'$ (as ``certified by the assembly'') and by \fn{clam.py} (as ``T8's certified tip box''); \fn{boxes.py} only prints it. The review computes the sharp constant allowed by $\Lam_e\le\Yb^2$ alone: $\abs{e'(x)}\le(4.777/(\mu_eW(x)))^{1/2}\Yb$. That is $1.056\cdot10^4\Yb$ at $x=30.25$ and $1.35\cdot10^4\Yb$ at $x=34.25$, above $1.25\times1.054\cdot10^4$. Likewise $\abs{e}$ reaches $\approx1.69\cdot10^4\Yb$ at $x=34.25$. At $\Yb=10^{-12}$ there is no numerical consequence, since \fn{n3far} ran with $\eta_1(1.85\cdot10^{-12})=2.44\cdot10^{-8}>1.69\cdot10^{-8}$. But the claim ``closes for every $\Yb\le1.85\cdot10^{-12}$'' is false for the tip part, and Lemma~4a's slice $3.0\cdot10^{-9}$ is short ($\approx4.8\cdot10^{-9}$ needed). The fix is a certified lemma for $\sup\abs e,\sup\abs{e'}$ on $[0,34.25]$ from $(A,B,V_0,V_2)$ and $K_e$, passed to \fn{n3far} (\fn{--eta1}), \fn{merge.tip_lemma}, \fn{clam.py} and \fn{boxes.py}.
+
+\subsection{The residuals}\label{ss:res}
+\emph{Sources:} \fn{t6/T6_REPORT.md} (method; its numbers are for the v1 base, slabs 5--187), \fn{t6/residuals.json} (v2, slabs 0--180, 3380 CPU-s), \fn{p2/t6/residuals.json} (v2 with the (SE) increments; read by \fn{ycomp.py}, \fn{cconst.py}, \fn{camp.py}).
+
+\emph{Method \tC, no sampling in the certified path.} On slab $i$ each unknown is the degree-8 polynomial in $\tau$ through the stored stage balls, with Radau nodes taken as exact rationals ($c_8=1$, so slabs join exactly). The outer knots $X_T(1+C\lt^3)^{1/3}$ are Taylor models in $\tau$. All objects are polynomials in $(s,\tau)$ with ball coefficients, and every truncation folds into the radii. $\rho_\kappa=\kt_\tau|_x-\Phi_x$ and $\rho_\theta=\int\rho_\kappa$ are exact. Then $r+iA=e^{i\theta}\int_0^xe^{-i\theta}\rho_\theta$, $(r,A)'=(\rho_\theta-\kt A,\kt r)$, and $S_1,S_2$ by exact integration. Per cell (length $\le0.25$ on $[0,40]$, split at the weight breakpoints; 2 per outer element) the exact polynomial $P_c(\tau)=\int_cf^2$ is formed. Weights are bounded on cell $\times$ quarter-slab, and $\sup_\tau\sum\bar w_cP_c$ uses a 32-piece Taylor-shift subdivision. On v1 the cross-check against \fn{resid.py} gave certified $\ge$ estimate in all 90 cases (ratio $1.001$--$1.091$). The certified sup peaks at $\tau_0$, where the stage-polynomial derivative jumps. Between nodes the far-field $\rho_\kappa$ is $\sim10^3$ times its nodal value, so the exact $\tau$-polynomial is necessary.
+
+\begin{table}[ht]\centering\small
+\caption{Residual norms, maxima over slabs 0--180. The column ``used'' is the maximum of the per-slab norms of \fn{p2/t6/residuals.json}, which include the (SE) increments; these are the values the P2 scripts read. The \fn{summary} block of that file was copied from the uncorrected run and is stale \todo{B1, B9: regenerate the summary}.}\label{tab:res}
+\begin{tabular}{@{}lllll@{}}\toprule
+norm & T5 target & v2, uncorrected (slab) & used, with (SE) & role\\\midrule
+$\cR_2=\norm{S_2}_{L^2_\rho(0,34.25)}$ & $2\cdot10^{-14}$ & $3.08\cdot10^{-15}$ (0) & $3.08\cdot10^{-15}$ & (E0), (M)\\
+$\cR_s=\norm r_{L^2_\rho(0,34.25)}$ & $5\cdot10^{-11}$ & $7.62\cdot10^{-14}$ (0) & $7.62\cdot10^{-14}$ & (E2)\\
+$\cR_1=\norm{\zeta S_1}_{W_\infty}$ & $5\cdot10^{-13}$ & $7.42\cdot10^{-15}$ (0) & $9.59\cdot10^{-14}$ & (I0)\\
+$\cR^I_s=\norm{\zeta r_x}_{W_\infty}$ & $10^{-10}$ & $1.23\cdot10^{-17}$ (0) & $4.11\cdot10^{-17}$ & (I2)\\
+$\cR^F_0$ (\fn{opt4n}) & $10^{-7}$ & $8.24\cdot10^{-9}$ (174) & $8.71\cdot10^{-9}$ & Lemma F\\
+$\cR^F_1$ & $10^{-7}$ & $8.61\cdot10^{-11}$ (153) & $4.53\cdot10^{-10}$ & Lemma F\\
+$\cR^F_2$ & $10^{-7}$ & $5.54\cdot10^{-10}$ (153) & $6.91\cdot10^{-9}$ & Lemma F\\
+$\cR^F_3$ & $10^{-7}$ & $8.59\cdot10^{-9}$ (153) & $1.75\cdot10^{-7}$ & Lemma F\\
+$\cR^F_4$ & $10^{-5}$ & $2.08\cdot10^{-7}$ (153) & $26.8$ & not used (level 4 dropped)\\\bottomrule
+\end{tabular}\end{table}
+\noindent With the (SE) increments, $\cR^F_3$ exceeds the T5 design target $10^{-7}$. The target was only a design budget; the binding quantities are the item limits of \S\ref{ss:far}, computed from the values actually used. The far-end scalars on the corrected base are: closure and turning exactly $0$; $\sup\abs{A(\lt)}\le5.74\cdot10^{-12}$; $\sup\abs{\eps_\ell}\le1.17\cdot10^{-13}$. The T6 corrections to T7 ($\delta\ip{\cL u}u_\rho=-\frac12\int(\rho A)'u^2$, with $\sup_{[0,34.25]}\abs{A'}\le1.2\cdot10^{-10}$) are $\ge10^7$ below T7's margins. \todo{B9: T6 \fn{slab.py} l.304--306 store scalars and ranges round-to-nearest.}
+
+\section{The hand-off (T9)}\label{s:T9}
+\emph{Sources:} \fn{p2/t9h/h1.py}, \fn{clam.py}, \fn{win.py}, \fn{p2/t9.py}, \fn{p2/t9_far.py}; outputs in \fn{p2/out/}; \fn{STEP4_RESULT.md} \S2. All functionals are evaluated on $\Gt(\tau)$ for $\tau\in W'$ in \fn{arb}. The error enters by the triangle inequality, through the constants $C_\alpha,C_\Lam,\kappa_{\rm ch}$.
+
+\subsection{\texorpdfstring{The $S_1$ chart}{The S1 chart}}\label{ss:S1}
+The chart uses only step-1 objects. For $\sigma\le8$ it uses \fn{s1_tight/ext_tip/prof_tip.txt}, a drop-in replacement for \fn{prof_tight.txt}: same 51\,246 rows, every box nested in the \fn{prof_tight} box, $\theta$-width $\le3.2\cdot10^{-12}$ on $x\in[0,2]$ (was $1.76\cdot10^{-9}$). For $\sigma\in[8,13]$ it uses \fn{ext813/ext813_prof.txt} (25\,000 rows, width $\le5.7\cdot10^{-10}$, CAPD $C^0$ Lohner, order 25). Beyond $\sigma=13$ it uses tail envelopes. The asymptotic tangent angle $\Theta$ uses $\int_\sigma^\infty k=p/\sigma+4m/\sigma^2+\dots$.
+
+\emph{Conditioning and non-uniqueness (B8).} The state of $S_1$ at $\sigma=8$ is a point $y^*$ of the certified set $Y=x_m+C\cdot r_0+r_r$ (\fn{in_br2.txt}) with $M(y^*)=0$, where $M$ is $m$ at the first return to $q=0$. \fn{ext_tip} evaluates
+\[
+\Phi_\tau(y^*)\in\Phi_\tau(x_m)-\frac{G_0}{A_0}(M(x_m)+DM\cdot e)+\sum_{j\ge1}\Bigl(G_j-\frac{G_0A_j}{A_0}\Bigr)\delta_j+D\Phi_\tau\cdot e,
+\]
+with $A=DM\cdot C$ and $G=D\Phi_\tau\cdot C$,
+by the mean value theorem on the convex $Y$, with $DM$ and $D\Phi_\tau$ enclosed over all of $Y$ ($A_0=-4850.43$). The formula holds for \emph{every} zero of $M$ in $Y$, so no uniqueness of $\varepsilon^*$ is used; step~1 does not prove uniqueness. The conditioned tip data are $\tau_{\rm tip}\in[10.249077651120778,10.249077651121361]$ (width $5.8\cdot10^{-13}$), $k(0)\in[1.5398206378718,1.5398206378722]$, $D=-p(\rm tip)\in[2.50080627661969,2.50080627662005]$, and $\varepsilon\in[1.5346198894026,1.5346198896816]\cdot10^{-4}$ for all zeros. Every object used by T9 is an interval enclosure valid for every zero: \fn{prof_tip}, \fn{ext813}, the 3425 IBP hull boxes of step 3 (\fn{outA5.txt}), and the fixed functions $\hat\psi_3,\hat h_2$ of \fn{c4fun}. Distinct zeros differ by $\le3\cdot10^{-12}$, far below the step-3 floor $4.9\cdot10^{-10}$. Result: $\Theta=1.8617364190148\pm5.2\cdot10^{-11}$ (was $\pm1.7\cdot10^{-9}$ with \fn{prof_tight}). \todo{B8: add a scripted check that the step-2/3 hulls \fn{outA5.txt} contain \fn{prof_tip} (the READMEs prove nesting in \fn{prof_tight} only).}
+
+\subsection{\texorpdfstring{(H1): $\alpha$ and $\sqrt\Lambda$ by the step-3 IFT}{(H1): alpha and sqrt(Lambda) by the step-3 IFT}}\label{ss:alpha}
+The step-3 coordinates at $\tau\in W'$ are $(x_c,\lambda,\alpha)$, determined by the three constraints $\ip{\chi w}{f_j}_\rho=0$, with $w=u-\alpha\hat\psi_3-\alpha^2\hat h_2$ and $f_3$ the adjoint function, on the 3425 step-3 IBP hull boxes. The matrix has $\ip{\chi\hat\psi_3}{f_3}=0.030\pm0.004$, and $f_3$ decouples from the frame modes to $1.5\cdot10^{-4}$. The tip offset $C=-\pi/2-\theta({\rm tip})+dT\,k_{\rm tip}$ goes through the projection as one scalar (\fn{COHERENT=1}): $\Lam$ is evaluated at the midpoint of $C$, and $\norm{\Pi q}_\Lam\le17.64$ bounds the rest ($q$ the rotation mode, $\operatorname{rad}C=1.7\cdot10^{-12}$). $W'$ is covered by 32 $t_c$-balls of radius $2^{-15}$, with two linear passes and their own $\Lam$ cells on each ball, so the bound holds at every $\tau\in W'$, including the good time.
+\begin{itemize}
+\item $\alpha\in[-1.12966629,-1.12960694]\cdot10^{-4}$ over $W'$ (midpoint $-1.1296360\cdot10^{-4}\pm1.8\cdot10^{-10}$), so $\abs\alpha\le1.1297\cdot10^{-4}$ against $1.5\cdot10^{-4}$ ($\times1.33$). With envelopes only (before \fn{ext813}) the width was $\pm0.47\%$.
+\item $\sqrt{\Lam}[\tilde w]\le2.2906\cdot10^{-8}$. The worst ball has $A\le2.25\cdot10^{-8}$, $\sqrt\eps B\le4.4\cdot10^{-9}$, $\sqrt\mu V_0\le2.9\cdot10^{-10}$ and rotation term $1.7\cdot10^{-12}\times17.64$. The midpoint alone gives $6.72\cdot10^{-9}$; the drift of $(x_c,\lambda,\alpha)$ across a ball limits the bound.
+\item Error (\fn{clam.py}): $\sqrt{\Lam[w]}\le\sqrt{\Lam[\tilde w]}+C_\Lam\Yb$ and $\abs{\alpha-\tilde\alpha}\le C_\alpha\Yb$, with $C_\Lam\le24.08$ and $C_\alpha\le0.7175$. These use $\Lam^{S3}[e]\le(0.08/\mu_e)\Lam_e$, Cauchy--Schwarz on $\ip{\chi e}{f_j}_\rho$ with $\norm{f_j}_\rho\le1.838,1.191,0.0196$, and the tip box on the cutoff tail (weight $\approx10^{-6}$; \OPEN{A3}). Total $\sqrt\Lam\le2.2930\cdot10^{-8}$ ($\times2.18$), valid for $\Yb\le1.586\cdot10^{-9}$.
+\end{itemize}
+\todo{B3: \fn{h1.py} l.126--129 adds a typed ball ($10^{-11}$/$10^{-13}$) for the quadratic remainder; no second-derivative bound and no Krawczyk/Brouwer test proves an exact zero of the three constraints in the box, while (H1) needs the constraints exactly (remainder estimated at $\approx10^{-17}$). \fn{fU4_safe} (l.122--124) returns a typed bound 50 on exceptions (0 exceptions in 6166 calls on ball 31; make it a hard error). Typed bounds in the rotation-mode norm (l.197) and the factor 1.01 (l.204, and in \fn{clam.py}, justified by a false ``$\abs{u'}\le10^{-6}$'') enter only as $1.7\cdot10^{-12}\times17.6$.} \todo{B9: \fn{h1.py} l.166 tiles cells by float accumulation.} (The \fn{h1.py} docstring still says $K=0..7$ and \fn{prof_tight}; the run used $K=0..31$ and \fn{prof_tip}.)
+
+\subsection{(H2), (H3): shells and windows}\label{ss:win}
+The step-3 definitions are reproduced in \fn{win.py} and were checked by the review: $w=u-\alpha\hat\psi_3-\alpha^2\hat h_2$; $\chi_{32}$; $\zeta$ on $[10.25,16.25]$ and $[57,60]$; $\eps,\eps_I,\mu=0.08$; $\omega=28/y$; $U=1.3056\,\alpha\,y^{1.0246}$; a sliding cover of $y\in[50,253]$. The base values on $W'$, with $\alpha$ from \fn{t9_ift_tight.json} ($\pm0.3\%$ suffices), are in Table~\ref{tab:handoff}: shells $(2.84\cdot10^{-12},3.66\cdot10^{-12},8.93\cdot10^{-11})$ and windows $(1.44\cdot10^{-8},5.20\cdot10^{-8},1.71\cdot10^{-7},4.70\cdot10^{-7})$, maximal at $y=253$. The error parts come from C3 with $\kappa_{\rm ch}=1.1512$ (\fn{arb}, \fn{t9_cone_kch.json}; it was $1.02$ in v1) and the chain-rule terms $c_{0,j}=(0.0127,0.0343,0.0530)$ plus allowances. \todo{B4: \fn{camp.py} l.34 (\fn{BASE_T1_CERT}) types E3 $4.696\cdot10^{-7}<4.69602\cdot10^{-7}$, shell $E_0$ $2.832\cdot10^{-12}<2.83221\cdot10^{-12}$, $E_1$ $3.659\cdot10^{-12}<3.65948\cdot10^{-12}$, $K_4$ $3.163\cdot10^{-4}$; effect $\le10^{-4}$ relative against margins $\ge17$. Read the JSON outputs instead.}
+
+\subsection{(H3) \texorpdfstring{$K_4$}{K4}, (H4), (H5): cone and far cylinders}\label{ss:cone}
+\emph{Cone cylinders} (\fn{t9.py}; slabs 177--180 hulls). For $r_c\in[200,380]$, $L=r_c/4$, $X=3$ (half-width $0.75r_c$), the graph is taken over the centre tangent: $h''=k\sec^3$, $h'''=\sec^4(k_s+3k^2t)$, $h''''=\sec^5(k_{ss}+10kk_st+12k^3t^2+3k^3\sec^2)$, with $K_j=L^{j-1}\sup\abs{h^{(j)}}$ and $N_3=L^{3/2}\norm{h'''}_{L^2(\abs x\le XL)}\le\sqrt6K_3$. Any frame with $\abs{x_c}\le0.5$, $\abs{\lambda-1}\le10^{-3}$ is covered. The error parts come from C4 at the inner end $y=0.25r_c-X_0$, with $D_2(\tau^*)$ from \fn{camp}. Result: $K_2,K_3,K_4\le1.89\cdot10^{-2},4.86\cdot10^{-4},7.45\cdot10^{-2}$, $N_3\le1.19\cdot10^{-3}$, slope $\le0.0573$; and (H3) $K_4\le3.31\cdot10^{-2}$ on the cylinder $r_c=200$ ($y\in[50,350]$). \emph{(H4).} The base satisfies $\abs{\theta-\Theta}\le0.0779$ over the ray to $y=350$, and the error adds $\le5.43\cdot10^{-4}$, so the curve is a graph over the $S_1$ ray. \emph{Far cylinders} (\fn{t9_far.py}; $X=2$, $L=113$, centres $r\ge376$, so $x\ge150$). Base hulls at slab 180: $\abs{\kt}\le1.77\cdot10^{-4}$, $\abs{\kt'}\le1.71\cdot10^{-8}$, $\abs{\kt''}\le2.33\cdot10^{-10}$. (\fn{STEP4_RESULT.md} quotes $1.3\cdot10^{-8}$ and $5.3\cdot10^{-11}$; the $h$-bounds agree with the JSON.) Error parts from C4 at $y=147-X_0$. Results in Table~\ref{tab:handoff}; the thresholds use the v3.1 value $8.8\cdot10^{-3}$ for $\abs{h''}$. \todo{B5: typed allowances in \fn{t9.py} l.61--62 ($2\cdot10^{-9}$, $5\cdot10^{-11}$, $10^{-13}$, $1.001$), l.66 and l.114 ($1.0001$), l.116 (the $c_0$ allowance $0.002$ and ``$+0.01$ per level''), and \fn{t9_far.py} l.32--34 ($1.003^{j+1}$; the $e''$ term carries $(1-\kt e)^{-2}\le1.0048>1.003$, which is harmless since $e''\ll\kt$ there). Replace them by computed \fn{arb} expressions, or state each as a lemma.}
+
+\subsection{Lemma O hypothesis H4 (fifth derivative)}\label{ss:H4}
+\OPEN{A1}. Step 3's (H5) requires H1--H7 and H9 of Lemma~O (\fn{step3_proof.tex} l.97, l.246). Among them is H4, $\int_{-X}^X(h_0^{(5)})^2\le M^2$ in cylinder units. This is hypothesis (I) of \fn{lemmaO.tex} l.26, used in its Step~3 as $\norm{\zeta^2ah_0^{(5)}}\le M$. Step 4 does not check it. \fn{LEMMA_F} C5 assumed that the good-time selection happens inside Lemma~O; it does not, because H4 is a hypothesis on the data at $t_1$. The only certified control of $e^{(5)}=w_4$ is $D_2(\tau^*)=\int T_2w_4^2$, $T_2=28Y_\ell^2$. In cylinder units $\int(h_0^{(5)})^2dX=L^7\int(h^{(5)})^2dx$, so the error part is $L^7D_2/(28y_0^2)$. With $D_2(\tau^*)\le1.2236\cdot10^{-8}$ (review, \fn{/tmp/rev/h4.py}):
+\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule
+cylinder & $L$ & error part & $M^2$ & over by\\\midrule
+cone, $r_c=200$ & 50 & 0.156 & 0.0144 & $\times10.8$\\
+cone, $r_c=290$ & 72.5 & 0.959 & 0.0144 & $\times67$\\
+cone, $r_c=380$ & 95 & 3.63 & 0.0144 & $\times252$\\
+far, centre 376 & 113 & 4.77 & 1 & $\times4.8$\\
+far, centre 602 & 113 & 0.74 & 1 & passes\\\bottomrule\end{tabular}\end{center}
+The base part is $\le6.3\cdot10^{-6}$. The cause is that $D_2(\tau^*)$ is a mean over $W'$, and $\abs{W'}=1.46\cdot10^{-4}$: $D_2(\tau^*)\approx F_2/(\theta_2\abs{W'})\approx1.27\cdot10^{-8}$. Lowering $\Yb$ does not help, because the residual part alone is $2.9\cdot10^{-9}$. Candidate fixes (review): (1) lengthen the good-time window to a slab or more (estimated $D_2\approx10^{-11}$, giving $\approx3\cdot10^{-3}$ at $r_c=380$, about $\times5$ under), certifying H1--H4 over the longer window (more $t_c$-balls, or a Lipschitz bound in $\tau$); (2) a localised $D_2$ on $y\in[L,7L]$; (3) a version of Lemma~O with a separate, larger constant for $\norm{h_0^{(5)}}$. A smaller $D_2$ would also widen the $K_4$ margins ($\times1.61$, $\times1.81$), which use $\sqrt{F_3D_2}$. Lemma~O's H1 (graph height against $H-C_0\sqrt{t_1}$) and H6 (neighbourhood of centres) are not scripted either; they are expected to hold \todo{A1}.
+
+\section{The main theorem}\label{s:main}
+We combine the four steps. Step~1 constructs $S_1$ (\fn{s1_tight/s1_tight.tex} and the step-1 supplement, with the geometric checks (a)--(d): double point, embedding, mirror, tail; \todo{insert the step-1 reference}). Step~2 proves linear stability of $S_1$ modulo symmetries: every eigenvalue with $\operatorname{Re}\lambda>-\frac18$ is $1$ or $\frac14$ in the even class, and $\frac14$ or $0$ in the odd class (\fn{step2_proof.tex}). Step~3 proves trapping with a floor (Theorem~W, \fn{step3_proof.tex} v3.1), conditional on (H1)--(H6) at $t_1$. Step~4 is Theorem~4.
+
+\begin{named}{Main Theorem (conditional on A1--A3)}
+Let $S_1$ be a shrinker in the certified set of step~1, and let $\gamma$ be the CDF evolution of the curve $\Gamma_0$ of Theorem~4. Assume that the open items A1--A3 of \S\ref{ss:open} are closed. Then:
+\begin{enumerate}[label=(\roman*)]
+\item $\Gamma_0$ is embedded, and $\gamma$ has a finite maximal existence time $T$ with $0<T-t_1\le\lambda_1^4/(1-4\bar a)$, where $\bar a:=\sup_{\tau\ge\tau_1}\abs a\le2.192\cdot10^{-7}$ (certified $2.19103\cdot10^{-7}$) and $t_1\in[4.5978580262,4.5978580263]$.
+\item The singular set at time $T$ is a single point $p_*$, and the curvature is unbounded as $t\uparrow T$.
+\item The rate is self-similar: $\gamma(t)=p(t)+\lambda(t)\Gamma(\tau)$ with $\lambda(t)=(T-t)^{1/4}(1+O(\bar a))$ and $p(t)\to p_*$.
+\item The rescaled profile stays near $S_1$ for all $\tau\ge\tau_1$ (version W): $\abs\alpha\le1.5\cdot10^{-4}$ and $\sqrt\Lam\le5.31\cdot10^{-8}$; after the tail start the barrier decays at rate $\varrho=2.69\cdot10^{-3}$ in $\Lam$ down to the floor $\sqrt{\Lam_F}=4.94\cdot10^{-10}$, and eventually $\abs\alpha\le3.43\cdot10^{-7}$. Convergence to $S_1$ is not claimed.
+\item Away from $p_*$ the curve converges smoothly as $t\uparrow T$.
+\end{enumerate}
+\end{named}
+\begin{proof}
+By Theorem~4 the curve $\Gamma_1$ satisfies (H1)--(H6) at $t_1$. Theorem~W then gives (W1)--(W5), which are (ii)--(v) and the bound in (i). Embeddedness of $\Gamma_0$ is Proposition~\ref{prop:G0}. $T$ is the maximal time by the step-3 continuation criterion (P1) \tA. The tip curvature is $k(0)/\lambda+\dots$ with $k(0)\in[1.53982063787,1.53982063788]>0$ (\S\ref{ss:S1}); this settles the step-3 caveat ``$k(0)\neq0$ used without proof''.
+\end{proof}
+\noindent\emph{Dependencies.} The theorem inherits the caveats of step~3 (\fn{step3_proof.tex} \S6). These are the literature facts (P1): local well-posedness for immersed data, the continuation criterion and interior regularity. With the hand-off scale $\lambda_1\approx k(0)/k_{\max}(\gamma(t_1))\approx6.5\cdot10^{-5}$ (from the base scalars; \todo{certified bound on $\lambda_1$}), $T-t_1\lesssim1.8\cdot10^{-17}$. So $T$ lies in the $t_1$ interval up to $2\cdot10^{-17}$ (clip time $T+0.001$). In (iv), $\varrho$ is step 3's tail rate, not P2's $\varrho_c$.
+
+\paragraph{Embeddedness.} $\Gamma_0$ is embedded \tC\ (Proposition~\ref{prop:G0}). The flow loses embeddedness before $T$. \emph{This is numerical} \tF: in the float runs the curve first self-intersects at clip time $t\approx0.0028$, i.e.\ about $0.0018$ after $\Gamma_0$ ($t\approx0.003$ to one digit; \fn{T3_REPORT.md} \S1). No step of the proof certifies a self-intersection. \emph{Route to a certificate} \tA: by step~1, $S_1$ has a transverse double point on the axis ($\tilde x\in[-0.83152,-0.82932]$). By (H1), at $t_1$ the rescaled curve is a $C^1$-small normal graph over $\lambda_1$-scaled $S_1$ on the tip region ($\abs u$, $\abs{u'}\lesssim\abs\alpha\sup\abs{\hat\psi_3}+O(\sqrt\Lam)$). For a symmetric curve, a transverse crossing of the axis away from the two symmetry points is a self-intersection, and it persists under $C^1$-small perturbations. So $\gamma(t_1)$ is not embedded. \todo{insert the transversality angle of the $S_1$ double point, its arclength position (inside $x\le34.25$), and the certified $C^1$ bound on $u$ there.}
+
+\section{Reproducibility}\label{s:repro}
+\paragraph{Kit A (start of step 4).} \fn{s1spec/kit_step4a.zip} (v2, after the Windows \fn{EBADF} fsync fix), SHA-256 \fn{95238331d2c9b9c68f0462b5391496e079a2f8802edbcee31f02f048f72d7fe3}. It reproduces the $\Gamma_0$ certificate (\fn{t2/gamma0.py final}, input \fn{gamma0s_src.npz}; about 3~min) and the P1 chain through all 96 slabs (\fn{t3/run_p1.py}; 6.2~h CPU on the sandbox, 8--12~h expected overnight). It runs on Python~3.13 with python-flint 0.9.0, numpy 2.5.4, scipy 1.18.1, sympy 1.14.0 and mpmath 1.3.0, single-threaded BLAS and \fn{PYTHONHASHSEED=0}; it is resumable and touches nothing outside its folder. The acceptance rule is overlap of all enclosures with \fn{reference/p1_ref.json}, not bit-identity. The partial test here (3 slabs) is bit-identical in centres, $G$ and radii. \todo{Kit A Windows run: result pending from the authors.}
+\paragraph{Kit B (P2 and the hand-off).} Planned after the review: base store, T6, T7, T8, switch, (Y), T9. \todo{Kit B: build after A1--A3 and B1--B9 are closed.}
+\paragraph{Step-3 kit and its independent reproduction.} \fn{s1spec/kit_step3.zip} (v2, v3.1 outward-rounded), SHA-256 \fn{1d1818251248b523be684653bf2958cbce0ff3cbe90c26e3cd8252a5bc740cf3}. Parts: verifier, IBP modulation, Lemma~S, Lemma~O. The independent run on Windows~11 (\fn{kit_step3/user_runs/windows11_v2_nov10_check.txt}) reports \textbf{91 PASS, 0 FAIL, 0 WARN}, with the verifier bit-identical to the reference. The v1 run on Windows~11, Python 3.13.7, gave 85 PASS, 0 FAIL, 6 WARN, identical to Linux; the 6 WARN were the typed-decimal findings fixed in v3.1.
+\paragraph{Hashes of the certified outputs used here} (SHA-256, first 16 hex digits; to be regenerated with kit B):
+\begin{center}\scriptsize\begin{tabular}{@{}ll|ll@{}}\toprule
+\fn{t2/gamma0_final.json} & \fn{e3a0763ef5e56209} & \fn{p2/out/switch_s2.json} & \fn{176df375e9d27f6e}\\
+\fn{t3/p1/ckpt/slab_00096.json} & \fn{9a53a8b6be713c3a} & \fn{p2/out/ycomp_fin.json} & \fn{ed1a41b57535a031}\\
+\fn{t1/polished_v2/manifest.json} & \fn{bffa87863a836020} & \fn{p2/out/se_corr.json} & \fn{ed1fd60fa2c6613d}\\
+\fn{p2/t6/residuals.json} & \fn{c7b1b74479987c47} & \fn{p2/out/t9_h1_clam.json} & \fn{328c22b96ce51e43}\\
+\fn{t7/constants.json} & \fn{6bd5159c28829d65} & \fn{p2/out/t9_win_tight.json} & \fn{40384bafdd2d3fb6}\\
+\fn{p2/t8se/constants/constants_fin.json} & \fn{88e10601da15a611} & \fn{p2/out/t9_cone_kch.json} & \fn{a66f92679d0b34e9}\\
+\fn{p2/t8se/constants/n3_fin.json} & \fn{293fb57c8cefa877} & \fn{p2/out/t9_far.json} & \fn{56104af1afca2f42}\\
+\fn{p2/t8se/constants/amp_n3_fin.json} & \fn{be61d20bb7c05857} & \fn{s1_tight/ext_tip/prof_tip.txt} & \fn{1e07195d48e879a9}\\
+ & & \fn{s1_tight/ext813/ext813_prof.txt} & \fn{49e01a0933e65aaf}\\\bottomrule\end{tabular}\end{center}
+\paragraph{Commands} (from \fn{STEP4_RESULT.md} \S4; \fn{nice 10}, one process):
+{\scriptsize\begin{verbatim}
+cd /home/claude/s1spec/step4/p2
+python3 -I se_corr.py; python3 -I switch.py ../t3/p1/ckpt/slab_00096.json 2 0.873067570143915
+T6RES=$PWD/t6/residuals.json SLAB0=2 YOUT=$PWD/out/ycomp_fin.json python3 -I ycomp.py
+cd t8se; TOPLOSS=0.0196 python3 -I cconst.py --slabs 2-180 --out constants/slabs_fin
+python3 -I merge.py --in constants/slabs_fin --first 2 --last 180 --out constants/constants_fin.json
+SUBW=1.46484375e-4 T9JSON=../out/t9_cone_kch.json python3 -I camp.py --consts constants/constants_fin.json \
+    --F0 4e-23,3e-22,5e-19,3.4e-15 --out constants/amp_fin.json
+python3 -I n3far.py --slabs 2-180 --out constants/n3_fin.json --amp constants/amp_fin.json \
+    --consts constants/constants_fin.json --Y 1.85e-12
+SUBW=1.46484375e-4 T9JSON=../out/t9_cone_kch.json python3 -I camp.py --consts constants/constants_fin.json \
+    --F0 4e-23,3e-22,5e-19,3.4e-15 --n3 constants/n3_fin.json --out constants/amp_n3_fin.json
+cd ..; P="t8se/constants/amp_n3_fin.json t8se/constants/constants_fin.json"
+python3 -I boxes.py $P 1e-12; python3 -I boxes.py $P 1.85e-12
+python3 -I t9.py t8se/constants/amp_n3_fin.json; python3 -I t9_far.py $P
+cd t9h; export COHERENT=1 S1PROF=/home/claude/s1_tight/ext_tip/prof_tip.txt \
+    S1TT=10.249077651120778,10.249077651121361
+H1TAG=_tip python3 -I h1.py m
+for K in $(seq 0 31); do H1NSUB=32 H1TAG=_tip32 python3 -I h1.py $K; done
+python3 -I clam.py
+T9IFT=../out/t9_ift_tight.json WINOUT=../out/t9_win_tight.json python3 -I win.py
+\end{verbatim}}
+\noindent Upstream: \fn{t2}: \fn{gamma0.py final}; \fn{t3}: \fn{run_p1.py --target-k 25 --Mmax 3600}, then \fn{--target-k 28}; \fn{t1}: \fn{seed_p1.py 95 80}, \fn{run3.py}, \fn{polish_v2.py}, \fn{verify_v2.py}, \fn{se_v2.py} (\fn{POLISH_V2.md}); \fn{t6}: \fn{run.py --slabs 0-180}, \fn{merge.py}; \fn{t7}: \fn{run_all.py} (\fn{T7_REPORT.md}, two commands); \fn{s1_tight}: \fn{run_tight.sh}, \fn{ext813/run_ext813.sh}, \fn{ext_tip/run_tip.sh}.
+
+\section{Related work}\label{s:rel}
+CDF (surface diffusion of plane curves) is fourth order. It has no comparison principle, and it need not preserve embeddedness or convexity; see Giga and Ito~\cite{GI}. Near circles the flow is global and converges, e.g.\ \cite{Wh13}. Self-similar shrinkers, among them the figure eight, are constructed and classified in \cite{EGMWW}. Our $S_1$ is the non-embedded one-loop shrinker, with a computer-assisted enclosure from step~1. Wheeler~\cite{Wh26} treats pinch-off by surface diffusion for surfaces: a conical pinch-off, for a family of data. The present work is different in kind: a single explicit planar curve, a non-embedded singularity model, and a computer-assisted proof. The validated integration uses \fn{arb} \cite{Arb}, CAPD \cite{CAPD}, and the self-consistent bounds and first-exit method of Zgliczy\'nski \cite{Zg}. \todo{full literature review later; verify all bibliographic details.}
+
+\section{AI use statement}
+\todo{authors: write the AI use statement. Facts to cover: the computations, certificates and design notes of steps 1--4 were developed with AI agents (Claude, Anthropic) under the authors' direction; this draft was assembled by Claude from the project files; an independent AI review (\fn{STEP4_REVIEW.md}) was run on step 4; the authors' own verification, the reproduction kits and the independent Windows run of step 3; responsibility for the content.}
+
+\begin{thebibliography}{9}\small
+\bibitem{Arb} F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval arithmetic, \emph{IEEE Trans.\ Comput.}\ 66 (2017).
+\bibitem{CAPD} T.~Kapela, M.~Mrozek, D.~Wilczak, P.~Zgliczy\'nski, CAPD::DynSys: a flexible C++ toolbox for rigorous numerical analysis of dynamical systems, \emph{Commun.\ Nonlinear Sci.\ Numer.\ Simul.}\ 101 (2021).
+\bibitem{EGMWW} M.~Edwards, A.~Gerhardt-Bourke, J.~McCoy, G.~Wheeler, V.-M.~Wheeler, The shrinking figure eight and other solitons for the curve diffusion flow, \emph{J.\ Elasticity} 119 (2015); arXiv:1505.02978.
+\bibitem{GI} Y.~Giga, K.~Ito, Loss of convexity of simple closed curves moved by surface diffusion, in: \emph{Topics in Nonlinear Analysis}, Progr.\ Nonlinear Differential Equations Appl.\ 35, Birkh\"auser (1999). \todo{verify}
+\bibitem{Wh13} G.~Wheeler, On the curve diffusion flow of closed plane curves, \emph{Ann.\ Mat.\ Pura Appl.}\ 192 (2013); arXiv:1201.3735.
+\bibitem{Wh26} G.~Wheeler, Pinchoff by surface diffusion, arXiv:2608.21882 (2026).
+\bibitem{Zg} P.~Zgliczy\'nski, Rigorous numerics for dissipative partial differential equations II. Periodic orbit for the Kuramoto--Sivashinsky PDE --- a computer-assisted proof, \emph{Found.\ Comput.\ Math.}\ 4 (2004).
+\end{thebibliography}
+\end{document}

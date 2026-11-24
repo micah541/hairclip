@@ -1,0 +1,1324 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.26)  24 NOV 2026 06:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./lemmaU_v44.tex
+(lemmaU_v44.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks18
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
+) (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen157
+))
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen158
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen159
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count291
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count292
+\dotsspace@=\muskip17
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
+\tag@help=\toks20
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
+\andhelp@=\toks21
+\eqnshift@=\dimen160
+\alignsep@=\dimen161
+\tagshift@=\dimen162
+\tagwidth@=\dimen163
+\totwidth@=\dimen164
+\lineht@=\dimen165
+\@envbody=\toks22
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks29
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen178
+) (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.st
+y
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip57
+\enit@outerparindent=\dimen179
+\enit@toks=\toks30
+\enit@inbox=\box55
+\enit@count@id=\count302
+\enitdp@description=\count303
+) (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip58
+\LTright=\skip59
+\LTpre=\skip60
+\LTpost=\skip61
+\LTchunksize=\count304
+\LTcapwidth=\dimen180
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count305
+\LT@rows=\count306
+\c@LT@tables=\count307
+\c@LT@chunks=\count308
+\LT@p@ftn=\toks31
+)
+\c@theorem=\count309
+(numbers_A_v44.tex)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
+ftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count310
+) (lemmaU_v44.aux)
+\openout1 = `lemmaU_v44.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 2980) in paragraph at lines 39--39
+[]\T1/cmr/bx/n/10.95 Status (21 Novem-ber 2026, text v40): not com-piled; step 
+3 is NOT
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 39--39
+\T1/cmr/m/n/10.95 paths, sha256 \T1/cmtt/m/n/10.95 be909bbf42543ab017bb9c81ba58
+227c80fc4f010cc1b50a66a515b848f90418\T1/cmr/m/n/10.95 );
+ []
+
+
+Overfull \hbox (36.53609pt too wide) in paragraph at lines 41--42
+\T1/cmtt/m/n/10.95 fix1/b12_text/continuation_v33.tex\T1/cmr/m/n/10.95 . The st
+ate-ments are those of \T1/cmtt/m/n/10.95 t1_statements/STATEMENTS_r2.tex
+ []
+
+[1
+
+{C:/Users/micahw/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (15.30331pt too wide) in paragraph at lines 45--46
+\T1/cmr/m/n/10.95 chain v36, \T1/cmtt/m/n/10.95 fix6_v36/V36_REPORT.md\T1/cmr/m
+/n/10.95 , and as chain v37 on \T1/cmtt/m/n/10.95 fin13v4c\T1/cmr/m/n/10.95 , \
+T1/cmtt/m/n/10.95 fix13_v37chain/V37_REPORT.md\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (178.09346pt too wide) in paragraph at lines 47--48
+[]\T1/cmtt/m/n/10.95 fix13_v37chain/t2_A/out/A_interface.json \T1/cmr/m/n/10.95
+ (sha256 \T1/cmtt/m/n/10.95 c48791b2eb78ff7bd7d87944651d726f41029f91cb629a945e9
+7e6fafa967b42\T1/cmr/m/n/10.95 );
+ []
+
+
+Overfull \hbox (207.80867pt too wide) in paragraph at lines 47--48
+\T1/cmtt/m/n/10.95 fix13_v37chain/t2_A/out/asm_design_N2ref4.json \T1/cmr/m/n/1
+0.95 (sha256 \T1/cmtt/m/n/10.95 87641c798c693e0a3bde2909185d54b4a49f2d6bd3057fc
+55e6a56e2fe15e822\T1/cmr/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (219.12541pt too wide) in paragraph at lines 48--49
+[]\T1/cmtt/m/n/10.95 fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json \T1/cmr/m
+/n/10.95 (sha256 \T1/cmtt/m/n/10.95 645b3a80ac2fc0427dbd78faa9ee963366d12d7d575
+2ea45f0ea488495171517\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (78.45752pt too wide) in paragraph at lines 48--49
+\T1/cmr/m/n/10.95 its pass 3, \T1/cmtt/m/n/10.95 U_cert_v36_pass3.json\T1/cmr/m
+/n/10.95 , \T1/cmtt/m/n/10.95 8a3af159936c74c07db3be9b493ac736922b5af1fc2c7858b
+e6fe1072bdb89f0\T1/cmr/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (67.56029pt too wide) in paragraph at lines 48--49
+\T1/cmr/m/n/10.95 is iden-ti-cal apart from \T1/cmtt/m/n/10.95 args\T1/cmr/m/n/
+10.95 ); scripts (the v37 copies, path re-points of the v36 ones, in \T1/cmtt/m
+/n/10.95 fix13_v37chain/t4_cert/
+ []
+
+
+Overfull \hbox (114.24904pt too wide) in paragraph at lines 48--49
+\T1/cmr/m/n/10.95 point-ing at \T1/cmss/m/n/10.95 A \T1/cmr/m/n/10.95 and \T1/c
+mtt/m/n/10.95 --zone3 \T1/cmr/m/n/10.95 at \T1/cmss/m/n/10.95 Z\T1/cmr/m/n/10.9
+5 ). Some weight and bud-get data are read from \T1/cmtt/m/n/10.95 fix13_v37cha
+in/t4_cert/out/u1_ghat.json
+ []
+
+
+Overfull \hbox (177.4636pt too wide) in paragraph at lines 48--49
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 6f9790f82927e7cd5160443c863e6cfbe834e7b85
+7b949988c1d1ac18545cd4f\T1/cmr/m/n/10.95 ) and \T1/cmtt/m/n/10.95 fix13_v37chai
+n/t4_cert/out/u34_primary.json
+ []
+
+
+Overfull \hbox (223.36043pt too wide) in paragraph at lines 49--50
+[]\T1/cmtt/m/n/10.95 fix13_v37chain/t5_zone3/out/zone3_interface.json \T1/cmr/m
+/n/10.95 (sha256 \T1/cmtt/m/n/10.95 9fcafb6bcbe8da9770218ba319e70f89ee92b66f3ac
+1b58011abc45b3d1ea600\T1/cmr/m/n/10.95 );
+ []
+
+
+Overfull \hbox (210.48557pt too wide) in paragraph at lines 49--50
+\T1/cmtt/m/n/10.95 fix13_v37chain/t4_cert/out/U_cert_for_zone3_v36.json\T1/cmr/
+m/n/10.95 , \T1/cmtt/m/n/10.95 a553034d0905826e19e559dc1b7bac75659355fa6d034e27
+13476ae3df887b33\T1/cmr/m/n/10.95 ).
+ []
+
+
+Overfull \hbox (281.32892pt too wide) in paragraph at lines 49--50
+\T1/cmr/m/n/10.95 The outer-ramp co-ef-fi-cients are \T1/cmtt/m/n/10.95 fix13_v
+37chain/t5_zone3/out/ramp_U.json \T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 55317ce5
+a31e8e3c3b3c4b86e85ef9569bb6d5e99190b68b0f21e4cba1a0c0de\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (28.58342pt too wide) in paragraph at lines 50--51
+\T1/cmtt/m/n/10.95 runs/P \T1/cmr/m/n/10.95 pins); driver \T1/cmtt/m/n/10.95 st
+ep4/p2/v38/final_tail_v38.py\T1/cmr/m/n/10.95 , re-port \T1/cmtt/m/n/10.95 step
+4/p2/out_v38/REPIN_REPORT.md\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (115.85957pt too wide) in paragraph at lines 50--51
+\T1/cmtt/m/n/10.95 h2f_camp_arb\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 t9_lemmaO
+_v33_arb \T1/cmr/m/n/10.95 and \T1/cmtt/m/n/10.95 h4far_v33 \T1/cmr/m/n/10.95 (
+the arb rows su-per-sede the float rows, \T1/cmtt/m/n/10.95 step4/p2/v33/M9_REP
+ORT.md\T1/cmr/m/n/10.95 );
+ []
+
+
+Overfull \hbox (31.32141pt too wide) in paragraph at lines 50--51
+\T1/cmr/m/n/10.95 chain v37 con-sumes its re-run \T1/cmtt/m/n/10.95 fix13_v37ch
+ain/n1/out/n1_chart_fin13v4c.json\T1/cmr/m/n/10.95 , sha256 \T1/cmtt/m/n/10.95 
+459fa058...\T1/cmr/m/n/10.95 ,
+ []
+
+[2]
+Overfull \hbox (40.09824pt too wide) in paragraph at lines 52--53
+\T1/cmr/m/n/10.95 eral num-bers of this text to keys). The ear-lier files (the 
+v35 files \T1/cmtt/m/n/10.95 fix2/n12/t2_A_v35/out/A_interface.json
+ []
+
+
+Overfull \hbox (24.97208pt too wide) in paragraph at lines 52--53
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 78fe2f8e...\T1/cmr/m/n/10.95 ), \T1/cmtt/
+m/n/10.95 t4_cert/out/U_cert_v35.json \T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 960
+809fd...\T1/cmr/m/n/10.95 ), \T1/cmtt/m/n/10.95 t5_zone3/out/zone3_interface.js
+on
+ []
+
+
+Overfull \hbox (81.46117pt too wide) in paragraph at lines 52--53
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 45e8d4dc...\T1/cmr/m/n/10.95 ) and the R3
+-on-\T1/cmtt/m/n/10.95 fin12f4 \T1/cmr/m/n/10.95 in-ter-me-di-ates of \T1/cmtt/
+m/n/10.95 fix4_r3/\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 t2_A/\T1/cmr/m/n/10.95
+ , \T1/cmtt/m/n/10.95 t2_A/\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 t2_A_v33/out/
+A_interface.json\T1/cmr/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (31.49617pt too wide) in paragraph at lines 52--53
+\T1/cmtt/m/n/10.95 U_cert.json\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 U_cert_v33
+.json\T1/cmr/m/n/10.95 , the v34 files \T1/cmtt/m/n/10.95 fix1/b0/t2_A_v34/out/
+A_interface.json \T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 34832f43...\T1/cmr/m/n/1
+0.95 ),
+ []
+
+
+Overfull \hbox (18.19505pt too wide) in paragraph at lines 52--53
+\T1/cmtt/m/n/10.95 U_cert_v34.json \T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 271430
+d7...\T1/cmr/m/n/10.95 ), the zone-III in-ter-faces \T1/cmtt/m/n/10.95 0d6338d0
+...\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 8152c650... \T1/cmr/m/n/10.95 and \T1
+/cmtt/m/n/10.95 a381b1f2...\T1/cmr/m/n/10.95 ,
+ []
+
+(lemmaU_v44.toc [3])
+\tf@toc=\write3
+\openout3 = `lemmaU_v44.toc'.
+
+
+Overfull \hbox (63.29118pt too wide) in paragraph at lines 59--60
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 step3nl_v4c/V4C_REPORT.md\T1/cmr/m/n/10.9
+5 ; file \T1/cmtt/m/n/10.95 step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_poi
+nts_5e-8.json\T1/cmr/m/n/10.95 ,
+ []
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 63.
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Overfull \hbox (248.61462pt too wide) detected at line 81
+\OML/cmm/m/it/10.95 c[] \OT1/cmr/m/n/10.95 = [] \OMS/cmsy/m/n/10.95 ^^T \OT1/cm
+r/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 46343 \OMS/cmsy/m/n/10.95 
+^^A \OT1/cmr/m/n/10.95 10[] [] [][] [];  [] [][]\OML/cmm/m/it/10.95 ;  [] \OT1
+/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 5 \OMS/cmsy/m/n/10.95
+ ^^A \OT1/cmr/m/n/10.95 10[] []\OML/cmm/m/it/10.95 ;
+ []
+
+[4] [5]
+Overfull \hbox (42.3463pt too wide) detected at line 105
+\OMS/cmsy/m/n/10.95 B \OT1/cmr/m/n/10.95 :  \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/
+10.95 f\OMS/cmsy/m/n/10.95 j ^^T \OML/cmm/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 0
+\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 15\OML/cmm/m/it/10.95 ;  \OMS/cmsy/m/n/
+10.95 j\OML/cmm/m/it/10.95 yf[]\OMS/cmsy/m/n/10.95 j ^^T \OML/cmm/m/it/10.95 M[
+] \OT1/cmr/m/n/10.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 52\OML/cmm/m/it
+/10.95 ;  \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 z[]\OMS/cmsy/m/n/10.95 j ^^T
+ \OML/cmm/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/
+n/10.95 16\OML/cmm/m/it/10.95 ;  \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 z[]\O
+MS/cmsy/m/n/10.95 j ^^T \OML/cmm/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 0\OML/cmm/
+m/it/10.95 :\OT1/cmr/m/n/10.95 534\OML/cmm/m/it/10.95 ;  \OMS/cmsy/m/n/10.95 j\
+OML/cmm/m/it/10.95 U[]\OMS/cmsy/m/n/10.95 j ^^T \OML/cmm/m/it/10.95 U[] \OT1/cm
+r/m/n/10.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 09
+ []
+
+
+Overfull \hbox (70.11835pt too wide) detected at line 121
+[]\OT1/cmr/m/n/10.95 2  [] 	[]\OML/cmm/m/it/10.95 z[]@[]\OT1/cmr/m/n/10.95 (\OM
+L/cmm/m/it/10.95 ^^L[]z[]\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95 ^^T [][]\OT
+1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10.95 + [])  [] \OML/cmm/
+m/it/10.95 e[]\OT1/cmr/m/n/10.95 	[]\OML/cmm/m/it/10.95 z[] \OT1/cmr/m/n/10.95 
++ [] \OML/cmm/m/it/10.95 C[]  [] e[]\OT1/cmr/m/n/10.95 	[]\OML/cmm/m/it/10.95 z
+[][] \OT1/cmr/m/n/10.95 + []  [](\OML/cmm/m/it/10.95 ^^Q[]\OT1/cmr/m/n/10.95 )[
+]\OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95 ^^B\OML/cmm/m/it/10.95 ^^^z[] \OT1
+/cmr/m/n/10.95 + []  [] \OML/cmm/m/it/10.95 e[]\OMS/cmsy/m/n/10.95 j\OT1/cmr/m/
+n/10.95 (\OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95 )[]\OMS/cmsy/m/n/10.95 j\O
+ML/cmm/m/it/10.95 ^^Q[]\OT1/cmr/m/n/10.95 ^^B\OML/cmm/m/it/10.95 ^^^z[]:
+ []
+
+
+Overfull \hbox (81.68393pt too wide) detected at line 130
+\OT1/cmr/m/n/10.95 ^^A[] := []  [](\OML/cmm/m/it/10.95 D^^^\OT1/cmr/m/n/10.95 )
+  []  [][] \OML/cmm/m/it/10.95 z[] ds \OT1/cmr/m/n/10.95 ([]8 \OMS/cmsy/m/n/10.
+95 ^^U \OT1/cmr/m/n/10.95 2 \OMS/cmsy/m/n/10.95 ^^A \OT1/cmr/m/n/10.95 2[]\OMS/
+cmsy/m/n/10.95 j\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95
+ )[]\OMS/cmsy/m/n/10.95 j ^^T \OT1/cmr/m/n/10.95 2 [] \OMS/cmsy/m/n/10.95 j\OML
+/cmm/m/it/10.95 ^^_[]\OMS/cmsy/m/n/10.95 j[]\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/1
+0.95 =c[] \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 q\OT1
+/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
+ []
+
+
+Overfull \hbox (22.59158pt too wide) in paragraph at lines 134--138
+\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 c [] \OT1/cmr/m/n/10.95 	(\OML/cmm/m
+/it/10.95 z[]\OT1/cmr/m/n/10.95 )[] = \OML/cmm/m/it/10.95 c [] \OT1/cmr/m/n/10.
+95 	[]\OML/cmm/m/it/10.95 z[]$\T1/cmr/m/n/10.95 . Adding, $\OMS/cmsy/m/n/10.95 
+^^@\OML/cmm/m/it/10.95 c [] ^^Q[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^_[]W
+\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 D^^^z[] \OT1/cmr/m/n/10.95 + \OML/cmm
+/m/it/10.95 c []\OT1/cmr/m/n/10.95 [(\OML/cmm/m/it/10.95 ^^Q[]\OT1/cmr/m/n/10.9
+5 )[]\OML/cmm/m/it/10.95 ^^_[]WD^^^ \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^
+Q[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^_[]W\OT1/cmr/m/n/10.95 )[]\OML/cmm
+/m/it/10.95 D^^^ \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^Q[]^^_[]W\OT1/cmr/m
+/n/10.95 (\OML/cmm/m/it/10.95 D^^^\OT1/cmr/m/n/10.95 )[]]\OML/cmm/m/it/10.95 z[
+]$\T1/cmr/m/n/10.95 ;
+ []
+
+[6]
+Overfull \hbox (54.66974pt too wide) detected at line 147
+\U/euf/m/n/10.95 E[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^\[]\OT1/cmr/m/n/1
+0.95 ) \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 c[]\OT1/cmr/m/n/10.95 (\OML/
+cmm/m/it/10.95 y[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 H[] \OT1/cmr/m/n/10.
+95 + \OML/cmm/m/it/10.95 c[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OT1/cmr
+/m/n/10.95 ) \OML/cmm/m/it/10.95 H[];  c[] \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/i
+t/10.95 W\OT1/cmr/m/n/10.95 ([] [])\OML/cmm/m/it/10.95 D^^^[];  c[] \OT1/cmr/m/
+n/10.95 = [] [] \OML/cmm/m/it/10.95 W\OT1/cmr/m/n/10.95 ([] [])[]\OML/cmm/m/it/
+10.95 D\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OT1/cmr/m/n/10.95 )\OML/cmm/
+m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OT1/cmr/m/n/10.95 )\O
+ML/cmm/m/it/10.95 ;
+ []
+
+
+Overfull \hbox (143.84375pt too wide) detected at line 156
+\OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 W\OT1/cmr/m
+/n/10.95 ([] [])\OML/cmm/m/it/10.95 D^^^[];  q[] \OT1/cmr/m/n/10.95 = \OML/cmm/
+m/it/10.95 D\OT1/cmr/m/n/10.95 (350)\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (
+350) [] [] \OML/cmm/m/it/10.95 W\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^[[] \
+OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 i`[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/1
+0.95 ;  ^^[[] \OT1/cmr/m/n/10.95 = [] []\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.
+95 ^^A[] = \OML/cmm/m/it/10.95 p[]c[]  [][]  W\OT1/cmr/m/n/10.95 (\OML/cmm/m/it
+/10.95 s \OMS/cmsy/m/n/10.95 ^^@ [] \OT1/cmr/m/n/10.95 56)\OML/cmm/m/it/10.95 D
+^^^ e[]ds:
+ []
+
+[7]
+Overfull \hbox (155.90237pt too wide) in paragraph at lines 170--171
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 runs/P/rate_table_fin13v4c_a0.00015.json\
+T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 ..._a0.000125.json\T1/cmr/m/n/10.95 : \T1
+/cmtt/m/n/10.95 tail.alpha_condition_whole_tail.margin_whole_tail\T1/cmr/m/n/10
+.95 ,
+ []
+
+
+Overfull \hbox (69.2965pt too wide) detected at line 188
+\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^\[]; T\OT1/cmr
+/m/n/10.95 ) := [][]   [][] \OML/cmm/m/it/10.95 "!\OT1/cmr/m/n/10.95 (\OML/cmm/
+m/it/10.95 z[]\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.9
+5 C\OT1/cmr/m/n/10.95 0[] + \OML/cmm/m/it/10.95 C\OT1/cmr/m/n/10.95 1[]\OML/cmm
+/m/it/10.95 T;  C\OT1/cmr/m/n/10.95 0[] = []\OML/cmm/m/it/10.95 ;  C\OT1/cmr/m/
+n/10.95 1[] = []\OML/cmm/m/it/10.95 :
+ []
+
+
+Overfull \hbox (219.0686pt too wide) in paragraph at lines 190--191
+\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 = 2$\T1/cmr/m/n/10.95 ''; sha256 of it
+s first ver-sion \T1/cmtt/m/n/10.95 fix10_proofs/G1_export_k2.tex\T1/cmr/m/n/10
+.95 : \T1/cmtt/m/n/10.95 4004a774f5ef41764c9feb32327b8d42c972f70340ec4cdca9cf79
+b98cf45e05\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (72.41904pt too wide) in paragraph at lines 190--191
+\T1/cmtt/m/n/10.95 fix10_proofs/U1_regularity.tex\T1/cmr/m/n/10.95 : \T1/cmtt/m
+/n/10.95 827a5f51ed7af4d7a21c663183b6cdb06a63fffb64c420fa795d49f78ff2e9e7\T1/cm
+r/m/n/10.95 ;
+ []
+
+[8]
+Overfull \hbox (165.96844pt too wide) detected at line 207
+[]
+ []
+
+[9]
+Overfull \hbox (20.53212pt too wide) detected at line 240
+[][] \OT1/cmr/m/n/10.95 ^^D\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 u\OMS/cmsy/
+m/n/10.95 j[] ^^T \OT1/cmr/m/n/10.95 ([] ^^D)[][]\OMS/cmsy/m/n/10.95 k\OML/cmm/
+m/it/10.95 G\OMS/cmsy/m/n/10.95 k[]\OML/cmm/m/it/10.95 =[] \OT1/cmr/m/n/10.95 +
+ []\OMS/cmsy/m/n/10.95 k\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 k[]k\OML/cmm/m
+/it/10.95 G[]\OMS/cmsy/m/n/10.95 k[][]\OML/cmm/m/it/10.95 ;  [][] \OT1/cmr/m/n/
+10.95 ^^D\OML/cmm/m/it/10.95 u[] \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 ([]
+ ^^D)[]\OMS/cmsy/m/n/10.95 k\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 k[][]k\OML
+/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 k[]\OML/cmm/m/it/10.95 =` \OT1/cmr/m/n/10.
+95 + 2\OMS/cmsy/m/n/10.95 k\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 kk\OML/cmm/
+m/it/10.95 G[]\OMS/cmsy/m/n/10.95 k[]\OML/cmm/m/it/10.95 :
+ []
+
+
+Overfull \hbox (13.96407pt too wide) in paragraph at lines 243--244
+[] \OT1/cmr/m/n/10.95 ^^D[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 G\OMS/cmsy/
+m/n/10.95 j[] ^^T \OT1/cmr/m/n/10.95 ([] ^^D)[] [] \OMS/cmsy/m/n/10.95 j\OML/cm
+m/m/it/10.95 G\OMS/cmsy/m/n/10.95 j k\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 k
+[]$ \T1/cmr/m/n/10.95 and $[] \OMS/cmsy/m/n/10.95 ^^T [] \OT1/cmr/m/n/10.95 + [
+]$\T1/cmr/m/n/10.95 ; sim-i-larly $[] \OT1/cmr/m/n/10.95 ^^D\OML/cmm/m/it/10.95
+ u[] \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 ([] ^^D)[] [] \OML/cmm/m/it/10.
+95 G[]\OMS/cmsy/m/n/10.95 k\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n/10.95 k[]$\T1/cmr
+/m/n/10.95 .
+ []
+
+[10]
+Overfull \hbox (195.1285pt too wide) detected at line 260
+\U/euf/m/n/10.95 E[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^\\OT1/cmr/m/n/10.
+95 ) + \OML/cmm/m/it/10.95 s[]  [][]   [] "^^Q[]^^_[]W^^^z[] \OT1/cmr/m/n/10.95
+ [\OML/cmm/m/it/10.95 j \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 1] + []\OML/
+cmm/m/it/10.95 c[]K[] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 (\OML/cmm/m/
+it/10.95 C[] \OT1/cmr/m/n/10.95 + [])[]  [][]   [] \OML/cmm/m/it/10.95 e[]\OT1/
+cmr/m/n/10.95 	[]\OML/cmm/m/it/10.95 z[]  \OMS/cmsy/m/n/10.95 ^^T  \U/euf/m/n/1
+0.95 B[] \OT1/cmr/m/n/10.95 := [][]  +  ^^H[][][]\OML/cmm/m/it/10.95 ;
+ []
+
+[11]
+Overfull \hbox (111.17274pt too wide) in paragraph at lines 288--290
+\T1/cmr/m/n/10.95 where $[][] \OT1/cmr/m/n/10.95 = [][] [](\OML/cmm/m/it/10.95 
+^^Q[]\OT1/cmr/m/n/10.95 )[](^^B\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 )[]\OM
+L/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 (^^B\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10
+.95 )$ \T1/cmr/m/n/10.95 is sup-ported on the in-ner ramp and $[][] \OT1/cmr/m/
+n/10.95 = [][] [](\OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95 )[](^^B\OML/cmm/m
+/it/10.95 ^^^\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 (^^B
+\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 )$
+ []
+
+[12]
+Overfull \hbox (27.97pt too wide) in paragraph at lines 301--302
+\T1/cmr/m/it/10.95 Dissipation bud-get \T1/cmr/m/n/10.95 [pa-per] (as (A); \T1/
+cmtt/m/n/10.95 phase1/ghat/ghat_arb.py budget_ok\T1/cmr/m/n/10.95 , l.166): of 
+$\OT1/cmr/m/n/10.95 2\OMS/cmsy/m/n/10.95 D[] ^^U \OT1/cmr/m/n/10.95 2\OML/cmm/m
+/it/10.95 a[] [] \OT1/cmr/m/n/10.95 ^^D\OML/cmm/m/it/10.95 z[]$\T1/cmr/m/n/10.9
+5 ,
+ []
+
+
+Overfull \hbox (33.36095pt too wide) detected at line 305
+\OML/cmm/m/it/10.95 b[]X[]F[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 b[]X[]F[
+] \OMS/cmsy/m/n/10.95 ^^T []\OML/cmm/m/it/10.95 b[]F[] \OT1/cmr/m/n/10.95 + \OM
+L/cmm/m/it/10.95 b[]F[][][]X;  [] X \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95
+ M[]\OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 N[] \OT1/cmr/m/n/10.95 + []\OML/cm
+m/m/it/10.95 N[]\OT1/cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 b[]F[] \OT1/cmr/m/
+n/10.95 + \OML/cmm/m/it/10.95 b[]F[][][]:
+ []
+
+[13]
+Overfull \hbox (1.94992pt too wide) in paragraph at lines 327--328
+[]$\OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it
+/10.95 ; \OT1/cmr/m/n/10.95 3)$\T1/cmr/m/n/10.95 : by Cauchy--Schwarz in space-
+time, $[] [] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 c\OMS/cmsy/m/n/10.95 j\OM
+L/cmm/m/it/10.95 "\OT1/cmr/m/n/10.95 ^^B\OML/cmm/m/it/10.95 ^^^z[]\OMS/cmsy/m/n
+/10.95 j\OML/cmm/m/it/10.95 z[]\OMS/cmsy/m/n/10.95 j ^^T \OML/cmm/m/it/10.95 c[
+]\OT1/cmr/m/n/10.95 ([] [] \OML/cmm/m/it/10.95 "\OT1/cmr/m/n/10.95 ^^B\OML/cmm/
+m/it/10.95 ^^^z[]\OT1/cmr/m/n/10.95 )[]([] [][] \OML/cmm/m/it/10.95 "\OT1/cmr/m
+/n/10.95 ^^B\OML/cmm/m/it/10.95 ^^^z[]\OT1/cmr/m/n/10.95 )[]$
+ []
+
+[14]
+Overfull \hbox (79.34966pt too wide) in paragraph at lines 340--342
+[][] [][] \OML/cmm/m/it/10.95 z[]ds$ \T1/cmr/m/n/10.95 for $\OML/cmm/m/it/10.95
+ k \OT1/cmr/m/n/10.95 = 0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/i
+t/10.95 ; \OT1/cmr/m/n/10.95 2$\T1/cmr/m/n/10.95 , and $\OML/cmm/m/it/10.95 N[]
+ \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^U[]q\OT1/cmr
+/m/n/10.95 )[] [][] [][] \OML/cmm/m/it/10.95 z[] ds dt$\T1/cmr/m/n/10.95 ; val-
+ues $\OML/cmm/m/it/10.95 N[] \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 (8\OML/
+cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 280 \OMS/cmsy/m/n/10.95 ^^A \OT1/cmr/m/n/10.
+95 10[]\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/
+m/n/10.95 10149\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\
+OT1/cmr/m/n/10.95 3567\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 25350)$\T1/cmr/m
+/n/10.95 .
+ []
+
+
+Overfull \hbox (27.2464pt too wide) in paragraph at lines 351--352
+\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 ramp_U.json Y_next_primary_used\T1/cmr/m/
+n/10.95 ; as-serted to dom-i-nate the contract-convention $\OML/cmm/m/it/10.95 
+Y$\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 Y_next_global\T1/cmr/m/n/10.95 ;
+ []
+
+[15]
+Overfull \hbox (79.53995pt too wide) in paragraph at lines 359--360
+\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 @[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/1
+0.95 y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 D[] \OMS/cmsy/m/n/10.95 ^^@ \OT
+1/cmr/m/n/10.95 2)(\OML/cmm/m/it/10.95 D[] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n
+/10.95 3)^^H(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 )]\OMS/cmsy/m/n/10.95 j 
+^^T \OML/cmm/m/it/10.95 c[]U[]y[]$ \T1/cmr/m/n/10.95 (v3.2 Prop. B$[]$, $\OML/c
+mm/m/it/10.95 U \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95
+ :\OT1/cmr/m/n/10.95 1$\T1/cmr/m/n/10.95 ) so $\OMS/cmsy/m/n/10.95 k ^^A k[] ^^
+T \OML/cmm/m/it/10.95 c[]U[]D\OT1/cmr/m/n/10.95 (28)\OML/cmm/m/it/10.95 ^^^\OT1
+/cmr/m/n/10.95 (28) 28[] [][](\OML/cmm/m/it/10.95 We[]\OT1/cmr/m/n/10.95 )\OML/
+cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 4$
+ []
+
+[16]
+Overfull \hbox (25.55434pt too wide) in paragraph at lines 383--384
+\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (84\OML/cmm/m/it/10.95 ^^U[]\OT1/cmr/
+m/n/10.95 )$\T1/cmr/m/n/10.95 ; present cen-tres in a $\OML/cmm/m/it/10.95 y[]$
+\T1/cmr/m/n/10.95 -cell use $[]$ at the right end of the cell (\T1/cmss/m/n/10.
+95 U \T1/cmtt/m/n/10.95 margins.present_rows[].Ubar\T1/cmr/m/n/10.95 ). 
+ []
+
+[17]
+
+LaTeX Warning: Reference `BS:def' on page 18 undefined on input line 406.
+
+
+LaTeX Warning: Reference `BS:def' on page 18 undefined on input line 411.
+
+
+LaTeX Warning: Reference `BS:def' on page 18 undefined on input line 413.
+
+
+LaTeX Warning: Reference `BS:prop:close' on page 18 undefined on input line 413
+.
+
+
+Overfull \hbox (159.09637pt too wide) in paragraph at lines 418--419
+\T1/cmr/m/it/10.95 (I3$[]$), the flux hy-poth-e-sis (v37; flux lemma v2, \T1/cm
+tt/m/it/10.95 fix8_flux2_impl/FLUX2_IMPL_REPORT.md\T1/cmr/m/it/10.95 , \T1/cmtt
+/m/it/10.95 fix27_texts_v44/flux2_lemma_v44.tex\T1/cmr/m/it/10.95 ).
+ []
+
+
+Overfull \hbox (126.85336pt too wide) in paragraph at lines 418--419
+\T1/cmtt/m/n/10.95 res.K0bar\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 res.K2pt\T1/
+cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 res.Cp\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95
+ res.Cpp\T1/cmr/m/n/10.95 ; sha256 \T1/cmtt/m/n/10.95 597da287203590fd42ecf79f0
+846f8e574e85a10a4f9ba4408f322e94cf0976a\T1/cmr/m/n/10.95 ).
+ []
+
+
+Overfull \hbox (29.79974pt too wide) in paragraph at lines 418--419
+\T1/cmr/m/n/10.95 lier (A)-chain flux mar-gins $\OMS/cmsy/m/n/10.95 ^^B\OT1/cmr
+/m/n/10.95 3\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 368$\T1/cmr/m/n/10.95 , $\O
+MS/cmsy/m/n/10.95 ^^B\OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
+5 961$ \T1/cmr/m/n/10.95 (\T1/cmss/m/n/10.95 A$[]$ \T1/cmtt/m/n/10.95 flux.beta
+.2.margin_FLUX0\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 flux.beta.2.margin_FLUX2\
+T1/cmr/m/n/10.95 ;
+ []
+
+[18]
+Underfull \hbox (badness 1577) in paragraph at lines 426--427
+[]$\U/euf/m/n/10 E[] \OMS/cmsy/m/n/10 ^^T []$ \T1/cmr/m/n/10 (Prop. 12[]); B3U(
+b,c)
+ []
+
+
+LaTeX Warning: Reference `BS:prop:close' on page 19 undefined on input line 429
+.
+
+
+LaTeX Warning: Reference `BS:sec:order' on page 19 undefined on input line 433.
+
+
+
+Overfull \hbox (34.00056pt too wide) detected at line 441
+\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/n/
+10.95 ) = \OML/cmm/m/it/10.95 A[] \OT1/cmr/m/n/10.95 + [][][] \OML/cmm/m/it/10.
+95 ^^T[][]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/n/10.95 )[] + [
+] []28[][]\OMS/cmsy/m/n/10.95 A[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^L\OT
+1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 E[][][];  \OMS/cm
+sy/m/n/10.95 A[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/n/10.95 )
+ = \OML/cmm/m/it/10.95 A[] \OT1/cmr/m/n/10.95 + 2\OML/cmm/m/it/10.95 F[] \OT1/c
+mr/m/n/10.95 + 2\OML/cmm/m/it/10.95 F[][];
+ []
+
+[19]
+
+LaTeX Warning: Reference `BS:prop:close' on page 20 undefined on input line 453
+.
+
+
+Overfull \hbox (23.00183pt too wide) in paragraph at lines 455--457
+\T1/cmr/m/n/10.95 that $[][]$ holds for all $\OML/cmm/m/it/10.95 ^^\ \OMS/cmsy/
+m/n/10.95 ^^U \OML/cmm/m/it/10.95 ^^\[]$\T1/cmr/m/n/10.95 , is Propo-si-tion ``
+global ex-is-tence in rescaled time'' of \T1/cmtt/m/n/10.95 continuation_v33.te
+x\T1/cmr/m/n/10.95 :
+ []
+
+[20]
+
+LaTeX Warning: Reference `BS:prop:close' on page 21 undefined on input line 464
+.
+
+[21]
+Overfull \hbox (3.12086pt too wide) in alignment at lines 482--484
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (3.12086pt too wide) in alignment at lines 484--485
+ [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[]|$\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 14039 \OMS/cmsy/m/n/10 ^
+^A \OT1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
+[]|\T1/cmr/m/n/10 verifier \T1/cmtt/m/n/10 fin13v4c\T1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (57.68312pt too wide) in paragraph at lines 486--487
+\T1/cmtt/m/n/10 modsups_fin13v4c/final_alpha_points_5e-8.json
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+[]|$\OMS/cmsy/m/n/10 ^^T \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 042
+430$\T1/cmr/m/n/10 ; tail
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+\T1/cmr/m/n/10 lemma re-run
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+\T1/cmr/m/n/10 on \T1/cmtt/m/n/10 fin13v4c\T1/cmr/m/n/10 :
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 487--487
+\OML/cmm/m/it/10 ^^Z \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\O
+T1/cmr/m/n/10 6792 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+\T1/cmr/m/n/10 mar-gins $\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 177\OML/cmm/m/it/1
+0 :\OT1/cmr/m/n/10 07$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
+[]|\T1/cmss/m/n/10 A\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 HJW.kappa_J\T1/cmr/m/n/10 
+; \T1/cmtt/m/n/10 hjw_rep.py\T1/cmr/m/n/10 ;
+ []
+
+
+Overfull \hbox (34.21663pt too wide) in paragraph at lines 487--488
+\T1/cmtt/m/n/10 runs/P/rate_table_fin13v4c_a0.00015.json\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+[]|$\OMS/cmsy/m/n/10 ^^U
+ []
+
+
+Overfull \hbox (21.05069pt too wide) in paragraph at lines 489--489
+\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 24292\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 24106\OML/cmm/m/it/10 ; \OT1/cm
+r/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 11954)$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 0552518)$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\OT1/cmr/m/n/10 (8\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7383 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 5\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 2603 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5010 \OMS/cmsy/m/n/10 ^^A \O
+T1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 249\OML/cmm/m/it/10 ; \OT1/
+cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 249\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 10[])$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 491--492
+[]|\T1/cmss/m/n/10 A\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 Dsrc\T1/cmr/m/n/10 , \T1/c
+mtt/m/n/10 B0.D_window_slope\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 rhoJ\T1/cmr/m/n/10
+ ,
+ []
+
+
+Overfull \hbox (8.82843pt too wide) in paragraph at lines 492--492
+[]|$\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5932\OML/cmm/m/it/10 ; 
+\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8198\OML/cmm/m/it/10 ; \OT1/
+cmr/m/n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1573) \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
+\OT1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 , $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1555 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
+\OT1/cmr/m/n/10 (7\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1909 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 3145 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
+\OT1/cmr/m/n/10 10[])$\T1/cmr/m/n/10 , $\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 :\OT
+1/cmr/m/n/10 5226 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 494--494
+[]|$\OT1/cmr/m/n/10 116\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3593$\T1/cmr/m/n/10 , 
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2605999$\T1/cmr/m/n/10 ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
+[]|\T1/cmss/m/n/10 A\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 res.tight.r2_export.C0_ref
+4\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+[]|$\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4098 \OMS/cmsy/m/n/10 ^^
+A \OT1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3900 \OMS/cmsy/m/n/10 ^^A \O
+T1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (28.96791pt too wide) in paragraph at lines 495--496
+[]|\T1/cmtt/m/n/10 fix13_v37chain/flux/out/flux2_cert.json\T1/cmr/m/n/10 :
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 495--496
+\T1/cmtt/m/n/10 res.K0bar\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 res.K2pt\T1/cmr/m/n/1
+0 , \T1/cmtt/m/n/10 res.Cp\T1/cmr/m/n/10 ; $\OML/cmm/m/it/10 K[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
+[]|$\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 116$
+\T1/cmr/m/n/10 , $\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 :\OT1/c
+mr/m/n/10 745$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
+\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 407$\T1/
+cmr/m/n/10 , $\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 :\OT1/cmr/m
+/n/10 450$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 497--497
+[]|$\OMS/cmsy/m/n/10 ^^T [] ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n
+/10 10434 \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 498--498
+[]|$[][] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 d\OMS/cmsy/m/n/10 j ^^T \OT1/cmr/m/
+n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 23 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Overfull \hbox (48.82787pt too wide) in paragraph at lines 500--500
+[]|$\OT1/cmr/m/n/10 (4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0000358\OML/cmm/m/it/10
+ ; \OT1/cmr/m/n/10 16\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 000322\OML/cmm/m/it/10 ;
+ \OT1/cmr/m/n/10 64\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00218)$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--502
+[]|$\OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 ;
+ []
+
+
+Overfull \hbox (26.0507pt too wide) in paragraph at lines 502--502
+\OT1/cmr/m/n/10 (457\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 092\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 356\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 940\OML/cmm/m/it/10 ; \OT1/cm
+r/m/n/10 1320\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 220)$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
+[]|\T1/cmtt/m/n/10 u1_ghat.json\T1/cmr/m/n/10 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
+\T1/cmtt/m/n/10 cases.primary.budget_slack\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
+[]|$\OT1/cmr/m/n/10 361147$\T1/cmr/m/n/10 , $\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 
+:\OT1/cmr/m/n/10 0368$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
+[]|$\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 28\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 231
+$\T1/cmr/m/n/10 ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
+[]|\T1/cmr/m/n/10 table of Step 3;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
+[]|$\OT1/cmr/m/n/10 108\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 02$\T1/cmr/m/n/10 , $\
+OT1/cmr/m/n/10 7\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3284$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
+\OT1/cmr/m/n/10 13\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 376$\T1/cmr/m/n/10 , $\OT1/
+cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5352$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+[]|$\OT1/cmr/m/n/10 ^^F[]5\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0892$\T1/cmr/m/n/10
+ ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+\OT1/cmr/m/n/10 ^^F[]0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 30846$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
+[]|$\OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 734
+92$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
+\OMS/cmsy/m/n/10 ^^T \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 46343 \
+OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]$
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 510--510
+\T1/cmr/m/n/10 ($\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cm
+r/m/n/10 366$ \T1/cmr/m/n/10 un-der the
+ []
+
+
+Overfull \hbox (6.05064pt too wide) in paragraph at lines 512--512
+[]|$\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0520\OML/cmm/m/it/10 ; 
+\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1446\OML/cmm/m/it/10 ; \OT1/
+cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4324)$| 
+ []
+
+
+Overfull \hbox (26.0507pt too wide) in paragraph at lines 513--513
+[]|$\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 10032\OML/cmm/m/it/10 ;
+ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 41974\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 014291)$| 
+ []
+
+
+Overfull \hbox (23.82779pt too wide) in paragraph at lines 515--515
+[]|$\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 071444\OML/cmm/m/it/10 
+; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 32707\OML/cmm/m/it/10 ; \O
+T1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0445)$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 516--516
+[]|$\OT1/cmr/m/n/10 (8\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 28 \OMS/cmsy/m/n/10 ^^A
+
+ []
+
+
+Overfull \hbox (29.56456pt too wide) in paragraph at lines 516--516
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 10149\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/
+m/n/10 3567\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 25350)$| 
+ []
+
+
+Overfull \hbox (38.82784pt too wide) in paragraph at lines 517--517
+[]|$\OT1/cmr/m/n/10 (13436\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 03\OML/cmm/m/it/10 
+; \OT1/cmr/m/n/10 10526\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 19\OML/cmm/m/it/10 ; \
+OT1/cmr/m/n/10 39482\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 30)$\T1/cmr/m/n/10 ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--518
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 011480)$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
+[]|\T1/cmss/m/n/10 Z\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 DeltaR\T1/cmr/m/n/10 , \T1
+/cmtt/m/n/10 DeltaR_b\T1/cmr/m/n/10 ; \T1/cmtt/m/n/10 ramp_U.py\T1/cmr/m/n/10 ,
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
+[]|\T1/cmss/m/n/10 U\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 supersolution.Bhat\T1/cmr/
+m/n/10 ;
+ []
+
+
+Overfull \hbox (23.82779pt too wide) in paragraph at lines 521--521
+[]|$\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 071471\OML/cmm/m/it/10 
+; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 33011\OML/cmm/m/it/10 ; \O
+T1/cmr/m/n/10 5\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0426)$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
+[]|\T1/cmss/m/n/10 U\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 supersolution.N2\T1/cmr/m/
+n/10 ,
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 524--524
+[]|$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 28593$\T1/cmr/m/n/10 , $
+\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 50786 \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--526
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 025848)$\T1/cmr/m/n/10 ;
+ []
+
+
+Underfull \hbox (badness 5490) in paragraph at lines 526--526
+\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 046957$\T1/cmr/m/n/10 ; $\OT
+1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 054146$\T1/cmr/m/n/10 ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+[]|$\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 01 \OMS/cmsy/m/n/10 ^^A
+ \OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 6 \OMS/cmsy/m/n/10 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 01 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[])$\T1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (19.37706pt too wide) in paragraph at lines 527--527
+[]|\T1/cmr/m/n/10 [paper]/[hyp]| 
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 528--528
+[]|$\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 27\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3$\
+T1/cmr/m/n/10 ; $\OMS/cmsy/m/n/10 ^^B\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cm
+r/m/n/10 188$\T1/cmr/m/n/10 ; see
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+[]|\T1/cmr/m/n/10 S4: \T1/cmtt/m/n/10 results.M9_H2_tightened_fU1\T1/cmr/m/n/10
+ ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+\T1/cmtt/m/n/10 results.M9_H2f\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+\T1/cmtt/m/n/10 results.cone_fixedL\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+\T1/cmtt/m/n/10 results.H4_fixedL\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+\T1/cmtt/m/n/10 results.H1_fixedL\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 531--531
+[]|\T1/cmr/m/n/10 (P1), (P2): \T1/cmtt/m/n/10 U1_regularity_v44.tex
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+\T1/cmr/m/n/10 (Lean, text v42); (P3):
+ []
+
+
+Overfull \hbox (3.12086pt too wide) in alignment at lines 485--532
+ [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [22]
+ignored: Infinite glue shrinkage fo
+und in box being split [23] [24] [25]
+Overfull \hbox (14.04263pt too wide) in paragraph at lines 564--565
+[] \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 4\OMS/cmsy/m/n/10.95 ^^B$\T1/cmtt
+/m/n/10.95 N2_ref \T1/cmr/m/n/10.95 (\T1/cmss/m/n/10.95 U\T1/cmr/m/n/10.95 ) an
+d \T1/cmtt/m/n/10.95 EA_ref4 $\OMS/cmsy/m/n/10.95 ^^U []$\T1/cmr/m/n/10.95 ; \T
+1/cmtt/m/n/10.95 assemble_U.py \T1/cmr/m/n/10.95 records \T1/cmtt/m/n/10.95 sup
+ersolution.N2_le_4N2ref\T1/cmr/m/n/10.95 ;
+ []
+
+
+Overfull \hbox (32.2368pt too wide) in paragraph at lines 566--567
+[]\T1/cmr/m/it/10.95 Provenance pins. \T1/cmtt/m/n/10.95 ramp_U.json \T1/cmr/m/
+n/10.95 pins \T1/cmtt/m/n/10.95 u1_ghat.json \T1/cmr/m/n/10.95 by the pre-M4 ha
+sh \T1/cmtt/m/n/10.95 4b86cc91... \T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 u1_ghat
+_sha\T1/cmr/m/n/10.95 );
+ []
+
+
+Overfull \hbox (39.03516pt too wide) in paragraph at lines 569--570
+[]\T1/cmr/m/it/10.95 S4 and re-view M9: fi-nal. \T1/cmr/m/n/10.95 The step-4 re
+-run for re-view M9 is com-plete: S4 is \T1/cmtt/m/n/10.95 FINAL_manifest_v33.j
+son\T1/cmr/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (33.5457pt too wide) in paragraph at lines 569--570
+\T1/cmr/m/n/10.95 F1/F2; no quoted num-ber changes). Its arb rows (\T1/cmtt/m/n
+/10.95 results.M9_H2f\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 results.M9_H2_tight
+ened_fU1\T1/cmr/m/n/10.95 )
+ []
+
+
+Overfull \hbox (41.11665pt too wide) in paragraph at lines 569--570
+\T1/cmr/m/n/10.95 agree with the val-ues quoted here to the quoted dig-its and 
+su-per-sede the float rows; \T1/cmtt/m/n/10.95 results.M9_H4_far
+ []
+
+[26] [27] (lemmaU_v44.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3467 strings out of 467867
+ 49379 string characters out of 5417850
+ 510057 words of memory out of 5000000
+ 32305 multiletter control sequences out of 15000+600000
+ 660349 words of font info for 120 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,12n,65p,2462b,374s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecs
+s1000.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecbx1000.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ectt1000.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecrm1000.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\micahw\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1095.pk> <C:\Users\micahw\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit1095.pk> <C:\Users\micahw\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\mic
+ahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Us
+ers\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1095.pk>
+ <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1
+095.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ectt1095.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecrm1095.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx1095.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\micahw\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\micahw\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\micahw\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/micahw
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Us
+ers/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.
+pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi6.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/micahw/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/micahw/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/micahw/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/m
+icahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
+/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8
+.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/micahw/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/micahw/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on lemmaU_v44.pdf (27 pages, 632254 bytes).
+PDF statistics:
+ 992 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

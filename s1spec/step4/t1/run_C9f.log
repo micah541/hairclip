@@ -1,0 +1,20 @@
+{"tag": "C9f", "KEND": 37.0, "P": 9, "JT": 60, "h0": 0.25, "cT": 0.06, "NO": 80, "c": 0.12, "beta": 0.02, "rg": 1.5, "s": 8, "dt": 0.15, "seed": "/home/claude/s1spec/step4/feas2/snaps/p2_k20.npz", "XT": 40.0}
+seed k=20.003866392409755 lam=0.07697615089331941 ell=314.5382896464649 n=700 N=140 turn+pi=1.599e-14 ImG(ell)=-7.816e-14
+slab    1 tau=  0.1500 k=    20.779 a=-3.49345e-03 ell=3.266228e+02 N=140 n=700 ins=0 it=20 last=2.0e-14 turn+pi=+3.46e-14 ImG=-4.87e-12 wall=3.8s (jac 2.8s)
+slab    2 tau=  0.3000 k=    21.584 a=-3.48957e-03 ell=3.391763e+02 N=140 n=700 ins=0 it= 9 last=1.0e-14 turn+pi=+3.82e-14 ImG=-5.79e-12 wall=3.4s (jac 2.8s)
+slab    3 tau=  0.4500 k=    22.421 a=-3.47893e-03 ell=3.522166e+02 N=140 n=700 ins=0 it= 7 last=8.1e-15 turn+pi=+3.73e-14 ImG=-6.08e-12 wall=3.4s (jac 2.9s)
+slab    4 tau=  0.6000 k=    23.290 a=-3.46205e-03 ell=3.657621e+02 N=140 n=700 ins=0 it= 6 last=1.5e-14 turn+pi=+3.55e-14 ImG=-5.63e-12 wall=3.6s (jac 3.1s)
+slab    5 tau=  0.7500 k=    24.192 a=-3.43943e-03 ell=3.798320e+02 N=140 n=700 ins=0 it= 6 last=1.7e-14 turn+pi=+3.55e-14 ImG=-5.82e-12 wall=3.6s (jac 3.1s)
+slab    6 tau=  0.9000 k=    25.130 a=-3.41158e-03 ell=3.944462e+02 N=140 n=700 ins=0 it= 6 last=1.7e-14 turn+pi=+3.64e-14 ImG=-6.24e-12 wall=3.6s (jac 3.0s)
+slab    7 tau=  1.0500 k=    26.103 a=-3.37895e-03 ell=4.096253e+02 N=140 n=700 ins=0 it= 6 last=1.4e-14 turn+pi=+3.82e-14 ImG=-6.77e-12 wall=3.6s (jac 3.2s)
+slab    8 tau=  1.2000 k=    27.114 a=-3.34199e-03 ell=4.253908e+02 N=140 n=700 ins=0 it= 6 last=1.1e-14 turn+pi=+3.91e-14 ImG=-7.06e-12 wall=3.2s (jac 2.8s)
+slab    9 tau=  1.3500 k=    28.164 a=-3.30113e-03 ell=4.417650e+02 N=140 n=700 ins=0 it= 6 last=7.9e-15 turn+pi=+4.00e-14 ImG=-7.31e-12 wall=3.0s (jac 2.5s)
+slab   10 tau=  1.5000 k=    29.255 a=-3.25676e-03 ell=4.587708e+02 N=141 n=705 ins=1 it=16 last=1.5e-14 turn+pi=+1.78e-14 ImG=+4.10e-13 wall=3.9s (jac 3.0s)
+slab   11 tau=  1.6500 k=    30.388 a=-3.20928e-03 ell=4.764325e+02 N=141 n=705 ins=0 it= 5 last=9.3e-15 turn+pi=+1.69e-14 ImG=+8.24e-13 wall=3.5s (jac 3.0s)
+slab   12 tau=  1.8000 k=    31.564 a=-3.15904e-03 ell=4.947747e+02 N=142 n=710 ins=1 it=16 last=8.6e-15 turn+pi=+3.55e-15 ImG=+7.11e-12 wall=3.8s (jac 3.0s)
+slab   13 tau=  1.9500 k=    32.785 a=-3.10638e-03 ell=5.138234e+02 N=142 n=710 ins=0 it= 6 last=1.8e-14 turn+pi=+5.33e-15 ImG=+6.62e-12 wall=3.4s (jac 3.0s)
+slab   14 tau=  2.1000 k=    34.054 a=-3.05162e-03 ell=5.336055e+02 N=142 n=710 ins=0 it= 6 last=3.0e-14 turn+pi=+7.11e-15 ImG=+6.47e-12 wall=3.2s (jac 2.8s)
+slab   15 tau=  2.2500 k=    35.371 a=-2.99506e-03 ell=5.541488e+02 N=142 n=710 ins=0 it= 4 last=8.9e-15 turn+pi=+8.88e-15 ImG=+6.30e-12 wall=3.2s (jac 2.8s)
+slab   16 tau=  2.4000 k=    36.739 a=-2.93699e-03 ell=5.754822e+02 N=143 n=715 ins=1 it=15 last=1.9e-14 turn+pi=+1.69e-14 ImG=+3.37e-12 wall=3.8s (jac 2.9s)
+slab   17 tau=  2.5500 k=    38.160 a=-2.87765e-03 ell=5.976359e+02 N=144 n=720 ins=1 it=17 last=9.3e-15 turn+pi=+2.66e-15 ImG=+1.06e-11 wall=3.9s (jac 3.1s)
+DONE 17 slabs, wall 60s

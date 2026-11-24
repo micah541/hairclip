@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tE}{\textup{[est]}}\newcommand{\tP}{\textup{[paper]}}
+\newcommand{\E}{\mathfrak E}
+\title{Lemma U, Phase 1 (P3): the launch lemma and the bootstrap order\\ for the uniformly local far-field energies}
+\author{}\date{13 November 2026 (draft; not compiled on this machine)}
+\begin{document}\maketitle
+
+\noindent\textbf{Status.} This note proves, on paper, the \emph{bookkeeping} of Lemma U: where each centre starts, with which data, how the profile mismatch is bounded, which box is needed where, and in which order the continuity argument closes. It does \emph{not} prove the energy inequality of Lemma U itself (the general-weight rate and ramp constants, \S\ref{sec:evol}); that is Phase 1 tasks P1, P2 and the Phase 2 assembly. Labels: \tC\ arb with outward rounding; \tE\ float; \tP\ proved here by hand. All numbers in \S\ref{sec:num} are \tE\ from \fn{launch_model.py} (this directory); they replace the reviewer's scratch estimates [rev] of \fn{GONOGO.md}, error~4, and are themselves to be replaced by the certified assembly. Sources: \fn{plan_uniformly_local_SB.md} \S1, \S3; \fn{GONOGO.md} (errors 1, 3--5, risk 3, recommended parameters); \fn{step3_proof_v32.tex} (Prop.~B$'$, (H2), (H3), \S4); \fn{lemmaS.tex} (part (A)).
+
+\section{Setting}\label{sec:set}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item $y=r/\lambda(\tau)$ (rescaled), $s=\ln y$, $\lambda_\tau/\lambda=-(\frac14-a)$, $\bar a\ge\sup|a|$, $\bar b\ge\sup|b|$, $\bar\beta\ge\sup|\beta|$ on the bootstrap interval (D1 of v3.2: $\bar a=\bar b=2.19103\cdot10^{-7}$, $\bar\beta=3.33811\cdot10^{-9}$ \tC). $f$ is the slope over the $S_1$ ray, $p=1.0246$, $U(\alpha,y)=1.3056\,\alpha\,y^p$ the slow-manifold profile, $\alpha_1=1.5\cdot10^{-4}$.
+\item \textbf{Weight} $W(\sigma)=\bigl(e^{-\mu(\sigma+a_W)}+1+e^{\nu(\sigma-\ln1.5-a_W)}\bigr)^{-1}$, $(\mu,\nu,a_W)=(4,4,0.3)$, $a_W\in[0,0.3]$ free; $w_{\min}=\min_{[0,\ln1.5]}W$. For a centre $\rho$ (a physical radius) $\sigma=\ln(r/\rho)$ and $\Theta_\rho=W(\sigma)\,(1+g\,y^{-4})$; $1\le1+gy^{-4}\le G_w:=(1-g/28^4)^{-1}$ on $y\ge28$.
+\item \textbf{Cutoffs.} Inner: $\eta_{\rm in}(y)$, a ramp fixed in rescaled coordinates, $=0$ for $y\le28$, $=1$ for $y\ge56$. Outer: $\chi_{\rm out}(r)$, the physical ramp $[190,379.5]\lambda_1$ of Lemma~R ($=1$ for $r\le190\lambda_1$, $=0$ for $r\ge379.5\lambda_1$).
+\item \textbf{Centres} $\rho\in(0,\rho_{\max}]$, $\rho_{\max}=253\lambda_1$ (windows $[\rho,1.5\rho]$ reach $379.5\lambda_1$). \emph{Launch time} $\tau_\rho=\tau_1$ if $\rho\ge56\lambda_1$ (\emph{present} centres), otherwise the unique $\tau_\rho$ with $\rho=56\lambda(\tau_\rho)$ (\emph{late} centres; $\lambda$ is continuous and strictly decreasing, so $\tau_\rho$ is continuous and decreasing in $\rho$). Write $y_c:=\rho/\lambda(\tau_\rho)=\max(56,\rho/\lambda_1)$.
+\item \textbf{Deviation} $v_\rho=f-U_\rho$, $U_\rho(r)=U(\alpha(\tau_\rho),r/\lambda(\tau_\rho))$, frozen in physical space (Prop.~B$'$). All present centres share $U_\rho=U_1:=U(\alpha(\tau_1),r/\lambda_1)$. $z_j=(y\partial_y)^jv_\rho=\partial_s^jv_\rho$.
+\item \textbf{Energy} $\E_j^\rho(\tau)=\int\eta_{\rm in}^2\chi_{\rm out}^2\Theta_\rho z_j^2\,ds$, $j=0,1,2$, for $\tau\ge\tau_\rho$.
+\item \textbf{Lemma S(A)} (rerun at the tightened (H2), \fn{lemmaS_A_rerun/rigor/assembly_arb.json}): $E^A_j=\int\omega\eta_A^2z_j^{A\,2}ds\le E^A=(1.2110055\cdot10^{-7},\,8.1741747\cdot10^{-5},\,0.048044818)$, $\gamma'=(0.2463,0.2462,0.1431)$ \tC, conditional on its box (GONOGO error 6). Here $\omega=28/y$, $z^A_j=\partial_s^jv_A$, $v_A=f-U(\alpha(\tau),y)$ (current $\alpha$), and $\eta_A=1$ on $[28,350]$: the outer cutoff of (A) is the decreasing ramp $y\in[350,700]$ (\S\ref{sec:order}, T3).
+\item \textbf{Hand-off data} (theorem hypotheses \tP): (H2) $E_j(\tau_1)\le H_2=(10^{-8},10^{-6},10^{-3})$ on $[14,60]$, $\omega$-normalised; (H3) every window $[y_w,1.5y_w]$, $y_w\in[50,253]$: $\int_{\rm win}\omega z_j^2\le H_3=(2\cdot10^{-7},10^{-5},10^{-5})$ ($j=0,1,2$; $10^{-5}$ also at $j=3$), for $v=f-U_1$. Step~4 meets both, (H2) by $\times25.7$ or more \tC\ (C2).
+\end{itemize}
+
+\section{The profile mismatch $\delta U$}\label{sec:dU}
+\begin{lemma}[profile mismatch; GONOGO C3]\label{lem:dU}
+Assume on $[\tau_a,\tau_b]$: $|\alpha|\le\alpha_1$, $|a|\le\bar a<\frac14$, $|\beta|\le\bar\beta$, and $\alpha_\tau=-\frac p4\alpha+\beta$. Then for every $r$ and $\tau_a\le\tau'\le\tau\le\tau_b$
+\[
+\bigl|U(\alpha(\tau),r/\lambda(\tau))-U(\alpha(\tau'),r/\lambda(\tau'))\bigr|\le\frac{1.3056\,y^p\,\sup_{[\tau',\tau]}|\beta-pa\alpha|}{p\,(\frac14-\bar a)}\le c_{\delta U}\,y^p,\qquad y=\frac r{\lambda(\tau)},
+\]
+with $c_{\delta U}=1.3056(\bar\beta+p\bar a\alpha_1)/(p(\frac14-\bar a))=1.719\cdot10^{-8}$; at $y=56$ this is $1.063\cdot10^{-6}$ (inputs \tC, arithmetic to be redone in arb). Since $(y\partial_y)^jy^p=p^jy^p$, the same bound times $p^j$ holds for $z_j(\delta U)$.
+\end{lemma}
+\begin{proof}
+$\frac{d}{d\tau}\lambda^{-p}=p(\frac14-a)\lambda^{-p}$, hence $\frac{d}{d\tau}[\alpha\lambda^{-p}]=(-\frac p4\alpha+\beta+p(\frac14-a)\alpha)\lambda^{-p}=(\beta-pa\alpha)\lambda^{-p}$. So the difference is $1.3056\,r^p\int_{\tau'}^{\tau}(\beta-pa\alpha)\lambda(t)^{-p}dt$. Since $\lambda(t)^{-p}=\lambda(\tau)^{-p}\exp(-p\int_t^\tau(\frac14-a))\le\lambda(\tau)^{-p}e^{-p(\frac14-\bar a)(\tau-t)}$, the integral is at most $\sup|\beta-pa\alpha|\,\lambda(\tau)^{-p}/(p(\frac14-\bar a))$. Finally $|\beta-pa\alpha|\le\bar\beta+p\bar a\alpha_1$.
+\end{proof}
+\noindent\emph{Uses.} (i) On the inner ramp, $v_\rho=v_A+\delta U$ with $\delta U=U(\alpha(\tau),y)-U_\rho$, $|\delta U|\le1.06\cdot10^{-6}$ for $y\le56$; it enters by Minkowski, $\int_{\rm ramp}z_j^2\le(\sqrt{\cdot}_A+\sqrt{\cdot}_{\delta U})^2$. (ii) Between two frozen profiles at one time, $|U_\rho-U_{\rho'}|\le c_{\delta U}(r/\lambda(\tau_\rho))^p$ for $\tau_{\rho'}\le\tau_\rho$ (apply the lemma on $[\tau_{\rho'},\tau_\rho]$). The bound grows like $y^p$, so it is only used where the weight decays faster than $y^{-2p}$ (\S\ref{sec:launch}). It is never used on the window of a present centre against $U(\alpha(\tau))$: present centres keep $U_1$ for all time.
+
+\section{Launch data}\label{sec:launch}
+\begin{lemma}[launch data]\label{lem:launch}
+Let $\ell_1:=\ln1.5$, $s_\rho:=\ln y_c$.
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item \emph{Present centres} ($\rho=y_c\lambda_1$, $y_c\in[56,253]$). At $\tau_1$
+\[
+\E^\rho_j(\tau_1)\le D_j^{\rm pr}(y_c):=G_w\Bigl[c_2(y_c)\,H_{2,j}+c_3(y_c)\,H_{3,j}\Bigr],\quad
+c_2=\sup_{28\le y\le60}W(\ln\tfrac y{y_c})\tfrac y{28},\quad c_3=\sum_{k=0}^{4}\sup_{y\in[y_k,1.5y_k]}W(\ln\tfrac y{y_c})\,\tfrac{1.5y_k}{28},
+\]
+$y_k=50\cdot1.5^k$. ((H2) covers $y\in[28,60]$, the five (H3) windows cover $[50,379.7]$, and $\chi_{\rm out}=0$ beyond $379.5\lambda_1$.)
+\item \emph{Late centres} ($\rho<56\lambda_1$). At $\tau_\rho$, assume the bootstrap bound $\E^{\rho'}_j(\tau_\rho)\le\hat B_j'$ for every centre $\rho'$ already launched. Then
+\[
+\E^\rho_j(\tau_\rho)\le D_j^{\rm late}:=G_w\Bigl[C_A\,E^A_j+\bigl(\sqrt{q\,\hat B_j'}+\sqrt{\Delta_j}\bigr)^2\Bigr],
+\]
+\[
+C_A=\sup_{28\le y\le350}W(\ln\tfrac y{56})\,\tfrac y{28},\qquad q=\frac1{w_{\min}}\sum_{k\ge0}\ \sup_{\sigma\in[\sigma_0+k\ell_1,\,\sigma_0+(k+1)\ell_1]}W(\sigma),\quad\sigma_0=\ln\tfrac{350}{56},
+\]
+\[
+\Delta_j=p^{2j}c_{\delta U}^2\int_{\ln350}^\infty W(s-\ln56)\,e^{2ps}\,ds\qquad(\text{finite iff }\nu>2p).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) At $\tau_1$, $v_\rho=f-U_1$ is the deviation of (H2) and of (H3). Split the support $y\ge28$, $r\le379.5\lambda_1$ into $[28,60]$ and the five windows; on each piece $\eta_{\rm in}^2\chi_{\rm out}^2\Theta_\rho\le G_wW$ and $1=\omega\cdot y/28$, so $\int_{\rm piece}\eta^2\chi^2\Theta z_j^2\le G_w\sup_{\rm piece}(W\,y/28)\int\omega z_j^2$. On a window $\sup(y/28)\le1.5y_k/28$. Overlaps only add.
+
+(b) At $\tau_\rho$ the centre sits at $y=56$ and $v_\rho=f-U(\alpha(\tau_\rho),y)=v_A$ \emph{exactly} (same $\alpha$, same $\lambda$). On $y\in[28,350]$, $\eta_A=1$, so the same conversion with (A)'s energy gives $G_wC_AE^A_j$. Beyond $y=350$ cover $\{y\ge350,\ r\le379.5\lambda_1\}$ by the windows $[\rho_k,1.5\rho_k]$, $\rho_k=350\cdot1.5^k\lambda(\tau_\rho)$ (the last one shifted down to end at $379.5\lambda_1$ if needed). Each $\rho_k$ has $\rho_k/\lambda(\tau_\rho)\ge350>56$, so it is launched, and $\Theta_{\rho_k}\ge w_{\min}$ on its window with $\eta_{\rm in}=1$; both energies carry the same $\chi_{\rm out}^2$. Hence $\int_{\rm win\,k}\chi^2z_j(v_{\rho_k})^2\le\hat B_j'/w_{\min}$. On window $k$, $v_\rho=v_{\rho_k}+(U_{\rho_k}-U_\rho)$, with the mismatch bounded by Lemma~\ref{lem:dU}(ii). Minkowski in the weighted $L^2$ over the union of the windows gives the stated form, with $W\le\sup_{\rm win\,k}W$ on the first term.
+\end{proof}
+\begin{remark}[neighbour factor]
+For $\nu=4$: $W\sim e^{-4\sigma}$ and $\sum_k$ is geometric with ratio $1.5^{-4}$, so $q=0.0185$ and $G_wq=0.030$ \tE. The launch data then depend on the bootstrap level only through a $3\%$ term. In a fixed-point form ($\hat B'=\hat B$) the neighbour factor is $1/(1-G_wq)=1.031$; at the hypothesis level $\hat B'=2\hat B$ the term doubles. For $\nu=2$: $q=0.356$ and $1/(1-G_wq)=2.10$ \tE. This is more than the $\times1.5$ of [rev], which omitted $G_w$ and used $W$ instead of $W/w_{\min}$. It is the reason to take $\nu=4$. Also $\Delta_j$ needs $\nu>2p=2.05$ to be finite on $(350,\infty)$; $\nu=2$ fails this, and its model value $\Delta_2=5.7\cdot10^{-10}$ \tE\ is a truncated proxy (finite only because $\chi_{\rm out}$ stops the support at $379.5\lambda_1$). With $\nu=4$, $\Delta_2=3\cdot10^{-13}$ \tE.
+\end{remark}
+\begin{remark}[why not launch at $\tau_1$ for all centres]
+T1 (\fn{t1_crude_shell_model.py}) starts every centre from the hand-off data and sweeps the \emph{whole} weight through the ramp. For a centre with $\rho<56\lambda_1$ at $\tau_1$, the weight's core and outer tail then sit on $y<56$, where (A) has no shell decay and $\eta_{\rm in}$ cuts. The plan's launch rule avoids that: no centre is tracked before its window is at $y\ge56$, and its data then come from (A) (Lemma~\ref{lem:launch}(b)). Its cost is the launch datum $G_wC_AE^A_2\approx0.19$ \tE, which is fifty times T1's data term. Its gain is that afterwards only the inner tail ($\sigma\le0$) crosses the ramp (\S\ref{sec:evol}).
+\end{remark}
+
+\section{After launch: shape of the estimate}\label{sec:evol}
+For $\tau\ge\tau_\rho$ the centre's ramp coordinate is $\sigma_{\rm ramp}(\tau)\le\ln(56/y_c)-\frac14(1-4\bar a)(\tau-\tau_\rho)$. Every ramp point sees $W$ only on $\sigma\le\ln(56/y_c)$, so
+\[
+\int_{\tau_\rho}^\infty\sup_{\rm ramp}W(\sigma(\tau))\,d\tau\ \lesssim\ I_W^{\rm in}(y_c):=\frac4{1-4\bar a}\int_{-\infty}^{\ln(56/y_c)}W\,d\sigma ,
+\]
+up to the ramp-width correction carried by the constant $1.70$ below (as in T1). Lemma U's energy inequality (to be proved: general-weight divergence-form tables, P1/P2) is assumed of the form
+\[
+\E_j^\rho(\tau)\le\E_j^\rho(\tau_\rho)+\underbrace{1.70\,I_W^{\rm in}G_w\,E^k_j}_{\rm inflow}+\underbrace{G_wI_W^{\rm in}\,2K_S\Bigl[\sum_{k\le j}K_{jk}\varepsilon(28)E^k_k+K_{j,j+1}X_{j+1}\Bigr]}_{\rm ramp}+{\rm foot}_j(I_W^{\rm in})+\Delta^{R}_j ,
+\]
+with $E^k_k=(\sqrt{E^A_k}+\sqrt{\delta U_k})^2$ (Lemma~\ref{lem:dU}); $X_{j+1}$ is the level-$(j{-}1)$ dissipation of (A) per unit $\tau$ (which supplies $z_3$ on the ramp); the foot term is the $L^4$ ramp foot of t8; $\Delta^R_j$ is the outer-ramp (Lemma~R) contribution, $(9.9\cdot10^{-8},1.0\cdot10^{-6},0.0161)$ \tE\ (T6); and the interior rate is $\le0$ by the damping factor (rate criterion $\hat G_{22}<28^4$ with margin, P1). The only change against T1 is $I_W\to I_W^{\rm in}(y_c)$ and the launch data of Lemma~\ref{lem:launch}. \emph{All constants in this display are [est]; this is the statement Phase 2 must certify.} Define
+\[
+\hat B_j:=\sup_{\rho}\Bigl[D_j(\rho)+{\rm inflow}_j+{\rm ramp}_j+{\rm foot}_j+\Delta^R_j\Bigr].
+\]
+For $\nu=4$ the supremum is attained at the late centres, since $D^{\rm late}\ge D^{\rm pr}(56)$ and $I_W^{\rm in}$ decreases in $y_c$; see the table of \S\ref{sec:num}.
+
+\section{The box, by radius}\label{sec:box}
+Box $\mathcal B(M_0,M_1)$: $|f|\le M_0$, $y|f'|\le M_1$. GONOGO error 5: a single box $(0.11,0.52)$ out to $380\lambda_1$ meets $U(380)=0.0866$ (with $\alpha_1$) plus $S_0$, margin $\times1.07$ [rev]; the model gives $\times1.12$ at the present centre $y_c=253$ ($\times1.38$ with step~4's certified $|\alpha|\le1.1739\cdot10^{-4}$) \tE. Proposed instead: three zones, at a fixed time $\tau$.
+\begin{center}\small\begin{tabular}{@{}p{0.17\linewidth}p{0.26\linewidth}p{0.25\linewidth}p{0.24\linewidth}@{}}\toprule
+zone & box & who proves it & how rates use it\\\midrule
+core $y\in[28,60]$ & $(0.11,0.52)$; derived $(0.0167,0.107)$ \tC\ (C1: margins $\times6.58$, $\times4.86$) & Lemma S(A), B2 & damping $g\ge\hat G_{22}$\\
+I/II: $y\ge56$, $r<190\lambda_1$ & $(0.11,0.52)$ & U-crude windows ($\chi_{\rm out}=1$): late centres and present centres $y_c\le126.7$ & damping $g$ (same $\hat G$)\\
+III: $r\ge190\lambda_1$ & $(M_0^O,M_1^O)$, $O(1)$, e.g.\ $(\frac12,1)$ & Lemma O, D5a (from B4 + (H5) + horizon), converted to the $S_1$ chart & Gronwall: factor $\exp\bigl(\hat G(M^O)\,190^{-4}/(1-4\bar a)\bigr)$\\\bottomrule
+\end{tabular}\end{center}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \emph{Why zone III need not be small.} There $y=r/\lambda(\tau)\ge190\,\lambda_1/\lambda(\tau)$, and $(\lambda/\lambda_1)^4\le e^{-(1-4\bar a)(\tau-\tau_1)}$, so $\int_{\tau_1}^\infty\sup_{\rm III}\varepsilon(y)\,d\tau\le190^{-4}/(1-4\bar a)=7.7\cdot10^{-10}$. Any rate $\varepsilon\hat G(M^O)$ with $\hat G\le10^7$ costs a factor $\le1.008$. Zone III is also where $\chi_{\rm out}<1$, so the centre windows could not deliver a box there anyway. The binding $\times1.07$ of error 5 disappears: on zones I/II, $|U_\rho|\le\max(U(84),U_1(190\lambda_1))=1.3056\,\alpha_1\,190^p=0.0423$.
+\item \emph{Derived bound in zones I/II, by radius} (\tE, \S\ref{sec:num}): $|f(r)|\le\bar U(r)+S_0(\rho(r))$, with $\bar U(r)=1.3056\,\alpha_1\max(84,r/\lambda_1)^p$ (late centres: $U_\rho\le U(84)$ on their window; present centres: $U_1$). Equivalently a radius-dependent box $M_0(r)=\bar U(r)+0.06$, $M_1=0.52$, which stays below $(0.11,0.52)$, so P1's $\hat G$ on $(0.11,0.52)$ covers it. If P1 wants a smaller $g$: use the core-derived box $(0.0167,0.107)$ on $y\in[28,60]$, where $\varepsilon$ is largest (GONOGO: $G_w$ could drop to about $1.40$ [rev]).
+\item \emph{Consumers.}
+(1) \emph{Lemma U rates:} the box on its whole support, i.e.\ the core and zones I/II with $(0.11,0.52)$ and zone III with $M^O$.
+(2) \emph{Lemma S(A):} the core box (B2), zones I/II on $(60,350]$, and on its outer ramp $[350,700]$ the zone I/II box where $r<190\lambda_1$ and zone III where $r\ge190\lambda_1$. Its rate condition is unaffected because $\varepsilon(60)\hat G\le(28/60)^4\varepsilon(28)\hat G$.
+(3) \emph{Verifier:} only $S_0^v,S_1^v$ on $[34.25,60]$ (core).
+(4) \emph{U-fine and H6:} the box on $[150,250)\lambda_1$, which is zones II/III.
+(5) \emph{Conclusion (W4):} $|f|\le\frac12$ and curvature $\le S_1^f/r$ on $y\ge48$, from zones I/II (window Sobolev at levels 0--2) and from zone III (Lemma O).
+\end{itemize}
+
+\section{Order of the continuity argument}\label{sec:order}
+\paragraph{Bootstrap set.} $\mathrm{BS}_U(\tau')$: on $[\tau_1,\tau']$, B1 and B4 of v3.2, B2 (core box and $E^A\le2\hat E^A$, now \emph{with} the outer ramp $[350,700]$ in $E^A$), and
+\begin{description}[leftmargin=1.2em,itemsep=1pt]
+\item[B3U] for every centre with $\tau_\rho\le\tau$: $\E^\rho_j(\tau)\le2\hat B_j$ ($j=0,1,2$), and the box $(0.11,0.52)$ on zones I/II.
+\end{description}
+B3U replaces B3 ($|f|\le\frac12$, $E_B$) of v3.2.
+\paragraph{Derivation order} (each step uses only $\mathrm{BS}_U(\tau')$, the data, and the steps above it).
+\begin{center}\small\begin{tabular}{@{}p{0.15\linewidth}p{0.47\linewidth}p{0.32\linewidth}@{}}\toprule
+step & consumes & gives\\\midrule
+D1 verifier & B1; B2 ($S_0^v,S_1^v$ on $[34.25,60]$; flux constants from B2 energies) & $J$'s; $\bar a,\bar b,\bar\beta$; D2 ramp $M$-values\\
+D5a Lemma O & B4; (H5); horizon from D1 & jets on conclusion regions; zone III box; Lemma~R $\Delta^R_j$\\
+D3$'$ Lemma S(A), outer cutoff $[350,700]$ & D1, D2; B2 core box; B3U box on $(60,350]$; on $[350,700]$: $z_{0,1,2}$ from B3U energies ($2\hat B$, unweighted $\le1.71\cdot2\hat B_j/w_{\min}$) where $r<190\lambda_1$ and from D5a where $r\ge150\lambda_1$, box from B3U or D5a; $z_3$ absorbed into (A)'s dissipation (Young) & $E^A$ (+ T3 term), $\gamma'$, level-$k$ dissipation of (A); $S_0^v,S_1^v$ (B2 strict)\\
+U-crude & D3$'$ ($E^A$ for launch data and ramp inflow; (A)'s dissipation for $X_2,X_3$); (H2), (H3); B3U (neighbour data at $2\hat B$; box for the rates); D5a (zone III box); Lemma~R; D1 ($\bar a,\bar\beta$ for $\delta U$); certified $\hat G$, $K_{jk}$ (P1, P2) & $\E^\rho\le\hat B<2\hat B$; zones I/II box strictly (B3U strict)\\
+U-fine & U-crude box; D3$'$; (H2), (H3); Lemma~R & $K_2,K_3$ on $[150,250)\lambda_1$\\
+D5b H6 & D5a; (H5); U-fine & B4 strictly\\
+D6 barrier & D1 & B1 strictly\\\bottomrule
+\end{tabular}\end{center}
+This is the order verifier $\to$ (A) $\to$ U-crude $\to$ Lemma O/R $\to$ U-fine $\to$ H6 of the plan, with one precision: Lemma O's conclusions D5a use only the hypothesis B4, (H5) and D1, so they are available to (A) and U-crude (zone III box, Lemma~R). What follows U-crude is the strict improvement D5b. \emph{No circularity}: (A) consumes U-crude only at the hypothesis level (B3U, factor 2), and U-crude consumes the \emph{derived} $E^A$. The neighbour term in the late launch data is also at the hypothesis level ($2\hat B$, weight $G_wq=0.03$ for $\nu=4$). The coupling (A)$\leftrightarrow$U through T3 is a $10^{-3}$ effect (\S\ref{sec:num}).
+
+\paragraph{Open--closed.} \emph{Nonempty:} at $\tau_1$ only present centres exist, and $\E^\rho(\tau_1)\le D^{\rm pr}<\hat B$. \emph{Closed:} the map $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ is jointly continuous on $\{\tau\ge\tau_\rho\}$: the solution is smooth on compact time intervals (P1); $\Theta_\rho$ is smooth in $\rho$; and the integration region $\{28\le y,\ r\le379.5\lambda_1\}$ is compact for bounded $\tau$. The launch set $\{\rho:\tau_\rho\le\tau\}=[56\lambda(\tau),\rho_{\max}]\cup\{\rho\ge56\lambda_1\}$ varies continuously, so each condition of B3U is closed. \emph{Open:} on $K=\{(\tau,\rho):\tau\in[\tau_1,\tau'+1],\ \rho\in[56\lambda(\tau'+1),\rho_{\max}],\ \tau\ge\tau_\rho\}$ (compact) the energies are uniformly continuous. Since $\max_j\sup_\rho\E^\rho_j/\hat B_j\le1$ on $[\tau_1,\tau']$, the bound $<2$ persists on $[\tau',\tau'+\delta]$. A centre launched in $(\tau',\tau'+\delta]$ starts at $D^{\rm late}\le\hat B$ by Lemma~\ref{lem:launch}(b). The same holds for the boxes (derived strictly inside) and for B1, B2, B4 as in v3.2.
+
+\section{Numbers (model, \tE)}\label{sec:num}
+\fn{launch_model.py}/\fn{.out}/\fn{.json}; inputs: certified $E^A,\gamma'$; $\hat G_{22}$ from t8 ($2.398\cdot10^5$, $G_w=1.639$ \tE); $K_{jk}$ of \fn{feas_P.json} (power weight, error 2) times $K_S$.
+\begin{center}\small\begin{tabular}{@{}lcccc@{}}\toprule
+$(4,4,0.3)$, late centre & $K_S=1$ & $2$ & $4$ & reviewer variant ($K_S$ = 1/2/4)\\\midrule
+$I_W$ / $I_W^{\rm in}(56)$ / $C_A$ / $G_wq$ & \multicolumn{3}{c}{$4.136$ / $1.443$ / $2.231$ / $0.030$} & \\
+$\hat B_2$ (launch / inflow / ramp / foot / outer) & $0.440$ & $0.481$ & $0.561$ & $0.521$ / $0.636$ / $0.867$\\
+ & \multicolumn{3}{c}{($0.19$ / $0.193$ / $0.039K_S$ / $0.003$ / $0.016$)} & \\
+$M_0$ margin ($|f|\le0.11$) & $\times3.90$ & $\times3.76$ & $\times3.56$ & $\times3.67$ / $3.42$ / $3.10$\\
+$M_1$ margin ($y|f'|\le0.52$) & $\mathbf{\times2.13}$ & $\mathbf{\times2.05}$ & $\mathbf{\times1.91}$ & $\times1.98$ / $1.81$ / $1.57$\\\bottomrule
+\end{tabular}\end{center}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \emph{Reviewer variant} = the same launch data and inflow, but ramp and foot terms swept with the \emph{full} $I_W$ (a conservative overcount: those terms live on the ramp, which only the inner tail crosses). It reproduces GONOGO's [rev] $\hat B_2=0.52$, M1 $\times1.98/1.80/1.56$. The \emph{launch-limited M1 margin} is $\times2.13/2.05/1.91$ with the accounting of \S\ref{sec:evol}, and $\times1.98/1.81/1.57$ with the conservative one. Both are above T1's $\times1.72/1.61/1.44$, so T1 is conservative for $\nu=4$.
+\item T1 reproduced exactly, and with (H3) added to its data (error 3): M1 $\times1.725\to1.666$, $1.612\to1.563$, $1.441\to1.406$; M0 $\times3.51\to3.16$.
+\item $(4,4,0)$: late M1 $\times2.28/2.21/2.08$. $(4,2,0.5)$: neighbour factor $2.10$, late M1 $\times1.42/1.36/1.26$ (reviewer variant $\times1.31/1.18/1.01$). $\nu=2$ is excluded.
+\item Present centres, $(4,4,0.3)$, $K_S=4$: $\hat B_2$ falls from $0.37$ ($y_c=56$) to $0.018$ ($y_c=253$). The M1 margin is $\ge\times2.19$ everywhere. The M0 margin is $\times3.37$ at $y_c=56$, $\times1.98$ at $y_c=126.7$ (window reaching $190\lambda_1$; end of zone II), and $\times1.12$ at $y_c=253$ (zone III, not used).
+\item T3 with these window energies: Young route adds $1.9\cdot10^{-5}$ ($K_S=2$) or $2.2\cdot10^{-5}$ ($K_S=4$) to $E_2^A$ at level $\hat B$, and $3.8$ or $4.5\cdot10^{-5}$ at the hypothesis level $2\hat B$; $\ge\times1000$ below $E_2^A=0.048$.
+\end{itemize}
+
+\section{T3 (outer cutoff of (A)), rerun}
+\fn{gonogo/t3_A_outer.py} fixed (reads t1's dict; backup \fn{t3_A_outer_pre_dictfix.py}; previous output \fn{t3_A_outer.prev0824.*}). With the CLEAN-GO rows of t1 (certified $E^A$, $\gamma'$), weight $(4,4,0.3)$: the Young route adds $3.20\cdot10^{-5}$ ($K_S=2$) or $4.09\cdot10^{-5}$ ($K_S=4$) to $E_2^A$, against $0.048$ ($\times1500$, $\times1170$) \tE. Levels 0 and 1 add $2.4\cdot10^{-11}$ and $1.5\cdot10^{-8}$. The Cauchy--Schwarz route adds $0.102$ and is not used. Previously $2.67\cdot10^{-5}$ (estimated floor, $G_w=1.41$); that row reproduces exactly.
+
+\section{To certify (Phase 2)}\label{sec:tocert}
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item The Lemma~U energy inequality of \S\ref{sec:evol} with general-weight tables: $\hat G$ (P1), $K_{jk}$ with honest $|{\rm coef}|$ (P2), the inflow constant $1.70$, the $L^4$ foot on $[28,56]$ (error 6), and $I_W^{\rm in}$ as an arb integral (including the factor $(1-4\bar a)^{-1}$ and the ramp width).
+\item $C_A$, $c_2(y_c)$, $c_3(y_c)$, $q$, $w_{\min}$, $\Delta_j$: sups and integrals of an explicit $W$, in arb (the model uses grids plus $0.1\%$).
+\item $c_{\delta U}=1.719\cdot10^{-8}$ in arb (inputs certified).
+\item The Sobolev constants on the window (the $\ln1.5$ form) for the non-flat $W\ge w_{\min}$ (GONOGO risk 6).
+\item T3 in arb: outer-ramp constants $c_{jk}$, $K_{23}$ on $[350,700]$ (now sup over a grid, \fn{F.sup_grid}), and the Young step with the true $\delta$ and $a_{\min}$.
+\item Zone III box: convert D5a (cone/far cylinders, jets in cylinder units) to $|f|$, $y|f'|$ on $r\ge190\lambda_1$ and to $z_{0,1,2}$ on (A)'s outer ramp for $r\ge150\lambda_1$ (geometry as in \fn{lemmaS_F5_geom.json}). Then $\hat G(M^O)$ and the Gronwall factor.
+\item Outer ramp $\Delta^R_j$ for the crude family with $\Theta_\rho\le G_w$ (T6 uses $W\le1$ without $G_w$: a factor up to $1.64$ on $0.016$).
+\item (A) rerun with its outer cutoff $[350,700]$ and the B3U/D5a boxes, to make $E^A$ unconditional (error 6), and with the T3 term inside the certified assembly.
+\item The joint-continuity claim of \S\ref{sec:order}, which is standard but must be written out against (P1).
+\end{enumerate}
+\end{document}

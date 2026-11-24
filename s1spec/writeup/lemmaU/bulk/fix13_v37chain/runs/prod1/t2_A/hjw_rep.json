@@ -1,0 +1,121 @@
+{
+ "verifier_file": "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json",
+ "verifier_sha256": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+ "Ly1": 2.5e-15,
+ "X_const": 3.7477343372911036e-15,
+ "X_slope": 2.149036968280821e-21,
+ "F0": 1.3121920000000001e-21,
+ "tau_march": 5.481316940282388,
+ "Lup_max": 2.8180157518940014e-15,
+ "cells": [
+  {
+   "k": 0,
+   "D": 0.08131694028238676,
+   "L_up": 2.6276250000026283e-15,
+   "excess_over_Ly1": 1.2762500000262832e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 1,
+   "D": 0.6,
+   "L_up": 2.60843670616134e-15,
+   "excess_over_Ly1": 1.0843670616134e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 2,
+   "D": 0.6,
+   "L_up": 2.6841154694989814e-15,
+   "excess_over_Ly1": 1.8411546949898142e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 3,
+   "D": 0.6,
+   "L_up": 2.7310176757346965e-15,
+   "excess_over_Ly1": 2.310176757346965e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 4,
+   "D": 0.6,
+   "L_up": 2.7616230222727843e-15,
+   "excess_over_Ly1": 2.6162302227278434e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 5,
+   "D": 0.6,
+   "L_up": 2.793546178271398e-15,
+   "excess_over_Ly1": 2.9354617827139804e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 6,
+   "D": 0.6,
+   "L_up": 2.8008968272509613e-15,
+   "excess_over_Ly1": 3.0089682725096134e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 7,
+   "D": 0.6,
+   "L_up": 2.8090556794921277e-15,
+   "excess_over_Ly1": 3.0905567949212773e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 8,
+   "D": 0.6,
+   "L_up": 2.809622429037745e-15,
+   "excess_over_Ly1": 3.0962242903774505e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 9,
+   "D": 0.6,
+   "L_up": 2.8180157518940014e-15,
+   "excess_over_Ly1": 3.180157518940014e-16,
+   "W1_with_P_ge_0": false
+  }
+ ],
+ "W1_ok": false,
+ "W1_note": "checked with P_k >= 0 (per-cell r1_k, Phi_k not stored); fails at k = 0 already (L_up_0 = Ly_hi_0 > Ly1 by construction of the barrier), so Lemma 4 fallback",
+ "W2_ok": true,
+ "W2_note": "L_F = 9.795e-19 <= L* = 2.8076e-15; tail barrier = verifier tail lemma (closure.tail, rate_s_U = -0.00268 <= -rho), not re-run here",
+ "W3_ok": false,
+ "W3_note": "F0 (degree-0 flux floor, 1.3122e-21 per unit tau) is NOT inside the march rate: unconditional() uses dropL=True (rhs_iv.py:198) and Phi has no constant term (unc.py:17-27); closure.py:182 omits F0*D. Repaired by +F0*tau_march in X_c (kappa_W3 below). Same omission in the tau_a = tau_1 J of v3.1 (relative 5e-7).",
+ "kappa_J_W1": 0.042427734101860876,
+ "kappa_J_W3": 1.919170248257741e-06,
+ "kappa_J": 0.04242965427210913,
+ "worst_cell": 9,
+ "label": "cert",
+ "kappa_J_certified": 0.04242965327210913,
+ "kappa_J_pad": "1/1000000000",
+ "kappa_J_pad_note": "kappa_J = certified + pad (absolute): reserve >= C'/X_const for fix7_flux2 C6",
+ "statement": "int_{tau_a}^{tau_a+T} V_m^2 <= J_m (1 + kappa_J) + s_m T for all windows, m = 0,1,2,4 (J_m, s_m of lemmaS_F10p_M0.52 args)",
+ "args": {
+  "argv": [
+   "rigor/hjw_rep.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "OMP_NUM_THREADS": null,
+   "V36_VER": "fin13v4c",
+   "V36_R3": "1",
+   "V36_R2": "1"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp/lemmaS_F10p_M0.52.json": "fada6fba751135f2fd9f374a98b516b1b1e21700a367083f7a6fa3c8fad7b3a4",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/rigor/hjw_rep.py": "c91056570a2d8f9db139e2fa00d685f5f6ecae400f6bd40c996527bad0593d0c",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/rigor/arlib.py": "1140e6939a4edd97bd51fd84c84f2c7c7824d3d321da567c16ab719993d4fa92"
+  },
+  "flint": "0.9.0",
+  "sympy": "1.14.0"
+ }
+}

@@ -1,0 +1,8 @@
+  element 0: x_e 0.000 (1s)
+  element 10: x_e 3.433 (1s)
+  element 20: x_e 9.558 (1s)
+  element 30: x_e 20.491 (2s)
+  element 40: x_e 40.000 (2s)
+  element 50: x_e 162.284 (2s)
+  element 60: x_e 608.478 (3s)
+ball 21: G_60_700 = ['2.8168e-07', '9.1160e-07', '2.2424e-06']  (4.3s)

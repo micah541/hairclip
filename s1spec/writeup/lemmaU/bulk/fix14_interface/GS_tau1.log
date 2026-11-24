@@ -1,0 +1,41 @@
+S1 cache: 1496 intervals (3s); x13 = 15.249077
+  t_c ball 0: 685 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.676 (5s)
+  t_c ball 1: 685 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.804 (8s)
+  t_c ball 2: 685 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.730 (10s)
+  t_c ball 3: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.320 (13s)
+  t_c ball 4: 685 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.987 (15s)
+  t_c ball 5: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.375 (17s)
+  t_c ball 6: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.504 (20s)
+  t_c ball 7: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.633 (22s)
+  t_c ball 8: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.759 (25s)
+  t_c ball 9: 684 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.883 (27s)
+  t_c ball 10: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.270 (30s)
+  t_c ball 11: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.375 (32s)
+  t_c ball 12: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.460 (34s)
+  t_c ball 13: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.546 (37s)
+  t_c ball 14: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.597 (39s)
+  t_c ball 15: 683 cells, sup|ku| <= 6.517e-03, sup|u'| <= 5.418e-02, covered to x >= 61.721 (42s)
+GS at tau_1 on |x| <= 60.25: {'q1': 0.006516906696675773, 'q2': 0.054181634416438876, 'delta_tip': 0.0014787783703226556, 'eta': 0.04949459555660444} ok True
+	Command being timed: "timeout 3000 nice -n 19 python3 -B GS_tau1.py"
+	User time (seconds): 44.85
+	System time (seconds): 0.16
+	Percent of CPU this job got: 105%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:42.56
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 173728
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 51080
+	Voluntary context switches: 38
+	Involuntary context switches: 182
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

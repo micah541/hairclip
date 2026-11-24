@@ -1,0 +1,21 @@
+initial box |.|_3 parts: n<=1000: 1.7728242180619303e-22  n>M: 2.38586411828853e-12
+   sub 0 [0.0000,0.0020]: a_blk 3.46e-36 a_rest 5.48e-18 | f0_blk 8.01e-17 f0_rest 5.95e-12 | r_blk 9.59e-18 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 1.23e-21 Z_rest 5.64e-18 | J_blk 9.11e-11 (n=185) Q_blk 5.65e-24 argmax a_rest n=250
+   sub 1 [0.0020,0.0156]: a_blk 0.00e+00 a_rest 5.20e-18 | f0_blk 7.49e-17 f0_rest 5.90e-12 | r_blk 4.36e-18 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 7.96e-21 Z_rest 5.37e-18 | J_blk 8.83e-11 (n=185) Q_blk 5.10e-24 argmax a_rest n=250
+   sub 2 [0.0156,0.1250]: a_blk 0.00e+00 a_rest 3.66e-18 | f0_blk 7.25e-17 f0_rest 5.55e-12 | r_blk 1.91e-18 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 3.41e-20 Z_rest 3.77e-18 | J_blk 6.69e-11 (n=185) Q_blk 2.55e-24 argmax a_rest n=250
+   sub 3 [0.1250,0.2500]: a_blk 0.00e+00 a_rest 2.64e-19 | f0_blk 7.17e-17 f0_rest 3.97e-12 | r_blk 8.95e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 5.98e-21 Z_rest 2.72e-19 | J_blk 1.08e-11 (n=185) Q_blk 2.92e-25 argmax a_rest n=250
+   sub 4 [0.2500,0.3750]: a_blk 0.00e+00 a_rest 2.12e-20 | f0_blk 7.16e-17 f0_rest 3.08e-12 | r_blk 4.69e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 1.35e-21 Z_rest 2.19e-20 | J_blk 2.44e-12 (n=185) Q_blk 2.69e-25 argmax a_rest n=186
+   sub 5 [0.3750,0.5000]: a_blk 0.00e+00 a_rest 9.21e-21 | f0_blk 7.15e-17 f0_rest 2.27e-12 | r_blk 3.59e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 3.93e-22 Z_rest 9.49e-21 | J_blk 7.12e-13 (n=185) Q_blk 2.67e-25 argmax a_rest n=186
+   sub 6 [0.5000,0.6250]: a_blk 0.00e+00 a_rest 3.79e-21 | f0_blk 7.15e-17 f0_rest 1.52e-12 | r_blk 2.52e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 1.30e-22 Z_rest 3.91e-21 | J_blk 2.34e-13 (n=185) Q_blk 2.67e-25 argmax a_rest n=186
+   sub 7 [0.6250,0.7500]: a_blk 0.00e+00 a_rest 1.52e-21 | f0_blk 7.14e-17 f0_rest 9.13e-13 | r_blk 1.89e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 4.51e-23 Z_rest 1.57e-21 | J_blk 8.15e-14 (n=185) Q_blk 2.66e-25 argmax a_rest n=186
+   sub 8 [0.7500,0.8750]: a_blk 0.00e+00 a_rest 6.06e-22 | f0_blk 7.14e-17 f0_rest 4.85e-13 | r_blk 1.82e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 1.62e-23 Z_rest 6.24e-22 | J_blk 2.92e-14 (n=185) Q_blk 2.66e-25 argmax a_rest n=186
+   sub 9 [0.8750,1.0000]: a_blk 0.00e+00 a_rest 2.39e-22 | f0_blk 7.14e-17 f0_rest 2.12e-13 | r_blk 1.57e-19 d_blk 7.14e-17 Jrem_blk 3.17e-17 | Z_blk 5.94e-24 Z_rest 2.46e-22 | J_blk 1.07e-14 (n=185) Q_blk 2.66e-25 argmax a_rest n=186
+h=6.751e-09 (dt~5.000e-04)  M=1000 Ma=185 Nc=4000 K=24 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 5.95e-12, sum n^3 sup|r_n| = 2.07e-01, induced sum n^3 r_n/max(lam_n,1/h) = 1.85e-13; defect*w |.|_3 = 3.98e-05
+  polish |F| = ['9.2e-06', '1.1e-16', '6.3e-24']  u(0)-xbar = 5.5e-18  cond(P_a(h)) = 1.9e+02
+  rho radii max: 8.137e-24 -> 1.266e-20 (|diag B|w 1.372e-33, |B|w 8.139e-24, absorbed 4.24e-24, intra-slab 2.51e-19);  sv(P_a(h)) ['1.02', '1', '1', '0.00532']
+  parallelepiped hull sum_n n^j|G||w|: j=1 1.628e-23 -> 1.240e-16; j=3 2.424e-22 -> 1.424e-12;  box |.|_1 out 1.22e-18
+  box |.|_3: 2.386e-12 -> 4.763e-14  (Zend block 9.38e-16, rest 1.76e-14); tail T: 1.00e-30 -> 2.43e-23
+  slab-wide sup |e|_j (j=0..3): ['2.51e-16', '3.53e-14', '6.92e-12', '1.56e-09'];  int <u_aa^2> = 4.471314738716329e-04 +/- 9.6e-20
+  time 544.8s  {base: 58.7, resid: 8.6, coef: 1.8, Pfloat: 26.4, defect: 419.2, apriori: 24.4, lohner: 5.7, quad: 0.1}  sub-intervals [(5, 0, 0), (6, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0)]
+  block 185->167 (passengers 0), h_next=1.012654573601386e-08, theta_end=46.936
+  quadratures: t=[0.000499539608688458774 +/- 6.09e-22]  L=[103.6061809429469059 +/- 4.27e-17]  X0=[-0.874987453924626 +/- 5.72e-16]

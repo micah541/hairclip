@@ -1,0 +1,28 @@
+# Lemma S rigor pass (Nov 10) - final config alpha1 = 1.5e-4 (v3_nov10)
+Rerun (all in `lemmaS/`, alone, `PYTHONHASHSEED=0`): `rigor/capture_F2.py` (2 min) -> `rigor/weights_exact.py` (15 s) -> `rigor/ramp_arb.py` (3 min) -> `rigor/assembly_arb.py` (1 s). Logs: `rigor/*.out`, `rigor/*.json`.
+
+## 1. Assembly in arb (`assembly_arb.py`)
+Ported: `F1.assemble`, the foot/S33 `extra_outer` block of `F2.main`, all of `Bbox.py` (windows, K2-K4), F4 / (B)-exit / H6 of `F4B.py`. Doubles from the run JSONs, cflux, rate table are inflated 1 ulp in the safe direction (J, slopes, Ghat, sqrtLam, abar, beta, L*, W57, kappa up; c_min, tail rho down); they are rounded certified values (decimal hypotheses / verifier sups / `float(arb.upper())`), hence the ulp. Weight suprema recomputed in arb with exact ln 2; ramp-commutator tables `g['ramp'][k][m]` recomputed by `ramp_arb.py` (`ramp_level` ported to exact Rationals/arb, L = ln 2 ball, arb Abr/Ghat; no doubles, no blanket factor).
+**No E, gamma', S or box moves by more than 1.4e-7 relative** (largest: E_B2 at y_E=48; core E <=5.7e-8; gamma' identical to 1e-15). Only single ramp-commutator components move by >1e-6 (ramp_comm_0 +2.3e-6, ramp_comm_2 +5e-7): the arb tables are the rigorous ones; the earlier rerun spread of 1.4e-9 was hash-order dependence of `sup_on`.
+
+| quantity | stored double | arb bound | | quantity | stored double | arb bound |
+|---|---|---|---|---|---|---|
+| E0 | 3.1109871e-7 | 3.1109872e-7 | | EB0/1/2 (y_E=50) | 3.1442e-7 / 1.82652e-4 / 0.249657 | same (+1.8e-9 / +1.9e-9 / +8.3e-8) |
+| E1 | 1.807408e-4 | 1.807408e-4 | | gamma'_B (low) | 0.239483 | 0.239483 |
+| E2 | 0.24704503 | 0.24704503 (0.24704505 with sliver) | | windows max |f|, y|f'|, |z2| | .092797, .117157, .117140 | same (to 5 digits) |
+| gamma'0,1,2 (low) | .24628897, .24617403, .14306229 | identical | | windows gamma' (low), K2, K3 | .181001, .023647, .024927 | same |
+| S0v, S1v | .0057455489, .17075255 | +8e-10, +5e-10 | | K0, K2, I3c, I3s | 6.82858e-22, 3.25157e-21, 1.83998e-21, 1.38239e-27 | +5e-9, +2.8e-8, +2e-9, +1e-9 |
+| core M0, M1 | .018741, .184398 | | | Phi const / slope | 3.96305e-5 / 4.93586e-10 | |
+
+All gamma' > 0 (core, (B) exit, 5 windows x 4 levels). All box/margin claims hold with the certified margins (arb lower bounds): S0v vs 0.02: 3.48; M0core vs 0.11: 5.87; M1core vs 0.52: **2.82** (page says 2.83); ramp M1 0.9 vs 0.43892: 2.0505; ramp M0: 7.03; G22: 2.34; windows M1/M0/z2: 2.0516/2.5438/4.268; |f|<=1/2: 5.39; K2/K3 vs 0.12: 5.07/4.81; F4 constants >=1e3 below placeholders; S0_B=0.01384 <= 0.0153, S1_B=0.4124 <= 0.6.
+**Discrepancy, now fixed in `lemmaS.tex` p.1, `lemmaS_consts.json` v3_nov10 and `step3_proof.tex`:** 16 page-1 decimals were rounded to nearest and lay below the arb bound (<=0.6%). Applied (outward; extra digit where needed: S0v 0.00575, M1 0.1844; also G22 6.58e4, margins 3.48/5.87/2.82/2.33/4.26/5.38/5.07): E0 3.12e-7 (arb 3.1110e-7); E2 0.248 (0.247045); S0v 0.0058 (0.0057455); core M0 0.0188 (0.018741); core M1 0.185 (0.184398); EB0 3.15e-7 (3.1442e-7); gamma'_B >= 0.2394 (0.239483); windows y|f'| and |z2| 0.118 (0.117157, 0.117140); boxes on [253,380] 0.237 / 0.241 (0.236056 / 0.240359); K2flux 3.26e-21 (3.25157e-21); I3 slope 1.39e-27 (1.38239e-27); Phi const 3.97e-5 (3.96305e-5); ramp M1 0.4390 (0.438918); ramp M0 7.12e-3 (7.1120e-3). Window K4 = 0.0742 > 0.06 is not used (page certifies K4 at the hand-off).
+Residual: the F4B split Ec = E - Es is ported as is. Ramp tables are now enclosed (coordinator item 2 done, ~3 min CPU).
+
+## 2. Class weights (`weights_exact.py`)
+Exact Rationals for boxes, p, Umax, table coefficients (identical to the float tables, rel diff 0.0), Bell/Faa di Bruno polynomials and `Aterms`; only irrational inputs are the arb suprema Fa_k, Fb_k. `classify`, `l4_extra_YC`, fallback, `ghat_from_YC`, the ramp ibp2 block, footw, W33, C_eta are re-derived in arb. Exact arb upper endpoint vs double, worst relative deviation over core, ramp (Ghat, YC, Abr) and all 5 windows x 4 levels: **4.6e-15** (< 1e-12; doubles were above the exact value for core/ramp). So the Ghat are rerun, not merely bounded: core (2280.846, 2351.492, 65729.72), ramp (2286.638, 3849.635, 235592.2) are used directly in `assembly_arb.py`. All Young budgets recheck exactly (slack 0.2-0.4 amin). C_eta: arb 15.8353125164 vs stored 15.8353124984 (1.1e-9; arb radii are 30-bit), used.
+
+## 3. zeta < 1 sliver (`assembly_arb.py`, section `sliver_G`/`convk`)
+zeta = S7((x-10.25)/6), S7(u)=u^4(35-84u+70u^2-20u^3) (verifier smoothstep, `agent_int/*/Spoly_f`); sliver x in [16.2490776515, 16.25], y in [14, 14.0009223], v=(16.25-x)/6 <= 1.5372e-4, 1 - zeta = S7(v) <= 1.95e-14. On the sliver w' = g v with g = 1/zeta, so with D = y d/dx: z_k(w') = sum_i C(k,i) (D^i g) z_{k-i}(v), and Minkowski in L2(Y ds dtau) gives ||z_k(w')|| <= sqrt(C_k) + sum_i C(k,i) G_i sqrt(C_{k-i}), where C_k is the existing conversion BELL_k sum S(k,m) a_m J_m^e (same J, slopes, pointwise-Lambda V_ms=Lambda/mu, Lambda/(mu eps_I), V1 interpolation) and a_m the global suprema (so no sup of z_j, no localisation). Arb sups: G_0..G_3 = 1.95e-14, 1.19e-9, 5.40e-5, 1.64. Applied to every ramp term (inflow, commutators, Jfree2, JG, Fmax, S33) and propagated: sliver adds **4.3e-21, 8.4e-14, 2.05e-8** to E0, E1, E2 (relative 1.4e-14, 4.6e-10, 8.3e-8); S0v, S1v, all downstream numbers above already include it. (The old 1e-29 was a localised estimate under an a-priori sup; this one is looser but unconditional.)
+
+## Status
+All three items closed; `assembly_arb.py` now reports 0 failing page-1 claims. Note: M1core margin is 2.82 as displayed (strict lower bound 2.8199).

@@ -1,0 +1,3 @@
+  theta=0.3: max step rate_theta=+0.1938
+  theta=0.3: tail anchor rate_s_theta = -0.00310
+  int V0^2 <= 4.6874e-10 + 2.148e-16(T-tau_t);  int V1^2 <= 6.5850e-10 + 3.017e-16(T-tau_t);  int V2^2 <= 1.4549e-10 + 6.667e-17(T-tau_t)

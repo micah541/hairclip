@@ -1,0 +1,12 @@
+clip_a12_c0.3 clip:12:0.3:0.05 L0=56.2164 N0=16384 kmax0=41.25 closure=1.46e-08 min-gap(non-adjacent)=0.0497 area=26.1565
+  t=0.00000000 kmax=41.25 N=16384 ncross=0  wall=0s
+  t=0.16242584 kmax=3.45 N=1024 ncross=4 |X|=5.447e-01 wall=7s
+  t=0.56422860 kmax=2.70 N=1024 ncross=2 |X|=8.819e-01 wall=9s
+  t=0.90585492 kmax=7.62 N=1024 ncross=2 |X|=7.949e-02 wall=11s
+  t=0.90759628 kmax=38.07 N=4096 ncross=2 |X|=2.858e-03 wall=15s
+snap 100 kmax=100.79 N=8192 L=29.3587 t=0.9075988680 wall=19s |X|=3.967e-04 |Lam|=4.392e-01
+  t=0.90759892 kmax=197.77 N=16384 ncross=2 |X|=1.022e-04 wall=26s
+snap 200 kmax=200.96 N=16384 L=29.3220 t=0.9075989186 wall=26s |X|=9.894e-05 |Lam|=4.389e-01
+snap 400 kmax=402.96 N=32768 L=29.3042 t=0.9075989218 wall=38s |X|=2.450e-05 |Lam|=4.388e-01
+snap 800 kmax=800.75 N=65536 L=29.2955 t=0.9075989220 wall=59s |X|=6.192e-06 |Lam|=4.388e-01
+DONE

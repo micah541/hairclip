@@ -1,0 +1,286 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tE}{\textup{[est]}}\newcommand{\tP}{\textup{[paper]}}\newcommand{\tR}{\textup{[rev]}}
+\newcommand{\E}{\mathfrak E}\newcommand{\B}{\mathfrak B}
+\title{Lemma U, Phase 2a (agent B): the inner-ramp energy inequality in time-integrated form,\\ the transport identity of the moving weight, and the $\hat G$ design}
+\author{}\date{13 November 2026 (draft; \emph{not compiled}: no \LaTeX\ on this machine; braces and environments checked by hand)}
+\begin{document}\maketitle
+
+\noindent\textbf{Status and labels.} \tC: python-flint \fn{arb}, outward rounding (\fn{ghat_design_arb.py}). \tE: float model (\fn{U_model2.py}, \fn{top_pair_est.py}). \tP: proved here by hand. \tR: the Phase-1 reviewer's scratch value (\fn{phase1/CHECKPOINT.md}). Nothing under \fn{writeup/lemmaS*}, \fn{step3_proof*}, \fn{s1spec/step4/} or another agent's directory was edited. Sources: \fn{phase1/launch/launch_lemma.tex} (setting, launch lemma, B3U, order), \fn{phase1/ghat/P1_REPORT.md}, \fn{phase1/ramp/P2_REPORT.md}, \fn{gonogo/L4_general_weight.md}, \fn{lemmaS.tex} l.94 (equation) and l.319--332 (sup-free S33 form), \fn{step3_proof_v32.tex} Prop.~B$'$.
+
+\paragraph{Results in one paragraph.} (1) The moving weight is exactly co-moving with the scaling transport and with $\chi_{\rm out}$; what is left of transport $+\,\partial_\tau\Theta$ is the inner-ramp inflow ($\ge0$), minus the damping (the $D$ factor), minus a new $b$-absorber (Lemma~\ref{lem:T}). The reviewer's residual $4\bar b\sup|W'/W|/28$ is the right \emph{size}, but a Gronwall argument with the rate $\bar b\,C/y$ does not close on an infinite horizon, because Lemma U has no decay. The fix is a factor $\phi=\exp(K_be^{-s})$ in the weight, which costs $e^{K_b/28}-1=3.6\cdot10^{-5}$. (2) The inequality is written with (A)'s exported dissipation integrals $D_k$ (Prop.~\ref{prop:U}). The honest factor on the X-terms against the t1 rate model is $4.14\,c_D/\kappa$: $\times6.6$ at $\kappa=1.25$, $c_D=2$; $\times3.3$ at $c_D=1$, which (A)'s additive structure supports (Lemma~\ref{lem:D}). (3) The large Phase-1 factor $G_w=1.82$ multiplied every data term. Accounting for $D(y)$ pointwise, with joint $(y,\tau)$ sweeps, removes most of it. (4) Recommended $\hat G$ design: the ramp share of the rate is data, so the rate criterion starts at $y=56$, with a global box $(0.15,0.52)$. Then $\hat G_{22}=338258.8$, rate margin $\times29.07$, $D(56)=1.0356$, $D(28)=1.570$ \tC. (5) $U$-model (default inputs, $K_S=1$): late centre M1 $\times2.40$, M0 $\times5.8$; present centres M1 $\times2.82$, M0 $\times2.85$ \tE.
+
+\section{Setting}\label{sec:set}
+As in \fn{launch_lemma.tex} \S1, with these additions.
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \textbf{Equation} (\fn{lemmaS.tex} l.94, exact far-field slope equation on the $S_1$ ray): $V_\tau=-\partial_y^2(\mathfrak aV''+\mathfrak bV'^2)-(\tfrac14-a)yV'+b\cos\theta\,V'$. In $s=\ln y$ the transport part is $-c\,\partial_sV+\beta\,\partial_sV$ with $c:=\tfrac14-a(\tau)$ and $\beta:=b\cos\theta\,e^{-s}$, so $|\beta|\le\bar b e^{-s}$ and $\beta^{(i)}=(-1)^i\beta$. Bounds: $|a|\le\bar a$, $|b|\le\bar b$ with $\bar a=\bar b=2.19103\cdot10^{-7}$ \tC\ (D1 of v3.2). Put $c^-:=\tfrac14-\bar a$.
+\item \textbf{Deviation} $v_\rho=f-U_\rho$, with $U_\rho$ frozen in physical space. It solves the same equation with forcing $\hat R_\rho=b\cos\theta\,U_\rho'-y^{-4}(D_y-2)(D_y-3)\Phi(U_\rho)$, $D_y=y\partial_y$ (Prop.~B$'$). Write $z_j=\partial_s^jv_\rho$.
+\item \textbf{Weight} $\Psi_\rho=\eta^2(s)\,\chi^2(s+\ln\lambda(\tau))\,W(s-s_\rho(\tau))\,D(s)\,\phi(s)$, where:
+  \begin{itemize}[itemsep=0pt]
+  \item $s_\rho(\tau)=\ln(\rho/\lambda(\tau))$;
+  \item $D=1+g\,e^{-4s}$ (damping factor), $\theta:=ge^{-4s}/D$;
+  \item $\phi=\exp(K_be^{-s})$ ($b$-absorber, new), with $K_b=10^{-3}$;
+  \item $\eta$ is the inner ramp on $[28,56]$, fixed in $s$;
+  \item $\chi$ is the outer ramp $[190,379.5]\lambda_1$, fixed in $r$.
+  \end{itemize}
+  The base weight is $\Theta=WD$ (P1, P2). For $\Theta\phi$: $1\le\phi\le e^{K_b/28}$, and $\Gamma_m(\Theta\phi)\le\Gamma_m(\Theta)+(2^m-1)\Gamma_{m-1}(\Theta)\,k_\phi$ with $k_\phi:=\frac{K_b}{28}(1+\frac{3K_b}{28}+(\frac{K_b}{28})^2)\le3.58\cdot10^{-5}$, because $|\phi^{(i)}/\phi|\le k_\phi$ for $i\le3$ \tP. So $\Gamma_{1,2,3}$ and $\tilde\kappa$ grow by at most $3.6\cdot10^{-5}$, $3\cdot10^{-4}$, $4\cdot10^{-3}$ and $3.6\cdot10^{-5}$ (relative $\le10^{-4}$), and $\hat G$ moves by $\lesssim10^{-4}$ relative \tE.
+\item \textbf{Energies and dissipation.} $\E_j^\rho=\int\Psi_\rho z_j^2\,ds$ and $\mathcal D_j^\rho=\int\varepsilon\Psi_\rho\,\mathfrak a\,z_{j+2}^2\,ds\ \ge a_{\min}\int\varepsilon\Psi_\rho z_{j+2}^2$, with $\varepsilon=e^{-4s}$. As in (A), the tables carry $2\mathcal D_j$: $\tfrac32a_{\min}$ goes to the interpolation ($B_c$) and $\tfrac12a_{\min}$ to the Young steps (level-2 slack $0$ \tC).
+\item \textbf{(A)'s data on the ramp} (the ramp lies inside (A)'s core, $\eta_A=1$ on $[28,350]$, $\omega=28/y$):
+  \begin{itemize}[itemsep=0pt]
+  \item energies $\int\omega(z_j^A)^2\le E^A_j$ for all $\tau$ (sup in time);
+  \item dissipation \emph{integrals} $D_k\ge\int_{\tau_\rho}^\infty\!\int_{28}^{56}\varepsilon\omega(z^A_{k+2})^2\,ds\,d\tau$, for every $\tau_\rho\ge\tau_1$ (exported by agent A; Lemma~\ref{lem:D}).
+  \end{itemize}
+  On the ramp $v_\rho=v_A+\delta U$, with $|z_j(\delta U)|\le p^jc_{\delta U}y^p$ (launch Lemma~2), and $E^k_j:=(\sqrt{E^A_j}+\sqrt{\delta U_j})^2$ with $\delta U_j=(p^jc_{\delta U}56^p)^2\ln2$.
+\end{itemize}
+
+\section{Transport identity for the moving weight}\label{sec:T}
+\begin{lemma}[transport identity]\label{lem:T}
+Let $z$ be smooth with $z(\cdot,\tau)$ compactly supported where $\Psi_\rho>0$ (P1 regularity), and let $\partial_\tau z_j=-c\,z_{j+1}+\partial_s^j(\beta z_1)+\mathcal N_j$, where $\mathcal N_j$ collects the fourth-order and forcing terms.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \emph{(co-moving cancellation; exact)}
+\[
+\int\partial_\tau\Psi_\rho\,z_j^2+2\int\Psi_\rho z_j(-c\,z_{j+1})
+=\ c\!\int(\eta^2)'\chi^2WD\phi\,z_j^2\ -\ c\!\int\Psi_\rho\bigl(4\theta+K_be^{-s}\bigr)z_j^2 .
+\]
+No $W'$ or $\chi'$ term survives, and $a$ enters only through $c$: no $\int|a|$, no $\sup|W'/W|$.
+\item \emph{(signs)} Assume $\bar a<\tfrac14$, $g\ge0$, $K_b\ge0$ and $\eta$ nondecreasing. Then the first term (the \emph{inflow}) is $\ge0$, is supported on the inner ramp and is at most $c^+\!\int(\eta^2)'\chi^2WD\phi z_j^2$ with $c^+=\tfrac14+\bar a$. The second term is $\le0$: it is the \emph{damping} $-(1-4a)g\int\varepsilon\eta^2\chi^2W\phi z_j^2$ plus the $b$-absorber $-cK_b\int e^{-s}\Psi_\rho z_j^2$.
+\item \emph{($b$-term)} With $C_j=(5,5,8)$, $C_{21}=1$ (all other $C_{jk}=0$) and $\Gamma_1(\Theta)\le4.000000000000001$ \tC,
+\[
+\Bigl|2\!\int\Psi_\rho z_j\partial_s^j(\beta z_1)\Bigr|\le\bar b\Bigl[(C_j+\tfrac{K_b}{28})\!\int e^{-s}\Psi_\rho z_j^2+\sum_kC_{jk}\!\int e^{-s}\Psi_\rho z_k^2\Bigr]+\frac{\bar b}{28}\!\int(\eta^2)'\chi^2WD\phi z_j^2+\bar b\!\int e^{-s}|(\chi^2)'|\eta^2WD\phi z_j^2 .
+\]
+If $c^-K_b\ge2\bar b\,(C_j+K_b/28)$, the self terms are absorbed by \emph{half} of the $b$-absorber. Then the lower-level terms obey
+\[
+\int_{\tau_\rho}^\infty\!\!\int e^{-s}\Psi_\rho z_k^2\le\frac{\B_k}{c^-K_b-\bar b\,(C_k+K_b/28)},
+\]
+where $\B_k$ is the level-$k$ total (data plus time-integrated forcing). For $K_b=10^{-3}$: $c^-K_b=2.4999995\cdot10^{-4}$ against $2\bar b\cdot8=3.5\cdot10^{-6}$, a factor $71$. The level-2 coupling is $\bar b\,\B_1/(c^-K_b-5\bar b)\le8.8\cdot10^{-4}\,\B_1$.
+\item \emph{(cutoff parts of the $b$-term)} The inner-ramp part raises $c^+$ to $\tfrac14+\bar a+\bar b/28$ in the inflow. On the outer ramp $e^{-s}\le\lambda(\tau)/(190\lambda_1)$, so the outer part is time-integrable: it is at most $\frac{8\bar b\,\sup|\chi'|}{190(1-4\bar a)}\sup_\tau\int_{\rm outer}WD\phi z_j^2\le2.5\cdot10^{-8}\sup_\tau\int_{\rm outer}z_j^2$, which is added to Lemma~R's $\Delta^R_j$ (data from D5a).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) $\frac{d}{d\tau}\ln\lambda=-c$ and $\frac{d}{d\tau}s_\rho=c$. Hence $\partial_\tau[\chi^2(s+\ln\lambda)W(s-s_\rho)]=-c\,\partial_s[\chi^2W]$, while $\eta$, $D$ and $\phi$ do not depend on $\tau$. Next, $2\int\Psi z_j(-cz_{j+1})=-c\int\Psi(z_j^2)'=c\int\Psi'z_j^2$ ($c$ does not depend on $s$; no boundary terms by compact support). Adding,
+\[
+-c\!\int\eta^2(\chi^2W)'D\phi\,z_j^2+c\!\int\bigl[(\eta^2)'\chi^2WD\phi+\eta^2(\chi^2W)'D\phi+\eta^2\chi^2W(D\phi)'\bigr]z_j^2 .
+\]
+The $(\chi^2W)'$ terms cancel, and $(D\phi)'/(D\phi)=D'/D+\phi'/\phi=-4\theta-K_be^{-s}$.
+(ii) $c\in[c^-,c^+]$; $(\eta^2)'\ge0$; $\theta,K_b\ge0$; and $c\,4\theta D=(1-4a)ge^{-4s}$.
+(iii) $\partial_s^j(\beta z_1)=\beta\sum_{i=0}^j\binom ji(-1)^iz_{j+1-i}$. The $i=0$ and $i=1$ terms together give $2\int\Psi\beta z_jz_{j+1}-2j\int\Psi\beta z_j^2=-\int\beta(\Psi'/\Psi-1+2j)\Psi z_j^2$. Write $\Psi'/\Psi=(\eta^2)'/\eta^2+(\chi^2)'/\chi^2+\Theta'/\Theta+\phi'/\phi$. The non-cutoff part satisfies $|\Theta'/\Theta+\phi'/\phi-1+2j|\le\Gamma_1+K_b/28+|2j-1|$, giving $5,5,7$; the cutoff parts give the last two terms. For $j=2$ the $i=2$ term is $2\int\Psi\beta z_2z_1$, at most $\bar b\int e^{-s}\Psi(z_2^2+z_1^2)$, which adds $1$ to $C_2$ and gives $C_{21}=1$. For the integral bound: with half the absorber, level $k$ obeys $\frac d{d\tau}\E_k+(c^-K_b-\bar b(C_k+K_b/28))\int e^{-s}\Psi z_k^2\le(\text{level-}k\text{ forcing})$; integrate.
+(iv) Since $r\ge190\lambda_1$ there, $e^{-s}=\lambda/r\le\lambda(\tau)/(190\lambda_1)$, and $\int_{\tau_1}^\infty\lambda/\lambda_1\le(c^-)^{-1}$. Also $|(\chi^2)'|\le2\sup|\chi'|$, with $\sup|\chi'|=1.875/\ln2$ for the quintic ramp over one $\ln2$.
+\end{proof}
+\begin{remark}[why the reviewer's Gronwall route does not close, and what the residual is]
+Without $\phi$, the $b$-term is a rate $\le\bar b\,C/y$ relative to $\Psi$. On the inner tail of the support, $y\in[28,56]$, this rate is $\approx\bar bC/28$ at \emph{every} time. Lemma U has no decay rate: the co-moving $W$ gives none, and the damping is only $g/y^4$. So Gronwall gives $\exp(\bar bC(\tau-\tau_\rho)/28)$, which is unbounded on the infinite horizon. The quantity $4\bar b\sup|W'/W|/28\approx1.25\cdot10^{-7}$ is the integral of that rate along a \emph{characteristic} $y(\tau)=28e^{c(\tau-\tau_\rho)}$. It is the correct bound only for a weight frozen in physical space (Prop.~B$'$), not for a ramp fixed in $y$. The factor $\phi$ supplies the missing decay $cK_be^{-s}$, exactly as $D$ supplies $c\,4\theta$. Its cost is the factor $e^{K_b/28}=1+3.6\cdot10^{-5}$ on every data conversion, of the same order as the reviewer's residual. Taking $K_b=10^{-5}$ would bring the cost to $3.6\cdot10^{-7}$, but the coupling factor in (iii) would then be $O(1)$. $K_b=10^{-3}$ is the recommended value.
+\end{remark}
+
+\section{The inner-ramp energy inequality, time-integrated}\label{sec:U}
+\noindent For a centre at $y_c=\rho/\lambda(\tau_\rho)$ ($y_c=56$ for late centres, $y_c=\rho/\lambda_1\ge56$ for present ones) define, with $x=c^-(\tau-\tau_\rho)$ and $W$ increasing on $\sigma\le\frac12\ln1.5$ (so $W(\sigma(\tau,y))\le W(\ln\frac y{y_c}-x)$ on the ramp):
+\begin{align*}
+\Sigma_{\rm in}&:=\tfrac1{c^-}\!\int_0^\infty\sup_{y\in[28,56]}\Bigl[(\eta^2)'(y)\,D(y)\phi\,\tfrac y{28}\,W(\ln\tfrac y{y_c}-x)\Bigr]dx, &
+\Sigma_{E}&:=\tfrac1{c^-}\!\int_0^\infty\sup_{y\in[28,56]}\Bigl[(\tfrac{28}y)^3D(y)\phi\,W(\ln\tfrac y{y_c}-x)\Bigr]dx,\\
+S_X&:=\sup_{y\in[28,56]}W(\ln\tfrac y{y_c})\,D(y)\phi\,\tfrac y{28}, &
+\Sigma_{\rm rs}^{(j)}&:=\tfrac1{c^-}\!\int_0^\infty\sup_{y\in[28,56]}\Bigl[\varepsilon(y)\bigl[\hat G_{jj}D(y)-(1-4\bar a)g\bigr]_+\eta^2\phi\,\tfrac y{28}\,W(\ln\tfrac y{y_c}-x)\Bigr]dx .
+\end{align*}
+These are the \emph{joint} sweeps: the time integral of the ramp supremum of $\Psi/\omega$ times the indicated profile. They replace the Phase-1 products $G_w\cdot I_W^{\rm in}\cdot\sup(y/28)\cdot\sup(\cdot)$ (§\ref{sec:num}).
+
+\begin{proposition}[Lemma U, ramp form]\label{prop:U}
+Assume: B3U and the boxes of \fn{launch_lemma.tex} \S6; the rate conditions
+\[
+\text{(R2)}\ \ (1-4\bar a)g\ge\hat G_{22}\Bigl(1+\tfrac g{y_R^4}\Bigr)\phi,\qquad\text{(R$<$2)}\ \ (1-4\bar a)g>\hat G_{kk}D(28)\phi\ \ (k=0,1),
+\]
+with $y_R=56$ (design \emph{data56}, \S\ref{sec:G}) or $y_R=28$ (Phase-1 design); the K-tables of P2 (valid for $g\in[3,6]\cdot10^5$); $c^-K_b\ge2\bar b(C_2+K_b/28)$. Then for all $\tau\ge\tau_\rho$ and $j=0,1,2$:
+\[
+\E_j^\rho(\tau)\ \le\ \Bigl(\sqrt{\E_j^\rho(\tau_\rho)+\mathcal I_j+\mathcal R^E_j+\mathcal R^X_j+\mathcal R^{\rm rs}_j+\mathcal F_j+\mathcal C_j+\mathcal B_j+\Delta^R_j}\ +\ \Phi_j\Bigr)^2 ,
+\]
+where:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item inflow $\mathcal I_j=c^+\Sigma_{\rm in}E^k_j$, with $c^+=\frac14+\bar a+\bar b/28$;
+\item ramp energy terms $\mathcal R^E_j=\sum_{k\le j}K_{jk}\varepsilon_{28}\Sigma_EE^k_k$ (the $K_{jj}$ include P2's $\hat\rho\,Y_{j+1}$ interpolation remainder);
+\item ramp X-terms $\mathcal R^X_j=\sum_{k>j}K_{jk}\mathcal X_k$, with
+\[
+\mathcal X_1=\varepsilon_{28}\Sigma_EE^k_1,\qquad
+\mathcal X_2=\min\Bigl\{\varepsilon_{28}\Sigma_EE^k_2,\ \bigl(\sqrt{S_XD_0}+\sqrt{\varepsilon_{28}\Sigma_Ep^4\delta U_0}\bigr)^2\Bigr\},\qquad
+\mathcal X_3=\bigl(\sqrt{S_XD_1}+\sqrt{\varepsilon_{28}\Sigma_Ep^6\delta U_0}\bigr)^2 ;
+\]
+\item ramp share of the rate $\mathcal R^{\rm rs}_j=\Sigma^{(j)}_{\rm rs}E^k_j$ ($=0$ for $j=0,1$ under (R$<$2); for $j=2$ the bracket is $\hat G_{22}g\,(\varepsilon-56^{-4})_+$ when $y_R=56$);
+\item foot terms $\mathcal F_0=0$, $\mathcal F_1=\mathrm{footw}_1J_F$, $\mathcal F_2=\mathrm{footw}_2J_F+\mathcal S_{33}$, with $J_F=\varepsilon_{28}\Sigma_EE^k_2$ and
+\[
+\mathcal S_{33}=c_{33}\sqrt{2R\,D(28)\phi\,E^k_2}\Bigl(\tfrac{J_F}{\sqrt{\ln2}}+\sqrt2J_F^{3/4}J_G^{1/4}\Bigr),\quad J_G=2\bigl(\mathcal X_3+\tfrac{L_{\max}^2}4J_F\bigr),\quad c_{33}=26.92+72.30+c_{223},
+\]
+where $R=e^{L_{\max}\ln2}\le11.5$ and $L_{\max}=3.5213$ \tC\ (P2), and $c_{223}$ comes from Lemma~\ref{lem:C};
+\item couplings $\mathcal C_j=\sum_{k<j}\hat G_{jk}\Bigl[\varepsilon_{28}\Sigma_EE^k_k+\frac{D(28)\phi\,\B_k}{(1-4\bar a)g-\hat G_{kk}D(28)\phi}\Bigr]$;
+\item $b$-coupling $\mathcal B_2=\bar b\,\B_1/(c^-K_b-5\bar b)$, $\mathcal B_{0,1}=0$;
+\item $\Delta^R_j$: Lemma R's outer ramp, times $D(190)\phi$, plus Lemma~\ref{lem:T}(iv);
+\item $\Phi_j$: forcing of the frozen profile (Prop.~B$'$), with
+\[
+\Phi_j\le\frac1{c^-}\Bigl[\frac{\bar b\,p\,U_{\max}}{y_c}\Bigl(D(28)\phi\!\int_{\mathbb R}\!W(\sigma)e^{-2\sigma}d\sigma\Bigr)^{1/2}+\frac{c'_j\,U_{\max}\,e^{2a_W}\,(D(28)\phi)^{1/2}}{4\cdot28^4}\Bigl(\frac{28}{y_c}\Bigr)^2\Bigr],
+\]
+where $c'_j=(0.0520,0.1446,0.4324)$ (Prop.~B$'$), $U_{\max}=0.09$ and $\int We^{-2\sigma}=1.271$. For $y_c=56$, $j=2$ this is $2.0\cdot10^{-9}+3.6\cdot10^{-8}$ \tE, so $\Phi_j$ is negligible and is not in the model. (Proof: $\|\beta\partial_sU_\rho\|_\Psi\le\bar bpU_{\max}(D\phi\int We^{-2\sigma})^{1/2}e^{-s_\rho(\tau)}$; $\|\varepsilon c'_jU_\rho\|_\Psi^2\le c_j'^2U_{\max}^2D\phi\sup_s(We^{-4s})\,28^{-4}/4$ with $We^{-4\sigma}\le e^{4a_W}$, so $\sup_s We^{-4s}\le e^{4a_W}y_\rho(\tau)^{-4}$; finally $\int_{\tau_\rho}^\infty y_\rho^{-k}d\tau\le y_c^{-k}/(kc^-)$.)
+\end{itemize}
+Here $\B_k$ is the right-hand side at level $k$, so the levels are taken in the order $0,1,2$. Every term is a time integral or a time-uniform datum, and no rate model is used.
+\end{proposition}
+\begin{proof}[Proof (structure; the constants are those named)]
+\emph{Energy identity.} Multiply the $z_j$-equation by $2\Psi z_j$ and integrate in $s$. The fourth-order and quasilinear part, written with the divergence-form tables of (A) (\fn{tables_exact.pkl}; $|$coef$|$, no sign cancellations) for the weight $\Psi$, splits $(\Psi)^{(m)}=\eta^2(\chi^2\Theta\phi)^{(m)}+{\rm rem}_m\cdot\Theta\phi\chi^2$. This gives:
+\begin{itemize}[itemsep=0pt]
+\item the global quadratic terms. After the $L^4$ identity, the $\{2,3,3\}$ IBP, the box sups and the interpolation (weight $\Psi$, constants $\Gamma_m,\tilde\kappa,\tilde\kappa_2$ of $\Theta\phi$), these are $\le\sum_{k\le j}\hat G_{jk}\int\varepsilon\Psi z_k^2-(\text{dissipation used})$. The cutoff remainder of the interpolation is P2's $\hat\rho\,Y_{j+1}$ term, which is in $K_{jj}$;
+\item the cutoff commutators $\sum_{\rm pairs}|{\rm coef}|A\,{\rm rem}_mz_az_b$ on the ramp: P2's $K_{jk}$ (column $k$: pair $(k,k)$ with weight $1$, mixed pairs with $\frac12$). These include the top pair $(j+1,j+1)$; see Remark~\ref{rem:top};
+\item the cutoff$\times$jet classes. Those reducible by $|z_0|\le M_0^z$, $|z_1|\le M_1$ are folded into $K$ (P2, including $K_{13}$). $(2,2,2)$ goes into $c_{33}$ (weight $72.30$ \tC) and $(2,2,3)$ into $c_{223}$ (Lemma~\ref{lem:C});
+\item the ramp $L^4$ foot terms (L4\_general\_weight.md (c), weights $\mathrm{footw}_{1,2}$ \tC, P2) and the exact foot term $\frac13\int(\varepsilon\Theta\eta\eta')'|z_2|^3$, which together with $(2,2,2)$ and $(2,2,3)$ forms $\mathcal S_{33}$.
+\end{itemize}
+Transport and $\partial_\tau\Psi$ are handled by Lemma~\ref{lem:T}. The forcing $\hat R_\rho$ gives $\frac d{d\tau}\sqrt{\cdot}\le\|\hat R_\rho\|_\Psi$.
+
+\emph{Rates.} By Lemma~\ref{lem:T}(ii), the net rate at level $j$ is $\int\varepsilon\eta^2\chi^2W\phi[\hat G_{jj}D-(1-4a)g]z_j^2$. By (R2) the bracket is $\le0$ on $y\ge y_R$ (it is increasing in $\varepsilon$, and zero at $y_R$ by the choice of $g$). By (R$<$2) it is $\le0$ everywhere for $j=0,1$. On $[28,y_R]$ the positive part is data, $\mathcal R^{\rm rs}_j$. The cross rates $\hat G_{jk}$, $k<j$, are bounded on the ramp by (A)'s energies, and on the bulk by the time integral $\int\!\!\int\varepsilon\Psi z_k^2\le D(28)\phi\,\B_k/s_k$, where $s_k=(1-4\bar a)g-\hat G_{kk}D(28)\phi>0$ is the damping surplus at level $k$ (dividing by $D\phi\le D(28)\phi$ converts $\eta^2\chi^2W\phi$ to $\Psi$).
+
+\emph{Conversion to (A)'s data.} Fix $\tau$. On the ramp $\chi=1$ and $\Psi\le\eta^2W(\sigma)D\phi$, so $\int_{\rm ramp}F(y)\Psi z_k^2\le\sup_y[F\,W D\phi\,y/28]\int\omega z_k^2$. Use Minkowski for $v_\rho=v_A+\delta U$, then integrate in $\tau$ with $W(\sigma(\tau,y))\le W(\ln(y/y_c)-x)$. This gives $\Sigma_{\rm in},\Sigma_E,\Sigma_{\rm rs}$ against the time-uniform $E^k$. For the $z_{k+2}$-data ($k+2=j+1$ or $j+2$), the dissipation is only bounded in time integral. Bound $\Psi/\omega$ by its sup over $\tau\ge\tau_\rho$ and over the ramp, which is $S_X$ (attained at $\tau_\rho$, by monotonicity), and use $D_k$. The $z_2$-data at level~1 can also use (A)'s level-2 \emph{energy}; the minimum of the two bounds is valid. Finally, $\mathcal F,\mathcal S_{33}$: the sup-free form of \fn{lemmaS.tex} l.319--332 with $g=(\varepsilon\Theta)^{1/2}z_2$ on the whole ramp, using:
+\begin{itemize}[itemsep=0pt]
+\item $\varepsilon\Theta|z_2|^3\le(\varepsilon\Theta)_{\min}^{-1/2}|g|g^2$;
+\item $F(\tau)/(\varepsilon\Theta)_{\min}\le2R\,D(28)\phi\,E^k_2$, since $\sup(\varepsilon\Theta)/\inf(\varepsilon\Theta)\le R$ over the ramp at fixed $\tau$ (P2) and $1/\omega\le2$;
+\item $g'=(\varepsilon\Theta)^{1/2}(z_3+\frac L2z_2)$, so $J_G\le2(\iint\varepsilon\Theta z_3^2+\frac{L_{\max}^2}4J_F)$;
+\item Hölder in time, as in (A).
+\end{itemize}
+\emph{Summation.} Integrate the differential inequality from $\tau_\rho$; all rates are $\le0$ after the steps above, so no Gronwall factor appears.
+\end{proof}
+
+\begin{lemma}[dissipation export, honest X-factor]\label{lem:D}
+(i) Suppose (A)'s level-$k$ inequality reads $E_k'+\gamma_k'E_k+\kappa_ka_{\min}\int\varepsilon\omega(z^A_{k+2})^2\le f_k$ on $[\tau_1,\infty)$ (the $\eta_A$-cut is $1$ on $[28,350]\supset[28,56]$). Then, for every $\tau_\rho\ge\tau_1$,
+\[
+\int_{\tau_\rho}^\infty\!\!\int_{28}^{56}\varepsilon\omega(z^A_{k+2})^2\ \le\ D_k:=\frac{E_k(\tau_1)+\int_{\tau_1}^\infty f_k^+}{\kappa_ka_{\min}} .
+\]
+(ii) In the certified (A) (\fn{lemmaS_A_ibp/rigor/assembly_arb.json}), $E^A_k=H_{2,k}+(\text{inflow})+(\text{ramp\_comm})+(\text{forcing})+(\text{extra\_outer})+(\text{coupling})$. The first four forcing terms are \emph{undiscounted} time integrals of $J$-type impulses; the coupling term ($2.4\cdot10^{-7}$ of $0.048$ at level 2) is in sup form. Hence $D_k\le c_DE^A_k/(\kappa_ka_{\min})$ with $c_D=1+O(10^{-5})$, once agent A confirms this split for the repaired (A). The model's default $c_D=2$ (the reviewer's $2E$) is conservative.
+(iii) \emph{Honest factor.} The t1/Phase-1 rate model uses $X_{k+2}=\gamma_k'E^A_k/(2a_{\min})$ per unit $\tau$, swept by $2I_W^{\rm in}$. Against it, the honest X-term is larger by
+\[
+f_X=\frac{\sup_{\rm ramp}(W\,y/28)\;D_k}{2I_W^{\rm in}\,\gamma_k'E^A_k/(2a_{\min})}=\frac{1.4713\,c_D}{\kappa_k\,I_W^{\rm in}(56)\,\gamma'_k}=\frac{4.14\,c_D}{\kappa_k}\quad\text{\tE},
+\]
+before the pointwise $D$ (which multiplies $S_X$ by $D(56)\phi=1.036$, against the model's $G_w=1.82$). Values: $\kappa=1.25$: $\times6.6$ ($c_D=2$), $\times3.3$ ($c_D=1$). (A) as it stands ($\kappa=0.3,0.2$ at levels $0,1$): $\times27.6/41.4$ ($c_D=2$), $\times13.8/20.7$ ($c_D=1$).
+\end{lemma}
+\begin{proof}
+(i) Integrate on $[\tau_\rho,T]$ and drop $-E_k(T)-\gamma'\int E_k\le0$. This gives $\kappa_ka_{\min}\iint\le E_k(\tau_\rho)+\int_{\tau_\rho}^\infty f_k^+$. Also $E_k(\tau_\rho)\le E_k(\tau_1)+\int_{\tau_1}^{\tau_\rho}f_k^+$, from $E_k'\le f_k$. (ii) Read off the assembly rows. (iii) Arithmetic: $\sup_{[28,56]}W(\ln\frac y{56})\frac y{28}=1.4713$ and $I_W^{\rm in}(56)=1.4431$, both \tE\ quadrature.
+\end{proof}
+
+\begin{remark}[the top pair $(j+1,j+1)$ in Lemma U]\label{rem:top}
+In Lemma U the top pair is \emph{not} dropped. In P2 (\fn{ramp_K_cert.py}, \fn{coef_arrays}, $k=j+1$, $w=1$) it is part of $K_{j,j+1}$ with data $\mathcal X_{j+1}$, so the gap found in (A) (\fn{lemmaS_F2.py:81}) does not recur. What it shares with (A) is the data: $z_{j+1}$ on the ramp is (A)'s \emph{dissipation}, which is honest only as a time integral (Lemma~\ref{lem:D}). Level 0 needs $z_1$, which is (A)'s energy; level 1 needs $z_2$, which is (A)'s level-2 energy. Only level 2 needs $z_3$, with data $D_1$. Two refinements reduce that, at the cost of new cubic classes (Lemma~\ref{lem:Y}).
+\end{remark}
+
+\begin{lemma}[column $k=j+1$ by integration by parts; IBP + Young for the top pair]\label{lem:Y}
+Let $c(s)$ be the (signed, solution-dependent) cutoff coefficient of a pair, per $\varepsilon\Theta$.
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item \emph{Mixed pairs} reduce exactly to energies:
+  \begin{itemize}[itemsep=0pt]
+  \item $\int c\varepsilon\Theta z_jz_{j+1}=-\frac12\int(c\varepsilon\Theta)'z_j^2$;
+  \item $\int c\varepsilon\Theta z_{j-1}z_{j+1}=-\int(c\varepsilon\Theta)'z_{j-1}z_j-\int c\varepsilon\Theta z_j^2$;
+  \item $\int c\varepsilon\Theta z_{j-2}z_{j+1}=-\int(c\varepsilon\Theta)'z_{j-2}z_j-\int c\varepsilon\Theta z_{j-1}z_j$.
+  \end{itemize}
+\item \emph{Top pair} (one IBP, then Young against Lemma U's own ramp dissipation):
+\[
+\int c\varepsilon\Theta z_{j+1}^2=-\int c\varepsilon\Theta z_jz_{j+2}+\tfrac12\int(c\varepsilon\Theta)''z_j^2\le\delta a_{\min}\!\int\varepsilon\Theta\eta^2z_{j+2}^2+\int\Bigl[\frac{c^2}{4\delta a_{\min}\eta^2}+\frac{|(c\varepsilon\Theta)''|}{2\varepsilon\Theta}\Bigr]\varepsilon\Theta z_j^2 .
+\]
+The first term takes $\delta a_{\min}$ from $B_c$: $\hat G_{22}$ grows by at most $1.5/(1.5-\delta)$. With $\eta=S(t)$, $c^2/\eta^2$ is bounded: near the foot $c\sim(\eta^2)'$ or $(\eta^2)''$, so $c^2/\eta^2\lesssim\eta'^2+\eta'^4/\eta^2=O(t^4)$.
+\end{enumerate}
+The derivatives fall on $A_i^{(r)}$: their jet-free parts are $A_i^{(r+u)}$ ($u\le2$, box-bounded); their jet parts add cubic classes with one more $z$, of the types $(2,2,k)$ and $(1,2,k)$, which go through the ramp $L^4$ bound or the S33 form. These new classes are \emph{not} bounded here. Size \tE\ (\fn{top_pair_est.py}, majorant of $|{\rm rem}_m|$, jet-free coefficients):
+\begin{itemize}[itemsep=0pt]
+\item at level 2 the top pair is $f_{\rm top}=0.216$ of column 3; the mixed $(2,3)$ pair is $0.73$ of it;
+\item for the late centre, the Young-route data is $5.2\cdot10^{-3}$ ($\delta=0.25$), against $0.046$ for the X-route on the top pair alone;
+\item the mixed pairs by (a) cost $1.5\cdot10^{-4}$.
+\end{itemize}
+In the model this moves the late M1 from $\times2.40$ to $\times2.65$ (§\ref{sec:num}).
+\end{lemma}
+
+\begin{lemma}[$(2,2,3)$ in sup-free S33 form]\label{lem:C}
+The class $(2,2,3)$ is exactly $\int c\,\varepsilon\Theta z_2^2z_3$, with $c$ the sum over pairs $(2,2)$ with jet $z_3$ and $(2,3)$ with jet $z_2$ of $|$coef$|$, ${\rm rem}_m$ and the jet coefficient $v_X$ (P2, raw weight $\sup|c|\le7.3283$ \tC). Since $z_2^2z_3=\frac13(z_2^3)'$,
+\[
+\int c\,\varepsilon\Theta z_2^2z_3=-\tfrac13\int(c\varepsilon\Theta)'z_2^3,\qquad\Bigl|\frac{(c\varepsilon\Theta)'}{\varepsilon\Theta}\Bigr|\le|c'_{\rm nj}|+L_{\max}|c|+|c_J|\,|z_2| .
+\]
+Here $c'_{\rm nj}$ is the derivative without new jets, and $c_J$ comes from differentiating the box-bounded factor of $v_X$ ($V_1\to V_2=U_2+z_2$). So $c_{223}=\frac13(\sup|c'_{\rm nj}|+L_{\max}\sup|c|)$ enters $c_{33}$, and the $c_J$ part is a quartic ramp term $\le\sup|c_J|\int\varepsilon\Theta\eta^0z_2^4$, bounded by L4\_general\_weight.md (c) with the cutoff-free datum $J_F$. \tE: $\sup|c'_{\rm nj}|\le(17.23+4)\sup|c|$ (largest ratio $\sup|(\eta^2)^{(k+1)}|/\sup|(\eta^2)^{(k)}|$, plus $\Gamma_1$), so $c_{223}\le60.5$. The Phase-1 placeholder was $32.6$. The whole $\mathcal S_{33}$ is $\le2\cdot10^{-4}$ in the model.
+\end{lemma}
+
+\section{$\hat G$ design}\label{sec:G}
+\subsection*{(a) Ramp share as data: the rate criterion from $y=56$ (recommended)}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \emph{What it requires.}
+  \begin{itemize}[itemsep=0pt]
+  \item (R2) with $y_R=56$, i.e.\ $g=\hat G_{22}/(1-4\bar a-\hat G_{22}/56^4)$, and (R$<$2) for $k=0,1$.
+  \item The positive part of the rate on $[28,56]$ is data from (A)'s energies, carried by $\eta^2$ (term $\mathcal R^{\rm rs}$). This is how (A) treats its own ramp share.
+  \item Nothing else changes: the same $\hat G$ pipeline, the same dissipation budget (level-2 slack $0$), the same dfrac $2/25$, the same $K$-tables (P2 is certified for $g\in[3,6]\cdot10^5$, which covers $g=3.503\cdot10^5$ below; the crude-box value $g=2.756\cdot10^5$ would need P2 rerun down to $2.7\cdot10^5$).
+  \item $D$ keeps its form $1+ge^{-4s}$, so P1's $\Gamma_m$, $\tilde\kappa$, $\tilde\kappa_2$ stay valid ($\theta(28)\le3/5$).
+  \end{itemize}
+\item \emph{Certified constants} (\fn{ghat_design_arb.json}: Ab including $U_j$, $U_{\max}=0.09$, $M_0^z=0.16$, dfrac $2/25$, foot adds):
+\begin{center}\small\begin{tabular}{@{}lccccccc@{}}\toprule
+box & $\hat G_{22}$ & \multicolumn{2}{c}{global28: $G_w$, rate} & \multicolumn{4}{c}{data56: $g$, $D(56)$, $D(28)$, rate margin}\\\midrule
+$(0.11,0.52)$ & $268125.9$ & $1.774$ & $\times2.292$ & $2.756\cdot10^5$ & $1.0280$ & $1.448$ & $\times36.68$\\
+$(0.15,0.52)$ & $338258.8$ & $2.224$ & $\times1.817$ & $3.503\cdot10^5$ & $\mathbf{1.0356}$ & $1.570$ & $\mathbf{\times29.07}$\\
+$(0.20,0.60)$ & $590852.8$ & $25.8$ & $\times1.040$ & $6.286\cdot10^5$ & $1.0639$ & $2.023$ & $\times16.65$\\
+$(0.30,0.80)$ & $1.839\cdot10^6$ & \multicolumn{2}{c}{infeasible} & $2.262\cdot10^6$ & $1.230$ & $4.68$ & $\times5.35$ ($\theta(28)>3/5$)\\
+$(0.50,1.00)$ & $6.039\cdot10^6$ & \multicolumn{2}{c}{infeasible} & $1.565\cdot10^7$ & $2.59$ & $26.5$ & $\times1.63$ ($\theta(28)>3/5$)\\\bottomrule
+\end{tabular}\end{center}
+The reconciled crude value $268125.9$ equals the reviewer's $268126$, and the widening ratio $\times1.2616$ confirms the reviewer's $\times1.26$. The reviewer's ``$G_w\approx1.03$'' is $D(56)$: $1.0356$ \tC.
+\item \emph{What it costs elsewhere} \tE:
+  \begin{itemize}[itemsep=0pt]
+  \item the data term $\mathcal R^{\rm rs}_2=2.4\cdot10^{-4}$ (late centre), $0.06\%$ of $\B_2$; $c_{\rm rs}=\hat G_{22}g/28^8=0.314$ \tC;
+  \item no dissipation, no dfrac change, no new Young step;
+  \item the price is in the bookkeeping: $\hat G$ must hold as a rate bound on the ramp, which it does, since the ramp box is (A)'s core box, inside every box above.
+  \end{itemize}
+\item \emph{What it buys.}
+  \begin{itemize}[itemsep=0pt]
+  \item The rate criterion goes from $\times1.8$--$2.3$ to $\times29$.
+  \item The box and $U$ conventions (dfrac, $U_{\max}$, $M_0^z$, $M_0$ $0.11\to0.15$) become irrelevant to closure.
+  \item $D\le1.036$ on $y\ge56$.
+  \end{itemize}
+  Most of the $G_w$ gain already comes from accounting for $D$ pointwise, which is legitimate in either design (§\ref{sec:num}: ladder row 6). The decisive gain of data56 is robustness.
+\end{itemize}
+\subsection*{(b) A box that depends on the radius}
+\emph{Localised $\hat G$} \tP\ (derivation; constants not computed).
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \emph{Partition.} Take $\zeta_{\rm I}^2+\zeta_{\rm III}^2=1$, physical (functions of $r$, like $\chi$), with transition on $r\in[r_a,r_b]\subset[126,190]\lambda_1$. By Lemma~\ref{lem:T}(i) the $\zeta$'s are co-moving, so they produce no transport term. Run every global step for the weights $\Xi\zeta_i^2$, $\Xi=\varepsilon\Psi$.
+\item \emph{$L^4$:} $X_i^2=-3\int\Xi\zeta_i^2z_1z_2^2z_3-\int(\Xi\zeta_i^2)'z_1z_2^3$. The extra term is $\le2M_1^{(i)}\zeta'_{\max}X_i\,(N_{2,{\rm I}}^2+N_{2,{\rm III}}^2)^{1/2}$.
+\item \emph{$\{2,3,3\}$:} the extra term is $\frac13\int(\Xi\zeta_i\zeta_i')'|z_2|^3$, in S33 form, with $C_\zeta=\sup|L\zeta\zeta'+\zeta'^2+\zeta\zeta''|$.
+\item \emph{Interpolation:} $N^{(i)2}_{k+1}\le N^{(i)}_kN^{(i)}_{k+2}+\frac12\tilde\kappa_2N_k^{(i)2}+C_\zeta(N_{k,{\rm I}}^2+N_{k,{\rm III}}^2)$.
+\item \emph{Result.} So $\hat G^{(i)}=\hat G(\text{box}_i)+O(C_\zeta Y_{j+1})$, with cross-zone couplings. For a transition of $s$-length $\ln1.5$, $C_\zeta\approx80$ and $\hat G_{22}$ grows by $\approx35\%$ \tE.
+\item \emph{Zone III.} Its $O(1)$ box from Lemma~O ($\hat G_{22}=6.04\cdot10^6$ \tC\ for $(0.5,1)$) cannot be damped by $g$. It is handled by Gronwall as in \fn{launch_lemma.tex} \S6: the factor is $\exp(\hat G^{\rm III}190^{-4}/(1-4\bar a))\le1.005$.
+\end{itemize}
+\emph{Global box with $M_0$ widened.} Under data56 a single box costs nothing material up to $(0.20,0.60)$:
+\begin{itemize}[itemsep=0pt]
+\item rate margin $\times16.6$, $\theta(28)=0.51\le3/5$ \tC;
+\item model M1 changes by $\le3\%$ \tE.
+\end{itemize}
+It requires the zone III box from D5a, converted to the $S_1$ chart (\fn{launch_lemma.tex} \S9 item 6), to give $|f|\le0.15$ (or $0.20$) and $y|f'|\le0.52$ (or $0.60$) on $r\ge190\lambda_1$. This is plausible: at hand-off $|f|\lesssim U(380)+S_0\approx0.09$ there, and D5a's deviations are $C_j\sqrt t$ with time ratio $1.6\cdot10^{-7}$. But it is not yet certified.
+
+\emph{Recommendation.} Use \textbf{data56 with the global box $(0.15,0.52)$}: $\hat G_{22}=338258.8$, $D(56)=1.0356$, rate margin $\times29.07$ \tC. Fallback without any other change: a global box up to $(0.20,0.60)$. Use the localised $\hat G$ only if D5a cannot deliver $(0.20,0.60)$ in zone III.
+
+\section{Model numbers (\fn{U_model2.py}, \tE\ on \tC\ inputs)}\label{sec:num}
+Default inputs:
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $E^A=$ IBP $E^A\times(1.41,1.13,1.25)$, i.e.\ $(1.708\cdot10^{-7},9.237\cdot10^{-5},0.06006)$;
+\item $D_k=2E^A_k/(1.25\,a_{\min})$, $a_{\min}=(16/17)^2$, i.e.\ $D_0=3.08\cdot10^{-7}$, $D_1=1.67\cdot10^{-4}$;
+\item certified $K$, footw, $c_{33}$;
+\item weight $(4,4,0.3)$.
+\end{itemize}
+\textbf{Self-check}: with every new ingredient switched off, the late-centre and present-centre rows of \fn{t1_checkpoint.json} are reproduced exactly (relative deviation $0$): late M1 $\times2.0189$, M0 $\times3.834$ at $K_S=1$; M1 $\times1.9316$ at $K_S=2$.
+\begin{center}\small\begin{tabular}{@{}lccccc@{}}\toprule
+row ($K_S=1$) & late M1 & late M0 & present M1 & present M0 & late $\B_2$\\\midrule
+0 checkpoint & $2.019$ & $3.83$ & $2.41$ & $1.96$ & $0.485$\\
+1 + $E^A$ repair & $1.864$ & $3.69$ & $2.25$ & $1.96$ & $0.598$\\
+2 + joint sweeps (rate-model X) & $2.136$ & $3.99$ & $2.80$ & $1.96$ & $0.441$\\
+3 + honest X ($D_k$) & $1.675$ & $3.79$ & $1.96$ & $1.94$ & $0.659$\\
+4 + $z_2$ by (A)'s energy & $1.851$ & $3.92$ & $2.21$ & $1.96$ & $0.659$\\
+5 + honest S33, $(2,2,3)$ & $1.851$ & $3.92$ & $2.21$ & $1.96$ & $0.659$\\
+6 + pointwise $D$, couplings, $b$ (global28) & $2.387$ & $4.26$ & $2.79$ & $2.09$ & $0.381$\\
+\textbf{data56, box $(0.15,0.52)$} ($K_S=1$ / $2$) & $\mathbf{2.404}$ / $2.090$ & $5.83^\ast$ & $2.82$ / $2.35$ & $2.85^\ast$ & $0.376$\\
+\quad + Lemma~\ref{lem:Y} ($\delta=0.25$) & $2.645$ / $2.455$ & $5.82^\ast$ & $3.35$ / $3.05$ & $2.85^\ast$ & $0.239$\\
+\quad $D_k$ with $\kappa=(0.3,0.2)$ ((A) as is) & $1.498$ & $5.43^\ast$ & $1.59$ & $2.80^\ast$ & $1.131$\\
+\quad $D_k$ with $c_D=1$ (Lemma~\ref{lem:D}(ii)) & $2.616$ & $5.89^\ast$ & $3.19$ & $2.85^\ast$ & $0.304$\\
+\quad $E^A_2$ repair $\times1.65$ / $\times2.5$ & $2.312$ / $2.159$ & & $2.75$ / $2.63$ & & $0.445$ / $0.591$\\\bottomrule
+\end{tabular}\end{center}
+$^\ast$ against the box $0.15$; against $0.11$ multiply by $0.733$ (late $\times4.3$, present $\times2.09$). Present centres: $y_c\le126.7$; the M0 minimum is at $y_c=126.6$. Late $\B_2$ parts (headline): launch $0.142$, inflow $0.076$, X-terms $0.141$ (all from $K_{23}\mathcal X_3$), outer $0.016$, ramp $6\cdot10^{-4}$, rs $2.4\cdot10^{-4}$, foot $1.8\cdot10^{-4}$, couplings and $b$ $\le2\cdot10^{-6}$. \textbf{Kill check 2} (late M1 $\ge\times1.3$ at the honest $K_S$): met in every row; the closest is (A) as it stands, $\times1.50$.
+
+\section{Open items}
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item Agent A's export: $D_0,D_1$ (with $\kappa_k$ and the time-integral split of Lemma~\ref{lem:D}(ii)), and the repaired $E^A$. Rerun with \fn{python3 -B U_model2.py --inputs A.json}.
+\item Certify the sweeps $\Sigma_{\rm in},\Sigma_E,S_X,\Sigma_{\rm rs}$ and the launch constants with pointwise $D$ in arb. They are explicit one- and two-variable sups and integrals of $W$, $D$, $\eta$.
+\item The cubic classes created by the IBPs of Lemmas~\ref{lem:Y} and~\ref{lem:C} (derivatives of the jet parts of $A_i^{(r)}$); $c_{223}$ and the top-pair Young coefficients in arb.
+\item $\Phi_j$ (frozen-profile forcing) in arb ($\le4\cdot10^{-8}$ \tE).
+\item The zone III box from D5a in the $S_1$ chart, to settle the global box $(0.15,0.52)$ or $(0.20,0.60)$. Otherwise, localised $\hat G$ constants.
+\item P2's $K$ for the data56 $g$ if a box other than $(0.15,0.52)$ is chosen ($g$ outside $[3,6]\cdot10^5$).
+\item The $\phi$-factor in P1's and P2's certified $\Gamma_m$ and $K$ (relative change $\le10^{-4}$; a rerun with $\Gamma_m+3k_\phi\Gamma_{m-1}\cdot2^m$ suffices).
+\end{enumerate}
+\end{document}

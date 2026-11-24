@@ -1,0 +1,269 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\lab}[1]{\textup{\textsc{[#1]}}}
+
+\title[Step 3, nonlinear part]{Step 3, nonlinear part: the graph equation, a reduction to trapping,\\ a numerical basin study, and a three-region scheme}
+\author[Fifth supplement]{Fifth supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 6, 2026. Draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+The linear part of step 3 is complete (fourth supplement). This note starts the nonlinear part. (1) It writes the modulated rescaled flow as an exact quasilinear equation for normal graphs over $S_1$, checked by computer algebra against the shrinker equation and the operator $L$. (2) It proves that a \emph{trapping} statement suffices for blow-up: if the modulated rescaled curve stays near $S_1$ with dilation defect $|a|\le a_*<\frac14$, the flow is singular by an explicit time. Decay is not needed, so small non-decaying fluxes from the outer region are harmless. (3) It reports a numerical study of the nonlinear modulated flow. Perturbations whose size is comparable to the loop's tip radius return to $S_1$, so the numerical basin is of order one. (4) It shows that polynomial weights are unsuitable globally but coercive on the conical region, and proposes the three-region scheme this suggests. (5) It draws the consequences for step 4. Three constraints put the final hand-off to a perturbative theorem at $k_{\max}$ of several hundred or more: the basin (the hairpin approaches $S_1$ like $8/k_{\max}$), the room the cone needs before the lens bends, and the outer time budget. So the efficient route is a hybrid validated integration from moderate curvature, with the pocket in the rescaled frame and the outer curve in original variables. (6) An independent spectral solver reproduces the notes' scenario and their scale-invariant limits. It also shows two things that change the plan. The arms-12 hairpin sits so close to the threshold that a wider smoothing of its corners makes it re-embed. And the approach to $S_1$ is along the slow mode $\psi_3$, with amplitude $\approx44/k_{\max}$ for arms 12 but only $\approx8/k_{\max}$ for arms 16. Labels: \lab{proved}, \lab{computer algebra}, \lab{numerical}, \lab{plan}.
+\end{abstract}
+\maketitle
+
+\section{The equation}
+
+Parametrize $S_1$ by arclength $\sigma$, with $\tau_1=(\cos\theta,\sin\theta)$, $\nu_1=i\tau_1$, $\tau_1'=k\nu_1$, and $p=\ip{\Gamma_1}{\nu_1}$, $q=\ip{\Gamma_1}{\tau_1}$, $m=k'$. Then
+\[
+p'=-kq,\qquad q'=1+kp,\qquad k'=m,\qquad m'=\tfrac14p .
+\]
+Write the flow as $\gamma(t)=x(\tau)+\lambda(\tau)\Gamma(\tau)$ with $dt/d\tau=\lambda^4$, $(\log\lambda)_\tau=-\frac14+a$ and $x_\tau=\lambda b\,e_1$. Then CDF becomes, up to tangential terms,
+\begin{equation}\label{eq:resc}
+\ip{\Gamma_\tau}{N}=-\kappa_{ss}+(\tfrac14-a)\ip{\Gamma}{N}-b\ip{e_1}{N}.
+\end{equation}
+
+\begin{proposition}[graph equation]\label{prop:eq}\lab{proved; formulas checked by computer algebra}
+Let $\Gamma=\Gamma_1+u\,\nu_1$ with $\alpha=1-ku>0$. Put $J=(\alpha^2+u'^2)^{1/2}$ and $\alpha'=-mu-ku'$. Then $N=(\alpha\nu_1-u'\tau_1)/J$, $\partial_s=J^{-1}\partial_\sigma$, and
+\[
+\kappa=\frac{kJ^2+\alpha u''-u'\alpha'}{J^3},\qquad \ip{\Gamma}{N}=\frac{\alpha(p+u)-u'q}{J},\qquad \ip{e_1}{N}=-\frac{\alpha\sin\theta+u'\cos\theta}{J}.
+\]
+Since $\ip{\Gamma_\tau}{N}=u_\tau\,\alpha/J$, equation \eqref{eq:resc} reads
+\begin{equation}\label{eq:graph}
+u_\tau=\frac{J}{\alpha}\Big[-J^{-1}\big(J^{-1}\kappa'\big)'+(\tfrac14-a)\ip{\Gamma}{N}-b\ip{e_1}{N}\Big]
+=-J^{-4}u''''+B(\sigma,u,u',u'',u''';a,b).
+\end{equation}
+Here $B$ is a polynomial in $(u'',u''')$ of degree $3$ (terms $u'''u''$, $u'''$, $u''^3$, $u''^2$, $u''$, $1$), with coefficients smooth in $(\sigma,u,u')$ on $\{\alpha>0\}$, and affine in $(a,b)$. Moreover:
+\begin{enumerate}
+\item $u=0$, $a=b=0$ is a solution (this is $k''=\frac14p$);
+\item the linearization at $u=0$ is $L u=-u''''-k^2u''-(5km+\frac q4)u'+(\frac14-3m^2-kp)u$, and the $(a,b)$-terms linearize to $-a\psi_1-b\psi_2$ with $\psi_1=p$, $\psi_2=-\sin\theta=\ip{e_1}{\nu_1}$;
+\item the quadratic part has $u''''$-coefficient $-4ku$, consistent with $-J^{-4}=-1-4ku+2u'^2+O(|u|^2)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+$\Gamma_\sigma=\alpha\tau_1+u'\nu_1$, and the formula for $\kappa$ is the curvature of a plane curve in the frame $(\tau_1,\nu_1)$. The leading term: $\kappa$ contains $\alpha u''/J^3$, so $\kappa_{ss}$ contains $\alpha u''''/J^5$, and $(J/\alpha)\cdot\alpha/J^5=J^{-4}$. Items (1)--(3) were verified symbolically (\texttt{step3nl/graph\_eq.py}): the residual at $u=0$ simplifies to $0$, the first variation minus $L$ simplifies to $0$, and the second variation has $u''''$-coefficient $-4ku$.
+\end{proof}
+
+So \eqref{eq:graph} is quasilinear and uniformly parabolic as long as $|u'|$ and $|ku|$ stay small. The top-order nonlinearity is $(1-J^{-4})u''''$. In an $L^2$ energy identity, one integration by parts turns it into $\int\rho\,(1-J^{-4})|u''|^2$ plus lower-order terms. That term is absorbed by the dissipation once $\|1-J^{-4}\|_\infty\le\frac14$. This is why every energy estimate below needs pointwise $C^2$-smallness on its region.
+
+\section{Trapping suffices}
+
+\begin{proposition}\label{prop:trap}\lab{proved}
+Let $\gamma:[t_1,T_{\max})$ be a maximal smooth CDF. Suppose that on $[t_1,T_{\max})$ there are $C^1$ functions $\lambda>0$ and $x$, and a function $a$, with
+\[
+\frac{d}{dt}\lambda^4=-1+4a(t),\qquad |a(t)|\le a_*<\tfrac14 .
+\]
+Then $T_{\max}\le t_1+\lambda(t_1)^4/(1-4a_*)<\infty$. In particular the flow becomes singular.
+\end{proposition}
+\begin{proof}
+$\lambda(t)^4\le\lambda(t_1)^4-(1-4a_*)(t-t_1)$, and the left side is positive.
+\end{proof}
+
+The identity $\frac{d}{dt}\lambda^4=4\lambda^3\lambda_\tau\lambda^{-4}=-1+4a$ holds for the modulation of \eqref{eq:resc}. So what step 3 must deliver is a \emph{trapping theorem}: if at $t_1$ the rescaled curve is $\delta_0$-close to $S_1$ near the centre and regular further out, then on all of $[t_1,T_{\max})$ it stays $\delta_1$-close and the modulation obeys $|a|\le a_*$. Three remarks.
+\begin{enumerate}
+\item No decay is needed. An energy inequality $E'\le-2\omega E+F$ with a non-decaying but small forcing $F\le2\omega\delta_1^2$ is enough. Fluxes from the outer region are of this type.
+\item The outer region only has to be controlled for the time budget $T_{\max}-t_1\le\lambda_1^4/(1-4a_*)$. Away from the centre this is short compared with the natural time scale.
+\item If in addition the curvature stays bounded away from $x(t)$, then $\lambda\to0$, the singularity is at $x_T=\lim x(t)$, and the pocket area tends to $0$ (notes, Theorem~6.4). For the question asked (does the hairpin become singular?) this refinement is not needed.
+\end{enumerate}
+
+\begin{lemma}[modulation]\lab{proved, constants to be made explicit}
+Let $f_1=\chi p$ and $f_2=\chi\ip{\tau}{\tau_{\rm tip}}=-\chi\sin\theta$ be the constraint functions of the fourth supplement, and $M=[\ip{\psi_j}{f_i}_\rho]$, with $\|M^{-1}\|\le2.0005$ certified there. Impose $\ip{u}{f_i}_\rho=0$ for all $\tau$. Then $(a,b)$ solves
+\[
+\big(M+\mathcal E(u)\big)\binom ab=\binom{\ip{u}{L^*f_1}_\rho+\ip{N_0(u)}{f_1}_\rho}{\ip{u}{L^*f_2}_\rho+\ip{N_0(u)}{f_2}_\rho},
+\]
+where $N_0$ is the $(a,b)$-free nonlinear remainder of \eqref{eq:graph} and $\mathcal E(u)$ is linear in $(u,u')$ on $\mathrm{supp}\,\chi$. Hence, if $\|\mathcal E(u)\|\le\frac18$, then $|a|+|b|\le5.4\,\max_i\big(\|L^*f_i\|_\rho\|u\|_\rho+\|f_i\|_\rho\|N_0(u)\|_\rho\big)$. The float values are $\|L^*f_1\|=13.4$ and $\|L^*f_2\|=6.87$. This crude bound already forces $\|u\|_\rho\lesssim3\cdot10^{-3}$ for $a_*<\frac14$; sharper versions should use $u\perp f_i$ and the triangular decomposition.
+\end{lemma}
+\begin{proof}
+Differentiate $\ip{u}{f_i}_\rho=0$ in $\tau$ and insert \eqref{eq:graph}. The $a$- and $b$-coefficients are $-\ip{p+u-u'q/\alpha}{f_i}$ and $\ip{\sin\theta+u'\cos\theta/\alpha}{f_i}$, that is $-M$ plus a term linear in $(u,u')$. Then use a Neumann series: $\|(M+\mathcal E)^{-1}\|\le2.0005/(1-2.0005/8)\le2.67$.
+\end{proof}
+
+\section{A numerical study of the nonlinear modulated flow}\label{sec:num}\lab{numerical}
+
+\emph{Method} (\texttt{step3nl/nlflow.py}). Even class, half-line $x=\sigma-\sigma_{\rm tip}\in[0,X]$. The right side of \eqref{eq:graph} is generated symbolically from the jet $(u,\dots,u'''')$. The profile identities are built into the derivative, so $u=0$ is stationary to machine precision. Finite differences are used, with even reflection at the tip and a free end ($u''=u'''=0$) at $X$; the drift is outgoing there. A first attempt with a hinged end ($u=0$) produced a spurious boundary layer, because the modulated centre moves and the far rays then appear displaced in the rescaled frame. Time stepping is semi-implicit, with $-J^{-4}u''''$ implicit and its coefficient frozen. The parameters $a,b$ are fixed at each step so that the updated $u$ is exactly $\rho$-orthogonal to $f_1,f_2$, and $\lambda$, $x$, $t$ are integrated alongside. Convergence: $(X,h,\Delta\tau)=(34,0.05,2\cdot10^{-3})$, $(34,0.04,10^{-3})$ and $(44,0.05,2\cdot10^{-3})$ agree to $0.3\%$ in $\|u\|_\rho$ and to $2\%$ in $\log\lambda$ and $x$ at $\tau=15$. Moving the far end from $34$ to $44$ changes nothing visible.
+
+\emph{Linear regime.} For $u_0=10^{-4}e^{-x^2/4}$ the decay rate of $\|u\|_\rho$ is $-1.20$ on $[0,1]$, then $-0.06$ on $[1,3]$ (the non-normal transient behind the slow certified rate $0.0213$), and then it approaches $-0.256=\tilde\lambda$: $-0.229,-0.238,-0.245,-0.249$ on successive unit intervals up to $\tau=12$.
+
+\emph{Basin.} Three shapes, cut off smoothly to $x<10$: a tip bump $e^{-x^2/4}$, a bump at $|x|=4$ (around the loop), and a wide bump $(1-x^2/100)^2$. Here $u>0$ moves the curve toward the loop's centres of curvature. The tip radius is $1/k_0=0.649$.
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+shape & amplitudes $\delta=\sup|u_0|$ tried & outcome by $\tau=15$\\
+\midrule
+tip & $-1.5,-1,-0.6,-0.4,-0.2,0.1,\dots,0.6$ & all return ($\|u\|_\rho\le0.04$)\\
+tip & $0.65$ & $\alpha<0$ at the tip initially: graph chart invalid\\
+loop & $-0.6,-0.4,-0.2,0.1,\dots,0.5$ & all return ($\|u\|_\rho\le0.007$)\\
+wide & $-1,-0.6,-0.3,0.2,0.3,0.4,0.5$ & all return ($\|u\|_\rho\le0.09$)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The initial weighted norms reach $\|u_0\|_\rho\approx1.9$. The only failure is a perturbation that leaves the graph chart at $\tau=0$. So, within the symmetric class and the graph chart, $S_1$ is numerically a strong attractor, with a basin of order one. These perturbations are localized ($|y|<10$). Along the slow mode the picture is different in scale: normalized to $1$ at the tip, $\psi_3$ equals $5.0$, $41$ and $218$ at $|y|=5,10,20$. Runs of $\pm0.1\psi_3$ and $\pm0.3\psi_3$, cut off at $|y|=12$ or $20$, left the solver's range before $\tau=1$, with slopes of order one at $|y|\approx10$. That is a statement about the chart and the solver, not about stability. A meaningful test needs the hairpin's actual deviation profile. A perturbative proof will certify a much smaller basin. Section~\ref{sec:step4} explains why that gap is the main efficiency issue.
+
+\section{Weights, and a three-region scheme}\label{sec:regions}
+
+\emph{Polynomial weights are unsuitable globally} \lab{numerical} (\texttt{step3/polyweight.py}). In $W=(1+x^2)^{-p}$ the eigenvalues are unchanged ($1.003$, $0.249$, $-0.256$, $-0.700$, \dots\ at $h=0.05$). Theory predicts essential spectrum in $\mathrm{Re}\,\lambda\le\frac{3-2p}8$, and the $\tilde\lambda$-mode, which grows like $|x|^{2.02}$, is not an eigenvalue for $p<2.525$. But the numerical range is huge:
+\begin{center}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+$p$ & $1.75$ & $2.0$ & $2.25$ & $2.5$\\
+\midrule
+numerical abscissa $\omega_0$ & $5.78$ & $7.81$ & $10.66$ & $14.53$\\
+$\sup$ on $\{\psi_1,\psi_2\}^\perp$ & $1.48$ & $2.50$ & $4.15$ & $6.67$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For comparison, in the Gaussian weight $\rho$ these values are $1.73$ and $0.067$. The cause is the anti-diffusive term $2\int W''|u'|^2$ from the fourth-order part, whose coefficient $2W''/W$ equals $2p^2$ at $|x|=1$. So the Gaussian weight stays the right inner weight.
+
+\emph{Polynomial weights are coercive on the conical region} \lab{numerical} (\texttt{step3/polyfar.py}). Numerical abscissa of $L$ in $L^2(W)$ for functions supported in $[R_1,200]$:
+\begin{center}
+\begin{tabular}{@{}lccccc|c@{}}
+\toprule
+$p$ & $R_1=3$ & $5$ & $8$ & $12$ & $20$ & $\frac{3-2p}8$\\
+\midrule
+$1.75$ & $+0.077$ & $+0.031$ & $+0.003$ & $-0.015$ & $-0.030$ & $-0.0625$\\
+$2.0$ & $+0.056$ & $-0.012$ & $-0.048$ & $-0.069$ & $-0.088$ & $-0.125$\\
+$2.5$ & $+0.055$ & $-0.087$ & $-0.146$ & $-0.176$ & $-0.202$ & $-0.25$\\
+\bottomrule
+\end{tabular}
+\end{center}
+On the cone the operator is $-\partial^4-\frac x4\partial+\frac14$ up to super-exponentially small terms. The drift gives exactly $\frac{3-2p}8$, and the corrections are $O(p^2/R_1^2)$. So this lemma can be proved by hand with explicit constants.
+
+\emph{The scheme} \lab{plan}. Write $y$ for the rescaled position, and fix $R_1\approx6$--$8$ and $R_2\gg R_1$.
+\begin{itemize}
+\item \textbf{Inner}, $|y|\le2R_1$: the Lyapunov functional of the fourth supplement (Gaussian weight, triangular in the $\tilde\lambda$-mode, rate $0.0213$, constant $14.8$) applied to $\chi_{R_1}u$. Add weighted higher-order energies for pointwise $C^2$ control on $|y|\le2R_1$. The cutoff commutators live where $\rho\le\rho(R_1)$ ($\rho(8)\approx1.8\cdot10^{-2}$, $\rho(12)\approx10^{-3}$), so the flux from outside enters with that small factor.
+\item \textbf{Intermediate}, $R_1\le|y|\le R_2$: an energy in $W=(1+y^2)^{-p}$, $p\approx2.5$, coercive at rate $\approx0.15$ by the table. It receives flux from the inner region at $|y|\approx R_1$ and from the outer region at $|y|\approx R_2$. Pointwise control loses only $R^{p}$.
+\item \textbf{Outer}, $|x-x(t)|\ge\frac12R_2\lambda(t)$, in original variables: a local curvature-energy (``lifespan'') estimate. If $r\!\int_{B_r}k^2\le\eps$ at time $t_r$, it stays $\le2\eps$ on $[t_r,t_r+c\,r^4]$. A point at distance $r$ is handed over when $r=\frac12R_2\lambda(t_r)$, and the remaining time is at most $\lambda(t_r)^4/(1-4a_*)$. Using balls of radius $r/4$, it suffices that $R_2\ge8\,(c(1-4a_*))^{-1/4}$. On this region one tracks $|u|\lesssim\eta|y|$ and $|u'|\lesssim\eta$, not decay.
+\end{itemize}
+The couplings are triangular. The inner region sees the intermediate one only through $\rho(R_1)$. The intermediate region sees the outer one through $W(R_2)\approx R_2^{-2p}$. The outer region needs only the hand-off smallness, which the intermediate energy provides. Lemmas still to be proved, all with explicit constants: (N-in) nonlinear inner estimate; (H-in) higher-order inner energies; (L-int, N-int) intermediate linear and nonlinear estimates; (O) the lifespan estimate for planar CDF, whose constant $c$ fixes $R_2$; (M) modulation; and the bootstrap.
+
+\begin{remark}[Wheeler's pinch-off paper]
+Wheeler \cite{W2} constructs pinching tori for surface diffusion. The construction runs through a strong-stable graph (Lyapunov--Perron) in polynomially weighted spaces, maximal regularity along dilation characteristics, and gluing to an outer cap. The result is a family of codimension $\dim E_c$, and the constants are not explicit. Here the goal is a statement about one explicit curve, so an energy method with explicit constants is needed. The modulation of $T$ and $x_T$ absorbs the unstable modes, so the expected result is an open set in the symmetric class.
+\end{remark}
+
+\section{Consequences for step 4}\label{sec:step4}
+
+Three constraints fix how late the hand-off to the trapping theorem must be.
+
+\emph{(a) Basin.} In the notes' data, scale-invariant quantities of the collapsing loop differ from those of $S_1$ by $0.7$--$1.1\%$ at $k_{\max}=911$, with corrections linear in $1/k_{\max}$. This is the $\tilde\lambda$-mode, since $e^{\tilde\lambda\tau}\propto k_{\max}^{-1.025}$. So the relative distance to $S_1$ is about $8/k_{\max}$, and a basin $\delta_0$ needs $k_{\max}\gtrsim8/\delta_0$. That is $80$, $800$ and $8000$ for $\delta_0=10^{-1},10^{-2},10^{-3}$. A perturbative trapping theorem, with the certified rate $0.0213$, the crude modulation constant above and Sobolev losses, will realistically give $\delta_0$ between $10^{-3}$ and $10^{-2}$.
+
+\emph{(b) Room for the cone.} The rays of $S_1$ are, in the hairpin, the two sides of the lens. They bend and cross at $c_1$, at original distance $\approx0.16$ from $x_T$. So the curve is $S_1$-like only out to an original distance $r_{\rm cone}$ of a few hundredths. The inner and intermediate regions, out to $|y|=R_2$, must fit: $R_2\lambda_1\lesssim r_{\rm cone}$, that is $k_{\max}\gtrsim1.5R_2/r_{\rm cone}$. With $R_2=20$ and $r_{\rm cone}=0.05$ this is $600$. At $k_{\max}=25$, for instance, $c_1$ sits at rescaled distance $\approx2.6$, inside the core.
+
+\emph{(c) Outer time budget.} Beyond $r_{\rm cone}$ (the lens, $c_1$, the arms) the curve has curvature of order $10$ and natural time scale $\approx10^{-4}$. The remaining time is only $\lambda_1^4/(1-4a_*)$: about $5\cdot10^{-8}$ at $k_{\max}=100$. So the outer region barely moves. But the lifespan estimate must certify this with its constant: $\lambda_1^4\le c\,(r_{\rm cone}/4)^4(1-4a_*)$.
+
+So, with the tools as they stand, the final hand-off is at $k_{\max}$ of several hundred to a few thousand. The notes' unvalidated run reached $911$ with $65536$ modes. A validated integration of the whole hairpin \emph{in original variables} to that depth is not realistic. The way through is a hybrid validated integration from moderate curvature ($k_{\max}\approx25$) to the final hand-off. The pocket is resolved in the rescaled frame on a fixed grid. The outer curve (lens, arms) is resolved in original variables, over a total time of order $10^{-6}$. The two are matched on the strands in between, which are nearly straight. That stretch takes $\Delta\tau=\log(0.3/\delta_0)/0.256$, about $22$ for $\delta_0=10^{-3}$. The validation is an a posteriori energy estimate for the difference from the numerical trajectory. Near $S_1$, its amplification is controlled by the fourth-supplement Lyapunov functional. So steps 3 and 4 share their main lemma, and the large numerical basin of \S\ref{sec:num} is what makes the moderate-curvature start plausible.
+
+\section{Hairpin data from an independent solver}\label{sec:hp}\lab{numerical}
+
+\emph{Solver} (\texttt{step4/hls.py}). The tangent-angle, equal-arclength formulation, $\theta=\alpha+\tilde\theta$ with $\alpha\in[0,2\pi)$. In the time $\tau'$ with $d\tau'/dt=(2\pi/L)^4$ the $\tilde\theta$-equation is autonomous:
+\[
+\tilde\theta_{\tau'}=-(\partial^4+\partial^2)\tilde\theta-G\,\theta_\alpha+\tilde\theta_{\alpha\alpha},\qquad G=\int_0^\alpha\big(\tilde\theta_{\alpha\alpha\alpha}\theta_\alpha-\overline{\tilde\theta_{\alpha\alpha\alpha}\theta_\alpha}\big),
+\]
+and $\log L$, $t$ and the base point are slaved to it. A first version kept $L$ in the linear part and was only second order in time; this one shows order $\approx3.5$. The scheme is ETDRK4 with constant coefficients, the grid adapts to the spectral tail, and the step is $10^{-2}\rho^4$, $\rho=1/\max|k|$, ramped up from a small first step. Checks: the limaçon's inner loop collapses at $T=0.0243230$ (notes: $0.024322$). Halving the step and doubling the initial grid moves the hairpin's $T$ by $3\cdot10^{-8}$ and the scale-invariant tables below by less than $10^{-4}$. Area is conserved to $3\cdot10^{-10}$.
+
+\emph{Initial curve} (\texttt{step4/hairpin.py}). The curvature of $\gamma_0$ is cell-averaged and mollified by the bump $e^{-1/(1-(s/a)^2)}$ of half-width $a$ (total width $2a$). The curve is closed by $\theta\mapsto\theta+\eps\sin\alpha$ with $|\eps|<10^{-3}$, which keeps the mirror symmetry. For $a=0.025$: $L_0=54.597$ and $A=26.509$; the notes have $A=26.48$.
+
+\emph{Arms 12, $a=0.025$.} The slot walls meet at $t=0.0167$ near $x=11.6$, the pocket starts at $|X|=1.18$, and $|\Lambda|-|X|$ changes sign between $t=0.65$ and $0.88$ (notes: $0.78$). All of this agrees with the notes. The pocket collapses at $T=0.93168216$, at $x_T\approx10.853$, with $|\Lambda|\to0.0115$. The type-I quantity $-\frac{d}{dt}k_{\max}^{-4}$ is $0.1800$--$0.1805$ for $k_{\max}\in(200,900)$; the notes have $0.1805\pm0.002$. The scale-invariant quantities converge to $S_1$ exactly as in the notes' table: at $k_{\max}=802$, $(c_2-\text{tip})\,k_{\rm tip}=2.614$ against $2.572$, and $|X|k_{\rm tip}^2=4.023$ against $3.976$. The notes have $2.59$ and $4.009$ at $911$. So the dynamics agree; the earlier $T$ here ($0.932$ against $1.028$) must come from a difference in the initial curve.
+
+\emph{Sensitivity} (outcome by $t$; ``re-embeds'' means the lens empties first, the double points annihilate, and the flow converges to the circle):
+\begin{center}
+\begin{tabular}{@{}cclll@{}}
+\toprule
+arms & $a$ & outcome & time & area left\\
+\midrule
+12 & $0.0125$ & blow-up & $T=0.9032$ & $|\Lambda|\to0.041$\\
+12 & $0.025$ & blow-up & $T=0.9317$ & $|\Lambda|\to0.0115$\\
+12 & $0.05$ & re-embeds & $t=1.043$ & $|X|=0.078$\\
+14 & $0.025$ & blow-up & $T=1.3665$ & $|\Lambda|\to0.138$\\
+14 & $0.05$ & re-embeds & $t=1.5408$ & $|X|=0.0018$\\
+16 & $0.025$ & blow-up & $T=1.9080$ & $|\Lambda|\to0.267$\\
+16 & $0.05$ & blow-up & $T=2.1649$ & $|\Lambda|\to0.107$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The notes report blow-up for arms 12 ($T=1.0279$) and 14 ($T=1.5033$). So the hairpin with arms 12, and even with arms 14, is near the threshold. Whether it blows up depends on how the slot end, of curvature $-20$, is smoothed. A theorem about ``the'' hairpin must fix the initial curve exactly. For the rigorous program a curve with a margin is much better: arms 16 keeps $|\Lambda|\ge0.107$ under both smoothings.
+
+\emph{The approach to $S_1$ is the slow mode} (\texttt{step4/handoff.py}). Modulate by the tip, $\lambda=k_0/k_{\rm tip}$ and $x_c=x_{\rm tip}+D\lambda$, and compute the normal graph $u$ over $S_1$. On $|y|\le6$, $u$ is fitted by $c_3\psi_3+a_1\psi_1+a_2\psi_2$, with $\psi_3(0)=1$, to relative accuracy $6\cdot10^{-4}$ (arms 12, $k_{\max}=802$) and $2\cdot10^{-3}$ (arms 16, $k_{\max}\ge140$). The amplitudes:
+\begin{center}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+$k_{\max}$ & $100$ & $200$ & $400$ & $800$ & chart end at $800$ & $\|u\|_\rho$ at $800$\\
+\midrule
+arms 12: $c_3k_{\max}$ & $-55$ & $-53$ & $-45$ & $-44$ & $|y|=16$ & $0.63$\\
+arms 16: $c_3k_{\max}$ & $-8.3$ & $-8.1$ & $-8.0$ & $-7.9$ & $|y|\ge34$ & $0.11$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Here $\|\psi_3\|_\rho=10.9$, most of it from $4\le|y|\le16$, where $\psi_3$ grows like $|y|^{2.02}$. For arms 12 the strands leave the $S_1$ rays at original distance $\approx0.04$: the corner of $\gamma(T)$ at $x_T$ is strongly curved. For arms 16 the graph chart over $S_1$ already reaches $|y|=34$ at $k_{\max}=400$, and $c_1$ is at rescaled distance $184$.
+
+\emph{Shape search} (\texttt{step4/shape\_summary.py}; smoothing $a=0.025$ unless noted; arm length $\ell$, arm width $W$, slot $w$; $c_3k_{\max}$ measured at $k_{\max}=400$):
+\begin{center}
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+$\ell$ & $W$ & $w$ & outcome & $T$ & $|\Lambda|\to$ & $c_3k_{\max}$\\
+\midrule
+12 & 1 & 0.1 & blow-up & 0.932 & 0.012 & $-44$\\
+12 & 1 & 0.05 & blow-up & 0.439 & 0.105 & $-13.5$\\
+16 & 1 & 0.2 & re-embeds & & &\\
+16 & 1 & 0.1 & blow-up & 1.908 & 0.267 & $-8.0$\\
+16 & 1 & 0.05 & blow-up & 0.919 & 0.321 & $-7.3$\\
+16 & 0.7 & 0.1 & blow-up & 1.713 & 0.237 & $-8.3$\\
+16 & 1.5 & 0.1 & blow-up & 2.124 & 0.098 & $-14.5$\\
+20 & 1 & 0.1 & blow-up & 3.344 & 0.542 & $-5.4$\\
+20 & 1 & 0.05 & blow-up & 1.642 & 0.556 & $-5.3$\\
+24 & 1 & 0.1 & blow-up & 5.302 & 0.833 & $-4.2$\\
+24 & 1 & 0.05 & blow-up & 2.649 & 0.803 & $-4.3$\\
+30 & 1 & 0.1 & blow-up & 9.343 & 1.289 & $-3.3$\\
+\midrule
+24 & 1 & 0.05 & blow-up ($a=0.05$) & 4.184 & 0.372 & $-6.7$\\
+20 & 1 & 0.05 & blow-up ($a=0.05$) & 2.519 & 0.231 & $-8.8$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Three patterns. The slow-mode amplitude is set mainly by the arm length, roughly like $\ell^{-1.3}$ once $\ell\ge16$. Halving the slot halves $T$ and leaves $c_3k_{\max}$ and the lens margin about the same. Wider arms are worse. Within the hairpin family the gain is therefore real but modest: from arms 16 to arms 24 the amplitude halves. A good compromise is $(\ell,W,w)=(24,1,0.05)$: $T=2.65$, a lens margin of $0.80$, and $c_3\approx-4.3/k_{\max}$. It still blows up when the smoothing is doubled, although with $a=0.05$ the smoothing is wider than its slot end, which changes the curve noticeably. With this curve the slow-mode expansion of \S\ref{sec:slow} reaches $|c|\le0.01$ at $k_{\max}\approx430$, and $|c|\le0.005$ at $k_{\max}\approx860$. A tenfold reduction would need a different design, for instance arm tips shaped so that the crossing strands leave the collapse point along the $S_1$ rays over a longer range.
+
+\emph{Consequences.} (i) The deviation at hand-off is essentially one-dimensional: a slow-mode amplitude $c_3$, plus a remainder about $10^{-3}$ times smaller. A trapping theorem should therefore track $c_3$ exactly, which the triangular structure of the fourth supplement already does, and require smallness only of the remainder $v$. A purely perturbative basin in $L^2(\rho)$ would need $k_{\max}\approx90/\delta_0$ for arms 16 and $480/\delta_0$ for arms 12. (ii) With arms 16 and $c_3$ tracked, a hand-off at $k_{\max}\approx200$--$400$ ($|c_3|\approx0.02$--$0.04$, chart beyond $|y|=20$) looks realistic. That is half the depth of the notes' unvalidated run. Constraint (b) of \S\ref{sec:step4} essentially disappears for arms 16. (iii) Arms 16, or better $(24,1,0.05)$ from the shape search, should replace arms 12 as the target curve.
+
+\section{Slow-mode coordinates}\label{sec:slow}
+
+\emph{Exact equations} \lab{proved, given the eigenfunctions}. Let $\psi_1,\psi_2,\psi_3$ be the even eigenfunctions for $1,\frac14,\tilde\lambda$, and $\psi_i^*$ the $L^2(\rho)$-adjoint eigenfunctions, with $\ip{\psi_i}{\psi_j^*}_\rho=\delta_{ij}$. Modulate \emph{spectrally}, by $\ip{u}{\psi_1^*}_\rho=\ip{u}{\psi_2^*}_\rho=0$, and write $u=c\,\psi_3+v$ with $\ip{v}{\psi_3^*}_\rho=0$. Biorthogonality and $L^*\psi_i^*=\lambda_i\psi_i^*$ give
+\[
+c'=\tilde\lambda\,c+\ip{N(u)}{\psi_3^*}_\rho,\qquad v'=Lv+P\,N(u),\qquad a=\ip{N(u)}{\psi_1^*}_\rho,\quad b=\ip{N(u)}{\psi_2^*}_\rho .
+\]
+Here $P$ is the spectral projection onto the complement and $N$ is the nonlinear remainder of \eqref{eq:graph}, up to terms of the form (modulation)$\times O(u)$. There is no linear coupling at all, and the modulation parameters are \emph{quadratic}.
+
+\emph{Numbers} \lab{numerical} (\texttt{step3nl/slowman.py}, \texttt{slowman2.py}; finite differences, $h=0.05$, $|y|\le34$; $\psi_3(0)=1$):
+\begin{itemize}
+\item the numerical abscissa of $L$ on the spectral complement of $\psi_1,\psi_2,\psi_3$ is $-0.085$. The certified rate with the mixed constraints of the fourth supplement is $\frac3{64}=0.047$, and without $\psi_3$ the abscissa is $+0.116$;
+\item $c'=-0.256\,c-0.124\,c^2+0.55\,c^3+\cdots$, $a=-6.9\,c^2$, $b=-2.65\,c^2$;
+\item the second-order term $v\approx c^2h_2$, with $(L-2\tilde\lambda)h_2=-PN_2(\psi_3,\psi_3)$, has $\|PN_2\|_\rho=31$ and $\|h_2\|_\rho=13.2$. The third-order term has forcing norm $43$ and $\|h_3\|_\rho=490$;
+\item the far-field growth is $\psi_3\sim|y|^{2.02}$, $h_2\sim|y|^{3.05}$, $h_3\sim|y|^{4.08}$. For example $\psi_3,h_2,h_3=41,\,49,\,1486$ at $|y|=10$.
+\end{itemize}
+In $L^2(\rho)$ the three terms of the expansion are $(0.109,\,1.3\cdot10^{-3},\,4.9\cdot10^{-4})$ at $c=0.01$ and $(0.218,\,5.3\cdot10^{-3},\,3.9\cdot10^{-3})$ at $c=0.02$. So the series in $c$ has ratio about $37c$ and is useful only for $|c|\lesssim0.005$--$0.01$. The cause is the far field, $6\le|y|\le12$, where $\rho$ is not yet negligible. The inner dynamics are benign: rate $-0.256$, small quadratic coefficient, modulation $O(c^2)$. The hairpin's remainder at $k_{\max}=400$ (arms 16, $c=-0.020$) is of the size $c^2h_2$ predicts.
+
+\emph{The trapping theorem, revised} \lab{plan}. Put $w=u-c\psi_3-c^2h_2-c^3h_3$, which lies in the spectral complement. Then $w'=Lw+F$ with $F=O(c^4+|c|\,\|w\|+\|w\|^2)$, and the target statement is: the region $\{|c|\le c_*,\ \|w\|_X\le\delta\}$ is forward invariant. This needs:
+\begin{enumerate}
+\item certified $\psi_3$, $\psi_i^*$ and $h_2,h_3$, all solutions of linear ODE problems of the kind already handled;
+\item coercivity on the spectral complement with some $\theta\int\rho|w''|^2$ to spare, which the Gram method gives with adjoint constraint functions;
+\item nonlinear bounds over a jet box;
+\item a cutoff at an inner radius $R_{\rm in}$, beyond which $c\psi_3$ is no longer perturbative. Its boundary data must come from the outer (corner) solution.
+\end{enumerate}
+With $|c_*|\approx0.005$--$0.01$ this means a hand-off at $k_{\max}\approx800$--$1600$ for arms 16, and $4400$--$9000$ for arms 12. Pushing the hand-off earlier needs item (4) done well, that is, an honest matched description of the region where the strands leave the rays.
+
+\section{Next steps}
+In order: (i) done in \S\ref{sec:hp}: switch the target to arms 16 with a fixed smoothing. (i$'$) Certify $\psi_3$, the adjoint eigenfunctions and the spectral-complement coercivity (\S\ref{sec:slow}). (ii) The explicit lifespan estimate (O), because its constant enters constraint (c). (iii) The cone-region coercivity (L-int), by hand. (iv) The nonlinear inner and intermediate estimates, as interval-arithmetic bounds over a jet box using the explicit form of $B$ in \eqref{eq:graph}. (v) A sharper modulation lemma.
+
+\begin{thebibliography}{9}
+\bibitem{W2} G.~Wheeler, \emph{Pinchoff by surface diffusion}, arXiv:2608.21882 (2026).
+\end{thebibliography}
+\end{document}

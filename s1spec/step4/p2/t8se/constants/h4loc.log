@@ -1,0 +1,49 @@
+amp_fin_n3.json: window slabs [180, 180], |W| = 1.465e-04, D2(tau*) <= 1.248e-08 (Ybar-free 2.61e-10, linear 2.83e-09, quadratic 9.39e-09)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.346e-01  base 2.6e-06  total/M^2 = 16.4
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.280e+00  base 5.0e-06  total/M^2 = 89.2
+     cone r_c 370-380: L   95.0  y0   88.3  error 4.005e+00  base 6.8e-06  total/M^2 = 279
+       far centre 376: L  113.0  y0  145.8  error 4.947e+00  base 1.1e-06  total/M^2 = 4.95
+       far centre 602: L  113.0  y0  371.8  error 7.604e-01  base 6.9e-09  total/M^2 = 0.761
+   worst: cone r_c 370-380 total/M^2 = 279
+amp_fin_n3_w175.json: window slabs [175, 175], |W| = 1.500e-01, D2(tau*) <= 1.182e-11 (Ybar-free 2.78e-13, linear 2.78e-12, quadratic 8.76e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.222e-04  base 3.7e-06  total/M^2 = 0.0196
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.212e-03  base 7.1e-06  total/M^2 = 0.0975
+     cone r_c 370-380: L   95.0  y0   88.3  error 3.793e-03  base 1.2e-05  total/M^2 = 0.294
+       far centre 376: L  113.0  y0  145.8  error 4.685e-03  base 1.8e-06  total/M^2 = 0.00487
+       far centre 602: L  113.0  y0  371.8  error 7.201e-04  base 1.7e-08  total/M^2 = 0.000727
+   worst: cone r_c 370-380 total/M^2 = 0.294
+amp_fin_n3_w176.json: window slabs [176, 176], |W| = 1.500e-01, D2(tau*) <= 1.196e-11 (Ybar-free 2.73e-13, linear 2.78e-12, quadratic 8.91e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.248e-04  base 3.6e-06  total/M^2 = 0.0198
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.226e-03  base 6.2e-06  total/M^2 = 0.0977
+     cone r_c 370-380: L   95.0  y0   88.3  error 3.838e-03  base 1.0e-05  total/M^2 = 0.295
+       far centre 376: L  113.0  y0  145.8  error 4.740e-03  base 1.6e-06  total/M^2 = 0.00492
+       far centre 602: L  113.0  y0  371.8  error 7.286e-04  base 1.4e-08  total/M^2 = 0.000735
+   worst: cone r_c 370-380 total/M^2 = 0.295
+amp_fin_n3_w177.json: window slabs [177, 177], |W| = 1.500e-01, D2(tau*) <= 1.211e-11 (Ybar-free 2.69e-13, linear 2.78e-12, quadratic 9.05e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.276e-04  base 3.0e-06  total/M^2 = 0.0196
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.242e-03  base 5.5e-06  total/M^2 = 0.0981
+     cone r_c 370-380: L   95.0  y0   88.3  error 3.885e-03  base 9.1e-06  total/M^2 = 0.297
+       far centre 376: L  113.0  y0  145.8  error 4.798e-03  base 1.4e-06  total/M^2 = 0.00496
+       far centre 602: L  113.0  y0  371.8  error 7.376e-04  base 1.2e-08  total/M^2 = 0.000744
+   worst: cone r_c 370-380 total/M^2 = 0.297
+amp_fin_n3_w178.json: window slabs [178, 178], |W| = 1.500e-01, D2(tau*) <= 1.226e-11 (Ybar-free 2.66e-13, linear 2.79e-12, quadratic 9.21e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.305e-04  base 3.0e-06  total/M^2 = 0.0199
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.258e-03  base 6.0e-06  total/M^2 = 0.0998
+     cone r_c 370-380: L   95.0  y0   88.3  error 3.935e-03  base 8.1e-06  total/M^2 = 0.299
+       far centre 376: L  113.0  y0  145.8  error 4.860e-03  base 1.3e-06  total/M^2 = 0.00502
+       far centre 602: L  113.0  y0  371.8  error 7.471e-04  base 1.0e-08  total/M^2 = 0.000753
+   worst: cone r_c 370-380 total/M^2 = 0.299
+amp_fin_n3_w179.json: window slabs [179, 179], |W| = 1.500e-01, D2(tau*) <= 1.243e-11 (Ybar-free 2.63e-13, linear 2.80e-12, quadratic 9.36e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.336e-04  base 2.5e-06  total/M^2 = 0.0198
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.275e-03  base 5.4e-06  total/M^2 = 0.1
+     cone r_c 370-380: L   95.0  y0   88.3  error 3.989e-03  base 7.5e-06  total/M^2 = 0.302
+       far centre 376: L  113.0  y0  145.8  error 4.926e-03  base 1.2e-06  total/M^2 = 0.00508
+       far centre 602: L  113.0  y0  371.8  error 7.573e-04  base 8.3e-09  total/M^2 = 0.000762
+   worst: cone r_c 370-380 total/M^2 = 0.302
+amp_fin_n3_w180.json: window slabs [180, 180], |W| = 1.500e-01, D2(tau*) <= 1.261e-11 (Ybar-free 2.62e-13, linear 2.82e-12, quadratic 9.53e-12)
+     cone r_c 200-210: L   52.5  y0   45.8  error 2.369e-04  base 2.6e-06  total/M^2 = 0.0201
+     cone r_c 290-300: L   75.0  y0   68.3  error 1.293e-03  base 5.0e-06  total/M^2 = 0.101
+     cone r_c 370-380: L   95.0  y0   88.3  error 4.045e-03  base 6.8e-06  total/M^2 = 0.304
+       far centre 376: L  113.0  y0  145.8  error 4.997e-03  base 1.1e-06  total/M^2 = 0.00514
+       far centre 602: L  113.0  y0  371.8  error 7.680e-04  base 6.9e-09  total/M^2 = 0.000773
+   worst: cone r_c 370-380 total/M^2 = 0.304

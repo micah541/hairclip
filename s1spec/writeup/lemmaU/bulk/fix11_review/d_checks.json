@@ -1,0 +1,227 @@
+{
+ "Drho": {
+  "sup_2phi1": 2.16482799398138,
+  "sup_phi1sq_minus_phi2": 1.1610861091672284
+ },
+ "Q2": {
+  "Gs_rel_rad": 1.3545625130092116e-05,
+  "certified_upper": {
+   "43.3271": false,
+   "43.3275": false,
+   "43.33": false,
+   "43.4": false,
+   "43.5": false,
+   "44.0": false
+  },
+  "certified_upper_majorant_route": {
+   "43.3271": true,
+   "43.3272": true,
+   "43.328": true,
+   "43.33": true
+  },
+  "coded": 43.33,
+  "direct_congruence_test_c_G_minus_GKG": {
+   "43.3271": false,
+   "43.3275": false,
+   "43.33": false,
+   "43.4": false,
+   "43.5": false,
+   "44.0": false
+  },
+  "float_eigs": [
+   -0.1886738290430598,
+   -0.007467891911579998,
+   0.002430141732338117,
+   43.32424099454717
+  ],
+  "gram_symmetric_overlap": true,
+  "reported": 43.327097178333574
+ },
+ "args": {
+  "argv": [
+   "d_checks.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1_tight/prof/prof_tight.txt": "c55625ae0b1356a367270cd2d3a208cbb5eed9dae61b5187b2987a708fa07c77",
+   "/home/claude/s1spec/step3/certificate_step3_theta_T1.json": "6b7218f05f35c3f49a0429ddc296e1ecaf7c5529babf70cad6ef5a3778cb2a04",
+   "/home/claude/s1spec/step3/gram_post7.py": "fcea6b468301476d3cedb7a2d7cc1f7a729a3d523effd157c86e7c7b9d3a9e06",
+   "/home/claude/s1spec/step3/gram_post8.py": "801dc61e0537fc03d6db5f01b6f88ed158eaf5ff1cebfd8705191ee5384caf3f",
+   "/home/claude/s1spec/step3nl/agent_mod/gram8_g1s4.json": "f18ce9b2cb2b63c5470560fb66033162a7c626b95c99765e965ae73ff90baa13",
+   "/home/claude/s1spec/step3nl_v4b/agent_mod/mod_forms.py": "6f30fae14b19a0bf00472783193923508a81e835187f7404a02c9eec3d24af68",
+   "/home/claude/s1spec/step3nl_v4b/garding_cert.json": "0d401b28a8bea545d77384c392542938720a85c1f4bd6d9f0ab2d67e1c91e96c",
+   "/home/claude/s1spec/step3nl_v4b/garding_cert.py": "ccb6bb85857025eebbc88cfb77fd2556332750b7750b5b6f36e4226a8eec4707",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e2v4b_constants.json": "da2ad87a842b47679c45c90cbc752efb23d369e1b14e1e715ffc61eb753c28e7"
+  },
+  "script_sha256": "6f751ef8dee83b8db54df601c3e3bb91f2a9874ebe5288da06add73ef1a5725e"
+ },
+ "checks": [
+  {
+   "S": [
+    -0.0004926637834187148,
+    -0.0001729770360298006
+   ],
+   "name": "theta: G3 negative definite from the stored mid/rad (plain interval, no shared symbols)",
+   "ok": true
+  },
+  {
+   "S": [
+    -0.000492663783191341,
+    -0.0001729770362571742
+   ],
+   "name": "theta: gram_post8.certify(outT1) reproduces the stored certificate",
+   "ok": true
+  },
+  {
+   "n_ok": 35,
+   "name": "theta: 34 CAPD outputs + Morse run say RESULT OK; positivity cert ok with the same (form_mult, omega)",
+   "ok": true
+  },
+  {
+   "diff": 0.0,
+   "name": "Gaarding: <Mv,v>_rho = int rho(-v''^2 + A v'^2 + V v^2) on generic even data [num]",
+   "ok": true
+  },
+  {
+   "lhs": -4.301035083923641,
+   "name": "Gaarding: <Mv,v>_rho <= -1/2||v''||^2 - int rho mu v^2 [num]",
+   "ok": true,
+   "ub": -3.259989172947792
+  },
+  {
+   "name": "Gaarding: (Lw)'' = Mt w'' + e1 w' + e0 w, Mt = -d^4 + a2 d^2 + (2a2'+a1) d + (a2''+2a1'+a0) [sym]",
+   "ok": true
+  },
+  {
+   "name": "Gaarding: boundary data: a1, c1t odd-type (vanish at the tip m = q = 0)",
+   "ok": true
+  },
+  {
+   "mine": {
+    "e0": 10.668584625096152,
+    "e1": 16.24912901860999,
+    "mu2": 14.342876621419
+   },
+   "name": "Gaarding constants: coded r143, r163, r107 >= my sups (own expressions, finer hull grouping) [cert]",
+   "ok": true
+  },
+  {
+   "name": "D_rho: 2.2 >= sup 2|phi'| and 1.2 >= sup|phi'^2 - phi''| on [0,34.25] [cert]",
+   "ok": true,
+   "s1": 2.16482799398138,
+   "s2": 1.1610861091672284
+  },
+  {
+   "lam": 43.32424099454717,
+   "name": "Q2: coded 43.33 >= float lambda_max of the Gram form (own construction)",
+   "ok": true
+  },
+  {
+   "cert": {
+    "43.3271": true,
+    "43.3272": true,
+    "43.328": true,
+    "43.33": true
+   },
+   "name": "Q2: lambda_max <= 43.33 certified by my own Loewner-majorant + Cholesky code [cert]",
+   "ok": true
+  }
+ ],
+ "garding_consts": {
+  "boxes": 6325,
+  "coded": {
+   "r107": 10.7,
+   "r143": 14.343002687670674,
+   "r163": 16.3
+  },
+  "mine": {
+   "e0": 10.668584625096152,
+   "e1": 16.24912901860999,
+   "mu2": 14.342876621419
+  }
+ },
+ "garding_identity": {
+  "abs_diff": 0.0,
+  "lhs": -4.301035083923641,
+  "rhs": -4.301035083923641,
+  "upper_form": -3.259989172947792
+ },
+ "n_fail": 0,
+ "theta": {
+  "G3_recomputed_mid": [
+   [
+    -1.8872921090678922,
+    1.1544771354399879,
+    0.009955675334524069
+   ],
+   [
+    1.1544771354399879,
+    -2.5160683059212587,
+    0.0353980912429845
+   ],
+   [
+    0.009955675334524069,
+    0.0353980912429845,
+    -0.0013365900008038751
+   ]
+  ],
+  "S_from_stored_mid_rad": [
+   -0.0004926637834187148,
+   -0.0001729770360298006
+  ],
+  "S_recomputed_gram_post8": [
+   -0.000492663783191341,
+   -0.0001729770362571742
+  ],
+  "S_stored": [
+   -0.000492663783191341,
+   -0.0001729770362571742
+  ],
+  "det2_lo": 3.3899554327921173,
+  "form_mult": "9/8",
+  "g11": -1.8860730054839572,
+  "omega": "1/32",
+  "pins": {
+   "certificate_step3_theta_T1.json": "6b7218f05f35c3f49a0429ddc296e1ecaf7c5529babf70cad6ef5a3778cb2a04",
+   "out2P_T1.txt": "1a78e99df78000b29bdacee9bf0c459dd9f28229c14fce4908363be4f4e35fe3",
+   "outT1QCC.txt": "b9d74865ef622c803ebe45c043ef6541005bd0262bc62b34b8158d2385a286c2",
+   "outT1QCS.txt": "7b67367c6f7651e43a482e5afc2a6a645a9687a7f8c2e30bb2393b70e06eeb7b",
+   "outT1QCp.txt": "09b6c4b6bcdca0fe76fe61df147e4e133a98bcf862d3b6200959a0481b34359a",
+   "outT1QCw.txt": "7b2b3020ae9a0d2817f236889e5327aa0ca5dfecc1b058bd13b48f95f6bdc39d",
+   "outT1QSC.txt": "4d8fe8e00cbda530326942fe93bde9cbc9fde1f7b357ef7b3a6d88778286a490",
+   "outT1QSS.txt": "aca4be109e9b01447429acd41801b237e9f4216c30cfe96929fd6bd957e4211b",
+   "outT1QSp.txt": "95d28d7dc95aa23b5ffc4fbefe49c757fd7dce9d0f6b23b69f260318493d8d4d",
+   "outT1QSw.txt": "6f511ecdedca4628981960fe1372372abb2b175623485973688cee652dd33db6",
+   "outT1Qe1C.txt": "e9cffd0123f136eb76c5df92899418e3f5f13c0770e2c854b6a178260bbdf8ea",
+   "outT1Qe1S.txt": "bd12c3be426c408216d24fa04ab3f563b8a551d46608814f38e31fbaf5239704",
+   "outT1Qe1e1.txt": "4a91c9db33906cb4ba4ce466d645943f3bd93b161ca7b1316366bab59ec97652",
+   "outT1Qe1e3.txt": "ce5d188542201371d1582d7f4abdc38d667f62b358263418d90aeaf9fb916f01",
+   "outT1Qe1p.txt": "5e37f9945d31e0dcbae144316047a512aac53fee2b5df9229fe3e12f2002757e",
+   "outT1Qe1w.txt": "a69c4953cfef0175d775be63bd5de1429fa7365af1a1c5944fed49cd04c785ce",
+   "outT1Qe3C.txt": "36914a7b978efd58ba49c200c226f36c18dc8bf9b4913a86c52b29f2fc77998e",
+   "outT1Qe3S.txt": "fc589e80ddebd8c5b9170ecc5332804f45da7302a1f7b3ea61516ea1493d7ec1",
+   "outT1Qe3e1.txt": "a2723cc6ad645403ab2839a2a712397561895e32f033d2f15c925c7160ad0053",
+   "outT1Qe3e3.txt": "34cbb731724a74df93b6c603ae3eccc30405fcf360b6eed41426e58b077a4439",
+   "outT1Qe3p.txt": "d6eb5b9ff25b7cc680d36ccbc9806388624a26741d384e52c233d9f6885877b0",
+   "outT1Qe3w.txt": "edc3f13746260b7067d9a337ab3cb265cae05e3f56e55e7ab9c2743602c8c774",
+   "outT1QpC.txt": "161ab92acd2275684e58fda03ae73b29ae6d6e0564518db3aedbd9c71aeabbc3",
+   "outT1QpS.txt": "ab45f5ba12edae5c1c6fd78da41389060185212b25858964118d1c66f273fe57",
+   "outT1Qpp.txt": "c4b2e4fd85f7d863c087ebd3d07ecafceb4a78116427a64e07cf73404057eceb",
+   "outT1Qpw.txt": "4572bdfd790da4c5599c1098d9c1a067f5820f468b7298f006802ababb9d915a",
+   "outT1QwC.txt": "b0fbb2ff0fc0408e56af93904ae098fe858641027a740d2bdea161695980aa8a",
+   "outT1QwS.txt": "26ef47b71aef2f46f27e38edefbc9775d6ba5aad187b5f0018a9e27d195a6147",
+   "outT1Qwp.txt": "b30bb6d1249e1773d889cd2dfb9cea033ebf0f6df28037e168a1d5c7a453899e",
+   "outT1Qww.txt": "707e015308b4ecf636970a86c344a3b0cac64d2f815378079712ef1311329454",
+   "outT1ZC.txt": "84571a2ddacfdb8abfc58c0399f499947170cb0b12ae465bef854a81ee23419a",
+   "outT1ZS.txt": "ab95a94d7e7292a7afb59b1474639e6ea59e9dd454129225bd5c8866c5951cbd",
+   "outT1Ze1.txt": "23eea56550682ef3a2b6da5690f09f91c7dd50d899a90b85a22bbe6510ea1208",
+   "outT1Ze3.txt": "24dd7cbee44030de0feaab3ad91f17edaf1b63d20bbb48e2291a15f26174f6f9",
+   "outT1Zp.txt": "3163a3ee0d68de79555c52ef67c551f155dfd4a3d3854ce713b6cdd8a6f17f44",
+   "outT1Zw.txt": "123aa8332dc21942c372bec1acd989b921e887959fd9049101a0f076127be806",
+   "positivity_cert_T1.json": "de86326f2d4aaa4fab7850166c91026637eeaefb4573962ed97f4eb6c3e82e56"
+  }
+ }
+}

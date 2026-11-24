@@ -1,0 +1,13 @@
+rerun from stage 20 (h4loc on the final amp): stages 0-19 reused, 442 paths verified
+h4loc on the final amp: rc 0 (2s)
+Lemma O H1/H8 (t9_lemmaO.py, LO_NS=48): rc 0 (37s)
+Lemma O H6 (t9_h6.py): rc 0 (0s)
+v3.2: t9_far.py --v32: rc 0 (2s)
+v3.2: h4loc FAR_M=0.15: rc 0 (2s)
+v3.2: t9_v32_checks.py: rc 0 (0s)
+v3.2: t9_h6_v32.py: rc 0 (0s)
+v3.2: t9_lemmaO.py --v32: rc 0 (39s)
+Lemma O H1 far family (t9_lemmaO_far.py, v3.2, arc by arc): rc 0 (0s)
+axis crossing (informational; t9_axis_crossing.py): rc 0 (26s)
+t1clock: rc 0 (0s)
+checks: {"constants_b1_residuals_sha": true, "constants_b1_T7SLAB0": "2", "switch_vs_typed": {"Y": 6.203109184384474e-13, "Y_typed": 6.21e-13, "F": [3.743511114616935e-23, 2.44730890297717e-22, 4.714071315622005e-19, 3.181208273786074e-15], "F_typed": [4e-23, 3e-22, 5e-19, 3.4e-15], "ok": true}, "t9_fixed_point": true, "second_pass": "pass 2 (cconst slab files moved aside, so every stage recomputed) reproduces all 199 non-log outputs byte for byte, except the cpu/wall timing fields of the 179 cconst slab files, constants_b1.json (merged from them) and switch_s2.json; these three are identical once those fields (and args) are removed (checked: merge of the pass-1 slab files, and a third switch run). Pass-1 manifest: p2/out/FINAL_manifest_pass1.json.", "T7_slabs_0_1": "read by no final stage: cconst/merge take T7 worst cases over slabs >= 2 (env T7SLAB0 = 2, in their provenance); ycomp, camp, n3far and the switch index slabs >= 2 only (ycomp.py was edited after pass 2 to build its farg table for m >= SLAB0 only; rerun: ycomp_final.json byte-identical); n3boxes, t9 read T7 meta only; h4loc, t9_far, Lemma O (cone and far H1), the axis crossing and clam do not read t7/constants.json; t1clock (cleanup) reads its slabs >= 2 only (C3 mbar for x_r), the certificates' c_phi and meta.modulation_nl (x_NL).", "cleanup_second_pass": "cleanup (Nov 12): final_tail.py --from 'h4loc on the final amp' run twice (stages 0-19 reused and verified: 442 paths). Pass 2 reproduces all 11 non-log outputs of stages 20-30 byte for byte; 8 of the 11 logs are identical, and t9_lemmaO_final.log, t9_lemmaO_v32_final.log and t9_axis_crossing_final.log differ only in basegeo's build-time lines '(Ns)'. The two manifests are identical apart from the 'seconds' fields and those three log hashes. Pass manifests: p2/out/FINAL_manifest_cleanup_pass1.json, _pass2.json; pre-cleanup: p2/out/FINAL_manifest_pre_cleanup.json.", "rerun_from": {"stage": "h4loc on the final amp", "index": 20, "reused_stages": 20, "reused_paths_verified": 442}, "inputs_with_two_versions_in_pass_B": []}

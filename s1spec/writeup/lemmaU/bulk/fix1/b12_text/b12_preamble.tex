@@ -1,0 +1,28 @@
+% b12_preamble.tex -- shared preamble of the B1/B2 fix texts (fix round 1, Nov 14 2026).
+% Used by lemmaS_A_v33.tex, continuation_v33.tex (standalone mode) and by step3_v33_main.tex.
+% Not compiled: there is no LaTeX on this machine; balance checked by script (see B12_REPORT.md).
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,longtable,array}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\key}[1]{\texttt{\detokenize{#1}}}
+% labels
+\newcommand{\tC}{\textup{[cert]}}   % arb, outward rounding, project script + JSON key
+\newcommand{\tP}{\textup{[paper]}}  % proved by hand in this text
+\newcommand{\tH}{\textup{[hyp]}}    % hypothesis: hand-off threshold or literature fact
+\newcommand{\tE}{\textup{[est]}}    % estimate, not a bound
+\newcommand{\tB}{\textup{[B0]}}     % a place where review finding B0 acts (resolved, route (b): the profile difference d enters)
+\newcommand{\BzeroSlot}[1]{\fbox{\parbox{0.92\linewidth}{\small\textbf{[B0]} #1}}}
+% notation
+\newcommand{\E}{\mathfrak E}\newcommand{\B}{\mathfrak B}\newcommand{\Bh}{\hat B}\newcommand{\Eh}{\hat E^A}
+\newcommand{\Nb}{\bar N}\newcommand{\oh}{\hat o}\newcommand{\cD}{\mathcal D}
+\newcommand{\SA}{\textsf{A}}\newcommand{\SU}{\textsf{U}}\newcommand{\SZ}{\textsf{Z}}\newcommand{\SV}{\textsf{V}}
+\newcommand{\Uprof}{\mathcal U}     % the profile subtracted in (A); fixed by B0
+\newcommand{\Lam}{\Lambda}
+\setlist{itemsep=2pt,topsep=3pt}

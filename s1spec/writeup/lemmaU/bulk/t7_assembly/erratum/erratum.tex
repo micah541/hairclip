@@ -1,0 +1,250 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,longtable,array}
+\geometry{margin=0.9in}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\cert}{\textup{[cert]}}
+\newcommand{\est}{\textup{[est]}}
+\newcommand{\rev}{\textup{[rev]}}
+\newcommand{\paper}{\textup{[paper]}}
+\newcommand{\cc}{\emph{(cit.\ corr.)}}
+\newcommand{\Ghat}{\hat G}
+\begin{document}
+\title{Erratum to step~3 v3.1/v3.2, the step-3 verifier (fin11) and step~4}
+\author{Bulk task 7a (Lemma U programme)}
+\date{November 13, 2026}
+\maketitle
+
+\noindent\textbf{Scope.} No closed file was edited. Closed files covered:
+\begin{itemize}
+\item v3.1 step~3: \fn{writeup/step3_proof/step3_proof.tex}, \fn{writeup/lemmaS/lemmaS.tex}, and the scripts \fn{writeup/lemmaS/*.py}, \fn{writeup/lemmaS/rigor/*.py};
+\item v3.2: \fn{step3_proof_v32.tex}, \fn{amend_v32.tex}, \fn{lemmaS_v32/};
+\item the verifier \fn{step3nl/verifier/} (fin11);
+\item step~4: \fn{step4_proof.tex}, \fn{step4/p2/t9_lemmaO.py}, \fn{FINAL_manifest.json}.
+\end{itemize}
+The go/no-go and gap notes are listed for information. Paths are relative to \fn{/home/claude/s1spec/} unless they start with \fn{lemmaU/}, \fn{t2_A}, or \fn{step3_gap_v32/}, which are under \fn{writeup/}.
+
+\noindent\textbf{Labels.} \cert: arb with outward rounding, computed by a project script whose output is cited. \est: float model or estimate. \rev: a reviewer's scratch estimate. \paper: a hand argument. Every file:line was re-read for this erratum. Where a source report's citation was wrong, the corrected line is given and marked \cc.
+
+\begin{center}\small
+\begin{tabular}{p{0.32\linewidth}p{0.12\linewidth}p{0.46\linewidth}}\toprule
+group & items & effect certified?\\\midrule
+A.\ Lemma S(A) & 10 & yes, except A5 (the $I_3$ consumer was not identified) and the (B)-window part of A7 (not re-audited)\\
+B.\ Verifier & 2 & yes\\
+C.\ Go/no-go and gap notes & 2 & no (\est); superseded by certified Phase-1 values\\
+D.\ Step 4 & 1 & far family: yes (script); cone family: \paper{} on certified output\\\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Correction to the plain status wording.} ``v3.1/v3.2 holds with corrected constants under (F1) and (O)'' is true only if the hand-off list is extended by (H2f) (item A9). With the closed hand-off list alone, the repaired Lemma S(A) fails its flux input at the bootstrap level $2\hat E$, by the factor $0.7317$ \est{} (from certified components: hand arithmetic from a probe JSON, not a script output; review M8).
+
+\section*{A.\quad Lemma S(A) (v3.1; v3.2 inherits it unchanged)}
+v3.2 states that Lemma S(A) is unchanged (\fn{step3_proof_v32.tex:211}, \fn{amend_v32.tex:19}, \fn{:74}), so every item in this group applies to v3.2 too.
+
+Repaired chains:
+\begin{itemize}
+\item phase 2a: \fn{lemmaU/phase2a/A_repair/};
+\item task 2 (fin11): \fn{lemmaU/bulk/t2_A/};
+\item \textbf{v3.3} (fin12f4): \fn{lemmaU/bulk/t2_A_v33/}.
+\end{itemize}
+The v3.3 text is \fn{lemmaU/bulk/t3_proof/lemmaU.tex} together with \fn{t1_statements/STATEMENTS_r2.tex}.
+
+\subsection*{A1.\quad Core class $\{2,3,3\}$ certified with an assumed $\sup|z_2|\le3$}
+\textit{Closed code:} \fn{lemmaS/rigor/weights_exact.py:24} (\fn{M2STAR = 3}), \fn{:172}, \fn{:246} (\fn{s33='assumed'}). The certified run is \fn{lemmaS_F10p_M0.52.json}.
+\textit{Closed tex:} \fn{lemmaS.tex:19}, \fn{:349} (``closed by the $L^4$ identity and (one) integration by parts''). \fn{lemmaS.tex:89} calls $M_2^*=3$ superseded. The quotes are $\gamma'_2=0.143$ (\fn{lemmaS.tex:11}, \fn{step3_proof.tex:211}, \fn{:300}) and $\Ghat_{22}=6.58\cdot10^4$ ($\times2.33$; \fn{lemmaS.tex:27}, \fn{step3_proof.tex:224}).
+\textit{Effect} \cert{} (\fn{step3_gap_v32/gonogo/lemmaS_A_ibp_v31H2/rigor/assembly_arb.json}):
+\begin{itemize}
+\item $E_2=0.24704515$ (v3.1: $0.24704507$);
+\item $\gamma'_2$: $0.14306\to0.12355$;
+\item core $\Ghat_{22}$: $6.58\cdot10^4\to77720.9$ (margin $\times2.338\to\times1.977$);
+\item all box margins unchanged.
+\end{itemize}
+The claim holds; only quotes change.
+\textit{Repair:} \fn{s33 = ibp} in all repaired chains.
+
+\subsection*{A2.\quad Top pair $(j{+}1,j{+}1)$ on the ramp $[14,28]$ zeroed}
+\textit{Closed code:} \fn{lemmaS/lemmaS_F2.py:81} (\fn{out[j + 1] = {m: 0.0 ...}}); \fn{lemmaS/rigor/ramp_arb.py:72} (tables for $k\le j$ only) \cc{} (\fn{ramp_arb.py:105} does not exist; the file has 80 lines); \fn{assembly_arb.py:111}.
+\textit{Closed tex:} \fn{lemmaS.tex:209} (``no Young step, only $J_k$, $k\le j$''). The page-1 statement (\fn{lemmaS.tex:11}) and \fn{step3_proof.tex:211}, \fn{:290} rest on it.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/ramp_rep.json}, \fn{assembly_rep.json}):
+\begin{itemize}
+\item level 0: $+4.96\cdot10^{-8}$; level 1: $+1.04\cdot10^{-5}$ (direct data route);
+\item level 2: $+0.00984$, by integration by parts and Young against the ramp dissipation, $\delta=0.3178\,a_{\min}$ (slack $0.3200\,a_{\min}$);
+\item the direct route would cost $3.03$ at level 2.
+\end{itemize}
+The proof as written is incomplete. The claim holds with corrected constants (\S E).
+\textit{Repair:} \fn{t2_A_v33/rigor/ramp_rep.py}, Lemma~P.
+
+\subsection*{A3.\quad Cutoff$\times$jet classes on the ramp, including the jets created by integration by parts}
+\textit{Closed code:} \fn{lemmaS/rigor/ramp_arb.py:45} (the jet-free \fn{Abr[(i, r + u)]} for every Leibniz derivative); \fn{:30--35}, \fn{:50} (\fn{expand_ab}, full reduction); \fn{lemmaS_F2.py:24--30}, \fn{:49}, \fn{:56}, \fn{:138} \cc{} (\fn{ramp_arb.py:78, 82--83} do not exist).
+\textit{Closed tex:} \fn{lemmaS.tex:20} (H-L4r).
+\textit{Wrong:} the jets are omitted. The full reduction of $(0,3)$ and $(1,3)$ at level 2 creates $z_5$ and $z_4$ against non-vanishing weights.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/ramp_rep.json}):
+\begin{itemize}
+\item level 2: $+0.01176$ in total, made of
+  $(2,2,2)$ $0.00777$ ($\Phi=3.18\cdot10^{-5}$, sup weight 245, of which 190 from the derived jets),
+  $(2,3)$ $0.00316$, $(2,2,3)$ $7.1\cdot10^{-4}$, $(2,2)$ $1.05\cdot10^{-4}$, $(2,4)$ $1.9\cdot10^{-5}$;
+\item level 1: $4.6\cdot10^{-7}$; level 0: $1.9\cdot10^{-13}$.
+\end{itemize}
+The earlier ``$\lesssim1.5\cdot10^{-3}$'' \rev{} was low by about $\times8$.
+\textit{Repair:} one integration by parts only, with asserted class handlers (\fn{t2_A_v33/rigor/ramp_rep.py}).
+
+\subsection*{A4.\quad Profile jets $U_j$ ($j\ge2$) dropped}
+\textit{Closed code:} \fn{lemmaS/rigor/weights_exact.py:81--83}, \fn{:88}.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/weights_rep.json}):
+\begin{itemize}
+\item core $\Ghat_{jj}$: $2280.85/2351.49/77720.88\to2281.53/2372.05/79270.71$ ($\times1.936$);
+\item ramp $\Ghat_{22}$: $235592\to239176$;
+\item $\gamma'_2$: $-0.0025$.
+\end{itemize}
+The claim holds.
+
+\subsection*{A5.\quad $I_3$ assumes $2a_{\min}$ of level-1 dissipation}
+\textit{Closed code:} \fn{lemmaS/rigor/assembly_arb.py:175}. v3.1's core budget slack is $0.3/0.2\,a_{\min}$ at levels 0/1 (\fn{weights_exact.out:2--3}), so $I_3$ is low by a factor 10 \cc{} (CHECKPOINT quotes 0 at level 2; the file shows 0.4).
+\textit{Closed tex:} \fn{lemmaS.tex:11} ($I_3\le1.84\cdot10^{-21}+1.39\cdot10^{-27}(T-\tau_1)$), \fn{:21}, \fn{step3_proof.tex:221}.
+\textit{Effect} \cert: $3.370\cdot10^{-21}+1.603\cdot10^{-25}(T-\tau_1)$ at the v3.1 (H2) with (H2f) (\fn{t2_A/out/A_interface.json}); slope $1.617\cdot10^{-25}$ at the v3.3 setting.
+\textit{Not certified:} the consumer was not identified. No verifier input $I_3$ exists, and \fn{step3_proof.tex:200} lists only $K_0,K_2$. \fn{lemmaS.tex:27} claims $\ge10^3$ room; CHECKPOINT gives $\times10^3$ \rev.
+
+\subsection*{A6.\quad $UQ=1/20$ beyond its range}
+\textit{Closed code:} \fn{weights_exact.py:24}, used in \fn{window()} (\fn{:277--287}; $U(380)=0.086$) and in the core on $[220,350]$ ($U\le0.079$).
+\textit{Effect} \cert: the segment check $\varepsilon(220)\Ghat(U=0.08)\le\varepsilon(28)\Ghat_{\rm core}$ holds (\fn{phase2a/A_repair/out/weights_rep.json}; with the B3U boxes, \fn{t2_A/out/weights_t2.json}); window margins are unchanged.
+The claim holds; it was unproved in v3.1.
+
+\subsection*{A7.\quad Per-region convention at $y=28$}
+\textit{Closed code:} \fn{weights_exact.py:246}, \fn{:254} (separate $L^4$/S33 constants and separate $YC[j{+}1]$ in \fn{core()} and \fn{ramp()}); \fn{ramp_arb.py:29}, \fn{:57}. The boundary terms at 28 are dropped.
+\textit{Effect} \cert{} (\fn{t2_A/out/weights_t2.json}, \fn{A_interface.json}). The repair sets the ramp box equal to the core box $(0.11,0.52)$ (the verifier certifies $|yf_y|\le0.4396$), uses one $C^{1,1}$ $\tilde Y$ on $[14,700]$, and localises $L^4$/S33. Results:
+\begin{itemize}
+\item core $\Ghat_{22}=80141.6$ ($\times1.917$);
+\item $\gamma'=(0.242926,0.241064,0.119615)$;
+\item \textbf{ramp $M_1$ margin $\times2.05\to\times1.185$} (this replaces \fn{lemmaS.tex:9}, \fn{:17}; a design choice, to be checked in the task-8 review).
+\end{itemize}
+\textit{Not certified:} the (B) windows (\fn{weights_exact.py:277}) use the same convention and were not re-audited. They belong to Lemma S(B), which v3.1/v3.2 already take through (F).
+
+\subsection*{A8.\quad Outer cutoff never treated: new Hypothesis (O)}
+\textit{Closed code:} \fn{assembly_arb.py:102--104} (Rout $=350$; no outer term); the \fn{lemmaS_F1.py} docstring.
+\textit{Closed tex:} \fn{step3_proof.tex:81}, \fn{:272}; \fn{step3_proof_v32.tex:261}; \fn{amend_v32.tex:19}, \fn{:74} (``fixed rescaled $y\in[14,60]$'').
+\textit{Effect:} a new hypothesis (O) (\fn{t1_statements/HYPOTHESIS_O_r2.md}):
+\begin{itemize}
+\item (O1) $|f|\le0.11$, $|yf_y|\le0.52$ on $(60,350]$;
+\item (O2) $|f|\le\tfrac12$, $|yf_y|\le1$ on $[350,700]$;
+\item (O3) $|z_k|\le1$ on $[350,700]$, $k\le3$.
+\end{itemize}
+By (O3), $\bar N_k^2\le\ln2$ \paper. The certified affine export evaluated at $\bar N^2=(\ln2,\ln2,\ln2)$ (\fn{erratum/o3_outer_check.py} $\to$ \fn{o3_outer_check.json}, reruns byte-identical) gives \cert:
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+setting (verifier) & $\hat E$ at (O3) & FLUX0$/(2K_0)$ & FLUX2$/(2K_2)$\\\midrule
+v3.1 (H2)+(H2f) design (fin11) & $(8.9538\cdot10^{-7},\,2.02941\cdot10^{-4},\,0.255138)$ & $\mathbf{\times1.1245}$ & $\times1.6036$\\
+tightened (H2)+(H2f) design (fin11) & $(7.0538\cdot10^{-7},\,1.03941\cdot10^{-4},\,0.0561375)$ & $\times1.4598$ & $\times2.4468$\\
+v3.3 (fin12f4) & $(1.20538\cdot10^{-6},\,1.03941\cdot10^{-4},\,0.0561379)$ & $\times3.4546$ & $\times6.1153$\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Scope of $\times1.1245$ (review M8).} It certifies the flux line only (FLUX0$/(2K_0)$), computed with the A5 ramp box ($0.52$, not the closed $0.9$), the $C^{1,1}$ $\tilde Y$, and (H2f) at the design values $(5\cdot10^{-7},5\cdot10^{-6},10^{-5})$. It is not a certificate of the whole repaired Lemma~S(A) at the closed settings; the closed-version claim is ``flux line certified under (F1) + (O) + (H2f), with the ramp box of A5''. Step~4's (H2f)$_0$ is $3.1363\cdot10^{-7}$, margin $\times1.59$ against $5\cdot10^{-7}$ (\fn{M9\_H2f} of \fn{FINAL\_manifest\_v33.json}), so the design value dominates it; no script asserts $G_0\le5\cdot10^{-7}$ itself. $S_0^v$, $M_1$ and $\hat G_{22}$ were not recomputed at (O3); they move by less than 1\% \est.
+\textit{Repair:} Lemma U (zone III, Lemma N) supplies the outer data in v3.3.
+
+\subsection*{A9.\quad The datum of (A) covers $[14,60]$ only}
+\textit{Closed tex:} \fn{lemmaS.tex:25} (hand-off (2) ``on $[14,60]$''); \fn{step3_proof.tex:265}; \fn{step3_proof_v32.tex:301} (``(H2) gives $E_j(\tau_1)\le(2\cdot10^{-7},10^{-4},0.2)<2\hat E$'').
+\textit{Effect} \cert{} (\fn{t2_A/probe/asm_0_h3_v32.json}, setting v31). With the honest datum from (H2) and the (H3) windows, and nothing beyond $379.5$:
+\begin{itemize}
+\item $\hat E=(1.393\cdot10^{-6},2.455\cdot10^{-4},0.2716)$ and $K_0=2.802\cdot10^{-21}$;
+\item at $2\hat E$ (\fn{step3_proof.tex:261}, B2): $5.60\cdot10^{-21}>\mathrm{FLUX0}=4.1\cdot10^{-21}$, i.e.\ $\times0.7317$ \est{} (from certified components: hand arithmetic from the probe JSON, not a script output).
+\end{itemize}
+\textbf{The closed claim fails at the closed hand-off thresholds.}
+\textit{Repair:} the new hand-off condition (H2f), $\int_{60}^{700}\frac{28}{y}z_j^2\,\frac{dy}{y}\le H2f_j$.
+\begin{itemize}
+\item Step~4 certifies $G=(3.1363\cdot10^{-7},1.0034\cdot10^{-6},2.4351\cdot10^{-6})$ against $(10^{-6},5\cdot10^{-6},10^{-5})$, i.e.\ $\times3.188/4.983/4.106$ \cert{} (arb row of review M9, stage \fn{h2f\_camp\_arb}, \fn{step4/p2/out\_v33/h2f\_result\_arb.json}, in \fn{FINAL\_manifest\_v33.json} (21 stages, \fn{8bc47e83...}), not in the closed manifest).
+\item With (H2f) at the design values $(5\cdot10^{-7},5\cdot10^{-6},10^{-5})$, which dominate step~4's values, the repaired (A) closes at the v3.1 (H2) with fin11 and the factor 2: FLUX0$/(2K_0)=\times1.146$ (outer data at the reference values \est) and $\times1.1245$ at (O3) \cert{} (flux line only, see A8).
+\end{itemize}
+
+\subsection*{A10.\quad Point terms of the $C^2$ cutoffs, levels 0--2}
+\textit{Closed code:} the reduction $z_az_{a+1}\to\frac12c'z_a^2$ drops the boundary term at $y=28$ (\fn{ramp_arb.py:32}, \fn{lemmaS_F2.py:27}). Since $(\eta^2)^{(3)}(1)\ne0$, the $m=3$ monomial leaves a point term (location \paper).
+\textit{Effect} \cert{} (\fn{t2_A/out/a3_signs.json}): $g_c(28)=5.862\cdot10^{-4}$; $dE=(+6.41\cdot10^{-9},+3.00\cdot10^{-6},+9.7\cdot10^{-9})$; at level 2, Lemma~P(i) gives $-g_cz_2^2\le0$. The claim holds.
+
+\paragraph{Also flagged.} The (B)-exit check $S_{0,B}(y_E=50)\le S0V=0.0153$ (\fn{lemmaS_F4B.py:44--52}) fails with the repaired constants at the v3.1 (H2): $0.01854$ \cert. No consumer was found: the verifier's $S_0^v$ is the core sup on $[34.25,60]$ (\fn{step3_proof.tex:200}, \fn{:282}), at $\times1.981$. To be confirmed in review.
+
+\section*{B.\quad Verifier (fin11)}
+\subsection*{B1.\quad E-V1: flux floor $F_0$ missing on the march cells}
+\textit{Closed code:}
+\begin{itemize}
+\item \fn{closure.py:182} (march sum without $F_0D_k$; its docstring \fn{:170} has $+2F_0$); \fn{:175};
+\item \fn{rhs_iv.py:172}, \fn{:191} (\fn{L = L * cc(0.0)}) \cc{} (\fn{rhs_iv.py:198} is inside \fn{circ()});
+\item \fn{unc.py:16--27} (no constant term);
+\item $F_0$ enters only the tail slope, \fn{closure.py:197}.
+\end{itemize}
+\textit{Effect} \cert{} (\fn{t2_A/out/hjw_rep.json}): $F_0=3.28048\cdot10^{-22}$; the relative size is $F_0\tau_{\rm march}/X_c=4.81\cdot10^{-7}$ on every $J_m$. No quoted digit changes. It is absorbed in $\kappa_J$ (B2).
+
+\subsection*{B2.\quad H-J used window-uniformly}
+\textit{Closed tex:} \fn{lemmaS.tex:256} (layer-cake form), which needs $J_m(T)\le J_m+s_mT$ on every window.
+\textit{Effect} \cert: (W1) fails at every cell with $P_k\ge0$ and (W2) holds, so $\kappa_J=0.0423470+4.8\cdot10^{-7}=0.0423475$ (limit 0.13). All repaired numbers use $J_m(1+\kappa_J)$.
+
+\paragraph{v3.3 rerun (fin12f4).} \fn{step3nl_v33/} (\fn{V33_VERIFIER.md}), FLUX0 $=1.64\cdot10^{-20}$, FLUX2 $=8.0\cdot10^{-20}$ \cert:
+\begin{itemize}
+\item tail\_cert identical; $J_{0..4}$ unchanged to $10^{-6}$;
+\item slopes and $F_0$ $\times4$; $a^*/\alpha_F$: $107.3\to53.7$.
+\end{itemize}
+The E-V1 code is unchanged in the copy: $\kappa_J=0.0423504$ (\fn{t2_A_v33/out/hjw_rep.json}).
+
+\section*{C.\quad Go/no-go and gap notes (informational)}
+\textbf{C1.} \fn{step3_gap_v32/feas_P.py:11}, \fn{:20--22} apply $\gamma=-\mu$ to $|$coef$|$ tables (\fn{lemmaS_prop1_bounds.py:49}); YC at \fn{:36} \cc. Its $\Ghat=(21,302,2.7\cdot10^3)$ is wrong; the honest values are about $(4.9\cdot10^4,2.3\cdot10^4,7.8\cdot10^4)$ \est. The $K_{j,j+1}$ are unaffected, and $B_2$ moves by $\le2\%$ \rev. It is superseded by Phase~1 (certified $\Ghat_{22}\le2.77\cdot10^5$ and the $K$ table).
+
+\textbf{C2.} \fn{gap_v32.tex:23} quotes $\varepsilon(28)\Ghat_{22}=0.0044$; corrected, about $7.8\cdot10^4/28^4\approx0.13$ \est. The gap statement (\fn{:11}) is unaffected.
+
+\section*{D.\quad Step 4}
+\textbf{D1.} \fn{step4/p2/t9_lemmaO.py:63} computes \fn{ends} and never tests $|\xi|>XL$ (docstring \fn{:6}). \fn{step4_proof.tex:715} says the arc ``leaves $[-XL,XL]$ at both ends''.
+
+\textit{Far family (v3.2): not affected.} \fn{t9_lemmaO_far.py} checks $\xi(\pm G)\ge226.18>226$ explicitly, \fn{ok = true} \cert{} (\fn{p2/out/t9_lemmaO_far.json}, pinned).
+
+\textit{Cone family (v3.2, 18 cylinders, $L=r/4$): holds} \paper{} on certified output.
+\begin{itemize}
+\item The cells are consecutive closed $s$-intervals (\fn{t9_lemmaO.py:36--39}), so the first non-arc cell shares the arc's boundary point $P$.
+\item If $|\xi(P)|\le XL$, the arc cell enters \fn{hmax} (\fn{:67}), so $|\eta(P)|<HL$, and the neighbour has distance 0 to the box. That contradicts H8 (\fn{:70--76}).
+\item All 18 cone rows pass H8 (minimum $0.1360\,L\ge0.1\,L$) \cert{} (\fn{p2/out/t9_lemmaO_v32.json}, sha256 \fn{07ea3d75...}, pinned).
+\item Together with $\cos(\theta-\theta_c)>0$ (\fn{:62}), $[-X,X]$ is covered once.
+\item Preconditions: the arc start is $\ge28.75$; no mirror cells occur (the arc ends are $\le705\ll\tilde\ell$).
+\end{itemize}
+No script checks this implication. \fn{step4_proof.tex:715} should say ``follows from H8''.
+
+\textit{v3.3:} the fixed-$L$ family asserts the end test on a $1.3\,XL$ arc: $\xi\le-179.1$ and $\ge170.0$ against $XL=150$ \cert{} (\fn{step4/p2/out_v33/t9_lemmaO_v33.json}). The v3.2 $r/4$ family is superseded and is not a v3.3 input.
+
+\section*{E.\quad Status}
+\textbf{v3.1/v3.2 step 3:} Lemma S(A) holds with corrected constants under three conditions:
+\begin{enumerate}
+\item (F1);
+\item \textbf{(O)};
+\item the hand-off list \textbf{extended by (H2f)}. (H2f) is certified by step~4 in \fn{FINAL_manifest_v33.json}; without it, the factor is $\times0.7317$ \est{} (from certified components; hand arithmetic from a probe).
+\end{enumerate}
+The binding margin of the flux line at the closed settings (A5 ramp box, (H2f) at $5\cdot10^{-7}$) is FLUX0$/(2K_0)=\times1.1245$ \cert{} (flux line only; $S_0^v$, $M_1$, $\hat G_{22}$ at (O3) are under 1\% \est). Still open for the closed versions: the A7 ramp-box design (review), the (B)-window convention (A7) and the $I_3$ consumer (A5).
+
+\textbf{v3.3 (Lemma U):} it removes (F1) and (O), subject to the task-8 independent review.
+
+{\scriptsize
+\begin{longtable}{p{0.17\linewidth}p{0.2\linewidth}p{0.3\linewidth}p{0.22\linewidth}}\toprule
+quantity & v3.1 quote & repaired, v3.1 setting & v3.3 setting\\\midrule\endhead
+$\hat E$ & $3.12\mathrm{e}{-7}$, $1.81\mathrm{e}{-4}$, $0.248$ & $8.777\mathrm{e}{-7}$, $2.0288\mathrm{e}{-4}$, $0.25558$ ((O3): $8.954\mathrm{e}{-7}$, $2.0294\mathrm{e}{-4}$, $0.25514$) & $1.18766\mathrm{e}{-6}$, $1.03883\mathrm{e}{-4}$, $0.056585$\\
+$\gamma'$ & $0.246,0.246,0.143$ & $0.242926,0.241064,0.119615$ & same\\
+$S_0^v$ (vs 0.0153) & $0.00575$ ($\times2.66$) & $0.007724$ ($\times1.981$) & $0.007137$ ($\times2.144$)\\
+$S_1^v$ & $0.171$ & $0.1773$ & $0.1034$\\
+core $M_0$/$M_1$ & $\times5.86/\times2.82$ & $\times5.309/\times2.723$ & $\times5.464/\times4.443$\\
+core $\Ghat_{22}$ & $6.58\mathrm{e}4$ ($\times2.33$) & $80141.6$ ($\times1.917$) & same\\
+ramp $M_1$ box & $0.9$ ($\times2.05$) & $0.52$ ($\times1.185$) & same\\
+$K_0,K_2$ & $6.83\mathrm{e}{-22}$, $3.26\mathrm{e}{-21}$ & $1.789\mathrm{e}{-21}$, $6.151\mathrm{e}{-21}$ ((O3): $1.823\mathrm{e}{-21}$, $6.236\mathrm{e}{-21}$) & $2.339\mathrm{e}{-21}$, $6.456\mathrm{e}{-21}$\\
+flux at $2\hat E$ & $\times3.0,\times3.0$ & $\times1.146,\times1.626$ ((O3): $\times1.1245,\times1.6036$) & $\times3.505,\times6.196$\\
+$I_3$ & $1.84\mathrm{e}{-21}+1.39\mathrm{e}{-27}T$ & $3.370\mathrm{e}{-21}+1.603\mathrm{e}{-25}T$ & slope $1.617\mathrm{e}{-25}$\\
+$E_B$, $\gamma'_B$ & $(3.15\mathrm{e}{-7},1.83\mathrm{e}{-4},0.250)$, $0.2394$ & $(8.890\mathrm{e}{-7},2.0550\mathrm{e}{-4},0.25888)$, $0.23718$ & v3.1 only\\
+$\kappa_J$ & --- & $0.0423475$ & $0.0423504$\\
+$C_0$ export & --- & $8.623\mathrm{e}{-7}$, $2.4663\mathrm{e}{-4}$ & $1.11659\mathrm{e}{-6}$, $1.65440\mathrm{e}{-4}$\\\bottomrule
+\end{longtable}}
+v3.3 only \cert:
+\begin{itemize}
+\item Lemma U (\fn{t4\_cert/out/U\_cert\_v35.json}, \fn{960809fd...}; v3.3 final): late $M_1\times2.353$, $M_0\times4.892$; present $M_1\times2.770$, $M_0\times2.225$; loop gain $\le0.03904$;
+\item zone III: H6 $\times1.860$ (\fn{zone3\_interface.json}, \fn{45e8d4dc...});
+\item step~4 v33 (arb rows, review M9): (H2f) $\times3.188/4.983/4.106$; tightened (H2) of $w'$ $\times124.7/2124/641$; tightened (H2) in the variable $f-U_1$ (B0) $\times27.34/562.8/600.9$; fixed-$L$ cone slope $\times2.64$, H7 $\times2.30$, H4 $\times1119$; far-family Lemma~O H4 at every centre of hand-off radius $\ge490$: minimum $\times15.58$.
+\end{itemize}
+\noindent\textbf{v3.3 final (B0, M14, N1; Nov 14).} The v3.3 column above comes from \fn{t2\_A\_v33} (before B0, M3, G-A1 and N1). \textbf{Open item (O3-v35), explicit and not blocking:} its (O3) entries have not been recomputed on the new chain, the table above supplies no numbers for them and no source exists [TODO: source for (O3) values on t2\_A\_v35; \fn{o3\_outer\_check.py} would need a \fn{t2\_A\_v35} entry in its TREES list]; they are not used by v3.3, where Lemma~N derives the outer data instead of assuming (O3). Final values from \fn{fix2/n12/t2\_A\_v35/out/A\_interface.json} (\fn{78fe2f8e...}) at $N_2^{\rm ref}$ and \fn{asm\_design\_N2ref4.json} (\fn{46bae149...}) at $4N_2^{\rm ref}$, all \cert\ (bounds rounded up, margins down):
+\begin{itemize}
+\item $\hat E$ at $N_2^{\rm ref}$ $\le(1.2016\cdot10^{-6},1.0439\cdot10^{-4},0.056690)$; the Lemma~U supersolution $\hat E\le(1.2018\cdot10^{-6},1.0441\cdot10^{-4},0.056694)$;
+\item at $N_2^{\rm ref}$: $S_0^v$ against $0.0153$ $\times2.122$ (the verifier input is $S_0^v+\sup_{\rm core}|d|$), core $M_0$ $\times5.455$, core $M_1$ $\times4.435$, $\hat G_{22}$ $\times1.917$, ramp $M_1$ $\times1.184$, flux at $\beta_A=2$ $\times3.396/\times6.012$;
+\item at $4N_2^{\rm ref}$: $S_0^v$ $\times2.116$, core $M_0$ $\times5.450$, core $M_1$ $\times4.409$, $\hat G_{22}$ $\times1.917$, ramp $M_1$ $\times1.184$, flux $\times3.365/\times5.955$;
+\item B0: B2$'$ reads $\sup|v_A|+\sup_{\rm core}|d|\le0.0153$ (margin $\times2.116$ for the derived value), and (A) carries the profile difference $d$ at the datum, the ramp J conversion, the fluxes and S0V/S1V (\fn{B0\_REPORT.md});
+\item N1: v3.1 identified the verifier's $S_1$-chart variable $w'$ with the ray-graph quantity without proof, and v3.3 (B0) covered it only by a typed level-0 allowance $2\cdot10^{-7}$; the identification is now an exact lemma with certified bounds (\fn{fix2/n12/chart\_lemma.tex}, merged into \fn{lemmaS\_A\_v33.tex}; step-4 stage \fn{n1\_chart}); every margin moved by at most $0.06\%$;
+\item G-A1 (integration rule R-sup) is applied: $\hat E$ rose by $(6.7\cdot10^{-9},6.5\cdot10^{-8},3.0\cdot10^{-6})$ \est{} (measured in M14).
+\end{itemize}
+
+\end{document}

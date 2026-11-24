@@ -1,0 +1,71 @@
+Kit 4B  |  2026-11-24 05:05:54  |  Python 3.13.7  |  Windows-11-10.0.26100-SP0  |  jobs 4
+[05:05:55] [1/40] inputs: already done, skipping
+[05:05:55] [2/40] t1_seed: already done, skipping
+[05:05:55] [3/40] t1_float: already done, skipping
+[05:05:55] [4/40] t1_polish: already done, skipping
+[05:05:55] [5/40] t1_se: already done, skipping
+[05:05:55] [6/40] t6: already done, skipping
+[05:05:55] [7/40] rhoend: already done, skipping
+[05:05:55] [8/40] se_corr: already done, skipping
+[05:05:55] [9/40] t6c: already done, skipping
+[05:05:55] [10/40] t7_a: already done, skipping
+[05:05:55] [11/40] t7_b: already done, skipping
+[05:05:55] [12/40] h1pts: already done, skipping
+[05:05:55] [13/40] h1dt: already done, skipping
+[05:05:55] [14/40] winslab: already done, skipping
+[05:05:55] [15/40] tail1: already done, skipping
+[05:05:55] [16/40] t7_nl: already done, skipping
+[05:05:55] [17/40] tail2: already done, skipping
+[05:05:55] [18/40] b8: already done, skipping
+[05:05:55] [19/40] v33_00_h2f_ift: already done, skipping
+[05:05:55] [20/40] v33_01_h2f_balls: already done, skipping
+[05:05:55] [21/40] v33_02_t9_h2f: already done, skipping
+[05:05:55] [22/40] v33_03_h2f_camp: already done, skipping
+[05:05:55] [23/40] v33_04_h2t: already done, skipping
+[05:05:55] [24/40] v33_05_cone: already done, skipping
+[05:05:55] [25/40] v33_06_h4loc: already done, skipping
+[05:05:55] [26/40] v33_07_lemmaO_h1: already done, skipping
+[05:05:55] [27/40] v33_08_ratio: already done, skipping
+[05:05:55] [28/40] v33_09_notes: already done, skipping
+[05:05:55] [29/40] v33_10_b0_dprof: already done, skipping
+[05:05:55] [30/40] v33_11_h2u: already done, skipping
+[05:05:55] [31/40] v33_12_m9_balls: already done, skipping
+[05:05:55] [32/40] v33_13_h3_arb: already done, skipping
+[05:05:55] [33/40] v33_14_h2t_arb: already done, skipping
+[05:05:55] [34/40] v33_15_h2u_arb: already done, skipping
+[05:05:55] [35/40] v33_16_h2f_camp_arb: already done, skipping
+[05:05:55] [36/40] v33_17_lemmaO_arb: already done, skipping
+[05:05:55] [37/40] v33_18_h4far: already done, skipping
+[05:05:55] [38/40] v33_19_n1_chart: already done, skipping
+[05:05:55] [39/40] v33_20_f12_sliver: already done, skipping
+[05:05:55] [40/40] v38: start   (ETA for the whole remainder ~34m00s)
+[05:08:55]   v38: running 3m00s  [20] f12_sliver: F1 sliver G_i, F2 sliver sup|w''|, on fin13v4c (strip cubic, rate-table pins) and chain v37 (f12_sliver_v38.py): rc 0 (71s)
+[05:11:56]   v38: running 6m00s  [22] C-1: sup|k~ e| < 1/2 on step-4 P2 boxes (C1_ke_v38.py): rc 0 (1s)
+[05:12:27] [40/40] v38: FAILED after 6m32s.  Last log lines (kit_out\logs\v38.log):
+[15] carried from v33 stage 15: M9: tightened (H2) for f - U_1 on the arb bases (h2u_v33_arb.py) (3 in, 2 out, hashes equal)
+[16] carried from v33 stage 16: M9: (H2f) on the arb bases (h2f_camp_arb.py) (5 in, 2 out, hashes equal)
+[17] carried from v33 stage 17: M9: Lemma O H1 with the certified centre map (t9_lemmaO_v33_arb.py, LO_NS=48) (6 in, 2 out, hashes equal)
+[18] M9: far-family H4, every centre at radius >= 490 to the far end, zone3 v37 (h4far_v38.py): rc 0 (2s)
+[19] N1: chart terms, S1 chart vs ray graph, on (A)'s ramp and core, verifier fin13v4c (n1_chart_v38.py): rc 0 (10s)
+[20] f12_sliver: F1 sliver G_i, F2 sliver sup|w''|, on fin13v4c (strip cubic, rate-table pins) and chain v37 (f12_sliver_v38.py): rc 0 (71s)
+[21] flux v37: reproduction (F2_OUT/F2_TX scratch) and pin of fix13_v37chain/flux/out, texts (flux_v38.py): rc 0 (252s)
+[22] C-1: sup|k~ e| < 1/2 on step-4 P2 boxes (C1_ke_v38.py): rc 0 (1s)
+[23] (GS) at tau_1: tip arc a normal graph over S1 on |x| <= 60.25 (GS_tau1_v38.py): rc 0 (40s)
+[24] (GS) strict improvement under the bootstrap, verifier fin13v4c (GS_boot_v4c_v38.py): rc 0 (4s)
+[25] G1: level-2 export check on chain v37 + flux v37 (G1_check_v38.py): rc 0 (0s)
+[26] U-1: exact sympy identities (U1_sym_v38.py): rc 0 (9s)
+[27] interface/proof certificates: reruns vs references (iface_compare_v38.py): rc 0 (1s)
+[28] verifier fin13v4c runs: runs/P pins; runs/P_A, runs/reg_fin13v4b with EXCEPTION_v4c_PA_reg_e2v4b.json, not pinned (verify_v4c_runs_with_exceptions.py): rc 1 (0s)
+Traceback (most recent call last):
+  File "C:\Users\micahw\kitruns\kit4bv4_win1\kit_guard.py", line 128, in <module>
+    runpy.run_path(target, run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\micahw\kitruns\kit4bv4_win1\step4\p2\v38\final_tail_v38.py", line 243, in <module>
+    assert r.returncode == 0, (S['stage'], open(S['log']).read()[-3000:])
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ('verifier fin13v4c runs: runs/P pins; runs/P_A, runs/reg_fin13v4b with EXCEPTION_v4c_PA_reg_e2v4b.json, not pinned (verify_v4c_runs_with_exceptions.py)', 'PASS runs/P: every pin matches the disk {"P\\\\modsups_fin13v4c\\\\final_alpha_points_5e-8.json": 0, "P\\\\rate_table_fin13v4c_a0.000125.json": 0, "P\\\\rate_table_fin13v4c_a0.00015.json": 0}\nFAIL runs/P_A: every pin matches the disk except the documented exception {"P_A\\\\modsups_fin13v4c\\\\final_alpha_points_5e-8.json": 0, "P_A\\\\rate_table_fin13v4c_a0.000125.json": 0, "P_A\\\\rate_table_fin13v4c_a0.00015.json": 0}\nFAIL runs/reg_fin13v4b: every pin matches the disk except the documented exception {"reg_fin13v4b\\\\modsups_fin13v4b\\\\final_alpha_points_5e-8.json": 0, "reg_fin13v4b\\\\rate_table_fin13v4b_a0.000125.json": 0, "reg_fin13v4b\\\\rate_table_fin13v4b_a0.00015.json": 0}\nPASS runs/P: no pin needs the exception \nPASS numbers: runs/P_A == runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs) {"P_A\\\\modsups_fin13v4c\\\\final_alpha_points_5e-8.json": true, "P_A\\\\rate_table_fin13v4c_a0.000125.json": true, "P_A\\\\rate_table_fin13v4c_a0.00015.json": true}\nPASS numbers: runs/reg_fin13v4b == step3nl_v4b/runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs) {"reg_fin13v4b\\\\modsups_fin13v4b\\\\final_alpha_points_5e-8.json": true, "reg_fin13v4b\\\\rate_table_fin13v4b_a0.000125.json": true, "reg_fin13v4b\\\\rate_table_fin13v4b_a0.00015.json": true}\nall ok: False\nTraceback (most recent call last):\n  File "C:\\Users\\micahw\\kitruns\\kit4bv4_win1\\kit_guard.py", line 128, in <module>\n    runpy.run_path(target, run_name=\'__main__\')\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<frozen runpy>", line 287, in run_path\n  File "<frozen runpy>", line 98, in _run_module_code\n  File "<frozen runpy>", line 88, in _run_code\n  File "C:\\Users\\micahw\\kitruns\\kit4bv4_win1\\step4\\p2\\v38\\verify_v4c_runs_with_exceptions.py", line 57, in <module>\n    print(\'all ok:\', out[\'all_ok\']); assert out[\'all_ok\']\n                                            ~~~^^^^^^^^^^\nAssertionError\n')
+
+Running  python run_all.py  again retries from this stage; if it fails again paste the log tail.

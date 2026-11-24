@@ -1,0 +1,28 @@
+Y1a theta_t|_p - V_p/|X_p|                                               True
+Y1b d_t|X_p| + k V |X_p|                                                 True
+Y2a k - (2pi/L)(1+v)                                                     True
+Y2b k_s - (2pi/L)^2 w                                                    True
+Y2c k_ss - (2pi/L)^3 w'                                                  True
+Y2d k_sss - (2pi/L)^4 w''                                                True
+Y3 d/da[(1+v)w] - (1+v)w' - w^2                                          True
+Y4 d_sigma a|_p - (F + a <w^2>)                                          True
+Y4b k V ds/da + (2pi/L)^3 (1+v) w'                                       True
+Y5a theta_sigma|_a (w(0)=0) - [-th'''' - (1+v)^2 w + (1+v)(I0 - a<w^2>)] True
+Y5b (1+v)^2 w - th'' - (v^2 + v^3/3)'                                    True
+Y6a <w^2> - (1/2) sum n^4 u_n^2                                          True
+Y6b w^2 - <w^2> even                                                     True
+Y6c int_0^a (w^2-<w^2>) odd                                              True
+Y6d int_0^a (w^2-<w^2>) has mean 0                                       True
+Y6e w(0) = 0 for odd th                                                  True
+Y7a d ln L/d sigma + (1/2) sum n^4 u_n^2                                 True
+Y7b X0' - (L/2pi) sum n^3 u_n                                            True
+Y7c N(0) = i e^{i theta(0)} = 1                                          True
+Y8a |X'|^2 - (a^2 + e'^2)                                                True
+Y8b X'xX'' - (a e'' - e' a' + k(a^2+e'^2))                               True
+Y9a <c', T(X)> - X'(1 - k n)                                             True
+Y9b <c', nu(X)> - n'                                                     True
+Y9c d/dX <c - S(X), T(X)> - (-1 + k <c - S, nu>)                         True
+Y10a theta(-a) + pi + theta(a) for odd th                                True
+Y10b e^{i(-pi - th)} + e^{-i th}                                         True
+all_pass True
+C1_sym.py maxrss_kb=79420 wall=1.27

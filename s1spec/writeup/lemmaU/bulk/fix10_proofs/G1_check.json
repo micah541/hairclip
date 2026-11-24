@@ -1,0 +1,126 @@
+{
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "G1_check.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs",
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs/G1_check.py": "1ca3721fa1198fae1bcd41822564c002db8c6c749b4f42006b5c9f988a42bfda",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/A_interface.json": "799b087cf192f41df54986feba7a0ec715b407e2b53f0cc89db245d7c7415c4a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/asm_design_N2ref.json": "5f3414b5899a6ad05d2f170397aae63f518cdafa78888a26f3128f4f99ef1b7d",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/asm_design_N2ref4.json": "a9267ad701088a781656d65562cdae2469c7c8fbd21127cfedac7c8a556689a1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/weights_t2.json": "c6939b3b770a9088eff5a404cff4330be01fe4adf1a465f3f02eb90e8ee3f99d",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t4_cert/U_cert_v36_pass3.json": "6d52881a5607b08167086d5e48886c3ef7b71e16a2c822bd7f46ef4f6b84a27c",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_data.json": "b809db4c5b7194ebb51962b674207ef7a5709e9b5769373dfde49cbc46073418"
+  },
+  "prec": 400,
+  "python": "3.14.4"
+ },
+ "checks": {
+  "B1 core retained (units a_c) >= r_2": true,
+  "B1 core retained == 2 - Bc - used (consistency)": true,
+  "B1 core: 2 - Bc - used/a_c >= r_2 (recomputed)": true,
+  "B1 r_export[2] == 1/1000": true,
+  "B2 plateau (60,175]: 2 - Bc_s - used_s/a_s >= r_2 a_c/a_s": true,
+  "B2 plateau check ok": true,
+  "B3 level-2 ok and all_ok": true,
+  "B3 transition1 ok, rise [40.0, 50.0] and partition [50.0, 60.0] with no failing cell": true,
+  "B3 transition2 ok, rise [175.0, 250.0] and partition [250.0, 350.0] with no failing cell": true,
+  "B3 weights_t2 ran with V36_R2 = 1": true,
+  "B3 zones + core [28,40] + plateau (60,175] cover [28,350]": true,
+  "B4 level-2 Young deltas (top, classes) sum <= ramp slack": true,
+  "C1 coup_2 == sum_{k<2} Ghat_2k 28^-4 E_k (recomputed from weights_t2 Ghat and A4 E_0, E_1)": true,
+  "C1 gamma'_2 > 0": true,
+  "C1 recomputed C0_2 overlaps recorded and is not above it": true,
+  "C1 recomputed C1_2 overlaps recorded and is not above it": true,
+  "C1 recorded r and a_c are r_2 and (1 + 0.11^2)^-2": true,
+  "C1 statement is z_4 on [ln28, ln350] with weight y^-4 (28/y)": true,
+  "C2 A4 setting --N2 = 4 x (0.1, 0.2, 5.0)": true,
+  "C2 U_cert EA_2 <= A4 E_2 (so E^A_2(tau_a) <= Ehat_2 <= the E_2 used in C0)": true,
+  "C2 U_cert EA_k <= A4 E_k for k = 0, 1 (the coupling uses A4 E_0, E_1)": true,
+  "C2 U_cert supersolution N2_le_4N2ref": true,
+  "C3 flux2_data C1_2 equals A4 upper end": true,
+  "C3 flux2_data used C0_2, C1_2 equal to A4 upper ends": true,
+  "C3 quoted C0_2 <= 1.1638e2 and C1_2 <= 2.6061e-1 (texts BPhi_continuation_v36, lemmaD_k2_sketch)": true,
+  "C4 A_interface C0_ref, C1_ref (bound up) dominate A1 export (design N2_ref)": true,
+  "C4 A_interface r2_export C0_ref4, C1_ref4 (bound up) dominate A4 export": true,
+  "C4 A_interface r2_export r_2 == 1/1000": true,
+  "S1 level-2 class handlers subset of {pair, phi, ibp223}": true,
+  "S1 level-2 pair routes subset of {data, young}": true,
+  "S1 level-2 top route IBP": true,
+  "S2 D_2 == inflow + ramp + top + cls + extra (balls overlap)": true,
+  "S2 D_2^c <= D_2": true,
+  "S2 extra == foot + S33": true,
+  "inputs unchanged during the run": true
+ },
+ "info": {
+  "note": "V36_REPORT table: C0_2 114.782, C1_2 0.0698142 at N2_ref are below the certified values 114.78222..., 0.069814238...; not consumed (the flux lemma reads 4 N2_ref)",
+  "v36_report_design_quotes_rounded_down": true
+ },
+ "values": {
+  "B1 core retained (units a_c) >= r_2": {
+   "retained": "[0.00100100000000 +/- 1e-19]"
+  },
+  "B1 core: 2 - Bc - used/a_c >= r_2 (recomputed)": {
+   "Bc": "1688999/1000000",
+   "used": "[0.310000000000 +/- 3e-17]"
+  },
+  "B2 plateau (60,175]: 2 - Bc_s - used_s/a_s >= r_2 a_c/a_s": {
+   "Bc_s": "1523979/1000000",
+   "used_s": "[0.475000069003 +/- 4.12e-13]"
+  },
+  "B4 level-2 Young deltas (top, classes) sum <= ramp slack": {
+   "deltas": "[0.325500000000 +/- 3e-17]",
+   "slack": "[0.325852951249 +/- 1.78e-13]"
+  },
+  "C1 coup_2 == sum_{k<2} Ghat_2k 28^-4 E_k (recomputed from weights_t2 Ghat and A4 E_0, E_1)": {
+   "coup": "[2.01686956263e-8 +/- 3.57e-20]",
+   "coup_re": "[2.01686956263e-8 +/- 3.57e-20]"
+  },
+  "C1 gamma'_2 > 0": {
+   "gp2": "[0.119546641667 +/- 3.86e-13]"
+  },
+  "C1 recomputed C0_2 overlaps recorded and is not above it": {
+   "C0": "[116.378172826 +/- 3.45e-10]",
+   "C0_rec": "[116.378172826 +/- 3.45e-10]"
+  },
+  "C1 recomputed C1_2 overlaps recorded and is not above it": {
+   "C1": "[0.260600391654 +/- 4.96e-14]",
+   "C1_rec": "[0.260600391654 +/- 4.96e-14]"
+  },
+  "C2 A4 setting --N2 = 4 x (0.1, 0.2, 5.0)": {
+   "N2": "['0.4', '0.8', '20.0']"
+  },
+  "C2 U_cert EA_2 <= A4 E_2 (so E^A_2(tau_a) <= Ehat_2 <= the E_2 used in C0)": {
+   "E2_A4": "[0.0583511048754 +/- 3.50e-14]",
+   "EA2_U": "[0.0567975799081 +/- 2.79e-14]"
+  },
+  "C3 flux2_data used C0_2, C1_2 equal to A4 upper ends": {
+   "C0_flux": "[116.378172826 +/- 3.45e-10]",
+   "C1_flux": "[0.260600391654 +/- 4.96e-14]"
+  },
+  "C4 A_interface C0_ref, C1_ref (bound up) dominate A1 export (design N2_ref)": {
+   "C0": "[114.782223004 +/- 1.77e-10]",
+   "C1": "[0.0698142389112 +/- 1.47e-15]"
+  },
+  "S1 level-2 class handlers subset of {pair, phi, ibp223}": {
+   "handlers": "['ibp223', 'pair', 'phi']"
+  },
+  "S1 level-2 pair routes subset of {data, young}": {
+   "routes": "['data', 'young']"
+  },
+  "S2 D_2 == inflow + ramp + top + cls + extra (balls overlap)": {
+   "D": "[0.0552610205633 +/- 1.78e-14]",
+   "parts": "[0.0552610205633 +/- 1.78e-14]"
+  },
+  "S2 D_2^c <= D_2": {
+   "D": "[0.0552610205633 +/- 1.78e-14]",
+   "Dc": "[0.0552106598959 +/- 2.64e-14]"
+  }
+ }
+}

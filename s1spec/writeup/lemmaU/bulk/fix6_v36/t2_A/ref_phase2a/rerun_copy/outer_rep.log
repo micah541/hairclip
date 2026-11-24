@@ -1,0 +1,4 @@
+level 0: outer rate per unit tau at the placeholder Mbar = ['1', '1', '1', '1']: 6.165e-09  (parts {'a': '4e-09', 'b': '1.6e-09', 'c': '6.1e-10', 'cY': '0', 'd': '0', 'e': '0'}); at 10x Mbar: 6.209e-07
+level 1: outer rate per unit tau at the placeholder Mbar = ['1', '1', '1', '1']: 7.12e-09  (parts {'a': '4e-09', 'b': '1.6e-09', 'c': '1.5e-09', 'cY': '0', 'd': '2.5e-11', 'e': '0'}); at 10x Mbar: 1.311e-06
+level 2: outer rate per unit tau at the placeholder Mbar = ['1', '1', '1', '1']: 1.261e-07  (parts {'a': '1.4e-08', 'b': '1.2e-08', 'c': '1e-08', 'cY': '1.4e-11', 'd': '9e-08', 'e': '1.6e-11'}); at 10x Mbar: 0.0009062
+wrote out/outer_rep.json  1s

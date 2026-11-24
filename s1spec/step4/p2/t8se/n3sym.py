@@ -1,0 +1,110 @@
+"""Lemma N3' (LEMMA_F.md 6.1): symbolic ingredients of the level-3 nonlinear majorants, from the EXACT normal-graph CDF
+operator (T7 nl7.py), with the base identities inserted (T1/T6):
+    varpi = -k k' + Q + c(q - x) + b t1 + A,   theta_tau = -k''' - k^2 k' + k Q - c x k + rho_theta,  rho_theta = r' + k A,
+    V~ = -k'' + c p + b n + r.
+Then F = A4 e'''' + A3 e''' + A2 with A4 = -J^-4 (J^2 = (1 - k e)^2 + e'^2), and the nonlinear remainder
+    N = F - F(0) - DF(0) e = At e'''' + Bt e''' + Ct,   At = 1 - J^-4,  Bt = A3(z) - A3(0),  Ct = A2(z) - A2(0) - grad A2(0) z,
+z = (e, e', e'').  The script CHECKS that N does not depend on c, b, p, q, n, t1, x, Q (drift and translations cancel
+exactly), so N is intrinsic: it depends on k..k''' and r' only (A3 on k, k'; Hess A2 on k..k''', r').
+Base derivative along x:  dX: k_i -> k_{i+1}, A -> k r, r -> r', r' -> r'', r'' -> r'''.
+Output n3forms.py: arb functions (common subexpressions eliminated) of a dict V with keys e0..e3, k0..k5, A, r1, r2, r3
+(A cancels, kappa A - rho_theta = -r', so the forms do not depend on it; r enters only as r' = r1):
+    At, DAt, DDAt                       (At and its total x-derivatives along the solution; e4 never appears)
+    g3[i] = d_i A3, Xg3[i] = dX d_i A3, XXg3[i] = dX^2 d_i A3, h3[ij] = d_i d_j A3        (i, j over z = e0, e1, e2)
+    h2[ij] = d_i d_j A2, Xh2[ij] = dX h2[ij], XXh2[ij] = dX^2 h2[ij]
+usage: python3 -I n3sym.py   (about 12 min, one process; writes n3forms.py)"""
+import os, time, itertools
+import sympy as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+E = sp.symbols('e0:6'); K = sp.symbols('k0:7')
+p, q, n, t1, c, b, x, Q, A, r, r1, r2, r3, r4 = sp.symbols('p q n t1 c b x Q A r r1 r2 r3 r4')
+LARGE = (p, q, n, t1, c, b, x, Q)
+RULES = {p: -K[0] * q, q: 1 + K[0] * p, n: -K[0] * t1, t1: K[0] * n, x: sp.Integer(1), Q: K[1] ** 2,
+         A: K[0] * r, r: r1, r1: r2, r2: r3, r3: r4}
+
+
+def Dfull(f):
+    out = sum(sp.diff(f, E[i]) * E[i + 1] for i in range(5)) + sum(sp.diff(f, K[i]) * K[i + 1] for i in range(6))
+    return out + sum(sp.diff(f, v) * rr for v, rr in RULES.items())
+
+
+def dX(f):
+    """derivative through the base functions only (z fixed)"""
+    out = sum(sp.diff(f, K[i]) * K[i + 1] for i in range(6))
+    return out + sum(sp.diff(f, v) * rr for v, rr in RULES.items())
+
+
+def operator():
+    al = 1 - K[0] * E[0]; J = sp.sqrt(al ** 2 + E[1] ** 2)
+    kap = (al * E[2] - E[1] * Dfull(al) + K[0] * (al ** 2 + E[1] ** 2)) / J ** 3
+    kss = Dfull(Dfull(kap) / J) / J
+    rth = r1 + K[0] * A
+    w = -K[0] * K[1] + Q + c * (q - x) + b * t1 + A
+    tht = -K[3] - K[0] ** 2 * K[1] + K[0] * Q - c * x * K[0] + rth
+    V = -K[2] + c * p + b * n + r
+    return (J / al) * (-kss + c * (-q * E[1] + (p + E[0]) * al) / J + b * (-t1 * E[1] + n * al) / J) - V + E[1] * (w - E[0] * tht) / al
+
+
+def main():
+    t0 = time.time()
+    F = operator()
+    z5 = list(E[:5]); zero = {v: 0 for v in z5}
+    A4 = sp.diff(F, E[4]); A3 = sp.diff(F.subs(E[4], 0), E[3]); A2 = F.subs({E[4]: 0, E[3]: 0})
+    assert sp.simplify(A4 + ((1 - K[0] * E[0]) ** 2 + E[1] ** 2) ** -2) == 0, 'A4 = -J^-4'
+    assert sp.simplify(sp.diff(F, E[4], 2)) == 0 and sp.simplify(sp.diff(F.subs(E[4], 0), E[3], 2)) == 0
+    assert sp.simplify(F.subs(zero) + r) == 0, 'F(0) = -r'
+    for s in LARGE:                                   # N independent of drift / translation / transport data
+        assert sp.simplify(sp.diff(A3, s)) == 0, s
+        assert sp.simplify(sp.diff(A2 - A2.subs(zero) - sum(sp.diff(A2, v).subs(zero) * v for v in z5[:3]), s)) == 0, s
+    A2r = A2.subs({s: 0 for s in LARGE})               # same N (checked above), drift-free representative
+    A3r = A3.subs({s: 0 for s in LARGE})
+    print(f'operator checked: A4 = -J^-4, F(0) = -r, N free of c, b, p, q, n, t1, x, Q ({time.time()-t0:.0f}s)', flush=True)
+    z = list(E[:3])
+    At = 1 - ((1 - K[0] * E[0]) ** 2 + E[1] ** 2) ** -2
+    DAt = Dfull(At); DDAt = Dfull(DAt)
+    assert not DDAt.has(E[4])
+    g3 = [sp.diff(A3r, v) for v in z]; Xg3 = [dX(g) for g in g3]; XXg3 = [dX(g) for g in Xg3]
+    pairs = [(i, j) for i in range(3) for j in range(i, 3)]
+    h3 = [sp.diff(A3r, z[i], z[j]) for i, j in pairs]
+    h2 = [sp.diff(A2r, z[i], z[j]) for i, j in pairs]; Xh2 = [dX(h) for h in h2]; XXh2 = [dX(h) for h in Xh2]
+    for nm_, grp in dict(g3=g3, Xg3=Xg3, XXg3=XXg3, h3=h3, h2=h2, Xh2=Xh2, XXh2=XXh2, At=[DAt, DDAt]).items():
+        for f in grp:
+            assert not f.has(r4) and not f.has(K[6]), f'{nm_} needs data beyond the T6 jets: {sorted(map(str, f.free_symbols))}'
+    print(f'derivatives built ({time.time()-t0:.0f}s)', flush=True)
+    groups = dict(At=[At], DAt=[DAt], DDAt=[DDAt], g3=g3, Xg3=Xg3, XXg3=XXg3, h3=h3, h2=h2, Xh2=Xh2, XXh2=XXh2)
+    names = list(groups)
+    flat = [f for nm in names for f in groups[nm]]
+    syms = sorted(set().union(*[f.free_symbols for f in flat]), key=str)
+    rep, red = sp.cse(flat, optimizations='basic')
+    pr = _Pr()
+    lines = ['"""generated by n3sym.py: arb majorant ingredients for Lemma N3 (do not edit)"""', 'from flint import arb', '',
+             'PAIRS = ' + repr(pairs), 'SYMS = ' + repr([str(s) for s in syms]), '', 'def evaluate(V):']
+    for s in syms: lines.append(f'    {s} = V["{s}"]')
+    for lhs, rhs in rep: lines.append(f'    {lhs} = {pr.doprint(rhs)}')
+    k = 0; out = []
+    for nm in names:
+        m = len(groups[nm]); out.append(f'"{nm}": [' + ', '.join(pr.doprint(e) for e in red[k:k + m]) + ']'); k += m
+    lines.append('    return {' + ', '.join(out) + '}')
+    with open(os.path.join(HERE, 'n3forms.py'), 'w') as f: f.write('\n'.join(lines) + '\n')
+    print(f'wrote n3forms.py: {len(rep)} common subexpressions, symbols {[str(s) for s in syms]} ({time.time()-t0:.0f}s)')
+
+
+class _Pr(sp.printing.str.StrPrinter):
+    """exact rationals and integer powers in arb; sqrt via .sqrt()"""
+    def _print_Rational(self, e): return f"(arb({e.p})/arb({e.q}))"
+    def _print_Integer(self, e): return f"arb({e.p})"
+    def _print_Pow(self, e, rational=False):
+        bb, ex = e.as_base_exp(); s = f"({self._print(bb)})"
+        if ex.is_Integer:
+            m = int(ex); prod = "*".join([s] * abs(m)); return f"({prod})" if m > 0 else f"(1/({prod}))"
+        if ex == sp.Rational(1, 2): return f"({s}.sqrt())"
+        if ex == -sp.Rational(1, 2): return f"(1/{s}.sqrt())"
+        if ex.is_Rational and ex.q == 2:
+            m = int(ex.p); base = f"({s}.sqrt())"; prod = "*".join([base] * abs(m))
+            return f"({prod})" if m > 0 else f"(1/({prod}))"
+        raise ValueError(f'unsupported power {e}')
+
+
+if __name__ == '__main__':
+    main()

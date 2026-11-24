@@ -1,0 +1,123 @@
+{
+ "1.25e-4": {
+  "steps": 9,
+  "peak": 5.214276278396489e-08,
+  "tau_tail": 4.881316940282386,
+  "rho": 0.0028493868754241826,
+  "sqrtLF": 9.597054937459831e-10,
+  "alphaF": 6.601268557729711e-07,
+  "a_star": 3.580561563322742e-05,
+  "S_ramp": 0.0007342380410518628,
+  "sI1": 0.0011399656773996407,
+  "sI2": 0.015184817614414798,
+  "M1": 0.4251748932036144,
+  "A": 5.214276278396491e-08,
+  "W1": 6.564025781577719e-07,
+  "sup_ab": 2.10295e-07,
+  "sup_beta": 2.22185e-09,
+  "delta_tail": 0.2,
+  "J": {
+   "V0sq": [
+    5.671659466094775e-12,
+    3.3441132892632315e-18
+   ],
+   "V1sq": [
+    7.970969383073925e-12,
+    4.699828119370809e-18
+   ],
+   "V2sq": [
+    1.7640735985019218e-12,
+    1.0401297890422585e-18
+   ],
+   "V4sq": [
+    5.880476605902652e-08,
+    3.4672356622533506e-14
+   ]
+  },
+  "ramp_levels": [
+   0.00025
+  ]
+ },
+ "1.5e-4": {
+  "steps": 10,
+  "peak": 5.3085619596085034e-08,
+  "tau_tail": 5.481316940282387,
+  "rho": 0.002677666006622703,
+  "sqrtLF": 9.900006690033849e-10,
+  "alphaF": 6.884239010994646e-07,
+  "a_star": 3.684592537163381e-05,
+  "S_ramp": 0.0007475146934914683,
+  "sI1": 0.0011605787854731917,
+  "sI2": 0.015459392799237106,
+  "M1": 0.432862998378639,
+  "A": 5.3085619596085054e-08,
+  "W1": 6.682717927767488e-07,
+  "sup_ab": 2.14041e-07,
+  "sup_beta": 2.35488e-09,
+  "delta_tail": 0.2,
+  "J": {
+   "V0sq": [
+    6.025378245305043e-12,
+    3.4552921958128986e-18
+   ],
+   "V1sq": [
+    8.468086950896573e-12,
+    4.856079330405034e-18
+   ],
+   "V2sq": [
+    1.8740918327470065e-12,
+    1.0747101045437505e-18
+   ],
+   "V4sq": [
+    6.247218477245404e-08,
+    3.5825079142183153e-14
+   ]
+  },
+  "ramp_levels": [
+   0.00025
+  ]
+ },
+ "args": {
+  "argv": [
+   "/home/claude/s1spec/step3nl_v4c/verifier/mod_sups.py",
+   "fin13v4b",
+   "modsups_fin13v4b"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "NEW": "1",
+   "MOD": "ibp",
+   "FIX": "1",
+   "TABLE_DIR": null,
+   "V4B": "1"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/runs/reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": "69131a0ee22381f84449c15a6e6721a115e98cddb04ead2ab99005151c6299fe",
+   "/home/claude/s1spec/step3nl_v4c/runs/reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": "e7ecf9fdfabe1475becabc514159fba1591cfbb747337e682fed3ed01593eb0b",
+   "/home/claude/s1spec/step3nl_v4c/verifier/mod_sups.py": "61da77f116ee9b4414abc4a7eaddd71557c04f192742b11611859932f277942a",
+   "/home/claude/s1spec/step3nl_v4c/verifier/constants.py": "3a5ca5a43aaf4d77e97ac8e0be4c0468ffd78d70aea6a3d0bc6fd3fb2233f9a9",
+   "/home/claude/s1spec/step3nl_v4c/verifier/unc.py": "b9b9a41a20053304438f6861668f2824d910d68f626a6934224c7d2f5d55db83",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0v4b_constants.json": "c209638bc8ed34655076562d275142d0c84cf09195fcfbe680171cba3323297f",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/r2_strip_ibp.json": "0daa73c4462b24c29106cab6176b5eeea01ee2a6380c65fd6ba854b78100126a",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+  },
+  "constants": {
+   "BETA0": 0.002439769584071159,
+   "BETA1": 66.52383270616748,
+   "QB": 5.526373957889095,
+   "BETAF": 0.6565275306344319,
+   "STRIP_BETA": 7.786633689656624e-11,
+   "CAB0": 3.70825710222287,
+   "MAB": 622.3776876536726,
+   "QAB": 51.33973980536242,
+   "PHIAB": 3.840305712393176,
+   "STRIP_AB": 4.227131780191151e-10,
+   "FN": [
+    7.932501281596601e-07,
+    2.7693212788311077e-06,
+    12.104385241866114
+   ]
+  }
+ }
+}

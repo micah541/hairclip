@@ -1,0 +1,100 @@
+{
+ "res": {
+  "C3S_012": {
+   "mine_NS300": 0.20448228402528912,
+   "coded": 0.5670272221323104,
+   "coded_over_mine": 2.7729894784537126,
+   "covered": true
+  },
+  "C3S_021": {
+   "mine_NS300": 0.4960722986725159,
+   "coded": 2.571936513530091,
+   "coded_over_mine": 5.184600148834283,
+   "covered": true
+  },
+  "C3S_030": {
+   "mine_NS300": 0.1363394856452942,
+   "coded": 0.7656731754541398,
+   "coded_over_mine": 5.615931231001878,
+   "covered": true
+  },
+  "C3S_102": {
+   "mine_NS300": 0.05097822722746059,
+   "coded": 0.28318462753668433,
+   "coded_over_mine": 5.555011284977372,
+   "covered": true
+  },
+  "C3S_111": {
+   "mine_NS300": 0.42353018233552575,
+   "coded": 3.541829511523247,
+   "coded_over_mine": 8.362637798307764,
+   "covered": true
+  },
+  "C3S_120": {
+   "mine_NS300": 0.12417449301574379,
+   "coded": 1.0679657794535162,
+   "coded_over_mine": 8.600524580503915,
+   "covered": true
+  },
+  "C3S_201": {
+   "mine_NS300": 2.4172283770120232e-18,
+   "coded": 2.4452547864494533e-17,
+   "coded_over_mine": 10.115944400222846,
+   "covered": true
+  },
+  "C3S_210": {
+   "mine_NS300": 3.2068110441695144e-19,
+   "coded": 5.586580361349554e-18,
+   "coded_over_mine": 17.420983913308,
+   "covered": true
+  },
+  "C3S_300": {
+   "mine_NS300": 4.937868238300198e-38,
+   "coded": 4.01826582681436e-37,
+   "coded_over_mine": 8.137652996989647,
+   "covered": true
+  },
+  "keys_equal": true,
+  "pointwise_sanity_max_ratio_400_samples": 0.04358999939370667,
+  "strip_integrals": {
+   "IR": 1.8382831517506494e-11,
+   "IRW": 2.127138390249962e-08,
+   "RW": 4.70033818538616e-05
+  },
+  "xcheck_in_stage": {
+   "IR": {
+    "covered": true,
+    "here": 1.8382831517506488e-11,
+    "verifier": 1.8382831517506494e-11
+   },
+   "IRW": {
+    "covered": true,
+    "here": 2.1271383902499615e-08,
+    "verifier": 2.127138390249962e-08
+   },
+   "RW": {
+    "covered": true,
+    "here": 4.7003381853861584e-05,
+    "verifier": 4.70033818538616e-05
+   }
+  }
+ },
+ "fails": [],
+ "args": {
+  "argv": [
+   "a_strip_cubic.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "prec": 200,
+  "NS": 300,
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/tc_weighted.pkl": "da22cb16c2de16736d6ecacedba9bfc84bb0a4922bd2c0aad97e99dbf64f4ecd",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/strip_cubic_v4c.json": "15ccc9cb20f95ee6ad5447886846aaeadc1914c28a8ab8b759485ce13d2707cc",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0v4b_constants.json": "c209638bc8ed34655076562d275142d0c84cf09195fcfbe680171cba3323297f",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/a/a_strip_cubic.py": "05bc6b2053166fa853797fcaddaae30a9e97db146bedb44d705d720962dedde4"
+  },
+  "runtime_s": 12.1
+ }
+}

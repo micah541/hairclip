@@ -1,0 +1,78 @@
+{
+ "all_pass": true,
+ "args": {
+  "F2_V36RUN": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2",
+  "argv": [
+   "inputs_manifest.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "4b3c477e10eb1637e51bd87ea96d3c177d7b3ab865f54395d39a84f3aa5c7ccb",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/inputs_manifest.py": "6090f2f7e59c2b463f11f74e692d37e5387be9bfe6f4bc60bd5950cf60449954"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "rate table 0.000125: env FLUX0/FLUX2/S0V/S1V as expected": true,
+  "rate table 0.00015: env FLUX0/FLUX2/S0V/S1V as expected": true,
+  "v36 asm args pin the fin13v4b rate table with the same sha": true,
+  "v36 asm has the level-2 export block export[\"2\"] with C0, C1": true,
+  "v36 hjw_rep reads the fin13v4b rate table (same sha)": true
+ },
+ "pinned": {
+  "/home/claude/s1spec/lin/lintail2.py": "a7231c8d678097b3d88f9e17daa97b69945c48fa6534679de15c388c2f755b1d",
+  "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+  "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+  "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+  "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+  "/home/claude/s1spec/step3nl_v4b/graph_struct.pkl": "646b444445b82eb435b094ba7e283a5e619c6cb3bbfa67f495070f9a18f4195d",
+  "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json": "c2fa7e18ab15178e7828b0a9219c5d183f890dd6702fcd3ffd1c7d9db296c61f",
+  "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007",
+  "/home/claude/s1spec/step3nl_v4b/v4cert/c2_t3d.py": "0b931da588ddd8b0dfe3f6dd24827001781ad71632707bbe2701a59097a3e0c1",
+  "/home/claude/s1spec/step3nl_v4b/v4cert/out/c2_t3d.json": "3051e721189ad17e9905a55e9bcd761c7d7cb0c14e58667d51117e8782b470aa",
+  "/home/claude/s1spec/step3nl_v4b/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+  "/home/claude/s1spec/step3nl_v4b/verifier/closure.py": "5854174297ecb231515ccb8595bbfde5175551caf67e092e7b69cfa4b16f3d38",
+  "/home/claude/s1spec/step3nl_v4b/verifier/constants.py": "9de5fb4767e9327c544b0408021e94ccac2a13334525393503d62fafc99f052e",
+  "/home/claude/s1spec/step3nl_v4b/verifier/rhs_iv.py": "b045b9ff7a5783114d053f83e702d6e75c2215cd6268ea940742e2f072148294",
+  "/home/claude/s1spec/step3nl_v4b/verifier/run_v4b.sh": "1437e4edf639f2ce86a5da277ccca25c4f60a143b7c17b0847167a501a0d9893",
+  "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+  "/home/claude/s1spec/writeup/lemmaS/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/flux_cert.json": "1e4a262ef1b9dfcde084c76381af3596d4fb98d094476cc6fb99e773e9f85a91",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/flux_forms.pkl": "56202f4023447377fc701a5a833d2245c61ccf3b8ba9271ba61e57140fef27ba",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/V36_REPORT.md": "df55b3055036b8f2dd2a02f4128dfbe31404bf3990c63932f9cb709256dfc51f",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/n1/n1_chart_fin13v4b.json": "7f64040f9c7902ef17341b57402d1017bba58458fb3ccaf564a694741750aa3a",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/A_interface.json": "799b087cf192f41df54986feba7a0ec715b407e2b53f0cc89db245d7c7415c4a",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/asm_design_N2ref4.json": "a9267ad701088a781656d65562cdae2469c7c8fbd21127cfedac7c8a556689a1",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/hjw_rep.json": "80a7d2081572b55037f44fd42ca4a5eb40485ec19eea8ed30f9461cb90293497",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/v36cfg.json": "1235809e930a2e7ca6efc44f431fa226c4566dedd0ae30fa94fc974772694c97",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/base_ibp/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2/FLUX2_DESIGN.md": "4405dce058cd7409d02f48a0940b348cb70a227204fc422251497238fa253db3",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2/flux2_lemma.tex": "06e27c02e026cc85d1599d9ce5a4abd3e1244663e29958bacf624e927aa62ec8"
+ },
+ "rate_tables": {
+  "0.000125": "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json",
+  "0.00015": "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json"
+ },
+ "stage": "X0 inputs_manifest",
+ "timing": {
+  "runtime_s": 0.2
+ },
+ "v36": {
+  "A_interface": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/A_interface.json",
+  "asm_design_N2ref4": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/asm_design_N2ref4.json",
+  "hjw_rep": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/hjw_rep.json",
+  "lemmaS_cflux": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/base_ibp/lemmaS_cflux.json",
+  "n1_chart": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/n1/n1_chart_fin13v4b.json",
+  "report": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/V36_REPORT.md",
+  "v36cfg": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/v36cfg.json"
+ },
+ "v36_run": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2"
+}

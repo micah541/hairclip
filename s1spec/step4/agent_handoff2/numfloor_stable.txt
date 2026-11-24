@@ -1,0 +1,6 @@
+coarse (cdt1e-2,tail1e-10) vs fine (cdt5e-3,tail1e-12): r2 with unstable phi removed
+ kmax alpha c r2_removed r2_removed/|a|^3
+snap_repA_400.npz    402.8 -8.2108e-03 +3.0939e-01 1.750e-05    31.61
+snap_fineB_400.npz    400.6 -8.2546e-03 +2.7074e-01 1.780e-05    31.64
+snap_extA_800.npz    804.1 -4.0749e-03 +5.0699e-01 2.149e-06    31.76
+snap_extB_800.npz    800.4 -4.0890e-03 +4.2838e-01 2.202e-06    32.20

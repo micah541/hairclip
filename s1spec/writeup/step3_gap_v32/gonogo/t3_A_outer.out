@@ -1,0 +1,11 @@
+0 c {0: '3.14e-09', 1: '1.93e-09'} K {0: '2.16e+03', 1: '459'}
+1 c {0: '1.82e-12', 1: '2.43e-09', 2: '1.92e-09'} K {0: '1.03', 1: '1.58e+03', 2: '363'}
+2 c {0: '1.92e-11', 1: '9.71e-10', 2: '1.03e-08', 3: '1.92e-09'} K {0: '6.97', 1: '353', 2: '7.71e+03', 3: '402'}
+v3.1 thresholds (H2) = (2e-7, 1e-4, 0.2) KS=2: added to E^A: level 0 5.20e-11, level 1 6.36e-08 (E_1^A = 1.81e-04); level 2: CS 0.195, Young 0.000139  against E_2^A = 0.247  [est]
+tightened (H2) = (1e-8, 1e-6, 1e-3), estimated floor KS=2: added to E^A: level 0 2.02e-11, level 1 1.22e-08 (E_1^A = 8.20e-05); level 2: CS 0.0884, Young 2.67e-05  against E_2^A = 0.048  [est]
+CLEAN-GO KS=2: added to E^A: level 0 2.36e-11, level 1 1.46e-08 (E_1^A = 8.17e-05); level 2: CS 0.102, Young 3.2e-05  against E_2^A = 0.04804  [est]
+CLEAN-GO KS=4: added to E^A: level 0 2.98e-11, level 1 1.87e-08 (E_1^A = 8.17e-05); level 2: CS 0.102, Young 4.09e-05  against E_2^A = 0.04804  [est]
+
+real	0m12.613s
+user	0m12.300s
+sys	0m0.128s

@@ -1,0 +1,26 @@
+{
+ "VER": "fin13v4b",
+ "R3ON": true,
+ "R2ON": true,
+ "RT": "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json",
+ "MODS": "/home/claude/s1spec/step3nl_v4b/runs/P/modsups_fin13v4b/final_alpha_points_5e-8.json",
+ "N1CHART": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/n1/out/n1_chart_fin13v4b.json",
+ "inputs": {
+  "J": [
+   "6.0254e-12",
+   "8.4681e-12",
+   "1.8741e-12"
+  ],
+  "slopes": [
+   "3.4553e-18",
+   "4.8561e-18",
+   "1.0748e-18"
+  ],
+  "J4": "6.2473e-8",
+  "sJ4": "3.5826e-14",
+  "sqLam": "5.3086e-8",
+  "rho": "2.677e-3",
+  "abar": "2.14041e-7",
+  "beta": "2.35488e-9"
+ }
+}

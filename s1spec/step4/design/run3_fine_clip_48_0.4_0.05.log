@@ -1,0 +1,24 @@
+fine_clip_48_0.4_0.05 clip:48:0.4:0.05 L0=200.8446 N0=32768 kmax0=42.06 closure=5.41e-07 min-gap(non-adjacent)=0.0497 area=97.9507
+  t=0.00000000 kmax=42.06 N=32768 ncross=0  wall=0s
+  t=0.17646552 kmax=2.99 N=2048 ncross=4 |X|=7.231e-01 wall=23s
+  t=0.45744372 kmax=2.72 N=2048 ncross=4 |X|=8.635e-01 wall=25s
+  t=0.85141453 kmax=2.51 N=2048 ncross=4 |X|=1.010e+00 wall=29s
+  t=1.38196936 kmax=2.34 N=2048 ncross=4 |X|=1.167e+00 wall=32s
+  t=2.09598524 kmax=2.18 N=2048 ncross=4 |X|=1.337e+00 wall=35s
+  t=3.01478263 kmax=2.05 N=2048 ncross=4 |X|=1.516e+00 wall=39s
+  t=4.20241148 kmax=1.93 N=2048 ncross=4 |X|=1.708e+00 wall=43s
+  t=5.69789560 kmax=1.82 N=1024 ncross=4 |X|=1.909e+00 wall=45s
+  t=7.55276363 kmax=1.73 N=1024 ncross=4 |X|=2.120e+00 wall=47s
+  t=9.84832895 kmax=1.64 N=1024 ncross=4 |X|=2.343e+00 wall=49s
+  t=12.53234956 kmax=1.59 N=1024 ncross=2 |X|=2.895e+00 wall=52s
+  t=17.21255883 kmax=1.40 N=1024 ncross=2 |X|=2.553e+00 wall=54s
+  t=18.90404502 kmax=2.91 N=1024 ncross=2 |X|=5.333e-01 wall=57s
+  t=18.98029751 kmax=6.54 N=2048 ncross=2 |X|=9.973e-02 wall=61s
+  t=18.98322763 kmax=14.93 N=4096 ncross=2 |X|=1.842e-02 wall=65s
+  t=18.98333529 kmax=34.05 N=8192 ncross=2 |X|=3.470e-03 wall=74s
+  t=18.98333928 kmax=77.34 N=16384 ncross=2 |X|=6.659e-04 wall=94s
+  t=18.98333944 kmax=175.11 N=32768 ncross=2 |X|=1.292e-04 wall=136s
+  t=18.98333944 kmax=395.98 N=131072 ncross=2 |X|=2.534e-05 wall=238s
+snap 400 kmax=401.09 N=131072 L=92.1040 t=18.9833394408 wall=242s |X|=2.469e-05 |Lam|=3.554e+00
+snap 800 kmax=802.20 N=262144 L=92.0953 t=18.9833394410 wall=451s |X|=6.169e-06 |Lam|=3.554e+00
+DONE

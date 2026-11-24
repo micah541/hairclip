@@ -1,0 +1,261 @@
+{
+ "snap": "runs/reg_r3_final",
+ "ref": "r3run2",
+ "pass_": true,
+ "files": [
+  {
+   "a": "runs/reg_r3_final/t2_A/A_interface.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/A_interface.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/a3_signs.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/a3_signs.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_design_N20.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_design_N20.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_design_N2ref.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_design_N2ref.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_design_N2ref4.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_design_N2ref4.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_design_pm3ibp.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_design_pm3ibp.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_hi_N2ref.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_hi_N2ref.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_lo_N2ref.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_lo_N2ref.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/asm_probe_N2ref.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/asm_probe_N2ref.json",
+   "status": "PATH-ONLY (3)",
+   "other": [],
+   "path": [
+    "/outer/file",
+    "/res/tight/r3/module",
+    "/res/v31/r3/module"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/hjw_rep.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/hjw_rep.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ic_design.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ic_design.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ic_hi.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ic_hi.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ic_lo.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ic_lo.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ic_probe.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ic_probe.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/outer_L2.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/outer_L2.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ramp_rep.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ramp_rep.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/ramp_rep_pm3ibp.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/ramp_rep_pm3ibp.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/weights_t2.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/weights_t2.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t2_A/weights_t2_fb.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t2_A/weights_t2_fb.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/u1_ghat.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/u1_ghat.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/t5_Yadd/src"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/u2_K.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/u2_K.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/u34_primary.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/u34_primary.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/U_cert_v36_pass1.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/U_cert_r3_pass1.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/A_interface/path"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/U_cert_v36_pass2.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/U_cert_r3_pass2.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/A_interface/path"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/U_cert_v36_pass3.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/U_cert_r3_pass3.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/A_interface/path"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/U_cert_for_zone3_v36.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/U_cert_for_zone3_r3.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/note"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t4_cert/U_cert_for_zone3_v36_pass1.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t4_cert/U_cert_for_zone3_r3_pass1.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/note"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t5_zone3/zone3_interface.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t5_zone3/zone3_interface.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/cone_family/H6/Bhat_source"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/t5_zone3/zone3_interface_pass1.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/runs/r3run2/t5_zone3/zone3_interface_pass1.json",
+   "status": "PATH-ONLY (1)",
+   "other": [],
+   "path": [
+    "/cone_family/H6/Bhat_source"
+   ]
+  },
+  {
+   "a": "runs/reg_r3_final/r3/r3_forcing.json",
+   "b": "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/r3/r3_forcing.json",
+   "status": "IDENTICAL",
+   "other": [],
+   "path": []
+  }
+ ]
+}

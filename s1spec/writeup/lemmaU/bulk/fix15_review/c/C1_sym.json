@@ -1,0 +1,46 @@
+{
+ "all_pass": true,
+ "checks": {
+  "Y1a theta_t|_p - V_p/|X_p|": true,
+  "Y1b d_t|X_p| + k V |X_p|": true,
+  "Y2a k - (2pi/L)(1+v)": true,
+  "Y2b k_s - (2pi/L)^2 w": true,
+  "Y2c k_ss - (2pi/L)^3 w'": true,
+  "Y2d k_sss - (2pi/L)^4 w''": true,
+  "Y3 d/da[(1+v)w] - (1+v)w' - w^2": true,
+  "Y4 d_sigma a|_p - (F + a <w^2>)": true,
+  "Y4b k V ds/da + (2pi/L)^3 (1+v) w'": true,
+  "Y5a theta_sigma|_a (w(0)=0) - [-th'''' - (1+v)^2 w + (1+v)(I0 - a<w^2>)]": true,
+  "Y5b (1+v)^2 w - th'' - (v^2 + v^3/3)'": true,
+  "Y6a <w^2> - (1/2) sum n^4 u_n^2": true,
+  "Y6b w^2 - <w^2> even": true,
+  "Y6c int_0^a (w^2-<w^2>) odd": true,
+  "Y6d int_0^a (w^2-<w^2>) has mean 0": true,
+  "Y6e w(0) = 0 for odd th": true,
+  "Y7a d ln L/d sigma + (1/2) sum n^4 u_n^2": true,
+  "Y7b X0' - (L/2pi) sum n^3 u_n": true,
+  "Y7c N(0) = i e^{i theta(0)} = 1": true,
+  "Y8a |X'|^2 - (a^2 + e'^2)": true,
+  "Y8b X'xX'' - (a e'' - e' a' + k(a^2+e'^2))": true,
+  "Y9a <c', T(X)> - X'(1 - k n)": true,
+  "Y9b <c', nu(X)> - n'": true,
+  "Y9c d/dX <c - S(X), T(X)> - (-1 + k <c - S, nu>)": true,
+  "Y10a theta(-a) + pi + theta(a) for odd th": true,
+  "Y10b e^{i(-pi - th)} + e^{-i th}": true
+ },
+ "args": {
+  "argv": [
+   "C1_sym.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0",
+  "script": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/C1_sym.py",
+   "sha256": "09b42c14e7fc04a834361c5ff124eadbb33e9df18bbd91fef275e7b6ca1ed741"
+  },
+  "inputs": {}
+ }
+}

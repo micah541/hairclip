@@ -1,0 +1,49 @@
+rate tables: env (FLUX0, FLUX2, S0V, S1V) = (1.64e-20, 8.0e-20, 0.0153, 0.6) at both alpha points True
+OR sup c       = 3.365476e-03 <= ZB value 3.365476e-03 (constants_v4.json)     True
+OR sup c_a     = 6.164050e-05 <= ZB value 6.164050e-05 (constants_v4.json)     True
+OR sup c_b     = 1.651210e-01 <= ZB value 1.651210e-01 (constants_v4.json)     True
+OR sup d010    = 1.535865e-04 <= ZB value 1.535865e-04 (constants_v4.json)     True
+OR sup d010_a  = 1.507668e-06 <= ZB value 1.507668e-06 (constants_v4.json)     True
+OR sup d010_b  = 3.789984e-03 <= ZB value 3.789984e-03 (constants_v4.json)     True
+OR sup d100    = 1.366436e-06 <= ZB value 1.366436e-06 (constants_v4.json)     True
+OR sup d100_a  = 4.033257e-09 <= ZB value 6.571239e-09 (constants_v4.json)     True
+OR sup d100_b  = 3.304085e-06 <= ZB value 4.203762e-06 (constants_v4.json)     True
+OR sup d200    = 3.410814e-03 <= ZB value 3.410814e-03 (constants_v4.json)     True
+OR sup d200_a  = 3.044100e-06 <= ZB value 3.833564e-06 (constants_v4.json)     True
+OR sup d200_b  = 2.514820e-03 <= ZB value 2.514820e-03 (constants_v4.json)     True
+OR sup d110    = 4.114236e-01 <= ZB value 4.114236e-01 (constants_v4.json)     True
+OR sup d110_a  = 3.789984e-03 <= ZB value 3.789984e-03 (constants_v4.json)     True
+OR sup d110_b  = 1.015251e+01 <= ZB value 1.015251e+01 (constants_v4.json)     True
+OR sup d300    = 3.045601e+00 <= ZB value 3.045601e+00 (constants_v4.json)     True
+OR sup d300_a  = 8.382734e-04 <= ZB value 8.382734e-04 (constants_v4.json)     True
+OR sup d300_b  = 2.245545e+00 <= ZB value 2.245545e+00 (constants_v4.json)     True
+OR sup A0      = 4.067165e-44 <= ZB value 1.461279e-22 (constants_v4.json)     True
+OR sup A1      = 1.479193e-09 <= ZB value 2.452662e-09 (constants_v4.json)     True
+OR sup B0      = 9.840615e-44 <= ZB value 2.984594e-22 (constants_v4.json)     True
+OR sup B1      = 3.527974e-11 <= ZB value 1.142415e-10 (constants_v4.json)     True
+OR sup EA1     = 9.745776e-44 <= ZB value 2.164828e-22 (constants_v4.json)     True
+OR sup EA0     = 4.012039e-44 <= ZB value 1.049209e-22 (constants_v4.json)     True
+OR sup kU      = 3.825032e-44 <= ZB value 1.951648e-22 (constants_v4.json)     True
+OR sup DQ0     = 2.095545e-42 <= ZB value 6.253380e-21 (constants_v4.json)     True
+OR sup DQ1     = 5.131567e-42 <= ZB value 1.299068e-20 (constants_v4.json)     True
+profile: kU < 1e-30 on OR (so 1/(1 - kU) <= 1 + 2e-30)                         True
+S7^(8) == 0 (mean-value form exact with nZ = 8)                                True
+  cell 0 / 3000 0s
+  cell 1000 / 3000 1s
+  cell 2000 / 3000 1s
+W ratio r0 == 1 (coefficients c_ab/W are evaluated directly)                   True
+z_1 >= 35/48 and z_4 >= 280/27 (exact maxima; mean-value form encloses them)   True
+z_0 <= 1.001 (cell enclosure; exactly 0 <= zeta <= 1 since S7 is monotone on [0, 1]) True
+frak a_4 = sup |zeta| (coefficient of g'''') <= 1.001 (exactly <= 1)           True
+C_eff > 13 on OR (drift sign used once, inside the one-sided diagonal)         True
+regression: j = 1, j' = 0, abar = 0 reproduces F1 level-0 Gamma (rel <= 1e-12) True
+regression: kappa^(0) reproduces F1 (8.4244, 4.1592, 2.2596) (rel <= 1e-12)    True
+W(57): acb.integral enclosure of psi(57) lies inside the Riemann lower/upper sums True
+W(57): acb.integral enclosure radius < 1e-30                                   True
+W(57) regression: mirror of the F1-era psi_lower reproduces lemmaS_cflux W57_upper bitwise True
+W(57) method check: same quintic definition, finer sums: W57 <= the F1 value   True
+W(57) <= 1.6e-18                                                               True
+kappa0 [8.464286999915473, 4.173944377379669, 2.267446692453413] F1-regression [8.424391204911107, 4.1591989167447565, 2.2595203614721497]
+z [1.0000155568525049, 0.7291712921797764, 0.8348154005873629, 1.9444604407423347, 10.370379017353494] frak a [10.397440046528535, 10.418087179432005, 8.973413742933602, 4.433172754879619] KAP2 1.7428849959072725
+W57 1.340304797627754e-18 omega_W 1.022213047010114e-09 x3 2.9311635416560433 X2 coef {'N2': 5.0323202551975355, 'N1': 7.808707620195232, 'N0': 12.056962292456458, 'w': 9.840624406148612e-44}
+X2 done sha 0bd3798731288c2c20c78e850b42778dfa0f0dd6d57e8ca9b091e798cc42c21e (1.1s)

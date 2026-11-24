@@ -1,0 +1,126 @@
+{
+ "code_hits_bad": [],
+ "comment_hits": 109,
+ "data_files_with_provenance": 229,
+ "unresolved_imports": [],
+ "unresolved_inputs": [],
+ "chain_inputs": 81,
+ "absent_literals": {
+  "/step4/t1/polished_v2/slab_180.pkl": [
+   "step4/p2/v33/h2f_win.py",
+   "step4/p2/v33/win_arb.py"
+  ],
+  "/step4/p2/out": [
+   "step4/p2/v33/h2t_v33.py",
+   "step4/p2/v33/h2t_v33_arb.py",
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/t8se/constants/amp_A1_w180.json": [
+   "step4/p2/v33/h2t_v33.py",
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h2t_v33.json": [
+   "step4/p2/v33/h2t_v33.py"
+  ],
+  "/step4/p2/out_v33/m9/win_arb_summary.json": [
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h2t_v33_arb.json": [
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33": [
+   "step4/p2/v33/h2u_v33.py",
+   "step4/p2/v33/h2u_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h4far_v33.json": [
+   "step4/p2/v33/h4far_v33.py"
+  ],
+  "/step4/p2/out_v33/h4loc_v33.json": [
+   "step4/p2/v33/h4loc_v33.py"
+  ],
+  "/step4/p2/out/h4loc_A1_w180.json": [
+   "step4/p2/v33/h4loc_v33.py"
+  ],
+  "/step4/p2/t8se/constants/h4loc_v32.json": [
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/out_v33/notes_v33.json": [
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/out_v33/ratio_v33.json": [
+   "step4/p2/v33/ratio_v33.py"
+  ],
+  "/step4/p2/t8se/constants/n3_b1.json": [
+   "step4/p2/v33/t9_cone_v33.py",
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out/t9_cone_kch.json": [
+   "step4/p2/v33/t9_cone_v33.py",
+   "step4/p2/v33/t9_h2f.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/t9_cone_v33.json": [
+   "step4/p2/v33/t9_cone_v33.py"
+  ],
+  "/step4/t7/constants.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out/t9_h1_clam_s180.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out_v33/t9_h2f.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/t6": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out/t9_lemmaO_v32.json": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/t1/polished_v2/slab_": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/t9_lemmaO_v33.json": [
+   "step4/p2/v33/t9_lemmaO_v33.py"
+  ],
+  "/step4/p2/out_v33/t9_lemmaO_v33_arb.json": [
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step3nl/graph_eq.pkl": [
+   "writeup/lemmaU/bulk/fix2/n12/t2_A_v35/base_ibp/lemmaS_symbolic.py",
+   "writeup/lemmaU/bulk/fix2/n12/t2_A_v35/base_v31H2/lemmaS_symbolic.py"
+  ],
+  "/writeup/lemmaU/bulk/t4_cert/out/U_cert_v34.json": [
+   "writeup/lemmaU/bulk/t5_zone3/zone3.py"
+  ]
+ },
+ "code_allowed": {
+  "run_all.py": "tr(): rewrite table for provenance strings of the proof tree manifest",
+  "verify_outputs.py": "strip(): provenance prefix of reference JSON"
+ },
+ "code_all": [
+  [
+   "run_all.py",
+   "'/home/claude/s1spec/step4'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1_tight'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1spec'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1spec/step4|/home/claude/s1_tight|/home/claude/s1spec'"
+  ],
+  [
+   "verify_outputs.py",
+   "'/home/claude/s1spec/step4/'"
+  ]
+ ]
+}

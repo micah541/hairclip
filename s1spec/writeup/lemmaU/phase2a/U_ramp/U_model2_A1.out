@@ -1,0 +1,88 @@
+SELF-CHECK: all new ingredients off -> t1_checkpoint.json rows (weight (4,4,0.3), G22 = WORST, with (2,2,3) placeholder)
+  KS=1: late M1 x2.018883 (ref x2.018883), M0 x3.833739 (ref x3.833739), B2 0.484784; present M1 x2.412304 (ref x2.412304), M0 x1.958465; max rel dev 0.0e+00
+  KS=2: late M1 x1.931587 (ref x1.931587), M0 x3.698784 (ref x3.698784), B2 0.527971; present M1 x2.270347 (ref x2.270347), M0 x1.956084; max rel dev 0.0e+00
+  SELF-CHECK PASSED
+
+INPUTS: JSON /home/claude/s1spec/writeup/lemmaU/phase2a/A_repair/export_for_U.json
+  E^A = ['1.96e-07', '9.26e-05', '0.06961'], gamma' = ['0.2429', '0.2414', '0.1209'], D_k = ['1.399e-07', '7.592e-05', '71.38']
+  K = certified (ramp_K_cert['4.0']['K']); footw = {1: 1.940656554542108, 2: 2068.7386295513716}; S33 coef = 99.216 + (2,2,3) S33-form 60.465 [est C_d = 21.23] (placeholder was 32.609)
+
+== ladder (weight (4,4,0.3), KS=1): switch the new ingredients on one at a time  [est]
+  0 CHECKPOINT (t1_checkpoint late row)                      g 5.04e+05  LATE: M1 x2.019  M0(0.11) x3.83  B=(1.71e-06,8.13e-04,0.4848) | PRESENT(yc<=126.7): M1 x2.41  M0(0.11) x1.96 (yc 126.6)
+      level-2 parts: launch 0.2114, inflow 0.2145, ramp 0.04173, foot 0.0009877, outer 0.0161
+      level-1 parts: launch 0.000359, inflow 0.000365, ramp 8.65e-05, foot 7.97e-07, outer 1.04e-06
+  1 + E^A repair factors                                     g 5.04e+05  LATE: M1 x1.803  M0(0.11) x3.65  B=(2.44e-06,9.45e-04,0.6841) | PRESENT(yc<=126.7): M1 x2.18  M0(0.11) x1.96 (yc 126.6)
+      level-2 parts: launch 0.3058, inflow 0.3108, ramp 0.04999, foot 0.00146, outer 0.0161
+      level-1 parts: launch 0.000408, inflow 0.000414, ramp 0.000121, foot 1.15e-06, outer 1.04e-06
+  2 + joint (y,tau) sweeps, rate-model X                     g 5.04e+05  LATE: M1 x2.067  M0(0.11) x3.94  B=(1.41e-06,7.15e-04,0.5020) | PRESENT(yc<=126.7): M1 x2.72  M0(0.11) x1.96 (yc 126.6)
+      level-2 parts: launch 0.2996, inflow 0.1476, ramp 0.0009883, rampX 0.03752, foot 0.0001337, outer 0.0161
+      level-1 parts: launch 0.0004, inflow 0.000196, ramp 3.73e-07, rampX 0.000117, foot 9.15e-08, outer 1.04e-06
+  3 + honest X (D_k), z_2 by dissipation                     g 5.04e+05  LATE: M1 x1.880  M0(0.11) x3.86  B=(1.41e-06,9.26e-04,0.5799) | PRESENT(yc<=126.7): M1 x2.35  M0(0.11) x1.95 (yc 126.6)
+      level-2 parts: launch 0.3022, inflow 0.1476, ramp 0.0009883, rampX 0.1129, foot 0.0001439, outer 0.0161
+      level-1 parts: launch 0.000407, inflow 0.000196, ramp 3.73e-07, rampX 0.00032, foot 9.15e-08, outer 1.04e-06
+  4 + z_2 on ramp by (A) energy where smaller                g 5.04e+05  LATE: M1 x1.985  M0(0.11) x3.93  B=(1.41e-06,7.41e-04,0.5799) | PRESENT(yc<=126.7): M1 x2.52  M0(0.11) x1.96 (yc 126.6)
+      level-2 parts: launch 0.3022, inflow 0.1476, ramp 0.0009883, rampX 0.1129, foot 0.0001439, outer 0.0161
+      level-1 parts: launch 0.000401, inflow 0.000196, ramp 3.73e-07, rampX 0.000142, foot 9.15e-08, outer 1.04e-06
+  5 + honest S33 normalisation, (2,2,3) in S33 form          g 5.04e+05  LATE: M1 x1.984  M0(0.11) x3.93  B=(1.41e-06,7.41e-04,0.5801) | PRESENT(yc<=126.7): M1 x2.52  M0(0.11) x1.96 (yc 126.6)
+      level-2 parts: launch 0.3022, inflow 0.1476, ramp 0.0009883, rampX 0.1129, foot 0.000288, outer 0.0161
+      level-1 parts: launch 0.000401, inflow 0.000196, ramp 3.73e-07, rampX 0.000142, foot 9.15e-08, outer 1.04e-06
+  6 + pointwise D, couplings, b-term (global28, worst G22)   g 5.04e+05  LATE: M1 x2.553  M0(0.11) x4.27  B=(8.50e-07,4.27e-04,0.3357) | PRESENT(yc<=126.7): M1 x3.14  M0(0.11) x2.09 (yc 126.6)
+      level-2 parts: launch 0.1627, inflow 0.09058, ramp 0.0008219, rampX 0.06519, foot 0.0002269, outer 0.01611, cpl 7.626e-07, b 3.755e-07
+      level-1 parts: launch 0.000216, inflow 0.000121, ramp 3.11e-07, rampX 8.85e-05, foot 7.61e-08, outer 1.04e-06, cpl 1.77e-11
+  7 data56, crude (0.11,0.52), U .09, M0z .16                g 2.76e+05  LATE: M1 x2.581  M0(0.11) x4.29  B=(8.29e-07,4.14e-04,0.3292) | PRESENT(yc<=126.7): M1 x3.19  M0(0.11) x2.09 (yc 126.6)
+      level-2 parts: launch 0.1621, inflow 0.08627, ramp 0.0006701, rampX 0.06375, foot 0.0001766, outer 0.0161, rs 0.0001739, cpl 1.126e-06, b 3.647e-07
+      level-1 parts: launch 0.000215, inflow 0.000115, ramp 2.53e-07, rampX 8.31e-05, foot 6.2e-08, outer 1.04e-06, rs 0, cpl 2.75e-11
+  7 data56, widened (0.15,0.52), U .09, M0z .16              g 3.5e+05  LATE: M1 x2.572  M0(0.15) x5.84  B=(8.36e-07,4.18e-04,0.3315) | PRESENT(yc<=126.7): M1 x3.18  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1623, inflow 0.08767, ramp 0.0007178, rampX 0.06423, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.033e-06, b 3.682e-07
+      level-1 parts: launch 0.000215, inflow 0.000117, ramp 2.71e-07, rampX 8.48e-05, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.45e-11
+
+== headline: design data56, widened box (0.15,0.52), KS = 1 / 2, default inputs  [est]
+  HEADLINE KS=1                                              g 3.5e+05  LATE: M1 x2.572  M0(0.15) x5.84  B=(8.36e-07,4.18e-04,0.3315) | PRESENT(yc<=126.7): M1 x3.18  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1623, inflow 0.08767, ramp 0.0007178, rampX 0.06423, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.033e-06, b 3.682e-07
+      level-1 parts: launch 0.000215, inflow 0.000117, ramp 2.71e-07, rampX 8.48e-05, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.45e-11
+  HEADLINE KS=2                                              g 3.5e+05  LATE: M1 x2.364  M0(0.15) x5.75  B=(8.70e-07,5.05e-04,0.3977) | PRESENT(yc<=126.7): M1 x2.80  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1635, inflow 0.08767, ramp 0.001436, rampX 0.1285, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.243e-06, b 4.445e-07
+      level-1 parts: launch 0.000217, inflow 0.000117, ramp 5.42e-07, rampX 0.00017, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.55e-11
+
+== variant (U_ramp.tex Lemma Y, [est] coefficients from top_pair_est.py): level-2 mixed pairs by exact IBP, top pair by min(X, Young)
+  VARIANT ibp2 delta=0.25 (Ghat22 x1.20)                     g 4.23e+05  LATE: M1 x2.673  M0(0.15) x5.84  B=(8.42e-07,4.22e-04,0.2742) | PRESENT(yc<=126.7): M1 x3.44  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1614, inflow 0.08905, ramp 0.0007665, rampX 0.006246, foot 0.0002084, outer 0.01611, rs 0.0004045, cpl 9.14e-07, b 3.716e-07
+      level-1 parts: launch 0.000216, inflow 0.000118, ramp 2.9e-07, rampX 8.65e-05, foot 7.1e-08, outer 1.04e-06, rs 0, cpl 2.14e-11
+  VARIANT ibp2 delta=0.25, KS=2                              g 4.23e+05  LATE: M1 x2.541  M0(0.15) x5.74  B=(8.79e-07,5.11e-04,0.2813) | PRESENT(yc<=126.7): M1 x3.21  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1615, inflow 0.08905, ramp 0.001533, rampX 0.01249, foot 0.0002084, outer 0.01611, rs 0.0004045, cpl 1.101e-06, b 4.495e-07
+      level-1 parts: launch 0.000217, inflow 0.000118, ramp 5.79e-07, rampX 0.000173, foot 7.1e-08, outer 1.04e-06, rs 0, cpl 2.23e-11
+  VARIANT ibp2 delta=0.5 (Ghat22 x1.50)                      g 5.35e+05  LATE: M1 x2.664  M0(0.15) x5.82  B=(8.53e-07,4.28e-04,0.2741) | PRESENT(yc<=126.7): M1 x3.43  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1617, inflow 0.09117, ramp 0.0008436, rampX 0.003435, foot 0.0002341, outer 0.01611, rs 0.0006389, cpl 8.025e-07, b 3.77e-07
+      level-1 parts: launch 0.000216, inflow 0.000121, ramp 3.19e-07, rampX 8.93e-05, foot 7.81e-08, outer 1.04e-06, rs 0, cpl 1.85e-11
+  VARIANT ibp2 delta=0.5, KS=2                               g 5.35e+05  LATE: M1 x2.536  M0(0.15) x5.73  B=(8.93e-07,5.20e-04,0.2785) | PRESENT(yc<=126.7): M1 x3.21  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1618, inflow 0.09117, ramp 0.001687, rampX 0.00687, foot 0.0002341, outer 0.01611, rs 0.0006389, cpl 9.683e-07, b 4.573e-07
+      level-1 parts: launch 0.000218, inflow 0.000121, ramp 6.37e-07, rampX 0.000179, foot 7.81e-08, outer 1.04e-06, rs 0, cpl 1.94e-11
+
+== sensitivity of the headline (KS=1) to the D_k export  [est]
+  SENS (A) as is: kappa = (0.3, 0.2), cD = 2                 g 3.5e+05  LATE: M1 x2.572  M0(0.15) x5.84  B=(8.36e-07,4.18e-04,0.3315) | PRESENT(yc<=126.7): M1 x3.18  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1623, inflow 0.08767, ramp 0.0007178, rampX 0.06423, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.033e-06, b 3.682e-07
+      level-1 parts: launch 0.000215, inflow 0.000117, ramp 2.71e-07, rampX 8.48e-05, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.45e-11
+  SENS kappa = 1.25, cD = 2 (default)                        g 3.5e+05  LATE: M1 x2.572  M0(0.15) x5.84  B=(8.36e-07,4.18e-04,0.3315) | PRESENT(yc<=126.7): M1 x3.18  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1623, inflow 0.08767, ramp 0.0007178, rampX 0.06423, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.033e-06, b 3.682e-07
+      level-1 parts: launch 0.000215, inflow 0.000117, ramp 2.71e-07, rampX 8.48e-05, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.45e-11
+  SENS kappa = 1.25, cD = 1 (additive bound, U_ramp.tex Lemma D(i)) g 3.5e+05  LATE: M1 x2.572  M0(0.15) x5.84  B=(8.36e-07,4.18e-04,0.3315) | PRESENT(yc<=126.7): M1 x3.18  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1623, inflow 0.08767, ramp 0.0007178, rampX 0.06423, foot 0.0001923, outer 0.0161, rs 0.0002789, cpl 1.033e-06, b 3.682e-07
+      level-1 parts: launch 0.000215, inflow 0.000117, ramp 2.71e-07, rampX 8.48e-05, foot 6.65e-08, outer 1.04e-06, rs 0, cpl 2.45e-11
+
+== sensitivity to E^A_2 (repair factor on level 2), headline config  [est]
+  SENS E^A x(1.41,1.13,1.0)                                  g 3.5e+05  LATE: M1 x2.473  M0(0.15) x5.83  B=(7.45e-07,4.92e-04,0.3325) | PRESENT(yc<=126.7): M1 x2.87  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1139, inflow 0.06051, ramp 0.0004954, rampX 0.1411, foot 0.0001399, outer 0.0161, rs 0.0001925, cpl 1.212e-06, b 4.333e-07
+      level-1 parts: launch 0.000216, inflow 0.000116, ramp 2.71e-07, rampX 0.000158, foot 4.59e-08, outer 1.04e-06, rs 0, cpl 2.18e-11
+  SENS E^A x(1.41,1.13,1.25)                                 g 3.5e+05  LATE: M1 x2.404  M0(0.15) x5.83  B=(7.45e-07,4.96e-04,0.3756) | PRESENT(yc<=126.7): M1 x2.82  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1417, inflow 0.07564, ramp 0.0006193, rampX 0.1411, foot 0.0001819, outer 0.0161, rs 0.0002406, cpl 1.22e-06, b 4.362e-07
+      level-1 parts: launch 0.000216, inflow 0.000116, ramp 2.71e-07, rampX 0.000161, foot 5.73e-08, outer 1.04e-06, rs 0, cpl 2.18e-11
+  SENS E^A x(1.41,1.13,1.65)                                 g 3.5e+05  LATE: M1 x2.312  M0(0.15) x5.82  B=(7.45e-07,5.01e-04,0.4445) | PRESENT(yc<=126.7): M1 x2.75  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.1861, inflow 0.09984, ramp 0.0008174, rampX 0.1411, foot 0.0002524, outer 0.0161, rs 0.0003176, cpl 1.232e-06, b 4.408e-07
+      level-1 parts: launch 0.000216, inflow 0.000116, ramp 2.71e-07, rampX 0.000167, foot 7.57e-08, outer 1.04e-06, rs 0, cpl 2.18e-11
+  SENS E^A x(1.41,1.13,2.5)                                  g 3.5e+05  LATE: M1 x2.159  M0(0.15) x5.81  B=(7.45e-07,5.12e-04,0.5910) | PRESENT(yc<=126.7): M1 x2.63  M0(0.15) x2.85 (yc 126.6)
+      level-2 parts: launch 0.2804, inflow 0.1513, ramp 0.001238, rampX 0.1411, foot 0.0004133, outer 0.0161, rs 0.0004812, cpl 1.259e-06, b 4.507e-07
+      level-1 parts: launch 0.000217, inflow 0.000116, ramp 2.71e-07, rampX 0.000178, foot 1.15e-07, outer 1.04e-06, rs 0, cpl 2.18e-11
+
+HONEST X-TERM FACTOR (vs t1 rate model, no D, no Gw): level-1 data z_2: x2.65; level-2 data z_3: x3.07  (= 1.4713 cD/(kappa IW_in(56) gamma'), sup W y/28 = 1.4713, IW_in = 1.4431)
+
+wall 156.7 s -> /home/claude/s1spec/writeup/lemmaU/phase2a/U_ramp/U_model2_A1.json

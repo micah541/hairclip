@@ -1,0 +1,8 @@
+{
+ "pass_": true,
+ "inputs": {
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix2/n12/t2_A_v35/out/A_interface.json": "78fe2f8e38a340ba515fbc33cbab60cdd85231095af6ccd192e5f6707f457e8c",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/U_cert_v35.json": "960809fdc18dd67c1770fa5b77b2658081d0c81cb24f1b246f48ca4a583d5f54",
+  "/home/claude/s1spec/writeup/lemmaU/bulk/fix2/n35_asserts.py": "6c4a99c99de86a712bc3bd55b4c966cddd41fcbb48af3ed6155a780e49312957"
+ }
+}

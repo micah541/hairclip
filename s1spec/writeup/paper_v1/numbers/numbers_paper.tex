@@ -1,0 +1,707 @@
+% numbers_paper.tex -- GENERATED from ledger.json by build_ledger.py; do not edit.
+% Rounding: upper bounds up, lower bounds and margins down at the printed digit; margin = threshold / bound.
+% Use as $\times\NName$ for margins.  kind: cert certified, est estimate, hand hypothesis constant, doc only a document quotes it.
+% NUEhatZero [cert, upper] U_cert_v35.json :: supersolution.EA.0
+\newcommand{\NUEhatZero}{\ensuremath{1.2018\cdot10^{-6}}}
+% NUEhatOne [cert, upper] U_cert_v35.json :: supersolution.EA.1
+\newcommand{\NUEhatOne}{\ensuremath{1.0441\cdot10^{-4}}}
+% NUEhatTwo [cert, upper] U_cert_v35.json :: supersolution.EA.2
+\newcommand{\NUEhatTwo}{\ensuremath{0.056694}}
+% NUBhatZero [cert, upper] U_cert_v35.json :: supersolution.Bhat.0
+\newcommand{\NUBhatZero}{\ensuremath{4.8735\cdot10^{-6}}}
+% NUBhatOne [cert, upper] U_cert_v35.json :: supersolution.Bhat.1
+\newcommand{\NUBhatOne}{\ensuremath{5.5933\cdot10^{-4}}}
+% NUBhatTwo [cert, upper] U_cert_v35.json :: supersolution.Bhat.2
+\newcommand{\NUBhatTwo}{\ensuremath{0.36675}}
+% NUSupersolutionCZeroZero [cert, upper] U_cert_v35.json :: supersolution.C0.0
+\newcommand{\NUSupersolutionCZeroZero}{\ensuremath{1.1340\cdot10^{-6}}}
+% NUSupersolutionCZeroOne [cert, upper] U_cert_v35.json :: supersolution.C0.1
+\newcommand{\NUSupersolutionCZeroOne}{\ensuremath{1.6623\cdot10^{-4}}}
+% NUSupersolutionCOneZero [cert, upper] U_cert_v35.json :: supersolution.C1.0
+\newcommand{\NUSupersolutionCOneZero}{\ensuremath{1.5241\cdot10^{-9}}}
+% NUSupersolutionCOneOne [cert, upper] U_cert_v35.json :: supersolution.C1.1
+\newcommand{\NUSupersolutionCOneOne}{\ensuremath{5.5255\cdot10^{-8}}}
+% NUSupersolutionNTwoZero [cert, upper] U_cert_v35.json :: supersolution.N2.0
+\newcommand{\NUSupersolutionNTwoZero}{\ensuremath{0.071472}}
+% NUSupersolutionNTwoOne [cert, upper] U_cert_v35.json :: supersolution.N2.1
+\newcommand{\NUSupersolutionNTwoOne}{\ensuremath{0.33012}}
+% NUSupersolutionNTwoTwo [cert, upper] U_cert_v35.json :: supersolution.N2.2
+\newcommand{\NUSupersolutionNTwoTwo}{\ensuremath{5.0406}}
+% NUSupersolutionNTwoOverFourNTwoRefZero [cert, upper] U_cert_v35.json :: supersolution.N2_over_4N2ref.0
+\newcommand{\NUSupersolutionNTwoOverFourNTwoRefZero}{\ensuremath{0.18}}
+% NUSupersolutionNTwoOverFourNTwoRefOne [cert, upper] U_cert_v35.json :: supersolution.N2_over_4N2ref.1
+\newcommand{\NUSupersolutionNTwoOverFourNTwoRefOne}{\ensuremath{0.42}}
+% NUSupersolutionNTwoOverFourNTwoRefTwo [cert, upper] U_cert_v35.json :: supersolution.N2_over_4N2ref.2
+\newcommand{\NUSupersolutionNTwoOverFourNTwoRefTwo}{\ensuremath{0.26}}
+% NUSupersolutionMOneZHypCheckZonesIIISOneTwoBhat [cert, upper] U_cert_v35.json :: supersolution.M1z_hyp_check.zones_I_II.S1_2Bhat
+\newcommand{\NUSupersolutionMOneZHypCheckZonesIIISOneTwoBhat}{\ensuremath{0.28585}}
+% NUSupersolutionMOneZHypCheckZoneIIIBOnePlusPUOne [cert, upper] U_cert_v35.json :: supersolution.M1z_hyp_check.zone_III.b1_plus_pU1
+\newcommand{\NUSupersolutionMOneZHypCheckZoneIIIBOnePlusPUOne}{\ensuremath{0.50786}}
+% NUMarginLateMOne [cert, margin] U_cert_v35.json :: margins.late_M1
+\newcommand{\NUMarginLateMOne}{\ensuremath{2.353}}
+% NUMarginLateMZero [cert, margin] U_cert_v35.json :: margins.late_M0
+\newcommand{\NUMarginLateMZero}{\ensuremath{4.892}}
+% NUMarginsLateMZeroZ [cert, margin] U_cert_v35.json :: margins.late_M0z
+\newcommand{\NUMarginsLateMZeroZ}{\ensuremath{12.99}}
+% NUMarginPresentMOne [cert, margin] U_cert_v35.json :: margins.present_M1_min.value
+\newcommand{\NUMarginPresentMOne}{\ensuremath{2.770}}
+% NUMarginPresentMZero [cert, margin] U_cert_v35.json :: margins.present_M0_min.value
+\newcommand{\NUMarginPresentMZero}{\ensuremath{2.225}}
+% NUMarginsPresentMZeroZMinValue [cert, margin] U_cert_v35.json :: margins.present_M0z_min.value
+\newcommand{\NUMarginsPresentMZeroZMinValue}{\ensuremath{14.37}}
+% NULoopGainZeroTotal [cert, upper] U_cert_v35.json :: loop_gain.0.total
+\newcommand{\NULoopGainZeroTotal}{\ensuremath{1.23\cdot10^{-7}}}
+% NULoopGainOneTotal [cert, upper] U_cert_v35.json :: loop_gain.1.total
+\newcommand{\NULoopGainOneTotal}{\ensuremath{0.037169}}
+% NULoopGainTwoNeighbour [cert, upper] U_cert_v35.json :: loop_gain.2.neighbour
+\newcommand{\NULoopGainTwoNeighbour}{\ensuremath{0.037018}}
+% NULoopGainTwoThroughA [cert, upper] U_cert_v35.json :: loop_gain.2.through_A
+\newcommand{\NULoopGainTwoThroughA}{\ensuremath{0.0020172}}
+% NUfineBhatZero [cert, upper] U_cert_v35.json :: ufine.Bhat.0
+\newcommand{\NUfineBhatZero}{\ensuremath{4.8723\cdot10^{-6}}}
+% NUfineBhatOne [cert, upper] U_cert_v35.json :: ufine.Bhat.1
+\newcommand{\NUfineBhatOne}{\ensuremath{2.6266\cdot10^{-4}}}
+% NUfineBhatTwo [cert, upper] U_cert_v35.json :: ufine.Bhat.2
+\newcommand{\NUfineBhatTwo}{\ensuremath{0.025842}}
+% NUcdeltaU [cert, upper] U_cert_v35.json :: launch.c_dU
+\newcommand{\NUcdeltaU}{\ensuremath{1.7187\cdot10^{-8}}}
+% NULaunchWmin [cert, lower] U_cert_v35.json :: launch.wmin
+\newcommand{\NULaunchWmin}{\ensuremath{0.73492}}
+% NULaunchCAD [cert, upper] U_cert_v35.json :: launch.CA_D
+\newcommand{\NULaunchCAD}{\ensuremath{2.2429}}
+% NULaunchQD [cert, upper] U_cert_v35.json :: launch.qD
+\newcommand{\NULaunchQD}{\ensuremath{0.018509}}
+% NULaunchDeltaInZero [cert, upper] U_cert_v35.json :: launch.Delta_in.0
+\newcommand{\NULaunchDeltaInZero}{\ensuremath{3.131\cdot10^{-12}}}
+% NULaunchDeltaInOne [cert, upper] U_cert_v35.json :: launch.Delta_in.1
+\newcommand{\NULaunchDeltaInOne}{\ensuremath{3.287\cdot10^{-12}}}
+% NULaunchDeltaInTwo [cert, upper] U_cert_v35.json :: launch.Delta_in.2
+\newcommand{\NULaunchDeltaInTwo}{\ensuremath{3.451\cdot10^{-12}}}
+% NULaunchPhiZero [cert, upper] U_cert_v35.json :: launch.Phi.0
+\newcommand{\NULaunchPhiZero}{\ensuremath{6.434\cdot10^{-9}}}
+% NULaunchPhiOne [cert, upper] U_cert_v35.json :: launch.Phi.1
+\newcommand{\NULaunchPhiOne}{\ensuremath{1.4217\cdot10^{-8}}}
+% NULaunchPhiTwo [cert, upper] U_cert_v35.json :: launch.Phi.2
+\newcommand{\NULaunchPhiTwo}{\ensuremath{3.8404\cdot10^{-8}}}
+% NUGammaZero [cert, upper] U_cert_v35.json :: Gamma.0
+\newcommand{\NUGammaZero}{\ensuremath{4.0000358}}
+% NUGammaOne [cert, upper] U_cert_v35.json :: Gamma.1
+\newcommand{\NUGammaOne}{\ensuremath{16.000322}}
+% NUGammaTwo [cert, upper] U_cert_v35.json :: Gamma.2
+\newcommand{\NUGammaTwo}{\ensuremath{64.00218}}
+% NUKappa [cert, upper] U_cert_v35.json :: kappa
+\newcommand{\NUKappa}{\ensuremath{8.0000358}}
+% NUKappaTwo [cert, upper] U_cert_v35.json :: kappa2
+\newcommand{\NUKappaTwo}{\ensuremath{64.00061}}
+% NUGhatZeroZero [cert, upper] U_cert_v35.json :: Ghat.0.0
+\newcommand{\NUGhatZeroZero}{\ensuremath{51322.6}}
+% NUGhatOneOne [cert, upper] U_cert_v35.json :: Ghat.1.1
+\newcommand{\NUGhatOneOne}{\ensuremath{33962.9}}
+% NUGhatTwoTwo [cert, upper] U_cert_v35.json :: Ghat.2.2
+\newcommand{\NUGhatTwoTwo}{\ensuremath{348341.1}}
+% NUGhatOneZero [cert, upper] U_cert_v35.json :: Ghat.1.0
+\newcommand{\NUGhatOneZero}{\ensuremath{4.938}}
+% NUGhatTwoZero [cert, upper] U_cert_v35.json :: Ghat.2.0
+\newcommand{\NUGhatTwoZero}{\ensuremath{27.984}}
+% NUGhatTwoOne [cert, upper] U_cert_v35.json :: Ghat.2.1
+\newcommand{\NUGhatTwoOne}{\ensuremath{458.53}}
+% NUKZeroZero [cert, upper] U_cert_v35.json :: K.0.0
+\newcommand{\NUKZeroZero}{\ensuremath{8034.21}}
+% NUKZeroOne [cert, upper] U_cert_v35.json :: K.0.1
+\newcommand{\NUKZeroOne}{\ensuremath{724.89}}
+% NUKOneZero [cert, upper] U_cert_v35.json :: K.1.0
+\newcommand{\NUKOneZero}{\ensuremath{0.08152}}
+% NUKOneOne [cert, upper] U_cert_v35.json :: K.1.1
+\newcommand{\NUKOneOne}{\ensuremath{6336.94}}
+% NUKOneTwo [cert, upper] U_cert_v35.json :: K.1.2
+\newcommand{\NUKOneTwo}{\ensuremath{545.59}}
+% NUKOneThree [cert, upper] U_cert_v35.json :: K.1.3
+\newcommand{\NUKOneThree}{\ensuremath{0.58700}}
+% NUKTwoZero [cert, upper] U_cert_v35.json :: K.2.0
+\newcommand{\NUKTwoZero}{\ensuremath{0.87186}}
+% NUKTwoOne [cert, upper] U_cert_v35.json :: K.2.1
+\newcommand{\NUKTwoOne}{\ensuremath{528.62}}
+% NUKTwoTwo [cert, upper] U_cert_v35.json :: K.2.2
+\newcommand{\NUKTwoTwo}{\ensuremath{23425.98}}
+% NUKTwoThree [cert, upper] U_cert_v35.json :: K.2.3
+\newcommand{\NUKTwoThree}{\ensuremath{555.62}}
+% NUFootwOne [cert, upper] U_cert_v35.json :: footw.1
+\newcommand{\NUFootwOne}{\ensuremath{2.6361}}
+% NUFootwTwo [cert, upper] U_cert_v35.json :: footw.2
+\newcommand{\NUFootwTwo}{\ensuremath{2663.3}}
+% NUCThreeThree [cert, upper] U_cert_v35.json :: c33
+\newcommand{\NUCThreeThree}{\ensuremath{108.02}}
+% NUCTwoTwoThree [cert, upper] U_cert_v35.json :: c223
+\newcommand{\NUCTwoTwoThree}{\ensuremath{7.3284}}
+% NUCEta [cert, upper] U_cert_v35.json :: C_eta
+\newcommand{\NUCEta}{\ensuremath{13.376}}
+% NULMax [cert, upper] U_cert_v35.json :: L_max
+\newcommand{\NULMax}{\ensuremath{3.5352}}
+% NURRatio [cert, upper] U_cert_v35.json :: R_ratio
+\newcommand{\NURRatio}{\ensuremath{11.593}}
+% NUSweepsSigmaInCoverSup [cert, upper] U_cert_v35.json :: sweeps.Sigma_in.cover_sup
+\newcommand{\NUSweepsSigmaInCoverSup}{\ensuremath{5.0892}}
+% NUSweepsSigmaECoverSup [cert, upper] U_cert_v35.json :: sweeps.Sigma_E.cover_sup
+\newcommand{\NUSweepsSigmaECoverSup}{\ensuremath{0.30846}}
+% NUSweepsSXCoverSup [cert, upper] U_cert_v35.json :: sweeps.S_X.cover_sup
+\newcommand{\NUSweepsSXCoverSup}{\ensuremath{1.5243}}
+% NUSweepsSigmaXCoverSup [cert, upper] U_cert_v35.json :: sweeps.Sigma_X.cover_sup
+\newcommand{\NUSweepsSigmaXCoverSup}{\ensuremath{3.0081}}
+% NUSweepsSigmaRsTwoCoverSup [cert, upper] U_cert_v35.json :: sweeps.Sigma_rs.2.cover_sup
+\newcommand{\NUSweepsSigmaRsTwoCoverSup}{\ensuremath{4.3350\cdot10^{-3}}}
+% NUDataTermsLateDZero [cert, upper] U_cert_v35.json :: data_terms_late.D.0
+\newcommand{\NUDataTermsLateDZero}{\ensuremath{1.7330\cdot10^{-6}}}
+% NUDataTermsLateDOne [cert, upper] U_cert_v35.json :: data_terms_late.D.1
+\newcommand{\NUDataTermsLateDOne}{\ensuremath{2.5353\cdot10^{-4}}}
+% NUDataTermsLateSlopeShareCOneSigmaXOverDkZero [cert, upper] U_cert_v35.json :: data_terms_late.slope_share_C1SigmaX_over_Dk.0
+\newcommand{\NUDataTermsLateSlopeShareCOneSigmaXOverDkZero}{\ensuremath{2.7\cdot10^{-3}}}
+% NUDataTermsLateSlopeShareCOneSigmaXOverDkOne [cert, upper] U_cert_v35.json :: data_terms_late.slope_share_C1SigmaX_over_Dk.1
+\newcommand{\NUDataTermsLateSlopeShareCOneSigmaXOverDkOne}{\ensuremath{6.6\cdot10^{-4}}}
+% NURLtTwoMarginZero [cert, margin] U_cert_v35.json :: R_lt2_margin.0
+\newcommand{\NURLtTwoMarginZero}{\ensuremath{4.432}}
+% NURLtTwoMarginOne [cert, margin] U_cert_v35.json :: R_lt2_margin.1
+\newcommand{\NURLtTwoMarginOne}{\ensuremath{6.697}}
+% NUThetaTwoEight [cert, upper] U_cert_v35.json :: theta28
+\newcommand{\NUThetaTwoEight}{\ensuremath{0.37011}}
+% NUDFiveSix [cert, upper] U_cert_v35.json :: D56
+\newcommand{\NUDFiveSix}{\ensuremath{1.0368}}
+% NUDTwoEight [cert, upper] U_cert_v35.json :: D28
+\newcommand{\NUDTwoEight}{\ensuremath{1.5876}}
+% NUSThreeThreeFootOverBhatTwo [cert, upper] U_cert_v35.json :: S33_foot_over_Bhat2
+\newcommand{\NUSThreeThreeFootOverBhatTwo}{\ensuremath{1.69\cdot10^{-3}}}
+% NSAHJWKappaJ [cert, upper] A_interface.json :: HJW.kappa_J
+\newcommand{\NSAHJWKappaJ}{\ensuremath{0.042351}}
+% NSAGpZero [cert, lower] A_interface.json :: res.tight.gp.0
+\newcommand{\NSAGpZero}{\ensuremath{0.24292}}
+% NSAGpOne [cert, lower] A_interface.json :: res.tight.gp.1
+\newcommand{\NSAGpOne}{\ensuremath{0.24106}}
+% NSAGpTwo [cert, lower] A_interface.json :: res.tight.gp.2
+\newcommand{\NSAGpTwo}{\ensuremath{0.11961}}
+% NSAAminC [cert, lower] A_interface.json :: res.tight.amin_c
+\newcommand{\NSAAminC}{\ensuremath{0.97623}}
+% NSARhoJ [cert, upper] A_interface.json :: res.tight.rhoJ
+\newcommand{\NSARhoJ}{\ensuremath{5.4995\cdot10^{-7}}}
+% NSAKappaOTwoTwo [cert, upper] A_interface.json :: res.tight.kappa_o.2.2
+\newcommand{\NSAKappaOTwoTwo}{\ensuremath{1.2416\cdot10^{-5}}}
+% NSADsrcZero [cert, upper] A_interface.json :: res.tight.Dsrc.0
+\newcommand{\NSADsrcZero}{\ensuremath{1.8092\cdot10^{-7}}}
+% NSADsrcOne [cert, upper] A_interface.json :: res.tight.Dsrc.1
+\newcommand{\NSADsrcOne}{\ensuremath{9.8276\cdot10^{-5}}}
+% NSABZeroDWindowSlopeZero [cert, upper] A_interface.json :: res.tight.B0.D_window_slope.0
+\newcommand{\NSABZeroDWindowSlopeZero}{\ensuremath{8.7399\cdot10^{-10}}}
+% NSABZeroDWindowSlopeOne [cert, upper] A_interface.json :: res.tight.B0.D_window_slope.1
+\newcommand{\NSABZeroDWindowSlopeOne}{\ensuremath{5.2599\cdot10^{-8}}}
+% NSAFTwoZero [cert, upper] A_interface.json :: res.tight.F2.0
+\newcommand{\NSAFTwoZero}{\ensuremath{5.6506\cdot10^{-13}}}
+% NSAFTwoOne [cert, upper] A_interface.json :: res.tight.F2.1
+\newcommand{\NSAFTwoOne}{\ensuremath{5.9320\cdot10^{-13}}}
+% NSACoupOne [cert, upper] A_interface.json :: res.tight.coup.1
+\newcommand{\NSACoupOne}{\ensuremath{1.1568\cdot10^{-12}}}
+% NSACOneZeroZero [cert, upper] A_interface.json :: res.tight.C1_0.0
+\newcommand{\NSACOneZeroZero}{\ensuremath{7.2060\cdot10^{-10}}}
+% NSACOneZeroOne [cert, upper] A_interface.json :: res.tight.C1_0.1
+\newcommand{\NSACOneZeroOne}{\ensuremath{4.3143\cdot10^{-8}}}
+% NSABZeroSupCoreZero [cert, upper] A_interface.json :: res.tight.B0.sup_core.0
+\newcommand{\NSABZeroSupCoreZero}{\ensuremath{4.23\cdot10^{-5}}}
+% NSACoreFluxMarginTwoFLUXZeroOverKZero [cert, margin] A_interface.json :: res.tight.core.flux_margin.2.FLUX0_over_K0
+\newcommand{\NSACoreFluxMarginTwoFLUXZeroOverKZero}{\ensuremath{3.396}}
+% NSACoreFluxMarginTwoFLUXTwoOverKTwo [cert, margin] A_interface.json :: res.tight.core.flux_margin.2.FLUX2_over_K2
+\newcommand{\NSACoreFluxMarginTwoFLUXTwoOverKTwo}{\ensuremath{6.012}}
+% NSAMarginFluxZero [cert, margin] asm_design_N2ref4.json :: res.tight.flux.beta.2.margin_FLUX0
+\newcommand{\NSAMarginFluxZero}{\ensuremath{3.365}}
+% NSAMarginFluxTwo [cert, margin] asm_design_N2ref4.json :: res.tight.flux.beta.2.margin_FLUX2
+\newcommand{\NSAMarginFluxTwo}{\ensuremath{5.955}}
+% NSAfourSZero [cert, upper] asm_design_N2ref4.json :: res.tight.S0
+\newcommand{\NSAfourSZero}{\ensuremath{7.1878\cdot10^{-3}}}
+% NSAfourSOne [cert, upper] asm_design_N2ref4.json :: res.tight.S1
+\newcommand{\NSAfourSOne}{\ensuremath{0.10430}}
+% NSAMarginCoreSZeroV [cert, margin] asm_design_N2ref4.json :: res.tight.margins.S0v_vs_0.0153
+\newcommand{\NSAMarginCoreSZeroV}{\ensuremath{2.116}}
+% NSAMarginCoreSOneV [cert, margin] asm_design_N2ref4.json :: res.tight.margins.S1v_vs_0.6
+\newcommand{\NSAMarginCoreSOneV}{\ensuremath{5.748}}
+% NSAMarginCoreMOne [cert, margin] asm_design_N2ref4.json :: res.tight.margins.M1core
+\newcommand{\NSAMarginCoreMOne}{\ensuremath{4.409}}
+% NSAMarginCoreMZero [cert, margin] asm_design_N2ref4.json :: res.tight.margins.M0core
+\newcommand{\NSAMarginCoreMZero}{\ensuremath{5.450}}
+% NSAMarginGhat [cert, margin] asm_design_N2ref4.json :: res.tight.margins.Ghat22
+\newcommand{\NSAMarginGhat}{\ensuremath{1.917}}
+% NSAMarginRampMOne [cert, margin] asm_design_N2ref4.json :: res.tight.margins.ramp M1
+\newcommand{\NSAMarginRampMOne}{\ensuremath{1.184}}
+% NSAfourInfoZeroDWindowConst [cert, upper] asm_design_N2ref4.json :: res.tight.info.0.D_window_const
+\newcommand{\NSAfourInfoZeroDWindowConst}{\ensuremath{1.7732\cdot10^{-7}}}
+% NSAfourInfoOneDWindowConst [cert, upper] asm_design_N2ref4.json :: res.tight.info.1.D_window_const
+\newcommand{\NSAfourInfoOneDWindowConst}{\ensuremath{9.8058\cdot10^{-5}}}
+% NZDeltaRZero [cert, upper] zone3_interface.json :: DeltaR.0
+\newcommand{\NZDeltaRZero}{\ensuremath{4.4986\cdot10^{-8}}}
+% NZDeltaROne [cert, upper] zone3_interface.json :: DeltaR.1
+\newcommand{\NZDeltaROne}{\ensuremath{6.7972\cdot10^{-6}}}
+% NZDeltaRTwo [cert, upper] zone3_interface.json :: DeltaR.2
+\newcommand{\NZDeltaRTwo}{\ensuremath{0.011480}}
+% NZDeltaRBZero [cert, upper] zone3_interface.json :: DeltaR_b.0
+\newcommand{\NZDeltaRBZero}{\ensuremath{2.66\cdot10^{-12}}}
+% NZDeltaRBOne [cert, upper] zone3_interface.json :: DeltaR_b.1
+\newcommand{\NZDeltaRBOne}{\ensuremath{3.26\cdot10^{-9}}}
+% NZDeltaRBTwo [cert, upper] zone3_interface.json :: DeltaR_b.2
+\newcommand{\NZDeltaRBTwo}{\ensuremath{4.35\cdot10^{-8}}}
+% NZDeltaRDetailNSqZero [cert, upper] zone3_interface.json :: DeltaR_detail.N_sq.0
+\newcommand{\NZDeltaRDetailNSqZero}{\ensuremath{8.28\cdot10^{-5}}}
+% NZDeltaRDetailNSqOne [cert, upper] zone3_interface.json :: DeltaR_detail.N_sq.1
+\newcommand{\NZDeltaRDetailNSqOne}{\ensuremath{0.10149}}
+% NZDeltaRDetailNSqTwo [cert, upper] zone3_interface.json :: DeltaR_detail.N_sq.2
+\newcommand{\NZDeltaRDetailNSqTwo}{\ensuremath{1.3567}}
+% NZDeltaRDetailNSqThree [cert, upper] zone3_interface.json :: DeltaR_detail.N_sq.3
+\newcommand{\NZDeltaRDetailNSqThree}{\ensuremath{25350}}
+% NZDeltaRDetailPartsTwoPairsThree [cert, upper] zone3_interface.json :: DeltaR_detail.parts.2.pairs.3
+\newcommand{\NZDeltaRDetailPartsTwoPairsThree}{\ensuremath{0.011298}}
+% NZDeltaRDetailPartsTwoLFourFoot [cert, upper] zone3_interface.json :: DeltaR_detail.parts.2.L4_foot
+\newcommand{\NZDeltaRDetailPartsTwoLFourFoot}{\ensuremath{1.6\cdot10^{-4}}}
+% NZDeltaRDetailPartsTwoCubic [cert, upper] zone3_interface.json :: DeltaR_detail.parts.2.cubic
+\newcommand{\NZDeltaRDetailPartsTwoCubic}{\ensuremath{9.3\cdot10^{-6}}}
+% NZDeltaRDetailPartsTwoSThreeThreeFoot [cert, upper] zone3_interface.json :: DeltaR_detail.parts.2.S33_foot
+\newcommand{\NZDeltaRDetailPartsTwoSThreeThreeFoot}{\ensuremath{3.7\cdot10^{-7}}}
+% NZNIIIZero [cert, upper] zone3_interface.json :: n_III.0
+\newcommand{\NZNIIIZero}{\ensuremath{0.071445}}
+% NZNIIIOne [cert, upper] zone3_interface.json :: n_III.1
+\newcommand{\NZNIIIOne}{\ensuremath{0.32707}}
+% NZNIIITwo [cert, upper] zone3_interface.json :: n_III.2
+\newcommand{\NZNIIITwo}{\ensuremath{3.0445}}
+% NZTauIII [cert, upper] zone3_interface.json :: tau_III
+\newcommand{\NZTauIII}{\ensuremath{4.0708}}
+% NZoneIIIBoxZero [cert, upper] zone3_interface.json :: box_III_380.b0
+\newcommand{\NZoneIIIBoxZero}{\ensuremath{0.10032}}
+% NZoneIIIBoxOne [cert, upper] zone3_interface.json :: box_III_380.b1
+\newcommand{\NZoneIIIBoxOne}{\ensuremath{0.41974}}
+% NZoneIIIBoxZ [cert, upper] zone3_interface.json :: box_III_380.bz
+\newcommand{\NZoneIIIBoxZ}{\ensuremath{0.014291}}
+% NZBoxIIIThreeEightZeroMarginsBZero [cert, margin] zone3_interface.json :: box_III_380.margins.b0
+\newcommand{\NZBoxIIIThreeEightZeroMarginsBZero}{\ensuremath{1.495}}
+% NZoneIIIMarginThinnest [cert, margin] zone3_interface.json :: box_III_380.margins.b1
+\newcommand{\NZoneIIIMarginThinnest}{\ensuremath{1.238}}
+% NZBoxIIIThreeEightZeroMarginsBz [cert, margin] zone3_interface.json :: box_III_380.margins.bz
+\newcommand{\NZBoxIIIThreeEightZeroMarginsBz}{\ensuremath{11.19}}
+% NZBoxIIISevenZeroZeroBZero [cert, upper] zone3_interface.json :: box_III_700.b0
+\newcommand{\NZBoxIIISevenZeroZeroBZero}{\ensuremath{0.22757}}
+% NZBoxIIISevenZeroZeroBOne [cert, upper] zone3_interface.json :: box_III_700.b1
+\newcommand{\NZBoxIIISevenZeroZeroBOne}{\ensuremath{0.54234}}
+% NZUfineKTwoAtBhatRef [cert, upper] zone3_interface.json :: ufine.K2_at_Bhat_ref
+\newcommand{\NZUfineKTwoAtBhatRef}{\ensuremath{0.046956}}
+% NZUfineKThreeStripAtBhatRef [cert, upper] zone3_interface.json :: ufine.K3_strip_at_Bhat_ref
+\newcommand{\NZUfineKThreeStripAtBhatRef}{\ensuremath{0.054140}}
+% NRecoveryMinMargin [cert, margin] zone3_interface.json :: cone_family.H6.at_Bhat_ref.min_margin
+\newcommand{\NRecoveryMinMargin}{\ensuremath{1.860}}
+% NZConeFamilyHSixAtBhatRefConeSlopeMargin [cert, margin] zone3_interface.json :: cone_family.H6.at_Bhat_ref.cone.slope.margin
+\newcommand{\NZConeFamilyHSixAtBhatRefConeSlopeMargin}{\ensuremath{2.46}}
+% NZConeFamilyHSixAtBhatRefConeKTwoMargin [cert, margin] zone3_interface.json :: cone_family.H6.at_Bhat_ref.cone.K2.margin
+\newcommand{\NZConeFamilyHSixAtBhatRefConeKTwoMargin}{\ensuremath{2.54}}
+% NZConeFamilyHSixAtBhatRefConeKThreeMargin [cert, margin] zone3_interface.json :: cone_family.H6.at_Bhat_ref.cone.K3.margin
+\newcommand{\NZConeFamilyHSixAtBhatRefConeKThreeMargin}{\ensuremath{2.51}}
+% NConeTstarMargin [cert, margin] zone3_interface.json :: acceptance.tstar_margin
+\newcommand{\NConeTstarMargin}{\ensuremath{2.30}}
+% NUoneTFiveYaddLevelOneTwo [cert, upper] u1_ghat.json :: t5_Yadd.level1.2
+\newcommand{\NUoneTFiveYaddLevelOneTwo}{\ensuremath{0.0044}}
+% NUoneTFiveYaddLevelTwoTwo [cert, upper] u1_ghat.json :: t5_Yadd.level2.2
+\newcommand{\NUoneTFiveYaddLevelTwoTwo}{\ensuremath{0.1081}}
+% NUoneTFiveYaddLevelTwoThree [cert, upper] u1_ghat.json :: t5_Yadd.level2.3
+\newcommand{\NUoneTFiveYaddLevelTwoThree}{\ensuremath{0.374}}
+% NUoneWeightThetaGammaZero [cert, upper] u1_ghat.json :: weight.Theta.Gamma.0
+\newcommand{\NUoneWeightThetaGammaZero}{\ensuremath{4.00000000000000000000054}}
+% NRKZeroZero [cert, upper] ramp_U.json :: K.0.0
+\newcommand{\NRKZeroZero}{\ensuremath{13436.03}}
+% NRKOneOne [cert, upper] ramp_U.json :: K.1.1
+\newcommand{\NRKOneOne}{\ensuremath{10526.19}}
+% NRKTwoTwo [cert, upper] ramp_U.json :: K.2.2
+\newcommand{\NRKTwoTwo}{\ensuremath{39482.30}}
+% NUoneCasesPrimaryYNextZero [cert, upper] u1_ghat.json :: cases.primary.Y_next.0
+\newcommand{\NUoneCasesPrimaryYNextZero}{\ensuremath{457.092}}
+% NUoneCasesPrimaryYNextOne [cert, upper] u1_ghat.json :: cases.primary.Y_next.1
+\newcommand{\NUoneCasesPrimaryYNextOne}{\ensuremath{356.940}}
+% NUoneCasesPrimaryYNextTwo [cert, upper] u1_ghat.json :: cases.primary.Y_next.2
+\newcommand{\NUoneCasesPrimaryYNextTwo}{\ensuremath{1320.220}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsZeroBound [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.0.bound
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsZeroBound}{\ensuremath{3.658\cdot10^{-10}}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsZeroMargin [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.0.margin
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsZeroMargin}{\ensuremath{27.34}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsOneBound [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.1.bound
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsOneBound}{\ensuremath{1.777\cdot10^{-9}}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsOneMargin [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.1.margin
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsOneMargin}{\ensuremath{562.8}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsTwoBound [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.2.bound
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsTwoBound}{\ensuremath{1.665\cdot10^{-6}}}
+% NSfourResultsMNineHTwoTightenedFUOneRowsTwoMargin [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened_fU1.rows.2.margin
+\newcommand{\NSfourResultsMNineHTwoTightenedFUOneRowsTwoMargin}{\ensuremath{600.9}}
+% NHOneAlphaThr [hand, exact] hand :: 
+\newcommand{\NHOneAlphaThr}{\ensuremath{1.5\cdot10^{-4}}}
+% NHOneSqrtLamThr [hand, exact] hand :: 
+\newcommand{\NHOneSqrtLamThr}{\ensuremath{5\cdot10^{-8}}}
+% NYbarStep [hand, exact] hand :: 
+\newcommand{\NYbarStep}{\ensuremath{1\cdot10^{-12}}}
+% NHTwoThrZero [hand, exact] hand :: 
+\newcommand{\NHTwoThrZero}{\ensuremath{1\cdot10^{-8}}}
+% NHTwoThrOne [hand, exact] hand :: 
+\newcommand{\NHTwoThrOne}{\ensuremath{1\cdot10^{-6}}}
+% NHTwoThrTwo [hand, exact] hand :: 
+\newcommand{\NHTwoThrTwo}{\ensuremath{1\cdot10^{-3}}}
+% NHThreeThrZero [hand, exact] hand :: 
+\newcommand{\NHThreeThrZero}{\ensuremath{1\cdot10^{-6}}}
+% NHThreeThrOne [hand, exact] hand :: 
+\newcommand{\NHThreeThrOne}{\ensuremath{5\cdot10^{-6}}}
+% NHThreeThrTwo [hand, exact] hand :: 
+\newcommand{\NHThreeThrTwo}{\ensuremath{1\cdot10^{-5}}}
+% NHFourThrZero [hand, exact] hand :: 
+\newcommand{\NHFourThrZero}{\ensuremath{2\cdot10^{-7}}}
+% NHFourThrOne [hand, exact] hand :: 
+\newcommand{\NHFourThrOne}{\ensuremath{1\cdot10^{-5}}}
+% NHFourThrTwo [hand, exact] hand :: 
+\newcommand{\NHFourThrTwo}{\ensuremath{1\cdot10^{-5}}}
+% NHFourThrThree [hand, exact] hand :: 
+\newcommand{\NHFourThrThree}{\ensuremath{1\cdot10^{-5}}}
+% NHFourKfourThr [hand, exact] hand :: 
+\newcommand{\NHFourKfourThr}{\ensuremath{0.06}}
+% NHSixConeSlopeThr [hand, exact] hand :: 
+\newcommand{\NHSixConeSlopeThr}{\ensuremath{0.08}}
+% NHSixConeKtwoThr [hand, exact] hand :: 
+\newcommand{\NHSixConeKtwoThr}{\ensuremath{0.03}}
+% NHSixConeNthreeThr [hand, exact] hand :: 
+\newcommand{\NHSixConeNthreeThr}{\ensuremath{0.004}}
+% NHSixConeJetThr [hand, exact] hand :: 
+\newcommand{\NHSixConeJetThr}{\ensuremath{0.12}}
+% NHSixConeHFiveThr [hand, exact] hand :: 
+\newcommand{\NHSixConeHFiveThr}{\ensuremath{0.0144}}
+% NHSixFarHFiveThr [hand, exact] hand :: 
+\newcommand{\NHSixFarHFiveThr}{\ensuremath{0.0225}}
+% NLemmaOConeM [hand, exact] hand :: 
+\newcommand{\NLemmaOConeM}{\ensuremath{0.12}}
+% NLemmaOConeK [hand, exact] hand :: 
+\newcommand{\NLemmaOConeK}{\ensuremath{0.18}}
+% NLemmaOFarM [hand, exact] hand :: 
+\newcommand{\NLemmaOFarM}{\ensuremath{0.15}}
+% NLemmaOFarK [hand, exact] hand :: 
+\newcommand{\NLemmaOFarK}{\ensuremath{0.3}}
+% NCoercivityConst [hand, exact] hand :: 
+\newcommand{\NCoercivityConst}{\ensuremath{0.046875}}
+% NMOnez [hand, exact] hand :: 
+\newcommand{\NMOnez}{\ensuremath{0.534}}
+% NBetaA [hand, exact] hand :: 
+\newcommand{\NBetaA}{\ensuremath{2}}
+% NTOneLower [cert, lower] t1clock.json :: t1.0
+\newcommand{\NTOneLower}{\ensuremath{4.5978574775}}
+% NTOneUpper [cert, upper] t1clock.json :: t1.1
+\newcommand{\NTOneUpper}{\ensuremath{4.5978586144}}
+% NLambdaOneLower [cert, lower] t1clock.json :: lnlam.0
+\newcommand{\NLambdaOneLower}{\ensuremath{6.49\cdot10^{-5}}}
+% NLambdaOneUpper [cert, upper] t1clock.json :: lnlam.1
+\newcommand{\NLambdaOneUpper}{\ensuremath{6.75\cdot10^{-5}}}
+% NTMinusTOneUpper [cert, upper] t1clock.json :: lnlam.1; 1.5e-4.sup_ab
+\newcommand{\NTMinusTOneUpper}{\ensuremath{2.1\cdot10^{-17}}}
+% NAbarUpper [cert, upper] final_alpha_points_5e-8.json :: 1.5e-4.sup_ab
+\newcommand{\NAbarUpper}{\ensuremath{2.19103\cdot10^{-7}}}
+% NBetabarUpper [cert, upper] final_alpha_points_5e-8.json :: 1.5e-4.sup_beta
+\newcommand{\NBetabarUpper}{\ensuremath{3.33811\cdot10^{-9}}}
+% NBaseKmaxLower [cert, lower] t1clock.json :: base_kmax.0
+\newcommand{\NBaseKmaxLower}{\ensuremath{2.279\cdot10^{4}}}
+% NBaseKmaxUpper [cert, upper] t1clock.json :: base_kmax.1
+\newcommand{\NBaseKmaxUpper}{\ensuremath{2.376\cdot10^{4}}}
+% NHOneAlphaBase [cert, upper] summary.json :: alpha_abs_max
+\newcommand{\NHOneAlphaBase}{\ensuremath{1.1739\cdot10^{-4}}}
+% NHOneAlphaErr [cert, upper] t9_h1_clam_s180.json :: C_alpha; inputs.YSTAR
+\newcommand{\NHOneAlphaErr}{\ensuremath{7.21\cdot10^{-13}}}
+% NHOneAlphaMargin [cert, margin] summary.json :: alpha_abs_max; C_alpha; inputs.YSTAR
+\newcommand{\NHOneAlphaMargin}{\ensuremath{1.27}}
+% NHOneSqrtLamBase [cert, upper] t9_h1_clam_s180.json :: sqrtLam_base_Wp
+\newcommand{\NHOneSqrtLamBase}{\ensuremath{2.282\cdot10^{-8}}}
+% NHOneSqrtLamTotal [cert, upper] t9_h1_clam_s180.json :: sqrtLam_total_Wp
+\newcommand{\NHOneSqrtLamTotal}{\ensuremath{2.29\cdot10^{-8}}}
+% NHOneSqrtLamMargin [cert, margin] t9_h1_clam_s180.json :: sqrtLam_total_Wp
+\newcommand{\NHOneSqrtLamMargin}{\ensuremath{2.18}}
+% NHOneYbarLimit [cert, lower] t9_h1_clam_s180.json :: Ybar_limit_H1
+\newcommand{\NHOneYbarLimit}{\ensuremath{1.12\cdot10^{-9}}}
+% NSwitchYUpper [cert, upper] switch_s2.json :: modulated.Y_raw
+\newcommand{\NSwitchYUpper}{\ensuremath{6.21\cdot10^{-13}}}
+% NSwitchYMargin [cert, margin] switch_s2.json :: modulated.Y_raw
+\newcommand{\NSwitchYMargin}{\ensuremath{1.6}}
+% NMinCI [cert, lower] constants.json :: meta.summary.min_c_I
+\newcommand{\NMinCI}{\ensuremath{0.05283}}
+% NNumCertificates [cert, exact] constants.json :: meta.summary.n_cert
+\newcommand{\NNumCertificates}{\ensuremath{26}}
+% NMinRhoC [cert, lower] constants.json :: meta.closure.rho_c_min
+\newcommand{\NMinRhoC}{\ensuremath{0.04711}}
+% NHTwoBaseZero [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.0.base
+\newcommand{\NHTwoBaseZero}{\ensuremath{8.011\cdot10^{-11}}}
+% NHTwoBaseOne [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.1.base
+\newcommand{\NHTwoBaseOne}{\ensuremath{1.336\cdot10^{-10}}}
+% NHTwoBaseTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.2.base
+\newcommand{\NHTwoBaseTwo}{\ensuremath{2.936\cdot10^{-10}}}
+% NHTwoErrWZero [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.0.with_error
+\newcommand{\NHTwoErrWZero}{\ensuremath{8.014\cdot10^{-11}}}
+% NHTwoMarginWZero [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.0.margin
+\newcommand{\NHTwoMarginWZero}{\ensuremath{124.78}}
+% NHTwoErrWOne [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.1.with_error
+\newcommand{\NHTwoErrWOne}{\ensuremath{4.706\cdot10^{-10}}}
+% NHTwoMarginWOne [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.1.margin
+\newcommand{\NHTwoMarginWOne}{\ensuremath{2124.9}}
+% NHTwoErrWTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.2.with_error
+\newcommand{\NHTwoErrWTwo}{\ensuremath{1.559\cdot10^{-6}}}
+% NHTwoMarginWTwo [cert, margin] FINAL_manifest_v33.json :: results.M9_H2_tightened.rows.2.margin
+\newcommand{\NHTwoMarginWTwo}{\ensuremath{641.53}}
+% NHThreeBaseZero [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.0.base
+\newcommand{\NHThreeBaseZero}{\ensuremath{3.127\cdot10^{-7}}}
+% NHThreeBaseOne [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.1.base
+\newcommand{\NHThreeBaseOne}{\ensuremath{1.004\cdot10^{-6}}}
+% NHThreeBaseTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.2.base
+\newcommand{\NHThreeBaseTwo}{\ensuremath{2.431\cdot10^{-6}}}
+% NHThreeErrZero [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.0.with_error
+\newcommand{\NHThreeErrZero}{\ensuremath{3.1363\cdot10^{-7}}}
+% NHThreeMarginZero [cert, margin] FINAL_manifest_v33.json :: results.M9_H2f.rows.0.margin
+\newcommand{\NHThreeMarginZero}{\ensuremath{3.1885}}
+% NHThreeErrOne [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.1.with_error
+\newcommand{\NHThreeErrOne}{\ensuremath{1.0034\cdot10^{-6}}}
+% NHThreeMarginOne [cert, margin] FINAL_manifest_v33.json :: results.M9_H2f.rows.1.margin
+\newcommand{\NHThreeMarginOne}{\ensuremath{4.9834}}
+% NHThreeErrTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_H2f.rows.2.with_error
+\newcommand{\NHThreeErrTwo}{\ensuremath{2.4351\cdot10^{-6}}}
+% NHThreeMarginTwo [cert, margin] FINAL_manifest_v33.json :: results.M9_H2f.rows.2.margin
+\newcommand{\NHThreeMarginTwo}{\ensuremath{4.1067}}
+% NHFourBaseZero [cert, upper] FINAL_manifest_v33.json :: results.M9_base_sums.combined.windows_max.0
+\newcommand{\NHFourBaseZero}{\ensuremath{3.48\cdot10^{-8}}}
+% NHFourErrZero [cert, upper] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.0.with_error_arb
+\newcommand{\NHFourErrZero}{\ensuremath{3.5087\cdot10^{-8}}}
+% NHFourMarginZero [cert, margin] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.0.margin_arb
+\newcommand{\NHFourMarginZero}{\ensuremath{5.700}}
+% NHFourBaseOne [cert, upper] FINAL_manifest_v33.json :: results.M9_base_sums.combined.windows_max.1
+\newcommand{\NHFourBaseOne}{\ensuremath{1.27\cdot10^{-7}}}
+% NHFourErrOne [cert, upper] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.1.with_error_arb
+\newcommand{\NHFourErrOne}{\ensuremath{1.2616\cdot10^{-7}}}
+% NHFourMarginOne [cert, margin] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.1.margin_arb
+\newcommand{\NHFourMarginOne}{\ensuremath{79.26}}
+% NHFourBaseTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_base_sums.combined.windows_max.2
+\newcommand{\NHFourBaseTwo}{\ensuremath{3.76\cdot10^{-7}}}
+% NHFourErrTwo [cert, upper] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.2.with_error_arb
+\newcommand{\NHFourErrTwo}{\ensuremath{3.7724\cdot10^{-7}}}
+% NHFourMarginTwo [cert, margin] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.2.margin_arb
+\newcommand{\NHFourMarginTwo}{\ensuremath{26.50}}
+% NHFourBaseThree [cert, upper] FINAL_manifest_v33.json :: results.M9_base_sums.combined.windows_max.3
+\newcommand{\NHFourBaseThree}{\ensuremath{9.71\cdot10^{-7}}}
+% NHFourErrThree [cert, upper] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.3.with_error_arb
+\newcommand{\NHFourErrThree}{\ensuremath{1.2822\cdot10^{-6}}}
+% NHFourMarginThree [cert, margin] FINAL_manifest_v33.json :: results.M9_H3_H2v32.rows.win.3.margin_arb
+\newcommand{\NHFourMarginThree}{\ensuremath{7.799}}
+% NHFourYbarLimit [cert, lower] FINAL_manifest_v33.json :: results.M9_H3_H2v32.binding_Ybar_limit
+\newcommand{\NHFourYbarLimit}{\ensuremath{1.575\cdot10^{-11}}}
+% NHFourYbarMargin [cert, margin] FINAL_manifest_v33.json :: results.M9_H3_H2v32.binding_Ybar_limit
+\newcommand{\NHFourYbarMargin}{\ensuremath{15.75}}
+% NHFourKfourBase [cert, upper] amp_A1_w180.json :: inputs.BASE_T1.K4
+\newcommand{\NHFourKfourBase}{\ensuremath{3.1633\cdot10^{-4}}}
+% NHSixConeSlope [cert, upper] FINAL_manifest_v33.json :: results.cone_fixedL.checks.slope.value
+\newcommand{\NHSixConeSlope}{\ensuremath{0.03029}}
+% NHSixConeSlopeMargin [cert, margin] FINAL_manifest_v33.json :: results.cone_fixedL.checks.slope.margin
+\newcommand{\NHSixConeSlopeMargin}{\ensuremath{2.641}}
+% NHSixConeKtwo [cert, upper] FINAL_manifest_v33.json :: results.cone_fixedL.checks.K2.value
+\newcommand{\NHSixConeKtwo}{\ensuremath{0.009876}}
+% NHSixConeKtwoMargin [cert, margin] FINAL_manifest_v33.json :: results.cone_fixedL.checks.K2.margin
+\newcommand{\NHSixConeKtwoMargin}{\ensuremath{3.037}}
+% NHSixConeNthree [cert, upper] FINAL_manifest_v33.json :: results.cone_fixedL.checks.N3.value
+\newcommand{\NHSixConeNthree}{\ensuremath{1.461\cdot10^{-4}}}
+% NHSixConeNthreeMargin [cert, margin] FINAL_manifest_v33.json :: results.cone_fixedL.checks.N3.margin
+\newcommand{\NHSixConeNthreeMargin}{\ensuremath{27.38}}
+% NHSixConeHFive [cert, upper] FINAL_manifest_v33.json :: results.H4_fixedL.total
+\newcommand{\NHSixConeHFive}{\ensuremath{1.2865\cdot10^{-5}}}
+% NHSixConeHFiveMargin [cert, margin] FINAL_manifest_v33.json :: results.H4_fixedL.margin
+\newcommand{\NHSixConeHFiveMargin}{\ensuremath{1119}}
+% NHSixConeTstarNeeded [cert, upper] FINAL_manifest_v33.json :: results.H7_fixedL.ratio_upper
+\newcommand{\NHSixConeTstarNeeded}{\ensuremath{1.6000015\cdot10^{-7}}}
+% NHSixConeTstarLower [cert, lower] FINAL_manifest_v33.json :: results.H7_fixedL.t_star_lower
+\newcommand{\NHSixConeTstarLower}{\ensuremath{3.68334\cdot10^{-7}}}
+% NHSixConeTstarMargin [cert, margin] FINAL_manifest_v33.json :: results.H7_fixedL.margin_tstar_over_ratio
+\newcommand{\NHSixConeTstarMargin}{\ensuremath{2.302}}
+% NHSixConeHFiveRatioPeak [cert, upper] h4loc_A1_w180.json :: windows.constants/amp_A1_w180.json.worst.ratio
+\newcommand{\NHSixConeHFiveRatioPeak}{\ensuremath{0.2393}}
+% NHSixConeHOneSup [cert, upper] FINAL_manifest_v33.json :: results.H1_fixedL.sup_h0_max
+\newcommand{\NHSixConeHOneSup}{\ensuremath{0.2163}}
+% NHSixConeHOneH [cert, upper] FINAL_manifest_v33.json :: results.H1_fixedL.H_max
+\newcommand{\NHSixConeHOneH}{\ensuremath{0.2185}}
+% NHSixFarHFiveRatio [cert, upper] h4loc_v32.json :: windows.constants/amp_A1_w180.json.cylinders.18.ratio
+\newcommand{\NHSixFarHFiveRatio}{\ensuremath{0.1761}}
+% NHSixFarHFiveMarginOld [cert, margin] h4loc_v32.json :: windows.constants/amp_A1_w180.json.cylinders.18.ratio
+\newcommand{\NHSixFarHFiveMarginOld}{\ensuremath{5.68}}
+% NHSixFarHFiveMargin [cert, margin] FINAL_manifest_v33.json :: results.M9_H4_far.min_margin
+\newcommand{\NHSixFarHFiveMargin}{\ensuremath{15.58}}
+% NHSixConeHFiveMarginOld [cert, margin] h4loc_A1_w180.json :: windows.constants/amp_A1_w180.json.worst.ratio
+\newcommand{\NHSixConeHFiveMarginOld}{\ensuremath{4.18}}
+% NHSixFarKtwo [cert, upper] t9_far_v32.json :: h2
+\newcommand{\NHSixFarKtwo}{\ensuremath{1.797\cdot10^{-4}}}
+% NHSixFarKtwoThr [hand, exact] t9_far_v32.json :: thr.h2
+\newcommand{\NHSixFarKtwoThr}{\ensuremath{3.53\cdot10^{-4}}}
+% NHSixFarKtwoMargin [cert, margin] t9_far_v32.json :: margins.h2
+\newcommand{\NHSixFarKtwoMargin}{\ensuremath{1.964}}
+% NHSixFarKthree [cert, upper] t9_far_v32.json :: h3
+\newcommand{\NHSixFarKthree}{\ensuremath{2.595\cdot10^{-8}}}
+% NHSixFarKthreeThr [hand, exact] t9_far_v32.json :: thr.h3
+\newcommand{\NHSixFarKthreeThr}{\ensuremath{1.17\cdot10^{-5}}}
+% NHSixFarKthreeMargin [cert, margin] t9_far_v32.json :: margins.h3
+\newcommand{\NHSixFarKthreeMargin}{\ensuremath{450.9}}
+% NHSixFarKfour [cert, upper] t9_far_v32.json :: h4
+\newcommand{\NHSixFarKfour}{\ensuremath{6.964\cdot10^{-9}}}
+% NHSixFarKfourThr [hand, exact] t9_far_v32.json :: thr.h4
+\newcommand{\NHSixFarKfourThr}{\ensuremath{1.03\cdot10^{-7}}}
+% NHSixFarKfourMargin [cert, margin] t9_far_v32.json :: margins.h4
+\newcommand{\NHSixFarKfourMargin}{\ensuremath{14.79}}
+% NHSixFarSlope [cert, upper] t9_far_v32.json :: slope
+\newcommand{\NHSixFarSlope}{\ensuremath{0.04153}}
+% NHSixFarSlopeThr [hand, exact] t9_far_v32.json :: thr.slope
+\newcommand{\NHSixFarSlopeThr}{\ensuremath{0.0800}}
+% NHSixFarSlopeMargin [cert, margin] t9_far_v32.json :: margins.slope
+\newcommand{\NHSixFarSlopeMargin}{\ensuremath{1.926}}
+% NHSixFarNthree [cert, upper] t9_far_v32.json :: L2
+\newcommand{\NHSixFarNthree}{\ensuremath{5.516\cdot10^{-7}}}
+% NHSixFarNthreeThr [hand, exact] t9_far_v32.json :: thr.L2
+\newcommand{\NHSixFarNthreeThr}{\ensuremath{3.32\cdot10^{-6}}}
+% NHSixFarNthreeMargin [cert, margin] t9_far_v32.json :: margins.L2
+\newcommand{\NHSixFarNthreeMargin}{\ensuremath{6.019}}
+% NFarTstarMargin [cert, margin] lemmaO_v32_consts.json :: far_v32.case.margin_factor_lower
+\newcommand{\NFarTstarMargin}{\ensuremath{15.5}}
+% NFarTstarLower [cert, lower] lemmaO_v32_consts.json :: far_v32.case.t_star_lower
+\newcommand{\NFarTstarLower}{\ensuremath{9.5108\cdot10^{-8}}}
+% NFarTstarNeeded [cert, upper] lemmaO_v32_consts.json :: far_v32.case.needed
+\newcommand{\NFarTstarNeeded}{\ensuremath{6.134\cdot10^{-9}}}
+% NGammaModes [cert, exact] gamma0_final.json :: M
+\newcommand{\NGammaModes}{\ensuremath{3762}}
+% NGammaHalfwidth [cert, upper] gamma0_final.json :: b_j_halfwidth
+\newcommand{\NGammaHalfwidth}{\ensuremath{8.138\cdot10^{-24}}}
+% NGammaContraction [cert, upper] gamma0_final.json :: krawczyk_contraction
+\newcommand{\NGammaContraction}{\ensuremath{3.01\cdot10^{-12}}}
+% NGammaArcs [cert, exact] gamma0_final.json :: embedded.arcs
+\newcommand{\NGammaArcs}{\ensuremath{701}}
+% NGammaMaxTurn [cert, upper] gamma0_final.json :: embedded.maxturn
+\newcommand{\NGammaMaxTurn}{\ensuremath{0.04997}}
+% NGammaMaxPair [cert, upper] gamma0_final.json :: embedded.maxpair
+\newcommand{\NGammaMaxPair}{\ensuremath{0.09597}}
+% NGammaMinSep [cert, lower] gamma0_final.json :: embedded.minsep
+\newcommand{\NGammaMinSep}{\ensuremath{8.89\cdot10^{-3}}}
+% NGammaHalfGap [cert, lower] gamma0_final.json :: embedded.gap_cert
+\newcommand{\NGammaHalfGap}{\ensuremath{0.0248219}}
+% NPhaseISlabs [cert, exact] status.json :: slab
+\newcommand{\NPhaseISlabs}{\ensuremath{96}}
+% NPhaseIModes [cert, exact] status.json :: last_slab.M
+\newcommand{\NPhaseIModes}{\ensuremath{2800}}
+% NPhaseIKmaxLower [cert, lower] status.json :: kmax_enclosure.0
+\newcommand{\NPhaseIKmaxLower}{\ensuremath{29.352874545}}
+% NPhaseIKmaxUpper [cert, upper] status.json :: kmax_enclosure.1
+\newcommand{\NPhaseIKmaxUpper}{\ensuremath{29.352874546}}
+% NPhaseITLower [cert, lower] status.json :: t
+\newcommand{\NPhaseITLower}{\ensuremath{4.597850539485830}}
+% NPhaseITUpper [cert, upper] status.json :: t
+\newcommand{\NPhaseITUpper}{\ensuremath{4.597850539485831}}
+% NPeakSqrtLam [cert, upper] rate_table_fin12f4_a0.00015.json :: sqrtL_max
+\newcommand{\NPeakSqrtLam}{\ensuremath{5.308\cdot10^{-8}}}
+% NTailRate [cert, lower] rate_table_fin12f4_a0.00015.json :: tail.rho
+\newcommand{\NTailRate}{\ensuremath{2.693\cdot10^{-3}}}
+% NFloorSqrtLam [cert, upper] rate_table_fin12f4_a0.00015.json :: tail.sqrt_LF
+\newcommand{\NFloorSqrtLam}{\ensuremath{9.872\cdot10^{-10}}}
+% NAlphaFloor [cert, upper] rate_table_fin12f4_a0.00015.json :: tail.alpha_F
+\newcommand{\NAlphaFloor}{\ensuremath{6.867\cdot10^{-7}}}
+% NSupBetaVerifier [cert, upper] final_alpha_points_5e-8.json :: 1.5e-4.sup_beta
+\newcommand{\NSupBetaVerifier}{\ensuremath{3.33811\cdot10^{-9}}}
+% NMOneRamp [cert, upper] final_alpha_points_5e-8.json :: 1.5e-4.M1
+\newcommand{\NMOneRamp}{\ensuremath{0.4328}}
+% NSITwoPrime [cert, upper] FINAL_manifest_v33.json :: results.F12_sliver.sI2_prime
+\newcommand{\NSITwoPrime}{\ensuremath{0.015457}}
+% NLoopGainCoarse [cert, upper] U_cert_v35.json :: loop_gain.2.total
+\newcommand{\NLoopGainCoarse}{\ensuremath{0.03904}}
+% NRateMarginCoarse [cert, margin] U_cert_v35.json :: rate_margin
+\newcommand{\NRateMarginCoarse}{\ensuremath{28.2}}
+% NSOneEpsLower [cert, lower] bracket2.json :: eps_a
+\newcommand{\NSOneEpsLower}{\ensuremath{1.5346198892965\cdot10^{-4}}}
+% NSOneEpsUpper [cert, upper] bracket2.json :: eps_b
+\newcommand{\NSOneEpsUpper}{\ensuremath{1.5346198899299\cdot10^{-4}}}
+% NSOneRowsTip [cert, exact] ext_tip_check.json :: rows
+\newcommand{\NSOneRowsTip}{\ensuremath{51246}}
+% NSOneTipWidth [cert, upper] ext_tip_check.json :: max_pointwise_width.th
+\newcommand{\NSOneTipWidth}{\ensuremath{3.2\cdot10^{-12}}}
+% NSOneExtWidth [cert, upper] ext813_check.json :: max_pointwise_width.p
+\newcommand{\NSOneExtWidth}{\ensuremath{5.7\cdot10^{-10}}}
+% NSOneRowsMC [cert, exact] check_outA5.json :: prof_tip_vs_MC.rows_compared
+\newcommand{\NSOneRowsMC}{\ensuremath{1025}}
+% NSOneRowsMB [cert, exact] check_outA5.json :: ext813_vs_MB.rows_compared
+\newcommand{\NSOneRowsMB}{\ensuremath{501}}
+% NSOneMinMargin [cert, margin] check_outA5.json :: min:*.min_relative_margin.*
+\newcommand{\NSOneMinMargin}{\ensuremath{1.2\cdot10^{-9}}}
+% NTwoSegments [cert, exact] contour_result.json :: len:segments
+\newcommand{\NTwoSegments}{\ensuremath{5058}}
+% NTwoInteriorBoxes [cert, exact] interior_result.json :: len:
+\newcommand{\NTwoInteriorBoxes}{\ensuremath{174}}
+% NTwoContourBoxes [cert, exact] eta_cache.json :: len:
+\newcommand{\NTwoContourBoxes}{\ensuremath{202}}
+% NTwoEtaMax [cert, upper] eta_cache.json :: max:*.eta
+\newcommand{\NTwoEtaMax}{\ensuremath{0.1163}}
+% NTwoLipMax [cert, upper] eta_cache.json :: max:*.Lip
+\newcommand{\NTwoLipMax}{\ensuremath{0.272}}
+% NTwoLambdaZero [est, upper] cert_b0.25_th0.0_tau0.03.json :: Lam
+\newcommand{\NTwoLambdaZero}{\ensuremath{1.790819}}
+% NTwoLambdaOne [est, upper] cert_b0.25_th0.48_tau0.03.json :: Lam
+\newcommand{\NTwoLambdaOne}{\ensuremath{1.768282}}
+% NSOneDTightLower [doc, lower] doc:README.md :: D ∈ [2.50080627654, 2.50080627668]
+\newcommand{\NSOneDTightLower}{\ensuremath{2.50080627654}}
+% NSOneDTightUpper [doc, upper] doc:README.md :: D ∈ [2.50080627654, 2.50080627668]
+\newcommand{\NSOneDTightUpper}{\ensuremath{2.50080627668}}
+% NSOneKTightLower [doc, lower] doc:README.md :: k(0) ∈ [1.53982063762, 1.53982063822]
+\newcommand{\NSOneKTightLower}{\ensuremath{1.53982063762}}
+% NSOneKTightUpper [doc, upper] doc:README.md :: k(0) ∈ [1.53982063762, 1.53982063822]
+\newcommand{\NSOneKTightUpper}{\ensuremath{1.53982063822}}
+% NSOneDCondLower [doc, lower] doc:README.md :: D = −p(tip) ∈ [2.500806276619695, 2.500806276620049]
+\newcommand{\NSOneDCondLower}{\ensuremath{2.500806276619695}}
+% NSOneDCondUpper [doc, upper] doc:README.md :: D = −p(tip) ∈ [2.500806276619695, 2.500806276620049]
+\newcommand{\NSOneDCondUpper}{\ensuremath{2.500806276620049}}
+% NSOneKCondLower [doc, lower] doc:README.md :: k(0) ∈ [1.539820637871836, 1.5398206378721015]
+\newcommand{\NSOneKCondLower}{\ensuremath{1.539820637871836}}
+% NSOneKCondUpper [doc, upper] doc:README.md :: k(0) ∈ [1.539820637871836, 1.5398206378721015]
+\newcommand{\NSOneKCondUpper}{\ensuremath{1.5398206378721015}}
+% NSOneTauTipLower [doc, lower] doc:README.md :: τ_tip ∈ [10.249077651120778, 10.249077651121361]
+\newcommand{\NSOneTauTipLower}{\ensuremath{10.249077651120778}}
+% NSOneTauTipUpper [doc, upper] doc:README.md :: τ_tip ∈ [10.249077651120778, 10.249077651121361]
+\newcommand{\NSOneTauTipUpper}{\ensuremath{10.249077651121361}}
+% NSOneStateUncert [doc, upper] doc:README.md :: State uncertainty at σ = 8: 4.4e−13
+\newcommand{\NSOneStateUncert}{\ensuremath{4.4\cdot10^{-13}}}
+% NFarBoxEprime [doc, margin] doc:STEP4_RESULT.md :: (6.4287, 4.6917, 1.9940, 1.69999995)
+\newcommand{\NFarBoxEprime}{\ensuremath{6.42}}
+% NFarBoxXEsecond [doc, margin] doc:STEP4_RESULT.md :: (6.4287, 4.6917, 1.9940, 1.69999995)
+\newcommand{\NFarBoxXEsecond}{\ensuremath{4.69}}
+% NFarBoxXsqEthird [doc, margin] doc:STEP4_RESULT.md :: (6.4287, 4.6917, 1.9940, 1.69999995)
+\newcommand{\NFarBoxXsqEthird}{\ensuremath{1.99}}
+% NFarBoxE [doc, margin] doc:STEP4_RESULT.md :: (6.4287, 4.6917, 1.9940, 1.69999995)
+\newcommand{\NFarBoxE}{\ensuremath{1.69}}
+% NHFourKfourErr [doc, upper] doc:STEP4_RESULT.md :: | 5.60e-3 against 0.06 | ×10.7 |
+\newcommand{\NHFourKfourErr}{\ensuremath{5.60\cdot10^{-3}}}
+% NHFourKfourMargin [doc, margin] doc:STEP4_RESULT.md :: | 5.60e-3 against 0.06 | ×10.7 |
+\newcommand{\NHFourKfourMargin}{\ensuremath{10.7}}
+% NCoercivityCoefficient [doc, upper] doc:step3_proof_v32.tex :: \norm{e^{\tau\mathcal L}u}_\rho\le14.8\,e^{-0.0213\tau}\norm
+\newcommand{\NCoercivityCoefficient}{\ensuremath{14.8}}
+% NCoercivityRate [doc, lower] doc:step3_proof_v32.tex :: \norm{e^{\tau\mathcal L}u}_\rho\le14.8\,e^{-0.0213\tau}\norm
+\newcommand{\NCoercivityRate}{\ensuremath{0.0213}}
+% NRegionRampStart [hand, exact] hand :: 
+\newcommand{\NRegionRampStart}{\ensuremath{14}}
+% NRegionInterface [hand, exact] hand :: 
+\newcommand{\NRegionInterface}{\ensuremath{28}}
+% NRegionShellEnd [hand, exact] hand :: 
+\newcommand{\NRegionShellEnd}{\ensuremath{60}}
+% NRegionSegEnd [hand, exact] hand :: 
+\newcommand{\NRegionSegEnd}{\ensuremath{350}}
+% NRegionAnnEnd [hand, exact] hand :: 
+\newcommand{\NRegionAnnEnd}{\ensuremath{700}}
+% NZoneIIILow [hand, exact] hand :: 
+\newcommand{\NZoneIIILow}{\ensuremath{253}}
+% NZoneIIIHigh [hand, exact] hand :: 
+\newcommand{\NZoneIIIHigh}{\ensuremath{379.5}}
+% NConeCentreMin [hand, exact] hand :: 
+\newcommand{\NConeCentreMin}{\ensuremath{300}}
+% NConeCentreMax [hand, exact] hand :: 
+\newcommand{\NConeCentreMax}{\ensuremath{380}}
+% NFarCentreMin [hand, exact] hand :: 
+\newcommand{\NFarCentreMin}{\ensuremath{490}}
+% NConeL [hand, exact] hand :: 
+\newcommand{\NConeL}{\ensuremath{50}}
+% NConeX [hand, exact] hand :: 
+\newcommand{\NConeX}{\ensuremath{3}}
+% NFarL [hand, exact] hand :: 
+\newcommand{\NFarL}{\ensuremath{113}}
+% NFarX [hand, exact] hand :: 
+\newcommand{\NFarX}{\ensuremath{2}}

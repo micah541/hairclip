@@ -1,0 +1,18 @@
+nice -n 19 python3 -B n1_chart.py|9.32_s|103056_KB
+nice -n 19 python3 -B run_F10p_ibp.py|129.31_s|86720_KB
+nice -n 19 python3 -B rigor/capture_F2.py|129.56_s|85396_KB
+nice -n 19 python3 -B rigor/weights_exact.py|9.67_s|87552_KB
+nice -n 19 python3 -B rigor/assembly_arb.py|1.69_s|76272_KB
+nice -n 19 python3 -B r3_forcing.py|2.80_s|75412_KB
+nice -n 19 python3 -B r3_symcheck.py|3.70_s|78520_KB
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/run_t2.sh|51.17_s|92836_KB
+nice -n 19 python3 -B u1_ghat.py|1.27_s|77712_KB
+nice -n 19 python3 -B u34_sweeps.py --case primary|44.92_s|75492_KB
+nice -n 19 python3 -B u2_K.py --fresh|47.71_s|79904_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass1.json|0.30_s|73160_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass1.json out/U_cert_for_zone3_v36_pass1.json|0.02_s|16548_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36_pass1.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t4_cert/out/U_cert_v36_pass1.json|0.09_s|35856_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t5_zone3/out/zone3_interface_pass1.json --out U_cert_v36_pass2.json|0.29_s|73068_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass2.json out/U_cert_for_zone3_v36.json|0.02_s|16648_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t4_cert/out/U_cert_v36_pass2.json|0.10_s|36276_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass3.json|0.30_s|72996_KB

@@ -1,0 +1,326 @@
+% lemmaS_A_v33.tex -- proof text of the repaired Lemma S(A), step 3 v3.3 (fix round 1, review finding B1).
+% Standalone, or \input by step3_v33_main.tex (which defines \stepmain).  Labels are prefixed A:.
+% Not compiled (no LaTeX here); balance checked by check_balance.py, see B12_REPORT.md.
+\ifdefined\stepmain\else
+\documentclass[11pt]{article}
+\input{b12_preamble}
+\input{numbers_A_v33}
+\title{Lemma S(A), repaired (step 3, v3.3): statement and proof\\[2pt]\large the shell energies on $[14,700]$ with the ramp repairs, the $y=28$ interface, the outer cutoff in $L^2$ form, and the window export}
+\author{}\date{14 November 2026 (fix round 1, review finding B1). \emph{Not compiled.}}
+\begin{document}\maketitle
+\tableofcontents
+\fi
+
+\section{Status, labels, sources}\label{A:sec:status}
+\noindent\textbf{What this note is.} The proof text of the repaired Lemma~S(A) that Lemma~U (\fn{bulk/t3_proof/lemmaU.tex}) takes as hypothesis (D1) and on which its closure condition (K1) rests. Until now the repair existed only as agent reports (\fn{t2_A_v33/A_REPAIR.md}, \fn{A2_REPORT.md}, \fn{V33_A_REPORT.md}), scripts and proof sketches (\fn{t1_statements/STATEMENTS_r2.tex}, Prop.~R5$'$ and Prop.~closure). The structure and notation follow \fn{writeup/lemmaS/lemmaS.tex} (v3.1), whose machine-verified energy identities, coefficient expansions and verifier conversions are reused unchanged. The v3.1 files are not edited. The v3.1 errors that this repair removes are listed in \fn{t7_assembly/erratum/ERRATUM.md}, items A1--A10.
+
+\noindent\textbf{Labels.} \tC: python-flint \fn{arb} with outward rounding, computed by the named script; the JSON key is given. \tP: proved here by hand. \tH: hypothesis (hand-off threshold, verifier output used as an input, or literature). \tE: estimate, not a bound. \tB: a place where review finding B0 (the variable mismatch) acts; B0 is resolved by \fn{fix1/b0/B0_REPORT.md} (route (b)), and these places carry the certified profile difference $d$. Decimals are rounded outward. All numerical values are macros defined in \fn{numbers_A_v33.tex} with their keys (v35 values).
+
+\noindent\textbf{Certified sources} (v35; under \fn{/home/claude/s1spec/writeup/lemmaU/bulk/fix2/n12/t2_A_v35/}, the N1 rerun of the B0 rerun \fn{fix1/b0/t2_A_v34/} of \fn{t2_A_v33/}, all three of which stay untouched; driver \fn{run_t2.sh} with \fn{--dprof} and \fn{--chart}, two consecutive runs byte-identical, \fn{out/SHA256SUMS}; interface \fn{out/A_interface.json}, sha256 \fn{78fe2f8e38a340ba515fbc33cbab60cdd85231095af6ccd192e5f6707f457e8c}; the assembly at $4\times N_2^{\rm ref}$ quoted below is \fn{out/asm_design_N2ref4.json}). The scripts are those of \fn{t2_A_v33/rigor/}; only \fn{assembly_rep.py} (options \fn{--dprof}, \fn{--chart}), \fn{export_t2.py} and the root path of \fn{arlib.py} changed; after the review finding M3 an assertion ``verifier ramp sups $\le$ ramp box'' was added to \fn{assembly_rep.py} (backup \fn{assembly_rep_pre_n35.py}); the rerun with it (\fn{run_t2.sh}, all 20 output files) is identical to \fn{out/} apart from the \fn{args} blocks and is kept in \fn{out_n35rerun/} (its \fn{A_interface.json} has sha256 \fn{5ee8d3ed...}, differing only by the recorded script hashes). Lemma~U is \fn{t4_cert/out/U_cert_v35.json} (sha256 \fn{960809fd...}), the Zone III interface \fn{t5_zone3/out/zone3_interface.json} (sha256 \fn{45e8d4dc...}). The table of $d$ is the step-4 v33 stage \fn{b0_dprof} (\fn{step4/p2/out_v33/b0_dprof.json}), the chart terms are the stage \fn{n1_chart} (\fn{out_v33/n1_chart.json}, sha256 \fn{341ed1f4...}; \S\ref{A:sec:chart}), and the datum (H2) for $f-U_1$ is the stage \fn{h2u_v33} (arb rows \fn{h2u_v33_arb.json}); manifest \fn{step4/p2/out_v33/FINAL_manifest_v33.json}, 20 stages, sha256 \fn{a0d348ec2dfb84bd3c62482517a0aa26f5d29ab3e4230081384054f395f8e357}.
+\begin{center}\small\begin{tabular}{@{}p{0.2\linewidth}p{0.74\linewidth}@{}}\toprule
+script & what it certifies (output)\\\midrule
+\fn{rigor/hjw_rep.py} & H-J-W in window form with the constant $\kappa_J$ (Lemma~\ref{A:lem:HJ}) (\fn{out/hjw_rep.json})\\
+\fn{rigor/ic_rep.py} & the datum rule $E^A_j(\tau_1)\le H_{2,j}+H^f_{2,j}$ (\fn{out/ic_*.json})\\
+\fn{rigor/a3_signs.py} & the signs of the table entries used by Lemma~\ref{A:lem:P}, in exact rationals (\fn{out/a3_signs.json})\\
+\fn{rigor/weights_t2.py} & base coefficients, $\hat G$ on every region, the $C^{1,1}$ majorant $\tilde Y$, the localised $L^4$/S33 constants, segment and $O$ rate conditions, retained dissipation $r_j$ (\fn{out/weights_t2.json}; fallback box \fn{weights_t2_fb.json})\\
+\fn{rigor/ramp_rep.py} & inner-ramp cutoff tables: jet-free pairs, top pair (R1), cutoff$\times$jet classes (R2), with the point-term routes of A3 (\fn{out/ramp_rep.json})\\
+\fn{rigor/outer_L2.py} & the outer-annulus constants $\kappa^o_{jk}$ of R5$'$, with the class list and the tool used for each class (\fn{out/outer_L2.json})\\
+\fn{rigor/assembly_rep.py} & the assembly of $E^A_j$, $\gamma'_j$, $S^v_0,S^v_1$, the core and ramp margins, the flux constants at $\beta\hat E$, the export $C0,C1$ (\fn{out/asm_*.json})\\
+\fn{rigor/export_t2.py} & the interface file \fn{out/A_interface.json} (rules \key{EA_of_N2}, \key{C0_rule}, \key{C1_rule})\\\bottomrule\end{tabular}\end{center}
+The reference chain \fn{base_ibp/} (a byte-identical copy of \fn{gonogo/lemmaS_A_ibp}, rerun for v3.3 with the \fn{fin12f4} verifier inputs, \fn{V33_A_REPORT.md}) supplies, unmodified and by import: the exact divergence-form tables (\fn{rigor/tables_exact.pkl}, \fn{rigor/weights_exact.py}), the symbolic coefficient expansions (\fn{build_At_sym}, \fn{eval_At}), the conversion \fn{convk} with the sliver correction \fn{sliver_G}, the inflow and foot tables, the window loop and the flux constants \fn{f4b} (\fn{rigor/assembly_arb.py}). The verifier is \fn{step3nl_v33} (tag \fn{fin12f4}, \fn{V33_VERIFIER.md}).
+
+\noindent\textbf{What is not certified here.} The hand-off thresholds (H2), (H2f) \tH; the verifier's outputs, which (A) uses as inputs (D1 of the bootstrap) \tH; the outer data $\Nb^2_k$ (Lemma~N of \fn{lemmaU.tex}, at the bootstrap level); the box hypotheses B2$'$, B3U(b,c), Z1, H-O1 at the hypothesis level. Section~\ref{A:sec:gaps} lists what the scripts certify differently from this text (the integration-rule item G-A1, now applied, and the other bookkeeping items); B0 and the chart identification (N1) are closed (Remark~\ref{A:rem:B0}, \S\ref{A:sec:chart}).
+
+%======================================================================
+\section{Setting}\label{A:sec:set}
+\subsection{Coordinates, weights, cutoffs}
+In the far field the curve is a normal graph over the $S_1$ ray with slope $f$ (v3.2 \S1.2--1.3). We use $y=x-2.2490776515$ ($x$ the arclength of $S_1$ from its tip), $s=\ln y$, and
+\[
+\varepsilon=y^{-4}=e^{-4s},\qquad \omega=\tfrac{28}{y},\qquad \kappa:=5\quad(\text{so }(\varepsilon\omega)'=-\kappa\,\varepsilon\omega),\qquad p=1.0246 .
+\]
+$S(t)=t^3(10-15t+6t^2)$ on $[0,1]$, extended by $0$ and $1$; $S\in C^2$, and $S'''$ jumps by $\mp60$ at $t=0,1$.
+\begin{itemize}[leftmargin=*]
+\item \emph{Inner ramp} $[14,28]$: $\eta_{\rm in}=S(t)$, $y=14\cdot2^t$. \emph{Core} $[28,60]$. \emph{Segments} $(60,350]$. \emph{Outer annulus} $O=[350,700]$: $\eta_o=1-S(t)$, $y=350\cdot2^t$.
+\item $\eta_A=\eta_{\rm in}\eta_o$, so $\eta_A=1$ on $[28,350]$; $\Theta:=\varepsilon\omega\eta_A^2$.
+\item Energies $E^A_j=\int\omega\eta_A^2(z^A_j)^2\,ds$, $z^A_j=\partial_s^jv_A$, $j=0,1,2$.
+\end{itemize}
+
+\subsection{The energy variable}\label{A:sec:var}
+(A)'s energy variable is $v_A=f-U(\alpha(\tau),y)$, $U(\alpha,y)=1.3056\,\alpha\,y^p$, on all of $[14,700]$ (\fn{B0_REPORT.md}, route (b)). The forcing $R$, the coefficient expansion and the core box are derived for this variable. The verifier works with $w'=f-\alpha\hat\psi_3'(x)-\alpha^2\hat h_2'(x)$. Their difference is the profile difference
+\[
+d:=v_A-w'=\alpha\bigl(\hat\psi_3'-1.3056\,y^p\bigr)+\alpha^2\hat h_2' ,
+\]
+a function of $(\alpha,y)$ only, bounded with its $s$-derivatives in arb on $y\in[14,60]$ by the step-4 stage \fn{b0_dprof} (2944 cells, first-order form about the cell centres to avoid the cancellation of the two terms; certified $C^4$ profiles of \fn{c4fun.py}) \tC: at $|\alpha|\le\alpha_1=1.5\cdot10^{-4}$, $\sup_{[14,28]}|D^kd|\le\dsupRampV$, $\sup_{[28,60]}|D^kd|\le\dsupCoreV$ ($k=0,\dots,3$), and the ramp $W$-norms $\int W(\partial_x^md)^2\le\dWV$; at $|\alpha|\le\alpha(t_1)$, $E_k[d]$ on $[14,60]$ $\le\dEtOneV$. Since $|\alpha|\le\alpha_1$ at every $\tau$ (B1), every $d$-term is a bound \emph{per unit $\tau$}.
+
+\begin{remark}[the interfaces, and how $d$ enters]\label{A:rem:B0}
+\begin{enumerate}[label=(I\arabic*),leftmargin=2.4em]
+\item \emph{Ramp data} (Lemma~\ref{A:lem:conv}): $z^A_k=D^k w'+D^kd+\chi_k$ on $[14,28]$ (Lemma~\ref{C:lem:id}(d)); the chart terms $\chi_k$ of \S\ref{A:sec:chart} are added to the $d$-side (so $z^A_k=D^kw'+D^kd+\chi_k$ on the ramp, $\chi_k$ certified there); each quadratic data term splits as $t\le(1+\eta)t_w+(1+\eta^{-1})t_d$ (Young, $\eta>0$ per term), each cubic term as $(1+\eta)^2t_w+(1+\eta^{-1})^2t_d$.
+\item \emph{Verifier coefficients}: the verifier consumes $S^v_0+\sup_{\rm core}|d|$ and $S^v_1+\sup_{\rm core}|Dd|$ as bounds of $|w'|$, $y|w''|$ on $[34.25,60]$ (Theorem~\ref{A:thm:A}(c)).
+\item \emph{Flux constants}: $K_i=\sum_lk_lN_l$ with $k_l\ge0$ (asserted) and $N_l$ linear in the $w'$-energies, so $K_i\le(\sqrt{K_i(E^A)}+\sqrt{K_i(E_d)})^2$, also at $\beta E^A$ (Theorem~\ref{A:thm:A}(e)).
+\item \emph{Datum on $[14,60]$}: (H2) is certified for $f-U_1$ by \fn{h2u_v33}: $\sqrt{G_k[f-U_1]}\le\sqrt{E_k[w']}+\sqrt{E_k[d]}$, giving $\HtwoCertV$ against $\HtwoV$ ($\HtwoMarV$) \tC. At $\tau_1$, $U(\alpha(\tau_1),y)=U_1$, so $z^A_j(\tau_1)=\partial_s^j(f-U_1)$.
+\item \emph{Datum on $[60,700]$}: (H2f) is certified for $f-U_1$; no $d$ needed.
+\item \emph{Lemma U}: uses $v_A-v=\delta U$ (Lemma dU), consistent with $v_A=f-U$; no change.
+\end{enumerate}
+The ramp boxes add $d$ and the chart terms: $|z^A_1|\le M_1^{\rm ver}(28+2^{-19})/28+\sup_{\rm ramp}|Dd|+\sup|\chi^{\rm add}_1|$ and $|f|$ adds $\sup_{\rm ramp}|d|+\sup|\chi^{\rm add}_0|$; the sups $\sup_{\rm ramp}|D^kd|$ including the chart sups are $\dsupRampV$ \tC\ (\SA\ \key{B0.sup_ramp}); the typed $2\cdot10^{-5}$ of v3.1 dominates the level-1 value $1.87\cdot10^{-5}$ (asserted). \emph{The chart identification} of the verifier's $S_1$-chart $w'$ (normal graph over $S_1$ in $x$) with the ray-graph quantity $f-\alpha\hat\psi_3'-\alpha^2\hat h_2'$, which v3.1--v3.3 (B0) had left unproved at levels $\ge1$ and had covered at level~0 only by a typed allowance (review N1), is the exact Lemma~\ref{C:lem:id} with the certified bounds of Lemma~\ref{C:lem:bd} (\S\ref{A:sec:chart}).
+\end{remark}
+
+\subsection{The chart identification (review N1)}\label{A:sec:chart}
+\noindent\emph{Source:} \fn{fix2/n12/chart_lemma.tex}, merged below as \fn{chart_lemma_body.tex} (notation adapted: the limit angle of $S_1$ is $\theta_\infty$ and the chart quantity $\varepsilon_{\rm c}$, so as not to collide with $\Theta=\varepsilon\omega\eta_A^2$ and $\varepsilon=y^{-4}$ of (A); in the chart lemma $p$ is the normal coordinate in $\Gamma_1=(q+ip)e^{i\theta_1}$ and, in $p^k$ and $U=1.3056\,\alpha y^p$, the exponent $1.0246$; the two never occur in one formula except in (d), where $p^k$ is the exponent). Summary: Lemma~\ref{C:lem:id} is the exact change of chart from the verifier's variable $w'$ (a graph over $S_1$) to the ray graph, $z^A_k\circ Y=D^k(w'+d)+\chi_k$, with $\chi_k$ affine in $u'''$, $u''''$ and zero for a ray; Lemma~\ref{C:lem:bd} bounds $\chi_k$ in arb from the step-1 tail envelopes of $S_1$ (\fn{hstail.profile_bounds}) and the verifier sups, by the step-4 v33 stage \fn{n1_chart} \tC. The largest chart term is at $\sigma=14$: $\sup|\chi^{\rm add}_k|\le(2.087\cdot10^{-8},\,4.444\cdot10^{-7},\,9.910\cdot10^{-6},\,2.307\cdot10^{-4})$, about $\times20$ smaller at $\sigma=16$ and below $10^{-13}$ for $\sigma\ge28$; it replaces the typed $2\cdot10^{-7}$ allowance, which is no longer used by (A). Consumed by (A) (\fn{assembly_rep.py --chart}): ramp data (Lemma~\ref{A:lem:conv}), $\Phi$, the ramp boxes, the core sups, the fluxes, and the $W$-norms of $d$ (end slivers). The effect on every margin is at most $0.06\%$ \tC\ (\fn{fix2/n12/N12_REPORT.md} \S4). The datum needs no chart term (Remark~\ref{C:rem:chart}(2)).
+\input{chart_lemma_body}
+
+\subsection{The equation and the coefficients}\label{A:sec:eq}
+With $V=U+u$ the full slope, the exact far-field slope equation (\fn{lemmaS.tex} \S1, symbolic residual $0$) reads in $s$
+\begin{equation}\label{A:eq:u}
+u_\tau+c\,u_s=-\varepsilon(\partial_s^2-5\partial_s+6)\mathcal G+R,\qquad \mathcal G=A_2u_{ss}+A_1u_s+A_0u ,
+\end{equation}
+with $A_2=\mathfrak a(V)$, $A_1=-\mathfrak a(V)+\mathfrak b(V)(V_s+U_s)$, $A_0=\overline{\Delta\mathfrak a}(U_{ss}-U_s)+\overline{\Delta\mathfrak b}\,U_s^2$ (difference quotients), $c=\frac14-a-b\cos\theta\,e^{-s}$, and the forcing $R$ of the profile. On $y\ge14$: $c\in[c_{\min},\bar c]$, $c_{\min}=\frac14-\bar a-\bar b/14$, $\bar c=\frac14+\bar a+\bar b/14$, with $\bar a=\bar b=2.19103\cdot10^{-7}$ \tH\ (verifier, \fn{V33_VERIFIER.md}).
+
+\emph{Coefficient boxes.} Every $A_i^{(r)}=\partial_s^rA_i$ ($r\le6$) is expanded by Fa\`a di Bruno into monomials in the jets $V_k$; $V_0,V_1$ are bounded by a box $(M_0,M_1)$, $U^{(k)}$ by $p^kU_{\max}$, and the jets $z_k$, $k\ge2$, are kept symbolic (\fn{weights_exact.build_At_sym}, \fn{eval_At}; exact rationals, arb evaluation). The \emph{jet-free part} $\mathrm{Ab}_{(i,r)}$ is the $z$-free part including all profile jets (repair R3: v3.1 set $V_j=0$ for $j\ge2$, \fn{weights_exact.py} l.81--83; erratum A4). The dissipation coefficient is $\mathfrak a(V)\ge a_{\min}(M_0)=(1+M_0^2)^{-2}$.
+
+\subsection{Boxes by region, and who supplies them}\label{A:sec:boxes}
+\begin{center}\small\begin{tabular}{@{}p{0.18\linewidth}p{0.36\linewidth}p{0.40\linewidth}@{}}\toprule
+region & box used (coefficients; folded factors) & source at the hypothesis level\\\midrule
+ramp $[14,28]$ & base terms: $(0.11,0.52)$, $U\le\frac1{20}$, $|z_0|\le\frac1{50}$, $|z_1|\le0.52$; cutoff tables: $(0.05,0.9)$, $|z_0|\le\frac1{50}$, $|z_1|\le\frac9{10}$; dissipation $a_{\min}(0.05)$ & verifier (D1, D2): $|f|\le s_{I1}+U(28)+\sup_{\rm ramp}|d|+\sup|\chi^{\rm add}_0|\le7.13\cdot10^{-3}$, $|yf_y|\le M_1^{\rm ver}(28+2^{-19})/28+pU(28)+\sup|Dd|+\sup|\chi^{\rm add}_1|\le0.4390$, $|z^A_0|\le s_{I1}+\sup_{\rm ramp}|d|+\sup|\chi^{\rm add}_0|$, $|z^A_1|\le M_1^{\rm ver}(28+2^{-19})/28+\sup_{\rm ramp}|Dd|+\sup|\chi^{\rm add}_1|\le0.4328+2\cdot10^{-5}$ ($\sup_{\rm ramp}|Dd|$ with the chart sup $\le1.87\cdot10^{-5}$, \fn{b0_dprof}, \fn{n1_chart}); all inside the intersection of the two boxes\\
+core $[28,60]$ & $(0.11,0.52)$, $U\le\frac1{20}$, $|z_0|\le\frac1{50}$, $|z_1|\le0.52$ & B2$'$; $|z_1|$: Lemma~\ref{A:lem:z1}\\
+segments $(60,350]$ & $(0.15,0.52)$, $U\le0.08$, $|z_0|\le0.161$, $|z_1|\le0.61$ (fallback $(0.20,0.60)$, $|z_1|\le0.69$) & B3U(b,c) where $r<r_\chi\lambda_1$, Z1 beyond; $\delta U$ by Lemma~dU\\
+$O=[350,700]$ & $(\frac12,1)$, $U\le0.162$, $|z_0|\le Z_0=\frac{331}{500}$, $|z_1|\le Z_1=\frac{1166}{1000}$ & H-O1 from Lemma~N of \fn{lemmaU.tex}\\\bottomrule\end{tabular}\end{center}
+$U\le\frac1{20}$ on $[14,60]$, $U\le0.08$ on $[14,350]$ and $U\le0.162$ on $[14,700]$ are asserted in arb (\fn{weights_t2.py}, \fn{main}: \fn{U_of_y}). The ramp uses two boxes for two kinds of terms; both are valid because the verifier's ramp values lie in their intersection $(0.05,0.52)$. This is the A5 repair (\S\ref{A:sec:interface}): v3.1 used the box $(0.05,0.9)$ for all ramp terms, including the global identities, which then do not match the core across $y=28$. The ramp margin is the ratio $0.52/0.4390$: $\times\MarRampMoneV$ \tC\ (\SA\ \key{core.margins.ramp M1}); (review M3, fixed in M14 and N35) the verifier's ramp sups $M_1^{\rm ver}$, $s_{I1}$ are read from the \fn{fin12f4} output (\fn{final_alpha_points_5e-8.json}, row $\alpha_1=1.5\cdot10^{-4}$), rounded up to four digits, and \fn{assembly_rep.py} (function \fn{margins}) asserts that the resulting ramp values are $\le(0.52,0.52,0.05)$; the quoted $0.4390$, $0.4328$, $7.13\cdot10^{-3}$ are upper bounds of the asserted values ($0.43892$, $0.43282$, $7.1221\cdot10^{-3}$) \tC.
+
+\begin{lemma}[$|z^A_1|$ on the core; review M5]\label{A:lem:z1}
+Under B2$'$ ($E^A_j\le\beta_A\Eh_j$, $\beta_A=2$, $\sup_{[28,60]}|v_A|+\sup_{\rm core}|d|\le0.0153$, margin $\times\MarSzeroV$ for the derived value $S^v_0+\sup_{\rm core}|d|$), on $[28,60]$: $|z^A_0|\le\sup|v_A|\le0.0153\le\frac1{50}$ (and $\sup|w'|\le0.0153$, the verifier's input) and $|z^A_1|\le S^v_1(\beta_A\Eh)=\sqrt{\beta_A}\,S^v_1(\Eh)\le\sqrt2\cdot\SonevV<0.148\le0.52$.
+\end{lemma}
+\begin{proof}\tP\ $S^v_1(E)=\bigl(E^u_1/\ell+2\sqrt{E^u_1(E^u_1+E^u_2)}\bigr)^{1/2}$ with $E^u=(60/28)E$, $\ell=\ln(60/28)$ (Theorem~\ref{A:thm:A}(c)) is the Sobolev bound $\sup z_1^2\le\|z_1\|^2/\ell+2\|z_1\|\|z_2\|$ on $[\ln28,\ln60]$ with $\omega\ge28/60$; it is homogeneous of degree $\frac12$ in $E$. Use $S^v_1(\Eh)\le\SonevV$ \tC\ (\fn{asm_design_N2ref4.json} \key{S1}).
+\end{proof}
+\noindent B2$'$ bounds $|yf_y|$, not $|z_1|=|yf_y-pU|$; without Lemma~\ref{A:lem:z1} one gets only $0.52+pU(60)\le0.5333$. Lemma~\ref{A:lem:z1} closes the point raised in review M5 for (A). (The bound is not circular: B2$'$ is the hypothesis, and the conclusion of (A) is $E^A\le\Eh$ with $\beta_A=2$ of room.)
+
+%======================================================================
+\section{Statement}\label{A:sec:statement}
+\begin{proposition}[level-$j$ inequality]\label{A:prop:level}
+Assume on $[\tau_1,\tau']$: the verifier conclusions D1 (B1, $\bar a,\bar b,\bar\beta$, the pointwise ramp values, H-J-W of Lemma~\ref{A:lem:HJ}); the boxes of \S\ref{A:sec:boxes}; H-O2$'$, $\sup_\tau\int_O(z^A_k)^2ds\le\Nb_k^2$ ($k=0,1,2$); and the profile bound $|\alpha|\le\alpha_1=1.5\cdot10^{-4}$. Then for $j=0,1,2$ and a.e.\ $\tau$,
+\begin{equation}\label{A:eq:D1}
+\frac{d}{d\tau}E^A_j+\gamma'_jE^A_j+r_j\,a_c\!\int_{\ln28}^{\ln350}\!\varepsilon\omega\,(z^A_{j+2})^2ds\ \le\ \mathfrak s_j(\tau)+2\sqrt{E^A_j}\,F_j+\mathrm{coup}_j(\tau)+\oh_j ,
+\end{equation}
+where
+\begin{itemize}[leftmargin=*]
+\item $\gamma'_j=c_{\min}-(|1-2j|+1)\bar b/14-28^{-4}\hat G^{\rm core}_{jj}\ge\gpV$ \tC\ (\SA\ \key{gp});
+\item $r_0=r_1=\rexpV$, $r_2=0$, $a_c=(1+0.11^2)^{-2}\ge\acV$ \tC\ (\SA\ \key{r_export}, \key{amin_c});
+\item $\mathfrak s_j\ge0$ is a sum of densities supported on the inner ramp $[14,28]$: inflow, jet-free cutoff pairs and the ramp share of the rate, top pair, cutoff$\times$jet classes, foot and S33 terms (\S\ref{A:sec:ramp}--\ref{A:sec:foot}); each is a quadratic, cubic or product expression in the $z^A_k$ on the ramp;
+\item $F_j^2=\int\omega|\partial_s^jR|^2\le(r_0^Fp^j)^2I_{\rm int}$ (\S\ref{A:sec:forcing});
+\item $\mathrm{coup}_j(\tau)=\sum_{k<j}\hat G^{\rm core}_{jk}28^{-4}E^A_k(\tau)$, with $\GcoreOffV$ \tC\ (\SA\ \key{interface28.Ghat_core});
+\item $\oh_j=\sum_{k=0}^2\kappa^o_{jk}\Nb_k^2$, $\kappa^o$ \tC\ (\SA\ \key{kappa_o}; \fn{outer_L2.py}).
+\end{itemize}
+\end{proposition}
+
+\begin{theorem}[repaired Lemma S(A)]\label{A:thm:A}
+Assume Proposition~\ref{A:prop:level}, the datum $E^A_j(\tau_1)\le H_{2,j}+H^f_{2,j}$, and the outer data $\Nb^2$ of Lemma~N at $\beta=2$. Then on $[\tau_1,\tau']$:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item \emph{(energies)} $E^A_j(\tau)\le\Eh_j$, with $\Eh_j$ given by Lemma~\ref{A:lem:int} (rule of \S\ref{A:sec:int});
+\item \emph{(window export, Lemma D)} for $k=0,1$ and every window $[\tau_a,\tau_a+T]\subset[\tau_1,\tau']$: $\int_{\tau_a}^{\tau_a+T}\!\int_{\ln28}^{\ln350}\varepsilon\omega(z^A_{k+2})^2\le C0_k+C1_kT$;
+\item \emph{(core sups)} on $[28,60]$: $\sup|v_A|\le S^v_0$, $\sup|z^A_1|\le S^v_1$, and the core box of B2$'$ holds strictly;
+\item \emph{(ramp box)} the ramp values of the verifier lie strictly inside the ramp box;
+\item \emph{(flux)} the flux constants $K_0,K_2$ at $\beta_A\Eh$ are below the verifier inputs \fn{FLUX0}, \fn{FLUX2}.
+\end{enumerate}
+\textbf{Values} \tC\ (v35, B0 route (b) with the N1 chart terms; rule (R-sup), G-A1 applied, \S\ref{A:sec:gaps}): $\Eh\le\EhV$ (\SU\ \key{supersolution.EA}, rule \SA\ \key{EA_of_N2}); $C0\le\CzeroV$, $C1\le\ConeV$ (\SU\ \key{supersolution.C0}, \key{C1}); $S^v_0\le\SzerovV$, $S^v_1\le\SonevV$; margins: $S^v_0$ against the verifier input $0.0153$ $\times\MarSzeroV$, core $M_1$ $\times\MarMoneV$, core $M_0$ $\times\MarMzeroV$, core $\hat G_{22}$ against $c_{\min}28^4=153664$ $\times\MarGV$, ramp $M_1$ $\times\MarRampMoneV$, fluxes at $\beta_A=2$ $\times\MarFluxZeroV$, $\times\MarFluxTwoV$ (\fn{asm_design_N2ref4.json}, the run at $4\times$\key{N2_ref}, which dominates the certified $\Nb^2\le\NbarV$, \SU\ \key{supersolution.N2_le_4N2ref}; review M6).
+\end{theorem}
+
+%======================================================================
+\section{Tools}\label{A:sec:tools}
+\subsection{Energy identities}
+\begin{lemma}[divergence form; \fn{lemmaS.tex} Prop.~1]\label{A:lem:id}
+For $j=0,1,2$ and a weight $\Xi=\omega\eta^2$ with $\eta\in C^2$, $\eta'''$ bounded and piecewise continuous, and $u$ smooth:
+\[
+-2\int\Xi z_j\partial_s^j\bigl(\varepsilon(\partial_s^2-5\partial_s+6)\mathcal G\bigr)=\sum_{a\le b\le j+2}\int c^{(j)}_{ab}\,z_az_b ,
+\]
+with $c^{(j)}_{j+2,j+2}=-2A_2\varepsilon\Xi$ and every other $c^{(j)}_{ab}$ a sum of monomials $\mathrm{co}\cdot\varepsilon\,(\omega\eta^2)^{(m)}A_i^{(r)}$, $\mathrm{co}\in\mathbb Q$, $m\le3$, $r\le6$ (monomial label $(m,i,r)$). The tables (\fn{tables_exact.pkl}, exact rationals, $|\mathrm{co}|$ stored) satisfy: $m=3$ occurs only on the pair $(j,j+1)$; on $(a,j+1)$ with $a<j$, $m\le2$ (level 2: $m\le1$); on the top pair $(j+1,j+1)$, $m\le2$.
+\end{lemma}
+\noindent\emph{Status.} The identity is machine-verified (sympy Euler operator, residual $0$; \fn{lemmaS_prop1_sym.py}, \fn{lemmaS_F1.div_form}) \tC. The $m$-pattern was found by the reviewer (\fn{REVIEW_v33.md}, question~1, G6) and is confirmed by a read-only probe of the tables in this task (\fn{fix1/b12_text/}, see \fn{B12_REPORT.md}); \fn{ramp_rep.py} does not assert it for the inner ramp (\fn{outer_L2.py} asserts $m\le1$ where it integrates by parts on $O$). \emph{Recommended:} add the assertion.
+
+\noindent\emph{Split.} Write $\omega\,\mathrm{rem}_m:=(\omega\eta^2)^{(m)}-(-1)^m\omega\eta^2$ (with $\gamma=1$, $\omega^{(m)}=(-1)^m\omega$). The coefficient of a pair splits into a \emph{base part} with weight $\pm\varepsilon\omega\eta^2=\pm\Theta$ and a \emph{cutoff part} $\varepsilon\omega\,\mathrm{co}\,\mathrm{rem}_m A_i^{(r)}$ ($m\ge1$), supported where $\eta'\ne0$: on the inner ramp for $\eta_{\rm in}$, on $O$ for $\eta_o$.
+
+\subsection{Point terms}
+\begin{lemma}[P; \fn{STATEMENTS_r2.tex} Lemma~P]\label{A:lem:P}
+At the end $y_*$ of a cutoff ramp where $\eta=1$ ($y_*=28$ for $\eta_{\rm in}$, $y_*=350$ for $\eta_o$), $(\eta^2)'''$ jumps by $J=120/\ln^32$. Let $\Xi=\varepsilon\omega\eta^2$, $h=(\Xi\mathfrak a)''$, $g=(\Xi\mathfrak a)'''$, $g_c=\varepsilon\omega\mathfrak a J>0$ the jump of the cutoff part of $g$. The level-$j$ identity contains $+4\int hz_{j+1}^2$ (entry $(2,2,0)$ on $(j+1,j+1)$) and $+2\int g\,z_jz_{j+1}$ (entry $(3,2,0)$ on $(j,j+1)$), and no other entry whose weight jumps. Then: (i) if both are integrated by parts, the net point term is $-g_cz_j(y_*)^2\le0$; (ii) if only the second is, $+g_cz_j(y_*)^2$ remains; (iii) if neither is, there is no point term.
+\end{lemma}
+\noindent\emph{Proof:} \fn{STATEMENTS_r2.tex} Lemma~P \tP. The signs $+4$, $+2$ (and $-2$ for the dissipation entry, which fixes the convention) are certified in exact rationals on the stored forms at $j=0,1,2$ (\fn{a3_signs.json} \key{lemmaP_signs_ok}) \tC; the absence of other jumping entries is the $m$-pattern of Lemma~\ref{A:lem:id}. $g_c(28)\le\gcV$ per unit $\tau$ \tC\ (\SA\ \key{pointterm.gc_28}).
+
+\noindent\emph{Routes used.} Inner ramp: levels 0, 1 case (iii) (top pair by data, route J; the $m=3$ monomial of $(j,j+1)$ by data, \fn{ramp_rep.py} \fn{PM3_DIRECT}); level 2 case (i) (both by parts; the point term is dropped). $O$: levels 0, 1 case (iii); level 2 case (i) at $y=350$ (\fn{outer_L2.py}, \key{pointterm}). Every other integration by parts in this note has a continuous coefficient (Lemma~\ref{A:lem:id}: $m\le2$ there) and produces no point term. This repairs erratum A10 (v3.1 and phase 2a were case (ii) at levels 0, 1).
+
+\subsection{Localisation of the global identities}
+\begin{lemma}[L; \fn{STATEMENTS_r2.tex} Lemma~L]\label{A:lem:L}
+Let the coefficient bounds be piecewise constant in $s$ (ramp, core, segments, $O$). (i) Pair terms, Young steps against the dissipation and rate terms are pointwise in $s$, so per-region evaluation is exact. (ii) If $\tilde Y\ge Y$ is a $C^{1,1}$ majorant of the $z_{j+1}^2$ coefficient, then
+\[
+\int\Xi\tilde Yz_{j+1}^2\le B_ca\!\int\Xi z_{j+2}^2+\int\Xi\Bigl[\frac{\tilde Y^2}{4B_ca}+\frac{\tilde Y}2\frac{|\Xi''|}{\Xi}+|\tilde Y'|\frac{|\Xi'|}{\Xi}+\frac{|\tilde Y''|}2\Bigr]z_j^2 .
+\]
+(iii) In the $L^4$ identity $X^2:=\int\Xi z_2^4=-3\int\Xi z_1z_2^2z_3-\int\Xi'z_1z_2^3$ and in the $\{2,3,3\}$ integration by parts, a \emph{single} AM--GM parameter $\mu$ per product must be used on the whole domain of the identity; region-dependent factors then enter only pointwise.
+\end{lemma}
+\noindent\emph{Proof:} two integrations by parts with the $C^{1,1}$ weight $\Xi\tilde Y$ (no point term), then pointwise Young; (iii) Cauchy--Schwarz in the identity and Young with one $\mu$ \tP. On a partition of unity $\chi_1^2+\chi_2^2=1$ (pieces $P_1$, $P_2$) one applies (iii) to $\sqrt{\chi_i}\,z$ on each piece: $X_\chi\le M_1(3\|\sqrt\chi z_3\|_\Xi+\|(\kappa\sqrt\chi+q)z_2\|_\Xi)$, $q=|\chi'|/\sqrt\chi\le\pi S'(t)/\ell$, which is what \fn{weights_t2.py} (\fn{alloc}) implements.
+
+\subsection{Data conversion and the verifier}
+\begin{lemma}[conversion; \fn{lemmaS.tex} ``Closing the assumptions'', item 2]\label{A:lem:conv}
+Let $F\ge0$ on the ramp, $V_m=\|v^{(m)}\|_W$ the verifier norms ($v=\zeta w'$, $W=(1+x^2)^{-2}$ for $x\le30.25$, $x$-derivatives) and write $z^A_k=\partial_s^kv+D^kd$ on the ramp (Remark~\ref{A:rem:B0}) \tB. Since $z_k=\sum_mS(k,m)y^mv^{(m)}$ ($S$ the Stirling numbers of the second kind, $\sum_mS(k,m)=\mathrm{Bell}_k$) and $ds=dy/y$,
+\[
+\int_{\rm ramp}F\,z_k^2\,ds\le\mathrm{Bell}_k\sum_mS(k,m)\,\sup_{\rm ramp}\bigl(Fy^{2m-1}/W\bigr)\,V_m^2=:\mathrm{conv}_k(F;V^2).
+\]
+On the sliver $x\in[16.2491,16.25]$, where $\zeta<1$, $z_k(w')$ and $z_k(\zeta w')$ differ by the factor $1/\zeta$; \fn{convk} with \fn{sliver_G} replaces $\mathrm{conv}_k$ by $(\sqrt{b_k}+\sum_i\binom kiG_i\sqrt{b_{k-i}})^2$ with certified sups $G_i$ of $|D^i(1/\zeta)-\delta_{i0}|$ \tC\ (\fn{base_ibp/rigor/assembly_arb.py}; RIGOR\_PASS item 3). $J_3$ enters as $\sqrt{J_2J_4}+c_{1W}J_2$, $c_{1W}=0.8477$ (verifier interpolation) \tH. The $d$-part is $t_d=\mathrm{conv}_k(F;\int W(\partial_x^md)^2)$ per unit $\tau$ (no sliver factor: $d$ is explicit), and $\int_{\rm ramp}Fz_k^2\le(1+\eta)\,\mathrm{conv}_k(F;V^2)+(1+\eta^{-1})t_d$; \fn{assembly_rep.py} (\fn{trq}, \fn{trc}, \fn{trp}) takes $\eta=(t_d/(\gamma't_w))^{1/2}$ per term as an exact point value, which is admissible for any $\eta>0$.
+\end{lemma}
+\begin{lemma}[H-J-W; \fn{STATEMENTS_r2.tex} Lemma~4 (sufficient check), \fn{lemmaU.tex} Lemma~H-J-W]\label{A:lem:HJ}
+For $m\in\{0,1,2,4\}$ and every window $[\tau_a,\tau_a+T]\subset[\tau_1,\tau']$: $\int_{\tau_a}^{\tau_a+T}V_m^2\le J_m(1+\kappa_J)+s_mT$, with the verifier's $J_m,s_m$ and $\kappa_J\le\kappaJV$ \tC\ (\SA\ \key{HJW.kappa_J}; $0.0423485$ from (W1), $1.93\cdot10^{-6}$ from the flux floor $F_0$ missing on the march cells, erratum B1/E-V1). The tail lemma (W2) is the verifier's \tH.
+\end{lemma}
+\begin{corollary}[exponential weights]\label{A:cor:exp}
+For $\gamma''>0$ and $\tau\in[\tau_1,\tau']$: $\int_{\tau_1}^{\tau}e^{-\gamma''(\tau-\sigma)}V_m(\sigma)^2d\sigma\le J_m(1+\kappa_J)+s_m/\gamma''=:J^{e}_m(\gamma'')$.
+\end{corollary}
+\begin{proof}\tP\ Layer cake (\fn{lemmaU.tex} Corollary ``layer cake'') with $m(T)=e^{-\gamma''T}$ on the windows $[\tau-T,\tau]$ read backwards.
+\end{proof}
+
+\subsection{The sup-free cubic bound on the ramp}
+\begin{lemma}[$\Phi$; \fn{lemmaU.tex} Lemma~S (sup-free cubic) with $\Xi=\varepsilon\omega$, $L=\kappa$]\label{A:lem:Phi}
+With $\Xi=\varepsilon\omega$ on the whole ramp $I=[\ln14,\ln28]$ ($\ell=\ln2$, no cutoff), $G=\Xi^{1/2}z_2$, $\|G'\|^2\le2(\int\Xi z_3^2+\frac{\kappa^2}4\int\Xi z_2^2)$, and for every exponentially weighted time integral with $\gamma''$,
+\[
+\iint_{\rm ramp}e^{-\gamma''(\tau-\sigma)}\varepsilon\omega|z_2|^3\le\Phi:=(\varepsilon\omega)_{\min}^{-1/2}\sqrt{F_{\max}}\Bigl(\frac{J_F}{\sqrt{\ln2}}+\sqrt2\,J_F^{3/4}J_G^{1/4}\Bigr),
+\]
+where $(\varepsilon\omega)_{\min}=28^{-4}$, $J_F=\mathrm{conv}_2(\varepsilon\omega;J^e)$, $J_G=2(\mathrm{conv}_3(\varepsilon\omega;J^e)+6.25\,\mathrm{conv}_2(\varepsilon\omega;J^e))$, and $F_{\max}=\mathrm{conv}_2(\varepsilon\omega;\bar V^2)$ is the pointwise-in-time bound from B1: $V_0^2\le\Lambda/\mu$, $V_2^2\le\Lambda/(\mu\varepsilon_I)$, $V_1^2\le V_0V_2+c_{1W}V_0^2$, $\sqrt\Lambda\le\peakV$, $\mu=0.08$, $\varepsilon_I=3\cdot10^{-5}$.
+\end{lemma}
+\noindent Value of the $w'$-part $\Phi\le\PhiV$ \tC\ (\fn{asm_*.json} \key{info.Phi}); the $d$-part is the rate $\sup_{\rm ramp}|D^2d|\cdot\mathrm{conv}_2(\varepsilon\omega;\int W(\partial_x^md)^2)$, combined by $(a+b)^3\le(1+\eta)^2a^3+(1+\eta^{-1})^2b^3$. This is v3.1's sup-free S33 data formula (\fn{lemmaS_F2.py} l.204--208), now used for every cubic class of the ramp.
+
+%======================================================================
+\section{Proof of Proposition~\ref{A:prop:level}}\label{A:sec:proof}
+Fix $j$ and $\tau$; write $z_k=z^A_k$, $n=j+2$. By the standing smoothness (P1) and the graph property (continuation\_v33, Lemma~G) all integrals below are finite and the identities apply.
+
+\subsection{Step 1: transport, damping, inflow}
+By \fn{lemmaS.tex} Prop.~1, $-2\int\omega\eta_A^2z_j\partial_s^j(cu_s)=\int c(\omega\eta_A^2)'z_j^2+(1-2j)\int\omega\eta_A^2c_sz_j^2-[j=2]\,2\int\omega\eta_A^2c_{ss}z_1z_2$. With $\omega'=-\omega$: the part $-c\int\omega\eta_A^2z_j^2$ gives the damping $\ge c_{\min}E^A_j$; $|c_s|,|c_{ss}|\le\bar be^{-s}\le\bar b/14$ gives the loss $(|1-2j|+1)\bar b/14$ (the cross term by AM--GM); $c\,\omega(\eta_{\rm in}^2)'\ge0$ on the inner ramp is the \emph{inflow}, at most $\bar c\int\omega(\eta_{\rm in}^2)'z_j^2$, a ramp density in $\mathfrak s_j$ (converted by Lemma~\ref{A:lem:conv} with the table \fn{infl_tab}); $c\,\omega(\eta_o^2)'\le0$ on $O$ is an outflow and is dropped \tP. (As in v3.2, $\cos\theta$ is taken constant along the ray in $c_s$; v3.2 \S6 item~1.)
+
+\subsection{Step 2: base terms and the rate}\label{A:sec:base}
+\emph{Classification} (\fn{weights_exact.classify_x}, used by \fn{weights_t2.py} \fn{Reg.level}). For each pair $(a,b)$, $b\le n$, and each jet monomial $X$ of the base coefficient, the factors $z_0,z_1$ are bounded by the box and the rest is one of: a \emph{pair} $P(x,y)$, $x\le y\le n$, with weight $w$; an \emph{$L^4$ class} $(L4,r)$: $\int\Theta w|z_r|z_2^2$; the \emph{S33 class}: $\int\Theta w|z_2|z_3^2$ (level 2 only). Any other shape raises an error (asserted).
+\begin{itemize}[leftmargin=*]
+\item \emph{Pairs.} $(n,n)$: subtracted from the dissipation; $(x,n)$, $x<n$: Young with $\delta=\frac1{10}a_{\min}$ (\fn{DFRAC}) against $\Theta z_n^2$; $(x,y)$, $y<n$: AM--GM into the columns $x,y$. Result: the jet-free coefficients $\mathrm{YC}[k]$ of $\Theta z_k^2$, $k\le j+1$.
+\item \emph{$L^4$ and S33} (Lemma~\ref{A:lem:L}(iii)): $\int\Theta w|z_r|z_2^2\le\|wz_r\|_\Theta X$, $X\le M_1(3\|z_3\|_\Theta+\|\kappa z_2\|_\Theta)+(\text{foot})$; $\int\Theta w|z_2|z_3^2=-\int(\Theta'z_3+\Theta z_4)\tfrac12z_2|z_2|$, bounded by $\frac12X(\|\kappa wz_3\|_\Theta+\|wz_4\|_\Theta)$. Each product is split by AM--GM with one constant per piece (fixed at the reference region of the piece, \fn{piece_constants}), or by Young against $\Theta z_n^2$ if it contains $z_n$. The foot terms (cutoff part of $\Theta'$) are Step~5.
+\item \emph{Interpolation} (Lemma~\ref{A:lem:L}(ii)) with one $C^{1,1}$ majorant $\tilde Y_j$ on $[14,700]$: $\tilde Y=Y_c$ on $[14,40]$, quintic rise on $[40,50]$, plateau on $[50,175]$, quintic rise on $[175,250]$, plateau on $[250,700]$ (\fn{weights_t2.py} \fn{zone}). Every cell checks $\tilde Y\ge$ the coefficient of $z_{j+1}^2$ \tC.
+\end{itemize}
+\emph{Dissipation budget.} Of $2\mathfrak a\Theta z_n^2\ge2a_{\min}\Theta z_n^2$: the Young steps use $\mathrm{used}_j$, the interpolation uses $B_c$, and on $[28,350]$ at levels 0, 1 an amount $r_ja_c$ is \emph{retained} (R4). Core: $B_c=(\frac{11}{20},\frac9{20},\frac{169}{100})$, used $=(0.2000,0.3000,0.3100)$, retained $(1.2500,1.2500,0)$ in units $a_c$ \tC\ (\fn{weights_t2.log}; \fn{weights_t2.json} \key{levels.j.core}); the exported $r_j=\rexpV$ is a rational below the certified value (asserted). On segments and transitions the same absolute retained amount is required in the budget check (\fn{rreq}); on $O$ the fraction $\delta_o=\frac14$ is reserved for Step~6.
+
+\emph{Rate.} The result on the core is $\sum_{k\le j}\hat G^{\rm core}_{jk}\int\Theta z_k^2$ ($\Theta=\varepsilon\omega\eta_A^2$), with $\hat G_{jj}=\mathrm{YC}[j]+\tilde Y(\tilde Y/(4B_ca_{\min})+\kappa^2/2)+\kappa|\tilde Y'|+\frac12|\tilde Y''|$ (Lemma~\ref{A:lem:L}(ii) with $|\Xi'/\Xi|=\kappa$, $|\Xi''/\Xi|=\kappa^2$ where $\eta_A=1$). Values $\hat G^{\rm core}_{jj}\le\GcoreV$ \tC\ (\SA\ \key{interface28.Ghat_core}). On every other region (segment plateau, the two transitions, $O$) the scripts check, cell by cell,
+\[
+\sup_{\rm cell}\varepsilon\,\hat G^{\rm reg}_{jk}\le\varepsilon(28)\,\hat G^{\rm core}_{jk}\qquad(k\le j)
+\]
+\tC\ (\SA\ \key{segments}: \key{all_ok} true for the boxes $(0.15,0.52)$ and $(0.20,0.60)$; worst ratios $0.24$--$0.27$ on $[40,50]$, $\le0.035$ on $[175,350]$, $5\cdot10^{-5}$ on $O$ at level 0). Since $\hat G^{\rm reg}\int_{\rm reg}\Theta z_k^2\le\sup_{\rm reg}(\varepsilon\hat G^{\rm reg})\int_{\rm reg}\omega\eta_A^2z_k^2$, the total base rate on $[28,700]$ is at most $28^{-4}\sum_{k\le j}\hat G^{\rm core}_{jk}\int\omega\eta_A^2z_k^2$. The diagonal part enters $\gamma'_j$; the off-diagonal part is $\mathrm{coup}_j$ \tP. On the inner ramp, where $\varepsilon\le16\varepsilon(28)$, the rate is not dominated: the \emph{ramp share} $\hat G^{\rm ramp}_{jk}\Theta z_k^2$ is a density in $\mathfrak s_j$ (Step~3), with $\hat G^{\rm ramp}_{jj}=(2259.0,2429.0,95088.5)$ \tC\ (\fn{weights_t2.log}; ramp $B_c=(\frac32,\frac32,\frac{137}{100})$, $a_{\min}(0.05)$).
+
+\subsection{Step 2a: the interface at $y=28$ (A5)}\label{A:sec:interface}
+v3.1 and phase 2a took the three global identities separately on the ramp (box $(0.05,0.9)$) and on the core (box $(0.11,0.52)$), with different constants, and dropped their boundary terms at $y=28$; Lemma~\ref{A:lem:L}(i) does not cover this (erratum A7). A transition of $\tilde Y$ from the ramp value down to the core value on $[28,56]$ is impossible: the core $\hat G_{22}$ at $y=28$ would be $2.4\cdot10^5>153664$ \tC\ (\fn{A2_REPORT.md} A5). The repair:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item the ramp base coefficients use the core box (\S\ref{A:sec:boxes}); then the ramp's quadratic, $L^4$ and S33 class weights are the core's;
+\item one $\tilde Y_j$ on $[14,700]$, equal to $Y_c$ on $[14,40]$ (so no transition at $28$);
+\item the $L^4$ and S33 identities are localised by a partition of unity: piece $P_1$ on $[14,350]$ with the core constants (reference region of the piece), piece $P_2$ on $O$ with the $O$ constants, joined on $[250,350]$; the S33 weight rises $C^1$ from the core to the segment value on $[50,60]$;
+\item the ramp foot halves (Step~5) act on all of $P_1$.
+\end{enumerate}
+Every zone passes \tC\ (\SA\ \key{interface28}, \key{segments}). The cost against phase 2a: $\gamma'_2$ $0.12087\to0.11961$; core $\hat G_{22}$ margin $\times1.917$. Under (a) the ramp $M_1$ margin is $\times\MarRampMoneV$ (it was $\times2.05$ against $0.9$). The reviewer judged (a) legitimate and not circular: the verifier's ramp values are outputs of D1, which uses B1 and B2$'$ only (\fn{REVIEW_v33.md}, question~2).
+
+\subsection{Step 3: inner-ramp cutoff terms}\label{A:sec:ramp}
+On $[14,28]$, $y=14\cdot2^t$. All suprema below are maxima of arb upper ends over a cover of $[0,1]$ by $N=1200$ cells, each a second-order Taylor enclosure about the cell midpoint \tC\ (\fn{ramp_rep.py} \fn{tenc}, \fn{Cells}). Every density is turned into data by Lemma~\ref{A:lem:conv} and Corollary~\ref{A:cor:exp}.
+
+\emph{(a) Jet-free cutoff pairs} (\fn{level_terms}, mode J; tables $q_k$). Pairs $(a,b)$ with $b\le j$: bounded directly. Pairs $(a,j+1)$, $a<j$: \emph{one} integration by parts, $c\,z_az_{j+1}\to-c'z_az_j-c\,z_{a+1}z_j$ (continuous $c$, Lemma~\ref{A:lem:id}; R2: v3.1's full reduction creates jets $z_5$ of $A_0^{(5)}$, $A_1^{(4)}$ that no datum controls, erratum A3). Pair $(j,j+1)$: $-\frac12c'z_j^2$ for its $m\le2$ monomials; its $m=3$ monomial at levels 0, 1 is bounded directly by space--time Cauchy--Schwarz, $\sqrt{\mathrm{conv}_j\mathrm{conv}_{j+1}}$ (Lemma~\ref{A:lem:P}(iii)). Mixed pairs are split $\frac12$--$\frac12$. Added to $q_k$: the ramp share of the rate (Step~2) and, in $q_j$, the interpolation remainder $\frac12\tilde Y\varepsilon\omega|(\eta^2)''-2\kappa(\eta^2)'|$ with $\tilde Y=Y_c$ (Lemma~\ref{A:lem:L}(ii) on the ramp). Values: \fn{ramp_rep.log}.
+
+\emph{(b) Top pair $(j+1,j+1)$} (R1; erratum A2: v3.1 set this table to zero, \fn{lemmaS_F2.py}:81). Its cutoff coefficient has the monomials $(m,i,r)\in\{(1,1,0),(1,2,0),(1,2,1),(2,2,0)\}$ and is jet-free (asserted: ``jets in the top-pair coefficient itself'' raises). Routes:
+\begin{itemize}[leftmargin=*]
+\item \emph{route J} (levels 0, 1): $\iint c\,z_{j+1}^2\le\mathrm{conv}_{j+1}(|c|)$;
+\item \emph{route IBP} (level 2): $\int c\,z_3^2=-\int c\,z_2z_4+\frac12\int c''_{\rm reg}z_2^2+(\text{point term})$. The point term combines with that of the $m=3$ monomial of $(2,3)$ by Lemma~\ref{A:lem:P}(i) into $-g_cz_2(28)^2\le0$ and is dropped. (A\_REPAIR.md R1 says ``$c,c'$ vanish at $t=0,1$''; at $t=1$ this is false for $m=2$, and Lemma~\ref{A:lem:P} is what makes level 2 correct.) Then $|c\,z_2z_4|\le\delta a_{\min}\Theta z_4^2+\frac{c^2}{4\delta a_{\min}\Theta}z_2^2$; the weight $c^2/\Theta=(c/(\varepsilon\omega t^3))^2\varepsilon\omega/(S/t^3)^2$ is evaluated with polynomial quotients, finite at the foot ($S/t^3\ge1$). $c''$ by Leibniz in $A^{(r+u)}$, $u\le2$: jet-free part to data on $z_2^2$, jet parts to the classes $(2,2,2)$, $(2,2,3)$ of (c).
+\end{itemize}
+Level-2 values: Young $0.00324$ with $\delta=0.3236\,a_{\min}(0.05)$, $c''$ jet-free $0.00135$; route J would cost $3.16$ \tC\ (\fn{asm_design_N2ref.log}, \key{info.top}). The Young parameters of all ramp users sum to at most the certified ramp slack $(0.3038,0.2057,0.3259)\,a_{\min}(0.05)$ (asserted).
+
+\emph{(c) Cutoff$\times$jet classes} (R2; erratum A3). Every jet monomial $X$ of $A_i^{(r+u)}$ in a cutoff coefficient, including those created by the integrations by parts of (a), (b), defines a class: the indices of the pair together with $X$, after folding factors $z_0,z_1$ by $|z_0|\le\frac1{50}$, $|z_1|\le\frac9{10}$ while more than two factors remain (\fn{fold}). Handlers (any other class raises):
+\begin{itemize}[leftmargin=*]
+\item \emph{pair} $(x,y)$, $y\le3$: space--time Cauchy--Schwarz against data, $\sqrt{\mathrm{conv}_x\mathrm{conv}_y}$; \emph{pair} $(x,n)$: Young against the spare ramp dissipation when $w/S$ is bounded; the cheaper of the two is taken;
+\item \emph{$(2,2,2)$}: $\sup(w/\varepsilon\omega)\cdot\Phi$ (Lemma~\ref{A:lem:Phi});
+\item \emph{$(2,2,3)$}: the $z_3$ coefficient is a top-jet coefficient $f(V)\in\{\mathfrak a'(V),\mathfrak b(V)\}$ (asserted); $\int\kappa z_2^2z_3=-\frac13\int\kappa'z_2^3$ with $|\kappa'|\le\sum|\mathrm{co}|\varepsilon\omega[\sup|f|(|D_{q+1}|+4|D_q|)+\sup|f'|M_1|D_q|]$, then as $(2,2,2)$. The coefficient $\kappa$ of these classes has $(m,q)=(1,0)$ only (probe of this task, \fn{B12_REPORT.md}), so $\kappa$ is continuous and no point term arises.
+\end{itemize}
+Level-2 costs \tC\ (\fn{asm_design_N2ref.log}): $(2,2,2)$ $0.0081$ (pairs) $+0.00503$ (top), $(2,3)$ $0.00329$, $(2,2,3)$ $1.33\cdot10^{-3}$ (four classes), $(2,2)$ $1.1\cdot10^{-4}$, $(2,4)$ $1.9\cdot10^{-5}$. Levels 0, 1: $(0,1)$ $7.6\cdot10^{-9}$, $(1,2)$ $4.55\cdot10^{-6}$, the Young classes below $3\cdot10^{-9}$.
+
+\emph{(d) Profile jets} (R3; erratum A4). All tables use the jet-free coefficients including $U^{(k)}=p^kU$, $k\ge2$ (\fn{arlib.ab_honest}); this is exact for the variable $f-U$.
+
+\subsection{Step 4: foot and S33 terms of the ramp}\label{A:sec:foot}
+The cutoff part of $\Theta'$ in the $L^4$ identity gives $|2\int\varepsilon\omega\eta\eta'z_1z_2^3|\le2M_1\eta'_{\max}X(\iint\varepsilon\omega z_2^2)^{1/2}$ with the cutoff-free ramp datum $J_F$; it is split by AM--GM (parameters \fn{DEL}) into a coefficient of $z_3^2$ or $z_r^2$ on all of $P_1$ and the data term $\mathrm{footw}_jJ_F$. In the S33 identity the cutoff part is exact, $\frac13\int(\varepsilon\omega\eta\eta')'|z_2|^3$, $|(\varepsilon\omega\eta\eta')'|\le C_\eta\varepsilon\omega$, giving $\frac{W_{33}C_\eta}3\Phi$. Values: level 1 foot $2.31\cdot10^{-7}$; level 2 foot $3.71\cdot10^{-4}$, S33 $1.06\cdot10^{-3}$ \tC\ (\SA\ \key{parts}).
+
+\subsection{Step 5: the outer annulus $O$ (R5$'$)}\label{A:sec:outer}
+R5 of phase 2a cut the identities at $y=350$ and bounded their boundary terms with pointwise $z_2$, $z_3$; no source for those exists. R5$'$ uses no cut and no pointwise bound on $z_2,z_3$ (\fn{STATEMENTS_r2.tex} \S5, review B1 item ``R5$'$'').
+\begin{lemma}[tools on $O$; \fn{STATEMENTS_r2.tex} Lemma~T]\label{A:lem:tools}
+With $t=\ln(y/350)/\ln2$, $\Theta=\varepsilon\omega\eta_o^2$, $a_o=(1+\frac14)^{-2}$, $n=j+2$, at fixed $\tau$, for $\vartheta\ge0$ supported in $O$: (T1) $z_0,z_1$ replaced by $Z_0,Z_1$; (T2) $\int\vartheta z_k^2\le\sup\vartheta\,\Nb_k^2$, $k\le2$, and AM--GM for mixed pairs with a fixed $\mu$ (chosen at \key{N2_ref}); (T3) Young against the reserved outer dissipation when $\vartheta^2/\Theta$ is bounded; (T4) one integration by parts for a continuous, piecewise $C^1$ coefficient; (T5) interpolation with a $C^{1,1}$ weight, standard choice $\vartheta_*=\varepsilon\omega t^2(1-t)^3$; (T6) $\int\vartheta|z_2|^3\le Z_1(\int|\vartheta'|z_2^2+2\int\vartheta|z_2||z_3|)$; (T7) $\int\kappa z_2^2z_3=-\frac13\int\kappa'z_2^3$ for a top-jet coefficient.
+\end{lemma}
+\noindent\emph{Proof:} \fn{STATEMENTS_r2.tex} Lemma~T \tP; (T6) from $|z_2|^3=(z_2|z_2|)z_1'$; for $\vartheta_*$, $\vartheta_*^2/\Theta=\varepsilon\omega t^4(1-t)^6/(1-S)^2$ is bounded since $1-S=(1-t)^3(1+3t+6t^2)$.
+
+\emph{Base parts on $O$.} Treated as on the core with the $O$ box (Step~2): the $O$ rate is dominated by the core rate (segment check on $O$), with $B_c$ lowered by $\delta_o=\frac14$; the outer $L^4$/S33 foot terms (cutoff part of $\Theta'$, with $h_f^2=4\varepsilon\omega\eta_o'^2$ and the S33 analogue $h_s$) are split by AM--GM into a base half (into the $O$ rate) and a data half on $\Nb_2^2$ ($9.9\cdot10^{-8}$ per unit $\Nb_2^2$ at level 2), the $z_4$ half by Young against $\frac1{100}$ of the reserve \tC\ (\fn{weights_t2.py}: \key{outer_foot_N2}, \key{outer_foot_reserve}).
+
+\emph{Cutoff parts on $O$.} The class enumerator of Step~3 mirrored to $\eta_o$, with the routes: levels 0, 1 no integration by parts (Lemma~\ref{A:lem:P}(iii)); level 2: top pair and $(2,3)$ by parts (case (i)), pairs $(a,3)$, $a<2$, one integration by parts (T4; asserted $m\le1$). Each class is closed by the tool shown \tC\ (\SA\ \key{classes_outer}; \fn{outer_L2.py} raises on any other class):
+\begin{center}\small\begin{tabular}{@{}llll@{}}\toprule level & class & tool & contribution to $\kappa^o$\\\midrule
+0 & $(0,1)$, $(1,1)$ & T2 & $2.7\cdot10^{-9}$, $1.4\cdot10^{-9}$; $3.4\cdot10^{-10}$\\
+1 & $(0,1)$, $(1,1)$, $(1,2)$, $(2,2)$ & T2 & $\le9.7\cdot10^{-9}$ each\\
+1 & $(1,3)$ & T3 & $1.7\cdot10^{-10}$\\
+2 & $(0,2)$, $(1,2)$, $(2,2)$ & T2 & $\le1.2\cdot10^{-7}$\\
+2 & $(2,4)$ & T3 & $6.9\cdot10^{-7}$\\
+2 & $(2,3)$ & envelope $e=\varepsilon\omega t(1-t)^4$, AM--GM, T5 on $\vartheta_*$ & chain (below)\\
+2 & $(2,2,2)$ & T6 with $\vartheta=Ke$, then T2 and the $(2,3)$ chain & $1.0\cdot10^{-6}$\\
+2 & $(2,2,3)$ ($\mathfrak a'$, $\mathfrak b$) & T7, then $(2,2,2)$ & $5.8\cdot10^{-8}$, $8.0\cdot10^{-8}$\\\bottomrule\end{tabular}\end{center}
+Further sources on $O$: the interpolation remainder $\frac12\tilde Y_o\varepsilon\omega|(\eta_o^2)''-2\kappa(\eta_o^2)'|z_j^2$ by T2. The reserve is allocated among the T3 classes and the $(2,3)$ chain (shares optimised in floats, evaluated in arb; $\sum\le\delta_o$ asserted): used $0.2498$ (level 1), $0.2496$ (level 2) of $\frac14$. Result: $\oh_j=\sum_k\kappa^o_{jk}\Nb_k^2$, with $\kappa^o_{22}\le\kapOtwotwoV$; $82\%$ of it is the $(2,3)$/$(2,2,2)$ chain. No pointwise bound on $z_2$ or $z_3$ and no datum on $z_3$ or $z_4$ is used \tC.
+
+\emph{Data.} $\Nb_k^2$ is supplied by Lemma~N of \fn{lemmaU.tex} at $\beta=2$: $\Nb^2\le\NbarV$ \tC\ (\SU\ \key{supersolution.N2}); H-O1 from the same lemma (B3U(b) and Z2).
+
+\subsection{Step 6: forcing}\label{A:sec:forcing}
+$|2\int\omega\eta_A^2z_j\partial_s^jR|\le2\sqrt{E^A_j}F_j$, with $F_j^2=\int_{14}^{700}\omega|\partial_s^jR|^2ds$. As in v3.1 (\fn{lemmaS.tex} \S1; \fn{assembly_arb.py} l.113) $|\partial_s^jR|\le r^F_0p^jy^p$ with $r^F_0=1.4(\bar\beta+1.02\,\alpha_1\bar a)$, so $F_j^2\le(r_0^Fp^j)^2I_{\rm int}$, $I_{\rm int}=28\int_{14}^{700}y^{2p-2}dy$; the integral now runs to $700$ (it stopped at $350$ in v3.1, erratum A8) \tC\ (\SA\ \key{F2}: $F^2\le\FtwoV$ at levels 0, 1). This is the forcing of $f-U(\alpha(\tau),\cdot)$, the variable of (A) (\fn{B0_REPORT.md} \S1).
+
+\subsection{Step 7: summation}
+Collect Steps 1--6: the base terms give $-\gamma'_jE^A_j$ (with the damping and the diagonal rate), $-r_ja_c\int_{[28,350]}\varepsilon\omega z_n^2$ (retained), and $\mathrm{coup}_j$; the inner-ramp terms give $\mathfrak s_j$; $O$ gives $\oh_j$; the forcing gives $2\sqrt{E^A_j}F_j$. This is \eqref{A:eq:D1}.\qed
+
+%======================================================================
+\section{Proof of Theorem~\ref{A:thm:A}}\label{A:sec:int}
+\subsection{(a): integration}
+\begin{lemma}[integration of \eqref{A:eq:D1}]\label{A:lem:int}
+Let $D^{\rm src}_j(\gamma'')$ denote the value of the ramp data computed with $J^e(\gamma'')$ of Corollary~\ref{A:cor:exp} (all densities of $\mathfrak s_j$ converted by Lemma~\ref{A:lem:conv}, Cauchy--Schwarz and H\"older applied with the measure $e^{-\gamma''(\tau-\sigma)}d\sigma\,ds$, and $\Phi$ of Lemma~\ref{A:lem:Phi} with the same $\gamma''$), with the $d$-parts $t_d$ (rates per unit $\tau$) contributing $t_d/\gamma''$ after the $\eta$-split. Let $\hat c_j:=\sup_\tau\mathrm{coup}_j$ (computed with $\Eh_k$, $k<j$). Then for $\tau\in[\tau_1,\tau']$ both of the following hold:
+\begin{align*}
+\text{(R-half)}\quad &E^A_j(\tau)\le E^A_j(\tau_1)+D^{\rm src}_j(\tfrac12\gamma'_j)+\frac{2(\hat c_j+\oh_j)}{\gamma'_j}+\frac{4F_j^2}{\gamma_j'^2},\\
+\text{(R-sup)}\quad &E^A_j(\tau)\le A_j+\frac{2F_j^2}{\gamma_j'^2}+\frac{2F_j}{\gamma'_j}\Bigl(A_j+\frac{F_j^2}{\gamma_j'^2}\Bigr)^{1/2},\qquad A_j:=E^A_j(\tau_1)+D^{\rm src}_j(\gamma'_j)+\frac{\hat c_j+\oh_j}{\gamma'_j}.
+\end{align*}
+$\Eh_j$ is the smaller of the two right-hand sides.
+\end{lemma}
+\begin{proof}\tP\ (R-half): $2\sqrt EF\le\frac{\gamma'}2E+2F^2/\gamma'$, so $E'+\frac{\gamma'}2E\le\mathfrak s+\hat c+\oh+2F^2/\gamma'$; variation of constants with rate $\gamma'/2$ and Corollary~\ref{A:cor:exp} with $\gamma''=\gamma'/2$. (R-sup): let $M:=\sup_{[\tau_1,\tau']}E^A_j<\infty$ (continuity, (P3)). Variation of constants with rate $\gamma'$ and $\sqrt{E^A_j}\le\sqrt M$ give $E^A_j(\tau)\le A_j+2F_j\sqrt M/\gamma'_j$ for every $\tau\le\tau'$, hence $M\le A_j+2(F_j/\gamma'_j)\sqrt M$, i.e.\ $\sqrt M\le F_j/\gamma'_j+(F_j^2/\gamma_j'^2+A_j)^{1/2}$; square. The data terms are nonnegative, so the cubic and product classes are bounded by H\"older/Cauchy--Schwarz in the weighted measure exactly as for $\gamma''$ in the scripts.
+\end{proof}
+\noindent\emph{What the scripts compute} (\fn{assembly_rep.py} \fn{assemble}, rule \SA\ \key{EA_of_N2}): $E^{\rm scr}_j=E^A_j(\tau_1)+D^{\rm src}_j(\gamma'_j)+4F_j^2/\gamma_j'^2+2\hat c_j/\gamma'_j+\oh_j/\gamma'_j$. (the $d$-rates enter as $t_d/\gamma'$). This is below both (R-half) (which needs $2\oh_j/\gamma'$, $2t_d/\gamma'$ and $J^e(\gamma'/2)$) and (R-sup) (which needs the cross term $2(F_j/\gamma'_j)\sqrt{A_j+F_j^2/\gamma_j'^2}$). Since $E^{\rm scr}_j\ge A_j+4F_j^2/\gamma_j'^2$, (R-sup) gives $E^A_j\le E^{\rm scr}_j+2(F_j/\gamma'_j)\sqrt{E^{\rm scr}_j}$. This is the bookkeeping item G-A1 of \S\ref{A:sec:gaps}: at most $\GAoneV$ \tE\ (from certified components), relative $(0.57\%,0.063\%,0.0055\%)$. \emph{G-A1 is now fixed: the scripts apply (R-sup) (M14 rerun), and the values of Theorem~\ref{A:thm:A} quoted here are those of the corrected rule. The measured increase of $\Eh$ against the earlier script values is $\GAoneV$ \tE.}
+
+\emph{Datum.} $E^A_j(\tau_1)\le H_{2,j}+H^f_{2,j}$ \tP: $\eta_A\le1$, $E^A_j(\tau_1)\le\int_{\ln14}^{\ln60}\omega(z^A_j)^2+\int_{\ln60}^{\ln700}\omega(z^A_j)^2$; the first is (H2), the second (H2f) (Remark~\ref{A:rem:B0}, (I4), (I5)). Values: $H_2=\HtwoV$, $H^f_2=\HtwofV$, so $E^A(\tau_1)\le\EtauOneV$ \tH\ (\SA\ \key{IC}). Both are certified for $f-U_1$ in \fn{step4/p2/out_v33/FINAL_manifest_v33.json} (20 stages, sha256 \fn{a0d348ec...}): (H2f) with margins $\times3.188,\times4.983,\times4.106$ (arb rows \key{M9_H2f}); (H2) by the stage \fn{h2u_v33} (the shells of $w'$ plus $d$ by Minkowski) with margins $\HtwoMarV$ \tC\tB.
+
+\emph{Outer data at the bootstrap level.} $\oh_j$ is evaluated at $\Nb(2)$ of Lemma~N; the resulting $\Eh=\mathcal A(2)$ is the certified supersolution value of \fn{lemmaU.tex} (K1) (\SU\ \key{supersolution.EA}; review M2: \fn{assemble_U.py} drops the coupling term of the rule \key{EA_of_N2}, effect $3.5\cdot10^{-9}$ relative on $\Eh_2$).
+
+\subsection{(b): the window export (Lemma D)}
+\begin{lemma}[D, window form; \fn{lemmaU.tex} Lemma~D]\label{A:lem:D}
+Let $k\in\{0,1\}$. Under \eqref{A:eq:D1}, (a) and \textup{(D2)}: $\int_{\tau_a}^{\tau_a+T}\mathfrak s_k\le D^{c}_k+D^{s}_kT$ for every window, one has $X_k(\tau_a,T)\le C0_k+C1_kT$ with
+\[
+C0_k=\frac{\Eh_k+D^{c}_k}{r_ka_c},\qquad C1_k=\frac{2F_k^2/\gamma'_k+\hat c_k+\oh_k+D^{s}_k}{r_ka_c}.
+\]
+Without $d$, $D^c_k=D^{\rm src}_k$ and $D^s_k=\rho_JD^{\rm src}_k$, $\rho_J=\max_ms_m/J_m$ (\fn{lemmaU.tex} form). With $d$ (\fn{assembly_rep.py} class \fn{Tr}): $D^c=\sum(1+\eta)t_w$, $D^s=\sum[(1+\eta)\rho_Jt_w+(1+\eta^{-1})t_d]$, products by AM--GM in the window form, $\sqrt{(X_c+X_sT)(Y_c+Y_sT)}\le\frac12(l(X_c+X_sT)+(Y_c+Y_sT)/l)$.
+\end{lemma}
+\noindent\emph{Proof:} \fn{lemmaU.tex} Lemma~D \tP\ (integrate over the window, $2\sqrt EF\le\frac{\gamma'}2E+2F^2/\gamma'$, drop $E(\tau_a+T)$ and $\frac{\gamma'}2\int E$, use (a) at $\tau_a$).
+
+\noindent\emph{Why (D2) holds on every window} \tP. The densities of $\mathfrak s_k$ are of three kinds: (i) linear in $V_m^2$ after conversion (inflow, jet-free pairs, ramp share, top pair by route J, foot): their window integral is $\le\sum_ma_m(J_m(1+\kappa_J)+s_mT)$ by Lemma~\ref{A:lem:HJ}; (ii) products bounded by space--time Cauchy--Schwarz on the window, $\sqrt{A_xA_y}$ with $A_x,A_y$ of kind (i); (iii) the cubic bound $\Phi$, i.e.\ $\sqrt{F_{\max}}$ (pointwise in time, from B1) times $J_F$ and $J_F^{3/4}J_G^{1/4}$ with $J_F,J_G$ of kind (i). Every one is monotone and homogeneous of degree~1 in the vector $(J_m(1+\kappa_J)+s_mT)_m\le(1+\rho_JT)(J_m(1+\kappa_J))_m$. Hence the $w'$-part of the window integral is at most $(1+\rho_JT)$ times the value at $J(1+\kappa_J)$, which is $\le D^{\rm src}_k$ (the scripts' value at $J^e(\gamma')\ge J(1+\kappa_J)$); the $d$-parts are rates and contribute $t_dT$; the $\eta$-split and the window AM--GM for products keep the bound affine in $T$. The verifier gives H-J-W for windows starting at any $\tau_a$ only through Lemma~\ref{A:lem:HJ}; v3.1 used it for windows from $\tau_1$ only (\fn{lemmaS.tex} l.256, erratum B2).
+
+\noindent Values: $D^{\rm src}\le\DsrcV$, $\rho_J\le\rhoJV$, $C1^0\le\ConeZeroV$ (the $\oh$-free part), $C0\le\CzeroV$, $C1\le\ConeV$ at the supersolution \tC\tB. Level 2 exports nothing ($r_2=0$).
+
+\subsection{(c), (d), (e): core box, ramp box, fluxes}
+\emph{(c)} Sobolev on $[\ln28,\ln60]$ with $\omega\ge28/60$ and $\eta_A=1$: $S^v_0=(E^u_0/\ell+2\sqrt{E^u_0E^u_1})^{1/2}$, $S^v_1$ as in Lemma~\ref{A:lem:z1}, $E^u=\frac{60}{28}\Eh$ \tP; core $M_0\le\sup U+S^v_0$, $M_1\le\sup y|U'|+S^v_1$ (\fn{f4b}: \key{S0f}, \key{S1f}) \tC. The interval $[28,60]$ contains the verifier's $[34.25,60]$ (\fn{A2_REPORT.md} A7). The verifier input is $S^v_0+\sup_{\rm core}|d|\le\SzerovV+4.22\cdot10^{-5}$ against $0.0153$ ($\times\MarSzeroV$) and $S^v_1+\sup_{\rm core}|Dd|$ against $0.6$ ($\times\MarSoneV$) \tC\tB\ (interface (I2)).
+
+\emph{(d)} \S\ref{A:sec:boxes}; this is a derived inequality, not a bootstrap margin, so any factor above $1$ suffices (review, question~2).
+
+\emph{(e)} $K_0,K_2$ (\fn{lemmaS_cflux.json}, \fn{f4b}) bound the $E_I$ cutoff flux on $x\in[57,60]$ by the shell energies (\fn{lemmaS.tex} item~(5)); they are linear in the $w'$-energies with nonnegative coefficients (asserted), so with $d$ they are bounded by $(\sqrt{K_i(\beta E^A)}+\sqrt{K_i(E_d)})^2$ (interface (I3)); linearity in $E^A$ is asserted by recomputing at $\beta E$ for $\beta=\frac54,2$. At $\beta_A=2$: $\fn{FLUX0}/K_0\ge\MarFluxZeroV$, $\fn{FLUX2}/K_2\ge\MarFluxTwoV$ with $\fn{FLUX0}=1.64\cdot10^{-20}$, $\fn{FLUX2}=8.0\cdot10^{-20}$ (verifier \fn{fin12f4}) \tC\tB\ (interface (I3)). The values at \key{N2_ref} ($\times\MarFluxRefV$, \SA\ \key{core.flux_margin.2}) are not the certified ones (review M6).
+
+\noindent The honest $I_3$ uses the retained $r_1$ and the full level-1 budget (\fn{f4b_honest}; erratum A5) \tC.
+
+%======================================================================
+\section{What the scripts certify, and the gaps}\label{A:sec:gaps}
+\begin{enumerate}[label=(G-A\arabic*),leftmargin=3.4em]
+\item \textbf{Integration rule (new; bookkeeping).} The scripts' rule $E^{\rm scr}$ mixes the two valid integrations of Lemma~\ref{A:lem:int}: $4F^2/\gamma'^2$ and $2\hat c/\gamma'$ belong to (R-half), $\oh/\gamma'$, $t_d/\gamma'$ and $J^e(\gamma')$ to (R-sup). The same mixture is in v3.1 (\fn{lemmaS_F1.py}:148, \fn{assembly_arb.py}:126, there without $\oh$ and $d$). By (R-sup) at every level the correction is $\le2(F_j/\gamma'_j)\sqrt{E^{\rm scr}_j}$: $6.8\cdot10^{-9}$, $6.6\cdot10^{-8}$, $3.2\cdot10^{-6}$ at the v34 supersolution \tE\ (from $F^2$, $\gamma'$ and $\Eh$ of \fn{numbers_A_v33.tex}; level 2 from the forcing part $4F_2^2/\gamma_2'^2=1.741\cdot10^{-10}$, \SA\ \key{parts.2.forcing}). (R-half) would cost more at levels 0, 1 once the $d$-rates are doubled. \emph{Fixed (M14, \fn{fix1/M14_REPORT.md}):} \fn{assembly_rep.py} now adds the cross term $2(F_j/\gamma'_j)\sqrt{A_j+F_j^2/\gamma_j'^2}$ and uses $2F^2/\gamma'^2$ (rule (R-sup), all levels); the same change is in the rule \key{EA_of_N2} and in \fn{assemble_U.py}, and t2 $\to$ t4 $\to$ zone3 were rerun. The measured increase of $\Eh$ is $\GAoneV$ \tE, matching the estimate above; the datum test (K6) is unaffected (a larger $\Eh$ is easier); the flux margin at $N_2^{\rm ref}$ fell by $0.55\%$ \tE\ (M14\_REPORT). The values of this document are those of the corrected rule.
+\item \textbf{Typed ramp values} (review M3; \emph{closed}): the M14 rerun reads $M_1^{\rm ver}$, $s_{I1}$ from the verifier output (rounded up) and the typed $2\cdot10^{-5}$ is asserted to dominate $\sup_{\rm ramp}|Dd|$ with the chart term ($1.87\cdot10^{-5}$); N35 adds the assertion ``verifier ramp sups $\le$ ramp box $(0.52,0.52,0.05)$'' (\fn{assembly_rep.py}, \fn{margins}); the rerun gives identical outputs.
+\item \textbf{Missing assertion:} the $m$-pattern of Lemma~\ref{A:lem:id} (no $m=3$ outside $(j,j+1)$) is not asserted in \fn{ramp_rep.py}; it holds (probe).
+\item \textbf{B0} (resolved, route (b); Remark~\ref{A:rem:B0}): (A) is in $f-U$; $d$ enters (I1)--(I4) with certified tables. The chart identification of the verifier's $w'$ with the ray-graph quantity (formerly listed here as open) is closed by Lemma~\ref{C:lem:id}--\ref{C:lem:bd} and the stage \fn{n1_chart} (review N1; \S\ref{A:sec:chart}). $d$ is taken at $\alpha_1$ for all $\tau$ (crude but valid; it is why $C1^0$ grew to $\ConeZeroV$).
+\item \textbf{Inherited from v3.1, not re-audited here:} $\cos\theta$ constant along the ray in $c_s$ and in $R$; the forcing constant $r^F_0$; the flux lemma of \fn{lemmaS_cflux.json}; the verifier tail lemma (W2). (A)'s window loop and (B)-exit outputs (\key{win M1}, \key{v31_only}) are v3.1 quantities that v3.3 does not consume.
+\end{enumerate}
+Given the hand-off thresholds, the verifier outputs and the bootstrap boxes, every other inequality used above is either proved here \tP\ or tied to one key of the outputs listed in \S\ref{A:sec:status}.
+
+\ifdefined\stepmain\else
+\end{document}
+\fi

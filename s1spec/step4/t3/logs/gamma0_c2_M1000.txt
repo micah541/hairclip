@@ -1,0 +1,20 @@
+Gamma0: 3762 coefficients, closing b_2 = np.float64(-1.002456557732618) +/- 2.020e-16; L0=103.65251688569134
+  dropped modes > 1000: max |b_n| 1.13e-23, sum n^3|b_n| = 2.39e-12
+  M=1000 Ma=67 Nc=4000 theta_max=47.912 h=3.795e-07 (dt~2.81e-02)
+   a priori sub 2 round 2: 4000 bad modes [0, 1, 2, 3, 4, 5, 6, 7] max rhs/Z inf; phi*Q/Z at bad inf; tail True
+/home/claude/s1spec/step4/t3/slab.py:411: RuntimeWarning: invalid value encountered in scalar multiply
+  U = ms_farsup(a) * ms_l1(b) + ms_farsup(b) * ms_l1(a)
+/home/claude/s1spec/step4/t3/slab.py:419: RuntimeWarning: invalid value encountered in scalar multiply
+  F = 2 ** p * (ms_env(a, Nout / 2, p) * ms_l1(b) + ms_env(b, Nout / 2, p) * ms_l1(a))
+   a priori sub 2 round 3: 4000 bad modes [0, 1, 2, 3, 4, 5, 6, 7] max rhs/Z nan; phi*Q/Z at bad nan; tail True
+   a priori sub 2 round 4: 4000 bad modes [0, 1, 2, 3, 4, 5, 6, 7] max rhs/Z nan; phi*Q/Z at bad nan; tail True
+Traceback (most recent call last):
+  File "/home/claude/s1spec/step4/t3/run_proto.py", line 141, in <module>
+    elif mode == 'gamma0': run_gamma0(c, int(sys.argv[3]) if len(sys.argv) > 3 else 1000)
+                           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/s1spec/step4/t3/run_proto.py", line 130, in run_gamma0
+    st_new, info = S.validate_slab(st, fm, h, Ma=Ma, verbose=False)
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/s1spec/step4/t3/slab.py", line 745, in validate_slab
+    raise RuntimeError(f'a priori bound not verified on sub-interval {sub}: {len(bad)} modes, tail {tbad}')
+RuntimeError: a priori bound not verified on sub-interval 2: 4000 modes, tail True

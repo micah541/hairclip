@@ -1,0 +1,56 @@
+{
+ "cone X=3 M=0.12 K=0.18": {
+  "w": "271/1000",
+  "C1_upper": 18.6924,
+  "C2_upper": 98.8623,
+  "C3_upper": 3573.51,
+  "t1_star_lower": 1.03032e-05,
+  "t2_star_lower": 3.68334e-07,
+  "t3_star_lower": 2.01483e-06,
+  "t_star_lower": 3.68334e-07,
+  "needed": 1.6001e-07,
+  "margin_factor_lower": 2.3019436285232175,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.00226524,
+   "C1": 0.00747719,
+   "C2": 0.0395462,
+   "sqrtC3t": 0.0239123
+  }
+ },
+ "far X=2 M=1.0 K=1.5": {
+  "w": "17/100",
+  "C1_upper": 472.757,
+  "C2_upper": 4472.31,
+  "C3_upper": 16797400.0,
+  "t1_star_lower": 1.11857e-06,
+  "t2_star_lower": 1.24991e-08,
+  "t3_star_lower": 2.97665e-08,
+  "t_star_lower": 1.24991e-08,
+  "needed": 6.134e-09,
+  "margin_factor_lower": 2.037675252689925,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.00856891,
+   "C1": 0.0370263,
+   "C2": 0.35027,
+   "sqrtC3t": 0.320991
+  }
+ },
+ "far X=2 M=0.15 K=0.3": {
+  "w": "17/125",
+  "C1_upper": 55.8232,
+  "C2_upper": 486.386,
+  "C3_upper": 134945.0,
+  "t1_star_lower": 7.22027e-06,
+  "t2_star_lower": 9.51088e-08,
+  "t3_star_lower": 3.3347e-07,
+  "t_star_lower": 9.51088e-08,
+  "needed": 6.134e-09,
+  "margin_factor_lower": 15.505184219106619,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.000921176,
+   "C1": 0.00437207,
+   "C2": 0.0380937,
+   "sqrtC3t": 0.0287707
+  }
+ }
+}

@@ -1,0 +1,36 @@
+(a1) zeta(L1 g + (c g''')') - L1 v - (c v''')' - zeta' mT9 g == j K4 + j' K3 + k^2 K2 + C_eff zeta' g True
+(a2) SPEC I2: zeta (c g''')' == (c v''')' - c K4 - c' K3               True
+(a3) zeta (-(j g''')') == -(j v''')' + j K4 + j' K3                    True
+(a4) -[L1, zeta] g == K4 + k^2 K2 + C zeta' g                          True
+(a5) -d^4 + (c d^3)' == -(j d^3)' on g                                 True
+level-0 reduced pairs [(0, 0), (1, 0), (2, 0), (2, 1)] stuck {}
+(b1) Euler: integrand - reduced level-0 form is a total derivative     True
+(b2) no stuck monomial (every pair has a <= 2)                         True
+(b3) no j'' in the level-0 form (J derivative order <= 1)              True
+(b4) no derivative of C_eff or of k^2 in the level-0 form              True
+(b5) exactly one monomial moved, and it is 4 W zeta zeta' J g g'''     True
+(b6) the moved monomial's coefficient vanishes at 57+ and 60-          True
+(b7) reduced coefficients are affine (degree <= 1) in (j, j')          True
+(b8) regression: j = 1, j' = 0 reproduces F1 flux_forms.pkl level 0 pair by pair True
+(b9) hand reduction int kappa g g''' = -int kappa' g g'' + 1/2 int kappa' g'^2 (Euler) True
+(b10) hand pair list of sec. 4 item 1 == reduced form modulo total derivatives True
+(c1) D2v = (W v'')''/W coefficients of g^(i), i = 0..4 (sec. 5)        True
+(c2) D2v = v'''' - 2 psi' v''' + psi2 v''                              True
+(c3) (W zeta v)'/W = zeta^2 g' + (2 zeta zeta' - psi' zeta^2) g        True
+(c4) level-0 IBP: W v zeta f' + (W zeta v)' f is a total derivative    True
+(d1) graph_struct monomials = {(0,0,0),(0,0,1),(0,1,0),(1,0,0),(1,1,0),(2,0,0),(3,0,0)} True
+(d2) u'''' coefficient = -Ji^4 (so c = 1 - J^-4)                       True
+(d3) d110 = G110 = 10 Ji^6 u1                                          True
+(d4) d300 = G300 = 3 Ji^6 (1 - 6 Ji^2 u1^2)                            True
+(d5) N(w) - lin. part in g-jets: monomials of (g', g'', g''') = {g''', g'', g', g'^2, g'g'', g'^3} True
+(d6) d001 (c) = G001; d110 = G110; d300 = G300; d200 = G200 + 3 a2 G300; d010 = G010 + a2 G110 True
+(d7) N_low' == the twelve-monomial list of EI_SPEC 4.5 / FLUX2_DESIGN sec. 5 table True
+(d8) D d = d_x + d_U0 U1 + d_U1 (a2 + g'): affine in g' with slope d_U1 True
+(e1) sigma^3 d^3 = D^3 - 3D^2 + 2D                                     True
+(e2) sigma^4 d^4 = D^4 - 6D^3 + 11D^2 - 6D                             True
+(e3) sigma^2 d^2 = D^2 - D; sigma d = D                                True
+(e4) D^4 = sigma d + 7 sigma^2 d^2 + 6 sigma^3 d^3 + sigma^4 d^4 (Stirling, used for D^4 d) True
+(f1) (g'g'')' g'''' + (5/2) g'' g'''^2 is a total derivative           True
+(f2) ... with 0 in place of 5/2: not a total derivative                True
+(f3) ... with 2 in place of 5/2: not a total derivative                True
+X1 done: all checks pass; pairs ['0,0', '1,0', '2,0', '2,1'] sha 921b1fdc0027739dd0a39f907f2d7ef6948363f1df9213da0a8de0f77cad4f8b (1.1s)

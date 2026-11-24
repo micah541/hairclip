@@ -1,0 +1,41 @@
+== 1. Tail theorem constants (S=8, |eps| <= 1.62e-4)
+   verified: True  kappa=0.012729 r0=6.053e-07 r1=2.097e-06 delta1=3.439e-08 L=0.3014 Jbar=1.782e-08
+   gamma1 = [-0.010356215835809902424063647105381055 +/- 4.71e-37] + [0.0003327936231154750526037610304547978 +/- 8.92e-38]j
+== 2. M(eps_a) > 0 at eps_a = 1.45e-4
+STAGE2 return time (after tau1) = [10.340653447339971, 10.340675768020194]
+  m = [0.043386897533818622, 0.043404273955235891]
+   ok: M(eps_a) > 0
+   ok: CAPD validation
+== 3. M(eps_b) < 0 at eps_b = 1.62e-4
+STAGE2 return time (after tau1) = [10.164286171832954, 10.164307168849007]
+  m = [-0.039341423963345307, -0.039324905728314062]
+   ok: M(eps_b) < 0
+   ok: CAPD validation
+== 4. Whole interval [eps_a, eps_b]: q(tau1)<0 and transversal first return (continuity of M)
+  y1[1] = [-1.2791391254552609, -1.1349119099029656]
+STAGE2 return time (after tau1) = [10.058643288291929, 10.487229822764851]
+   ok: q<0 at tau1 on the whole set
+   ok: Poincare map validated on the whole set
+== 5. Tight bracket for eps* (signs re-verified at both ends)
+   ok: M > 0 at 0.00015345849609375
+   ok: M < 0 at 0.00015346679687499998
+== 6. Geometry of S1 on the bracket set
+   tip: tau in [10.249019131756473, 10.249126673778562], D in [2.500798546804746, 2.5008127738217794], k0 in [1.5397896274744258, 1.5398576160189412]
+   zero-containing runs of y~ (box index ranges): [(6149, 6151), (7956, 7960)]
+     double-point run: tau in [7.9168375000000015, 7.920700000000001], cos(alpha)<0 on run: True
+     tip run:          tau in [10.243350000000003, 10.249787500000004], cos(alpha)>0 on run: True
+     double point x~ in [-0.831691888256382, -0.8285919293310776],  forward tangent angle psi in [63.691989005604185, 63.85143270271578] deg
+     B (compact part): 7961 boxes, overlapping pairs not covered by the tangent-range lemma: 0
+     R(B-) vs B+: overlapping pairs 13, of which away from the double point: 0
+     sector A2 (B+ leaving x_dp): [63.692, 68.169] deg;  sector A1 (R(B-) leaving x_dp): [116.149, 121.036] deg
+     sectors disjoint (apart from the apex) and each narrower than pi: True
+   ALL GEOMETRIC CHECKS PASSED
+   zero-containing runs of q: [[5950, 5950], [7960, 7960]]
+     closest approach run tau in [7.660625000000001, 7.6619125000000015];  q sign/monotonicity structure ok: True
+     tail: arg Gamma~ in [106.6384, 106.6881] deg (so y~>0): True
+     asymptotic ray angle (from the axis, tip-to-centre direction = 0): [106.6456, 106.6810] deg
+     tail bounds: eta=1.254e-04, |p|<=1.003e-03, q>=8.000000
+   TAIL/RADIUS CHECKS PASSED
+   ok: double point / embedding / mirror checks
+   ok: tail and radius checks
+ALL STEPS PASSED

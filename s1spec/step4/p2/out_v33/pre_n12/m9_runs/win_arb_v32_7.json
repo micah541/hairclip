@@ -1,0 +1,95 @@
+{
+ "set": "v32",
+ "ball": 7,
+ "tc_ball": [
+  -0.5625,
+  -0.5
+ ],
+ "label": "certified (arb, outward; M9 cells)",
+ "windows_max": [
+  3.3305941834256995e-08,
+  1.2112189983702803e-07,
+  3.614298710586992e-07,
+  9.39257979145991e-07
+ ],
+ "windows_at": [
+  253.0,
+  253.0,
+  253.0,
+  253.0
+ ],
+ "n_windows": 407,
+ "shells": [
+  7.765210975529227e-11,
+  1.2828287757243242e-10,
+  2.84378153640051e-10
+ ],
+ "G_60_700": [
+  3.013413182627376e-07,
+  9.698692810398782e-07,
+  2.3617876567025407e-06,
+  3.875271563644446e-06
+ ],
+ "G_60_379p5": [
+  4.6563002363451374e-08,
+  1.728064938767498e-07,
+  5.252947895414349e-07,
+  1.453488199310113e-06
+ ],
+ "G_379p5_700": [
+  2.5514929385230994e-07,
+  7.983720485223466e-07,
+  1.8402380165649536e-06,
+  2.4305131571297862e-06
+ ],
+ "coverage": {
+  "windows": {
+   "cells": 1371,
+   "first_yhi": 43.123976755711084,
+   "last_ylo": 720.2678569793375,
+   "min_cos_phi": 0.9921566722005691
+  },
+  "shells": {
+   "cells": 111,
+   "first_yhi": 11.29135413798395,
+   "last_ylo": 61.54399079334153,
+   "min_cos_phi": 0.9999457992996484
+  },
+  "h2f": {
+   "cells": 1371,
+   "first_yhi": 43.123976755711084,
+   "last_ylo": 720.2678569793375,
+   "min_cos_phi": 0.9921566722005691
+  }
+ },
+ "ncells": [
+  1371,
+  111
+ ],
+ "max_rel_rad_hh": 0.0015087942255057434,
+ "alpha": [
+  -0.00011640383425492379,
+  -0.0001162630965512105
+ ],
+ "args": {
+  "argv": [
+   "v32",
+   "7"
+  ],
+  "env": {
+   "T9TC": "-0.53125,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out/h1slab/ift_7.json"
+  },
+  "xmax": 730.0,
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/out/h1slab/ift_7.json": "ce4669aa2f29922c048b72c0c100808a7c4590e8dd6374276179754f93826af2",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

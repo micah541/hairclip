@@ -1,0 +1,4 @@
+disk_R2.5 disk:2.5:0.05:0.3:0 L0=22.1725 N0=16384 kmax0=41.41 closure=2.88e-09 min-gap(non-adjacent)=0.0462 area=19.2354
+  t=0.00000000 kmax=41.41 N=16384 ncross=0  wall=0s
+ABORT (time/t)
+DONE

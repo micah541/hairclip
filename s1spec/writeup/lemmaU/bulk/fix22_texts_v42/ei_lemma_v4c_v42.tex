@@ -1,0 +1,166 @@
+% ei_lemma_v4c_v42.tex -- text v42 (fix22_texts_v42, 23 Nov 2026), built by fix22_texts_v42/tools/build_v42.py from fix21_texts_v41/ei_lemma_v4c_v41.tex (unchanged):
+% Lean replaces DKS (writeup/lean_bridge/REVIEW_W7.md section 3) and the v41 leftovers, where they touch this file.  Not compiled.
+% ei_lemma_v4c_v42.tex -- text v41 (fix21_texts_v41, 21 Nov 2026), built by fix21_texts_v41/tools/build_v41.py from fix19_texts_v40/ei_lemma_v4c_v40.tex (unchanged):
+% wording items W-1..W-5 and the retag item of the delta check fix20_delta_check/DELTA_CHECK_v40.md where they touch this file.  Not compiled.
+% ei_lemma_v4c_v42.tex -- text v40 (fix19_texts_v40, 21 Nov 2026), built by fix19_texts_v40/tools/build_v40.py from fix17_texts_v39/ei_lemma_v4c_v39.tex (unchanged):
+% fixes of the final review fix18_final_review/FINAL_REVIEW_v39.md (F-1..F-7, R-1..R-3) where they touch this file.  Not compiled.
+% ei_lemma_v4c_v42.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/ei_lemma_v4c.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v42.tex; v38 retag fixes.  Not compiled.
+% ei_lemma_v4c_v42.tex -- the E_I lemma (levels 0 and 2) as the verifier fin13v4c implements it, with statement and proof.
+% Text v38 (fix16_texts_v38), 20 Nov 2026; built by tools/build_texts_v38.py from fix12_texts/ei_lemma_v4.tex (unchanged).  New in v38:
+% fin13v4c (H8, the D-2a box, A-1), the density sentence and the list of integrations by parts (review fix15 D-4, fix11 C-6).
+% Source of truth for the terms: /home/claude/s1spec/step3nl_v4c/verifier/rhs_iv.py, functions
+% L_list and _ei_v4 (sha256 725faa16...; the E_I functions are unchanged from fin13v4b, rhs_iv.py b045b9ff..., only term H8 was added [text v39 restores this comment: the v38 builder left a NUL-delimited placeholder here]); derivation: writeup/lemmaU/bulk/fix5/ei_spec/EI_SPEC.md (Sections 2-5) and the draft
+% statement ei_lemma_statement.tex there (not edited).  Constants: ei_constants_v37.tex (generated from v4cert/out/constants_v4.json).
+% Standalone, or \input by step3_v37_main.tex (which defines \stepmain).  Labels are prefixed EI:.  Not compiled (no LaTeX here).
+\ifdefined\stepmain\else
+\documentclass[11pt]{article}
+\input{b12_preamble_v42}
+\input{numbers_A_v42}
+\title{The $E_I$ inequality of the step-3 verifier \fn{fin13v4c}: statement and proof (levels 0 and 2)}
+\author{}\date{23 November 2026 (text v42; text v41; text v40; text v39). \emph{Not compiled.}}
+\begin{document}\maketitle
+\fi
+\providecommand{\Dv}{\mathcal D_V}
+
+\section{The $E_I$ lemma of verifier \fn{fin13v4c}}\label{EI:sec}
+\noindent\textbf{Status.} This section writes out, as a lemma with proof, the intermediate-energy inequality that the verifier \fn{fin13v4c} (\fn{/home/claude/s1spec/step3nl_v4c/}, \fn{V4C_REPORT.md}) evaluates in interval arithmetic: the function \fn{_ei_v4} and the list \fn{L_list} of \fn{verifier/rhs_iv.py} (sha256 \fn{725faa16...}). The E\_I block of \fn{fin13v4c} is that of \fn{fin13v4b} and of \fn{fin13v4} (\fn{V4_REPORT.md}); \fn{fin13v4b} changed the E0 and E2 blocks (\S\ref{EI:sec:E0E2}) and the strip constants of the $\alpha$-equation (review R-2), and checks the tail $\alpha$-condition along the whole tail (R-3); \fn{fin13v4c} (\fn{V4C_REPORT.md}) replaces the uncertified strip cubic scaling \fn{ADD_STRIP_CUBIC} by the certified term H8 of the E block, asserts the D-2a box, and adds the A-1 pieces to the E0 budget (review fix11 D-3, D-2a, A-1; reviewed in \fn{fix15_review} part A: sound modulo records items). The derivation follows \fn{fix5/ei_spec/EI_SPEC.md} \S2--\S5, which was written as the specification of this code; \S7 of that file maps every coded term of the old verifier \fn{fin12f4} to the terms below. \textbf{Step~3 is not closed by this lemma} (\S\ref{EI:sec:open}).
+
+\noindent\textbf{Labels.} \tC: arb with outward rounding, value from \fn{v4cert/out/constants_v4.json} (built by \fn{c5_constants.py} from raw certified JSON, every entry with its direction; MU1, MU2 rounded down) or from the production run \fn{runs/P}; \tS: exact sympy identity (\fn{fix5/ei_spec/ei_identities.py} I1--I11, \fn{v4cert/s1_identities.py}; all residuals 0); \tHd: hand step, not machine-checked; \tR: read from the cited file.
+
+\subsection{Setting}\label{EI:sec:set}
+$x=\sigma-\sigma_{\rm tip}$ on the half line (even class); $u=u_0+w$, $u_0=\alpha\hat\psi_3+\alpha^2\hat h_2$ (the $C^4$ functions of \fn{agent_int/v3/c4fun.py}); $g=w'$. The cutoff is
+\[
+\zeta=0\ (x\le10.25),\quad 1-S_7\bigl(\tfrac{16.25-x}{6}\bigr)\ \text{on }\mathrm{IR}=[10.25,16.25],\quad 1\ \text{on }Z_1=[16.25,57],\quad S_7\bigl(\tfrac{60-x}3\bigr)\ \text{on }\OR=[57,60],
+\]
+$S_7(t)=t^4(35-84t+70t^2-20t^3)$, so $\zeta\in C^3$ with $\zeta^{(j)}=0$ ($j=1,2,3$) at $10.25,16.25,57,60$ and $\zeta''''$ bounded with jumps there; $\sup|\zeta'|=\frac{35}{96}$ on IR and $\frac{35}{48}$ on OR (exact). $v=\zeta g$. The weight is $W=e^{-\psi}$, $\psi'=(1-s)\frac{4x}{1+x^2}+s\phi'$, $s=S_7(\frac{x-30.25}8)$, $\phi=\frac14(1+x^2)^{2/3}$, $\rho=e^{-\phi}$ (\fn{agent_sob/sob_constants_P2.json}). Norms: $V_j=\|v^{(j)}\|_W$ on $[10.25,60]$; $A,W_1,B,W_3,D_4=\|\tilde w^{(j)}\|_\rho$, $j=0,\dots,4$, $\tilde w=\chi w$ ($\chi=1$ for $\sigma\le29$, so $\tilde w=w$ on IR). $E_I=V_0^2+\eI V_2^2$, $\eI=3\cdot10^{-5}$; $\Lambda=E+\mu E_I$, $\mu=0.08$. Free variables of the verifier: $A,B,D_4,V_0,V_2,V_4$ (and $\alpha$); $V_1\le(V_0(V_2+c_{1W}V_0))^{1/2}$, $V_3\le(V_2(V_4+c_{1W}V_2))^{1/2}$, $c_{1W}=0.8477$; $W_1$, $W_3$ by the $\rho$-interpolations of the E block.
+
+\noindent\emph{Derived sups} (each an interval function of the free variables; code names in \fn{_ei_v4}): $S_{1r},S_{2r}$ = the $K_\rho$-Sobolev sups of $|w'|,|w''|$ over IR (regions $[8,12]$, $[12,16.25]$); $s_{I1},s_{I2}$ = sups of $|v|,|v'|$ on $[16.25,34.25]$ (raw, before the max with $S^V_0,S^V_1$); $s_Z=\max(s_{I2},S^V_1/32)$ ($\sup_{Z_1}|g'|$); $s_{\rm OR}=S^V_1/54.75+\frac{35}{48}S^V_0$ ($\sup_{\OR}|v'|$); $s_{g1}=\max(s_Z,S_{2r})$; $s_G=\max(s_Z,s_{\rm OR},S_{2r}+\frac{35}{96}S_{1r})$ ($\sup|v'|$ on $[10.25,60]$); $S_{1z}=(2K_{W,\rm IR}V_1V_2)^{1/2}+\frac{35}{96}S_{1r}$, $S_{2z}=(2K_{W,\rm IR}V_2V_3)^{1/2}+2\cdot\frac{35}{96}S_{2r}+Z_{2i}S_{1r}$ ($\sup_{\rm IR}|\zeta g'|$, $\sup_{\rm IR}|\zeta g''|$, $K_{W,\rm IR}=1/W(16.25)$); $s_{w16}=|w(16.25)|$ ($K_\rho(16.25)$ Sobolev); $S_{0s}=s_{w16}+\Phi(34.25)^{1/2}V_0$; $\mathrm{supv}_2=(V_2K_W(\Psi_{1W}V_2+2V_3))^{1/2}$ ($\sup|v''|$ on $[16.25,34.25]$); $S_{\rm all34}$ = max of the region sups of $|w|$ on $[0,34.25]$. $\Dv:=V_4+2\Psi_1V_3+\Psi_2V_2$.
+
+\noindent\emph{Coefficient sups.} For a coefficient $X$ of the nonlinearity, $X^{\rm IR}$, $X^{\rm F}$, $X^{\rm G}$ denote its certified sups over IR, over $[16.25,60]$ ($\max$ of the tables on $[16.25,34.25]$ and $[34.25,60]$) and over $[10.25,60]$, at the $\alpha$-level $2.5\cdot10^{-4}$ (the march never exceeds $1.6\cdot10^{-4}$; the $10^{-3}$ tables also exist and are selected automatically above $2.5\cdot10^{-4}$). They are the stage-C2 tables of \fn{v4cert/c2_t3d.py} (boxes of \S\ref{EI:sec:hyp}). $c=1-J^{-4}$, $\bar c:=c^{\rm G}$, $C_1:=c_a^{\rm G}+c_b^{\rm G}s_{g1}$ ($\ge\sup|c'|$), and for $d_\bullet\in\{d_{010},d_{100},d_{200},d_{110},d_{300}\}$: $|Dd_\bullet|\le d_\bullet^a+d^b_\bullet|g'|$; $|d_{000}|\le A_0|w|+A_1|w'|$, $D(d_{000})=E_{1c}g'+E_{0c}$, $|E_{1c}|\le A_1$, $|E_{0c}|\le B_0|w|+B_1|g|$ \tS\ (\fn{s1_identities.json}: $D(d_{000})$ form, $E_{0c}(0,0)=0$). Values: Table~\ref{EI:tab:const}.
+
+\subsection{Hypotheses}\label{EI:sec:hyp}
+On the time interval considered (all asserted by \fn{closure.box_assert} at every march step at the cell's upper end and at the tail anchor; worst ratios of the production run at $\alpha_1=1.5\cdot10^{-4}$ in brackets, \fn{rate_table_fin13v4c_a0.00015.json} \key{box_hypotheses.max_ratio}; these are members of the box part B1(c) of the bootstrap set, \fn{bootstrap_v42.tex} Definition~\ref{BS:def}):
+\begin{enumerate}[label=\textup{(B-\alph*)},leftmargin=3.2em]
+\item $|\alpha|\le2.5\cdot10^{-4}$ (table level) [0.64];
+\item IR jet box: $S_{0r},S_{1r}\le10^{-3}$ [0.7475];
+\item $|w'|\le0.02$ on $[16.25,60]$: $s_{I1}\le0.02$ [0.058] and $S^V_0\le0.02$ [0.765];
+\item $|w|\le0.02$ on $[16.25,26]$ [0.0295] and $|w|\le\frac12$ on $[26,60]$, via $|w(34.25)|+25.75\,S^V_0\le\frac12$ [0.789];
+\item inputs from (A) (interface (I2)): $S^V_0=\sup|w'|\le0.0153$, $S^V_1=\sup y|w''|\le0.6$ on $[34.25,60]$ (not asserted by the verifier; certified by Lemma~S(A), \fn{lemmaS_A_v42.tex} Theorem (c));
+\item modulation validity box: $|\alpha|\le5\cdot10^{-4}$ [0.32], $A,W_1\le10^{-3}$, strip sups $S_0,S_1,S_2\le0.02$ on $\sigma\in[29,32]$ [0.0295, 0.058, 0.773];
+\item[(E0)] $|\alpha|\le2.5\cdot10^{-4}$ and $|w|\le0.02$ on $[0,34.25]$ [0.64, 0.0295] (E0 lemma, \S\ref{EI:sec:E0E2});
+\item[(E2)] $|\alpha|\le2.5\cdot10^{-4}$ and $\max(|w|,|w'|)\le10^{-4}$ on $[0,8]$ with $K=K_{\rm reg}[4,8]$ [0.64, 0.3245];
+\item[(H8)] (D-2a, \fn{fin13v4c}) the box of \fn{cubic_E0fine_0.001_0.01_0.01.json} on $[16.25,31.25]$: $|w|\le\eta_0=0.01$ [0.0591], $|w'|\le\eta_1=0.01$ [0.116], $|\alpha|\le10^{-3}$ [0.16]; and for the strip cubic term H8 of the E block (\fn{E0_LEMMA_v4c_v42.tex}): $|\alpha|\le2.5\cdot10^{-4}$ and $|w|,|w'|,|w''|\le0.02$ on the strip $[31.25,34.25]$ [0.0295, 0.058, 0.773] (asserted as \key{E0_alpha}, \key{U3_strip_S0..S2}; \fn{constants.py} asserts that the JSON box matches);
+\item[(I3$'$)] the outer-ramp hypothesis, in combined form only: for a.e.\ $\tau$, $\mu K_0^{\OR}+\mu\eI K_2^{\OR}\le\mu(\fn{FLUX0}+\eI\fn{FLUX2})-s+\varphi(\tau)$ with $s>0$, $\varphi\ge0$ and $\int_\sigma^\tau\varphi\le C'+S'(\tau-\sigma)$, $S'\le s$; $\fn{FLUX0}=1.64\cdot10^{-20}$, $\fn{FLUX2}=8.0\cdot10^{-20}$. This is the conclusion (d) of flux lemma v2 (\fn{flux2_lemma_v42.tex}). No separate bound of $K_2^{\OR}$ by \fn{FLUX2} is assumed or true ($K_2^{\rm pt}$ alone is $1.74\times\fn{FLUX2}$).
+\end{enumerate}
+In addition the regularity statement of Theorem U-1 (\fn{fix22_texts_v42/U1_regularity_v42.tex}) is used for the energy identities (\S\ref{EI:sec:id}).
+
+\subsection{The $v$-equation}\label{EI:sec:veq}
+With $\alpha_\tau=\tilde\lambda\alpha+\beta$, the $w$-equation is $w_\tau=Lw+\Phi_F+N(w)+M$, $L=-\partial^4-k^2\partial^2-(5km+\frac q4)\partial+c_0$, $c_0=\frac14-3m^2-kp$, $\Phi_F=F(u_0)-\tilde\lambda(\alpha\hat\psi_3+2\alpha^2\hat h_2)$, $N=c\,w''''+N_{\rm low}$ with $c=1-J^{-4}$ (the $u''''$ coefficient of $F$ is $-J^{-4}$) and $N_{\rm low}=d_{010}w'''+d_{100}w''+d_{200}w''^2+d_{110}w''w'''+d_{300}w''^3+d_{000}$, and $M=-\beta\hat\psi_3-2\alpha\beta\hat h_2-a\psi_1-b\psi_2+aA_1(u)+bB_1(u)$ (\fn{EI_SPEC.md} \S2.1, \S2.2; graph equation \fn{graph_eq.py}, \fn{graph_struct.pkl} \tR). Differentiating, $(Lw)'=L_1g+c_0'w$ with $L_1=-\partial^4-k^2\partial^2-(7km+\frac q4)\partial+e_0$, $e_0=-8m^2-\frac52kp$ \tS\ (I9). Multiplying by $\zeta$ \tS\ (I2, I11; \fn{s1_identities.py}: the sum $T_1+\dots+T_{12}$ equals $\zeta g_\tau$ exactly):
+\begin{align*}
+v_\tau={}&\underbrace{L_1v}_{T_1}\ \underbrace{-[L_1,\zeta]g}_{T_2}\ +\underbrace{(c\,v''')'}_{T_3}\ \underbrace{-cK_4-c'K_3}_{T_4}\ +\underbrace{\zeta N_{\rm low}'}_{T_5}+\underbrace{\zeta c_0'w}_{T_6}+\underbrace{\zeta\Phi_F'}_{T_7}
++\underbrace{a[qv'+(q'-1)v]+b[\cos\theta\,v'-k\sin\theta\,v]}_{T_8}\\
+&\underbrace{-\zeta'(aQ_u+bC_u)g}_{T_9}+\underbrace{a\zeta A_1(u_0)'+b\zeta B_1(u_0)'}_{T_{10}}\ \underbrace{-\beta\zeta(\hat\psi_3'+2\alpha\hat h_2')-a\zeta\psi_1'-b\zeta\psi_2'}_{T_{11}}
++\underbrace{a[(\delta Q\,v)'+\zeta(E_Aw)']+b[(\delta C\,v)'+\zeta(E_Bw)']}_{T_{12}},
+\end{align*}
+$K_3=[\partial^3,\zeta]g$, $K_4=[\partial^4,\zeta]g$, $Q_u=q/(1-ku)=q+\delta Q$, $C_u=\cos\theta/(1-ku)=\cos\theta+\delta C$, $E_A=u_0'qk/((1-ku)(1-ku_0))$, $E_B=u_0'k\cos\theta/((1-ku)(1-ku_0))$. $T_2,T_4,T_9$ are supported on IR$\,\cup\,$OR.
+
+\subsection{Energy identities}\label{EI:sec:id}
+By Theorem U-1 of \fn{U1_regularity_v42.tex} (inputs and gaps listed there), $V_0^2,V_2^2$ are $C^1$ in $\tau$ and, with $D_2v:=(Wv'')''/W=v''''-2\psi'v'''+(\psi'^2-\psi'')v''$ \tS\ (I3, I4),
+\[
+\tfrac12\tfrac{d}{d\tau}V_0^2=\langle v,v_\tau\rangle_W,\qquad\tfrac12\tfrac{d}{d\tau}V_2^2=\langle D_2v,v_\tau\rangle_W,\qquad\|D_2v\|_W\le\Dv ,
+\]
+the boundary terms vanishing because $v_\tau=\zeta g_\tau$ and $(v_\tau)'$ vanish at $10.25$ and $60$. Level-0 integration by parts (no boundary term, $\zeta=0$ at both ends) \tS\ (I10): $\langle v,\zeta f'\rangle_W=-\int(W\zeta v)'f$, $(W\zeta v)'=W(\zeta v'+(\zeta'-\psi'\zeta)v)$, and $\|\zeta v'+(\zeta'-\psi'\zeta)v\|_{W,\rm zone}\le V_1+\kappa_{\rm zone}V_0$. \emph{Zone rule}: no integration by parts on a sub-zone; integrals of terms not expressed through $v$ are split as $\int_{\rm IR}+\int_{Z_1}+\int_{\OR}$ after the global identities, and on IR $\|1_{\rm IR}f\|_W\le r_{W\rho}\|f\|_\rho$, $g^{(j)}=\tilde w^{(j+1)}$. Every term on OR that is not expressed through $v$ is collected in
+\begin{align*}
+K_0^{\OR}&:=\int_{57}^{60}Wv\bigl(-[L_1,\zeta]g-cK_4-c'K_3-\zeta'(aQ_u+bC_u)g+\zeta c_0'w+\zeta(aE_A'+bE_B')w\bigr)dx-\int_{57}^{60}(W\zeta v)'N_{\rm low}\,dx,\\
+K_2^{\OR}&:=\int_{57}^{60}W\,D_2v\bigl(-[L_1,\zeta]g-cK_4-c'K_3-\zeta'(aQ_u+bC_u)g+\zeta N_{\rm low}'+\zeta c_0'w+\zeta(aE_A'+bE_B')w\bigr)dx
+\end{align*}
+(\fn{EI_SPEC.md} \S4.10; the form used by flux lemma v2, \fn{flux2_lemma_v42.tex} Lemma ``the outer-ramp functionals'', is the same functional rewritten with $j=J^{-4}$).
+
+\subsection{Statement}\label{EI:sec:stmt}
+Put $Q=(A+W_1+B)^2$, $\mathrm{np}_3=N_{P3}+2|\alpha|N_{H2}$, $F_n(\alpha)=F_{N0}|\alpha|+F_{N1}\alpha^2+C_3|\alpha|^3$, $F_{nW}(\alpha)=F_{NW0}|\alpha|+F_{NW1}\alpha^2+F_{NW2}|\alpha|^3$, $F^{(2)}_{nW}(\alpha)=F_{NWd0}|\alpha|+F_{NWd1}\alpha^2+F_{NWd2}|\alpha|^3$, and the modulation bounds (strip parts in state form, U-3; \fn{v4cert/u3_strip_form.py}):
+\begin{align*}
+AB_s&=(S^{ab}_0+S^{ab}_\alpha|\alpha|)S_{0s}+S^{ab}_1s_{I1}+S^{ab}_2s_{I2}+S^{ab}_3\mathrm{supv}_2,\qquad BT_s=\text{the same with }S^\beta_\bullet,\\
+AB_x&=(C_{AB0}+C_{AB0}^{\rm dlead}+M_{AB}|\alpha|)A+Q_{AB}Q+AB_s,\qquad BT_x=(\beta_0+\beta_0^{\rm dlead}+\beta_1|\alpha|)A+Q_BQ+BT_s,\\
+AB_c&=\Phi_{AB}F_n(\alpha),\quad BT_c=\beta_FF_n(\alpha),\qquad AB=AB_x+AB_c\ \ (\ge|(a,b)|),\quad BT_x+BT_c\ \ (\ge|\beta|),\\
+E_{At}&=E_{A0}^{\rm G}V_0+r_{W\rho}E_{A1}^{\rm IR}A+h_{EA1}s_{w16}+H_{EA1}V_0 .
+\end{align*}
+\begin{lemma}[$E_I$ inequality, \fn{fin13v4c}]\label{EI:lem}
+Under (B-a)--(B-f) and Theorem U-1, for every $\tau$ (with $\theta=0$ here; the verifier's $\theta$-split only moves a fraction of the negative terms to the left),
+\begin{align*}
+\tfrac12\tfrac{d}{d\tau}V_0^2&\le-\mu_1V_0^2-\tfrac12V_2^2+I_0+L_0+K_0^{\OR},\\
+\tfrac12\tfrac{d}{d\tau}V_2^2&\le-\tfrac12V_4^2-\mu_2V_2^2+I_2+L_2+K_2^{\OR},
+\end{align*}
+where
+\begin{align*}
+I_0={}&a_fW_1^2+b_fB^2+\bar cV_2^2+(C_1+2\Psi_1\bar c)V_1V_2+(\Psi_1C_1+\Psi_2\bar c)V_0V_2+V_0R_Q\\
+&+(V_1+\kappa_{Z1}V_0)\bigl(d^{\rm F}_{010}V_2+d^{\rm F}_{100}V_1+A_1^{\rm F}V_0+d^{\rm F}_{200}s_ZV_1+d^{\rm F}_{110}s_ZV_2+d^{\rm F}_{300}s_Z^2V_1+h_{A0}s_{w16}+H_{A0}V_0\bigr)\\
+&+(V_1+\kappa_{\rm IR}V_0)\,r_{W\rho}\bigl(d^{\rm IR}_{010}W_3+d^{\rm IR}_{100}B+A_1^{\rm IR}W_1+A_0^{\rm IR}A+d^{\rm IR}_{200}S_{2r}B+d^{\rm IR}_{110}S_{2r}W_3+d^{\rm IR}_{300}S_{2r}^2B\bigr)+V_0C_{0W}\\
+&+AB\,T_0V_0^2+AB\,T_{C0}q_uW_1^2+AB_x|\alpha|N_{AB}V_0+BT_x\,\mathrm{np}_3V_0+AB_xN_{P12}V_0+AB\bigl(D_{Q0}^{\rm G}V_0V_1+D_{Q1}^{\rm G}V_0^2\bigr)+AB\,V_0E_{At},\\
+L_0={}&F_{nW}(\alpha)\bigl(V_1+\kappa V_0\bigr)+AB_c|\alpha|N_{AB}V_0+BT_c\,\mathrm{np}_3V_0+AB_cN_{P12}V_0,\\
+I_2={}&E_1V_1V_2+E_0V_0V_2+(c_3D_4+c_2W_3+c_1B+c_0W_1)\Dv+\bar cV_4\Dv+C_1V_3\Dv+R_Q\Dv+\Sigma_Z\Dv+r_{W\rho}R_5\Dv+C_{0W}\Dv\\
+&+AB\bigl(T_2V_2^2+2Q_{2B}V_1V_2+Q_{2B}V_0(V_3+\Psi_1V_2)\bigr)+AB\,T_{C2}q_uW_1\Dv+AB_x|\alpha|N_{AB}\Dv+BT_x\,\mathrm{np}_3\Dv+AB_xN_{P12}\Dv\\
+&+AB\bigl(D_{Q0}^{\rm G}V_1+D_{Q1}^{\rm G}V_0\bigr)\Dv+AB\,E_{At}\Dv,\\
+L_2={}&\bigl(F^{(2)}_{nW}(\alpha)+AB_c|\alpha|N_{AB}+BT_c\,\mathrm{np}_3+AB_cN_{P12}\bigr)\Dv ,
+\end{align*}
+with $R_Q=c^{\rm IR}(k_{41}D_4+k_{42}W_3+k_{43}B+k_{44}W_1)+(c_a^{\rm IR}+c_b^{\rm IR}S_{2r})(k_{31}W_3+k_{32}B+k_{33}W_1)$, $C_{0W}=C_{0P}S_{\rm all34}+C_{0Hb}V_0$, $q_u$ the factor for $Q_u,C_u$ in place of $q,\cos\theta$,
+\begin{align*}
+\Sigma_Z={}&d^{\rm F}_{010}V_3+(d^{{\rm F},a}_{010}+d^{\rm F}_{100})V_2+d^{{\rm F},b}_{010}s_ZV_2+d^{{\rm F},a}_{100}V_1+d^{{\rm F},b}_{100}s_ZV_1+2d^{\rm F}_{200}s_ZV_2+d^{{\rm F},a}_{200}s_ZV_1+d^{{\rm F},b}_{200}s_Z^2V_1\\
+&+d^{\rm F}_{110}s_G(3V_3+\Psi_1V_2)+d^{\rm F}_{110}s_ZV_3+d^{{\rm F},a}_{110}s_ZV_2+d^{{\rm F},b}_{110}s_Z^2V_2+3d^{\rm F}_{300}s_Z^2V_2+d^{{\rm F},a}_{300}s_Z^2V_1+d^{{\rm F},b}_{300}s_Z^3V_1\\
+&+A_1^{\rm F}V_1+B_1^{\rm F}V_0+h_{B0}s_{w16}+H_{B0}V_0,\\
+R_5={}&d^{\rm IR}_{010}D_4+(d^{{\rm IR},a}_{010}+d^{\rm IR}_{100})W_3+d^{{\rm IR},b}_{010}S_{2r}W_3+d^{{\rm IR},a}_{100}B+d^{{\rm IR},b}_{100}S_{2r}B+2d^{\rm IR}_{200}S_{2r}W_3+d^{{\rm IR},a}_{200}S_{2r}B+d^{{\rm IR},b}_{200}S_{2r}^2B\\
+&+d^{\rm IR}_{110}(S_{1z}D_4+S_{2z}W_3)+d^{{\rm IR},a}_{110}S_{2r}W_3+d^{{\rm IR},b}_{110}S_{2r}^2W_3+3d^{\rm IR}_{300}S_{2r}^2W_3+d^{{\rm IR},a}_{300}S_{2r}^2B+d^{{\rm IR},b}_{300}S_{2r}^3B\\
+&+A_1^{\rm IR}B+B_1^{\rm IR}W_1+B_0^{\rm IR}A,
+\end{align*}
+and all constants as in Table~\ref{EI:tab:const} (names: $\mu_{1,2}$ = MU1, MU2; $a_f,b_f$ = AF, BF; $c_3..c_0$ = CF0..CF3; $\kappa=\kappa_{\OR}$ = KAP; $r_{W\rho}$ = RWR; $q_u$ = QUF; the strip coefficients $S^{ab}_\bullet$, $S^\beta_\bullet$ = SF\_ab\_$\bullet$, SF\_beta\_$\bullet$).
+\end{lemma}
+
+\begin{corollary}[verifier form]\label{EI:cor}
+Under (I3$'$), the function $\mathrm{tot}_s$ that \fn{rhs_pn} bounds (E block, E2 block, $\mu(I_0-\mathrm{NEG}_0)$, $\mu\eI(I_2-\mathrm{NEG}_2)$, the E0 and E2 additions of \S\ref{EI:sec:E0E2}, and the $L$ list) satisfies, with $\mathrm{tot}=\mathrm{tot}_s+\mu(\fn{FLUX0}+\eI\fn{FLUX2})$, $\frac12\Lambda'\le\mathrm{tot}-s+\varphi(\tau)$ a.e. The reflected-integral lemma of \fn{flux2_lemma_v42.tex} then gives $Y=\Lambda-Z$, $0\le Z\le2C'$, with $\frac12Y'\le\mathrm{tot}$, which is the inequality the verifier's cell certificates bound.
+\end{corollary}
+
+\subsection{Proof of Lemma~\ref{EI:lem}}\label{EI:sec:proof}
+Each term $T_i$ is paired with $v$ (level 0) and with $D_2v$ (level 2), using \S\ref{EI:sec:id}. References are to \fn{EI_SPEC.md}; all bounds are \tHd\ unless marked, and every coefficient is the certified constant of Table~\ref{EI:tab:const}.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item $T_1$ (\S4.1). Level 0: $\langle v,L_1v\rangle_W\le-\mu_1V_0^2-\frac12V_2^2$ with $\mu_1$ from \fn{agent_int/v2/v2_T4_P2_0.25.json}, rounded down (the L-int certificate once cited gives $0.155167<0.1552$; provenance corrected, erratum F). Level 2: $(L_1v)''=M_1v''+e_1v'+e_0v$ (\fn{int_garding.py}), so $\langle v'',(L_1v)''\rangle_W\le-\frac12V_4^2-\mu_2V_2^2+E_1V_1V_2+E_0V_0V_2$. \emph{Regularity (review fix15 D-4).} Written out, this step uses six derivatives of $v$, while Theorem U-1 gives $v''''$ bounded with jumps on the finite set $B\cap[10.25,28]$. The inequality in the form used, $\langle D_2v,L_1v\rangle_W\le-\frac12V_4^2-\mu_2V_2^2+E_1V_1V_2+E_0V_0V_2$, is nevertheless true for every $v$ in $\mathcal H:=\{v\in H^4(10.25,60):v=v'=v''=v'''=0\text{ at }10.25\text{ and }60\}$: both sides are continuous on $\mathcal H$ in the $H^4$ norm ($L_1$ has bounded smooth coefficients, $W\in C^4$ is bounded above and below on the interval), the inequality holds for smooth $v\in\mathcal H$ by the computation above, and smooth functions with these boundary values are dense in $\mathcal H$ \tHd. The $v$ of Theorem U-1 lies in $\mathcal H$ ($v\in C^3$ with $v'''$ Lipschitz, $v''''\in L^\infty$, and $v,\dots,v'''$ vanish at both ends because $\zeta,\dots,\zeta'''$ do).
+\item $T_2$ (\S4.2). IR: level 0 $=\int(A_zg^2+B_zg'^2)\le a_fW_1^2+b_fB^2$ \tC\ (\fn{agent_coup/verify_identity.py}); level 2 $\le(c_3D_4+c_2W_3+c_1B+c_0W_1)\Dv$ with $c_j=\sup_{\rm IR}|{\rm coef}_j([L_1,\zeta])|(W/\rho)^{1/2}$. OR: in $K^{\OR}$.
+\item $T_3$ (\S4.3). $c=1-J^{-4}$ is kept globally, so there is no boundary term at $16.25$ or $57$. Level 0 \tS\ (I1): $\langle v,(cv''')'\rangle_W=\int Wcv''^2+\int W(c'-2\psi'c)v'v''-\int W((\psi'c)'-\psi'^2c)vv''\le\bar cV_2^2+(C_1+2\Psi_1\bar c)V_1V_2+(\Psi_1C_1+\Psi_2\bar c)V_0V_2$. Level 2: $\langle D_2v,(cv''')'\rangle_W=\int WD_2v(cv''''+c'v''')\le\bar cV_4\Dv+C_1V_3\Dv$. Here $|c'|\le c_a+c_b|g'|\le C_1$ with $s_{g1}\ge\sup|g'|$ (on OR $|g'|\le S^V_1/54.75\le s_Z$).
+\item $T_4$ (\S4.4). On IR, directly in $\rho$-norms with $(W/\rho)^{1/2}$ inside the sups $k_{4j}$, $k_{3j}$: $|cK_4+c'K_3|$ paired with $v$ resp.\ $D_2v$ gives $V_0R_Q$ resp.\ $R_Q\Dv$ (with $\sup_{\rm IR}|c'|\le c^{\rm IR}_a+c^{\rm IR}_bS_{2r}$). OR: in $K^{\OR}$.
+\item $T_5$ on $Z_1$ (\S4.5). Level 0: $-\int_{Z_1}W(v'-\psi'v)N_{\rm low}$ with $w''=v'$, $w'''=v''$, $w'=v$ on $Z_1$; highest derivative in $L^2(W)$, the others in sup; $\|1_{Z_1}A_0w\|_W\le h_{A0}s_{w16}+H_{A0}V_0$ by $|w(x)|\le|w(16.25)|+\Phi(x)^{1/2}V_0$ (Hardy integrals \fn{c4_hardy.py}). Level 2: $\|1_{Z_1}N_{\rm low}'\|_W\le\Sigma_Z$, monomial by monomial from the expansion $N_{\rm low}'=d_{010}g'''+(Dd_{010}+d_{100})g''+Dd_{100}g'+2d_{200}g'g''+Dd_{200}g'^2+d_{110}(g''^2+g'g''')+Dd_{110}g'g''+3d_{300}g'^2g''+Dd_{300}g'^3+D(d_{000})$ \tS\ (\fn{s1_identities.json}, 12-monomial table), with $\|v''^2\|_W\le\sup|v'|(3V_3+\Psi_1V_2)$ \tS\ (I8) and the global sup $s_G$.
+\item $T_5$ on IR (\S4.6). Level 0: $|\int_{\rm IR}(W\zeta v)'N_{\rm low}|\le(V_1+\kappa_{\rm IR}V_0)r_{W\rho}(\cdots)$ as in $I_0$, with the certified IR rows at the jet box $10^{-3}$ (the old chord interpolation of \fn{constants.py} is not used; erratum F). Level 2: $\le r_{W\rho}R_5\Dv$. The only fifth-order piece $\zeta cg''''$ is inside $T_3$, so $D_4$ is the highest $\rho$-norm; the monomial $d_{110}(w''w''''+w'''^2)$ is bounded by $d^{\rm IR}_{110}(S_{1z}D_4+S_{2z}W_3)$ with one factor converted to $v$ through the cutoff ($\zeta g'=v'-\zeta'g$, $\zeta g''=v''-2\zeta'g'-\zeta''g$; $\sup_{\rm IR}|f|^2\le2K_{W,\rm IR}\|f\|_W\|f'\|_W$ for $f$ vanishing at $10.25$, since $\psi'\ge0$ and $W$ decreases), which keeps the radial degree at most 2.
+\item $T_6$ (\S4.7). $\|\zeta c_0'w\|_{W,[10.25,57]}\le C_{0P}S_{\rm all34}+C_{0Hb}V_0$ (on $[34.25,57]$, $|w(x)|\le|w(34.25)|+(\Phi(x)-\Phi(34.25))^{1/2}V_0$); level 0 $\le V_0C_{0W}$, level 2 $\le C_{0W}\Dv$. OR part in $K^{\OR}$.
+\item $T_7$ (\S4.8). Level 0 by (I10): $\le F_{nW}(\alpha)(V_1+\kappa V_0)$, $\kappa=\max(\kappa_{\rm IR},\kappa_{Z1},\kappa_{\OR})$; level 2 $\le F^{(2)}_{nW}(\alpha)\Dv$ (the $C^4$ triples, \fn{int_constants_v3.json}). These are in $L$.
+\item $T_8$--$T_{12}$ (\S4.9). $|(a,b)|\le AB$ and $|\beta|\le BT_x+BT_c$ are the modulation lemma (\fn{agent_mod/ibp}, \fn{final_5e-4.json}) with the forcing part through $\|\chi\Phi_F\|_\rho=F_n$ (not the $W$-norm; erratum F) and the strip part restated as a linear form in the state sups (U-3, \fn{u3_strip_form.py}, with the Neumann feedback on the strip sources and $|\alpha|$ on the \key{linear_alpha_S0} term; \tC/\tR). $T_8$: \tS\ (I5--I7) level 0 $\le AB\,T_0V_0^2$, level 2 $\le AB(T_2V_2^2+2Q_{2B}V_1V_2+Q_{2B}V_0(V_3+\Psi_1V_2))$ (the unexplained \fn{c62} term of \fn{fin12f4} is deleted). $T_9$ on IR: $AB\,T_{C0}q_uW_1^2$, $AB\,T_{C2}q_uW_1\Dv$; on OR in $K^{\OR}$. $T_{10}$: $AB\,|\alpha|N_{AB}$ times $V_0$ resp.\ $\Dv$. $T_{11}$: $|\beta|\,\mathrm{np}_3$ and $|(a,b)|N_{P12}$ times $V_0$ resp.\ $\Dv$. $T_{12}$: $AB(D_{Q0}V_0V_1+D_{Q1}V_0^2)+ABV_0E_{At}$ and the same with $\Dv$; $|\cos\theta|,|\sin\theta|\le1$ is used. The parts with $AB_c$, $BT_c$ (one factor $\alpha$ through $F_n$) are in $L$; the rest in $I$.
+\item The OR remainders are exactly $K_0^{\OR}$, $K_2^{\OR}$ by the zone rule. Summing (i)--(ix) gives the lemma.\qed
+\end{enumerate}
+\noindent\emph{Proof of Corollary~\ref{EI:cor}.} Multiply the two inequalities by $\mu$ and $\mu\eI$, add the E and E2 blocks (E0 and E2 lemmas, \S\ref{EI:sec:E0E2}) and use (I3$'$). The rest is \fn{flux2_lemma_v42.tex}, Lemma ``reflected integral'' and Proposition ``absorption''.\qed
+
+\subsection{The E0 and E2 blocks of \fn{fin13v4c}}\label{EI:sec:E0E2}
+The E (inner energy) block is outside this lemma. Its modulation couplings are the E0 lemma and the E2 couplings of \fn{E0_LEMMA_v4c_v42.tex} (the text-v39 copy of \fn{step3nl_v4c/e0_lemma/E0_LEMMA_v4c.tex}; not compiled), which this text includes by reference: Lemma ``E0 couplings'' with $\Pi_3=0.01607$, $M_\alpha=25$, $f=5.72$ kept (true $\Pi_3=0.0103854$, slack $5.685\cdot10^{-3}$; with the A-1 pieces, the $(a,b)$ lead mismatch $\le\EzeroLeadV$ per $\alpha A^2$ and the third-order loop piece $\le\EzeroLoopV$, the need is $\le\EzeroNeedV$ and the margin $\times\EzeroAoneMarV$ at $|\alpha|\le2.5\cdot10^{-4}$, $\times\EzeroAoneMarBV$ at $1.6\cdot10^{-4}$, \fn{v4bcert/out/e0_A2_budget_v4c.json} \key{cases}; text v37 printed $\times1.679$, which omitted A-1; forcing $5.34395\le5.72$, $\times1.070$) \tC, the strip cubic term H8 with the certified coefficients $C^{3S}_{abc}$ of \fn{v4bcert/out/strip_cubic_v4c.json} (in place of \fn{ADD_STRIP_CUBIC}$=2.6\cdot10^{-3}$, review fix11 D-3; the fix-15 review recomputed the coefficients independently, coded/recomputed $2.8$ to $17$, all covering), $n_{123}=6.588186$ in the strip-$\beta$ term, and the coded higher-order terms $\mathcal H_1$--$\mathcal H_7$; in the code these are the addition \fn{R0add} of \fn{_ei_v4} (strip $\beta$ in state form $n_{123}BT_sA$, the strip $\alpha$-linear form, the cubic drift, the $(a,b)$ $w$-parts, $(a,b)$ and $\beta$ beyond their leads, the $\alpha^2$ remainders, the $H_{31},H_{32}$ part). The E2 couplings are the addition \fn{E2add} $=(R_M+N_S)D_q$ and the factor $F_{E2}$ on the E2 forcing in the $L$ list. Hypotheses (E0), (E2) of \S\ref{EI:sec:hyp}.
+\emph{Former conflict, settled:} the last paragraph of \fn{E0_LEMMA_v4b.tex} listed the strip hypothesis $\sup|w'''|\le0.02$ as not covered, while \fn{V4B_REPORT.md} stated that R-2 removed it. \fn{E0_LEMMA_v4c.tex} (review fix11 A-3) now says ``Removed since fin13v4b'' (one integration by parts, \fn{v4bcert/r2_strip_ibp.py}; only $S_0,S_1,S_2\le0.02$ needed). The E\_I block itself never used STRIP\_BETA: its strip terms are the state forms $AB_s$, $BT_s$ with $\mathrm{supv}_2$ (a state sup), so no $w'''$ box enters this lemma.
+
+\subsection{Structural conditions and certification}\label{EI:sec:cert}
+\begin{itemize}[leftmargin=*]
+\item Every state quantity enters with a nonnegative coefficient; NEG is unchanged. \fn{tail_cert} PASS on the production code path (\fn{runs/P/tail_cert_log.txt}): radial H $(0,2)$, L $(0,1)$; s-mode H $(2,5)$; joint without floors H $(2,5)$, L $(2,5)$; $f_1=0$. The $L$ list is shared verbatim by \fn{rhs_pn} and \fn{unc.lk_v4} (SF-3).
+\item Regression with \fn{V4B=0} reproduces \fn{fin13v4}; with \fn{NEW=0} the v4 code reproduced \fn{fin12f4} bit for bit. Double runs byte-identical apart from timing. Independent float evaluation of $I_0,I_2,L$ inside the interval values at 400 random points (\fn{verifier/t_float_check.json}) (\fn{V4_REPORT.md}, \fn{V4C_REPORT.md}).
+\item Result \tC\ (\fn{runs/P} of \fn{fin13v4c}): closure at $\alpha_1=1.5\cdot10^{-4}$ (10 steps) and $1.25\cdot10^{-4}$ (9 steps); tail $\rho\ge\rhoTailV$; first-cell rate $+\firstCellUV$; regression with \fn{V4C=0} reproduces \fn{fin13v4b} (\fn{V4C_REPORT.md}).
+\item \emph{Integrations by parts and the regularity they use} (fix11 C-6, fix15 D-4): (a) the level-0 and level-2 energy identities of \S\ref{EI:sec:id} (Lemma ``integration by parts with piecewise data'' of \fn{U1_regularity_v42.tex}, $p=Wv''$ with $p'$ Lipschitz, $q=v_\tau$; boundary terms vanish because $\zeta,\dots,\zeta'''$ vanish at $10.25$, $60$); (b) the level-0 identity (I10) $\langle v,\zeta f'\rangle_W=-\int(W\zeta v)'f$ for $f\in C^1$ (first-order version; $\zeta=0$ at both ends); (c) item (i) level 2: the density argument above ($v\in\mathcal H$); (d) item (iii): $\langle v,(cv''')'\rangle_W$ and $\langle D_2v,(cv''')'\rangle_W$ need $v'''$ Lipschitz and $c\in C^1$ (U-1(a); $c=1-J^{-4}$ is $C^1$ in $x$ because $u\in C^\infty$); (e) items (v), (vi): the level-0 pairing $-\int_{Z_1}W(v'-\psi'v)N_{\rm low}$ is (I10) on a whole zone with $\zeta'=0$ there, no boundary term inside $Z_1$ (zone rule); (f) item (ix) $T_8$: (I5)--(I7) are pointwise identities between functions continuous off $B$; no integration by parts beyond (a), (b).
+\end{itemize}
+
+\subsection{Constants}\label{EI:sec:const}
+\begin{center}\small\textbf{Table \refstepcounter{table}\thetable\label{EI:tab:const}.} Constants of the $E_I$ block (\fn{constants_v4.json}, $\alpha$-level $2.5\cdot10^{-4}$; IR, F, G: inner ramp, $[16.25,60]$, $[10.25,60]$; HD: Hardy integrals).\end{center}
+\input{ei_constants_v42}
+
+\subsection{What this lemma does not prove}\label{EI:sec:open}
+\begin{enumerate}[leftmargin=*]
+\item The outer ramp: $K_0^{\OR},K_2^{\OR}$ are handled only through (I3$'$), i.e.\ flux lemma v2, whose own open items are listed in \fn{flux2_lemma_v42.tex}.
+\item \tR\ inputs taken as certified (\fn{V4C_REPORT.md} ``Open'' 1): the Grams \fn{gram7}/\fn{gram8}, \fn{pair_f3}, \fn{bloop.json}, \fn{final_5e-4.json}, \fn{lyap_consts2}, the Q2 Gram (43.3271), \fn{garding_cert}, the coupling constants, the profile hulls, and the third-party raw JSONs (coupling, sob, v3, c4switch, mod\_ibp).
+\item \tHd\ steps: the Cauchy--Schwarz forms above; the $\beta$ decomposition of the E0 lemma (only its algebra is \tS); the B0/B1 mean-value bound over the $(U_0,U_1)$ box ($|\cos\theta|,|\sin\theta|\le1$ in $T_{12}$).
+\item Audited since text v37 (\fn{fix11_review} part D: sound): the $\theta$-certificate ($\frac1{32}$, $\frac19$), \fn{cubic_E0fine}, the G\aa rding identity behind $\mu_2$, $e_1$, $e_0$, the Q2 Gram, the float check of the $\beta$ decomposition (\fn{d_beta_float.json}); \fn{ADD_STRIP_CUBIC} is replaced by the certified H8 (\fn{fin13v4c}). \emph{Still not audited:} the level-2 commutator constants DS0--DS3 and the Sobolev constants $K_\rho,K_W$; the monotonicity of $W$ on $[31.25,34.25]$ behind $R_W$, $I_{RW}$ (now also used by H8; \tR, review fix15 A-7); the D-1a pins.
+\item Legacy typed literals of the E/E2 blocks and of the $\alpha$-equation (\fn{constants_v4.json} \key{legacy_typed}: LAMT, PI3, MODA, MOD\_E2, ALIN, t22, t12, r163, r107, f572, the factor 7.52) are justified only as stated in \fn{V4C_REPORT.md} (PI3, MODA, f572 by the E0 lemma; MOD\_E2, t22, t12, qb752, LAMT valid per the E2 audit); nd/nf and r143 now come from JSON.
+\item Regularity: Theorem U-1 (\fn{U1_regularity_v42.tex}) is \tHd\ and has its own inputs ((H6) at $t_1$ now by C-1; text v42: the compiled Lean theorems (T1), (Sy), with a full Lean build and the commit open (the C-1 bridges S3a, S3b are Lean theorems); DKS no longer an input); reviewed (\fn{fix11_review} part C). The \fn{fin13v4b} delta and \fn{fin13v4c} were reviewed (\fn{fix11_review} part A, \fn{fix15_review} part A: sound modulo items). A line-by-line review of this lemma against \fn{rhs_iv.py} is part of the final review.
+\end{enumerate}
+
+\ifdefined\stepmain\else
+\end{document}
+\fi

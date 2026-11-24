@@ -1,0 +1,41 @@
+fidelity far centre 376: total 3.960960e-03 vs pinned 3.960960e-03 (identical True)
+fidelity far centre 602: total 5.880252e-04 vs pinned 5.880252e-04 (identical True)
+XSTART = 471.898 (radius 490); ell_lo = 356244.8; 37 rows
+           far centres x in [471, 584]: cells  39 y_e     238.8  err 1.403e-03 lower 4.9e-08 base 9.66e-08  total/M^2 0.06415  x15.59
+           far centres x in [584, 701]: cells  31 y_e     351.8  err 6.465e-04 lower 1.5e-08 base 1.23e-08  total/M^2 0.02927  x34.17
+           far centres x in [701, 841]: cells  27 y_e     468.6  err 3.644e-04 lower 6.6e-09 base 4.27e-09  total/M^2 0.01644  x60.81
+          far centres x in [841, 1009]: cells  24 y_e     608.7  err 2.159e-04 lower 3.1e-09 base 2.00e-09  total/M^2 0.009725  x102.82
+         far centres x in [1009, 1211]: cells  21 y_e     776.9  err 1.325e-04 lower 1.5e-09 base 1.30e-09  total/M^2 0.005966  x167.62
+         far centres x in [1211, 1453]: cells  19 y_e     978.7  err 8.346e-05 lower 7.9e-10 base 1.01e-09  total/M^2 0.003758  x266.08
+         far centres x in [1453, 1744]: cells  17 y_e    1220.9  err 5.362e-05 lower 4.1e-10 base 8.68e-10  total/M^2 0.002416  x413.99
+         far centres x in [1744, 2093]: cells  15 y_e    1511.6  err 3.497e-05 lower 2.2e-10 base 7.85e-10  total/M^2 0.001577  x634.25
+         far centres x in [2093, 2511]: cells  14 y_e    1860.3  err 2.307e-05 lower 1.2e-10 base 7.44e-10  total/M^2 0.001042  x959.79
+         far centres x in [2511, 3013]: cells  14 y_e    2278.8  err 1.537e-05 lower 6.5e-11 base 6.98e-10  total/M^2 0.0006951  x1438.55
+         far centres x in [3013, 3616]: cells  12 y_e    2781.1  err 1.031e-05 lower 3.5e-11 base 6.35e-10  total/M^2 0.0004673  x2139.90
+         far centres x in [3616, 4339]: cells  12 y_e    3383.7  err 6.962e-06 lower 1.9e-11 base 5.47e-10  total/M^2 0.000316  x3164.81
+         far centres x in [4339, 5207]: cells  12 y_e    4106.9  err 4.722e-06 lower 1.0e-11 base 4.40e-10  total/M^2 0.0002146  x4660.40
+         far centres x in [5207, 6248]: cells  11 y_e    4974.8  err 3.216e-06 lower 5.3e-12 base 3.35e-10  total/M^2 0.0001462  x6838.57
+         far centres x in [6248, 7498]: cells  11 y_e    6016.2  err 2.197e-06 lower 2.7e-12 base 2.41e-10  total/M^2 9.992e-05  x10007.55
+         far centres x in [7498, 8998]: cells  12 y_e    7265.8  err 1.505e-06 lower 1.4e-12 base 1.72e-10  total/M^2 6.847e-05  x14605.30
+        far centres x in [8998, 10797]: cells  13 y_e    8765.5  err 1.033e-06 lower 7.0e-13 base 1.01e-10  total/M^2 4.692e-05  x21314.42
+       far centres x in [10797, 12957]: cells  13 y_e   10565.0  err 7.108e-07 lower 3.4e-13 base 5.58e-11  total/M^2 3.22e-05  x31058.49
+       far centres x in [12957, 15548]: cells  18 y_e   12724.4  err 4.897e-07 lower 1.7e-13 base 2.86e-11  total/M^2 2.212e-05  x45199.57
+       far centres x in [15548, 18658]: cells  25 y_e   15315.8  err 3.379e-07 lower 8.3e-14 base 1.39e-11  total/M^2 1.522e-05  x65683.09
+       far centres x in [18658, 22389]: cells  33 y_e   18425.4  err 2.334e-07 lower 4.1e-14 base 5.50e-12  total/M^2 1.048e-05  x95403.35
+       far centres x in [22389, 26867]: cells  87 y_e   22156.9  err 1.616e-07 lower 2.2e-14 base 3.52e-12  total/M^2 7.254e-06  x137854.61
+       far centres x in [26867, 32240]: cells  27 y_e   26634.7  err 1.118e-07 lower 1.3e-14 base 1.61e-12  total/M^2 5.011e-06  x199576.23
+       far centres x in [32240, 38688]: cells  26 y_e   32008.1  err 7.743e-08 lower 7.7e-15 base 6.39e-13  total/M^2 3.463e-06  x288754.41
+       far centres x in [38688, 46426]: cells  25 y_e   38456.2  err 5.364e-08 lower 4.9e-15 base 1.07e-12  total/M^2 2.407e-06  x415458.76
+       far centres x in [46426, 55711]: cells  29 y_e   46193.9  err 3.718e-08 lower 2.9e-15 base 2.21e-12  total/M^2 1.679e-06  x595664.84
+       far centres x in [55711, 66854]: cells  32 y_e   55479.1  err 2.576e-08 lower 1.2e-15 base 1.98e-12  total/M^2 1.166e-06  x857973.92
+       far centres x in [66854, 80224]: cells  37 y_e   66621.4  err 1.784e-08 lower 2.3e-16 base 6.01e-13  total/M^2 8.025e-07  x1246172.90
+       far centres x in [80224, 96269]: cells  43 y_e   79992.2  err 1.236e-08 lower 1.4e-17 base 3.09e-14  total/M^2 5.51e-07  x1814980.85
+      far centres x in [96269, 115523]: cells  49 y_e   96037.0  err 8.567e-09 lower 1.5e-18 base 1.06e-15  total/M^2 3.81e-07  x2624371.89
+     far centres x in [115523, 138628]: cells  55 y_e  115290.9  err 5.945e-09 lower 8.1e-19 base 2.02e-16  total/M^2 2.643e-07  x3782899.68
+     far centres x in [138628, 166353]: cells  64 y_e  138395.5  err 4.125e-09 lower 1.2e-19 base 3.85e-17  total/M^2 1.834e-07  x5453944.32
+     far centres x in [166353, 199624]: cells  74 y_e  166121.1  err 2.863e-09 lower 1.2e-19 base 2.87e-17  total/M^2 1.273e-07  x7855930.86
+     far centres x in [199624, 239549]: cells  84 y_e  178121.3  err 2.495e-09 lower 2.8e-18 base 1.65e-14  total/M^2 1.115e-07  x8970477.79
+     far centres x in [239549, 287459]: cells  95 y_e  178121.3  err 2.522e-09 lower 7.4e-16 base 5.65e-12  total/M^2 1.231e-07  x8124480.91
+     far centres x in [287459, 344950]: cells  62 y_e  178121.3  err 2.521e-09 lower 8.0e-16 base 6.34e-12  total/M^2 1.237e-07  x8084368.48
+     far centres x in [344950, 369991]: cells  22 y_e  178121.3  err 2.522e-09 lower 3.9e-16 base 2.88e-12  total/M^2 1.199e-07  x8340696.73
+min margin x15.588 (far centres x in [471, 584])

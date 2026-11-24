@@ -1,0 +1,7 @@
+start hr from snap_main_3000.npz k=3036.31 N=262144 L=48.041677 cdt=0.01 tol=1e-13 Nmax=1048576
+snap 4000 k=4045.508 N=524288 L=48.04110695 tail=2.64e-17 steps=750 wall=413s
+snap 5000 k=5061.029 N=524288 L=48.04076309 tail=7.12e-15 steps=1300 wall=619s
+snap 6000 k=6080.666 N=1048576 L=48.04053343 tail=1.29e-21 steps=1750 wall=848s
+  k=6597.01 N=1048576 tail=4.86e-20 steps=2000 wall=1040s
+snap 7000 k=7018.486 N=1048576 L=48.04038112 tail=1.85e-19 steps=2100 wall=1113s
+DONE

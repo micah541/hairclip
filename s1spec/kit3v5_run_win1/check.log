@@ -1,0 +1,158 @@
+REPRODUCTION CHECK kit_step3 v5  (python 3.13.7, python-flint 0.9.0, Windows-11-10.0.26100-SP0)
+
+PASS  verifier: tail_cert PASS, log identical to the reference
+WARN  verifier: rate_table_fin13v4c_a0.00015.json (closure alpha1 = 1.5e-4)
+        only numbers differ, max relative difference 1.71e-16 (/steps/0/tau: 0.08131694028238674 vs 0.08131694028238676)
+PASS  verifier closes at alpha1 = 1.5e-4: tail certified, rho > 0, every box-hypothesis ratio <= 1
+        peak sqrtL 5.308499e-08, rho 2.679225e-03, max box ratio 0.7891314071814564
+WARN  verifier: rate_table_fin13v4c_a0.000125.json (closure alpha1 = 1.25e-4)
+        only numbers differ, max relative difference 1.71e-16 (/steps/0/tau: 0.08131694028238674 vs 0.08131694028238676)
+PASS  verifier closes at alpha1 = 1.25e-4: tail certified, rho > 0, every box-hypothesis ratio <= 1
+        peak sqrtL 5.214218e-08, rho 2.850927e-03, max box ratio 0.7891104250359056
+PASS  verifier: mod_sups final_alpha_points_5e-8.json (sup|(a,b)|, sup|beta|, J, rho)
+        equal to the reference (rule C)
+PASS  verifier: sup|(a,b)| = 2.14039e-7, sup|beta| = 2.35488e-9 at alpha1 = 1.5e-4 (v38 values)
+        2.14039e-07, 2.35488e-09
+PASS  cert: strip_cubic_v4c.json
+        equal to the reference (rule C)
+PASS  cert: e0_A2_budget_v4c.json
+        equal to the reference (rule C)
+PASS  n1: n1_chart_fin13v4c.json
+        equal to the reference (rule C)
+PASS  n1: ramp e < 2^-19 and sup chi_add_0 <= 2e-7
+        e 4.388e-10, sup_add0 2.086e-08
+PASS  SA base: lemmaS_F10p_M0.52.json
+        equal to the reference (rule C)
+PASS  SA base: cap_F10p.json
+        equal to the reference (rule C)
+PASS  SA base: lemmaS_rigcap_M0.52.json
+        equal to the reference (rule C)
+PASS  SA base: weights_exact.json
+        equal to the reference (rule C)
+PASS  SA base: assembly_arb.json
+        equal to the reference (rule C)
+PASS  SA R3: r3_forcing.json
+        equal to the reference (rule C)
+PASS  SA R3: r3_symcheck.json
+        equal to the reference (rule C)
+PASS  SA t2_A: hjw_rep.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ic_design.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ic_lo.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ic_hi.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ic_probe.json
+        equal to the reference (rule C)
+PASS  SA t2_A: a3_signs.json
+        equal to the reference (rule C)
+PASS  SA t2_A: weights_t2.json
+        equal to the reference (rule C)
+PASS  SA t2_A: weights_t2_fb.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ramp_rep.json
+        equal to the reference (rule C)
+PASS  SA t2_A: ramp_rep_pm3ibp.json
+        equal to the reference (rule C)
+PASS  SA t2_A: outer_L2.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_design_N2ref.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_design_N2ref4.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_design_N20.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_lo_N2ref.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_hi_N2ref.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_probe_N2ref.json
+        equal to the reference (rule C)
+PASS  SA t2_A: asm_design_pm3ibp.json
+        equal to the reference (rule C)
+PASS  SA t2_A: A_interface.json
+        equal to the reference (rule C)
+PASS  SA: A_interface rule_reproduces_EA_ref (tight, v31)
+PASS  SA: asm_design_N2ref tight: failing claims are exactly those of the reference (v3.1 page-1 quotes and the v3.1 S0_B quote; not v3.3+ claims)
+        11: ['E_0 (v3.1 page 1)', 'E_B0 (y_E=50) (v3.1 page 1)', 'I3 const (v3.1 page 1.84e-21)']
+PASS  SA: asm_design_N2ref4 tight: failing claims are exactly those of the reference (v3.1 page-1 quotes and the v3.1 S0_B quote; not v3.3+ claims)
+        11: ['E_0 (v3.1 page 1)', 'E_B0 (y_E=50) (v3.1 page 1)', 'I3 const (v3.1 page 1.84e-21)']
+PASS  U: u1_ghat.json
+        equal to the reference (rule C)
+PASS  U: u2_K.json
+        equal to the reference (rule C)
+PASS  U: u34_primary.json
+        equal to the reference (rule C)
+PASS  U: U_cert_v36_pass1.json
+        equal to the reference (rule C)
+PASS  U: U_cert_for_zone3_v36_pass1.json
+        equal to the reference (rule C)
+PASS  U: U_cert_v36_pass2.json
+        equal to the reference (rule C)
+PASS  U: U_cert_for_zone3_v36.json
+        equal to the reference (rule C)
+PASS  U: U_cert_v36_pass3.json
+        equal to the reference (rule C)
+PASS  zone III: zone3_interface_pass1.json
+        equal to the reference (rule C)
+PASS  zone III: zone3_interface.json
+        equal to the reference (rule C)
+PASS  zone III: ramp_U.json (an input of chain v37, the v35 byte copy; not regenerated)
+        byte-identical to the reference
+PASS  U: fixed point, pass 3 == pass 2 (rule C)
+PASS  U: supersolution K1, K2, K3, N2 <= 4 N2_ref, U-fine requirement
+PASS  zone III: H6 min margin > 1
+        1.8608671374173327
+PASS  flux: chart4_shell.json
+        equal to the reference (rule C)
+PASS  flux: flux2_cert.json
+        equal to the reference (rule C)
+PASS  flux: flux2_coef.json
+        equal to the reference (rule C)
+PASS  flux: flux2_data.json
+        equal to the reference (rule C)
+PASS  flux: flux2_forms.json
+        equal to the reference (rule C)
+PASS  flux: flux2_sanity.json
+        equal to the reference (rule C)
+PASS  flux: gen_texts.json
+        equal to the reference (rule C)
+PASS  flux: inputs.json
+        equal to the reference (rule C)
+PASS  flux: flux2_forms.pkl
+        byte-identical to the reference
+PASS  flux texts: BPhi_continuation_v36.tex
+        identical to the reference modulo CRLF line endings
+PASS  flux texts: absorption_lemma_v2.tex
+        identical to the reference modulo CRLF line endings
+PASS  flux texts: erratum_flux2.tex
+        identical to the reference modulo CRLF line endings
+PASS  flux texts: flux2_lemma_v2.tex
+        identical to the reference modulo CRLF line endings
+PASS  flux texts: lemmaD_k2_sketch.tex
+        identical to the reference modulo CRLF line endings
+PASS  flux texts: numbers_flux2.json
+        identical to the reference modulo CRLF line endings
+PASS  flux: flux2_cert verdict PASS, no failing condition (C8 = U-1 by hand)
+        combined margin None
+PASS  proofs: G1_check.json
+        equal to the reference (rule C)
+PASS  proofs: G1_check all checks pass
+PASS  proofs: U1_sym.json
+        equal to the reference (rule C)
+PASS  proofs: U1_sym all checks pass
+PASS  proofs: GS_boot_v4c.json
+        equal to the reference (rule C)
+PASS  proofs: GS_boot_v4c all checks pass
+PASS  ibp: verify_symbolic.json
+        equal to the reference (rule C)
+WARN  ibp: final_5e-4.json
+        only numbers differ, max relative difference 5.68e-16 (/final/core/b/gamma_ref: 0.048848138358923356 vs 0.04884813835892333)
+PASS  lemmaO: lemmaO_v3_consts.json + far_margin2.json (merged, as the reference)
+        equal to the reference (rule C)
+PASS  guard: files read outside the kit and outside the Python installation / OS directories
+        0
+PASS  guard: no step tried to write / chdir / start a child outside the kit
+
+SUMMARY: 78 PASS, 0 FAIL, 3 WARN, 0 SKIP

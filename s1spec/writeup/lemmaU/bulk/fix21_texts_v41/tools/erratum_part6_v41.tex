@@ -1,0 +1,15 @@
+\part*{Part 6 (v41, November 21, 2026): section Q}
+\section*{Q. Text v41: wording items of the delta check \fn{fix20_delta_check/DELTA_CHECK_v40.md}}
+The independent check of the text-v40 changes (Fable, Nov 21) found every fix F-1 to F-7, R-1 to R-3 applied, no mathematical error introduced and the F-1 continuation argument correct and non-circular; it listed five wording remarks W-1 to W-5 and one retag slip. Text v41 (\fn{writeup/lemmaU/bulk/fix21_texts_v41/}, built by \fn{tools/build_v41.py} from \fn{fix19_texts_v40/}, which is unchanged) applies exactly these. No number was computed; no certified value changed; the mathematics is unchanged.
+\subsection*{Q1. W-1: order inside the closure proof}
+In \fn{bootstrap_v41.tex} the Closed step now first obtains GS and G at $\tau^*$, then applies Theorem U-1 on $[\tau_1,\tau^*]$, then passes the other members to $\tau^*$; the functions $Q$ are called continuous wherever GS and G hold (text v40: ``continuous on $[\tau_1,\tau_{\rm mod})$'', although $Q$ is defined only where GS and G hold). Step~1 of the Open step now states its order: GS and G, then U-1 on $[\tau_1,\tau^*+\delta]$, then the other members.
+\subsection*{Q2. W-2: Theorem U-1 (c), (d)}
+In \fn{U1_regularity_v41.tex}, (c) and (d) now say that (F:eq:star) and the level-$j$ inequality (D1) hold at every $\tau$ \emph{wherever the hypotheses of their lemmas hold} (B1(c), BF, B2$'$, resp.\ those of Lemma S(A)); U-1 only upgrades ``a.e.'' to ``every''. Text v40 read as if (GS) and (G) alone gave these inequalities.
+\subsection*{Q3. W-3: the $\alpha$-barrier on a march step}
+Step~2 of the Open step (\fn{bootstrap_v41.tex}) and the march part of Proposition F:prop:abs (\fn{flux2_lemma_v41.tex}) now say that on a march step the $\alpha$-barrier is the per-cell fixed point of \fn{closure.py}:113--120, 134 and needs only $\Lambda\le\mathrm{Ly}^{hi}_k$, which holds up to and just beyond a first touch of $Y=L$ by (C2); text v40 cited only the tail comparison of \fn{TAIL_LEMMA.tex} and said ``up to the first touch''.
+\subsection*{Q4. W-4: the $\alpha$-level of the flux data}
+In Lemma F:lem:data of \fn{flux2_lemma_v41.tex}, ``$|\alpha|\le\alpha_1$'' is replaced by the box level the certified code uses ($|\alpha|\le2.5\cdot10^{-4}$, box (B-a)), so that (F:eq:star) visibly does not depend on B1(a).
+\subsection*{Q5. W-5 and the retag slip}
+\fn{lemmaU_v41.tex} (implication step) and \fn{main_v3_v41.tex} (bootstrap paragraph) no longer say that every bound is derived strictly better: B1(a,b) are excepted, being re-derived by first touch. The title of \fn{lemmaS_A_v41.tex} named text v39 and its date line read ``text v40; text v40: chain v37''; both are corrected.
+\subsection*{Q6. Status (v41)}
+Step~3 is \emph{not} closed. The open items of section P7 are unchanged, except that the independent check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}); the text-v41 changes are wording only and have not been re-checked independently.

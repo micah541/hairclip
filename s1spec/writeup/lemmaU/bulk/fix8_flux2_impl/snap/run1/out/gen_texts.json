@@ -1,0 +1,60 @@
+{
+ "all_balanced": true,
+ "args": {
+  "argv": [
+   "gen_texts.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2/flux2_lemma.tex": "06e27c02e026cc85d1599d9ce5a4abd3e1244663e29958bacf624e927aa62ec8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "4b3c477e10eb1637e51bd87ea96d3c177d7b3ab865f54395d39a84f3aa5c7ccb",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/gen_texts.py": "579e1924a9cefa5bd5a47ab115a394075db10bc15b791f2c7278ee1168f2fae1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/chart4_shell.json": "b27489849021c9431d4d4c8c0601831f2e4b987c9ac6fbcc7ddd66ad96a5ec0e",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_cert.json": "77ca9ac1b3d4d42d42e416caf02ba8bc30628ca17bf48a27eb410bea559891e5",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_coef.json": "c9bb62286375cd0e7d6739a72e9809eb8ee0700f21b968d2dcea75ec38c3f299",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_data.json": "c29af53548475bb26540e99ec84988f3d5ddf69310d1aa14363a69e7c51cab46"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "balance": {
+  "BPhi_continuation_v36.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "absorption_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "erratum_flux2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "flux2_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  }
+ },
+ "outputs": {
+  "BPhi_continuation_v36.tex": "7c98eccd71483f46e428248cc24c6ab6750dc59cdf80df0ab4def0951e20f49a",
+  "absorption_lemma_v2.tex": "26f04bacf91438d2b5c48b16938a87256a6a10c9d96773ab3dd404e59ea978db",
+  "erratum_flux2.tex": "f370b2f35747234941f2d85c22086084f0670ca00dda1c66cd022869809d3c0d",
+  "flux2_lemma_v2.tex": "94db4c4b036f828b9bbb3039746c9425fbfb40a9d38c68c46a1eb178d7ff376d",
+  "numbers_flux2.json": "5de7ec9c2eab24251b8741d6a52088b6ac69e61dcf9d5c82983d324c5400d229"
+ },
+ "stage": "X7 gen_texts",
+ "timing": {
+  "runtime_s": 0.2
+ }
+}

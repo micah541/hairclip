@@ -1,0 +1,13 @@
+Gamma0_final: b_2 +/- 8.14e-24; M=1000 (dropped 2762 modes -> box), first h=6.751e-09 (dt=5.00e-04), Ma=185, K=24
+   eta cap exceeded (max eta/cap 3.12e+11): redo
+--- initial slab 1/2  (M=1000, theta_max start 47.912, tau = 6.7510e-09)
+h=6.751e-09 (dt~5.000e-04)  M=1000 Ma=185 Nc=4000 K=24 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 2.03e-03, sum n^3 sup|r_n| = 9.15e+06, induced sum n^3 r_n/max(lam_n,1/h) = 2.88e-04; defect*w |.|_3 = 9.20e-01
+  polish |F| = ['9.0e-06', '1.4e-19', '2.7e-28']  u(0)-xbar = 7.7e-23  cond(P_a(h)) = 1.9e+02
+  rho radii max: 8.137e-24 -> 5.346e-17 (|diag B|w 1.372e-33, |B|w 8.139e-24, absorbed 6.56e-18, intra-slab 2.54e-14);  sv(P_a(h)) ['1.02', '1', '1', '0.00532']
+  parallelepiped hull sum_n n^j|G||w|: j=1 1.628e-23 -> 7.351e-13; j=3 2.424e-22 -> 1.013e-08;  box |.|_1 out 3.22e-11
+  box |.|_3: 2.386e-12 -> 5.339e-06  (Zend block 1.35e-09, rest 5.34e-06); tail T: 1.00e-30 -> 2.43e-23
+  slab-wide sup |e|_j (j=0..3): ['2.56e-12', '9.03e-10', '3.47e-07', '1.40e-04'];  int <u_aa^2> = 4.471314738738012e-04 +/- 6.9e-17
+  time 509.5s  {base: 23.7, resid: 8.9, coef: 2.2, Pfloat: 27.7, defect: 414.6, apriori: 25.8, lohner: 6.5, quad: 0.1}  sub-intervals [(5, 0, 0), (6, 0, 0), (9, 0, 0), (7, 0, 0), (5, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (8, 0, 0), (8, 0, 0)]
+  block 185->167 (passengers 0), h_next=1.0126545736013858e-08, theta_end=46.936
+  quadratures: t=[0.000499539608688458 +/- 3.20e-19]  L=[103.60618094294668 +/- 8.49e-15]  X0=[-0.8749874539 +/- 2.99e-11]

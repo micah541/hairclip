@@ -1,0 +1,693 @@
+[
+ {
+  "file": "GS_lemma_v39.tex",
+  "printed": "5.3903\\cdot10^{-4}",
+  "value": "5.3903\\cdot10^{-4}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.json",
+  "key": [
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "GS_lemma_v39.tex",
+  "printed": "0.040936",
+  "value": "0.040936",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.json",
+  "key": [
+   "sup_uprime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "GS_lemma_v39.tex",
+  "printed": "1.65\\cdot10^{-11}",
+  "value": "1.65\\cdot10^{-11}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/c_frame_shift.json",
+  "key": [
+   "shift_at_Ybar_box",
+   0
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "GS_lemma_v39.tex",
+  "printed": "5.3085\\cdot10^{-8}",
+  "value": "5.3085\\cdot10^{-8}",
+  "json": "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json",
+  "key": [
+   "sqrtL_max"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "C1_identification_v39.tex",
+  "printed": "1.743\\cdot10^{-3}",
+  "value": "1.743\\cdot10^{-3}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/C1_ke.json",
+  "key": [
+   "sup_ke"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "continuation_v39.tex",
+  "printed": "6.52\\cdot10^{-3}",
+  "value": "6.52\\cdot10^{-3}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/GS_tau1.json",
+  "key": [
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "continuation_v39.tex",
+  "printed": "0.0542",
+  "value": "0.0542",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/GS_tau1.json",
+  "key": [
+   "sup_uprime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "continuation_v39.tex",
+  "printed": "5.3903\\cdot10^{-4}",
+  "value": "5.3903\\cdot10^{-4}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.json",
+  "key": [
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "continuation_v39.tex",
+  "printed": "6.683\\cdot10^{-7}",
+  "value": "6.683\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json",
+  "key": [
+   "far_max",
+   "W1_max"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "U1_regularity_v39.tex",
+  "printed": "6.52\\cdot10^{-3}",
+  "value": "6.52\\cdot10^{-3}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/GS_tau1.json",
+  "key": [
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "2.14039\\cdot10^{-7}",
+  "value": "2.14039\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json",
+  "key": [
+   "1.5e-4",
+   "sup_ab"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "116.3593",
+  "value": "116.3593",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "res",
+   "tight",
+   "r2_export",
+   "C0_ref4"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.2605999",
+  "value": "0.2605999",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "res",
+   "tight",
+   "r2_export",
+   "C1_ref4"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "114.764",
+  "value": "114.764",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "res",
+   "tight",
+   "r2_export",
+   "C0_ref"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.0698138",
+  "value": "0.0698138",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "res",
+   "tight",
+   "r2_export",
+   "C1_ref"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.056789",
+  "value": "0.056789",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json",
+  "key": [
+   "supersolution",
+   "EA",
+   2
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.042430",
+  "value": "0.042430",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/hjw_rep.json",
+  "key": [
+   "kappa_J"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.0552518",
+  "value": "0.0552518",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "res",
+   "tight",
+   "r2_export",
+   "window_data",
+   "D_2"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "3.4098\\cdot10^{-21}",
+  "value": "3.4098\\cdot10^{-21}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json",
+  "key": [
+   "res",
+   "K0bar"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "lemmaU_v39.tex",
+  "printed": "0.0424278",
+  "value": "0.0424278",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json",
+  "key": [
+   "HJW",
+   "kappa_J_W1"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "flux2_lemma_v39.tex",
+  "printed": "1.9925\\cdot10^{-11}",
+  "value": "1.9925\\cdot10^{-11}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json",
+  "key": [
+   "res",
+   "Nbar",
+   "0"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "flux2_lemma_v39.tex",
+  "printed": "3.2575\\cdot10^{-12}",
+  "value": "3.2575\\cdot10^{-12}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json",
+  "key": [
+   "res",
+   "Nbar",
+   "1"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "G1_export_k2_v39.tex",
+  "printed": "5.83419\\cdot10^{-2}",
+  "value": "5.83419\\cdot10^{-2}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json",
+  "key": [
+   "res",
+   "tight",
+   "E",
+   2
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "G1_export_k2_v39.tex",
+  "printed": "2.01658\\cdot10^{-8}",
+  "value": "2.01658\\cdot10^{-8}",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json",
+  "key": [
+   "res",
+   "tight",
+   "info",
+   2,
+   "coup_rate"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "G1_export_k2_v39.tex",
+  "printed": "116.3593",
+  "value": "116.3593",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/asm_design_N2ref4.json",
+  "key": [
+   "res",
+   "tight",
+   "export",
+   "2",
+   "C0"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "main_v3_v39.tex",
+  "printed": "2.14039\\cdot10^{-7}",
+  "value": "2.14039\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json",
+  "key": [
+   "1.5e-4",
+   "sup_ab"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step3_v39_main.tex",
+  "printed": "0.28593",
+  "value": "0.28593",
+  "json": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json",
+  "key": [
+   "supersolution",
+   "M1z_hyp_check",
+   "zones_I_II",
+   "S1_2Bhat"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "ei_constants_v39.tex",
+  "printed": "1.2709",
+  "value": "1.2709",
+  "json": "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json",
+  "key": [
+   "constants",
+   "TC2",
+   "value"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "ei_constants_v39.tex",
+  "printed": "1.5884",
+  "value": "1.5884",
+  "json": "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json",
+  "key": [
+   "constants",
+   "KAP_OR",
+   "value"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "ei_constants_v39.tex",
+  "printed": "0.15552",
+  "value": "0.15552",
+  "json": "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json",
+  "key": [
+   "constants",
+   "MU1",
+   "value"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "ratio $\\le1.6000014\\cdot10^{-7}",
+  "value": "1.6000014\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "H7_fixedL",
+   "ratio_upper"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "$t^*\\ge3.68334\\cdot10^{-7}",
+  "value": "3.68334\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "H7_fixedL",
+   "t_star_lower"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "margin $\\times2.302$",
+  "value": "2.302",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "H7_fixedL",
+   "margin_tstar_over_ratio"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "minimum margin $\\times15.58$",
+  "value": "15.58",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H4_far",
+   "min_margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "combined pointwise margin $\\times4.8045$",
+  "value": "4.8045",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "flux_v37",
+   "combined_margin_lower"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\sup|\\tilde\\kappa e|\\le0.0017429",
+  "value": "0.0017429",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "C1_ke",
+   "sup_ke"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\sup|k_{S_1}u|\\le0.0065170",
+  "value": "0.0065170",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "GS_tau1",
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\sup|u'|\\le0.054182",
+  "value": "0.054182",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "GS_tau1",
+   "sup_uprime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\sup|ku|\\le5.3903\\cdot10^{-4}",
+  "value": "5.3903\\cdot10^{-4}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "GS_boot_v4c",
+   "sup_ku"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\sup|u'|\\le0.040936$ on",
+  "value": "0.040936",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "GS_boot_v4c",
+   "sup_uprime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "M_1'=28\\,sI_2'\\le0.432858",
+  "value": "0.432858",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "F12_sliver",
+   "M1_prime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "sI_2'\\le0.0154593",
+  "value": "0.0154593",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "F12_sliver",
+   "sI2_prime"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "main_v3_v39.tex",
+  "printed": "\\sup|\\tilde\\kappa e|\\le0.0017429",
+  "value": "0.0017429",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "C1_ke",
+   "sup_ke"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "C1_identification_v39.tex",
+  "printed": "$\\le1.7429\\cdot10^{-3}$",
+  "value": "1.7429\\cdot10^{-3}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "interface_proofs",
+   "C1_ke",
+   "sup_ke"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "3.658\\cdot10^{-10}",
+  "value": "3.658\\cdot10^{-10}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   0,
+   "bound"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "3.137\\cdot10^{-7}",
+  "value": "3.137\\cdot10^{-7}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   0,
+   "with_error"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times27.34$",
+  "value": "27.34",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   0,
+   "margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times3.188$",
+  "value": "3.188",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   0,
+   "margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "1.777\\cdot10^{-9}",
+  "value": "1.777\\cdot10^{-9}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   1,
+   "bound"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "1.004\\cdot10^{-6}",
+  "value": "1.004\\cdot10^{-6}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   1,
+   "with_error"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times562.8$",
+  "value": "562.8",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   1,
+   "margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times4.983$",
+  "value": "4.983",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   1,
+   "margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "1.665\\cdot10^{-6}",
+  "value": "1.665\\cdot10^{-6}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   2,
+   "bound"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "2.436\\cdot10^{-6}",
+  "value": "2.436\\cdot10^{-6}",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   2,
+   "with_error"
+  ],
+  "dir": "up"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times600.9$",
+  "value": "600.9",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2_tightened_fU1",
+   "rows",
+   2,
+   "margin"
+  ],
+  "dir": "down"
+ },
+ {
+  "file": "step4_handoff_v39.tex",
+  "printed": "\\times4.106$",
+  "value": "4.106",
+  "json": "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json",
+  "key": [
+   "results",
+   "M9_H2f",
+   "rows",
+   2,
+   "margin"
+  ],
+  "dir": "down"
+ }
+]

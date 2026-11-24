@@ -1,0 +1,90 @@
+% bootstrap_v38.tex -- THE bootstrap set of step 3 and its closure proof (text v38, fix16_texts_v38, 20 Nov 2026).  New file.
+% Written for review items D-1, D-2, D-5 of fix15_review/REVIEW_v4c_interface.md: one statement of the set, one order table, one closure
+% proof that covers B1 (with its asserted boxes), BF, GS, B2', B3U, B4, G and the joint continuation with (P2').  Every other v38 text
+% (lemmaU_v38, continuation_v38, flux2_lemma_v38, U1_regularity_v38, ei_lemma_v4c, GS_lemma_v38) refers to Definition BS:def and
+% Proposition BS:prop:close.  Numbers are macros of numbers_A_v38.tex (generated from the JSON named there).  Not compiled.
+% Standalone, or \input by step3_v38_main.tex (which defines \stepmain).  Labels are prefixed BS:.
+\ifdefined\stepmain\else
+\documentclass[11pt]{article}
+\input{b12_preamble_v38}
+\input{numbers_A_v38}
+\title{Step 3, text v38: the bootstrap set and its closure}
+\author{}\date{20 November 2026 (text v38). \emph{Not compiled.}}
+\begin{document}\maketitle
+\fi
+
+\section{The bootstrap set and its closure}\label{BS:sec}
+\noindent\textbf{Why this section.} Up to text v37 the bootstrap set existed in two versions: \fn{lemmaU_v37.tex} defined $\mathrm{BS}_U=\{\mathrm{B1},\mathrm{B2}',\mathrm{B3U},\mathrm{B4},\mathrm{G}\}$ and proved closure for it, while BF (the flux items) and GS (the tip chart) were added only by reference, and U-1 posed (GS) on $|x|\le60\frac14$ (review fix15, D-1, D-2). This section is the \emph{only} statement of the set in text v38. Labels: \tC\ certified (arb, outward rounding; file and key named), \tHd\ hand argument, \tR\ read from the cited file, \tH\ hypothesis or hand-off item.
+
+\subsection{Definition}
+Throughout, $\tau_1$ is the hand-off time and $P(\tau)=(t,\lambda,\xi,\alpha)(\tau)$ is the modulation path of Proposition~(P2$'$) of \fn{U1_regularity_v38.tex}, defined on its maximal interval $[\tau_1,\tau_{\rm mod})$ with values in the open set $\mathcal O$ (built from $\mathrm{GS}^\circ$ and the relaxed validity box).
+\begin{definition}[the bootstrap set $\mathrm{BS}$]\label{BS:def}
+For $\tau'\in[\tau_1,\tau_{\rm mod})$, $\mathrm{BS}(\tau')$ means that the following hold for every $\tau\in[\tau_1,\tau']$.
+\begin{description}[leftmargin=1.3em,itemsep=2pt]
+\item[GS] (tip chart; \fn{GS_lemma_v38.tex} Definition GS) there is $u\in C^1([-60,60])$ with $\sup|k_{S_1}u|\le\frac12$, $\sup|u'|\le1$, such that $x\mapsto\Psi(x,u(x))$ reparametrises the sub-arc of $\Gamma_{P(\tau)}$ through the tip. The verifier's $w=u-\alpha\hat\psi_3-\alpha^2\hat h_2$ is defined through it.
+\item[B1] (verifier \fn{fin13v4c}) (a) $|\alpha|$ below the $\alpha$-barrier of the march and $\le a^*\lambda$ in the tail; (b) $\Lambda\le L(\tau)+2C'$ on the march and $\Lambda\le\ell(\tau)+2C'$ in the tail, $2C'\le\TwoCprimeV$ (flux lemma, Proposition~\ref{F:prop:abs}); (c) the \emph{box part}: the hypotheses (B-a)--(B-f), (E0), (E2) of the $E_I$ lemma (\fn{ei_lemma_v4c.tex} \S\ref{EI:sec:hyp}) and the D-2a box of the strip cubic term H8: $|\alpha|\le2.5\cdot10^{-4}$; $|w|,|w'|\le10^{-3}$ on $[10.25,16.25]$; $|w'|\le0.02$ on $[16.25,60]$; $|w|\le0.02$ on $[0,34.25]$ and $|w|\le\frac12$ on $[34.25,60]$; $|w|,|w'|\le10^{-4}$ on $[0,8]$; $|w|,|w'|\le0.01$ and $|\alpha|\le10^{-3}$ on $[16.25,31.25]$; the modulation validity box $|\alpha|\le5\cdot10^{-4}$, $A,W_1\le10^{-3}$, $|w|,|w'|,|w''|\le0.02$ on $\sigma\in[29,32]$.
+\item[BF] (flux items; \fn{flux2_lemma_v38.tex}) (F1) (B$\Phi$): for $k=1,2$ and every window $I=[\tau_a,\tau_a+T]\subset[\tau_1,\tau]$, $\int_I\int_{\ln28}^{\ln350}\varepsilon\omega(z^A_{k+2})^2\,ds\,d\tau\le2(C0_k+C1_kT)$ with $C0_1\le\BPhiCzerooneV$, $C1_1\le\BPhiConeoneV$, $C0_2\le\BPhiCzerotwoV$, $C1_2\le\BPhiConetwoV$ (outer data $4N_2^{\rm ref}$); (F2) $|(a,b)|\le\bar a_F:=10^{-6}$.
+\item[B2$'$] (core of (A)) on $y\in[28,60]$: $\sup|v_A|+\sup_{\rm core}|d|\le0.0153$ (so $S^V_0=\sup|w'|\le0.0153$ on $[34.25,60]$, input (B-e)), $S^V_1\le0.6$, $|f|\le0.11$, $|yf_y|\le0.52$; $E^A_j\le\beta_A\Eh_j$, $\beta_A=2$, $j=0,1,2$.
+\item[B3U] (Lemma U) (a) $\E^\rho_j\le2\Bh_j$ for every launched centre, $j=0,1,2$; (b) $|f|\le0.15$, $|yf_y|\le0.52$ on $\{y\ge56,\ r<253\lambda_1\}$; (c) $|f-U_1|\le0.16$ there.
+\item[B4] (Lemma O) the a-priori bounds of Lemma~O on the fixed-$L$ cone family (centres $[300,380]\lambda_1$, $L=50\lambda_1$, $(M,K)=(0.12,0.18)$) and on the far family (centres $\ge490\lambda_1$, $L=113\lambda_1$, $(M,K)=(0.15,0.3)$).
+\item[G] (ray graph; \fn{continuation_v38.tex} Definition~\ref{C:def:G}) on $\{14\le y,\ r\le700\lambda_1\}$ the tip arc is a normal graph over the $S_1$ ray with $|f|\le\frac12$, and a graph over every member of B4.
+\end{description}
+The closed set of Proposition~(P2$'$) is $\mathfrak B_{\rm mod}:=\{P:\ \mathrm{GS}(P),\ \text{the validity box (part of B1(c))},\ \text{B1(b)}\}$; so $\mathrm{BS}(\tau')$ implies $P(\tau)\in\mathfrak B_{\rm mod}$ on $[\tau_1,\tau']$.
+\end{definition}
+\noindent\emph{What is not a member.} (H1)--(H6), (H2f), GS at $\tau_1$ are hand-off data; the constants $\Eh,\Bh$ are certified numbers; the flux inputs $\fn{FLUX0},\fn{FLUX2}$ are typed constants of the verifier justified by (I3$'$) (a conclusion of the flux lemma under BF and B2$'$). The bound $\bar a=\bar b\le\abarV$ used by Lemma~$\delta U$ is the derived value, not a member.
+
+\subsection{Strict improvement, member by member}\label{BS:sec:strict}
+Under $\mathrm{BS}(\tau')$ every member holds on $[\tau_1,\tau']$ with a fixed smaller constant (a uniform gap). Values \tC\ unless marked; file and key in the last column.
+\begin{center}\small\begin{longtable}{@{}p{0.2\linewidth}p{0.36\linewidth}p{0.38\linewidth}@{}}\toprule
+member & improved to (factor) & certified by\\\midrule\endhead
+GS & $\sup|ku|\le\GSkuV$, $\sup|u'|\le\GSupV$ on $|x|\le60$ (box ratios $\le\GSboxMaxV$) & \fn{fix15_review/c/GS_boot_v4c.json} \key{sup_ku}, \key{sup_uprime} (\fn{GS_boot_v4c.py} on \fn{step3nl_v4c/runs/P}); Lemma GS-2 of \fn{GS_lemma_v38.tex}\\
+B1(a) & march $|\alpha|\le1.6\cdot10^{-4}$, tail $|\alpha|\le a^*\lambda$; whole-tail $\alpha$-condition ratio $\times\tailAlphaMarV$ ($\times\tailAlphaMarBV$ at $\alpha_1=1.25\cdot10^{-4}$), with the factor $1+2C'/L_F$: $\times\FluxCfiveV$ & \fn{rate_table_fin13v4c_a0.00015.json} \key{tail.alpha_condition_whole_tail} (lhs/rhs); \fn{fix13_v37chain/flux/out/flux2_cert.json} \key{conditions.C5}\\
+B1(b) & $Y=\Lambda-Z\le L$ (march), $\le\ell$ (tail), so $\Lambda\le L+2C'$ with the pad $10^{-9}$ (C3 $\times\FluxCthreeV$) and the cell cushion $10^{-3}$ (C2 $\ge\times5.0\cdot10^7$) & \fn{flux2_cert.json} \key{conditions.C2}, \key{C3}, \key{C4}; Proposition~\ref{F:prop:abs}\\
+B1(c) boxes & asserted at every march cell's upper end $\mathrm{Ly}^{hi}$ and at the tail anchor, from $\Lambda\le\mathrm{Ly}^{hi}$ by Sobolev bounds (not by the energy inequality); worst ratios: IR jet $\BbIRV$, $|w|\le\frac12$ $\BdV$, strip $|w''|$ $\UstripTwoV$, tip jet $\EtwoTipV$, $|\alpha|$ $0.64$, D-2a: $\CFwoneV$ ($\times\CFwoneMarV$), $\CFwV$, $\CFalphaV$ & \fn{rate_table_fin13v4c_a0.00015.json} \key{box_hypotheses.max_ratio} (20 checks, \fn{closure.box_assert}, \fn{closure.py} l.145, l.164)\\
+BF (F1) & the window bound without the factor 2 (factor $\times2$) & Lemma~S(A), Lemma~D ($k=1$: \fn{lemmaU.tex}; $k=2$: \fn{G1_export_k2_v38.tex}); \fn{fix13_v37chain/flux/out/flux2_data.json} \key{res.export}\\
+BF (F2) & $\sup|(a,b)|\le\abarV$ ($\times4.67$) & \fn{step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json} \key{1.5e-4.sup_ab}\\
+B2$'$ & $S^v_0+\sup|d|$ $\times\MarSzeroV$, $S^v_1+\sup|Dd|$ $\times\MarSoneV$, core M1 $\times\MarMoneV$, M0 $\times\MarMzeroV$; $E^A\le\Eh<2\Eh$ & \fn{fix13_v37chain/t2_A/out/asm_design_N2ref4.json} \key{res.tight.margins}; \fn{t4_cert/out/U_cert_v36_pass2.json} \key{supersolution.EA}\\
+B3U & $\E^\rho\le\Bh<2\Bh$; \UmarV & \fn{U_cert_v36_pass2.json} \key{supersolution.K2_ok}, \key{margins} (chain v37)\\
+B4 & D5b/H6 with U-fine, minimum $\times1.860$ & \fn{fix13_v37chain/t5_zone3/out/zone3_interface.json} \key{cone_family.H6}\\
+G & $|f|\le0.11$ ($[14,60]$), $<0.15$ (zones I/II), $\le0.10032$ ($[253,379.5]\lambda_1$), $\le0.2276$ ($[253,700]\lambda_1$), all $<\frac12$; Lemma~O persistence (horizon below $t^*$, $\times2.30$, $\times15.5$) & Lemma~\ref{C:lem:G}; \SU, \SZ\\\bottomrule
+\end{longtable}\end{center}
+
+\subsection{Order}\label{BS:sec:order}
+No step uses its own conclusion. ``Consumes'' lists only members of $\mathrm{BS}$ at the hypothesis level and earlier rows; inputs that are not members are named.
+\begin{center}\small\begin{longtable}{@{}p{0.14\linewidth}p{0.46\linewidth}p{0.34\linewidth}@{}}\toprule
+step & consumes & produces\\\midrule\endhead
+C-1 (upstream) & step~4 (Prop.~$\Gamma_0$, P1 Galerkin lemma, Theorem P2 in the form (P2-a), \fn{C1_ke.json}); Lean (L1), (L2); DKS (D1); no step-3 statement & smooth symmetric flow on $[0,t(27.15)]\ni t_1$; (S4.1), (S4.2); $T_{\max}=T_*-t_1$ (\fn{C1_identification_v38.tex})\\
+GS-1 (at $\tau_1$) & C-1; P2 boxes of slab 180; hand-off frame & GS at $\tau_1$ on $|x|\le60\frac14$: $\GStauKuV$, $\GStauUpV$\\
+(P2$'$) & $P\in\mathfrak B_{\rm mod}$ (GS, validity box, B1(b)); Neumann bound $\nu\le0.0466$ \tR & $C^1$ path $P(\tau)$ on $[\tau_1,\tau_{\rm mod})$; constraints kept\\
+U-1 & (P2$'$); GS, B1, G & $C^1$ energies, identities at every $\tau$\\
+D1 verifier & GS, B1 (all of (c)); B2$'$ ($S^V_0$, $S^V_1$); (I3$'$) from the flux row & B1(a,b) strictly (with the flux row); B1(c) ratios; $J_m,s_m$; $\bar a,\bar b,\bar\beta$; ramp values\\
+flux v2 & BF; B2$'$ ($E^A\le\beta_A\Eh$, core data); B1(c) ($|\alpha|$, tip jet, OR boxes) & (I3$'$); $Y\le L$ (Prop.~\ref{F:prop:abs}); (F2) via D1\\
+D5a & B4; (H3), (H5); horizon from D1 & Z1--Z3, $\Delta^R$\\
+D3$'$ (A) & D1; (H2), (H2f); B2$'$; B3U(b,c), Z1 on $(60,350]$; Lemma~N on $O$; does not use (B$\Phi$) & $E^A\le\Eh$; core box strictly; exports $C0_k,C1_k$ (F1 strictly; G1 for $k=2$)\\
+U-crude, U-fine & $\Eh,C0,C1$; D1; (H2), (H3); B2$'$, B3U, Z1; $\Delta^R$ & B3U strictly; $K_2,K_3$\\
+D5b/H6 & D5a; (H5); U-fine & B4 strictly\\
+G & B2$'$, B3U(b), Z1, Z2; B4, D5a & G strictly (Lemma~\ref{C:lem:G})\\
+GS-2 & B1(c) (asserted boxes), B1(b) ($\sqrt\Lambda\le\peakV$, for $|w'|$ on $[8,10.25]$), B2$'$ ($S^V_0$ inside the asserted $0.02$), GS at the same $\tau$ (so that $w$ exists); cell sups of $\hat\psi_3,\hat h_2,k_{S_1}$ & GS strictly\\\bottomrule
+\end{longtable}\end{center}
+\noindent The loop verifier $\to$ (A) $\to$ G1 $\to$ flux $\to$ verifier is a simultaneous bootstrap, not a circle: the verifier consumes (I3$'$) and $S^V_0,S^V_1$ at the hypothesis level (doubled exports, $\beta_A\Eh$, $0.0153$, $0.6$); (A) consumes only the verifier's conclusions and does not use (B$\Phi$); each member returns with a certified factor. (P2$'$) and GS form a joint continuation: (P2$'$) needs $P\in\mathfrak B_{\rm mod}$, and the openness of GS needs the continuity of $P(\tau)$; GS-2 does not use (P2$'$) (review fix15, \S4.2).
+
+\subsection{Closure}\label{BS:sec:close}
+\begin{proposition}[closure of $\mathrm{BS}$]\label{BS:prop:close}
+Assume the hand-off (H1)--(H6), (H2f) at $\tau_1$ (Theorem~\ref{M:thm:W}), GS at $\tau_1$ (GS-1), and the closure conditions (K1)--(K6) of \fn{lemmaU_v38.tex} Proposition ``closure'' together with the conditions (C0)--(C7) of Proposition~\ref{F:prop:abs}. Then $\mathrm{BS}(\tau')$ holds for every $\tau'<\tau_{\rm mod}$. If $\tau_{\rm mod}<\infty$ then $t(\tau)\uparrow t_1+T_{\max}$ as $\tau\uparrow\tau_{\rm mod}$; and $\tau_{\rm mod}=\tau_{\max}=\infty$ by Proposition~\ref{C:prop:global}.
+\end{proposition}
+\begin{proof}\tHd\ Let $\mathcal T=\{\tau'\in[\tau_1,\tau_{\rm mod}):\mathrm{BS}(\tau')\}$ and $\tau^*=\sup\mathcal T$.
+
+\emph{Nonempty.} At $\tau_1$: GS by GS-1 ($\GStauKuV<\frac12$, $\GStauUpV<1$, \fn{fix14_interface/GS_tau1.json}); B1(a,b) by (H1) ($|\alpha(\tau_1)|\le\alpha_1$, $\sqrt{\Lambda(\tau_1)}\le5\cdot10^{-8}$, below the first cell) and B1(c) by the first cell's box assertion; BF: (F1) holds for windows of length $0$ trivially and $|(a,b)(\tau_1)|\le\bar a$ by the modulation lemma at the hand-off state (the verifier's first-cell value); B2$'$, B3U, B4, G at $\tau_1$ by (K6) and (H2)--(H5) as in \fn{lemmaU_v38.tex} (``Nonempty''). So $\tau_1\in\mathcal T$.
+
+\emph{Implication step.} Let $\tau'\in\mathcal T$. Follow the order table. U-1 gives the energy identities at every $\tau\le\tau'$. The verifier's cells, with (I3$'$) from the flux lemma (whose inputs BF, B2$'$, B1(c) hold), give B1(a,b) strictly in the form $Y\le L$, $Y\le\ell$ (Proposition~\ref{F:prop:abs}, conditions (C0)--(C7)), and the asserted box ratios of B1(c), all $\le\BdV<1$, at every state with $\Lambda\le\mathrm{Ly}^{hi}$, which B1(b) and (C2) cover. (A) gives B2$'$ strictly and the exports, hence (F1) without the factor 2; D1's \fn{mod_sups} give (F2) with factor $\times4.67$. U-crude, U-fine, D5a, D5b give B3U, B4 strictly; Lemma~\ref{C:lem:G} gives G strictly; Lemma GS-2 gives GS strictly. Each improved constant is a fixed number (independent of $\tau'$), so the gaps are uniform.
+
+\emph{Closed.} Suppose $\tau^*<\tau_{\rm mod}$. Each member except GS, G, (F1) and B3U(a) is an inequality $Q(\tau)\le c$ for a function $Q$ continuous on $[\tau_1,\tau_{\rm mod})$ (Theorem U-1 of \fn{U1_regularity_v38.tex}: $P$, $\Lambda$, the energies and the sups of $w,w'$ on compact $x$-sets are continuous in $\tau$); these pass to $\tau^*$. (F1): the window integrals are continuous in the window end (U-1(d)), so the bound passes to windows ending at $\tau^*$. B3U(a): joint continuity of $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ (\fn{lemmaU_v38.tex}, ``Closed''). G: Lemma~\ref{C:lem:G}. GS: Lemma GS-4 of \fn{GS_lemma_v38.tex} (limits of graph functions with the strict bounds of GS-2; the solution is smooth at $t(\tau^*)<t_1+T_{\max}$ because $\tau^*<\tau_{\rm mod}$). Hence $\tau^*\in\mathcal T$.
+
+\emph{Open.} At $\tau^*$ all members hold with the uniform gaps of the implication step. $P(\tau^*)\in\mathfrak B_{\rm mod}\subset\mathcal O$ and $P$ is continuous on $[\tau_1,\tau_{\rm mod})$ ((P2$'$)(b)). GS: Lemma GS-3 (openness with the endpoint $x=\pm60$) gives GS on $[\tau^*,\tau^*+\delta]$. The scalar members: continuity and the gaps. (F1): the extra piece of a window beyond $\tau^*$ tends to $0$ uniformly in the window start (local integrability, U-1(d); \fn{flux2_lemma_v38.tex} Remark~\ref{F:rem:boot}), so the gap of $\times2$ persists for $\delta$ small. B3U(a) and G: as in \fn{lemmaU_v38.tex} (``Open'') and Lemma~\ref{C:lem:G}. Hence $\tau^*+\delta\in\mathcal T$ for some $\delta>0$, contradicting the definition of $\tau^*$. So $\tau^*=\tau_{\rm mod}$, i.e.\ $\mathrm{BS}(\tau')$ for all $\tau'<\tau_{\rm mod}$.
+
+\emph{End of the interval.} Since $P(\tau)\in\mathfrak B_{\rm mod}$ for all $\tau<\tau_{\rm mod}$, Proposition~(P2$'$)(c) gives $t(\tau)\uparrow t_1+T_{\max}$ if $\tau_{\rm mod}<\infty$. Proposition~\ref{C:prop:global} then shows that $\int\kappa^2ds$ stays bounded, which contradicts Lemma ``blow-up criterion'' of \fn{U1_regularity_v38.tex}; so $\tau_{\rm mod}=\infty$, and $\tau_{\max}=\tau_{\rm mod}$.
+\end{proof}
+\noindent\emph{Remarks.} (1) The box part B1(c) is a member because the $E_I$, E0, E2 and H8 bounds are stated under it; it is improved as a consequence of B1(b) through asserted Sobolev bounds, not through the energy inequality, so no circularity arises (review fix15 \S4.2). (2) Beyond the tail anchor the box assertions rest on the verifier's monotonicity statement (\fn{VERIFIER.md} ``Monotonicity check'' \tR, not audited; flux lemma, tail paragraph of Proposition~\ref{F:prop:abs}, for $\Lambda\le L^*+2C'$). (3) GS-2 bounds $|w'|$ on $[8,10.25]$ by $\le\GSwoneEightV$ from $\sqrt\Lambda\le\peakV$; with B1(b) the barrier is $L+2C'$, a relative change of order $10^{-11}$ against margins $\ge\times24$ (review GS-6; not rerun).
+\ifdefined\stepmain\else
+\end{document}
+\fi

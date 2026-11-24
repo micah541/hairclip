@@ -1,0 +1,323 @@
+{
+ "item": "M9 item 1: arb window / shell / (H2f) base sums, slab 180 (32 t_c balls x 2 parameter-ball sets)",
+ "label": "certified (arb, outward)",
+ "passed_on": "combined = max over both sets",
+ "combined": {
+  "windows_max": [
+   3.47446602556472e-08,
+   1.2608627534689676e-07,
+   3.753835388836834e-07,
+   9.70618393530908e-07
+  ],
+  "shells": [
+   8.01021403201007e-11,
+   1.335326114732905e-10,
+   2.935820408643842e-10
+  ],
+  "G_60_700": [
+   3.126231445073078e-07,
+   1.003070751708322e-06,
+   2.4301699076094015e-06,
+   3.942991803662722e-06
+  ],
+  "G_60_379p5": [
+   4.838163427352807e-08,
+   1.7922972073402638e-07,
+   5.439646126847539e-07,
+   1.500342244016606e-06
+  ],
+  "G_379p5_700": [
+   2.646274747767903e-07,
+   8.252002604610412e-07,
+   1.8900828317912971e-06,
+   2.4516311091498554e-06
+  ]
+ },
+ "per_set": {
+  "v32": {
+   "windows_max": [
+    3.474460425339123e-08,
+    1.2608616549253557e-07,
+    3.7538334452373844e-07,
+    9.706180727843487e-07
+   ],
+   "shells": [
+    8.010095541591887e-11,
+    1.33531061884707e-10,
+    2.9357992305133894e-10
+   ],
+   "G_60_700": [
+    3.126227698702835e-07,
+    1.0030700545043533e-06,
+    2.43016878042187e-06,
+    3.942990323513627e-06
+   ],
+   "G_60_379p5": [
+    4.838154220364097e-08,
+    1.79229537549826e-07,
+    5.43964284763387e-07,
+    1.5003416797732337e-06
+   ],
+   "G_379p5_700": [
+    2.646271916632537e-07,
+    8.251997453906888e-07,
+    1.8900820305597922e-06,
+    2.4516301901873243e-06
+   ],
+   "worst_ball": {
+    "windows_max": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "shells": [
+     1,
+     1,
+     1
+    ],
+    "G_60_700": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "G_60_379p5": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "G_379p5_700": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "max_rel_rad_hh": 0.0015405320394654418,
+   "min_cos_phi": 0.9920328226875187
+  },
+  "wide": {
+   "windows_max": [
+    3.47446602556472e-08,
+    1.2608627534689676e-07,
+    3.753835388836834e-07,
+    9.70618393530908e-07
+   ],
+   "shells": [
+    8.01021403201007e-11,
+    1.335326114732905e-10,
+    2.935820408643842e-10
+   ],
+   "G_60_700": [
+    3.126231445073078e-07,
+    1.003070751708322e-06,
+    2.4301699076094015e-06,
+    3.942991803662722e-06
+   ],
+   "G_60_379p5": [
+    4.838163427352807e-08,
+    1.7922972073402638e-07,
+    5.439646126847539e-07,
+    1.500342244016606e-06
+   ],
+   "G_379p5_700": [
+    2.646274747767903e-07,
+    8.252002604610412e-07,
+    1.8900828317912971e-06,
+    2.4516311091498554e-06
+   ],
+   "worst_ball": {
+    "windows_max": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "shells": [
+     1,
+     1,
+     1
+    ],
+    "G_60_700": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "G_60_379p5": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "G_379p5_700": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "max_rel_rad_hh": 0.0015405320394654418,
+   "min_cos_phi": 0.9920328226875187
+  }
+ },
+ "compare_float": {
+  "v32_windows_per_ball_max_rel": 1.7686443130049412e-06,
+  "v32_shells_per_ball_max_rel": 6.119322025677221e-05,
+  "wide_G_per_ball_max_rel": 2.283341955289231e-06,
+  "windows_at_same": true,
+  "slab": {
+   "windows_max": {
+    "arb_v32": [
+     3.474460425339123e-08,
+     1.2608616549253557e-07,
+     3.7538334452373844e-07,
+     9.706180727843487e-07
+    ],
+    "arb_combined": [
+     3.47446602556472e-08,
+     1.2608627534689676e-07,
+     3.753835388836834e-07,
+     9.70618393530908e-07
+    ],
+    "float_win_summary": [
+     3.474454280265319e-08,
+     1.2608596300817327e-07,
+     3.7538277997416347e-07,
+     9.706167796578438e-07
+    ],
+    "rel_combined": [
+     3.380473148739682e-06,
+     2.4771887054964026e-06,
+     2.021695081566577e-06,
+     1.6627294088245037e-06
+    ]
+   },
+   "shells": {
+    "arb_v32": [
+     8.010095541591887e-11,
+     1.33531061884707e-10,
+     2.9357992305133894e-10
+    ],
+    "arb_combined": [
+     8.01021403201007e-11,
+     1.335326114732905e-10,
+     2.935820408643842e-10
+    ],
+    "float_win_summary": [
+     8.009616491689672e-11,
+     1.3352366190249986e-10,
+     2.9356901302010335e-10
+    ],
+    "rel_combined": [
+     7.46028628233475e-05,
+     6.702610356201788e-05,
+     4.4377450286292586e-05
+    ]
+   },
+   "G_60_700": {
+    "arb_wide": [
+     3.126231445073078e-07,
+     1.003070751708322e-06,
+     2.4301699076094015e-06,
+     3.942991803662722e-06
+    ],
+    "arb_combined": [
+     3.126231445073078e-07,
+     1.003070751708322e-06,
+     2.4301699076094015e-06,
+     3.942991803662722e-06
+    ],
+    "float_h2f_base": [
+     3.1262278435687826e-07,
+     1.003069700306695e-06,
+     2.4301676022208376e-06,
+     3.942987200737124e-06
+    ],
+    "rel_combined": [
+     1.152028731077337e-06,
+     1.0481840162501754e-06,
+     9.486541430181461e-07,
+     1.1673701596492947e-06
+    ]
+   }
+  }
+ },
+ "reused_runs": [],
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/v33/m9_balls.py": "66806a18151141b6dd9a03246afd0cf3452636c69028cfbe2a031f9c90329d15",
+   "/home/claude/s1spec/step4/p2/out/h1slab/win_summary.json": "f3a48403bd4aaed575672978ee0e87336abca21cdbef3f54f4bd3aa7cc24f7df",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/h2f_base.json": "953f10ea8d36f45a7e600fb705cb28191fc1940eae868de49d41654aa2fbd072",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_0.json": "7c80a036866a609fd99bca7144c5fae67a9eb59ed2f7f8c66de509dffa65977e",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_1.json": "b794b3f475810b9918a98f1eb09dd3be764b6f8def0f7a501533dd2e112557ea",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_2.json": "894201946a154f4974aedcd7e3079b3d678b4e79e7abb69544087309bd3e4b4e",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_3.json": "5243023c0b6a096494ddd32ae5c4db7bb193bdc92589ae63f32d45ea04430d28",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_4.json": "02859c2aca8d3aca764994e785f4551b5e21f771672cbd7b45d97f6a9aade566",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_5.json": "3d8cc359c961f9c8faba5fde10c3c9b170df3549a13dfffcf9c643c11b10e414",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_6.json": "e0a6b228bb6ad8342807a6f03c6ab45ff0ea78754401c5066b0f50a1c0063b99",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_7.json": "aa906f1ce0adbad4fd3edb9bdc1e2ba478c9a94c2c6a3ccccaba6d1299dd6c50",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_8.json": "4d88d5369b887ab5164825d5a4a2b7e7b57d546f49937a149c62b57606e626bb",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_9.json": "fdcb7ec985511ac45aee17f710be49ab19f9821aab5b1240833d2231ef811e64",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_10.json": "423f83fea4e4056754ba2d87b6f60275389a924bd0197d1b10a91d57c8f213f6",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_11.json": "16a89846d37fc9781ca03becb07fce548979bf98f469d3fe12417d2160d9cfc9",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_12.json": "1d059298963eb968f8d0e7a87ee95a2e64b59bfc11f4a5f3832b8c0f716e4713",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_13.json": "753bdd78b5c2e14930e97097976335035740beaa0cf6e990960d62f6728f4286",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_14.json": "fc8b627efaadaca79c577ae45a33363be1b532c83ab3e8a3ddd3479d4c3d59a7",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_15.json": "ab2ef6280b06d026cbe3f6907556da2046933f5f0451e33c07109f1be34d9867",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_16.json": "fcf5e62984ff38910d32ff84a267071f2bc9edfd616858a2da89a71565487fc0",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_17.json": "4d80b297c3c9fc12bbb24afbf0cd812097c58d910331e2f79ab6890bf5c196b2",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_18.json": "6d97d475dec377e277d559106209871d5dd91fb7a4865147275e80bd77d5f17e",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_19.json": "61da0684eeaaefed8a6d2197eb510acbd77245749dc126a586cef7e912c8d041",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_20.json": "1ab132836f5496803abad01948f867686520c190e10bb73957e1d023641eabe7",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_21.json": "00b819f1571af6f47c6a4d3fd573e4b167e83c3f4ec527ee0440758b61bab226",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_22.json": "70beb5646681eb5d55ac410c62449bdcae806faaec378c8e46711dce77151b81",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_23.json": "2bd489dafe0053e1524e1cbb0e56b7ca6097ea94374f256de52b8e9d44670df5",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_24.json": "1a7b7f15cff061f490c344907375c7c0e5dc7656a1e9c45e171c1c03008bb7b2",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_25.json": "1624d560a6423cb35ffd49afdfdaa5c02dba93b50569e55081c6c720e7212363",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_26.json": "184bfea5fcaba79cbe98ac14d6adec4a8d7a8c71d9545ea0f139eab5b4611ff6",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_27.json": "89fd509c71f748a8791a9500ecc5942e205be1261dce6e830bf620e44e2f0673",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_28.json": "eb3fcd17cf3a657487f197abe01c94b3126402bdc5a531f29ee638a935e3a00d",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_29.json": "999ff69944cd1aabf8e87c4ece4879a0390320d63c6b73b0d1a2c2f91337c7ae",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_30.json": "7a2fa84b0b37d05dea1290343ba3bc30eb7ea41f6d5b8b7526226d8eb9e595cf",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_v32_31.json": "01b81a42441664c00a14cb3f9a1e55da0ae30b84d0b4bc0071c3d27114b9fa04",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_0.json": "e5f2d9dcb154a6d2091bcdc0591cc3cadbd57c69b39fbe1ba04a9fcb6926ae6b",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_1.json": "773b079e0eaf21efd6e806aaefc554e69b6e00062132e652651d2ed0dd7415b3",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_2.json": "5b1eeba1546e79acc93363fc175e9c75dcf9e975228aefffafc596720019a272",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_3.json": "3b27bc8742a176f448554e5fa233e0d86245126347ac92c058be7195a46b6873",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_4.json": "1a4e6f7b911a00040b3aab6070a23f72ce664eb0eba50d64baa190ae3f090c86",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_5.json": "511f1eb44308a38c8d057b069043d2641127e3a6c05e0039d6ea8aded36f884b",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_6.json": "64d017d899beddec2f234f7a5c9c24d9f74afa585e6ca9c8c0a4e630fbead033",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_7.json": "ea8d3bfa375051451a8769f3e117d92d2c12f87afa6b988b09c9b9f8fb9a19fa",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_8.json": "105be93a5e7759b6e4bef695be92dbf75f00e17764fa85d427edb076fb82a6df",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_9.json": "6bac080badb68af5e238781421adc8e517ba722eb9532cffb7350da5e6ed70fb",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_10.json": "4982212d40464e688ea9a1fe681846185ca7af7813634564e3a2863f97f0a51e",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_11.json": "d4399449cde1b063f8936ab30795435536063b582da8f4e8da1a88eeb157d0b2",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_12.json": "ae2b3615f4b9427f2591459a95fe773960bcb6fa7cbb57fdaae485eab160df59",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_13.json": "ebabc7a7eeb2fc7f51dd0144cc80b1769f17384efdef8e64ae09e077628f551b",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_14.json": "dc7513d7cbc65db4d47d323693e0794fe095ab3ac6ec1c68559b1f70dc1a568c",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_15.json": "e4a1c071eb6a0350b491fd52b5540969557abb483dba64d5e33b4095be8696ea",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_16.json": "eff9dc70b303cb2aa9478bfdb6bfafbe439aa9642559ec0691cc13a2bcf5ffe8",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_17.json": "c68e7e90420369aa6f709a38de951191ce31b5cf2768ca96139ceb48bc65c433",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_18.json": "80eac96b78ad3baecafded30d81eefc7b560bb3fd9b810cf8f7ffa7632bf638a",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_19.json": "4c71ae243845101e06b60424d647f9b46aa409855a53bd9049f2a48701badce9",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_20.json": "8933d93bceafc407eb541cce67314039ae17a5bbd7f4f777f5c7cd166dc576af",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_21.json": "5f75493c3dce64b9dca1bb887b730ba46f976b50311c5d4834fe541d819b2e7c",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_22.json": "aec5271cf5a8ccce928bc6ceafa5c9a04ee52b2fb90decfe22b1763ccded2eee",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_23.json": "b6c708ca84fc8824968ea4bc5cfd2bfdba3fd4c5c8bbd0e9d32d2dbedbd0a4a5",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_24.json": "3917010642bf6190b43c248790dd8fa390f3f65325da9e0615de54825e73e8cd",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_25.json": "3cd3ed1c1459e7f7199b9521ab09f5739f5c2d0cea17f85e8cb4059566964420",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_26.json": "114cf2875f85e83c1d7c8c4846014412ffcb026c7c81a4bdeddb5b9d9f2cf50d",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_27.json": "7db5231330a1818251b2efa55283fb50b7fe0cd2bb455d39a280e4c508489486",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_28.json": "74c7f936a8c41065a14d2bc0a7b06b077c6a0387e95b2c7056ad7de2db85f5d2",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_29.json": "b70ce3215cf1671aade8f40fc8d5b3faeb158f15ad4f798eacaca96f79548595",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_30.json": "a3536cf771996c428b8b8017713dea6414f4445b81815245188dc20b5997d486",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_wide_31.json": "2cadf3d6ebe6788cbebf9377e41c07976604350af79029d2bcd705db0144ec49"
+  }
+ }
+}

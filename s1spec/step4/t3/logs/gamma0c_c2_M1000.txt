@@ -1,0 +1,12 @@
+Gamma0: 3762 coefficients, closing b_2 = np.float64(-1.002456557732618) +/- 2.020e-16; L0=103.65251688569134
+  dropped modes > 1000: max |b_n| 1.13e-23, sum n^3|b_n| = 2.39e-12
+  consistent datum: relax 2h+h/8 + 2 preliminary arb slabs (130s; datum at t ~ 0.117)
+  M=1000 Ma=67 Nc=4000 theta_max=47.912 h=3.795e-07 (dt~2.81e-02)
+h=3.795e-07 (dt~2.811e-02)  M=1000 Ma=67 Nc=4000 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 2.40e-15, sum n^3 sup|r_n| = 6.41e-09, induced sum n^3 r_n/max(lam_n,1/h) = 4.70e-16; defect*w |.|_3 = 1.05e-07
+  polish |F| = ['1.8e-07', '8.5e-21', '8.3e-31']  u(0)-xbar = 3.3e-31  cond(P_a(h)) = 3.4e+03
+  rho radii max: 2.020e-16 -> 2.028e-16 (|diag B|w 1.375e-23, |B|w 2.028e-16, absorbed 1.66e-21, intra-slab 1.02e-18);  sv(P_a(h)) ['1.62', '1.02', '1.01', '0.00047']
+  parallelepiped hull sum_n n^j|G||w|: j=1 4.131e-16 -> 9.271e-16; j=3 6.716e-14 -> 1.047e-12;  box |.|_1 out 1.39e-18
+  box |.|_3: 2.451e-12 -> 1.049e-14  (Zend block 2.16e-15, rest 6.88e-15); tail T: 1.00e-20 -> 1.47e-26
+  slab-wide sup |e|_j (j=0..3): ['5.25e-16', '1.10e-14', '4.90e-13', '2.91e-11'];  int <u_aa^2> = 7.226414263940566e-03 +/- 2.4e-18
+  time 225.0s  {base: 9.4, resid: 6.6, coef: 1.0, Pfloat: 18.9, defect: 171.7, apriori: 16.1, lohner: 1.3}  sub-intervals [(6, 0, 0), (7, 0, 0), (19, 0, 0), (23, 0, 0), (23, 0, 0), (23, 0, 0), (23, 0, 0), (23, 0, 0), (23, 0, 0), (23, 0, 0)]

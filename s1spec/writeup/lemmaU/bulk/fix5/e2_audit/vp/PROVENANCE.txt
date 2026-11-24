@@ -1,0 +1,3 @@
+vp/rhs_iv.py = mk_vp.py applied to /home/claude/s1spec/step3nl_v4/verifier/rhs_iv.py
+source sha256 95c949849f107eea6ec1088c52e4d8250f5438464dbf1b696c97a065eae2bdd8
+patched sha256 2951f85a3e89ebb980fdb5d8851588f49c1fe76e0d79c14bc5809dc3a23a8142

@@ -1,0 +1,12 @@
+1. 51246 rows; grid = prof_tight: True; box hulls = prof_tight hulls: True; centre in prof_tight centre: True; new hull in old hull: True; centre in new hull: True
+2. max centre width (all rows)    {'p': '1.50e-11', 'q': '1.56e-12', 'k': '1.88e-12', 'm': '3.02e-12', 'th': '2.54e-12'}
+   max pointwise width (all rows) {'p': '1.50e-11', 'q': '9.89e-12', 'k': '1.88e-12', 'm': '3.02e-12', 'th': '3.17e-12'}
+   prof_tight max centre width    {'p': '1.89e-09', 'q': '2.69e-09', 'k': '7.05e-10', 'm': '2.99e-10', 'th': '1.76e-09'}
+   x = tau_tip - tau in [0.0, 2.0): pointwise {'p': '8.5e-12', 'q': '9.9e-12', 'k': '9.1e-13', 'm': '1.3e-12', 'th': '3.2e-12'}  prof_tight {'p': '1.9e-09', 'q': '2.7e-09', 'k': '7.0e-10', 'm': '3.0e-10', 'th': '1.8e-09'}
+   x = tau_tip - tau in [2.0, 5.0): pointwise {'p': '2.3e-12', 'q': '2.4e-12', 'k': '4.4e-13', 'm': '4.7e-13', 'th': '2.2e-12'}  prof_tight {'p': '5.3e-10', 'q': '6.3e-10', 'k': '4.4e-10', 'm': '2.6e-10', 'th': '5.7e-10'}
+   x = tau_tip - tau in [5.0, 10.3): pointwise {'p': '1.5e-11', 'q': '1.1e-13', 'k': '1.9e-12', 'm': '3.0e-12', 'th': '2.5e-12'}  prof_tight {'p': '1.3e-10', 'q': '9.1e-12', 'k': '3.8e-11', 'm': '3.7e-11', 'th': '3.4e-11'}
+   hull width max new / old: {'p': '4.6e-04/5.1e-04', 'q': '5.7e-04/6.2e-04', 'k': '1.0e-04/1.1e-04', 'm': '1.3e-04/1.3e-04', 'th': '3.1e-04/3.1e-04'}
+3. tau_tip in [10.249077651120778, 10.249077651121361] (width 5.8e-13); last row -> tau_tip meets the tip state: True; q = m = 0 contained: True; inside the s1_tight intervals: True
+   eps* (zeros of M in Y) in [0.00015346198894026843, 0.00015346198896815588], width 2.79e-14 (bracket2: 6.33e-14); its width is set by the d box, |A_d| rn1/|A_0|
+4. float trajectory (DOP853) from a zero of M in Y: worst |float - centre|/radius = 0.12 over 8 rows x 5 components (float error ~1e-13 near the tip; not part of the certificate)
+ALL RIGOROUS CHECKS PASS: True  [6s]

@@ -1,0 +1,532 @@
+{
+ "item": "flux lemma v2, v37 reassembly (fix13_v37chain/flux): reproduction and pin for the step-4 v38 manifest",
+ "label": "certified (flux scripts: arb, outward)",
+ "pinned": {
+  "chart4_shell.json": "88307694104cc8eb23925a1af5f0e7ea0f2150c1eb0228c489d401b6f4b8456f",
+  "flux2_cert.json": "597da287203590fd42ecf79f0846f8e574e85a10a4f9ba4408f322e94cf0976a",
+  "flux2_coef.json": "0bd3798731288c2c20c78e850b42778dfa0f0dd6d57e8ca9b091e798cc42c21e",
+  "flux2_data.json": "f54a7774bf94112cbd02210033dfa69a9a1114ab919a66a25eaf03738505b0af",
+  "flux2_forms.json": "921b1fdc0027739dd0a39f907f2d7ef6948363f1df9213da0a8de0f77cad4f8b",
+  "flux2_sanity.json": "95e633074adba3c0b0e6bc30050cf607a615df457c7ae3262222e11f2bd9d06c",
+  "gen_texts.json": "965f8d3751478107f7be956db8bdbb749a99be6b165a02499ec5180968e3c412",
+  "inputs.json": "5e76e7fae3b106dc937d2271a15cd238880d63877547d038953297bb605538ef",
+  "flux2_forms.pkl": "83c2a91dd65476f8f25ebe3fa29328465759e9c64b42bd4d7ef950cf872c09af"
+ },
+ "pinned_texts": {
+  "BPhi_continuation_v36.tex": "9a4b159b8ccd85b23c2bb04d572a3ada4fe4fffa81371b51ab609e0ab97c2359",
+  "absorption_lemma_v2.tex": "ff97ad56c3096e26aab95fc9806c895969b4e520f784ac18a6e1d11ac52fa7d6",
+  "erratum_flux2.tex": "f370b2f35747234941f2d85c22086084f0670ca00dda1c66cd022869809d3c0d",
+  "flux2_lemma_v2.tex": "14ef530260351ab298005d6621fe378943f7822ea04284aed7306ef901012490",
+  "lemmaD_k2_sketch.tex": "823aa2d3fd21c7ebdb6123dc1af9dfe68efc3a279ca7c8f823addd65481fa64d",
+  "numbers_flux2.json": "32256e075adfaf7c00a89dd2963073837a7dd5c19af240a23992b29972af0207"
+ },
+ "compare": {
+  "chart4_shell.json": "equal apart from args",
+  "flux2_cert.json": "equal apart from args",
+  "flux2_coef.json": "equal apart from args",
+  "flux2_data.json": "equal apart from args",
+  "flux2_forms.json": "equal apart from args",
+  "flux2_sanity.json": "equal apart from args",
+  "gen_texts.json": "equal apart from args",
+  "inputs.json": "equal apart from args",
+  "flux2_forms.pkl": "byte-identical"
+ },
+ "compare_texts": {
+  "BPhi_continuation_v36.tex": "byte-identical",
+  "absorption_lemma_v2.tex": "byte-identical",
+  "erratum_flux2.tex": "byte-identical",
+  "flux2_lemma_v2.tex": "byte-identical",
+  "lemmaD_k2_sketch.tex": "byte-identical",
+  "numbers_flux2.json": "byte-identical"
+ },
+ "B_v37_1": {
+  "report": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/V37_LOG.md",
+  "pinned_in_reference": "303647c23c0c3e84c4c6dfa4b8e8e44a3c4a7a314e114f5878e7c341afac467b",
+  "pinned_in_rerun": "c36c72c9c1417cad7591f686559a109c8b5f966c9803cf7a21cf7adc2ef0a701",
+  "disk": "c36c72c9c1417cad7591f686559a109c8b5f966c9803cf7a21cf7adc2ef0a701",
+  "note": "review fix15 B-v37-1: V37_LOG.md edited after the flux run; only the run name is read from it"
+ },
+ "cert": {
+  "verdict": "PASS",
+  "K0bar": "[3.4097717959783911972e-21 +/- 1.73e-41]",
+  "K2pt": "[1.3899542588746360850e-19 +/- 1.52e-39]",
+  "combined_margin_lower": 4.804534359260718,
+  "conditions": {
+   "C0": {
+    "margin": 0.7918632847171745,
+    "note": "s/F0 (s = F0 - mu Kbar0 - mu eps_I K2pt > 0)",
+    "pass_": true
+   },
+   "C1": {
+    "margin": 9848865.177846909,
+    "note": "S' <= s",
+    "pass_": true
+   },
+   "C2[0.000125]": {
+    "margin": 49979053.9981488,
+    "note": "min over steps of (Ly_hi - max L)/2C'",
+    "pass_": true
+   },
+   "C2[0.00015]": {
+    "margin": 53439130.228678234,
+    "note": "min over steps of (Ly_hi - max L)/2C'",
+    "pass_": true
+   },
+   "C3[0.000125]": {
+    "margin": 2236.361389288864,
+    "note": "min over steps with U>0 of pad L/(U 2C')",
+    "pass_": true
+   },
+   "C3[0.00015]": {
+    "margin": 1547.6068276237302,
+    "note": "min over steps with U>0 of pad L/(U 2C')",
+    "pass_": true
+   },
+   "C4[0.000125]": {
+    "margin": 173562.32712323128,
+    "note": "2C' <= ETA L_F",
+    "pass_": true
+   },
+   "C4[0.00015]": {
+    "margin": 184685.3055694763,
+    "note": "2C' <= ETA L_F",
+    "pass_": true
+   },
+   "C5[0.000125]": {
+    "margin": 1512.1634252236122,
+    "note": "lhs >= rhs_whole_tail (1 + 2C'/L_F)",
+    "pass_": true
+   },
+   "C5[0.00015]": {
+    "margin": 1554.4560716733617,
+    "note": "lhs >= rhs_whole_tail (1 + 2C'/L_F)",
+    "pass_": true
+   },
+   "C6": {
+    "margin": 141.3230152871986,
+    "note": "C' <= (kappa_J - kappa_J_cert) X_const (pad 1/1000000000; reserve 1.0000e-09)",
+    "pass_": true
+   },
+   "C7.mod[1.25e-4]": {
+    "margin": 315642600.9096154,
+    "note": "mod_sups tail row: 6-digit reserve >= 2C'/L*",
+    "pass_": true
+   },
+   "C7.mod[1.5e-4]": {
+    "margin": 249872785.91769227,
+    "note": "mod_sups tail row: 6-digit reserve >= 2C'/L*",
+    "pass_": true
+   },
+   "C7.tail[0.000125]": {
+    "margin": 51144013.73653566,
+    "note": "L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)",
+    "pass_": true
+   },
+   "C7.tail[0.00015]": {
+    "margin": 197267101.5066556,
+    "note": "L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)",
+    "pass_": true
+   },
+   "C8": {
+    "note": "regularity lemma U-1 (Lambda absolutely continuous, g'''' in L^2(OR) a.e., level-2 identity with a C^3 cutoff): OPEN, not checkable by script",
+    "pass_": null
+   },
+   "C9": {
+    "note": "all window constants are at the (B Phi) level: exports doubled in X4 (2 (C0_k + C1_k T)); pointwise energies at beta_A = 2",
+    "pass_": true
+   }
+  },
+  "failing": [],
+  "margin_combined": {
+   "arb": "[4.8045343592607174799 +/- 4.42e-20]",
+   "dn": 4.804534359260717,
+   "label": "cert",
+   "note": "(FLUX0 + eps_I FLUX2)/(Kbar0 + eps_I K2pt)"
+  },
+  "strictness_pad_C3": {
+   "0.000125": {
+    "C2_min_margin": 49979053.9981488,
+    "C3_min_margin": 2236.361389288864,
+    "C4_margin": 173562.32712323128,
+    "C5_margin": 1512.1634252236122,
+    "ETA": "0.01",
+    "L_F_lower": 9.205372278939863e-19,
+    "steps": [
+     {
+      "C2_margin": 2244609228.774488,
+      "C3_margin": 2236.361389288864,
+      "Lmax": 2.508575757496548e-15,
+      "Ly_hi": 2.6276250000026283e-15,
+      "Ly_lo": 2.497500000002497e-15,
+      "k": 0,
+      "rate_U": 0.021056084710074533
+     },
+     {
+      "C2_margin": 49979053.9981488,
+      "C3_margin": 2246.7290712395925,
+      "Lmax": 2.5726902583494852e-15,
+      "Ly_hi": 2.5753410398055063e-15,
+      "Ly_lo": 2.5060671817390492e-15,
+      "k": 1,
+      "rate_U": 0.02103081544137816
+     },
+     {
+      "C2_margin": 394972187.006516,
+      "C3_margin": 3182.2673179622166,
+      "Lmax": 2.62013337452662e-15,
+      "Ly_hi": 2.6410818492416455e-15,
+      "Ly_lo": 2.5701175680911338e-15,
+      "k": 2,
+      "rate_U": 0.015227564209875163
+     },
+     {
+      "C2_margin": 216289196.22276893,
+      "C3_margin": 3956.4041177594345,
+      "Lmax": 2.659648329636142e-15,
+      "Ly_hi": 2.6711198430926857e-15,
+      "Ly_lo": 2.617513241152091e-15,
+      "k": 3,
+      "rate_U": 0.012473902637170827
+     },
+     {
+      "C2_margin": 361487458.12608427,
+      "C3_margin": 6793.897343611489,
+      "Lmax": 2.6832864631553786e-15,
+      "Ly_hi": 2.70245897991851e-15,
+      "Ly_lo": 2.6569886813065036e-15,
+      "k": 4,
+      "rate_U": 0.007373689260789481
+     },
+     {
+      "C2_margin": 199751537.01679647,
+      "C3_margin": 10226.436545357978,
+      "Lmax": 2.6992474281894766e-15,
+      "Ly_hi": 2.709841819795118e-15,
+      "Ly_lo": 2.680603176692221e-15,
+      "k": 5,
+      "rate_U": 0.004942222662361344
+     },
+     {
+      "C2_margin": 195380345.3874936,
+      "C3_margin": 19615.320300209485,
+      "Lmax": 2.7076560839904077e-15,
+      "Ly_hi": 2.7180186369999827e-15,
+      "Ly_lo": 2.6965481807612846e-15,
+      "k": 6,
+      "rate_U": 0.0025919516031029477
+     },
+     {
+      "C2_margin": 191441155.73650715,
+      "C3_margin": 166187.03715179095,
+      "Lmax": 2.7086533983775996e-15,
+      "Ly_hi": 2.718807025246256e-15,
+      "Ly_lo": 2.7049484279064154e-15,
+      "k": 7,
+      "rate_U": 0.0003068852053610666
+     },
+     {
+      "C2_margin": 51144013.7365252,
+      "C3_margin": 166735.7150299493,
+      "Lmax": 2.7096481627737202e-15,
+      "Ly_hi": 2.712360731186966e-15,
+      "Ly_lo": 2.70594474497922e-15,
+      "k": 8,
+      "rate_U": 0.0003059880004491416
+     }
+    ]
+   },
+   "0.00015": {
+    "C2_min_margin": 53439130.228678234,
+    "C3_min_margin": 1547.6068276237302,
+    "C4_margin": 184685.3055694763,
+    "C5_margin": 1554.4560716733617,
+    "ETA": "0.01",
+    "L_F_lower": 9.795311116160055e-19,
+    "steps": [
+     {
+      "C2_margin": 2172471111.4213257,
+      "C3_margin": 1547.6068276237302,
+      "Lmax": 2.5124018079807997e-15,
+      "Ly_hi": 2.6276250000026283e-15,
+      "Ly_lo": 2.497500000002497e-15,
+      "k": 0,
+      "rate_U": 0.03042698831169479
+     },
+     {
+      "C2_margin": 243117478.66314697,
+      "C3_margin": 1744.276220147533,
+      "Lmax": 2.595542278345663e-15,
+      "Ly_hi": 2.60843670616134e-15,
+      "Ly_lo": 2.509889406172817e-15,
+      "k": 1,
+      "rate_U": 0.027130227355419687
+     },
+     {
+      "C2_margin": 434166593.3965057,
+      "C3_margin": 2352.3296794570892,
+      "Lmax": 2.6610882078256796e-15,
+      "Ly_hi": 2.6841154694989814e-15,
+      "Ly_lo": 2.5929467360673156e-15,
+      "k": 2,
+      "rate_U": 0.020783061144800243
+     },
+     {
+      "C2_margin": 405040912.1663119,
+      "C3_margin": 3333.776235238036,
+      "Lmax": 2.7095351775077343e-15,
+      "Ly_hi": 2.7310176757346965e-15,
+      "Ly_lo": 2.658427119617852e-15,
+      "k": 3,
+      "rate_U": 0.015034964953518564
+     },
+     {
+      "C2_margin": 222059800.41892308,
+      "C3_margin": 4147.108907302271,
+      "Lmax": 2.7498454483895313e-15,
+      "Ly_hi": 2.7616230222727843e-15,
+      "Ly_lo": 2.7068256423302248e-15,
+      "k": 4,
+      "rate_U": 0.012306341123530896
+     },
+     {
+      "C2_margin": 371037163.88720727,
+      "C3_margin": 7146.007668093261,
+      "Lmax": 2.77386716566817e-15,
+      "Ly_hi": 2.793546178271398e-15,
+      "Ly_lo": 2.7470956029411393e-15,
+      "k": 5,
+      "rate_U": 0.0072481037906950395
+     },
+     {
+      "C2_margin": 205240409.36337063,
+      "C3_margin": 10803.830839948903,
+      "Lmax": 2.7900113176695514e-15,
+      "Ly_hi": 2.8008968272509613e-15,
+      "Ly_lo": 2.7710932985025e-15,
+      "k": 6,
+      "rate_U": 0.0048360132292113705
+     },
+     {
+      "C2_margin": 200891024.42281926,
+      "C3_margin": 21003.285541378747,
+      "Lmax": 2.7984008519269467e-15,
+      "Ly_hi": 2.8090556794921277e-15,
+      "Ly_lo": 2.7872213063518793e-15,
+      "k": 7,
+      "rate_U": 0.0025020634819247316
+     },
+     {
+      "C2_margin": 53439130.228678234,
+      "C3_margin": 21135.362687818277,
+      "Lmax": 2.806788132585449e-15,
+      "Ly_hi": 2.809622429037745e-15,
+      "Ly_lo": 2.7956024510750177e-15,
+      "k": 8,
+      "rate_U": 0.002493904481005726
+     },
+     {
+      "C2_margin": 197267101.50664517,
+      "C3_margin": 232799.24518379857,
+      "Lmax": 2.807553129400661e-15,
+      "Ly_hi": 2.8180157518940014e-15,
+      "Ly_lo": 2.803981344452861e-15,
+      "k": 9,
+      "rate_U": 0.00022709504571847094
+     }
+    ]
+   }
+  }
+ },
+ "rerun_outputs": {
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/chart4_shell.json": "88307694104cc8eb23925a1af5f0e7ea0f2150c1eb0228c489d401b6f4b8456f",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_cert.json": "1a06ef08cfbc1b033072e95623a7e59b763e933fe74d573c59a4623d657d52f4",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_coef.json": "97ae428fcb0730349ff076091a23421aa100baa3ede205fab3eeccfecfe95b68",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_data.json": "e4f700a92db47995e9f839219e4dad9b4034d0b166fd6b74a04a221ddf69c759",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_forms.json": "921b1fdc0027739dd0a39f907f2d7ef6948363f1df9213da0a8de0f77cad4f8b",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_forms.pkl": "83c2a91dd65476f8f25ebe3fa29328465759e9c64b42bd4d7ef950cf872c09af",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_sanity.json": "42cad8b632a23f56d70863e3744f520fb18e73fddf479bb90521dfafddafc12f",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/gen_texts.json": "d0572a3526e20075388012797ad2cc146b7443474dfa45d99c0aaad3938902d5",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/out/inputs.json": "ed16ae45dca0858aa7c46f28cfba3b164c500879c9ed46283c48d47cbc248bcc",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/BPhi_continuation_v36.tex": "9a4b159b8ccd85b23c2bb04d572a3ada4fe4fffa81371b51ab609e0ab97c2359",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/absorption_lemma_v2.tex": "ff97ad56c3096e26aab95fc9806c895969b4e520f784ac18a6e1d11ac52fa7d6",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/erratum_flux2.tex": "f370b2f35747234941f2d85c22086084f0670ca00dda1c66cd022869809d3c0d",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/flux2_lemma_v2.tex": "14ef530260351ab298005d6621fe378943f7822ea04284aed7306ef901012490",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/lemmaD_k2_sketch.tex": "823aa2d3fd21c7ebdb6123dc1af9dfe68efc3a279ca7c8f823addd65481fa64d",
+  "/home/claude/s1spec/step4/p2/out_v38/flux/texts/numbers_flux2.json": "32256e075adfaf7c00a89dd2963073837a7dd5c19af240a23992b29972af0207"
+ },
+ "checks": [
+  {
+   "check": "pinned flux/out and flux/texts == snap/v37_pass1 byte for byte (9 out files, 6 texts)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "pinned flux/out and flux/texts == snap/v37_pass2 byte for byte (9 out files, 6 texts)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "rerun reproduces every pinned flux/out file (JSON apart from args; pkl byte for byte)",
+   "ok": true,
+   "detail": {
+    "chart4_shell.json": "equal apart from args",
+    "flux2_cert.json": "equal apart from args",
+    "flux2_coef.json": "equal apart from args",
+    "flux2_data.json": "equal apart from args",
+    "flux2_forms.json": "equal apart from args",
+    "flux2_sanity.json": "equal apart from args",
+    "gen_texts.json": "equal apart from args",
+    "inputs.json": "equal apart from args",
+    "flux2_forms.pkl": "byte-identical"
+   }
+  },
+  {
+   "check": "rerun reproduces every flux/texts file byte for byte",
+   "ok": true,
+   "detail": {
+    "BPhi_continuation_v36.tex": "byte-identical",
+    "absorption_lemma_v2.tex": "byte-identical",
+    "erratum_flux2.tex": "byte-identical",
+    "flux2_lemma_v2.tex": "byte-identical",
+    "lemmaD_k2_sketch.tex": "byte-identical",
+    "numbers_flux2.json": "byte-identical"
+   }
+  },
+  {
+   "check": "inputs.json: the only non-args difference is the V37_LOG.md pin (B-v37-1); rerun pins the current file",
+   "ok": true,
+   "detail": {
+    "report": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/V37_LOG.md",
+    "pinned_in_reference": "303647c23c0c3e84c4c6dfa4b8e8e44a3c4a7a314e114f5878e7c341afac467b",
+    "pinned_in_rerun": "c36c72c9c1417cad7591f686559a109c8b5f966c9803cf7a21cf7adc2ef0a701",
+    "disk": "c36c72c9c1417cad7591f686559a109c8b5f966c9803cf7a21cf7adc2ef0a701",
+    "note": "review fix15 B-v37-1: V37_LOG.md edited after the flux run; only the run name is read from it"
+   }
+  },
+  {
+   "check": "flux2_cert verdict PASS, no failing condition, every scripted condition passes (C8 = U-1: by hand, pass_ null as recorded)",
+   "ok": true,
+   "detail": {
+    "C0": [
+     0.7918632847171745,
+     true
+    ],
+    "C1": [
+     9848865.177846909,
+     true
+    ],
+    "C2[0.000125]": [
+     49979053.9981488,
+     true
+    ],
+    "C2[0.00015]": [
+     53439130.228678234,
+     true
+    ],
+    "C3[0.000125]": [
+     2236.361389288864,
+     true
+    ],
+    "C3[0.00015]": [
+     1547.6068276237302,
+     true
+    ],
+    "C4[0.000125]": [
+     173562.32712323128,
+     true
+    ],
+    "C4[0.00015]": [
+     184685.3055694763,
+     true
+    ],
+    "C5[0.000125]": [
+     1512.1634252236122,
+     true
+    ],
+    "C5[0.00015]": [
+     1554.4560716733617,
+     true
+    ],
+    "C6": [
+     141.3230152871986,
+     true
+    ],
+    "C7.mod[1.25e-4]": [
+     315642600.9096154,
+     true
+    ],
+    "C7.mod[1.5e-4]": [
+     249872785.91769227,
+     true
+    ],
+    "C7.tail[0.000125]": [
+     51144013.73653566,
+     true
+    ],
+    "C7.tail[0.00015]": [
+     197267101.5066556,
+     true
+    ],
+    "C8": [
+     null,
+     null
+    ],
+    "C9": [
+     null,
+     true
+    ]
+   }
+  },
+  {
+   "check": "combined pointwise margin (FLUX0 + eps_I FLUX2)/(K0bar + eps_I K2pt) > 1 [cert]",
+   "ok": true,
+   "detail": {
+    "lower": 4.804534359260718
+   }
+  },
+  {
+   "check": "fix13_v37chain trees unchanged by this stage (every file hash, no new file)",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "flux_v38.py"
+  ],
+  "child_env": {
+   "PATH": "/home/micahw/venv/bin:/usr/bin:/bin",
+   "LC_ALL": "C.UTF-8",
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "F2_OUT": "/home/claude/s1spec/step4/p2/out_v38/flux/out",
+   "F2_TX": "/home/claude/s1spec/step4/p2/out_v38/flux/texts",
+   "F2_VTAG": "fin13v4c",
+   "F2_V36RUN": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2"
+  },
+  "child_cmd": "python3 -B <stage> (cwd flux/code)",
+  "stages": [
+   "flux2_forms.py",
+   "flux2_coef.py",
+   "chart4_shell.py",
+   "inputs_manifest.py",
+   "flux2_data.py",
+   "flux2_assemble.py",
+   "flux2_sanity.py",
+   "gen_texts.py"
+  ],
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v38/flux_v38.py": "1e7111ff4a939018e574a4ad5b299b8c0aace3019b85474c9d33044592c689d6",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_forms.py": "74b94fdac8e0a11a095b980099ab4cee913cf96c6a1e9122539caf4c1fbafcac",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_coef.py": "dfb8c3b316891fb0f7fcca9868e9920dc112094b321edbdb7041fc338d717058",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/chart4_shell.py": "97e66ce9534e34ae907a77685d91ecf7ddc7853b089894705020de336ecd60f6",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/inputs_manifest.py": "80733c68556e5cd7714117fa264da8cd2fcbfd05b4344446537a7cf1461b9b73",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_data.py": "882e7c264673eb914c824a48b130699103b169463964da315afe5bd3dc401ac9",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_assemble.py": "4ea7671661a1c8a332b8bc388232fe9359c49f0d17679e8870174f36e7d3d287",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_sanity.py": "231674c62c2796438f2fe896e26e75614c0dbd49bbfecdedb007addd3530e6b6",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/gen_texts.py": "6f2d8e87ccebc6337aab6c1a7e4a87e0c9d890902387d8dabc5066e16ef6e5d1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/f2common.py": "4d813dc2c0af0dbf57717734d8ede9d147e0b170ff1d84518fa6980587f73242"
+  }
+ }
+}

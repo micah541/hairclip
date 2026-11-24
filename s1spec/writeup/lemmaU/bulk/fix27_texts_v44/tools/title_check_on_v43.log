@@ -1,0 +1,7 @@
+FAIL title G1_export_k2_v43.tex 52 caption ['\\fn', '\\fn', 'underscore'] Constants at the setting $4N_2^{\rm ref}$ (\fn{asm_design_N2ref4.json}, \fn{res.tight}), rounded out
+FAIL title ei_lemma_v4c_v43.tex 28 section ['\\fn'] The $E_I$ lemma of verifier \fn{fin13v4c}
+FAIL title ei_lemma_v4c_v43.tex 140 subsection ['\\fn'] The E0 and E2 blocks of \fn{fin13v4c}
+FAIL title main_v3_v43.tex 189 caption ['\\fn', 'underscore'] Enclosures of $S_1$: step-1 supplement \dref{S1}; tight \dref{S1t}; conditioned on $M=0$ through the
+FAIL title main_v3_v43.tex 227 caption ['\\fn', 'underscore'] Illustration in floating point (\fn{make_fig.py}), not a certificate. (a) $\Gamma_0$; the arms have 
+FAIL title step3_v43_main.tex 73 section ['\\fn', '\\fn', 'underscore'] Lemma U (summary; proof in \fn{lemmaU.tex}, revision \fn{fix24_texts_v43/lemmaU_v43.tex})
+TITLES FAIL (249 titles seen)

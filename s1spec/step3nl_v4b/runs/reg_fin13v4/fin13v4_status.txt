@@ -1,0 +1,8 @@
+tail maxrss_kb=45060 wall_s=0.17
+tail rc=0
+c1.5 maxrss_kb=79396 wall_s=352.41
+closure 1.5e-4 rc=0
+c1.25 maxrss_kb=79084 wall_s=317.64
+closure 1.25e-4 rc=0
+modsups maxrss_kb=50192 wall_s=0.17
+mod_sups rc=0

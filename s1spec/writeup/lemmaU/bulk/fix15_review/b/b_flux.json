@@ -1,0 +1,215 @@
+{
+ "res": {
+  "flux/out == snap/v37_pass1 (9 files)": {
+   "ok": true,
+   "info": []
+  },
+  "flux/out == snap/v37_pass2 (9 files)": {
+   "ok": true,
+   "info": []
+  },
+  "flux pins match disk (83 pins)": {
+   "ok": false,
+   "info": [
+    [
+     "inputs.json",
+     "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/V37_LOG.md",
+     "mismatch"
+    ]
+   ]
+  },
+  "no flux pin points to step3nl_v4b / fix6_v36 / fix8": {
+   "ok": true,
+   "info": []
+  },
+  "pinned_dirs": [
+   "/home/claude/s1spec/lin",
+   "/home/claude/s1spec/step3",
+   "/home/claude/s1spec/step3nl",
+   "/home/claude/s1spec/step3nl/agent_int/v3",
+   "/home/claude/s1spec/step3nl_v4c",
+   "/home/claude/s1spec/step3nl_v4c/runs/P",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c",
+   "/home/claude/s1spec/step3nl_v4c/v4cert",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out",
+   "/home/claude/s1spec/step3nl_v4c/verifier",
+   "/home/claude/s1spec/step4/p2/t9h",
+   "/home/claude/s1spec/writeup/lemmaS",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/n1/out",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/n1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2"
+  ],
+  "verifier run FLUX0/FLUX2 unchanged": {
+   "ok": true,
+   "info": [
+    "1.64e-20",
+    "8.0e-20"
+   ]
+  },
+  "F0 cert == rate table floor F0 (1 ulp)": {
+   "ok": true,
+   "info": [
+    1.3121920000000001e-21,
+    1.3121920000000001e-21
+   ]
+  },
+  "mu_eps_src": {
+   "MU": null,
+   "EPSI": null,
+   "EPS_I": null
+  },
+  "margin_combined_from_F0_and_slack": 4.8045343592607095,
+  "combined margin stored <= F0/(F0-s)+1e-9": {
+   "ok": true,
+   "info": 4.804534359260717
+  },
+  "K0 margin FLUX0/K0bar recomputed": {
+   "ok": true,
+   "info": 4.809706039372709
+  },
+  "eps_I_implied": "[3.000000000e-5 +/- 3.4e-18]",
+  "mu_implied": "[0.08000000000 +/- 2e-15]",
+  "C6: C'/X_const <= 1e-9": {
+   "ok": true,
+   "info": 141.32301732283565
+  },
+  "C1: S' <= s": {
+   "ok": true,
+   "info": 9848865.177846905
+  },
+  "all conditions pass except C8 (None)": {
+   "ok": true,
+   "info": null
+  },
+  "fix8_vs_v37": {
+   "K0bar": [
+    3.40985343319526e-21,
+    3.409771795978392e-21,
+    0.9999760584381506
+   ],
+   "K2pt": [
+    1.3900118221562857e-19,
+    1.3899542588746363e-19,
+    0.9999585879193746
+   ],
+   "Cp": [
+    2.652320640237913e-26,
+    2.6518923868783874e-26,
+    0.9998385363545309
+   ],
+   "Sp": [
+    1.0551031640350038e-28,
+    1.055021719290866e-28,
+    0.9999228087386012
+   ],
+   "margin_combined": [
+    4.804419228679062,
+    4.804534359260717,
+    1.0000239634753287
+   ],
+   "margin_K0_vs_FLUX0": [
+    4.809590887498089,
+    4.809706039372708,
+    1.0000239421350614
+   ],
+   "slack_s": [
+    1.0390701225070614e-21,
+    1.0390766672995984e-21,
+    1.0000062987014977
+   ],
+   "C0": [
+    0.7918582970381328,
+    0.7918632847171745
+   ],
+   "C1": [
+    9848042.90163791,
+    9848865.177846909
+   ],
+   "C2[0.000125]": [
+    49966781.82814805,
+    49979053.9981488
+   ],
+   "C2[0.00015]": [
+    53432053.46163058,
+    53439130.228678234
+   ],
+   "C3[0.000125]": [
+    2235.7596479072695,
+    2236.361389288864
+   ],
+   "C3[0.00015]": [
+    1547.2063691527858,
+    1547.6068276237302
+   ],
+   "C4[0.000125]": [
+    173628.07117516702,
+    173562.32712323128
+   ],
+   "C4[0.00015]": [
+    184762.97864935602,
+    184685.3055694763
+   ],
+   "C5[0.000125]": [
+    1512.431101946713,
+    1512.1634252236122
+   ],
+   "C5[0.00015]": [
+    1554.7503598745861,
+    1554.4560716733617
+   ],
+   "C6": [
+    141.32269588715778,
+    141.3230152871986
+   ],
+   "C7.mod[1.25e-4]": [
+    315178597.63946533,
+    315642600.9096154
+   ],
+   "C7.mod[1.5e-4]": [
+    249678716.96102718,
+    249872785.91769227
+   ],
+   "C7.tail[0.000125]": [
+    51141783.44380028,
+    51144013.73653566
+   ],
+   "C7.tail[0.00015]": [
+    197278468.75440174,
+    197267101.5066556
+   ]
+  },
+  "no margin below fix8 by more than 1e-3 relative": {
+   "ok": true,
+   "info": null
+  },
+  "flux regression snapshot == fix8 out apart from args/timing": {
+   "ok": true,
+   "info": []
+  }
+ },
+ "fails": [
+  "flux pins match disk (83 pins)"
+ ],
+ "args": {
+  "argv": [
+   "b_flux.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "prec": 200,
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_cert.json": "597da287203590fd42ecf79f0846f8e574e85a10a4f9ba4408f322e94cf0976a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_cert.json": "300bf7ff35d41da6cf90e86b824cc9520771aaa45e326729a8fbdd04e778fe44",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/b/b_flux.py": "457a98ccd1b8bac54f6ed004b7743b725ff1fbdab48f50e4a3939e55f5f35c8b"
+  }
+ }
+}

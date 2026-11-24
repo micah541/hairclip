@@ -1,0 +1,168 @@
+t4.5_peak_1 k=100: dw_rho/delta=2.599e-02 dw_W/delta=2.680e-02 dalpha/delta=+1.902e-02 xe=25.6
+t4.5_peak_1 k=400: dw_rho/delta=5.816e-04 dw_W/delta=3.185e-04 dalpha/delta=+5.964e-03 xe=27.7
+t4.5_peak_1 k=1600: dw_rho/delta=1.127e-04 dw_W/delta=8.458e-05 dalpha/delta=+1.266e-03 xe=27.7
+  analysed t4.5_peak_2 100 [15s]
+  analysed t4.5_peak_2 400 [14s]
+  analysed t4.5_peak_2 1600 [13s]
+t4.5_peak_2 k=100: dw_rho/delta=4.136e-03 dw_W/delta=1.477e-02 dalpha/delta=+3.201e-02 xe=25.7
+t4.5_peak_2 k=400: dw_rho/delta=1.883e-04 dw_W/delta=2.928e-04 dalpha/delta=+8.636e-03 xe=27.7
+t4.5_peak_2 k=1600: dw_rho/delta=2.004e-05 dw_W/delta=1.682e-05 dalpha/delta=+2.189e-03 xe=27.7
+t4.5_fixed_1 k=100: dw_rho/delta=5.453e-03 dw_W/delta=3.522e-03 dalpha/delta=+2.392e-04 xe=25.7
+t4.5_fixed_1 k=400: dw_rho/delta=4.062e-04 dw_W/delta=2.354e-04 dalpha/delta=+1.750e-03 xe=27.7
+t4.5_fixed_1 k=1600: dw_rho/delta=1.027e-04 dw_W/delta=6.614e-05 dalpha/delta=-8.610e-04 xe=27.7
+  analysed t4.5_far_1 100 [11s]
+  analysed t4.5_far_1 400 [11s]
+  analysed t4.5_far_1 1600 [11s]
+t4.5_far_1 k=100: dw_rho/delta=4.596e-03 dw_W/delta=3.149e-03 dalpha/delta=+8.408e-04 xe=25.7
+t4.5_far_1 k=400: dw_rho/delta=3.017e-04 dw_W/delta=1.656e-04 dalpha/delta=+1.782e-03 xe=27.7
+t4.5_far_1 k=1600: dw_rho/delta=1.411e-04 dw_W/delta=1.053e-04 dalpha/delta=-8.516e-04 xe=27.7
+  analysed t4.5_far_2 100 [9s]
+  analysed t4.5_far_2 400 [11s]
+  analysed t4.5_far_2 1600 [11s]
+t4.5_far_2 k=100: dw_rho/delta=4.035e-03 dw_W/delta=2.636e-03 dalpha/delta=+8.644e-04 xe=25.7
+t4.5_far_2 k=400: dw_rho/delta=1.305e-04 dw_W/delta=1.142e-04 dalpha/delta=+7.862e-04 xe=27.7
+t4.5_far_2 k=1600: dw_rho/delta=5.973e-05 dw_W/delta=4.438e-05 dalpha/delta=-3.096e-04 xe=27.7
+  analysed t3.0_ctl 100 [14s]
+  analysed t3.0_ctl 100.3 [15s]
+  analysed t3.0_ctl 400 [16s]
+  analysed t3.0_ctl 401.2 [11s]
+  analysed t3.0_ctl 1600 [16s]
+  analysed t3.0_ctl 1604.8 [10s]
+  analysed t3.0_peak_1 100 [11s]
+  analysed t3.0_peak_1 400 [11s]
+  analysed t3.0_peak_1 1600 [10s]
+t3.0_peak_1 k=100: dw_rho/delta=3.157e-02 dw_W/delta=6.695e-02 dalpha/delta=+7.036e-02 xe=25.6
+t3.0_peak_1 k=400: dw_rho/delta=2.423e-04 dw_W/delta=3.610e-04 dalpha/delta=+1.526e-02 xe=27.7
+t3.0_peak_1 k=1600: dw_rho/delta=6.824e-05 dw_W/delta=6.408e-05 dalpha/delta=+3.789e-03 xe=27.7
+  analysed t3.0_peak_2 100 [16s]
+  analysed t3.0_peak_2 400 [9s]
+  analysed t3.0_peak_2 1600 [13s]
+t3.0_peak_2 k=100: dw_rho/delta=1.846e-02 dw_W/delta=4.763e-02 dalpha/delta=+6.433e-02 xe=25.6
+t3.0_peak_2 k=400: dw_rho/delta=2.229e-04 dw_W/delta=4.368e-04 dalpha/delta=+1.501e-02 xe=27.7
+t3.0_peak_2 k=1600: dw_rho/delta=2.298e-05 dw_W/delta=1.372e-05 dalpha/delta=+3.817e-03 xe=27.7
+  analysed t3.0_fixed_1 100 [12s]
+  analysed t3.0_fixed_1 400 [14s]
+  analysed t3.0_fixed_1 1600 [10s]
+t3.0_fixed_1 k=100: dw_rho/delta=2.564e-02 dw_W/delta=3.815e-02 dalpha/delta=+1.242e-02 xe=25.6
+t3.0_fixed_1 k=400: dw_rho/delta=3.526e-04 dw_W/delta=1.901e-04 dalpha/delta=+1.104e-04 xe=27.7
+t3.0_fixed_1 k=1600: dw_rho/delta=3.513e-05 dw_W/delta=2.053e-05 dalpha/delta=+3.015e-04 xe=27.7
+  analysed t3.0_far_1 100 [14s]
+  analysed t3.0_far_1 400 [12s]
+  analysed t3.0_far_1 1600 [11s]
+t3.0_far_1 k=100: dw_rho/delta=2.718e-02 dw_W/delta=3.955e-02 dalpha/delta=+1.290e-02 xe=25.6
+t3.0_far_1 k=400: dw_rho/delta=2.513e-04 dw_W/delta=1.482e-04 dalpha/delta=-1.323e-03 xe=27.7
+t3.0_far_1 k=1600: dw_rho/delta=4.444e-05 dw_W/delta=2.234e-05 dalpha/delta=-2.672e-04 xe=27.7
+  analysed t3.0_far_2 100 [11s]
+  analysed t3.0_far_2 400 [12s]
+  analysed t3.0_far_2 1600 [10s]
+t3.0_far_2 k=100: dw_rho/delta=3.515e-04 dw_W/delta=2.800e-04 dalpha/delta=+2.628e-04 xe=25.6
+t3.0_far_2 k=400: dw_rho/delta=8.144e-05 dw_W/delta=6.093e-05 dalpha/delta=-2.721e-04 xe=27.7
+t3.0_far_2 k=1600: dw_rho/delta=1.624e-05 dw_W/delta=1.102e-05 dalpha/delta=-1.667e-05 xe=27.7
+  analysed t1.5_ctl 100 [13s]
+  analysed t1.5_ctl 100.3 [13s]
+  analysed t1.5_ctl 400 [11s]
+  analysed t1.5_ctl 401.2 [11s]
+  analysed t1.5_ctl 1600 [10s]
+  analysed t1.5_ctl 1604.8 [8s]
+  analysed t1.5_peak_1 100 [9s]
+  analysed t1.5_peak_1 400 [12s]
+  analysed t1.5_peak_1 1600 [10s]
+t1.5_peak_1 k=100: dw_rho/delta=2.126e-02 dw_W/delta=1.292e-02 dalpha/delta=+8.009e-03 xe=25.7
+t1.5_peak_1 k=400: dw_rho/delta=8.166e-04 dw_W/delta=6.227e-04 dalpha/delta=+3.165e-03 xe=27.7
+t1.5_peak_1 k=1600: dw_rho/delta=1.032e-04 dw_W/delta=6.051e-05 dalpha/delta=-2.256e-04 xe=27.7
+  analysed t1.5_peak_2 100 [16s]
+  analysed t1.5_peak_2 400 [9s]
+  analysed t1.5_peak_2 1600 [11s]
+t1.5_peak_2 k=100: dw_rho/delta=9.730e-03 dw_W/delta=5.918e-03 dalpha/delta=+9.855e-03 xe=25.7
+t1.5_peak_2 k=400: dw_rho/delta=2.070e-04 dw_W/delta=1.467e-04 dalpha/delta=+3.631e-03 xe=27.7
+t1.5_peak_2 k=1600: dw_rho/delta=4.410e-05 dw_W/delta=3.007e-05 dalpha/delta=+3.620e-04 xe=27.7
+  analysed t1.5_fixed_1 100 [13s]
+  analysed t1.5_fixed_1 400 [12s]
+  analysed t1.5_fixed_1 1600 [9s]
+t1.5_fixed_1 k=100: dw_rho/delta=7.781e-03 dw_W/delta=5.819e-03 dalpha/delta=-1.254e-03 xe=25.7
+t1.5_fixed_1 k=400: dw_rho/delta=3.177e-04 dw_W/delta=2.643e-04 dalpha/delta=-2.997e-04 xe=27.7
+t1.5_fixed_1 k=1600: dw_rho/delta=9.115e-05 dw_W/delta=7.900e-05 dalpha/delta=-1.987e-04 xe=27.7
+  analysed t1.5_far_1 100 [15s]
+  analysed t1.5_far_1 400 [18s]
+  analysed t1.5_far_1 1600 [10s]
+t1.5_far_1 k=100: dw_rho/delta=3.071e-02 dw_W/delta=2.258e-02 dalpha/delta=-4.371e-03 xe=25.7
+t1.5_far_1 k=400: dw_rho/delta=3.674e-04 dw_W/delta=3.516e-04 dalpha/delta=-5.273e-04 xe=27.7
+t1.5_far_1 k=1600: dw_rho/delta=1.310e-05 dw_W/delta=8.583e-06 dalpha/delta=-5.048e-05 xe=27.7
+  analysed t1.5_far_2 100 [12s]
+  analysed t1.5_far_2 400 [14s]
+  analysed t1.5_far_2 1600 [14s]
+t1.5_far_2 k=100: dw_rho/delta=2.701e-03 dw_W/delta=2.028e-03 dalpha/delta=-2.391e-04 xe=25.7
+t1.5_far_2 k=400: dw_rho/delta=3.241e-04 dw_W/delta=2.474e-04 dalpha/delta=+1.583e-05 xe=27.7
+t1.5_far_2 k=1600: dw_rho/delta=5.216e-05 dw_W/delta=4.345e-05 dalpha/delta=-1.907e-04 xe=27.7
+  analysed t0.3_ctl 100 [16s]
+  analysed t0.3_ctl 100.3 [11s]
+  analysed t0.3_ctl 400 [13s]
+  analysed t0.3_ctl 401.2 [12s]
+  analysed t0.3_ctl 1600 [12s]
+  analysed t0.3_ctl 1604.8 [15s]
+  analysed t0.3_peak_1 100 [17s]
+  analysed t0.3_peak_1 400 [14s]
+  analysed t0.3_peak_1 1600 [13s]
+t0.3_peak_1 k=100: dw_rho/delta=1.536e-02 dw_W/delta=1.750e-02 dalpha/delta=-2.107e-02 xe=25.7
+t0.3_peak_1 k=400: dw_rho/delta=2.076e-04 dw_W/delta=1.061e-04 dalpha/delta=-4.389e-03 xe=27.7
+t0.3_peak_1 k=1600: dw_rho/delta=6.435e-05 dw_W/delta=4.276e-05 dalpha/delta=-1.188e-03 xe=27.7
+  analysed t0.3_peak_2 100 [13s]
+  analysed t0.3_peak_2 400 [11s]
+  analysed t0.3_peak_2 1600 [11s]
+t0.3_peak_2 k=100: dw_rho/delta=6.930e-03 dw_W/delta=1.171e-02 dalpha/delta=-1.977e-02 xe=25.7
+t0.3_peak_2 k=400: dw_rho/delta=3.142e-04 dw_W/delta=2.264e-04 dalpha/delta=-4.971e-03 xe=27.7
+t0.3_peak_2 k=1600: dw_rho/delta=3.939e-05 dw_W/delta=2.657e-05 dalpha/delta=-1.134e-03 xe=27.7
+  analysed t0.3_fixed_1 100 [11s]
+  analysed t0.3_fixed_1 400 [13s]
+  analysed t0.3_fixed_1 1600 [9s]
+t0.3_fixed_1 k=100: dw_rho/delta=1.294e-02 dw_W/delta=9.424e-03 dalpha/delta=-1.683e-03 xe=25.7
+t0.3_fixed_1 k=400: dw_rho/delta=4.864e-04 dw_W/delta=3.779e-04 dalpha/delta=+6.652e-04 xe=27.7
+t0.3_fixed_1 k=1600: dw_rho/delta=4.415e-05 dw_W/delta=2.278e-05 dalpha/delta=+3.382e-04 xe=27.7
+  analysed t0.3_far_1 100 [13s]
+  analysed t0.3_far_1 400 [11s]
+  analysed t0.3_far_1 1600 [13s]
+t0.3_far_1 k=100: dw_rho/delta=6.725e-03 dw_W/delta=4.824e-03 dalpha/delta=+1.199e-03 xe=25.7
+t0.3_far_1 k=400: dw_rho/delta=6.948e-04 dw_W/delta=3.705e-04 dalpha/delta=-3.392e-03 xe=27.7
+t0.3_far_1 k=1600: dw_rho/delta=8.212e-05 dw_W/delta=6.659e-05 dalpha/delta=+1.725e-04 xe=27.7
+  analysed t0.3_far_2 100 [13s]
+  analysed t0.3_far_2 400 [12s]
+  analysed t0.3_far_2 1600 [13s]
+t0.3_far_2 k=100: dw_rho/delta=1.718e-03 dw_W/delta=1.284e-03 dalpha/delta=+4.729e-04 xe=25.7
+t0.3_far_2 k=400: dw_rho/delta=3.170e-04 dw_W/delta=2.119e-04 dalpha/delta=-4.695e-04 xe=27.7
+t0.3_far_2 k=1600: dw_rho/delta=5.118e-05 dw_W/delta=4.141e-05 dalpha/delta=+2.025e-04 xe=27.7
+  analysed t0_ctl 100 [14s]
+  analysed t0_ctl 100.3 [14s]
+  analysed t0_ctl 400 [11s]
+  analysed t0_ctl 401.2 [11s]
+  analysed t0_ctl 1600 [13s]
+  analysed t0_ctl 1604.8 [11s]
+  analysed t0_peak_1 100 [19s]
+  analysed t0_peak_1 400 [13s]
+  analysed t0_peak_1 1600 [12s]
+t0_peak_1 k=100: dw_rho/delta=2.373e-02 dw_W/delta=3.463e-02 dalpha/delta=-1.169e-02 xe=25.6
+t0_peak_1 k=400: dw_rho/delta=1.717e-04 dw_W/delta=1.286e-04 dalpha/delta=-1.835e-04 xe=27.7
+t0_peak_1 k=1600: dw_rho/delta=1.728e-05 dw_W/delta=7.121e-06 dalpha/delta=+4.423e-05 xe=27.7
+  analysed t0_peak_2 100 [15s]
+  analysed t0_peak_2 400 [11s]
+  analysed t0_peak_2 1600 [12s]
+t0_peak_2 k=100: dw_rho/delta=6.320e-03 dw_W/delta=4.290e-03 dalpha/delta=+4.538e-04 xe=25.7
+t0_peak_2 k=400: dw_rho/delta=2.003e-04 dw_W/delta=1.119e-04 dalpha/delta=+8.126e-04 xe=27.7
+t0_peak_2 k=1600: dw_rho/delta=1.562e-05 dw_W/delta=1.053e-05 dalpha/delta=+3.845e-05 xe=27.7
+  analysed t0_fixed_1 100 [14s]
+  analysed t0_fixed_1 400 [10s]
+  analysed t0_fixed_1 1600 [14s]
+t0_fixed_1 k=100: dw_rho/delta=3.194e-03 dw_W/delta=2.528e-03 dalpha/delta=+4.525e-04 xe=25.7
+t0_fixed_1 k=400: dw_rho/delta=5.789e-04 dw_W/delta=3.402e-04 dalpha/delta=+2.844e-03 xe=27.7
+t0_fixed_1 k=1600: dw_rho/delta=4.494e-05 dw_W/delta=2.789e-05 dalpha/delta=+3.327e-04 xe=27.7
+  analysed t0_far_1 100 [19s]
+  analysed t0_far_1 400 [12s]
+  analysed t0_far_1 1600 [10s]
+t0_far_1 k=100: dw_rho/delta=1.263e-02 dw_W/delta=8.768e-03 dalpha/delta=+1.815e-03 xe=25.7
+t0_far_1 k=400: dw_rho/delta=2.983e-04 dw_W/delta=1.666e-04 dalpha/delta=+1.368e-03 xe=27.7
+t0_far_1 k=1600: dw_rho/delta=3.062e-05 dw_W/delta=1.644e-05 dalpha/delta=+8.775e-05 xe=27.7
+  analysed t0_far_2 100 [10s]
+  analysed t0_far_2 400 [15s]
+  analysed t0_far_2 1600 [12s]
+t0_far_2 k=100: dw_rho/delta=7.751e-03 dw_W/delta=5.430e-03 dalpha/delta=+1.303e-03 xe=25.7
+t0_far_2 k=400: dw_rho/delta=2.830e-04 dw_W/delta=1.588e-04 dalpha/delta=+1.517e-03 xe=27.7
+t0_far_2 k=1600: dw_rho/delta=5.226e-05 dw_W/delta=2.864e-05 dalpha/delta=-3.102e-04 xe=27.7

@@ -1,0 +1,18 @@
+  analysed t4.5_ctl 100 [20s]
+  analysed t4.5_ctl 100.3 [17s]
+  analysed t4.5_ctl 400 [17s]
+  analysed t4.5_ctl 401.2 [18s]
+  analysed t4.5_ctl 1600 [17s]
+  analysed t4.5_ctl 1604.8 [12s]
+  analysed t4.5_peak_1 100 [12s]
+  analysed t4.5_peak_1 400 [14s]
+  analysed t4.5_peak_1 1600 [13s]
+t4.5_peak_1 k=100: dw_rho/delta=2.599e-02 dw_W/delta=2.680e-02 dalpha/delta=+1.902e-02 xe=25.6
+t4.5_peak_1 k=400: dw_rho/delta=5.816e-04 dw_W/delta=3.185e-04 dalpha/delta=+5.964e-03 xe=27.7
+t4.5_peak_1 k=1600: dw_rho/delta=1.127e-04 dw_W/delta=8.458e-05 dalpha/delta=+1.266e-03 xe=27.7
+  analysed t4.5_fixed_1 100 [18s]
+  analysed t4.5_fixed_1 400 [13s]
+  analysed t4.5_fixed_1 1600 [14s]
+t4.5_fixed_1 k=100: dw_rho/delta=5.453e-03 dw_W/delta=3.522e-03 dalpha/delta=+2.392e-04 xe=25.7
+t4.5_fixed_1 k=400: dw_rho/delta=4.062e-04 dw_W/delta=2.354e-04 dalpha/delta=+1.750e-03 xe=27.7
+t4.5_fixed_1 k=1600: dw_rho/delta=1.027e-04 dw_W/delta=6.614e-05 dalpha/delta=-8.610e-04 xe=27.7

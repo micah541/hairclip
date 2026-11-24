@@ -1,0 +1,24 @@
+Gamma_m, kappa~, kappa2~ (P1 certify, theta_a <= 3/5): [4.000000000000001, 16.000000000000004, 64.00000000000001] 8.000000000000002 64.00000000000001
+crude (0.11,0.52), U .09, M0z .16                Ghat_jj = 49482.6 29870.9 268125.9  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g 4.756e+05  Gw=D(28) 1.77375  rate margin x2.2924
+    data56  : g 2.756e+05  D(56) 1.02803  D(28) 1.44845  rate margin x36.679  c_rs = G g/28^8 = 0.19562  Gamma valid (theta28 <= 3/5): global28 True, data56 True
+crude (0.11,0.52), U .05 (zones I/II), M0z .16   Ghat_jj = 49323.4 29351.4 253610.4  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g 4.318e+05  Gw=D(28) 1.70243  rate margin x2.4236
+    data56  : g 2.603e+05  D(56) 1.02647  D(28) 1.42353  rate margin x38.778  c_rs = G g/28^8 = 0.17475  Gamma valid (theta28 <= 3/5): global28 True, data56 True
+widened (0.15,0.52), U .09, M0z .16              Ghat_jj = 51319.3 33579.6 338258.8  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g 7.522e+05  Gw=D(28) 2.22381  rate margin x1.8171
+    data56  : g 3.503e+05  D(56) 1.03562  D(28) 1.56993  rate margin x29.074  c_rs = G g/28^8 = 0.31364  Gamma valid (theta28 <= 3/5): global28 True, data56 True
+widened (0.15,0.60), U .09, M0z .16              Ghat_jj = 52035.3 37531.2 453642.5  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g 1.732e+06  Gw=D(28) 3.81742  rate margin x1.3549
+    data56  : g 4.756e+05  D(56) 1.04836  D(28) 1.77373  rate margin x21.679  c_rs = G g/28^8 = 0.57105  Gamma valid (theta28 <= 3/5): global28 False, data56 True
+widened (0.20,0.60), U .09, M0z .20              Ghat_jj = 54791.2 44764.9 590852.8  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g 1.526e+07  Gw=D(28) 25.82244  rate margin x1.0403
+    data56  : g 6.286e+05  D(56) 1.06392  D(28) 2.02272  rate margin x16.645  c_rs = G g/28^8 = 0.98311  Gamma valid (theta28 <= 3/5): global28 False, data56 True
+zone-III-like (0.30,0.80), U .09, M0z .30        Ghat_jj = 64503.3 98409.5 1838897.9  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g -9.233e+05  Gw=D(28) -0.50207  rate margin x0.3343
+    data56  : g 2.262e+06  D(56) 1.22999  D(28) 4.67982  rate margin x5.348  c_rs = G g/28^8 = 11.00912  Gamma valid (theta28 <= 3/5): global28 False, data56 False
+Lemma-O-like (0.50,1.00), U .09, M0z .50         Ghat_jj = 87332.8 304115.3 6038666.2  budget [True, True, True] slack [0.34, 0.26, 0.0]
+    global28: g -6.843e+05  Gw=D(28) -0.11332  rate margin x0.1018
+    data56  : g 1.565e+07  D(56) 2.59087  D(28) 26.45395  rate margin x1.629  c_rs = G g/28^8 = 250.07147  Gamma valid (theta28 <= 3/5): global28 False, data56 False
+Ghat22 widened (0.15) / crude (0.11) = 1.2616  (reviewer [rev]: x1.26)
+wall 1.7 s

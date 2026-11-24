@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,graphicx}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\nrm}[1]{\lVert #1\rVert}\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\title{Lemma R: a time-averaged fourth-derivative bound in the framework of Lemma O,\\ and the outer ramp of the strip energies}
+\author{}\date{v3.2, 12 November 2026}
+\begin{document}\maketitle
+\noindent\textbf{Status.} Lemma R and Corollary~\ref{cor:h4} are proved here; their constants are certified by \fn{lemmaR_interval.py} (python-flint \fn{arb}, 200 bits, outward rounding; output \fn{lemmaR_consts.json}). \S\ref{sec:ramp} applies them to the outer cutoff ramp $[190,379.5]\lambda_1$ of the strip energies of Lemma~S(B) (\fn{../lemmaS_v32/ramp_cert.py}, \fn{arb}). \S\ref{sec:inner} states what is \emph{not} proved: the inner edge of the strip. Notation and all unproved-here facts are those of \fn{../lemmaO/lemmaO.tex} (v1) and \fn{lemmaO_v2.tex} (v2).
+
+\section{Setting}
+$h$ is smooth on $[-X,X]\times[0,t_1]$ and solves $h_t=-\partial_xG(h)$ with (A), (I) of Lemma~O on $[-X,X]$; $g=h-h_0$, $g_j=\partial_x^jg$, $\lambda=\sqrt{2X}$, $a_{\min}=(16/17)^2$. Cutoffs as in v2: $w\in(0,\frac{X-1}2)$, $w_E=X-1-2w$, $\zeta=\zeta_E$ ($=1$ on $|x|\le r_E=1+2w$, $=0$ at $|x|=X$), $\zeta_q=\zeta_{1+w,w}$ ($=1$ on $|x|\le1+w$, supported in $|x|\le r_E$), $Z=S_1/w_E$, $Z_2=S_2/w_E^2$, $q=12Z^2+4Z_2$, $Z_q=S_1/w$, $S_1=\frac{15}8$, $S_2=\frac{10}{\sqrt3}$.
+
+\emph{Additional datum.} $n_3\ge\nrm{h_0'''}_{L^2(-X,X)}$. Put
+\[\kappa_R:=K_3+\min\{\lambda M,\ K_3,\ n_3\}\ \ge\ \sup_t\nrm{g_3}_{L^2(-X,X)} .\]
+(By (A), $\nrm{h_{xxx}}\le K_3$ for all $t$, and $\nrm{h_0'''}\le\min\{\lambda M,K_3,n_3\}$ by (I), (A) at $t=0$, and the datum.)
+
+Let $f$ be the polynomial of v1 Prop.~3 with the v2 modifications and $K:=\kappa_R$:
+\[f(u)=-a_{\min}u^8+\bigl(8Z\bar Y(u)+qK\bigr)u^4+\bigl(u^4+8Z\bar Y(u)+qK\bigr)\bar\nu(u),\]
+$\bar Y=2ZK+K^{1/2}u^2$, $\bar\omega=K^{3/2}[(3ZK)^{1/2}+K^{1/4}u]$, $\bar\nu=\nu_0+C_1'K_2\bar Y+2C_2'\bar\omega$, $\nu_0=M+C_1'K_2\lambda M+2C_2'\lambda M^2+C_3'K_2^2(\lambda M+K)+\lambda C_4'K_2^4$. The proof of v1 Prop.~3 uses $K$ only as an upper bound for $\sup_t\nrm{g_3}_{L^2(\operatorname{supp}\zeta)}$, so with $s:=\nrm{\zeta^2g_5}$, $u=s^{1/4}$,
+\begin{equation}\label{eq:E3}
+\tfrac12E_3'\le-a_{\min}s^2+(8ZY+qK)s+(s+8ZY+qK)\nu\le f(u),\qquad E_3=\int\zeta^4g_3^2,
+\end{equation}
+and $E_3(t)\le C_*t$, $C_*:=2\max_{u\ge0}f(u)$; in particular $X_3:=\nrm{g_3}_{L^2(|x|\le r_E)}\le\sqrt{C_*t}$.
+
+\section{Lemma R}
+\begin{theorem}[Lemma R]\label{thm:R}
+Let $\theta,\delta\in(0,1)$ and $C_\theta:=2\max_{u\ge0}\bigl[f(u)+\theta a_{\min}u^8\bigr]$. Then for every $t\in(0,t_1]$
+\begin{align}
+\int_0^t\nrm{\zeta^2g_5}^2\,dt'&\le\frac{C_\theta}{2\theta a_{\min}}\,t,\label{eq:D5}\\
+\frac1t\int_0^t\!\!\int_{|x|\le1+w}g_{xxxx}^2\,dx\,dt'&\le R_4(t):=\frac1{1-\delta}\Bigl[\sqrt{\frac{C_*C_\theta}{4\theta a_{\min}}}\;t^{1/2}+\frac{Z_q^2C_*}{2\delta}\,t\Bigr].\label{eq:R4}
+\end{align}
+\end{theorem}
+\begin{proof}
+\emph{\eqref{eq:D5}.} Adding $\theta a_{\min}s^2=\theta a_{\min}u^8$ to \eqref{eq:E3}: $\tfrac12E_3'+\theta a_{\min}s^2\le f(u)+\theta a_{\min}u^8\le\tfrac12C_\theta$. The polynomial $f+\theta a_{\min}u^8$ has leading coefficient $-(1-\theta)a_{\min}<0$ and nonnegative lower coefficients, so the maximum exists. Integrate over $[0,t]$ and use $E_3(0)=0$, $E_3(t)\ge0$.
+
+\emph{\eqref{eq:R4}.} Let $Y_q:=\nrm{\zeta_qg_4}$. Since $\zeta_q\in C^2_c$, $0\le\zeta_q\le1$, $|\zeta_q'|\le Z_q$ and $\zeta=1$ on $\operatorname{supp}\zeta_q\subset\{|x|\le r_E\}$,
+\[Y_q^2=-\int g_3(\zeta_q^2g_4)'=-\int\zeta_q^2g_3g_5-2\int\zeta_q\zeta_q'g_3g_4\le X_3\,s+2Z_qX_3Y_q .\]
+With $2Z_qX_3Y_q\le\delta Y_q^2+Z_q^2X_3^2/\delta$: $(1-\delta)Y_q^2\le X_3s+Z_q^2X_3^2/\delta$. Now $X_3(t')\le\sqrt{C_*t'}$, so by Cauchy--Schwarz and \eqref{eq:D5}
+\[\int_0^tX_3s\le\sqrt{C_*}\Bigl(\int_0^tt'\Bigr)^{1/2}\Bigl(\int_0^ts^2\Bigr)^{1/2}\le\sqrt{C_*}\,\frac{t}{\sqrt2}\sqrt{\frac{C_\theta t}{2\theta a_{\min}}},\qquad\int_0^tX_3^2\le\frac{C_*t^2}2 .\]
+Divide by $t$; $\zeta_q=1$ on $|x|\le1+w$.
+\end{proof}
+\begin{corollary}\label{cor:h4}
+With $|h_0^{(4)}|\le M$ from (I): $\Bigl(\frac1t\int_0^t\int_{-1}^1h_{xxxx}^2\Bigr)^{1/2}\le\kappa_4(t):=\sqrt2\,M+\sqrt{R_4(t)}$.
+\end{corollary}
+\begin{proof}Minkowski in $L^2((0,t)\times(-1,1))$ for $h_{xxxx}=h_0^{(4)}+g_4$.\end{proof}
+\noindent $C_*$, $C_\theta$ do not depend on $t$; $R_4$ is increasing in $t$. For a cone member of unit $L$ the horizon is $t=1.6001\cdot10^{-7}(50/L)^4$.
+
+\paragraph{Certified constants} (cone: $X=3$, $M=0.12$, $K_2=K_3=0.18$, $n_3=0.004$, so $\kappa_R=0.184$; $\theta=0.35$, $\delta=0.15$).
+\begin{center}\small\begin{tabular}{lcccccc}\toprule
+member unit $L$ & $t$ & $w$ & $C_*\le$ & $C_\theta\le$ & $R_4(t)\le$ & $R_4$ without $n_3$\\\midrule
+$50$ & $1.6001\cdot10^{-7}$ & $0.12$ & $468.7$ & $1034.4$ & $0.3661$ & $1.499$\\
+$190/3$ & $6.216\cdot10^{-8}$ & $0.10$ & $435.7$ & $958.9$ & $0.2076$ & $0.851$\\
+$77.57$ & $2.762\cdot10^{-8}$ & $0.08$ & $405.8$ & $890.6$ & $0.1297$ & $0.533$\\
+$95$ & $1.228\cdot10^{-8}$ & $0.08$ & $405.8$ & $890.6$ & $0.0811$ & $0.333$\\\bottomrule
+\end{tabular}\end{center}
+$C_*$ and $C_\theta$ are computed by the branch-and-bound routine of \fn{lemmaO_v32_interval.fmax_upper} (tail test plus ball enclosures, relative tolerance $10^{-6}$); $(w,\theta,\delta)$ are chosen on a grid, any choice is valid. The last column uses $\kappa=K_3+\min\{\lambda M,K_3\}=0.36$ as in Lemma~O~v3. (With $\kappa_R$ the constant $C_*$ of Lemma~O itself would drop from $3574$ to about $440$; this is not used in v3.2.)
+
+\section{Frame identities}
+For a graph $h$ with $p=h_x$, $\sigma=1+p^2$, curvature $k$ and arclength derivative $\partial_s$ (verified symbolically, \fn{lemmaR_interval.check_identity}):
+\[h_{xx}=\sigma^{3/2}k,\qquad h_{xxx}=\sigma^2(k_s+3pk^2),\qquad h_{xxxx}=\sigma^{5/2}\bigl(k_{ss}+10pkk_s+(3+15p^2)k^3\bigr).\]
+The same hold for the ray chart $f$ (slope over the $S_1$ ray): $f'=\sigma_f^{3/2}k$, $f''=\sigma_f^2(k_s+3fk^2)$, $f'''=\sigma_f^{5/2}(k_{ss}+10fkk_s+(3+15f^2)k^3)$.
+
+\section{Application: the outer ramp of the strip energies}\label{sec:ramp}
+\emph{Setting} (\fn{step3_proof_v32.tex} \S3.7). The strip energies are $\mathfrak E_j=\int\chi^2\hat\omega z_j^2\,ds$, $j=0,1,2$, for the deviation $v=f-U_1$ from the profile frozen at $\tau_1$, $z_j=(y\partial_y)^jv$, weight $\hat\omega=28\lambda_1/r$ frozen at $\tau_1$, and a cutoff $\chi$ fixed in physical space with $\chi=1$ on $r\le190\lambda_1$ and the decreasing quintic ramp on $[190,379.5]\lambda_1$. With the divergence-form identities of Lemma~S (\fn{lemmaS_F1.py}) the ramp contributes to $\frac{d}{d\tau}\mathfrak E_j$ at most $\sum_{k\le j+1}c_{jk}(\lambda/\lambda_1)^4\int_{\rm ramp}z_k^2ds$, with the certified sups (\fn{ramp_out.py}, \fn{arb})
+\[c_{0\cdot}=(6.49,\,4.11)\cdot10^{-8},\quad c_{1\cdot}=(3.2\cdot10^{-11},\,4.73\cdot10^{-8},\,4.10\cdot10^{-8}),\quad c_{2\cdot}=(3.4\cdot10^{-10},\,1.36\cdot10^{-8},\,1.64\cdot10^{-7},\,4.10\cdot10^{-8}).\]
+Since $(\lambda/\lambda_1)^4d\tau=dt/\lambda_1^4$, the total contribution over $[\tau_1,\infty)$ is
+\[\Delta_j\le\frac1{1-4\bar a}\sum_{k\le j+1}c_{jk}N_k^2,\qquad N_k^2\ge\text{time average over }[t_1,T)\text{ of }\int_{\rm ramp}z_k^2\,ds .\]
+\emph{Ramp norms.} The ramp is covered by the conclusion regions of three cone members: $[190,232.71]$ ($L=190/3$), $[232.71,285]$ ($L=77.57$), $[285,379.5]$ ($L=95$). On a piece $[a,b]$ of length $\ell_x=(b-a)/L$ (member units), $\ell=\ln(b/a)$, $\tau_m=(50/L)^2$:
+\begin{align*}
+\kappa_2&=m_2+C_2\sqrt t\,\tau_m\ \ge\sup|h_{xx}|,\qquad\kappa_3=n_3+\sqrt{C_3t}\,\tau_m\ \ge\nrm{h_{xxx}}_{L^2(-1,1)},\qquad\kappa_4\text{ of Corollary \ref{cor:h4}},\\
+p&=\tan(\arctan s_0+C_1\sqrt t\,\tau_m),\quad\bar F=\tan(\arctan F_w+C_1\sqrt t\,\tau_m)\ge|f|,\quad\sigma_p=1+p^2,\ \sigma_f=1+\bar F^2,\\
+K_s&=\kappa_3+3p\kappa_2^2\sqrt{\ell_x}\ \ge\nrm{k_s}_{L^2(dx)},\qquad D_1=\sigma_f^{3/2}(b/L)\kappa_2\ \ge\sup y|f'|,\\
+N_{2f}&=(b/L)^{3/2}\sigma_f^2\bigl[\sigma_p^{1/4}K_s+3\bar F\kappa_2^2\sqrt{\ell_x}\bigr]\ \ge\nrm{y^2f''}_{L^2(ds)},\\
+N_{3f}&=(b/L)^{5/2}\sigma_f^{5/2}\sigma_p^{1/4}\bigl[\kappa_4+10(p+\bar F)\kappa_2K_s+(6+15(p^2+\bar F^2))\kappa_2^3\sqrt{\ell_x}\bigr]\ \ge\text{rms}_t\,\nrm{y^3f'''}_{L^2(ds)},
+\end{align*}
+($C_1,C_2,C_3$ of Lemma~O, $m_2,n_3,s_0$ the thresholds of (H5), $F_w=0.0928$ the hand-off bound for $|f(\tau_1)|$ on $y\le379.7$; $dy\le\sqrt{\sigma_p}\,dx$). With $z_1=yf'$, $z_2=y^2f''+yf'$, $z_3=y^3f'''+3y^2f''+yf'$ for $f$ and $z_k(U_1)=p_U^kU_1$, $p_U=1.0246$:
+\[n_0=(\bar F+U_1(b))\sqrt\ell,\ \ n_1=(D_1+p_UU_1(b))\sqrt\ell,\ \ n_2=N_{2f}+(D_1+p_U^2U_1(b))\sqrt\ell,\ \ n_3=N_{3f}+3N_{2f}+(D_1+p_U^3U_1(b))\sqrt\ell,\]
+and $N_k^2=\sum_{\rm pieces}n_k^2$.
+\begin{center}\small\begin{tabular}{lcccccc}\toprule
+piece & $\kappa_2$ & $\kappa_3$ & $\kappa_4$ & $D_1$ & $N_{2f}$ & $N_{3f}$\\\midrule
+$[190,232.71]$ & $0.0547$ & $0.0190$ & $0.6253$ & $0.2037$ & $0.1456$ & $16.68$\\
+$[232.71,285]$ & $0.0465$ & $0.0140$ & $0.5299$ & $0.1730$ & $0.1070$ & $14.10$\\
+$[285,379.5]$ & $0.0410$ & $0.0107$ & $0.4545$ & $0.1659$ & $0.0938$ & $14.89$\\\bottomrule
+\end{tabular}\end{center}
+\textbf{Result} (\fn{ramp_cert.json}): $N_k^2\le(0.0192,\,0.0435,\,0.1682,\,742.2)$ and
+\[\Delta_0\le3.03\cdot10^{-9},\qquad\Delta_1\le8.94\cdot10^{-9},\qquad\Delta_2\le3.043\cdot10^{-5},\]
+i.e.\ $1.6\%$, $0.09\%$ and $3.05$ times the window entry energies $(2\cdot10^{-7},10^{-5},10^{-5})$ of (H3). At level 2 the $z_3$ term is $3.04$ and the $k\le2$ terms $0.003$. (The float estimate of the draft, budget $0.049$ for $\Delta_2\le1\times$ entry, is superseded: the certified bound is $3.05\times$.)
+
+\emph{Consequence for the strip, outer edge only.} The cutoff energy starts from at most five window energies of (H3) (windows $[50,75],\dots,[253,379.5]$), so, if the inner edge contributed nothing,
+$\mathfrak E_j\le e^{C}\cdot5E_j^{\rm (H3)}+\Delta_j$: at most $5.0$, $5.0$ and $7.9$ times the per-window bound of v3.1 for $j=0,1,2$. With the strip energies multiplied by $8$ the closure H6 has margins: cone slope $1.60$, cone $K_2$ $1.69$, cone $K_3$ $1.69$, far $2.29$, $2.39$ (\fn{STRIPX=8 lemmaO_v32_h6.py}); the per-window boxes of Lemma~S(B) at $8.5$ times the energy close with margins $\ge2.07$ on $y\le169$ (levels $0$--$2$).
+
+\section{What is not proved: the inner edge of the strip}\label{sec:inner}
+The cutoff energy also needs an \emph{inner} ramp, and v3.1 has no term for it (Proposition B of \fn{lemmaS.tex}: ``no ramp inflow''; the fourth-order terms at the window edges are not estimated). Lemma R does not apply there: at $r\approx50$--$75\lambda_1$ a cylinder has unit $L\lesssim25\lambda_1$, time ratio $\gtrsim2.6\cdot10^{-6}$, beyond every certified $t^*$, and no a-priori bounds (A) are available at that scale.
+
+\emph{What exactly is missing.} For an inner ramp fixed in physical space, e.g.\ $[50,75]\lambda_1$ (inside the hand-off windows, so that the entry energy stays at the (H3) level; the plateau then starts at $75\lambda_1$, not $50\lambda_1$), bounds for all $t\in[t_1,T)$ on
+\[N_k^2=\int_{\rm ramp}z_k(v)^2\,ds\ (k\le2,\ \text{time average with the weight }dt/\lambda_1^4),\qquad N_3^2\ (\text{time average}),\]
+in the frozen normalisation. The certified coefficients for this ramp are (\fn{ramp_in.py}, box of the window $[50,75]$)
+\[c^{\rm in}_{0\cdot}=(1.08\cdot10^{-4},4.07\cdot10^{-5}),\quad c^{\rm in}_{1\cdot}=(3.4\cdot10^{-8},7.03\cdot10^{-5},3.41\cdot10^{-5}),\quad c^{\rm in}_{2\cdot}=(3.8\cdot10^{-7},1.46\cdot10^{-5},2.43\cdot10^{-4},3.36\cdot10^{-5}).\]
+H6 tolerates a strip energy of about $30$ times the entry value (smallest margin $1.26$), of which the outer edge uses $7.9$ at level 2. So one needs roughly $c^{\rm in}_{22}N_2^2+c^{\rm in}_{23}N_3^2\lesssim2\cdot10^{-4}$, e.g.\ $N_2^2\le0.4$ and $N_3^2\le3$, and $c^{\rm in}_{11}N_1^2+c^{\rm in}_{12}N_2^2\lesssim10^{-4}$.
+
+\emph{What step 3 has there} (estimates, not certified). The region $r\in[50,75]\lambda_1$ is controlled after $\tau_1$ only at the level of Lemma~S(A): $E^A=(3.1\cdot10^{-7},1.8\cdot10^{-4},0.25)$ in the $\omega(\tau)$-normalisation at fixed rescaled $y$, i.e.\ $N_2^2\approx0.7$ in the frozen normalisation while the ramp is inside the region of (A); and $z_3$ only through the dissipation of levels 1, 2, which gives $N_3^2\sim10^3$ because the dissipation carries the factor $\varepsilon\omega\approx10^{-7}$. The requirement on $N_3$ is missed by a factor of order $10^2$--$10^3$. Tightening the hand-off thresholds of (H2) does not remove this: the level-1 bound of (A) has a floor of about $8\cdot10^{-5}$ from the verifier's $J$ terms.
+
+\emph{Consequence.} The statement ``on the strip $r\in[50,150)\lambda_1$ the window energies stay at the hand-off level for all $t$'' (FIXPLAN F5, \S3.7 of the step-3 proof, used by D5/H6) is not proved in v3.1 or in v3.2, at levels 1 and 2. A proof needs a new ingredient for the inner edge: either a time-averaged bound for $z_2,z_3$ on $r\in[50,75]\lambda_1$ of the size above, or a different localisation (a redesign of the far-field regions in which Lemma~O-type cylinders, where (A) is available, reach the inner edge of the region on which hand-off-level bounds are claimed).
+
+\section{Files}
+\fn{lemmaR_interval.py} $\to$ \fn{lemmaR_consts.json}; \fn{lemmaO_v32_interval.py} (Lemma O constants, \fn{fmax_upper}); \fn{../lemmaS_v32/ramp_out.py 190 379.5} $\to$ \fn{ramp_out_190_379.5.json}; \fn{../lemmaS_v32/ramp_cert.py} $\to$ \fn{ramp_cert.json}; \fn{../lemmaS_v32/ramp_in.py 50 75} $\to$ \fn{ramp_in_50_75.json}; \fn{lemmaO_v32_h6.py} (env \fn{STRIPX}).
+Not interval-certified: the commutator tables behind $c_{jk}$ use the IEEE-double coefficient bounds of \fn{lemmaS_prop1_bounds} (the sups over the ramp are \fn{arb}); the window sup $F_w$ is a double of the step-3 script.
+\end{document}

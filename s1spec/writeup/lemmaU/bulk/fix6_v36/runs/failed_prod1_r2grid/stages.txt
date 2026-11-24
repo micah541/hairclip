@@ -1,0 +1,9 @@
+nice -n 19 python3 -B n1_chart.py|8.28_s|102992_KB
+nice -n 19 python3 -B run_F10p_ibp.py|113.49_s|86932_KB
+nice -n 19 python3 -B rigor/capture_F2.py|112.85_s|85568_KB
+nice -n 19 python3 -B rigor/weights_exact.py|8.56_s|87784_KB
+nice -n 19 python3 -B rigor/assembly_arb.py|1.59_s|76380_KB
+nice -n 19 python3 -B r3_forcing.py|2.27_s|75400_KB
+nice -n 19 python3 -B r3_symcheck.py|3.40_s|78660_KB
+Command exited with non-zero status 1
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/run_t2.sh|10.69_s|87216_KB

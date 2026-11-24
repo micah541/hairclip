@@ -1,0 +1,24 @@
+alpha1=0.0005 Ly1=1.000000e-14 sqrt=1.000000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8969e-04 sqrtLy<=1.0130e-07 rate<=+0.15939 (lb +0.15860) cell 11.22s
+  k=  10 tau=  2.584 D=0.426 alpha<=2.5798e-04 sqrtLy<=1.2575e-07 rate<=+0.04710 (lb +0.04660) cell 17.08s
+  k=  11 tau=  3.102 D=0.518 alpha<=2.2593e-04 sqrtLy<=1.2826e-07 rate<=+0.03812 (lb +0.03762) cell 15.8s
+  k=  12 tau=  3.702 D=0.600 alpha<=1.9375e-04 sqrtLy<=1.3060e-07 rate<=+0.03016 (lb +0.02966) cell 15.84s
+  k=  13 tau=  4.302 D=0.600 alpha<=1.6616e-04 sqrtLy<=1.3242e-07 rate<=+0.02309 (lb +0.02259) cell 15.39s
+  k=  14 tau=  4.902 D=0.600 alpha<=1.4249e-04 sqrtLy<=1.3376e-07 rate<=+0.01679 (lb +0.01629) cell 14.83s
+  tail anchor: a*=1.4249e-04 L*=1.7893e-14  rate_s bound U=+0.01156
+  k=  15 tau=  5.502 D=0.600 alpha<=1.2220e-04 sqrtLy<=1.3480e-07 rate<=+0.01293 (lb +0.01243) cell 15.16s
+  tail anchor: a*=1.2220e-04 L*=1.8172e-14  rate_s bound U=+0.00797
+  k=  16 tau=  6.102 D=0.600 alpha<=1.0480e-04 sqrtLy<=1.3556e-07 rate<=+0.00931 (lb +0.00881) cell 8.76s
+  tail anchor: a*=1.0480e-04 L*=1.8377e-14  rate_s bound U=+0.00506
+  k=  17 tau=  6.702 D=0.600 alpha<=8.9874e-05 sqrtLy<=1.3604e-07 rate<=+0.00591 (lb +0.00541) cell 8.22s
+  tail anchor: a*=8.9874e-05 L*=1.8507e-14  rate_s bound U=+0.00266
+  k=  18 tau=  7.302 D=0.600 alpha<=7.7076e-05 sqrtLy<=1.3626e-07 rate<=+0.00268 (lb +0.00218) cell 8.37s
+  tail anchor: a*=7.7076e-05 L*=1.8567e-14  rate_s bound U=+0.00067
+  k=  19 tau=  7.902 D=0.600 alpha<=6.6102e-05 sqrtLy<=1.3635e-07 rate<=+0.00112 (lb +0.00062) cell 7.4s
+  tail anchor: a*=6.6102e-05 L*=1.8592e-14  rate_s bound U=-0.00099
+  k=  20 tau=  8.502 D=0.600 alpha<=5.6692e-05 sqrtLy<=1.3632e-07 rate<=-0.00041 (lb -0.00091) cell 7.77s
+  tail anchor: a*=5.6692e-05 L*=1.8583e-14  rate_s bound U=-0.00240
+  tail: rho=0.00240 alpha-condition OK (margin 1.059e+02); floor sqrt(L_F)=5.234e-10, alpha_F<= 2.177e-07
+  tail: V1 delta_t=0.2
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 1.9234e-03   (sup|w'| alone: 1.9234e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: A_max<=1.3659e-07, W1_max<=1.7195e-06, sI1<=2.9862e-03, sI2<=3.9778e-02, M1_ramp<=1.1138e+00, far_w1<=2.9862e-03, far_w<=1.5199e-03, sr1<=1.9234e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]

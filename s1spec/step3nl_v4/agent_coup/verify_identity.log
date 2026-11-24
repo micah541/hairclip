@@ -1,0 +1,7 @@
+Euler operator of (integrand - (A w^2 + B w'^2)) = 0
+a=5 x=0.3: |A_generic - rho*Apoly| = 4.44e-16 (|A|=2.29e+00),  B diff = 0.00e+00
+a=5 x=1.1: |A_generic - rho*Apoly| = 0.00e+00 (|A|=1.82e+01),  B diff = 4.44e-16
+a=5 x=-0.7: |A_generic - rho*Apoly| = 2.22e-16 (|A|=6.35e-01),  B diff = 1.11e-16
+a=7 x=0.3: |A_generic - rho*Apoly| = 4.44e-16 (|A|=2.40e+00),  B diff = 0.00e+00
+a=7 x=1.1: |A_generic - rho*Apoly| = 0.00e+00 (|A|=1.79e+01),  B diff = 4.44e-16
+a=7 x=-0.7: |A_generic - rho*Apoly| = 2.22e-16 (|A|=6.51e-01),  B diff = 1.11e-16

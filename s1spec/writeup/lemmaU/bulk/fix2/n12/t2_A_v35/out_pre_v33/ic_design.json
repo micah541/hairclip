@@ -1,0 +1,106 @@
+{
+ "step4_H2_range": "[14, 60] (shells; camp item 2, STEP4_RESULT.md l.33); (H3) windows on [50, 379.7]; (H2f) on [60, 700] is a NEW hand-off threshold, not yet certified by step 4",
+ "name": "design",
+ "H2f": [
+  "5e-7",
+  "5e-6",
+  "1e-5"
+ ],
+ "H2f_label": "hyp",
+ "datum_rule": "E^A_j(tau_1) <= H2_j + H2f_j",
+ "E_tau1": {
+  "tight/design": {
+   "E": [
+    {
+     "arb": [
+      "107418537501928330431876388237343840965272997308560093479397",
+      -217,
+      1.1962189858075528e-66
+     ]
+    },
+    {
+     "arb": [
+      "631873750011343120187508166102022593913370572403294667525865",
+      -216,
+      1.0682513731666649e-65
+     ]
+    },
+    {
+     "arb": [
+      "830979801447209051288259437191462005016281612144957830991047",
+      -209,
+      2.4403609151881084e-63
+     ]
+    }
+   ],
+   "H2": [
+    "1e-8",
+    "1e-6",
+    "1e-3"
+   ],
+   "H2f": [
+    "5e-7",
+    "5e-6",
+    "1e-5"
+   ]
+  },
+  "v31/design": {
+   "E": [
+    {
+     "arb": [
+      "589748833343920245508340955028554420985812534243075023024141",
+      -219,
+      7.41841231242914e-67
+     ]
+    },
+    {
+     "arb": [
+      "1382223828149813075410174113348174424185498127132207085212831",
+      -213,
+      1.566768680880267e-64
+     ]
+    },
+    {
+     "arb": [
+      "80350919558060161252786959522288983032616455196624098747157",
+      -198,
+      3.111602600403664e-61
+     ]
+    }
+   ],
+   "H2": [
+    "2e-7",
+    "1e-4",
+    "0.2"
+   ],
+   "H2f": [
+    "5e-7",
+    "5e-6",
+    "1e-5"
+   ]
+  }
+ },
+ "args": {
+  "argv": [
+   "rigor/ic_rep.py",
+   "--h2f",
+   "5e-7,5e-6,1e-5",
+   "--name",
+   "design"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "OMP_NUM_THREADS": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/rigor/ic_rep.py": "f2ebe8546aa2f36be11c79575eed9e7f8490e5098b93d5a89a15d58878b539c8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/rigor/arlib.py": "43f6cc58ccded5a0e2daf3c47680e8ae2d33095c92326578525d7a4dc2f90e37"
+  },
+  "flint": "0.9.0",
+  "sympy": "1.14.0"
+ }
+}

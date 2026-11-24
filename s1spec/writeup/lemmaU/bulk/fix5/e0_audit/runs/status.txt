@@ -1,0 +1,8 @@
+probe 5e-4 rc=0
+probe 1e-4 rc=143
+closure conservative rc=0
+closure sharp rc=0
+closure nosym rc=0
+done
+closure sharp_rho75 rc=0
+done2

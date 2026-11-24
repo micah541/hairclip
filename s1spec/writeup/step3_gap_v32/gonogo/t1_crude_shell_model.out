@@ -1,0 +1,43 @@
+v3.1 thresholds (H2) = (2e-7, 1e-4, 0.2)
+  mu=4 nu=2 a=0.5 KS=1: IW=5.86 wmin=0.72 Gw=1.411 B=(9.08e-06, 3.37e-03, 4.387) [level-2 data/inflow/ramp/foot/outer = 0.6047/3.470/0.313/0.0000/0.0000; level-1 ramp share 0.16]  |f|<=0.041 (x2.67)  y|f'|<=0.612 (x0.85)
+  mu=4 nu=2 a=0.5 KS=2: IW=5.86 wmin=0.72 Gw=1.411 B=(1.32e-05, 3.89e-03, 4.700) [level-2 data/inflow/ramp/foot/outer = 0.6047/3.470/0.626/0.0000/0.0000; level-1 ramp share 0.27]  |f|<=0.044 (x2.48)  y|f'|<=0.644 (x0.81)
+  mu=4 nu=2 a=0.5 KS=4: IW=5.86 wmin=0.72 Gw=1.411 B=(2.14e-05, 4.94e-03, 5.326) [level-2 data/inflow/ramp/foot/outer = 0.6047/3.470/1.252/0.0000/0.0000; level-1 ramp share 0.42]  |f|<=0.050 (x2.22)  y|f'|<=0.705 (x0.74)
+  mu=4 nu=4 a=0.3 KS=1: IW=4.14 wmin=0.73 Gw=1.411 B=(6.59e-06, 2.47e-03, 3.276) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.450/0.221/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.038 (x2.93)  y|f'|<=0.522 (x1.00)
+  mu=4 nu=4 a=0.3 KS=2: IW=4.14 wmin=0.73 Gw=1.411 B=(9.49e-06, 2.84e-03, 3.497) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.450/0.442/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.040 (x2.74)  y|f'|<=0.549 (x0.95)
+  mu=4 nu=4 a=0.3 KS=4: IW=4.14 wmin=0.73 Gw=1.411 B=(1.53e-05, 3.58e-03, 3.939) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.450/0.884/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.045 (x2.47)  y|f'|<=0.598 (x0.87)
+  mu=6 nu=4 a=0.3 KS=1: IW=4.08 wmin=0.76 Gw=1.411 B=(6.50e-06, 2.44e-03, 3.238) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.416/0.218/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.037 (x2.96)  y|f'|<=0.511 (x1.02)
+  mu=6 nu=4 a=0.3 KS=2: IW=4.08 wmin=0.76 Gw=1.411 B=(9.36e-06, 2.80e-03, 3.456) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.416/0.436/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.040 (x2.77)  y|f'|<=0.537 (x0.97)
+  mu=6 nu=4 a=0.3 KS=4: IW=4.08 wmin=0.76 Gw=1.411 B=(1.51e-05, 3.53e-03, 3.892) [level-2 data/inflow/ramp/foot/outer = 0.6047/2.416/0.871/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.044 (x2.50)  y|f'|<=0.585 (x0.89)
+  mu=4 nu=4 a=0.0 KS=1: IW=2.16 wmin=0.46 Gw=1.411 B=(3.73e-06, 1.43e-03, 2.000) [level-2 data/inflow/ramp/foot/outer = 0.6047/1.280/0.115/0.0000/0.0000; level-1 ramp share 0.13]  |f|<=0.037 (x2.99)  y|f'|<=0.512 (x1.01)
+  mu=4 nu=4 a=0.0 KS=2: IW=2.16 wmin=0.46 Gw=1.411 B=(5.24e-06, 1.63e-03, 2.116) [level-2 data/inflow/ramp/foot/outer = 0.6047/1.280/0.231/0.0000/0.0000; level-1 ramp share 0.24]  |f|<=0.039 (x2.81)  y|f'|<=0.536 (x0.97)
+  mu=4 nu=4 a=0.0 KS=4: IW=2.16 wmin=0.46 Gw=1.411 B=(8.27e-06, 2.01e-03, 2.346) [level-2 data/inflow/ramp/foot/outer = 0.6047/1.280/0.462/0.0000/0.0000; level-1 ramp share 0.38]  |f|<=0.043 (x2.55)  y|f'|<=0.579 (x0.90)
+tightened (H2) = (1e-8, 1e-6, 1e-3), estimated floor
+  mu=4 nu=2 a=0.5 KS=1: IW=5.86 wmin=0.72 Gw=1.411 B=(3.57e-06, 1.36e-03, 0.814) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.674/0.136/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.033 (x3.36)  y|f'|<=0.331 (x1.57)
+  mu=4 nu=2 a=0.5 KS=2: IW=5.86 wmin=0.72 Gw=1.411 B=(5.43e-06, 1.56e-03, 0.950) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.674/0.273/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.035 (x3.15)  y|f'|<=0.355 (x1.46)
+  mu=4 nu=2 a=0.5 KS=4: IW=5.86 wmin=0.72 Gw=1.411 B=(9.15e-06, 1.96e-03, 1.223) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.674/0.546/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.038 (x2.86)  y|f'|<=0.398 (x1.31)
+  mu=4 nu=4 a=0.3 KS=1: IW=4.14 wmin=0.73 Gw=1.411 B=(2.53e-06, 9.59e-04, 0.576) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.476/0.096/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.030 (x3.63)  y|f'|<=0.279 (x1.87)
+  mu=4 nu=4 a=0.3 KS=2: IW=4.14 wmin=0.73 Gw=1.411 B=(3.85e-06, 1.10e-03, 0.672) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.476/0.193/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.032 (x3.42)  y|f'|<=0.298 (x1.74)
+  mu=4 nu=4 a=0.3 KS=4: IW=4.14 wmin=0.73 Gw=1.411 B=(6.47e-06, 1.39e-03, 0.865) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.476/0.385/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.035 (x3.14)  y|f'|<=0.334 (x1.56)
+  mu=6 nu=4 a=0.3 KS=1: IW=4.08 wmin=0.76 Gw=1.411 B=(2.50e-06, 9.46e-04, 0.568) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.469/0.095/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.030 (x3.67)  y|f'|<=0.272 (x1.91)
+  mu=6 nu=4 a=0.3 KS=2: IW=4.08 wmin=0.76 Gw=1.411 B=(3.79e-06, 1.09e-03, 0.663) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.469/0.190/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.032 (x3.46)  y|f'|<=0.292 (x1.78)
+  mu=6 nu=4 a=0.3 KS=4: IW=4.08 wmin=0.76 Gw=1.411 B=(6.38e-06, 1.37e-03, 0.852) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.469/0.380/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.035 (x3.17)  y|f'|<=0.327 (x1.59)
+  mu=4 nu=4 a=0.0 KS=1: IW=2.16 wmin=0.46 Gw=1.411 B=(1.34e-06, 5.03e-04, 0.302) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.249/0.050/0.0000/0.0000; level-1 ramp share 0.15]  |f|<=0.029 (x3.75)  y|f'|<=0.258 (x2.02)
+  mu=4 nu=4 a=0.0 KS=2: IW=2.16 wmin=0.46 Gw=1.411 B=(2.02e-06, 5.77e-04, 0.352) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.249/0.101/0.0000/0.0000; level-1 ramp share 0.26]  |f|<=0.031 (x3.54)  y|f'|<=0.276 (x1.88)
+  mu=4 nu=4 a=0.0 KS=4: IW=2.16 wmin=0.46 Gw=1.411 B=(3.40e-06, 7.27e-04, 0.453) [level-2 data/inflow/ramp/foot/outer = 0.0030/0.249/0.201/0.0000/0.0000; level-1 ramp share 0.41]  |f|<=0.034 (x3.26)  y|f'|<=0.309 (x1.68)
+CLEAN-GO: certified E^A (arb), Ghat from t8 (general-weight L^4), dU (Prop. B'), L^4 ramp foot, outer ramp
+  E^A = (1.21100549634497e-07, 8.174174733435895e-05, 0.048044817721789174), gamma' = (0.24628896551872523, 0.24617402900616975, 0.14306229094672024); |dU| <= 1.063e-06 on [28,56] -> dU_j = ['7.83e-13', '8.22e-13', '8.63e-13']
+  mu=4 nu=2 a=0.5 KS=1: IW=5.86 wmin=0.72 Gw=1.470 B=(3.84e-06, 1.42e-03, 0.873) [level-2 data/inflow/ramp/foot/outer = 0.0031/0.703/0.142/0.0084/0.0161; level-1 ramp share 0.15]  |f|<=0.033 (x3.32)  y|f'|<=0.340 (x1.53)
+  mu=4 nu=2 a=0.5 KS=2: IW=5.86 wmin=0.72 Gw=1.470 B=(5.77e-06, 1.63e-03, 1.014) [level-2 data/inflow/ramp/foot/outer = 0.0031/0.703/0.284/0.0084/0.0161; level-1 ramp share 0.26]  |f|<=0.035 (x3.11)  y|f'|<=0.364 (x1.43)
+  mu=4 nu=2 a=0.5 KS=4: IW=5.86 wmin=0.72 Gw=1.470 B=(9.64e-06, 2.06e-03, 1.298) [level-2 data/inflow/ramp/foot/outer = 0.0031/0.703/0.567/0.0084/0.0161; level-1 ramp share 0.41]  |f|<=0.039 (x2.82)  y|f'|<=0.408 (x1.27)
+    flips (KS=1): E2^A -> 0.3608 (x7.51);  Ghat_22 -> 4.443e+05 (x2.26; Gw 3.61);  ramp constants -> KS = 10.2
+    flips (KS=4): E2^A -> 0.2089 (x4.35);  Ghat_22 -> 3.633e+05 (x1.85; Gw 2.45);  ramp constants -> KS = 10.2
+  mu=4 nu=4 a=0.3 KS=1: IW=4.14 wmin=0.73 Gw=1.639 B=(3.06e-06, 1.12e-03, 0.694) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.554/0.112/0.0084/0.0161; level-1 ramp share 0.15]  |f|<=0.031 (x3.51)  y|f'|<=0.301 (x1.72)
+  mu=4 nu=4 a=0.3 KS=2: IW=4.14 wmin=0.73 Gw=1.639 B=(4.58e-06, 1.29e-03, 0.805) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.554/0.223/0.0084/0.0161; level-1 ramp share 0.26]  |f|<=0.033 (x3.30)  y|f'|<=0.323 (x1.61)
+  mu=4 nu=4 a=0.3 KS=4: IW=4.14 wmin=0.73 Gw=1.639 B=(7.62e-06, 1.62e-03, 1.029) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.554/0.447/0.0084/0.0161; level-1 ramp share 0.41]  |f|<=0.036 (x3.02)  y|f'|<=0.361 (x1.44)
+    flips (KS=1): E2^A -> 0.6227 (x12.96);  Ghat_22 -> 4.972e+05 (x2.07; Gw 5.23);  ramp constants -> KS = 14.8
+    flips (KS=4): E2^A -> 0.3850 (x8.01);  Ghat_22 -> 4.414e+05 (x1.84; Gw 3.55);  ramp constants -> KS = 14.8
+  mu=4 nu=4 a=0.0 KS=1: IW=2.16 wmin=0.46 Gw=1.639 B=(1.66e-06, 5.87e-04, 0.372) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.289/0.058/0.0044/0.0161; level-1 ramp share 0.15]  |f|<=0.030 (x3.61)  y|f'|<=0.280 (x1.86)
+  mu=4 nu=4 a=0.0 KS=2: IW=2.16 wmin=0.46 Gw=1.639 B=(2.46e-06, 6.75e-04, 0.430) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.289/0.117/0.0044/0.0161; level-1 ramp share 0.26]  |f|<=0.032 (x3.42)  y|f'|<=0.300 (x1.74)
+  mu=4 nu=4 a=0.0 KS=4: IW=2.16 wmin=0.46 Gw=1.639 B=(4.04e-06, 8.50e-04, 0.547) [level-2 data/inflow/ramp/foot/outer = 0.0035/0.289/0.233/0.0044/0.0161; level-1 ramp share 0.41]  |f|<=0.035 (x3.14)  y|f'|<=0.335 (x1.55)
+    flips (KS=1): E2^A -> 0.8789 (x18.29);  Ghat_22 -> 5.15e+05 (x2.15; Gw 6.17);  ramp constants -> KS = 18.5
+    flips (KS=4): E2^A -> 0.5578 (x11.61);  Ghat_22 -> 4.678e+05 (x1.95; Gw 4.19);  ramp constants -> KS = 18.5

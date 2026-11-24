@@ -1,0 +1,177 @@
+% U1_regularity_v38.tex -- regularity lemma U-1 for step 3, text v38 (fix16_texts_v38; verifier fin13v4c, (A) chain v37, flux lemma v2).
+% Built by tools/build_interface_v38.py from fix10_proofs/U1_regularity.tex (unchanged).  New in v38 (review fix15 D-1, D-5, C-5):
+% X_S = 60; the open set O through GS-circ; B1 as Lambda <= L + 2C'; (S4.1)-(S4.3) by C-1 and GS-1; gap items 1 and 4 closed.
+% Original header: regularity lemma U-1 (v4b verifier, (A) chain v36, flux lemma v2), with the modulation statement (P2').
+% Fix round 10 (fix10_proofs), 20 Nov 2026.  Not compiled (no LaTeX in WSL).  Symbolic checks: U1_sym.py -> U1_sym.json (sympy, all_pass true).
+% New file only; nothing closed is edited.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\newtheorem{lemma}{Lemma}\newtheorem{proposition}{Proposition}\newtheorem{remark}{Remark}\newtheorem{theorem}{Theorem}\newtheorem{definition}{Definition}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tH}{\textup{[hand]}}\newcommand{\tS}{\textup{[sym]}}\newcommand{\tR}{\textup{[read]}}\newcommand{\tL}{\textup{[Lean]}}\newcommand{\tD}{\textup{[DKS]}}\newcommand{\tI}{\textup{[inh]}}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+\begin{document}
+\title{Regularity lemma U-1 for step 3\\[2pt]\large the solution class, the modulation (P2$'$), and the energy identities at every time}
+\date{20 November 2026 (text v38; first version fix round 10, reviewed in \fn{fix11_review} part C: sound modulo items). \emph{Not compiled.}}
+\maketitle
+
+\noindent\textbf{Labels.} \tS: exact sympy identity in \fn{U1_sym.py} (this directory; \fn{U1_sym.json}, \fn{all_pass: true}); \tL: a theorem of Micah Warren's Lean development \fn{HSLflow-Whitney/CWFlow}, statement read from source (\S\ref{U:sec:inputs}); \tD: Dziuk--Kuwert--Sch\"atzle 2002, as read in \fn{writeup/lit_P1/P1_CONFIRMATION.md}; \tR: verified by reading the cited file; \tI: inherited from a cited document, with the label it has there; \tH: hand argument written here, not machine-checked.
+
+\noindent\textbf{Where U-1 is asked for.} \fn{fix5/ei_spec/EI_SPEC.md} \S3 (``Regularity \dots needs a short lemma, U-1'') and \S11; \fn{step3nl_v4c/V4C_REPORT.md} (open items); \fn{fix7_flux2/FLUX2_DESIGN.md} (table row ``energy identity, level 2'' and condition C8); \fn{fix8_flux2_impl/FLUX2_IMPL_REPORT.md} \S2 C8 and \S4.1: ``$\Lambda$ absolutely continuous; $g''''(\tau,\cdot)\in L^2(\mathrm{OR})$ a.e.; the level-2 identity with a $C^3$ cutoff; Agmon for $g''$ a.e.'' The continuation text \fn{fix1/b12_text/continuation_v33.tex} asks for (P1$'$)--(P3$'$), and \fn{P1_CONFIRMATION.md} \S4 item~2 asks for one sentence on (P2$'$): the modulation does not break down before $T_{\max}$ while the bootstrap holds.
+
+\noindent\textbf{Summary.} Theorem~\ref{U:thm} gives all of these, in a stronger form: on any interval on which the modulation and the chart and box hypotheses hold, the Lyapunov functional and every energy used by the verifier, by Lemma~S(A) and by the flux lemma are $C^1$ in $\tau$, and their identities hold at \emph{every} $\tau$ (not only a.e.). Proposition~\ref{U:prop:mod} is (P2$'$). Inputs that are not proved here are listed in \S\ref{U:sec:inputs} and \S\ref{U:sec:gaps}.
+
+%======================================================================
+\section{Inputs, stated precisely}\label{U:sec:inputs}
+\subsection{From step 4 (hand-off)}
+\begin{enumerate}[label=(S4.\arabic*),leftmargin=3.2em]
+\item \emph{(H6)} $\gamma(t_1):\mathbb S^1\to\mathbb C$ is a smooth immersion: Theorem C-1(i), (iv) of \fn{C1_identification_v38.tex} \tH\ (the step-4 solution is the smooth Lean flow from $\Gamma_0$ on $[0,t(27.15)]\ni t_1$; this replaces step~4's sentence ``smooth for $t>0$ by parabolic regularity'', \fn{step4_proof.tex} l.672, labelled \textup{[A]} there).
+\item \emph{Symmetry.} $\gamma(t_1)$ is symmetric about the axis $\mathbb Re_1$ through the tip: $\sigma\circ\gamma(t_1)=\gamma(t_1)\circ\iota$ for the reflection $\sigma(z)=\bar z$ (axis taken as $\mathbb R$) and an involutive diffeomorphism $\iota$ of $\mathbb S^1$. (Theorem C-1(i) of \fn{C1_identification_v38.tex}, with $\iota(z)=\bar z$ on $\mathbb S^1\subset\mathbb C$ \tH.)
+\item \emph{(H1)} The modulated decomposition exists at $\tau_1$: parameters $P_1=(t_1,\lambda_1,\xi_1,\alpha(\tau_1))$ with the three constraints satisfied, $|\alpha(\tau_1)|\le\alpha_1$, $\sqrt{\Lambda(\tau_1)}\le5\cdot10^{-8}$. This includes the chart statement (GS) of Definition~\ref{U:def:charts} at $\tau_1$, certified on $|x|\le60\frac14$ by Lemma GS-1 of \fn{GS_lemma_v38.tex} (\fn{fix14_interface/GS_tau1.json}: $\sup|ku|\le6.52\cdot10^{-3}$, $\sup|u'|\le0.0542$) \tI; and (G) at $\tau_1$ (graph over the ray on $y\in[14,700]$; \fn{continuation_v33.tex} Lemma~G and its gap item~2) \tI.
+\end{enumerate}
+
+\subsection{From the Lean development (local well-posedness and uniqueness)}
+Source: \fn{github.com/micah541/HSLflow-Whitney}, commit \fn{d72b7447edb0c830331a76152559902c23a4092e} (19 Nov 2026), tarball sha256 \fn{da77acbf...b67dc08}, toolchain \fn{leanprover/lean4:v4.33.1}. Files read (not executed, not compiled here): \fn{CWFlow/CWFlow/Flow/Main.lean} (sha256 \fn{f0996906...}), \fn{Flow/UniqueMain.lean} (\fn{12b29d3c...}), \fn{Flow/GraphUnique.lean} (\fn{2b9d734c...}, structure \fn{IsFlow}), \fn{Scalar/Pointwise.lean} (\fn{d4efaf4a...}, \fn{meanCurv}, \fn{flowPot}, \fn{flowVel}), \fn{Weinstein/Global.lean} (\fn{3013f2ff...}, \fn{IsLagImmersion}). Both theorems end with \texttt{\#print axioms} guarded to \fn{[propext, Classical.choice, Quot.sound]}; no \fn{sorry} or \fn{axiom} occurs in \fn{CWFlow/} (text search) \tR.
+
+Setting of both theorems: $E$ a finite-dimensional real normed space with $\dim E\ne0$; $M$ a compact Hausdorff $\sigma$-compact smooth manifold modelled on $E$; $V$ a finite-dimensional real inner product space; $J:V\to V$ linear with $\ip{Ju}{Jv}=\ip uv$ and $J^2=-1$; $\dim V=2\dim E$. \fn{IsLagImmersion E J F}: $F$ smooth in charts, injective derivative, $\ip{J\,DF\,u}{DF\,w}=0$. \fn{IsFlow E J T Phi}: $(t,x)\mapsto\Phi(t,x)$ is $C^\infty$ on $[0,T]\times M$, every $\Phi(t)$ is a Lagrangian immersion, and in every chart $\partial_t\Phi=\fn{flowVel}\,J\,(\Phi(t))$ (one-sided at $t=0,T$), where, for $X:E\to V$, with $g=X^*\ip\cdot\cdot$,
+\[
+H=\mathrm{tr}_g(D^2X)^\perp,\qquad \fn{flowPot}=\mathrm{tr}_g\ip{D(JH)}{DX},\qquad\fn{flowVel}=J\,\nabla_g\fn{flowPot}.
+\]
+\begin{enumerate}[label=(L\arabic*),leftmargin=2.4em]
+\item \fn{exists_flow_of_immersion}: if $F$ is a Lagrangian immersion, there are $T>0$ and $\Phi$ with $\Phi(0)=F$ satisfying the three clauses of \fn{IsFlow} on $[0,T]$ \tL.
+\item \fn{flow_unique_of_immersion}: if \fn{IsFlow E J T Phi1}, \fn{IsFlow E J T Phi2} and $\Phi_1(0)=\Phi_2(0)$, then $\Phi_1(t)=\Phi_2(t)$ for all $t\in[0,T]$ \tL.
+\end{enumerate}
+\emph{Instance used:} $E=\mathbb R^1$ (\fn{EuclideanSpace R (Fin 1)}), $M=\mathbb S^1$ (the unit sphere of \fn{EuclideanSpace R (Fin 2)} with its Mathlib smooth structure), $V=\mathbb C\cong\mathbb R^2$, $J=$ multiplication by $i$. Then $\dim V=2=2\dim E$, $J$ is an isometry with $J^2=-1$, and every immersion is Lagrangian since $\ip{Jv}{v}=0$ \tS\ (S4). The final statements carry no hypothesis $\dim E\ge2$ (only $\dim E\ne0$) \tR. \emph{Not checked here:} that this instance elaborates in Lean (a few-line file; Mathlib instances for the sphere); that the repository builds at this commit.
+
+\begin{lemma}[$n=1$: the Lean velocity is CDF]\label{U:lem:vel}
+For $X:\mathbb R\supset U\to\mathbb C$ an immersion, $\fn{flowVel}\,J\,X=-k_{ss}N$, with $T=X_\theta/|X_\theta|$, $N=JT$, $k=\ip{X_{\theta\theta}}{JX_\theta}/|X_\theta|^3$, $\partial_s=|X_\theta|^{-1}\partial_\theta$. Moreover $\fn{flowVel}(\sigma X)=\sigma\,\fn{flowVel}(X)$ for $\sigma(z)=\bar z$, and $\fn{flowVel}(X\circ\varphi)=\fn{flowVel}(X)\circ\varphi$ for every diffeomorphism $\varphi$ (either orientation).
+\end{lemma}
+\begin{proof}\tS\ (S1--S3 of \fn{U1_sym.py}: the Lean formulas with the one-dimensional trace $\mathrm{tr}_g=g^{-1}$ are expanded in jets of $X$ and compared exactly, modulo $|X_\theta|^2=g$).
+\end{proof}
+\noindent So an \fn{IsFlow} at $n=1$ is a smooth closed immersed curve moving with velocity $-k_{ss}N$ and \emph{no tangential part}. This is the parametrised curve diffusion flow of DKS ($\partial_tf=-\nabla_s^2\kappa$, $n=2$) and of step~3 (normal velocity $-\kappa_{ss}$).
+
+\subsection{From Dziuk--Kuwert--Sch\"atzle 2002}
+\begin{enumerate}[label=(D\arabic*),leftmargin=2.4em]
+\item \emph{(inside the proof of Theorem~3.1, pp.~1234--1235)} if $f:[0,T)\times\mathbb S^1\to\mathbb R^n$ is a smooth solution of $\partial_tf=-\nabla_s^2\kappa$, $T<\infty$, and $\sup_{t<T}\int|\kappa|^2ds<\infty$, then $f$ extends smoothly to $[0,T]\times\mathbb S^1$ \tD.
+\item \emph{(Theorem~3.1)} for a maximal solution with $T<\infty$, $\int|\kappa|^2ds\ge c(T-t)^{-1/4}$ \tD. (Not used below beyond (D1).)
+\end{enumerate}
+No embeddedness, area or turning-number hypothesis is involved (\fn{P1_CONFIRMATION.md} \S2).
+
+\subsection{From step 3 (objects; all \tR)}
+$S_1$ solves a polynomial ODE, so it is real-analytic. $\hat\psi_3,\hat h_2$ are the $C^4$ functions of \fn{step3nl_v4c/agent_int/v3/c4fun.py}: finitely many polynomial pieces with degree-9 Hermite corrections matching jets $0..4$ at every interface, and an explicit smooth extension for $x\ge28$; so they are $C^4$, $C^\infty$ off a finite set $B_0\subset[0,28]$, with bounded one-sided fifth derivatives, even. The cutoffs: $\chi=\chi_{32}$ and $\zeta$ (rising on $[10.25,16.25]$, falling on $[57,60]$) are built from $S_7(t)=t^4(35-84t+70t^2-20t^3)$, so they are $C^3$ with $\chi^{(j)},\zeta^{(j)}$ ($j=1,2,3$) vanishing at their four break points and $|\chi''''|,|\zeta''''|$ bounded with jumps there ($S_7''''(0)=840$, $S_7''''(1)=-840$ \tS\ S6); (A)'s cutoffs $\eta_{\rm in},\eta_o$ use $S(t)=t^3(10-15t+6t^2)$: $C^2$, with $S'''$ jumping by $60$ at both ends \tS\ S6. Weights: $\rho=e^{-\phi}$ is smooth; $W=e^{-\psi}$ with $\psi'=(1-s)\frac{4x}{1+x^2}+s\phi'$, $s=S_7((x-30.25)/8)$, so $\psi\in C^4$ and $W\in C^4$; $\varepsilon\omega=28y^{-5}$ is smooth on $y>0$. The graph equation for the normal graph $u$ over $S_1$ in the moving frame (\fn{step3nl_v4c/BOOTSTRAP.md} ``Unknowns and equations'', \fn{graph_eq.py}, \fn{graph_struct.pkl}) is taken as derived there (exact sympy, not re-derived here) \tR; its frame part is the identity (S5) below. The modulation system and the invertibility of its matrix on the validity box are those of \fn{agent_mod/ibp/MOD_IBP.md} (Neumann step $\nu\le0.0466<1$ under $|\alpha|\le5\cdot10^{-4}$, $A,W_1\le10^{-3}$, strip $|w|,|w'|\le0.02$) \tR.
+
+%======================================================================
+\section{The physical solution}\label{U:sec:phys}
+\begin{lemma}[gluing]\label{U:lem:glue}
+If $\Phi_1$ is an \fn{IsFlow} on $[0,a]$, $\Phi_2$ is an \fn{IsFlow} on $[0,b]$ and $\Phi_2(0)=\Phi_1(a)$, then $\Phi(t)=\Phi_1(t)$ ($t\le a$), $\Phi_2(t-a)$ ($t\ge a$) is an \fn{IsFlow} on $[0,a+b]$.
+\end{lemma}
+\begin{proof}\tH\ Immersions and the velocity clause are clear away from $t=a$, and at $t=a$ both one-sided derivatives equal $\fn{flowVel}(\Phi_1(a))$. Joint smoothness: in a chart, $\partial_t\Phi=\mathcal V(\partial_x^{\le4}\Phi)$ with $\mathcal V$ a smooth function of the 4-jet on immersions (Lemma~\ref{U:lem:vel}); differentiating in $t$ on each closed half (where $\Phi$ is $C^\infty$ up to $t=a$), $\partial_t^m\partial_x^k\Phi=\mathcal V_{m,k}(\partial_x^{\le4m+k}\Phi)$ with smooth $\mathcal V_{m,k}$, by induction. At $t=a$ both halves have the same spatial map, hence the same one-sided values of every $\partial_t^m\partial_x^k\Phi$. A function on $(a-\delta,a+\delta)\times U$ that is $C^\infty$ on both closed halves with all one-sided partial derivatives equal at $t=a$ is $C^\infty$ (each $\partial^\beta\Phi$ is continuous, and $\partial_t$ of it exists at $t=a$ by the mean value theorem on each side).
+\end{proof}
+
+\begin{lemma}[maximal smooth solution]\label{U:lem:max}
+Let $F=\gamma(t_1)$. There is $T_{\max}\in(0,\infty]$ and a unique $\Phi:[0,T_{\max})\times\mathbb S^1\to\mathbb C$ such that $\Phi|_{[0,T]}$ is an \fn{IsFlow} with $\Phi(0)=F$ for every $T<T_{\max}$, and there is no \fn{IsFlow} on $[0,T_{\max}]$ with $\Phi(0)=F$ when $T_{\max}<\infty$. Every \fn{IsFlow} on $[0,T]$ from $F$ is the restriction of $\Phi$. Put $\gamma(t_1+t):=\Phi(t)$.
+\end{lemma}
+\begin{proof}\tH\ Let $\mathcal T$ be the set of $T>0$ admitting an \fn{IsFlow} from $F$ on $[0,T]$; $\mathcal T\ne\emptyset$ by (L1) (with (S4.1)), and $\mathcal T$ is an interval from $0$ (restriction of an \fn{IsFlow} to $[0,T']$, $T'<T$, is an \fn{IsFlow}: the clauses restrict, \fn{IsFlow.mono} in \fn{Flow/GaugeEvolution.lean} l.34 \tR). For $T<T'$ in $\mathcal T$ the two flows agree on $[0,T]$ by (L2) applied to the restriction. Put $T_{\max}=\sup\mathcal T$ and define $\Phi$ by consistency. If $T_{\max}<\infty$ and $T_{\max}\in\mathcal T$, then $\Phi(T_{\max})$ is a Lagrangian immersion, (L1) gives an \fn{IsFlow} from it on some $[0,\delta]$, and Lemma~\ref{U:lem:glue} gives one on $[0,T_{\max}+\delta]$: contradiction.
+\end{proof}
+
+\begin{lemma}[symmetry]\label{U:lem:sym}
+$\sigma\circ\gamma(t)=\gamma(t)\circ\iota$ for all $t\in[t_1,t_1+T_{\max})$.
+\end{lemma}
+\begin{proof}\tH\ $\tilde\Phi(t):=\sigma\circ\Phi(t)\circ\iota$ is jointly smooth, consists of immersions, and $\partial_t\tilde\Phi=\sigma(\fn{flowVel}\,\Phi(t))\circ\iota=\fn{flowVel}(\sigma\Phi(t)\circ\iota)$ by Lemma~\ref{U:lem:vel} (S2, S3). In a chart this is the velocity clause of \fn{IsFlow}. $\tilde\Phi(0)=F$ by (S4.2). By (L2), $\tilde\Phi=\Phi$ on every $[0,T]$, $T<T_{\max}$. (That \fn{IsFlow} is closed under $\sigma\circ\cdot\circ\iota$ is the content of S2, S3; it is not a Lean lemma.)
+\end{proof}
+
+\begin{lemma}[blow-up criterion, the form needed]\label{U:lem:bu}
+If $T_{\max}<\infty$ then $\sup_{t<t_1+T_{\max}}\int_{\gamma(t)}k^2ds=\infty$.
+\end{lemma}
+\begin{proof}\tH\ Otherwise (D1) extends $\Phi$ smoothly to $[0,T_{\max}]$; the extension is an \fn{IsFlow} on $[0,T_{\max}]$ (the velocity identity passes to the limit $t\uparrow T_{\max}$ with all derivatives, and $\Phi(T_{\max})$ is an immersion because DKS's extension is a smooth solution, in particular $|\partial_x\Phi|>0$ up to $T_{\max}$), contradicting Lemma~\ref{U:lem:max}.
+\end{proof}
+\noindent This is (P1$'$) with: existence and uniqueness from (L1), (L2); the criterion from (D1). DKS's rate (D2) is not needed.
+
+%======================================================================
+\section{Charts, frame and modulation}\label{U:sec:mod}
+\begin{definition}[frame and charts]\label{U:def:charts}
+For $P=(t,\lambda,\xi,\alpha)$ with $t\in[t_1,t_1+T_{\max})$, $\lambda>0$, $\xi\in\mathbb R$ put $\Gamma_P:=(\gamma(t)-\xi e_1)/\lambda$. Let $\Psi(x,n)=S_1(x)+n\nu_{S_1}(x)$ ($x$ arclength from the tip); $D\Psi$ is invertible where $1-k(x)n\ne0$.
+\begin{itemize}[leftmargin=*]
+\item \emph{(GS) at $P$}: there is $u\in C^1([-X_S,X_S])$, $X_S:=60$, with $\sup|k\,u|\le\frac12$, $\sup|u'|\le1$, such that $x\mapsto\Psi(x,u(x))$ reparametrises a sub-arc of $\Gamma_P$ containing the tip (the arc $\Gamma_{\rm tip}$ of \fn{continuation_v38.tex} \S2). \emph{(GS$^\circ$) at $P$}: the same with $\sup|ku|<1$, $\sup|u'|<2$ (open, relaxed; \fn{GS_lemma_v38.tex} Definition GS). Text v37 had $X_S=60\frac14$; nothing in this file uses $u$ on $(60,60\frac14]$ (\fn{GS_lemma_v38.tex} \S1; review fix15 D-1).
+\item \emph{(G) at $P$}: the ray-graph statement of \fn{continuation_v33.tex} Definition~G on $y\in[14,700]$ (slope $|f|\le\frac12$).
+\end{itemize}
+\end{definition}
+
+\begin{lemma}[smooth dependence of the graph functions]\label{U:lem:graph}
+The set $\mathcal O_{GS}$ of $P$ at which (GS$^\circ$) holds is open, and on it $u=\mathcal U(t,\lambda,\xi;x)$ is $C^\infty$ jointly in $(t,\lambda,\xi,x)$; the same holds for (GS) with a gap (Lemma GS-3 of \fn{GS_lemma_v38.tex}, which treats the endpoints $x=\pm60$). The same holds for the ray-graph height $h=\mathcal H(t,\lambda,\xi;y)$ and its slope $f=\partial_y\mathcal H$ under (G), and both are even in the sense $\mathcal U(\cdot;-x)=\mathcal U(\cdot;x)$.
+\end{lemma}
+\begin{proof}\tH\ $G(t,\lambda,\xi,\theta):=(\Phi(t-t_1,\theta)-\xi e_1)/\lambda$ is $C^\infty$ on $[t_1,t_1+T)\times(0,\infty)\times\mathbb R\times\mathbb S^1$ for every $T<T_{\max}$ (Lemma~\ref{U:lem:max}). Write $\Psi^{-1}\circ G=(X,N)$ near the arc (well defined and smooth where $|kN|<1$, locally). Under (GS), $\theta\mapsto X(P,\theta)$ is a $C^1$ bijection from the parameter arc onto $[-X_S,X_S]$ with $C^1$ inverse $\theta(x)$; differentiating $X(P,\theta(x))=x$ gives $\partial_\theta X\ne0$. The implicit function theorem applied to $X(P,\theta)-x=0$ gives $\theta=\Theta(P,x)$ smooth near each point, hence $\mathcal U=N(P,\Theta(P,x))$ smooth; the local solutions agree on overlaps by uniqueness of $\theta(x)$, and compactness of $[-X_S,X_S]$ gives a uniform neighbourhood of $P$ on which (GS) holds strictly. Evenness: Lemma~\ref{U:lem:sym}, $\xi e_1$ on the axis, and $S_1$ even. The ray chart is the same argument with $\Psi$ replaced by the affine normal coordinates of the ray.
+\end{proof}
+
+\noindent\emph{Frame and modulation equations} (convention of \fn{step3_proof_v32.tex} \S1.1). Along a $C^1$ path $P(\tau)$ with
+\begin{equation}\label{U:eq:ode}
+t'=\lambda^4,\qquad\lambda'=-(\tfrac14-a)\lambda,\qquad\xi'=-\lambda b,\qquad\alpha'=\tilde\lambda\alpha+\beta ,
+\end{equation}
+$\Gamma(\tau):=\Gamma_{P(\tau)}$ satisfies $\ip{\Gamma_\tau}{\nu}=-\kappa_{ss}+(\frac14-a)\ip\Gamma\nu+b\ip{e_1}\nu$ (\tS\ S5 with the scaling of $\kappa_{ss}$; the velocity of $\gamma$ is $-k_{ss}N$ by Lemma~\ref{U:lem:vel}). The sign of $b$ is fixed by this formula; the verifier uses only $|a|,|b|,|\beta|$. With $w(\tau,\cdot)=u-\alpha\hat\psi_3-\alpha^2\hat h_2$, $\tilde w=\chi w$, the constraints are $c_j(P):=\ip{\chi(\mathcal U(P;\cdot)-\alpha\hat\psi_3-\alpha^2\hat h_2)}{f_j}_\rho=0$, $j=1,2,3$, with the fixed functions $f_j$ of \fn{step3_proof_v32.tex} \S3.1.
+
+\begin{proposition}[(P2$'$): modulation]\label{U:prop:mod}
+Let $\mathfrak B$ be the closed set $\mathfrak B_{\rm mod}$ of \fn{bootstrap_v38.tex} (Definition BS): the $P$ at which (GS) holds, the modulation validity box holds ($|\alpha|\le5\cdot10^{-4}$, $A,W_1\le10^{-3}$, $|w|,|w'|,|w''|\le0.02$ on $\sigma\in[29,32]$), and B1 holds in the form of the flux lemma, $\Lambda\le L(\tau)+2C'$ on the march and $\le\ell(\tau)+2C'$ in the tail (review fix15 D-5; text v38 had $\sqrt\Lambda\le\sqrt{\Lambda_{\rm bar}}$). Assume (S4.1)--(S4.3). Then:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item on the open set $\mathcal O:=\{P\in\mathcal O_{GS}:\ (m_{ij}(P))\text{ invertible}\}\supset\mathfrak B$ (defined through (GS$^\circ$), review C-5) there are $C^\infty$ functions $(a,b,\beta)=\mathcal A(P)$ such that every $C^1$ solution of \eqref{U:eq:ode} with $(a,b,\beta)=\mathcal A(P)$ keeps $c_j(P(\tau))$ constant;
+\item \eqref{U:eq:ode} with $(a,b,\beta)=\mathcal A(P)$ and $P(\tau_1)=P_1$ has a unique maximal $C^1$ solution $P:[\tau_1,\tau_{\rm mod})\to\mathcal O$, and $c_j\equiv0$ along it;
+\item \emph{(continuation)} if $\tau_{\rm mod}<\infty$ and $P(\tau)\in\mathfrak B$ for all $\tau\in[\tau_1,\tau_{\rm mod})$, then $t(\tau)\uparrow t_1+T_{\max}$ as $\tau\uparrow\tau_{\rm mod}$; in that case $T_{\max}=\int_{\tau_1}^{\tau_{\rm mod}}\lambda^4d\tau$.
+\end{enumerate}
+So the modulation exists as long as the physical solution exists and the bootstrap box holds, and the end $\tau_{\max}$ of the rescaled interval in \fn{continuation_v33.tex} is $\tau_{\rm mod}$, with $t(\tau_{\max}^-)=t_1+T_{\max}$ whenever $\tau_{\max}<\infty$ and the bootstrap holds up to $\tau_{\max}$.
+\end{proposition}
+\begin{proof}\tH\ (a) By Lemma~\ref{U:lem:graph}, $c_j$ is $C^\infty$ in $(t,\lambda,\xi)$ and polynomial in $\alpha$ (the integrand is supported in $|x|\le34.25$, a compact set, and $f_j\rho$ is fixed). Along \eqref{U:eq:ode},
+\[
+\tfrac{d}{d\tau}c_j=r_j(P)+a\,m_{1j}(P)+b\,m_{2j}(P)+\beta\,m_{3j}(P),
+\]
+$r_j=\lambda^4\partial_tc_j-\frac\lambda4\partial_\lambda c_j+\tilde\lambda\alpha\,\partial_\alpha c_j$, $m_{1j}=\lambda\partial_\lambda c_j$, $m_{2j}=-\lambda\partial_\xi c_j$, $m_{3j}=\partial_\alpha c_j$, all $C^\infty$. Written with the graph equation \tR, $\sum_ix_im_{ij}=-r_j$ is the system $x^T(G+E(u))=R$ of \fn{MOD_IBP.md} / \fn{E0_LEMMA_v4c_v38.tex} (``Setting''), with $G$ the fixed Gram matrix and $E$ the state part; the Neumann bound $\|G^{-1}E\|\le\nu\le0.0466<1$ on the validity box \tR\ makes $(m_{ij})$ invertible on $\mathfrak B$; $\mathcal O$ is open because $\mathcal O_{GS}$ is open (Lemma~\ref{U:lem:graph}) and invertibility is an open condition on the continuous matrix $(m_{ij})$. Put $\mathcal A=-(m^T)^{-1}r$.
+(b) The right side of \eqref{U:eq:ode} is $C^1$ on $\mathcal O$: Picard--Lindel\"of and the usual maximal extension. $c_j(P(\tau_1))=0$ by (S4.3) and $\frac{d}{d\tau}c_j=0$.
+(c) Suppose not: $t$ is increasing ($t'=\lambda^4>0$), so $t(\tau)\to t_*<t_1+T_{\max}$. On $\mathfrak B$ the modulation lemma bounds $|a|,|b|,|\beta|$ by a constant $\bar c$ (the box bounds $A,W_1$, and B1 bounds $B=\|\tilde w''\|_\rho$; \fn{MOD_IBP.md} final inequalities \tR). Hence on $[\tau_1,\tau_{\rm mod})$: $\lambda\in[\lambda_1e^{-(\frac14+\bar c)(\tau_{\rm mod}-\tau_1)},\lambda_1e^{\bar c(\tau_{\rm mod}-\tau_1)}]$, $|\xi-\xi_1|\le\bar c\,\lambda_1e^{\bar c(\tau_{\rm mod}-\tau_1)}(\tau_{\rm mod}-\tau_1)$, $|\alpha|\le5\cdot10^{-4}$. The set $K:=\mathfrak B\cap\{t\in[t_1,t_*],\ \lambda,\xi\text{ in these ranges}\}$ is bounded, and closed: a limit of $P_n\in K$ has $t\le t_*<t_1+T_{\max}$, so $\Gamma_{P_n}\to\Gamma_P$ in $C^\infty$; the graph functions converge in $C^1$ with the same bounds, so (GS) holds at $P$ (the limit argument of Lemma GS-4 of \fn{GS_lemma_v38.tex}), and the box inequalities are closed conditions in $P$ (they are continuous functions of $P$ by Lemma~\ref{U:lem:graph}). So $K$ is a compact subset of $\mathcal O$ that contains $P(\tau)$ for all $\tau<\tau_{\rm mod}<\infty$, which is impossible for a maximal solution of a $C^1$ ODE. The last identity is $t'=\lambda^4$.
+\end{proof}
+
+%======================================================================
+\section{The theorem}\label{U:sec:thm}
+Let $B$ be the finite set of $x$ where one of $\hat\psi_3^{(5)},\hat h_2^{(5)},\chi'''',\zeta''''$ jumps ($B\subset[-34.25,34.25]\cup\{\pm57,\pm60\}$, even). $\mathrm{IR}=[10.25,16.25]$, $\mathrm{OR}=[57,60]$, $g=w'$, $v=\zeta g$, $D_2v=(Wv'')''/W$, and $V_j,E,E_I,\Lambda,A,W_1,B,W_3,D_4$, $E^A_j$, $z^A_k$, $N_l,M_l,s_2,K^{\rm OR}_0,K^{\rm OR}_2,\varphi_2$ as in \fn{EI_SPEC.md} \S1, \fn{lemmaS_A_v33.tex} \S1 and \fn{flux2_lemma_v38.tex} \S\S1--3.
+
+\begin{theorem}[U-1]\label{U:thm}
+Assume (S4.1)--(S4.3). Let $\tau'<\tau_{\rm mod}$ and assume $P(\tau)\in\mathfrak B$ and (G) at $P(\tau)$ for $\tau\in[\tau_1,\tau']$. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item \emph{(unknowns)} $t,\lambda,\xi,\alpha\in C^1$ and $a,b,\beta\in C^1$ on $[\tau_1,\tau']$. $u(\tau,x)=\mathcal U(P(\tau);x)$: every $\partial_x^ku$ and $\partial_\tau\partial_x^ku=\partial_x^k\partial_\tau u$ is continuous on $[\tau_1,\tau']\times[-X_S,X_S]$, and $u$ is even in $x$. $w$: $\partial_x^kw$ and $\partial_\tau\partial_x^kw$ ($k\le4$) are continuous; $\partial_x^5w$ is continuous on $[\tau_1,\tau']\times([-X_S,X_S]\setminus B)$ and bounded. Hence $g,v\in C^3$ in $x$ with $g'''$, $v'''$ Lipschitz in $x$ uniformly in $\tau$, and $g'''',v''''$ bounded and continuous off $B$; on $\mathrm{OR}\cup[28,60]$ ($\hat\psi_3,\hat h_2$ smooth there) $g$ is $C^\infty$ in $x$. The $w$-equation and the $v$-equation (T1)--(T12) of \fn{EI_SPEC.md} \S2 hold pointwise on $[\tau_1,\tau']\times([-X_S,X_S]\setminus B)$.
+\item \emph{(verifier energies)} $A^2,B^2,E,V_0^2,V_2^2,E_I,\Lambda\in C^1([\tau_1,\tau'])$, and for \emph{every} $\tau$:
+$\frac12\frac{d}{d\tau}A^2=\ip{\chi w_\tau}{\tilde w}_\rho$; $\frac12\frac{d}{d\tau}B^2=\ip{(\rho\tilde w'')''/\rho}{\chi w_\tau}_\rho$ (no boundary term); $\frac12\frac{d}{d\tau}V_0^2=\ip{v}{v_\tau}_W$; $\frac12\frac{d}{d\tau}V_2^2=\ip{D_2v}{v_\tau}_W$ with $D_2v=v''''-2\psi'v'''+(\psi'^2-\psi'')v''$ \tS\ S7 (defined off $B$, bounded); the level-0 integration by parts $\ip{v}{\zeta f'}_W=-\int(W\zeta v)'f$ for every $f\in C^1$ \tS\ S7; and the integrations by parts of \fn{MOD_IBP.md} (test functions $\Psi=\chi f_j\rho\in C^3$).
+\item \emph{(flux lemma)} for every $\tau$: $g(\tau,\cdot)\in C^\infty(\mathrm{OR})$, so $g''''(\tau,\cdot)\in L^2(\mathrm{OR})$; $M_l,N_l$ ($l\le4$), $s_2$, $K^{\rm OR}_0,K^{\rm OR}_2$, $\varphi_2$ are continuous on $[\tau_1,\tau']$, hence $\varphi=\mu\varepsilon_I\varphi_2\in L^1$ of every window; Agmon $s_2^2\le\frac13M_2^2+2M_2M_3$ holds for every $\tau$; the inequality (F:eq:star) of \fn{flux2_lemma_v38.tex} holds at every $\tau$; and the hypotheses ``$\Lambda$ absolutely continuous, $\varphi\ge0$ integrable'' of the absorption lemma hold.
+\item \emph{(Lemma S(A), Lemma U)} $E^A_j\in C^1([\tau_1,\tau'])$, $z^A_k$ is continuous in $(\tau,s)$ and $C^\infty$ in $s$ on $[\ln14,\ln700]$, the identities of \fn{lemmaS_A_v33.tex} \S2 (with the point terms of its Lemma~P) hold at every $\tau$, so the level-$j$ inequality (D1) there holds at every $\tau$; the window integrals $X_k(\tau_a,T)$ and $\int_{\tau_a}^{\tau_a+T}V_m^2$ are continuous in $(\tau_a,T)$. The same regularity holds for every energy of the form $\int\Theta(\tau,s)(\partial_s^kv)^2ds$ with $\Theta$ continuous, $C^1$ in $\tau$ and compactly supported in the region where (G) holds (the window energies of Lemma~U and the zone-III energies).
+\end{enumerate}
+\end{theorem}
+
+\subsection{Two calculus facts}
+\begin{lemma}[differentiation]\label{U:lem:leib}
+Let $K$ be compact, $\Theta,\phi:[\tau_1,\tau']\times K\to\mathbb R$ continuous with $\partial_\tau\Theta,\partial_\tau\phi$ continuous on $[\tau_1,\tau']\times(K\setminus B')$, bounded, $B'$ finite. Then $F(\tau)=\int_K\Theta\phi^2$ is $C^1$ with $F'=\int_K(\partial_\tau\Theta\,\phi^2+2\Theta\phi\,\partial_\tau\phi)$.
+\end{lemma}
+\begin{proof}\tH\ $F(\tau+h)-F(\tau)=\int_K\int_0^1\partial_\tau(\Theta\phi^2)(\tau+\vartheta h,x)\,d\vartheta\,h\,dx$ (fundamental theorem of calculus in $\tau$ for each $x\notin B'$); divide by $h$ and use dominated convergence; the derivative is continuous in $\tau$ by dominated convergence again.
+\end{proof}
+\begin{lemma}[integration by parts with piecewise data]\label{U:lem:ibp}
+If $p,q\in C^1([c,d])$ and $p',q'$ are Lipschitz, then $\int_c^dp\,q''=[p\,q'-p'q]_c^d+\int_c^dp''q$ (with $p''$, $q''$ the a.e.\ derivatives, bounded).
+\end{lemma}
+\begin{proof}\tH\ $p\,q'-p'q$ is Lipschitz with derivative $p\,q''-p''q$ a.e. (\tS\ S7 for the algebra); integrate.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{U:thm}}
+\emph{(a)} $P\in C^1$ and $\mathcal A\in C^\infty$ by Proposition~\ref{U:prop:mod}, so $(a,b,\beta)=\mathcal A(P(\tau))$ is $C^1$. $u=\mathcal U(P(\tau);x)$ with $\mathcal U\in C^\infty$ (Lemma~\ref{U:lem:graph}): the chain rule gives continuity of $\partial_x^ku$ and of $\partial_\tau\partial_x^ku=\nabla_P\partial_x^k\mathcal U\cdot P'$, which equals $\partial_x^k\partial_\tau u$. For $w=u-\alpha\hat\psi_3-\alpha^2\hat h_2$: $\hat\psi_3,\hat h_2\in C^4$, piecewise $C^\infty$ with bounded fifth derivative off $B_0$, and $\partial_\tau(\alpha\hat\psi_3^{(k)})=\alpha'\hat\psi_3^{(k)}$. Products with $\zeta,\chi\in C^3$ (bounded $\zeta'''',\chi''''$ off their break points) give the stated classes. The $w$-equation is the graph equation \tR\ minus the profile part, an identity between functions that are continuous off $B$ (it contains $u''''$, $\hat\psi_3''''$, continuous); differentiating it in $x$ off $B$ and multiplying by $\zeta$ gives (T1)--(T12), whose derivation in \fn{EI_SPEC.md} \S2.3 is pointwise algebra \tH\tS.
+
+\emph{(b)} Apply Lemma~\ref{U:lem:leib} on the compact supports ($|x|\le34.25$ for $\tilde w$; $[10.25,60]$ for $v$) with $\phi=\tilde w^{(j)},v^{(j)}$ ($j\le2$): $\partial_\tau\tilde w^{(j)}=\sum\binom ji\chi^{(j-i)}\partial_\tau w^{(i)}$ is continuous by (a). Then Lemma~\ref{U:lem:ibp} with $p=Wv''$ (so $p'=(Wv'')'$ is Lipschitz since $v'''$ is and $W\in C^4$) and $q=v_\tau=\zeta g_\tau$ ($g_\tau=\partial_xw_\tau\in C^3$ in $x$ since $w_\tau=u_\tau-\alpha'\hat\psi_3-(\alpha^2)'\hat h_2$ is $C^4$ in $x$), on $[10.25,60]$: the boundary terms contain $v_\tau,\partial_xv_\tau$ and $v'',v'''$, which vanish at $10.25$ and $60$ because $\zeta,\zeta',\zeta'',\zeta'''$ do. So $\int Wv''\partial_\tau v''=\int(Wv'')''\,v_\tau=\ip{D_2v}{v_\tau}_W$; the formula for $D_2v$ is S7. For $B^2$: $\tilde w$ is supported in $|x|\le34.25$, $\tilde w'''$ is Lipschitz, $\rho$ is smooth, so the same computation on $[-34.25,34.25]$ has zero boundary terms; on the half line, the boundary terms at $x=0$ vanish by evenness ($\tilde w',\tilde w''',\rho'$ odd). The level-0 identity and the modulation-lemma integrations by parts are Lemma~\ref{U:lem:ibp} (first-order version) with $\zeta$, $\chi$ vanishing to third order at the ends. $\Lambda=E+\mu E_I$ is then $C^1$, in particular absolutely continuous.
+
+\emph{(c)} On $\mathrm{OR}$, $\hat\psi_3,\hat h_2$ are the smooth extensions ($x\ge28$), so $g=w'$ is $C^\infty$ in $x$ and $\partial_x^lg$ is jointly continuous for every $l$. $M_l^2=\int_{\mathrm{OR}}(\partial^lg)^2$, $N_l^2=\int_{\mathrm{OR}}W(\partial^lg)^2$ and $s_2=\max_{\mathrm{OR}}|g''|$ are continuous in $\tau$ (uniform continuity on the compact set). $K^{\rm OR}_0,K^{\rm OR}_2$ are integrals over $\mathrm{OR}$ of products of these with $\zeta^{(i)}$ (bounded, $\zeta''''$ with jumps only at $57,60$) and with coefficient functions continuous in $(\tau,x)$ (they depend on $u_0,w$ and their $x$-derivatives and on $a,b$): continuous by dominated convergence. $\varphi_2$ is a polynomial in $N_3,N_4,s_2$ with fixed coefficients (\fn{flux2_lemma_v38.tex}, Lemma ``flux lemma v2''(c)): continuous. Agmon on an interval of length $3$: for $f=g''\in C^1$, choose $x_0$ with $f(x_0)^2\le\frac13\int f^2$; then $f(x)^2=f(x_0)^2+\int_{x_0}^x2ff'\le\frac13M_2^2+2M_2M_3$ (S8). (F:eq:star) is the $E_I$ inequality of the verifier with $K^{\rm OR}$ bounded by the flux lemma; it is an inequality between continuous functions of $\tau$ obtained from the identities of (b), which hold at every $\tau$.
+
+\emph{(d)} By Lemma~\ref{U:lem:graph}, $f(\tau,y)=\partial_y\mathcal H(P(\tau);y)$ is $C^\infty$ in $y$ with $\partial_\tau\partial_y^kf$ continuous, and $U(\alpha(\tau),y)=1.3056\,\alpha(\tau)y^{1.0246}$ is $C^\infty$ in $y>0$, $C^1$ in $\tau$. So $z^A_k=\partial_s^k(f-U)$ ($s=\ln y$) has continuous $\partial_\tau z^A_k$ on $[\tau_1,\tau']\times[\ln14,\ln700]$. Lemma~\ref{U:lem:leib} with $\Theta=\omega\eta_A^2$ gives $E^A_j\in C^1$. Every integration by parts in \fn{lemmaS_A_v33.tex} \S2 is of a smooth $z$-product against a coefficient that is continuous and piecewise $C^1$ (with $\eta_{\rm in},\eta_o\in C^2$, $S'''$ jumping at the ends of the ramps); on each piece Lemma~\ref{U:lem:ibp} applies, and the interior point contributions are exactly the point terms of its Lemma~P \tI. $X_k(\tau_a,T)=\int_{\tau_a}^{\tau_a+T}x_k$ with $x_k(\tau)=\int\varepsilon\omega(z^A_{k+2})^2$ continuous, so $X_k$ is continuous in $(\tau_a,T)$; likewise for $V_m^2$ (continuous by (b) and dominated convergence for $V_4$). The last sentence is Lemma~\ref{U:lem:leib} again (the window weights of Lemma~U depend on $\tau$ through $s-s_\rho(\tau)$, smoothly). \qed
+
+%======================================================================
+\section{What is not proved here}\label{U:sec:gaps}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{(S4.1) smoothness at $t_1$}: \emph{closed in text v38} by Theorem C-1 of \fn{C1_identification_v38.tex} (identification of the step-4 solution with the smooth Lean flow from $\Gamma_0$, uniqueness in $C^0H^5\cap C^1L^2$ re-proved there by Gr\"onwall, P2 in the a-priori form of its Lemma (P2-a)); it inherits the Lean and DKS caveats below and C-1's own gap list.
+\item \textbf{Lean.} (L1), (L2) are read from source at commit \fn{d72b744}, not compiled here, and the instance $E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$ is not elaborated in Lean here. Closure of \fn{IsFlow} under $\sigma\circ\cdot\circ\iota$ (Lemma~\ref{U:lem:sym}) and the gluing Lemma~\ref{U:lem:glue} are mathematical arguments, not Lean lemmas. Suggested Lean check for Micah: instantiate both theorems at \fn{E := EuclideanSpace R (Fin 1)}, \fn{M := sphere (0 : EuclideanSpace R (Fin 2)) 1}, \fn{V := C}, \fn{J := I}-multiplication, and state \fn{IsFlow.shift}/gluing.
+\item \textbf{DKS (D1)} is a step inside the proof of Theorem~3.1, not its statement (\fn{P1_CONFIRMATION.md} \S1, ``Smoothness up to and beyond $T$''). It is standard and explicitly written there.
+\item \textbf{(GS)}: \emph{closed in text v38}. At $\tau_1$ by Lemma GS-1 of \fn{GS_lemma_v38.tex} \tI\ (certified, \fn{GS_tau1.json}); in the bootstrap as a member of $\mathrm{BS}$ (\fn{bootstrap_v38.tex}), with strict improvement GS-2 (\fn{GS_boot_v4c.json}), openness GS-3 and closedness GS-4. Step~4's hand-off list should name GS next to (H1) (step-4 wording, open).
+\item \textbf{Read, not re-derived:} the graph equation (\fn{graph_eq.py}, \fn{graph_struct.pkl}); the identification of $(m_{ij})$ with $G+E$ and the Neumann bound $\nu\le0.0466$ (\fn{MOD_IBP.md}); the $C^4$ matching of $\hat\psi_3,\hat h_2$ (\fn{c4fun.py}).
+\item \textbf{Everything else} (Lemmas~\ref{U:lem:glue}--\ref{U:lem:ibp}, Proposition~\ref{U:prop:mod}, Theorem~\ref{U:thm}) is \tH, using the \tS\ identities S1--S8.
+\end{enumerate}
+\end{document}

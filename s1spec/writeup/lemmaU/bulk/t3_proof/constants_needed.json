@@ -1,0 +1,621 @@
+{
+ "files": {
+  "A": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A_v33/out/A_interface.json",
+   "sha256": "5237a96a1c6ca873e0f6f214f413c1a39996002155b8f128920d9cdacb087aa4"
+  },
+  "U": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/U_cert_v33.json",
+   "sha256": "42cf9617941456e36230720674f571e448432d8e0a06a9bab492e75edc6caea5"
+  },
+  "Z": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json",
+   "sha256": "0d6338d0f8580cd0cc3c2b0f829b412f8ca0be37f077173023fe447fe382c754"
+  }
+ },
+ "constants": [
+  {
+   "symbol": "kappa_J",
+   "file": "A",
+   "key": "HJW.kappa_J",
+   "producer_task": 2,
+   "used_in": "Lemma HJ, Lemma D (D2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "E^{A,0}",
+   "file": "A",
+   "key": "res.tight.EA0",
+   "producer_task": 2,
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "A rule",
+   "file": "A",
+   "key": "res.tight.EA_of_N2",
+   "producer_task": 2,
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "kappa^o_{jk}",
+   "file": "A",
+   "key": "res.tight.kappa_o",
+   "producer_task": 2,
+   "used_in": "Lemma D, closure",
+   "label": "cert"
+  },
+  {
+   "symbol": "gamma'",
+   "file": "A",
+   "key": "res.tight.gp",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "D^src",
+   "file": "A",
+   "key": "res.tight.Dsrc",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "rho_J",
+   "file": "A",
+   "key": "res.tight.rhoJ",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "r_k",
+   "file": "A",
+   "key": "res.tight.r_export",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "a_c",
+   "file": "A",
+   "key": "res.tight.amin_c",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "F_k",
+   "file": "A",
+   "key": "res.tight.F2",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "coup_k",
+   "file": "A",
+   "key": "res.tight.coup",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C1^0",
+   "file": "A",
+   "key": "res.tight.C1_0",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C0 rule",
+   "file": "A",
+   "key": "res.tight.C0_rule",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C1 rule",
+   "file": "A",
+   "key": "res.tight.C1_rule",
+   "producer_task": 2,
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "E^A(tau_1)",
+   "file": "A",
+   "key": "res.tight.IC",
+   "producer_task": 2,
+   "used_in": "Prop closure (K6)",
+   "label": "cert"
+  },
+  {
+   "symbol": "flux margins beta_A=2",
+   "file": "A",
+   "key": "res.tight.core.flux_margin.2",
+   "producer_task": 2,
+   "used_in": "Prop closure (K1)",
+   "label": "cert"
+  },
+  {
+   "symbol": "core margins",
+   "file": "A",
+   "key": "res.tight.core.margins",
+   "producer_task": 2,
+   "used_in": "Prop closure (K1)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Nbar rule",
+   "file": "A",
+   "key": "lemmaN",
+   "producer_task": 2,
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "segments",
+   "file": "A",
+   "key": "segments",
+   "producer_task": 2,
+   "used_in": "Prop closure (K4)",
+   "label": "cert"
+  },
+  {
+   "symbol": "point-term routes of (A)",
+   "file": "A",
+   "key": "pointterm",
+   "producer_task": 2,
+   "used_in": "Step 0 remark (A side)",
+   "label": "cert"
+  },
+  {
+   "symbol": "abar,bbar,betabar",
+   "file": "U",
+   "key": "inputs.abar / inputs.betabar",
+   "producer_task": 4,
+   "used_in": "Lemma dU, T, Prop U",
+   "label": "cert"
+  },
+  {
+   "symbol": "c_dU",
+   "file": "U",
+   "key": "launch.c_dU",
+   "producer_task": 4,
+   "used_in": "Lemma dU, launch, N",
+   "label": "cert"
+  },
+  {
+   "symbol": "w_min",
+   "file": "U",
+   "key": "launch.wmin",
+   "producer_task": 4,
+   "used_in": "Lemma W, N, launch",
+   "label": "cert"
+  },
+  {
+   "symbol": "C_A^D",
+   "file": "U",
+   "key": "launch.CA_D",
+   "producer_task": 4,
+   "used_in": "Lemma launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "q^D",
+   "file": "U",
+   "key": "launch.qD",
+   "producer_task": 4,
+   "used_in": "Lemma launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^in",
+   "file": "U",
+   "key": "launch.Delta_in",
+   "producer_task": 4,
+   "used_in": "Lemma launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "c_2,c_3",
+   "file": "U",
+   "key": "launch.c2 / launch.c3 / launch.c23_cells",
+   "producer_task": 4,
+   "used_in": "Lemma launch (a)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Phi_j",
+   "file": "U",
+   "key": "launch.Phi (late), margins.present_rows",
+   "producer_task": 4,
+   "used_in": "Prop U Step 9",
+   "label": "cert"
+  },
+  {
+   "symbol": "Gamma_m(Theta phi)",
+   "file": "U",
+   "key": "Gamma",
+   "producer_task": 4,
+   "used_in": "Lemma T remark, Step 1",
+   "label": "cert"
+  },
+  {
+   "symbol": "kappa~, kappa2~",
+   "file": "U",
+   "key": "kappa / kappa2",
+   "producer_task": 4,
+   "used_in": "Step 1",
+   "label": "cert"
+  },
+  {
+   "symbol": "Ghat_{jk}",
+   "file": "U",
+   "key": "Ghat",
+   "producer_task": 4,
+   "used_in": "Step 1, 2, 7",
+   "label": "cert"
+  },
+  {
+   "symbol": "g",
+   "file": "U",
+   "key": "g",
+   "producer_task": 4,
+   "used_in": "Steps 1-2",
+   "label": "cert"
+  },
+  {
+   "symbol": "D(56), D(28)",
+   "file": "U",
+   "key": "D56 / D28",
+   "producer_task": 4,
+   "used_in": "Steps 2, 4, 7",
+   "label": "cert"
+  },
+  {
+   "symbol": "theta(28)",
+   "file": "U",
+   "key": "theta28",
+   "producer_task": 4,
+   "used_in": "(U2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "rate margin (R2)",
+   "file": "U",
+   "key": "rate_margin",
+   "producer_task": 4,
+   "used_in": "(U2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "(R<2) margins",
+   "file": "U",
+   "key": "R_lt2_margin",
+   "producer_task": 4,
+   "used_in": "(U2), Step 7",
+   "label": "cert"
+  },
+  {
+   "symbol": "K_{jk}",
+   "file": "U",
+   "key": "K",
+   "producer_task": 4,
+   "used_in": "Step 3",
+   "label": "cert"
+  },
+  {
+   "symbol": "footw",
+   "file": "U",
+   "key": "footw",
+   "producer_task": 4,
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "c33",
+   "file": "U",
+   "key": "c33",
+   "producer_task": 4,
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "c223",
+   "file": "U",
+   "key": "c223",
+   "producer_task": 4,
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "C_eta",
+   "file": "U",
+   "key": "C_eta",
+   "producer_task": 4,
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "L_max",
+   "file": "U",
+   "key": "L_max",
+   "producer_task": 4,
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "R",
+   "file": "U",
+   "key": "R_ratio",
+   "producer_task": 4,
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "Sigma_in, Sigma_E, S_X, Sigma_X, Sigma_rs",
+   "file": "U",
+   "key": "sweeps",
+   "producer_task": 4,
+   "used_in": "Def sweeps, Steps 2, 6",
+   "label": "cert"
+  },
+  {
+   "symbol": "D_k (late)",
+   "file": "U",
+   "key": "data_terms_late",
+   "producer_task": 4,
+   "used_in": "Prop Xterm",
+   "label": "cert"
+  },
+  {
+   "symbol": "C0, C1",
+   "file": "U",
+   "key": "supersolution.C0 / supersolution.C1",
+   "producer_task": 4,
+   "used_in": "Prop U, closure",
+   "label": "cert"
+  },
+  {
+   "symbol": "Ehat",
+   "file": "U",
+   "key": "supersolution.EA",
+   "producer_task": 4,
+   "used_in": "closure (K1)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Bhat",
+   "file": "U",
+   "key": "supersolution.Bhat",
+   "producer_task": 4,
+   "used_in": "closure (K2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Nbar^2",
+   "file": "U",
+   "key": "supersolution.N2",
+   "producer_task": 4,
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "K1,K2,K3",
+   "file": "U",
+   "key": "supersolution.K1_ok / K2_ok / K3_ok",
+   "producer_task": 4,
+   "used_in": "closure",
+   "label": "cert"
+  },
+  {
+   "symbol": "M1z checks",
+   "file": "U",
+   "key": "supersolution.M1z_hyp_check",
+   "producer_task": 4,
+   "used_in": "Sec. M1z, (U1)",
+   "label": "cert"
+  },
+  {
+   "symbol": "M1z, box",
+   "file": "U",
+   "key": "box",
+   "producer_task": 4,
+   "used_in": "Sec. zones",
+   "label": "cert"
+  },
+  {
+   "symbol": "window margins",
+   "file": "U",
+   "key": "margins",
+   "producer_task": 4,
+   "used_in": "closure (K3)",
+   "label": "cert"
+  },
+  {
+   "symbol": "loop gain",
+   "file": "U",
+   "key": "loop_gain",
+   "producer_task": 4,
+   "used_in": "Def gain",
+   "label": "cert"
+  },
+  {
+   "symbol": "U-fine Bhat",
+   "file": "U",
+   "key": "ufine.Bhat",
+   "producer_task": 4,
+   "used_in": "Prop U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "S33+foot share",
+   "file": "U",
+   "key": "S33_foot_over_Bhat2",
+   "producer_task": 4,
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "b0,b1,bz (Z1)",
+   "file": "Z",
+   "key": "box_III_380",
+   "producer_task": 5,
+   "used_in": "(U1), Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Z2 box",
+   "file": "Z",
+   "key": "box_III_700",
+   "producer_task": 5,
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "n_III",
+   "file": "Z",
+   "key": "n_III",
+   "producer_task": 5,
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "tau_III",
+   "file": "Z",
+   "key": "tau_III",
+   "producer_task": 5,
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "N_k^2 outer ramp",
+   "file": "Z",
+   "key": "DeltaR_detail.N_sq",
+   "producer_task": 5,
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "pieces / members",
+   "file": "Z",
+   "key": "DeltaR_detail.pieces",
+   "producer_task": 5,
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^R",
+   "file": "Z",
+   "key": "DeltaR",
+   "producer_task": 5,
+   "used_in": "Prop U, Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^{R,b}",
+   "file": "Z",
+   "key": "DeltaR_b",
+   "producer_task": 5,
+   "used_in": "Lemma T(iv)",
+   "label": "cert"
+  },
+  {
+   "symbol": "covering",
+   "file": "Z",
+   "key": "acceptance.covering_asserts",
+   "producer_task": 5,
+   "used_in": "Step 8, B4",
+   "label": "cert"
+  },
+  {
+   "symbol": "U-fine K2, K3",
+   "file": "Z",
+   "key": "ufine.K2_at_Bhat_ref / ufine.K3_strip_at_Bhat_ref",
+   "producer_task": 5,
+   "used_in": "Prop U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "H6 margins",
+   "file": "Z",
+   "key": "cone_family.H6.at_Bhat_ref",
+   "producer_task": 5,
+   "used_in": "Prop U-fine, (K5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "t* margin",
+   "file": "Z",
+   "key": "acceptance.tstar_margin",
+   "producer_task": 5,
+   "used_in": "(K5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "hand-off list",
+   "file": "Z",
+   "key": "handoff_thresholds",
+   "producer_task": 5,
+   "used_in": "Sec. hyp",
+   "label": "cert"
+  },
+  {
+   "symbol": "inputs_used",
+   "file": "Z",
+   "key": "inputs_used",
+   "producer_task": 5,
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "H2 (tightened)",
+   "value": "(1e-8,1e-6,1e-3)",
+   "producer_task": 6,
+   "used_in": "launch (a), K6",
+   "label": "hyp"
+  },
+  {
+   "symbol": "H3",
+   "value": "(2e-7,1e-5,1e-5)",
+   "producer_task": 6,
+   "used_in": "launch (a)",
+   "label": "hyp"
+  },
+  {
+   "symbol": "H2f",
+   "value": "(1e-6,5e-6,1e-5)",
+   "producer_task": 6,
+   "used_in": "K6 (datum of (A))",
+   "label": "hyp"
+  },
+  {
+   "symbol": "alpha_1",
+   "value": "1.5e-4",
+   "producer_task": 6,
+   "used_in": "Lemma dU",
+   "label": "hyp"
+  },
+  {
+   "symbol": "fixed-L cylinder data (H5, H1, H4, H7)",
+   "value": "zone3 step4_reruns",
+   "producer_task": 6,
+   "used_in": "B4 at tau_1",
+   "label": "hyp"
+  },
+  {
+   "symbol": "c'_j",
+   "value": "(0.0520,0.1446,0.4324)",
+   "source": "step3_proof_v32.tex Prop. B' l.245",
+   "used_in": "Step 9",
+   "label": "paper"
+  }
+ ],
+ "note": "keys relative to the file; A keys under res.tight unless they start with HJW, lemmaN, segments, pointterm"
+}

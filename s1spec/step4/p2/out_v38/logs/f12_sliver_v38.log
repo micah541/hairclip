@@ -1,0 +1,353 @@
+closed-tree snapshot: 824 files
+PASS v38 rate table rate_table_fin13v4c_a0.00015.json: all 12 input pins match the disk {}
+PASS v38 rate table rate_table_fin13v4c_a0.00015.json pins strip_cubic_v4c.json (D-3, H8) at its current sha256 "15ccc9cb20f95ee6ad5447886846aaeadc1914c28a8ab8b759485ce13d2707cc"
+PASS v38 rate table rate_table_fin13v4c_a0.00015.json: TAG fin13v4c, V4C = 1, FLUX0/FLUX2 = 1.64e-20/8.0e-20 
+PASS v38 rate table rate_table_fin13v4c_a0.000125.json: all 12 input pins match the disk {}
+PASS v38 rate table rate_table_fin13v4c_a0.000125.json pins strip_cubic_v4c.json (D-3, H8) at its current sha256 "15ccc9cb20f95ee6ad5447886846aaeadc1914c28a8ab8b759485ce13d2707cc"
+PASS v38 rate table rate_table_fin13v4c_a0.000125.json: TAG fin13v4c, V4C = 1, FLUX0/FLUX2 = 1.64e-20/8.0e-20 
+PASS v38 rate table rate_table_fin13v4c_a0.00015.json: all 18 box-hypothesis max ratios <= 1 (incl. D-2a CF_*) {"Bb_IR_jet": 0.7475057733935293, "Bc_w1_far_EI": 0.058028246813931206, "Bc_w1_far_S0V": 0.7649999999999999, "Bd_w_16_34": 0.02953517951670946, "Bd_w_34_60": 0.7891314071814564, "U3_strip_S0": 0.02953517951670946, "U3_strip_S1": 0.058028246813931206, "U3_strip_S2": 0.7729604161098664, "Bf_mod_alpha": 0.32, "Bf_mod_A": 5.308498612502412e-05, "Bf_mod_W1": 0.0006682638182848848, "E0_alpha": 0.64, "E0
+PASS v38 rate table rate_table_fin13v4c_a0.000125.json: all 18 box-hypothesis max ratios <= 1 (incl. D-2a CF_*) {"Bb_IR_jet": 0.7342298468594688, "Bc_w1_far_EI": 0.05699764776169283, "Bc_w1_far_S0V": 0.7649999999999999, "Bd_w_16_34": 0.029010625877940843, "Bd_w_34_60": 0.7891104250359056, "U3_strip_S0": 0.029010625877940843, "U3_strip_S1": 0.05699764776169283, "U3_strip_S2": 0.759232407493391, "Bf_mod_alpha": 0.26, "Bf_mod_A": 5.214218086392492e-05, "Bf_mod_W1": 0.0006563952526193053, "E0_alpha": 0.52, "E0_
+PASS v38 modsups: all input pins match the disk (incl. both rate tables) 
+PASS v38 chain v37 in-place outputs (t2_A, t4_cert, t5_zone3 out/) == runs/prod2 byte for byte []
+PASS v38 chain n1 (n1_chart_fin13v4c.json) == runs/prod2/n1 copy 
+PASS v38 stage 19 out_v38/n1_chart.json == chain n1_chart_fin13v4c.json (all keys but args) 
+F1 G_old [1.953825161706735e-14, 1.186231627487184e-09, 5.401250398502113e-05, 1.6394108735099475]
+F1 G_new [1.970043872467872e-14, 1.193608739779168e-09, 5.423617462992637e-05, 1.6428000799740832] ratio [1.0083010041425455, 1.0062189475655872, 1.0041410900884593, 1.0020673319415527]
+F2 {"sI2": 0.015459208322197328, "sI1": 0.001160564936278624, "sI2_sliver": 0.015459208322323057, "sI2_prime": 0.015459208322323057, "rel_increase": 8.132862627874877e-12, "M1_prime": 0.43285783302504566, "M1_verifier": 0.43285783302152525}
+n1 harness reproduces pinned; new sup_add [2.0863590211106523e-08, 4.4433423331072807e-07, 9.909102654575009e-06, 0.000230615254580774] pinned [2.0863590211106523e-08, 4.4433423331072807e-07, 9.909102654575005e-06, 0.00023061525458077368]
+asm design_N2ref: harness reproduces pinned; new run done
+asm design_N2ref4: harness reproduces pinned; new run done
+asm design_N20: harness reproduces pinned; new run done
+asm lo_N2ref: harness reproduces pinned; new run done
+asm hi_N2ref: harness reproduces pinned; new run done
+asm probe_N2ref: harness reproduces pinned; new run done
+asm design_pm3ibp: harness reproduces pinned; new run done
+PASS v38 U fixed point of chain v37: U pass 3 == pass 2 (all keys but args) 
+harnesses reproduce n1, 7 asm, A_interface, U_cert_v36_pass3, U_cert_for_zone3_v36, zone3; zone3 inputs of U unchanged; U pass 2 == pass 1 (fixed point)
+PASS n1 chart ok condition (ramp e < 2^-19, sup chi^add_0 <= 2e-7) {"e": 4.3881233015929833e-10, "sup_add0": 2.0863590211106523e-08}
+PASS n1 chart: beta22, beta_c, beta_c3 < 1e-6 (assembly_rep assert) 
+PASS asm design_N2ref tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm design_N2ref tight: margin S0v > 1 {"pinned": 2.7748158392149636, "new": 2.7748158390804805, "same_4digits": true}
+PASS asm design_N2ref tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.122734116999447, "new": 2.1227341168965674, "same_4digits": true}
+PASS asm design_N2ref tight: margin S1v_vs_0.6 > 1 {"pinned": 5.785458490309536, "new": 5.785458481664657, "same_4digits": true}
+PASS asm design_N2ref tight: margin M0core > 1 {"pinned": 5.456071503341321, "new": 5.456071503246785, "same_4digits": true}
+PASS asm design_N2ref tight: margin M1core > 1 {"pinned": 4.434285038511433, "new": 4.434285032651691, "same_4digits": true}
+PASS asm design_N2ref tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N2ref tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N2ref tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N2ref tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N2ref tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N2ref tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N2ref tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N2ref tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N2ref tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N2ref tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N2ref tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 5.41230658945195, "new": 5.412306589356392, "same_4digits": true}
+PASS asm design_N2ref tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 9.581519309126008, "new": 9.581519306917858, "same_4digits": true}
+PASS asm design_N2ref tight: flux 2 margin_FLUX0 > 1 {"pinned": 3.400565098111292, "new": 3.400565098051094, "same_4digits": true}
+PASS asm design_N2ref tight: flux 2 margin_FLUX2 > 1 {"pinned": 6.018811102816893, "new": 6.01881110142629, "same_4digits": true}
+PASS asm design_N2ref v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm design_N2ref v31: margin S0v > 1 {"pinned": 2.2832945889098455, "new": 2.2832945888521214, "same_4digits": true}
+PASS asm design_N2ref v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.7467203605160317, "new": 1.7467203604718728, "same_4digits": true}
+PASS asm design_N2ref v31: margin S1v_vs_0.6 > 1 {"pinned": 3.3790879992003515, "new": 3.3790879980158635, "same_4digits": true}
+PASS asm design_N2ref v31: margin M0core > 1 {"pinned": 5.066179670525981, "new": 5.0661796704743125, "same_4digits": true}
+PASS asm design_N2ref v31: margin M1core > 1 {"pinned": 2.72076846898241, "new": 2.7207684680963506, "same_4digits": true}
+PASS asm design_N2ref v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N2ref v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N2ref v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N2ref v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N2ref v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N2ref v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N2ref v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N2ref v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N2ref v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N2ref v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N2ref v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.605446299426015, "new": 4.6054462993568945, "same_4digits": true}
+PASS asm design_N2ref v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 7.227498651858063, "new": 7.227498650603672, "same_4digits": true}
+PASS asm design_N2ref v31: flux 2 margin_FLUX0 > 1 {"pinned": 2.8924291604051424, "new": 2.892429160361626, "same_4digits": true}
+PASS asm design_N2ref v31: flux 2 margin_FLUX2 > 1 {"pinned": 4.537067613554577, "new": 4.5370676127654015, "same_4digits": true}
+PASS asm design_N2ref4 tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm design_N2ref4 tight: margin S0v > 1 {"pinned": 2.767060238361284, "new": 2.7670602382273755, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.1168010823463823, "new": 2.116801082243942, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin S1v_vs_0.6 > 1 {"pinned": 5.745788596650604, "new": 5.745788588283295, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin M0core > 1 {"pinned": 5.450609837434274, "new": 5.450609837339803, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin M1core > 1 {"pinned": 4.40737433430604, "new": 4.407374328625439, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N2ref4 tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N2ref4 tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 5.362140441563586, "new": 5.362140441469796, "same_4digits": true}
+PASS asm design_N2ref4 tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 9.490479696995044, "new": 9.490479694828782, "same_4digits": true}
+PASS asm design_N2ref4 tight: flux 2 margin_FLUX0 > 1 {"pinned": 3.368963006899688, "new": 3.3689630068406067, "same_4digits": true}
+PASS asm design_N2ref4 tight: flux 2 margin_FLUX2 > 1 {"pinned": 5.961479109239311, "new": 5.961479107875138, "same_4digits": true}
+PASS asm design_N2ref4 v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm design_N2ref4 v31: margin S0v > 1 {"pinned": 2.2780654788397223, "new": 2.2780654787821777, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.7427200913123877, "new": 1.7427200912683658, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin S1v_vs_0.6 > 1 {"pinned": 3.373521571570428, "new": 3.373521570394497, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin M0core > 1 {"pinned": 5.061492657691271, "new": 5.061492657639621, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin M1core > 1 {"pinned": 2.7166040021994733, "new": 2.7166040013196096, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N2ref4 v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N2ref4 v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.569113430514812, "new": 4.569113430446781, "same_4digits": true}
+PASS asm design_N2ref4 v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 7.175665941922027, "new": 7.175665940685611, "same_4digits": true}
+PASS asm design_N2ref4 v31: flux 2 margin_FLUX0 > 1 {"pinned": 2.8695552753104443, "new": 2.8695552752676146, "same_4digits": true}
+PASS asm design_N2ref4 v31: flux 2 margin_FLUX2 > 1 {"pinned": 4.504458453393118, "new": 4.504458452615269, "same_4digits": true}
+PASS asm design_N20 tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm design_N20 tight: margin S0v > 1 {"pinned": 2.7774205571837607, "new": 2.7774205570490844, "same_4digits": true}
+PASS asm design_N20 tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.124726726245577, "new": 2.1247267261425495, "same_4digits": true}
+PASS asm design_N20 tight: margin S1v_vs_0.6 > 1 {"pinned": 5.798972226742642, "new": 5.798972218001457, "same_4digits": true}
+PASS asm design_N20 tight: margin M0core > 1 {"pinned": 5.457901405819884, "new": 5.457901405725327, "same_4digits": true}
+PASS asm design_N20 tight: margin M1core > 1 {"pinned": 4.443442555155641, "new": 4.443442549233819, "same_4digits": true}
+PASS asm design_N20 tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N20 tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N20 tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N20 tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N20 tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N20 tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N20 tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N20 tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N20 tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N20 tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N20 tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 5.429238677172911, "new": 5.429238677076753, "same_4digits": true}
+PASS asm design_N20 tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 9.612256629244401, "new": 9.612256627022017, "same_4digits": true}
+PASS asm design_N20 tight: flux 2 margin_FLUX0 > 1 {"pinned": 3.411231703850842, "new": 3.411231703790265, "same_4digits": true}
+PASS asm design_N20 tight: flux 2 margin_FLUX2 > 1 {"pinned": 6.038168329549876, "new": 6.0381683281502925, "same_4digits": true}
+PASS asm design_N20 v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm design_N20 v31: margin S0v > 1 {"pinned": 2.2850491244504685, "new": 2.2850491243926845, "same_4digits": true}
+PASS asm design_N20 v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.7480625802046084, "new": 1.7480625801604037, "same_4digits": true}
+PASS asm design_N20 v31: margin S1v_vs_0.6 > 1 {"pinned": 3.38095235095973, "new": 3.3809523497723637, "same_4digits": true}
+PASS asm design_N20 v31: margin M0core > 1 {"pinned": 5.067749446633282, "new": 5.067749446581607, "same_4digits": true}
+PASS asm design_N20 v31: margin M1core > 1 {"pinned": 2.7221630473738885, "new": 2.722163046485746, "same_4digits": true}
+PASS asm design_N20 v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_N20 v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_N20 v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_N20 v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_N20 v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_N20 v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_N20 v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_N20 v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_N20 v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_N20 v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_N20 v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.617686453103156, "new": 4.6176864530336665, "same_4digits": true}
+PASS asm design_N20 v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 7.244943560857969, "new": 7.244943559597499, "same_4digits": true}
+PASS asm design_N20 v31: flux 2 margin_FLUX0 > 1 {"pinned": 2.900135275306889, "new": 2.90013527526314, "same_4digits": true}
+PASS asm design_N20 v31: flux 2 margin_FLUX2 > 1 {"pinned": 4.548042784040561, "new": 4.5480427832475545, "same_4digits": true}
+PASS asm lo_N2ref tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm lo_N2ref tight: margin S0v > 1 {"pinned": 2.912075736830012, "new": 2.9120757366880974, "same_4digits": true}
+PASS asm lo_N2ref tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.2277379386749594, "new": 2.2277379385663942, "same_4digits": true}
+PASS asm lo_N2ref tight: margin S1v_vs_0.6 > 1 {"pinned": 5.785458501922299, "new": 5.78545849327742, "same_4digits": true}
+PASS asm lo_N2ref tight: margin M0core > 1 {"pinned": 5.549587281008948, "new": 5.549587280915239, "same_4digits": true}
+PASS asm lo_N2ref tight: margin M1core > 1 {"pinned": 4.43428504638289, "new": 4.4342850405231475, "same_4digits": true}
+PASS asm lo_N2ref tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm lo_N2ref tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm lo_N2ref tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm lo_N2ref tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm lo_N2ref tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm lo_N2ref tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm lo_N2ref tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm lo_N2ref tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm lo_N2ref tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm lo_N2ref tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm lo_N2ref tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 6.462169461095135, "new": 6.462169460958749, "same_4digits": true}
+PASS asm lo_N2ref tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 11.261423954603048, "new": 11.261423951549585, "same_4digits": true}
+PASS asm lo_N2ref tight: flux 2 margin_FLUX0 > 1 {"pinned": 4.062183104487211, "new": 4.06218310440123, "same_4digits": true}
+PASS asm lo_N2ref tight: flux 2 margin_FLUX2 > 1 {"pinned": 7.07708907816899, "new": 7.077089076244815, "same_4digits": true}
+PASS asm lo_N2ref v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm lo_N2ref v31: margin S0v > 1 {"pinned": 2.3780068419650346, "new": 2.3780068419046922, "same_4digits": true}
+PASS asm lo_N2ref v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.8191752341032514, "new": 1.8191752340570897, "same_4digits": true}
+PASS asm lo_N2ref v31: margin S1v_vs_0.6 > 1 {"pinned": 3.379088002613415, "new": 3.379088001428927, "same_4digits": true}
+PASS asm lo_N2ref v31: margin M0core > 1 {"pinned": 5.148909915929294, "new": 5.148909915877859, "same_4digits": true}
+PASS asm lo_N2ref v31: margin M1core > 1 {"pinned": 2.7207684715355605, "new": 2.7207684706495012, "same_4digits": true}
+PASS asm lo_N2ref v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm lo_N2ref v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm lo_N2ref v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm lo_N2ref v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm lo_N2ref v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm lo_N2ref v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm lo_N2ref v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm lo_N2ref v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm lo_N2ref v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm lo_N2ref v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm lo_N2ref v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 5.34314204288281, "new": 5.343142042789688, "same_4digits": true}
+PASS asm lo_N2ref v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 8.141855757237646, "new": 8.141855755644755, "same_4digits": true}
+PASS asm lo_N2ref v31: flux 2 margin_FLUX0 > 1 {"pinned": 3.3569952972974355, "new": 3.3569952972387753, "same_4digits": true}
+PASS asm lo_N2ref v31: flux 2 margin_FLUX2 > 1 {"pinned": 5.112435272088874, "new": 5.112435271086332, "same_4digits": true}
+PASS asm hi_N2ref tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm hi_N2ref tight: margin S0v > 1 {"pinned": 2.6633297497546953, "new": 2.6633297496262665, "same_4digits": true}
+PASS asm hi_N2ref tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.037447258562342, "new": 2.037447258464094, "same_4digits": true}
+PASS asm hi_N2ref tight: margin S1v_vs_0.6 > 1 {"pinned": 5.785458478698982, "new": 5.7854584700541025, "same_4digits": true}
+PASS asm hi_N2ref tight: margin M0core > 1 {"pinned": 5.375624866063628, "new": 5.3756248659685, "same_4digits": true}
+PASS asm hi_N2ref tight: margin M1core > 1 {"pinned": 4.434285030641473, "new": 4.434285024781731, "same_4digits": true}
+PASS asm hi_N2ref tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm hi_N2ref tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm hi_N2ref tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm hi_N2ref tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm hi_N2ref tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm hi_N2ref tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm hi_N2ref tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm hi_N2ref tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm hi_N2ref tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm hi_N2ref tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm hi_N2ref tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.656697453213839, "new": 4.656697453143165, "same_4digits": true}
+PASS asm hi_N2ref tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 8.338946308397357, "new": 8.338946306726164, "same_4digits": true}
+PASS asm hi_N2ref tight: flux 2 margin_FLUX0 > 1 {"pinned": 2.924696187594125, "new": 2.924696187549629, "same_4digits": true}
+PASS asm hi_N2ref tight: flux 2 margin_FLUX2 > 1 {"pinned": 5.236486408741156, "new": 5.236486407689243, "same_4digits": true}
+PASS asm hi_N2ref v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm hi_N2ref v31: margin S0v > 1 {"pinned": 2.2041432883168692, "new": 2.2041432882613385, "same_4digits": true}
+PASS asm hi_N2ref v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.6861696155624049, "new": 1.686169615519924, "same_4digits": true}
+PASS asm hi_N2ref v31: margin S1v_vs_0.6 > 1 {"pinned": 3.3790879957878066, "new": 3.3790879946033185, "same_4digits": true}
+PASS asm hi_N2ref v31: margin M0core > 1 {"pinned": 4.993834699818542, "new": 4.993834699766715, "same_4digits": true}
+PASS asm hi_N2ref v31: margin M1core > 1 {"pinned": 2.720768466429647, "new": 2.7207684655435878, "same_4digits": true}
+PASS asm hi_N2ref v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm hi_N2ref v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm hi_N2ref v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm hi_N2ref v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm hi_N2ref v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm hi_N2ref v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm hi_N2ref v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm hi_N2ref v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm hi_N2ref v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm hi_N2ref v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm hi_N2ref v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.047211557028803, "new": 4.047211556975462, "same_4digits": true}
+PASS asm hi_N2ref v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 6.49826794239669, "new": 6.4982679413832125, "same_4digits": true}
+PASS asm hi_N2ref v31: flux 2 margin_FLUX0 > 1 {"pinned": 2.5410586825131807, "new": 2.541058682479614, "same_4digits": true}
+PASS asm hi_N2ref v31: flux 2 margin_FLUX2 > 1 {"pinned": 4.07836386490325, "new": 4.0783638642658575, "same_4digits": true}
+PASS asm probe_N2ref tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page
+PASS asm probe_N2ref tight: margin S0v > 1 {"pinned": 3.437831740441895, "new": 3.4378317402654055, "same_4digits": true}
+PASS asm probe_N2ref tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.62994128143805, "new": 2.629941281303035, "same_4digits": true}
+PASS asm probe_N2ref tight: margin S1v_vs_0.6 > 1 {"pinned": 5.842543517521513, "new": 5.842543508773438, "same_4digits": true}
+PASS asm probe_N2ref tight: margin M0core > 1 {"pinned": 5.860115543638032, "new": 5.860115543544793, "same_4digits": true}
+PASS asm probe_N2ref tight: margin M1core > 1 {"pinned": 4.472934776412761, "new": 4.472934770496578, "same_4digits": true}
+PASS asm probe_N2ref tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm probe_N2ref tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm probe_N2ref tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm probe_N2ref tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm probe_N2ref tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm probe_N2ref tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm probe_N2ref tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm probe_N2ref tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm probe_N2ref tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm probe_N2ref tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm probe_N2ref tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 11.50629566240735, "new": 11.506295661972926, "same_4digits": true}
+PASS asm probe_N2ref tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 18.710991169139735, "new": 18.710991160677885, "same_4digits": true}
+PASS asm probe_N2ref tight: flux 2 margin_FLUX0 > 1 {"pinned": 7.246939140416927, "new": 7.2469391401422625, "same_4digits": true}
+PASS asm probe_N2ref tight: flux 2 margin_FLUX2 > 1 {"pinned": 11.77734949372259, "new": 11.777349488377544, "same_4digits": true}
+PASS asm probe_N2ref v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm probe_N2ref v31: margin S0v > 1 {"pinned": 2.7032710686049546, "new": 2.70327106853436, "same_4digits": true}
+PASS asm probe_N2ref v31: margin S0v_vs_0.0153 > 1 {"pinned": 2.0680023674827903, "new": 2.068002367428785, "same_4digits": true}
+PASS asm probe_N2ref v31: margin S1v_vs_0.6 > 1 {"pinned": 3.395809846228446, "new": 3.395809845036066, "same_4digits": true}
+PASS asm probe_N2ref v31: margin M0core > 1 {"pinned": 5.40493139036716, "new": 5.404931390315849, "same_4digits": true}
+PASS asm probe_N2ref v31: margin M1core > 1 {"pinned": 2.73327289809132, "new": 2.7332728971999836, "same_4digits": true}
+PASS asm probe_N2ref v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm probe_N2ref v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm probe_N2ref v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm probe_N2ref v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm probe_N2ref v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm probe_N2ref v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm probe_N2ref v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm probe_N2ref v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm probe_N2ref v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm probe_N2ref v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm probe_N2ref v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 8.370748011818238, "new": 8.370748011588955, "same_4digits": true}
+PASS asm probe_N2ref v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 11.418885200939593, "new": 11.418885197799902, "same_4digits": true}
+PASS asm probe_N2ref v31: flux 2 margin_FLUX0 > 1 {"pinned": 5.2661288022266906, "new": 5.2661288020819725, "same_4digits": true}
+PASS asm probe_N2ref v31: flux 2 margin_FLUX2 > 1 {"pinned": 7.176317979036381, "new": 7.176317977057754, "same_4digits": true}
+PASS asm design_pm3ibp tight: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 page 1)", "gamma'_B >= 0.2394 (v3.1 page 1)"], "new_failing": ["E_0 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1
+PASS asm design_pm3ibp tight: margin S0v > 1 {"pinned": 2.7978527459047915, "new": 2.7978527457836178, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin S0v_vs_0.0153 > 1 {"pinned": 2.1403573506171654, "new": 2.1403573505244675, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin S1v_vs_0.6 > 1 {"pinned": 5.82923678375698, "new": 5.829236775076112, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin M0core > 1 {"pinned": 5.472179548829591, "new": 5.472179548745313, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin M1core > 1 {"pinned": 4.463933253742256, "new": 4.463933247868402, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_pm3ibp tight: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_pm3ibp tight: flux 5/4 margin_FLUX0 > 1 {"pinned": 5.443415614960664, "new": 5.443415614865958, "same_4digits": true}
+PASS asm design_pm3ibp tight: flux 5/4 margin_FLUX2 > 1 {"pinned": 9.645181370589983, "new": 9.645181368367957, "same_4digits": true}
+PASS asm design_pm3ibp tight: flux 2 margin_FLUX0 > 1 {"pinned": 3.4201627657438274, "new": 3.4201627656841653, "same_4digits": true}
+PASS asm design_pm3ibp tight: flux 2 margin_FLUX2 > 1 {"pinned": 6.058903374397131, "new": 6.058903372997754, "same_4digits": true}
+PASS asm design_pm3ibp v31: no new failing claim {"pinned_failing": ["E_0 (v3.1 page 1)", "E_1 (v3.1 page 1)", "E_2 (v3.1 page 1)", "E_B0 (y_E=50) (v3.1 page 1)", "E_B1 (y_E=50) (v3.1 page 1)", "E_B2 (y_E=50) (v3.1 page 1)", "I3 const (v3.1 page 1.84e-21)", "I3 slope (v3.1 page 1.39e-27)", "K0 (v3.1 page 6.83e-22)", "K2 flux (v3.1 page 3.26e-21)", "S0_B (y_E=50) <= S0V=0.0153", "gamma'_0 (v3.1 page 1)", "gamma'_1 (v3.1 page 1)", "gamma'_2 (v3.1 
+PASS asm design_pm3ibp v31: margin S0v > 1 {"pinned": 2.2942114945065937, "new": 2.294211494455476, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin S0v_vs_0.0153 > 1 {"pinned": 1.7550717932975441, "new": 1.7550717932584392, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin S1v_vs_0.6 > 1 {"pinned": 3.39196906244916, "new": 3.3919690612709616, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin M0core > 1 {"pinned": 5.075923667418697, "new": 5.0759236673732016, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin M1core > 1 {"pinned": 2.730401575150847, "new": 2.7304015742699694, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin ramp M1 > 1 {"pinned": 1.1844642357292907, "new": 1.1844642357292907, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin ramp z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin ramp M0 > 1 {"pinned": 7.020454746899692, "new": 7.020454746899692, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin Ghat22 > 1 {"pinned": 1.916398012878073, "new": 1.916398012878073, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin win M1 > 1 {"pinned": 2.051583846285333, "new": 2.051583846285333, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin win M0 > 1 {"pinned": 2.5437856679439226, "new": 2.5437856679439226, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin win z2 > 1 {"pinned": 4.268361654513298, "new": 4.268361654513298, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin |f|<=1/2 > 1 {"pinned": 5.388095932102953, "new": 5.388095932102953, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin K2 > 1 {"pinned": 5.0804214301345025, "new": 5.0804214301345025, "same_4digits": true}
+PASS asm design_pm3ibp v31: margin K3 > 1 {"pinned": 4.824514601161118, "new": 4.824514601161118, "same_4digits": true}
+PASS asm design_pm3ibp v31: flux 5/4 margin_FLUX0 > 1 {"pinned": 4.627926141843397, "new": 4.627926141775012, "same_4digits": true}
+PASS asm design_pm3ibp v31: flux 5/4 margin_FLUX2 > 1 {"pinned": 7.263599412979969, "new": 7.263599411721845, "same_4digits": true}
+PASS asm design_pm3ibp v31: flux 2 margin_FLUX0 > 1 {"pinned": 2.9065820015583945, "new": 2.90658200151534, "same_4digits": true}
+PASS asm design_pm3ibp v31: flux 2 margin_FLUX2 > 1 {"pinned": 4.559779895516199, "new": 4.559779894724662, "same_4digits": true}
+PASS A_interface tight: rule_reproduces_EA_ref 
+PASS A_interface v31: rule_reproduces_EA_ref 
+PASS M3 tight ramp M1 > 1 {"new": 1.1844642357292894, "pinned": 1.1844642357292894}
+PASS M3 tight ramp z1 > 1 {"new": 1.201149361864089, "pinned": 1.201149361864089}
+PASS M3 tight ramp M0 > 1 {"new": 7.020454746899688, "pinned": 7.020454746899688}
+PASS M3 v31 ramp M1 > 1 {"new": 1.1844642357292894, "pinned": 1.1844642357292894}
+PASS M3 v31 ramp z1 > 1 {"new": 1.201149361864089, "pinned": 1.201149361864089}
+PASS M3 v31 ramp M0 > 1 {"new": 7.020454746899688, "pinned": 7.020454746899688}
+PASS U supersolution K1_ok 
+PASS U supersolution K2_ok 
+PASS U supersolution K3_ok 
+PASS U supersolution N2_le_4N2ref 
+PASS M6 Nbar^2/(4 N2_ref) < 1 [0.17867594261346437, 0.4126368868263817, 0.2521278634877221]
+PASS U M1z hypothesis checks 
+PASS U-fine requirement of task 5 [4.87214012709022e-06, 0.00026266256963851793, 0.025847156225495854]
+PASS U margin late_M1 > 1 {"pinned": 2.353208679628249, "new": 2.353208677634882, "same_4digits": true}
+PASS U margin late_M0 > 1 {"pinned": 4.893143203843733, "new": 4.893143203677125, "same_4digits": true}
+PASS U margin late_M0z > 1 {"pinned": 12.997423714075502, "new": 12.997423712973445, "same_4digits": true}
+PASS U margin present_M1_min > 1 {"pinned": 2.770321466561414, "new": 2.7703214651179007, "same_4digits": true}
+PASS U margin present_M0_min > 1 {"pinned": 2.225136285230426, "new": 2.2251362852290377, "same_4digits": true}
+PASS U margin present_M0z_min > 1 {"pinned": 14.379118354503643, "new": 14.379118353329222, "same_4digits": true}
+PASS U loop gain < 1 {"pinned": 0.03903528473922173, "new": 0.03903528473921436}
+PASS K6 margin >= 1.188 (pinned v37 K6 rounded down) {"pinned": 1.1884203179915955, "new": 1.1884203179916526}
+PASS K6 at every level 
+PASS EA_ref4 dominates Ehat 
+PASS A4 E == A EA_ref4 
+PASS Nbar^2 <= 4 N2_ref 
+PASS (A) core |z1|: S1v <= 0.10435 and sqrt2 S1v <= 0.1476 < 0.52 (lemmaU_v37.tex l.354, 476) {"S1v_new": 0.10433873534701253, "S1v_pinned": 0.10433873519494456}
+PASS D^c <= D^src 
+PASS D^s A/A4 
+PASS B2' margin >= 2.116 (pinned v37 rounded down) {"pinned": 2.1168010824516625, "new": 2.1168010823492223}
+PASS lemmaU_v34.tex quotes [information only]: F1/F2 change no outcome (same failing set on pinned v37 and on new) {"note": "v38: information only. lemmaU_v34.tex is superseded (texts v37/v38); its quotes are v35 values and are not expected to bound chain v37", "n_numbers": 184, "n_not_outward_on_new": 27, "rows": [{"quoted": "1.0441e-4", "file": "U", "key": "supersolution.EA.1", "dir": "up", "new": [0.00010441306263855917, 0.00010441306263855917]}, {"quoted": "0.056694", "file": "U", "key": "supersolution.EA.
+PASS numbers_A_v37 macros (80, gen_numbers_A_v37 repointed to chain v37) unchanged on the new files {}
+PASS zone3 H6 min margin >= 1.86 (pinned v37 rounded down) {"pinned": 1.8608671374173327, "new": 1.8608671374173327}
+PASS zone3 acceptance unchanged apart from H6 value 
+PASS named margin ramp_M1 > 1 {"pinned": 1.1844642357292894, "new": 1.1844642357292894, "quoted": "x1.184"}
+PASS named margin ramp_z1 > 1 {"pinned": 1.201149361864089, "new": 1.201149361864089}
+PASS named margin ramp_M0 > 1 {"pinned": 7.020454746899688, "new": 7.020454746899688}
+PASS named margin S0v > 1 {"pinned": 2.7748158392149564, "new": 2.7748158390804796}
+PASS named margin S0v_vs_0p0153 > 1 {"pinned": 2.122734116999447, "new": 2.1227341168965674}
+PASS ramp M1: pinned v37 value rounded down to 4 digits still a lower bound {"pinned": 1.1844642357292894, "new": 1.1844642357292894, "quoted": "x1.184"}
+PASS flux (4 N2_ref, beta 2): pinned v37 values rounded down to 4 digits still lower bounds {"pinned": [3.368963006899688, 5.961479109239311], "new": [3.3689630068406067, 5.961479107875138], "quoted": "pinned v37 rounded down"}
+PASS closed trees unchanged by this stage (every file hash, no new files) []
+PASS no new .pyc in closed trees []
+F12 all checks ok: True (339/339)

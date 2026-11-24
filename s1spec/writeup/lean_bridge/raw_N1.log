@@ -1,0 +1,8 @@
+CWFlow/Curve/N1.lean:306:5: warning: Variable name `haT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _haT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+== CWFlow/Curve/N1.lean: rc=0 killed=False time=55s lowest_commit=321MB

@@ -1,0 +1,24 @@
+alpha1=0.0005 Ly1=1.225000e-13 sqrt=3.500000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8975e-04 sqrtLy<=3.5231e-07 rate<=+0.08079 (lb +0.08029) cell 51.51s
+  k=   7 tau=  3.130 D=0.600 alpha<=2.2601e-04 sqrtLy<=4.0654e-07 rate<=+0.02696 (lb +0.02646) cell 33.79s
+  k=   8 tau=  3.730 D=0.600 alpha<=1.9431e-04 sqrtLy<=4.1154e-07 rate<=+0.02037 (lb +0.01987) cell 35.25s
+  k=   9 tau=  4.330 D=0.600 alpha<=1.6712e-04 sqrtLy<=4.1546e-07 rate<=+0.01577 (lb +0.01527) cell 35.57s
+  k=  10 tau=  4.930 D=0.600 alpha<=1.4382e-04 sqrtLy<=4.1832e-07 rate<=+0.01144 (lb +0.01094) cell 31.32s
+  tail anchor: a*=1.4382e-04 L*=1.7499e-13  rate_s bound U=+0.00783
+  k=  11 tau=  5.530 D=0.600 alpha<=1.2384e-04 sqrtLy<=4.2050e-07 rate<=+0.00867 (lb +0.00817) cell 26.46s
+  tail anchor: a*=1.2384e-04 L*=1.7682e-13  rate_s bound U=+0.00518
+  k=  12 tau=  6.130 D=0.600 alpha<=1.0671e-04 sqrtLy<=4.2201e-07 rate<=+0.00599 (lb +0.00549) cell 19.56s
+  tail anchor: a*=1.0671e-04 L*=1.7809e-13  rate_s bound U=+0.00296
+  k=  13 tau=  6.730 D=0.600 alpha<=9.2024e-05 sqrtLy<=4.2287e-07 rate<=+0.00339 (lb +0.00289) cell 19.21s
+  tail anchor: a*=9.2024e-05 L*=1.7882e-13  rate_s bound U=+0.00110
+  k=  14 tau=  7.330 D=0.600 alpha<=7.9428e-05 sqrtLy<=4.2341e-07 rate<=+0.00211 (lb +0.00161) cell 25.98s
+  tail anchor: a*=7.9428e-05 L*=1.7927e-13  rate_s bound U=-0.00047
+  k=  15 tau=  7.930 D=0.600 alpha<=6.8628e-05 sqrtLy<=4.2331e-07 rate<=-0.00039 (lb -0.00089) cell 32.67s
+  tail anchor: a*=6.8628e-05 L*=1.7919e-13  rate_s bound U=-0.00180
+  k=  16 tau=  8.530 D=0.600 alpha<=5.9365e-05 sqrtLy<=4.2289e-07 rate<=-0.00163 (lb -0.00212) cell 25.71s
+  tail anchor: a*=5.9365e-05 L*=1.7884e-13  rate_s bound U=-0.00292
+  tail: rho=0.00292 alpha-condition OK (margin 3.358e+01); floor sqrt(L_F)=1.827e-08, alpha_F<= 2.565e-06
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 5.9726e-03   (sup|w'| alone: 5.9726e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: sI1<=9.2730e-03, far_w1<=9.2730e-03, far_w<=4.7198e-03, sr1<=5.9726e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]
+  V1 march part: delta=0.2 max r1=+0.0556  sum Phi*D=1.031e-14  total/theta = 3.2430e-13
+  V1 tail: delta_t=0.2 r1*=-0.00033 Phi(a*)=6.633e-18

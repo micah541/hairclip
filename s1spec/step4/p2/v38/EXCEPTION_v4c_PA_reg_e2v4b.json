@@ -1,0 +1,13 @@
+{
+ "item": "Documented exception for step3nl_v4c/runs/P_A and step3nl_v4c/runs/reg_fin13v4b (verifier fin13v4c double-run pass A and the regression against fin13v4b). These two runs are NOT pinned by the step-4 v38 manifest; only runs/P is (review fix15 REVIEW_v4c_interface.md 1.4, A-1r; option 'record an exception note' accepted there; coordinator message of Nov 20 relaying fix16_texts_v38/RECORDS_ERRATA_v38.md).",
+ "path": "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json",
+ "abs_path": "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json",
+ "pinned_sha256": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+ "current_sha256": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88",
+ "affected_records": ["runs/P_A/rate_table_fin13v4c_a0.00015.json", "runs/P_A/rate_table_fin13v4c_a0.000125.json", "runs/P_A/modsups_fin13v4c/final_alpha_points_5e-8.json",
+                      "runs/reg_fin13v4b/rate_table_fin13v4b_a0.00015.json", "runs/reg_fin13v4b/rate_table_fin13v4b_a0.000125.json", "runs/reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json"],
+ "cause": "e2_consts.py pins the text of verifier/constants.py; constants.py was edited after cert pass A, so e2_consts.json and then e2v4b_constants.json changed their bytes (the pin of the edited file), not their numbers; pass A's outputs were later deleted by the driver (stale out_A). runs/P_A and runs/reg_fin13v4b were computed with pass A's e2v4b_constants.json (37386e13...), which no longer exists; runs/P was computed with the current file (7d6ada65...).",
+ "numbers": "equal: runs/P_A == runs/P and runs/reg_fin13v4b == step3nl_v4b/runs/P apart from timing and args (V4C_REPORT, fix15 review FREV15); re-checked by p2/v38/verify_v4c_runs_with_exceptions.py",
+ "scope": "only this one pin in those two run directories; every pin of runs/P matches the disk; no rerun (accepted by the fix-15 review)",
+ "recorded": "Nov 20 2026, step-4 re-pin v38"
+}

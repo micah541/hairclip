@@ -1,0 +1,26 @@
+{
+ "VER": "fin12f4",
+ "R3ON": true,
+ "R2ON": false,
+ "RT": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json",
+ "MODS": "/home/claude/s1spec/step3nl_v33/verifier/modsups_fin12f4/final_alpha_points_5e-8.json",
+ "N1CHART": "/home/claude/s1spec/step4/p2/out_v33/n1_chart.json",
+ "inputs": {
+  "J": [
+   "6.0273e-12",
+   "8.4673e-12",
+   "1.8708e-12"
+  ],
+  "slopes": [
+   "3.4548e-18",
+   "4.8534e-18",
+   "1.0724e-18"
+  ],
+  "J4": "6.2362e-8",
+  "sJ4": "3.5746e-14",
+  "sqLam": "5.3075e-8",
+  "rho": "2.693e-3",
+  "abar": "2.19103e-7",
+  "beta": "3.33811e-9"
+ }
+}

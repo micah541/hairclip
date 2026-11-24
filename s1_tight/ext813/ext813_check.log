@@ -1,0 +1,21 @@
+0. seed in_br2.txt rebuilt byte-for-byte by gen_input2 with I1 = double(1.4404409694e-9) +- 1e-18: True; this ball contains the jhat_rig enclosure [1.4404409694e-9 +/- 6.45e-20]: True (current jhat8.json midpoint gives a seed differing in 3 numbers, q-direction only)
+1. 25000 rows, tau in [-5.0, 0] (sigma in [8, 13.0]): tiling True, tc in row True, centre in hull True
+2. max centre width    {'p': '5.62e-10', 'q': '4.62e-14', 'k': '7.32e-11', 'm': '1.02e-10', 'th': '7.32e-11'}
+   max pointwise width {'p': '5.62e-10', 'q': '4.62e-14', 'k': '7.32e-11', 'm': '1.02e-10', 'th': '7.32e-11'} (2nd-order Taylor form, any sigma)
+   max hull width      {'p': '2.44e-07', 'q': '2.00e-04', 'k': '3.97e-08', 'm': '5.00e-08', 'th': '3.06e-08'}
+   growth of centre width sigma=8 -> 13.0 {'p': '34.4', 'q': '6.2', 'k': '40.5', 'm': '33.1', 'th': '-'}  WKB e^{dE/2} (x mu^-1, 1, mu for k, m, p): {'eE2': '31.2', 'k': '26.6', 'm': '31.2', 'p': '36.7'}
+3. sigma=8: in_br2 / ext(s=0) / prof_tight row0 -> 8 / ext row0 -> 8 have a common point in every component: True; hull rows meet: True; in_br2 hull inside ext(s=0): True
+   p  common width 1.56e-11  widths in_br2=1.56e-11 ext_s0=1.56e-11 prof_row0_to_8=2.26e-11 ext_row0_to_8=2.26e-11
+   q  common width 6.46e-15  widths in_br2=6.46e-15 ext_s0=7.11e-15 prof_row0_to_8=1.16e-14 ext_row0_to_8=1.43e-14
+   k  common width 1.81e-12  widths in_br2=1.81e-12 ext_s0=1.81e-12 prof_row0_to_8=3.04e-12 ext_row0_to_8=3.04e-12
+   m  common width 3.09e-12  widths in_br2=3.09e-12 ext_s0=3.09e-12 prof_row0_to_8=4.59e-12 ext_row0_to_8=4.59e-12
+   th common width 0.00e+00  widths in_br2=0.00e+00 ext_s0=0.00e+00 prof_row0_to_8=9.77e-13 ext_row0_to_8=9.76e-13
+4. tail envelopes hstail.profile_bounds(sigma_a): every row inside: True; worst |value|/bound: k 0.9089 (sigma 13.000), m 0.9289 (sigma 8.000), p 0.9302 (sigma 8.000), q-sigma 0.4038 (sigma 12.999)
+5. Laplace+LP (k, m, p) at 21 points sigma in [8, 13.0]: all meet the CAPD enclosure: True; Laplace ball inside the CAPD ball for sigma >= 8.5 (below, the LP bound rn0 + 2 rn1 is the wider one)
+   sigma=    8: k: w_lap 3.5e-12 w_capd 1.8e-12 |dmid| 4.0e-21  m: w_lap 4.4e-12 w_capd 3.1e-12 |dmid| 1.6e-20  p: w_lap 2.2e-11 w_capd 1.6e-11 |dmid| 1.2e-19
+   sigma=    9: k: w_lap 8.7e-13 w_capd 5.2e-12 |dmid| 1.7e-13  m: w_lap 1.1e-12 w_capd 6.1e-12 |dmid| 4.0e-13  p: w_lap 6.0e-12 w_capd 3.2e-11 |dmid| 1.8e-12
+   sigma=   10: k: w_lap 2.1e-13 w_capd 9.0e-12 |dmid| 6.8e-13  m: w_lap 2.8e-13 w_capd 1.1e-11 |dmid| 4.6e-13  p: w_lap 1.5e-12 w_capd 7.1e-11 |dmid| 2.2e-12
+   sigma=   11: k: w_lap 4.8e-14 w_capd 1.8e-11 |dmid| 5.4e-13  m: w_lap 6.8e-14 w_capd 2.6e-11 |dmid| 1.1e-12  p: w_lap 3.8e-13 w_capd 1.3e-10 |dmid| 9.9e-12
+   sigma=   12: k: w_lap 1.1e-14 w_capd 4.0e-11 |dmid| 1.8e-12  m: w_lap 1.6e-14 w_capd 5.8e-11 |dmid| 3.5e-12  p: w_lap 9.0e-14 w_capd 3.4e-10 |dmid| 4.8e-12
+   sigma=   13: k: w_lap 2.4e-15 w_capd 7.3e-11 |dmid| 4.5e-12  m: w_lap 3.5e-15 w_capd 1.0e-10 |dmid| 9.2e-14  p: w_lap 2.1e-14 w_capd 5.3e-10 |dmid| 3.8e-11
+ALL CHECKS PASS: True   [3s]  -> ext813_check.json

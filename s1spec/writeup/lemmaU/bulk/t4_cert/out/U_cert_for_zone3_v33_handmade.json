@@ -1,0 +1,20 @@
+{
+ "args": {
+  "argv": [
+   "coordinator: copy ufine.Bhat from U_cert_v33.json"
+  ],
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/U_cert_v33.json": "f2543e700ec8ea81e80bb02d0ffd6759bf9412558c38a7fa2f1c591adab7b737"
+  }
+ },
+ "label": "cert",
+ "note": "U-fine Bhat from U_cert_v33.json (A interface t2_A_v33, FLUX x4 verifier fin12f4, beta_A=2, H2f0=1e-6); written by coordinator for zone3.py --ucert (loader reads supersolution.Bhat).",
+ "provisional": false,
+ "supersolution": {
+  "Bhat": [
+   4.8716456001731694e-06,
+   0.00026257692387298174,
+   0.0257799174500237
+  ]
+ }
+}

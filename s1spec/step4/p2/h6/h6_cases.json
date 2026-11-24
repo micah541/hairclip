@@ -1,0 +1,57 @@
+{
+ "cone X=3 M=0.12 K=0.18": {
+  "C2_upper": 98.8623,
+  "t_star_lower": 3.68334e-07,
+  "margin_factor_lower": 2.3020875000000003,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.00226517,
+   "C1": 0.00747696,
+   "C2": 0.0395449,
+   "sqrtC3t": 0.0239115
+  }
+ },
+ "cone X=3 M=0.12 K=0.25": {
+  "C2_upper": 136.222,
+  "t_star_lower": 9.10739e-07,
+  "margin_factor_lower": 5.692118750000001,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.00285788,
+   "C1": 0.00950566,
+   "C2": 0.0544887,
+   "sqrtC3t": 0.0362041
+  }
+ },
+ "far X=2 M=0.1 K=0.15": {
+  "C2_upper": 246.092,
+  "t_star_lower": 4.12804e-08,
+  "margin_factor_lower": 6.7306602810244005,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.000514958,
+   "C1": 0.00242699,
+   "C2": 0.0192726,
+   "sqrtC3t": 0.0130496
+  }
+ },
+ "far X=2 M=0.1 K=0.2": {
+  "C2_upper": 315.552,
+  "t_star_lower": 1.00429e-07,
+  "margin_factor_lower": 16.374683417869,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.000619149,
+   "C1": 0.00293114,
+   "C2": 0.0247123,
+   "sqrtC3t": 0.0179682
+  }
+ },
+ "far X=2 M=0.2 K=0.3": {
+  "C2_upper": 512.042,
+  "t_star_lower": 3.81408e-08,
+  "margin_factor_lower": 6.2187567864288,
+  "deviation_upper_at_needed_time": {
+   "C0": 0.00101457,
+   "C1": 0.00479978,
+   "C2": 0.0401004,
+   "sqrtC3t": 0.028848
+  }
+ }
+}

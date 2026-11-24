@@ -1,0 +1,1952 @@
+{
+ "all_outward": true,
+ "args": {
+  "argv": [
+   "c5_constants.py"
+  ],
+  "env": {
+   "ADD": null,
+   "DELTA": null,
+   "ETA": null,
+   "FIX": null,
+   "FLUX0": null,
+   "FLUX2": null,
+   "LY1SQ": null,
+   "MOD": null,
+   "MODA": null,
+   "NEW": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": "0",
+   "S0V": null,
+   "S1V": null,
+   "TAG": null,
+   "THETA": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json": "b46b0d6cd19bb624104c94cbcf9a1ea85923071334108a10864a973f7f16ae0a",
+   "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S2_1.json": "c5cd194b27c394b7db05b0854bf15fc709f3fe7e8ca35a5a2e0806eb52375625",
+   "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S3_1e-3.json": "0892668cef32dc92ead7da2b0d3ec25aca80516680afc85611f923fade3a804f",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_T4_P2_0.25.json": "19264c424e9ef7cf7eacb3179b439b40dbe48c6b2eae2cdb41afa4216b194ac8",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json": "b9f43492a6faf682aa900e85fe31c4a6360023f25624f27279f87181562fa8db",
+   "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json": "39caabfe877457bebdb9ea366663640c738ae0a54980d4e4b172981cfc2717f9",
+   "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json": "8412627f71b7746b822dc6a1e14b82fec186a96fc62442fb32de591923cca0e6",
+   "/home/claude/s1spec/step3nl_v4/v4cert/c5_constants.py": "2471b82a366b4761fcf2a4539cb86620d8ad21b9171782b8f65db2f93d1c633c",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json": "bacf4463ba1348b12fa22719e1f52e265ffa85fa9a6bda94c0c95ebd35750305",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json": "1371ab27763adea9569e6edec5e8469726a395266bd3332e153fd5738778812d",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json": "ca7a788c988071fcf41a3c96f2e4e38ffaff0497cd7c7fe466861205e9cb8b67",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json": "52adf6b7692471ed951c30e07772ab796c1aabb2259d2d22822d99a83cc436ba",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json": "c722d0be332b1be6edb02a4c375be3055f0d7fc28509e0e09497ba963961dd5a"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "constants": {
+  "AF": {
+   "dir": "up",
+   "key": "P/2/rigorous/a_f",
+   "raw": 0.06955503763448806,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.06955503763448807
+  },
+  "BETA0": {
+   "dir": "up",
+   "key": "final/core/beta/lead",
+   "raw": 0.002439768874042766,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 0.0024397688740427663
+  },
+  "BETA0_dlead": {
+   "dir": "up",
+   "key": "final/core/beta/dlead",
+   "raw": 7.100283929173143e-10,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 7.100283929173144e-10
+  },
+  "BETA1": {
+   "dir": "up",
+   "key": "final/core/beta/m_total",
+   "raw": 66.52383270616747,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 66.52383270616748
+  },
+  "BETAF": {
+   "dir": "up",
+   "key": "final/core/beta/cPhi_total",
+   "raw": 0.6565275306344318,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 0.6565275306344319
+  },
+  "BF": {
+   "dir": "up",
+   "key": "P/2/rigorous/b_f",
+   "raw": 0.03935891543587018,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.03935891543587019
+  },
+  "C0Hb": {
+   "dir": "up",
+   "key": "C0Hb",
+   "raw": 1.9000017287466433e-42,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 1.9000017287466436e-42
+  },
+  "C0P": {
+   "dir": "up",
+   "key": "C0P",
+   "raw": 9.874845989704222e-12,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json",
+   "value": 9.874845989704223e-12
+  },
+  "C1W": {
+   "dir": "up",
+   "key": "W/c1W/R=60",
+   "raw": 0.8477,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 0.8477000000000001
+  },
+  "C3": {
+   "dir": "up",
+   "key": "C3",
+   "raw": 12.104385241866112,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S3_1e-3.json",
+   "value": 12.104385241866114
+  },
+  "CAB0": {
+   "dir": "up",
+   "key": "final/core/ab/lead",
+   "raw": 3.708257098467069,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 3.7082570984670693
+  },
+  "CAB0_dlead": {
+   "dir": "up",
+   "key": "final/core/ab/dlead",
+   "raw": 3.755800455235844e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 3.755800455235845e-09
+  },
+  "CF0": {
+   "dir": "up",
+   "key": "P/2/rigorous/c3",
+   "raw": 0.44214268661599576,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.4421426866159958
+  },
+  "CF1": {
+   "dir": "up",
+   "key": "P/2/rigorous/c2",
+   "raw": 0.5258994832135075,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.5258994832135077
+  },
+  "CF2": {
+   "dir": "up",
+   "key": "P/2/rigorous/c1",
+   "raw": 0.4235276571468286,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.42352765714682866
+  },
+  "CF3": {
+   "dir": "up",
+   "key": "P/2/rigorous/c0",
+   "raw": 0.42501723188074436,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.4250172318807444
+  },
+  "DS0": {
+   "dir": "up",
+   "key": "P/2/rigorous/d3",
+   "raw": 0.006840873217036655,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.006840873217036656
+  },
+  "DS1": {
+   "dir": "up",
+   "key": "P/2/rigorous/d2",
+   "raw": 0.015418374795665034,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.015418374795665036
+  },
+  "DS2": {
+   "dir": "up",
+   "key": "P/2/rigorous/d1",
+   "raw": 0.02364817888631596,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.023648178886315964
+  },
+  "DS3": {
+   "dir": "up",
+   "key": "P/2/rigorous/d0",
+   "raw": 0.04562685417117213,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.04562685417117214
+  },
+  "E0": {
+   "dir": "up",
+   "key": "sup/*/|e0|",
+   "raw": 5.1067356920953e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_T4_P2_0.25.json",
+   "value": 5.1067356920953006e-06
+  },
+  "E1": {
+   "dir": "up",
+   "key": "sup/*/|e1|",
+   "raw": 5.663177326198366e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_T4_P2_0.25.json",
+   "value": 5.663177326198367e-06
+  },
+  "FN0": {
+   "dir": "up",
+   "key": "psi/r_half",
+   "raw": 7.9325012815966e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S2_1.json",
+   "value": 7.932501281596601e-07
+  },
+  "FN1": {
+   "dir": "up",
+   "key": "h2/r_half",
+   "raw": 2.7693212788311072e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S2_1.json",
+   "value": 2.7693212788311077e-06
+  },
+  "FNW0": {
+   "dir": "up",
+   "key": "R=60/F1b_psi3_residual_level0",
+   "raw": 1.243e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 1.2430000000000001e-08
+  },
+  "FNW1": {
+   "dir": "up",
+   "key": "R=60/F1b_h2_residual_level0",
+   "raw": 4.028e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 4.028000000000001e-08
+  },
+  "FNW2": {
+   "dir": "up",
+   "key": "R=60/F1a_C3W_level0_for_C4_functions",
+   "raw": 0.1823,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 0.18230000000000002
+  },
+  "FNWd0": {
+   "dir": "up",
+   "key": "R=60/F1b_psi3_residual_level1_zeta",
+   "raw": 2.701e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 2.7010000000000005e-08
+  },
+  "FNWd1": {
+   "dir": "up",
+   "key": "R=60/F1b_h2_residual_level1_zeta",
+   "raw": 1.156e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 1.1560000000000002e-07
+  },
+  "FNWd2": {
+   "dir": "up",
+   "key": "R=60/F1a_C3W_deriv_zeta",
+   "raw": 0.002603,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v3/int_constants_v3.json",
+   "value": 0.0026030000000000003
+  },
+  "HD[0.00025][HA0]": {
+   "dir": "up",
+   "key": "0.00025/HA0",
+   "raw": 1.9380922389010375e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 1.938092238901038e-09
+  },
+  "HD[0.00025][HB0]": {
+   "dir": "up",
+   "key": "0.00025/HB0",
+   "raw": 3.1422354990732557e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 3.142235499073256e-09
+  },
+  "HD[0.00025][HEA1]": {
+   "dir": "up",
+   "key": "0.00025/HEA1",
+   "raw": 1.3028030344604403e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 1.3028030344604405e-09
+  },
+  "HD[0.00025][hA0]": {
+   "dir": "up",
+   "key": "0.00025/hA0",
+   "raw": 1.2148151381215209e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 1.214815138121521e-11
+  },
+  "HD[0.00025][hB0]": {
+   "dir": "up",
+   "key": "0.00025/hB0",
+   "raw": 1.957989276820313e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 1.9579892768203133e-11
+  },
+  "HD[0.00025][hEA1]": {
+   "dir": "up",
+   "key": "0.00025/hEA1",
+   "raw": 7.981335732627134e-12,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 7.981335732627136e-12
+  },
+  "HD[0.001][HA0]": {
+   "dir": "up",
+   "key": "0.001/HA0",
+   "raw": 3.216684503897898e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 3.2166845038978983e-09
+  },
+  "HD[0.001][HB0]": {
+   "dir": "up",
+   "key": "0.001/HB0",
+   "raw": 5.27535273445399e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 5.275352734453991e-09
+  },
+  "HD[0.001][HEA1]": {
+   "dir": "up",
+   "key": "0.001/HEA1",
+   "raw": 5.231469002286678e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 5.231469002286679e-09
+  },
+  "HD[0.001][hA0]": {
+   "dir": "up",
+   "key": "0.001/hA0",
+   "raw": 2.0038309259515757e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 2.003830925951576e-11
+  },
+  "HD[0.001][hB0]": {
+   "dir": "up",
+   "key": "0.001/hB0",
+   "raw": 3.267312522023391e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 3.2673125220233914e-11
+  },
+  "HD[0.001][hEA1]": {
+   "dir": "up",
+   "key": "0.001/hEA1",
+   "raw": 3.2046734884130974e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 3.204673488413098e-11
+  },
+  "IA": {
+   "dir": "up",
+   "key": "P/2/rigorous/IA",
+   "raw": 9.599705423877498e-12,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 9.5997054238775e-12
+  },
+  "K12": {
+   "dir": "up",
+   "key": "rho/K_b12",
+   "raw": 992.4,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 992.4000000000001
+  },
+  "K2": {
+   "dir": "up",
+   "key": "rho/K_b2",
+   "raw": 2.078,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 2.0780000000000003
+  },
+  "KAP": {
+   "dir": "up",
+   "key": "kappa/KAP",
+   "raw": 1.5883238300436806,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.5883238300436808
+  },
+  "KAP_IR": {
+   "dir": "up",
+   "key": "kappa/KAP_IR",
+   "raw": 0.5339669045082015,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.5339669045082016
+  },
+  "KAP_OR": {
+   "dir": "up",
+   "key": "kappa/KAP_OR",
+   "raw": 1.5883238300436806,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.5883238300436808
+  },
+  "KAP_Z1": {
+   "dir": "up",
+   "key": "kappa/KAP_Z1",
+   "raw": 1.282739631948379,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.2827396319483793
+  },
+  "KREG[0,1]": {
+   "dir": "up",
+   "key": "rho/K_region/[0,1]",
+   "raw": 1.488,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 1.4880000000000002
+  },
+  "KREG[1,2]": {
+   "dir": "up",
+   "key": "rho/K_region/[1,2]",
+   "raw": 2.078,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 2.0780000000000003
+  },
+  "KREG[2,4]": {
+   "dir": "up",
+   "key": "rho/K_region/[2,4]",
+   "raw": 5.222,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 5.222000000000001
+  },
+  "KREG[4,8]": {
+   "dir": "up",
+   "key": "rho/K_region/[4,8]",
+   "raw": 56.92,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 56.92000000000001
+  },
+  "KREG[8,12]": {
+   "dir": "up",
+   "key": "rho/K_region/[8,12]",
+   "raw": 992.4,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 992.4000000000001
+  },
+  "KW": {
+   "dir": "up",
+   "key": "W/K_W_region/[30,34.25]",
+   "raw": 2323000.0,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 2323000.0000000005
+  },
+  "KWIR": {
+   "dir": "up",
+   "key": "weight/KWIR",
+   "raw": 70258.12890625001,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 70258.12890625003
+  },
+  "K_rho_16.25": {
+   "dir": "up",
+   "key": "P/2/rigorous/K_rho_16.25",
+   "raw": 30208.00613945124,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 30208.006139451245
+  },
+  "MAB": {
+   "dir": "up",
+   "key": "final/core/ab/m_total",
+   "raw": 622.3776876536725,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 622.3776876536726
+  },
+  "MU1": {
+   "dir": "down",
+   "key": "sup/*/-mu1 (min over regions of -value)",
+   "raw": 0.15552264661840653,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_T4_P2_0.25.json",
+   "value": 0.1555226466184065
+  },
+  "MU2": {
+   "dir": "down",
+   "key": "sup/*/-mu2 (min over regions of -value)",
+   "raw": 0.6555212977195294,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_T4_P2_0.25.json",
+   "value": 0.6555212977195293
+  },
+  "NAB": {
+   "dir": "up",
+   "key": "NAB",
+   "raw": 0.2734670762116986,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json",
+   "value": 0.27346707621169863
+  },
+  "NH2": {
+   "dir": "up",
+   "key": "NH2",
+   "raw": 1.7953559992249246,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json",
+   "value": 1.7953559992249248
+  },
+  "NP12": {
+   "dir": "up",
+   "key": "NP12",
+   "raw": 1.71683424471761e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json",
+   "value": 1.7168342447176103e-07
+  },
+  "NP3": {
+   "dir": "up",
+   "key": "NP3",
+   "raw": 0.25950631715792866,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c3_modx.json",
+   "value": 0.2595063171579287
+  },
+  "PHI34": {
+   "dir": "up",
+   "key": "P/2/rigorous/Phi_34.25",
+   "raw": 9854657.569177367,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 9854657.569177369
+  },
+  "PHI34_c4": {
+   "dir": "up",
+   "key": "Phi_34_25_upper",
+   "raw": 9872279.858084597,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c4_hardy.json",
+   "value": 9872279.858084599
+  },
+  "PHIAB": {
+   "dir": "up",
+   "key": "final/core/ab/cPhi_total",
+   "raw": 3.8403057123931754,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 3.840305712393176
+  },
+  "PHX": {
+   "dir": "up",
+   "key": "rho/Phi1_X",
+   "raw": 1.083,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 1.0830000000000002
+  },
+  "PSI1": {
+   "dir": "up",
+   "key": "weight/PSI1",
+   "raw": 1.304871325847093,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.3048713258470932
+  },
+  "PSI1W": {
+   "dir": "up",
+   "key": "W/Psi1/R=60/from_10.25",
+   "raw": 1.305,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 1.3050000000000002
+  },
+  "PSI2": {
+   "dir": "up",
+   "key": "weight/PSI2",
+   "raw": 1.6954376780660843,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.6954376780660845
+  },
+  "Q2B": {
+   "dir": "up",
+   "key": "transport/Q2B",
+   "raw": 0.00021019013107088645,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.00021019013107088648
+  },
+  "QAB": {
+   "dir": "up",
+   "key": "final/core/ab/q_total",
+   "raw": 51.33973980536241,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 51.33973980536242
+  },
+  "QB": {
+   "dir": "up",
+   "key": "final/core/beta/q_total",
+   "raw": 5.526373957889094,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json",
+   "value": 5.526373957889095
+  },
+  "QUF[0.00025]": {
+   "dir": "up",
+   "key": "1/(1 - tables/0.00025/IR/sup/kU)",
+   "raw": 1.0000019793595096,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.0000019793595099
+  },
+  "QUF[0.001]": {
+   "dir": "up",
+   "key": "1/(1 - tables/0.001/IR/sup/kU)",
+   "raw": 1.0000074273567483,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.0000074273567485
+  },
+  "RWR": {
+   "dir": "up",
+   "key": "weight/RWR",
+   "raw": 0.6557918450770068,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.6557918450770069
+  },
+  "SA": {
+   "dir": "up",
+   "key": "P/2/rigorous/sA",
+   "raw": 0.0001337202808774133,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 0.00013372028087741333
+  },
+  "SB": {
+   "dir": "up",
+   "key": "P/2/rigorous/sB",
+   "raw": 3.5955166253940984e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_coup/coupling_constants.json",
+   "value": 3.595516625394099e-05
+  },
+  "SF_ab_0": {
+   "dir": "up",
+   "key": "ab/const_coef_S0_S3/0",
+   "raw": 8.782323333487766e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 8.782323333487768e-09
+  },
+  "SF_ab_1": {
+   "dir": "up",
+   "key": "ab/const_coef_S0_S3/1",
+   "raw": 7.439626663258615e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 7.439626663258616e-09
+  },
+  "SF_ab_2": {
+   "dir": "up",
+   "key": "ab/const_coef_S0_S3/2",
+   "raw": 4.415412906897853e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 4.415412906897854e-09
+  },
+  "SF_ab_3": {
+   "dir": "up",
+   "key": "ab/const_coef_S0_S3/3",
+   "raw": 1.079452044972413e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 1.0794520449724133e-09
+  },
+  "SF_ab_al": {
+   "dir": "up",
+   "key": "ab/alpha_coef_S0",
+   "raw": 2.439586858119067e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 2.4395868581190677e-07
+  },
+  "SF_beta_0": {
+   "dir": "up",
+   "key": "beta/const_coef_S0_S3/0",
+   "raw": 1.6158750485500848e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 1.615875048550085e-09
+  },
+  "SF_beta_1": {
+   "dir": "up",
+   "key": "beta/const_coef_S0_S3/1",
+   "raw": 1.3703088528715896e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 1.3703088528715898e-09
+  },
+  "SF_beta_2": {
+   "dir": "up",
+   "key": "beta/const_coef_S0_S3/2",
+   "raw": 8.131605533689137e-10,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 8.131605533689138e-10
+  },
+  "SF_beta_3": {
+   "dir": "up",
+   "key": "beta/const_coef_S0_S3/3",
+   "raw": 1.977836984896118e-10,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 1.9778369848961181e-10
+  },
+  "SF_beta_al": {
+   "dir": "up",
+   "key": "beta/alpha_coef_S0",
+   "raw": 4.5385996899682516e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 4.538599689968252e-08
+  },
+  "STRIP_AB": {
+   "dir": "up",
+   "key": "STRIP_AB",
+   "raw": 4.36775885830452e-10,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 4.3677588583045205e-10
+  },
+  "STRIP_BETA": {
+   "dir": "up",
+   "key": "STRIP_BETA",
+   "raw": 8.039642303460082e-11,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/u3_strip_form.json",
+   "value": 8.039642303460083e-11
+  },
+  "T0": {
+   "dir": "up",
+   "key": "transport/T0",
+   "raw": 37.184487283229835,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 37.18448728322984
+  },
+  "T2": {
+   "dir": "up",
+   "key": "transport/T2",
+   "raw": 39.184200942516334,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 39.18420094251634
+  },
+  "TC0": {
+   "dir": "up",
+   "key": "transport/TC0",
+   "raw": 0.3599150460707772,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.35991504607077723
+  },
+  "TC2": {
+   "dir": "up",
+   "key": "transport/TC2",
+   "raw": 1.2708883534390445,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 1.2708883534390447
+  },
+  "TQ[0.00025][IR][A0]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/A0",
+   "raw": 4.199420025940982e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.1994200259409825e-06
+  },
+  "TQ[0.00025][IR][A1]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/A1",
+   "raw": 1.3567073466447256e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.3567073466447258e-05
+  },
+  "TQ[0.00025][IR][B0]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/B0",
+   "raw": 7.506342186047733e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 7.506342186047734e-06
+  },
+  "TQ[0.00025][IR][B1]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/B1",
+   "raw": 3.6942951680885023e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.694295168088503e-05
+  },
+  "TQ[0.00025][IR][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/DQ0",
+   "raw": 1.5969738983885067e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.596973898388507e-05
+  },
+  "TQ[0.00025][IR][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/DQ1",
+   "raw": 2.713038246000136e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.7130382460001362e-05
+  },
+  "TQ[0.00025][IR][EA0]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/EA0",
+   "raw": 3.699568637216544e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.6995686372165446e-06
+  },
+  "TQ[0.00025][IR][EA1]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/EA1",
+   "raw": 5.590461237658185e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 5.590461237658186e-06
+  },
+  "TQ[0.00025][IR][c]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/c",
+   "raw": 6.921919145952417e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.921919145952418e-05
+  },
+  "TQ[0.00025][IR][c_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/c_a",
+   "raw": 1.7768514823046647e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.776851482304665e-05
+  },
+  "TQ[0.00025][IR][c_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/c_b",
+   "raw": 0.02353426930494607,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.023534269304946072
+  },
+  "TQ[0.00025][IR][d010]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d010",
+   "raw": 3.194302564679675e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.1943025646796755e-05
+  },
+  "TQ[0.00025][IR][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d010_a",
+   "raw": 2.994602354533527e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.9946023545335272e-05
+  },
+  "TQ[0.00025][IR][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d010_b",
+   "raw": 0.004525546210061294,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.004525546210061295
+  },
+  "TQ[0.00025][IR][d100]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d100",
+   "raw": 2.0385661230193367e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.038566123019337e-05
+  },
+  "TQ[0.00025][IR][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d100_a",
+   "raw": 2.8812515068921133e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.8812515068921136e-05
+  },
+  "TQ[0.00025][IR][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d100_b",
+   "raw": 0.0016915724791033428,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.001691572479103343
+  },
+  "TQ[0.00025][IR][d110]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d110",
+   "raw": 0.058831601112615324,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.05883160111261533
+  },
+  "TQ[0.00025][IR][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d110_a",
+   "raw": 0.003578473508241587,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0035784735082415873
+  },
+  "TQ[0.00025][IR][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d110_b",
+   "raw": 10.003115210634862,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 10.003115210634864
+  },
+  "TQ[0.00025][IR][d200]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d200",
+   "raw": 0.0036731515538122044,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.003673151553812205
+  },
+  "TQ[0.00025][IR][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d200_a",
+   "raw": 0.0006409400839402225,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0006409400839402226
+  },
+  "TQ[0.00025][IR][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d200_b",
+   "raw": 0.00037536368608925846,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0003753636860892585
+  },
+  "TQ[0.00025][IR][d300]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d300",
+   "raw": 3.0009345114231114,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.000934511423112
+  },
+  "TQ[0.00025][IR][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d300_a",
+   "raw": 0.0001650288993459981,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00016502889934599812
+  },
+  "TQ[0.00025][IR][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/d300_b",
+   "raw": 0.3177602924406529,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.31776029244065296
+  },
+  "TQ[0.00025][IR][kU]": {
+   "dir": "up",
+   "key": "tables/0.00025/IR/sup/kU",
+   "raw": 1.9793555914304765e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.979355591430477e-06
+  },
+  "TQ[0.00025][ZA][A0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/A0",
+   "raw": 5.62933347159067e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 5.629333471590671e-09
+  },
+  "TQ[0.00025][ZA][A1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/A1",
+   "raw": 2.8981056637844563e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.8981056637844567e-08
+  },
+  "TQ[0.00025][ZA][B0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/B0",
+   "raw": 9.021055694113935e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 9.021055694113936e-09
+  },
+  "TQ[0.00025][ZA][B1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/B1",
+   "raw": 6.478919922781047e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.478919922781048e-08
+  },
+  "TQ[0.00025][ZA][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/DQ0",
+   "raw": 2.3958824729764528e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.395882472976453e-08
+  },
+  "TQ[0.00025][ZA][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/DQ1",
+   "raw": 4.9146940573726223e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.914694057372623e-08
+  },
+  "TQ[0.00025][ZA][EA0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/EA0",
+   "raw": 2.1753748628838836e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.175374862883884e-09
+  },
+  "TQ[0.00025][ZA][EA1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/EA1",
+   "raw": 3.6163634670053345e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.616363467005335e-09
+  },
+  "TQ[0.00025][ZA][c]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/c",
+   "raw": 0.001977684310986661,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0019776843109866613
+  },
+  "TQ[0.00025][ZA][c_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/c_a",
+   "raw": 4.623819665994234e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.6238196659942346e-05
+  },
+  "TQ[0.00025][ZA][c_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/c_b",
+   "raw": 0.12625007936730984,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.12625007936730986
+  },
+  "TQ[0.00025][ZA][d010]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d010",
+   "raw": 0.00011536789406818572,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00011536789406818573
+  },
+  "TQ[0.00025][ZA][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d010_a",
+   "raw": 1.4975158375563071e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.4975158375563073e-06
+  },
+  "TQ[0.00025][ZA][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d010_b",
+   "raw": 0.003695157782203751,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0036951577822037516
+  },
+  "TQ[0.00025][ZA][d100]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d100",
+   "raw": 1.3563640095526355e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.3563640095526357e-06
+  },
+  "TQ[0.00025][ZA][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d100_a",
+   "raw": 6.424338805377518e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.424338805377519e-08
+  },
+  "TQ[0.00025][ZA][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d100_b",
+   "raw": 7.888223876761915e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 7.888223876761916e-06
+  },
+  "TQ[0.00025][ZA][d110]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d110",
+   "raw": 0.3150037596933544,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.3150037596933545
+  },
+  "TQ[0.00025][ZA][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d110_a",
+   "raw": 0.0036951577894797087,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.003695157789479709
+  },
+  "TQ[0.00025][ZA][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d110_b",
+   "raw": 10.0893632870866,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 10.089363287086602
+  },
+  "TQ[0.00025][ZA][d200]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d200",
+   "raw": 0.0033255839698540517,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.003325583969854052
+  },
+  "TQ[0.00025][ZA][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d200_a",
+   "raw": 6.926772378790248e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.9267723787902486e-06
+  },
+  "TQ[0.00025][ZA][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d200_b",
+   "raw": 0.0018807168216881112,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0018807168216881114
+  },
+  "TQ[0.00025][ZA][d300]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d300",
+   "raw": 3.0267561674118046,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.026756167411805
+  },
+  "TQ[0.00025][ZA][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d300_a",
+   "raw": 0.0006269056066230406,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0006269056066230407
+  },
+  "TQ[0.00025][ZA][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/d300_b",
+   "raw": 1.7117207907140257,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.711720790714026
+  },
+  "TQ[0.00025][ZA][kU]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZA/sup/kU",
+   "raw": 1.7038567223792713e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.7038567223792715e-09
+  },
+  "TQ[0.00025][ZB][A0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/A0",
+   "raw": 1.461278529483198e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.4612785294831982e-22
+  },
+  "TQ[0.00025][ZB][A1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/A1",
+   "raw": 2.452661608531859e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.4526616085318595e-09
+  },
+  "TQ[0.00025][ZB][B0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/B0",
+   "raw": 2.9845938615252724e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.984593861525273e-22
+  },
+  "TQ[0.00025][ZB][B1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/B1",
+   "raw": 1.1424148909852662e-10,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.1424148909852663e-10
+  },
+  "TQ[0.00025][ZB][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/DQ0",
+   "raw": 6.2533804396752616e-21,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.253380439675262e-21
+  },
+  "TQ[0.00025][ZB][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/DQ1",
+   "raw": 1.2990683303689071e-20,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.2990683303689073e-20
+  },
+  "TQ[0.00025][ZB][EA0]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/EA0",
+   "raw": 1.0492087368242794e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.0492087368242795e-22
+  },
+  "TQ[0.00025][ZB][EA1]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/EA1",
+   "raw": 2.1648275803116243e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.164827580311625e-22
+  },
+  "TQ[0.00025][ZB][c]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/c",
+   "raw": 0.003365476110047894,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0033654761100478945
+  },
+  "TQ[0.00025][ZB][c_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/c_a",
+   "raw": 6.164049716517185e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.164049716517186e-05
+  },
+  "TQ[0.00025][ZB][c_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/c_b",
+   "raw": 0.16512097930535677,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.1651209793053568
+  },
+  "TQ[0.00025][ZB][d010]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d010",
+   "raw": 0.00015358652467512004,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00015358652467512007
+  },
+  "TQ[0.00025][ZB][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d010_a",
+   "raw": 1.507668375921867e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.5076683759218672e-06
+  },
+  "TQ[0.00025][ZB][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d010_b",
+   "raw": 0.003789984166360228,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0037899841663602283
+  },
+  "TQ[0.00025][ZB][d100]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d100",
+   "raw": 1.3664356561804427e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.366435656180443e-06
+  },
+  "TQ[0.00025][ZB][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d100_a",
+   "raw": 6.571239316577327e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.571239316577328e-09
+  },
+  "TQ[0.00025][ZB][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d100_b",
+   "raw": 4.20376237286746e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.203762372867461e-06
+  },
+  "TQ[0.00025][ZB][d110]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d110",
+   "raw": 0.4114236342720688,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.41142363427206885
+  },
+  "TQ[0.00025][ZB][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d110_a",
+   "raw": 0.003789984162722249,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0037899841627222495
+  },
+  "TQ[0.00025][ZB][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d110_b",
+   "raw": 10.15251215780154,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 10.152512157801542
+  },
+  "TQ[0.00025][ZB][d200]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d200",
+   "raw": 0.0034108144063793593,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0034108144063793597
+  },
+  "TQ[0.00025][ZB][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d200_a",
+   "raw": 3.833563575028621e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.833563575028622e-06
+  },
+  "TQ[0.00025][ZB][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d200_b",
+   "raw": 0.002514820174837951,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0025148201748379515
+  },
+  "TQ[0.00025][ZB][d300]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d300",
+   "raw": 3.0456006526947026,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.045600652694703
+  },
+  "TQ[0.00025][ZB][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d300_a",
+   "raw": 0.0008382733922189801,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0008382733922189802
+  },
+  "TQ[0.00025][ZB][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/d300_b",
+   "raw": 2.245545215904713,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.2455452159047136
+  },
+  "TQ[0.00025][ZB][kU]": {
+   "dir": "up",
+   "key": "tables/0.00025/ZB/sup/kU",
+   "raw": 1.9516484546724285e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.9516484546724287e-22
+  },
+  "TQ[0.001][IR][A0]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/A0",
+   "raw": 1.0856850465756908e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.085685046575691e-05
+  },
+  "TQ[0.001][IR][A1]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/A1",
+   "raw": 4.22265738961869e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.2226573896186905e-05
+  },
+  "TQ[0.001][IR][B0]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/B0",
+   "raw": 1.7300957210864002e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.7300957210864005e-05
+  },
+  "TQ[0.001][IR][B1]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/B1",
+   "raw": 0.00011820137581253222,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00011820137581253223
+  },
+  "TQ[0.001][IR][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/DQ0",
+   "raw": 5.992491411852352e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 5.992491411852353e-05
+  },
+  "TQ[0.001][IR][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/DQ1",
+   "raw": 9.90509004669371e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 9.905090046693711e-05
+  },
+  "TQ[0.001][IR][EA0]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/EA0",
+   "raw": 1.482810769459775e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.4828107694597751e-05
+  },
+  "TQ[0.001][IR][EA1]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/EA1",
+   "raw": 2.2411011602121515e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.241101160212152e-05
+  },
+  "TQ[0.001][IR][c]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/c",
+   "raw": 0.0008496130403727876,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0008496130403727877
+  },
+  "TQ[0.001][IR][c_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/c_a",
+   "raw": 0.00011902745313818742,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00011902745313818744
+  },
+  "TQ[0.001][IR][c_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/c_b",
+   "raw": 0.08257385483011605,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.08257385483011606
+  },
+  "TQ[0.001][IR][d010]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d010",
+   "raw": 0.0002972872630380153,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00029728726303801533
+  },
+  "TQ[0.001][IR][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d010_a",
+   "raw": 0.00012325955731284924,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00012325955731284926
+  },
+  "TQ[0.001][IR][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d010_b",
+   "raw": 0.015181834241957405,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.015181834241957407
+  },
+  "TQ[0.001][IR][d100]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d100",
+   "raw": 8.754441341807252e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 8.754441341807254e-05
+  },
+  "TQ[0.001][IR][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d100_a",
+   "raw": 0.00010221159857337626,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.00010221159857337628
+  },
+  "TQ[0.001][IR][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d100_b",
+   "raw": 0.0017459810078435114,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0017459810078435116
+  },
+  "TQ[0.001][IR][d110]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d110",
+   "raw": 0.20625958172604444,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.20625958172604447
+  },
+  "TQ[0.001][IR][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d110_a",
+   "raw": 0.01446634858439211,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.014466348584392111
+  },
+  "TQ[0.001][IR][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d110_b",
+   "raw": 10.038299831852784,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 10.038299831852786
+  },
+  "TQ[0.001][IR][d200]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d200",
+   "raw": 0.01326390271424316,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.013263902714243162
+  },
+  "TQ[0.001][IR][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d200_a",
+   "raw": 0.0006919450452187449,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.000691945045218745
+  },
+  "TQ[0.001][IR][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d200_b",
+   "raw": 0.0048286536839441405,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.004828653683944141
+  },
+  "TQ[0.001][IR][d300]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d300",
+   "raw": 3.011480256915093,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.0114802569150934
+  },
+  "TQ[0.001][IR][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d300_a",
+   "raw": 0.0016096614144771595,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0016096614144771597
+  },
+  "TQ[0.001][IR][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/d300_b",
+   "raw": 1.1168040819466116,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.1168040819466118
+  },
+  "TQ[0.001][IR][kU]": {
+   "dir": "up",
+   "key": "tables/0.001/IR/sup/kU",
+   "raw": 7.427301582652036e-06,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 7.427301582652037e-06
+  },
+  "TQ[0.001][ZA][A0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/A0",
+   "raw": 9.229959976875259e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 9.22995997687526e-09
+  },
+  "TQ[0.001][ZA][A1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/A1",
+   "raw": 1.2240247260209006e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.2240247260209008e-07
+  },
+  "TQ[0.001][ZA][B0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/B0",
+   "raw": 1.49651182002053e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.4965118200205303e-08
+  },
+  "TQ[0.001][ZA][B1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/B1",
+   "raw": 1.3678031085540002e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.3678031085540004e-07
+  },
+  "TQ[0.001][ZA][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/DQ0",
+   "raw": 6.929440839417e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.929440839417001e-08
+  },
+  "TQ[0.001][ZA][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/DQ1",
+   "raw": 1.2775461739497422e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.2775461739497425e-07
+  },
+  "TQ[0.001][ZA][EA0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/EA0",
+   "raw": 8.7325174452646e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 8.732517445264601e-09
+  },
+  "TQ[0.001][ZA][EA1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/EA1",
+   "raw": 1.4519281785397903e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.4519281785397904e-08
+  },
+  "TQ[0.001][ZA][c]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/c",
+   "raw": 0.008809597740764731,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.008809597740764733
+  },
+  "TQ[0.001][ZA][c_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/c_a",
+   "raw": 0.00040188412549468927,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0004018841254946893
+  },
+  "TQ[0.001][ZA][c_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/c_b",
+   "raw": 0.269868602976203,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.2698686029762031
+  },
+  "TQ[0.001][ZA][d010]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d010",
+   "raw": 0.0009960322113329314,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0009960322113329316
+  },
+  "TQ[0.001][ZA][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d010_a",
+   "raw": 2.453017717130024e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.4530177171300245e-05
+  },
+  "TQ[0.001][ZA][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d010_b",
+   "raw": 0.015493143189814875,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.015493143189814877
+  },
+  "TQ[0.001][ZA][d100]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d100",
+   "raw": 2.2228913024946454e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.2228913024946457e-05
+  },
+  "TQ[0.001][ZA][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d100_a",
+   "raw": 3.4170051188553435e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.417005118855344e-07
+  },
+  "TQ[0.001][ZA][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d100_b",
+   "raw": 5.0063816729561956e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 5.006381672956196e-05
+  },
+  "TQ[0.001][ZA][d110]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d110",
+   "raw": 0.6688440879806877,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.6688440879806878
+  },
+  "TQ[0.001][ZA][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d110_a",
+   "raw": 0.015493143189814875,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.015493143189814877
+  },
+  "TQ[0.001][ZA][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d110_b",
+   "raw": 10.403777228202673,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 10.403777228202674
+  },
+  "TQ[0.001][ZA][d200]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d200",
+   "raw": 0.01393914110667538,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.013939141106675382
+  },
+  "TQ[0.001][ZA][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d200_a",
+   "raw": 4.590611189314587e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.5906111893145876e-05
+  },
+  "TQ[0.001][ZA][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d200_b",
+   "raw": 0.016594916320173073,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.016594916320173077
+  },
+  "TQ[0.001][ZA][d300]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d300",
+   "raw": 3.120083879679442,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.1200838796794423
+  },
+  "TQ[0.001][ZA][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d300_a",
+   "raw": 0.005531638780666982,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.005531638780666983
+  },
+  "TQ[0.001][ZA][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/d300_b",
+   "raw": 3.714542414993048,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.7145424149930486
+  },
+  "TQ[0.001][ZA][kU]": {
+   "dir": "up",
+   "key": "tables/0.001/ZA/sup/kU",
+   "raw": 4.92794385853479e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.927943858534791e-09
+  },
+  "TQ[0.001][ZB][A0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/A0",
+   "raw": 3.1165482935824056e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.116548293582406e-22
+  },
+  "TQ[0.001][ZB][A1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/A1",
+   "raw": 5.642462741484167e-08,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 5.642462741484168e-08
+  },
+  "TQ[0.001][ZB][B0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/B0",
+   "raw": 6.397819745077887e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.397819745077888e-22
+  },
+  "TQ[0.001][ZB][B1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/B1",
+   "raw": 1.8044376479120496e-09,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.8044376479120498e-09
+  },
+  "TQ[0.001][ZB][DQ0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/DQ0",
+   "raw": 1.1264319098258916e-20,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.1264319098258918e-20
+  },
+  "TQ[0.001][ZB][DQ1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/DQ1",
+   "raw": 2.3487214024363582e-20,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.3487214024363585e-20
+  },
+  "TQ[0.001][ZB][EA0]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/EA0",
+   "raw": 4.231640776278744e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 4.2316407762787446e-22
+  },
+  "TQ[0.001][ZB][EA1]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/EA1",
+   "raw": 8.732235495790043e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 8.732235495790045e-22
+  },
+  "TQ[0.001][ZB][c]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/c",
+   "raw": 0.02267805350129493,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.022678053501294933
+  },
+  "TQ[0.001][ZB][c_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/c_a",
+   "raw": 0.0006831863147453988,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0006831863147453989
+  },
+  "TQ[0.001][ZB][c_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/c_b",
+   "raw": 0.4441452468745411,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.44414524687454116
+  },
+  "TQ[0.001][ZB][d010]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d010",
+   "raw": 0.0016711395655875096,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.0016711395655875099
+  },
+  "TQ[0.001][ZB][d010_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d010_a",
+   "raw": 2.8060900831405892e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.8060900831405895e-05
+  },
+  "TQ[0.001][ZB][d010_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d010_b",
+   "raw": 0.017027819296345118,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.01702781929634512
+  },
+  "TQ[0.001][ZB][d100]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d100",
+   "raw": 2.543534125720726e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 2.5435341257207262e-05
+  },
+  "TQ[0.001][ZB][d100_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d100_a",
+   "raw": 1.6566466554124307e-07,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.656646655412431e-07
+  },
+  "TQ[0.001][ZB][d100_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d100_b",
+   "raw": 6.513280027320435e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.513280027320437e-05
+  },
+  "TQ[0.001][ZB][d110]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d110",
+   "raw": 1.0864220745861533,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 1.0864220745861535
+  },
+  "TQ[0.001][ZB][d110_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d110_a",
+   "raw": 0.017027819296345118,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.01702781929634512
+  },
+  "TQ[0.001][ZB][d110_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d110_b",
+   "raw": 11.069930443540217,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 11.069930443540219
+  },
+  "TQ[0.001][ZB][d200]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d200",
+   "raw": 0.015292871976271273,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.015292871976271275
+  },
+  "TQ[0.001][ZB][d200_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d200_a",
+   "raw": 6.189225655361953e-05,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.189225655361955e-05
+  },
+  "TQ[0.001][ZB][d200_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d200_b",
+   "raw": 0.029119744198396805,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.02911974419839681
+  },
+  "TQ[0.001][ZB][d300]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d300",
+   "raw": 3.314008813351393,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.3140088133513936
+  },
+  "TQ[0.001][ZB][d300_a]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d300_a",
+   "raw": 0.009706581418868156,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 0.009706581418868158
+  },
+  "TQ[0.001][ZB][d300_b]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/d300_b",
+   "raw": 6.310331314802171,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 6.310331314802172
+  },
+  "TQ[0.001][ZB][kU]": {
+   "dir": "up",
+   "key": "tables/0.001/ZB/sup/kU",
+   "raw": 3.515537103991945e-22,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d.json",
+   "value": 3.5155371039919456e-22
+  },
+  "Z1i": {
+   "dir": "up",
+   "key": "zeta/Z1i",
+   "raw": 0.36555726157694424,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.3655572615769443
+  },
+  "Z1o": {
+   "dir": "up",
+   "key": "zeta/Z1o",
+   "raw": 0.7311145231538885,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.7311145231538886
+  },
+  "Z2i": {
+   "dir": "up",
+   "key": "zeta/Z2i",
+   "raw": 0.21132143707498463,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.21132143707498466
+  },
+  "c1": {
+   "dir": "up",
+   "key": "rho/c1",
+   "raw": 0.5804,
+   "source": "/home/claude/s1spec/step3nl_v4/agent_sob/sob_constants_P2.json",
+   "value": 0.5804000000000001
+  },
+  "k3_1": {
+   "dir": "up",
+   "key": "k3/0",
+   "raw": 0.332178028809045,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.33217802880904507
+  },
+  "k3_2": {
+   "dir": "up",
+   "key": "k3/1",
+   "raw": 0.26335198535349735,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.2633519853534974
+  },
+  "k3_3": {
+   "dir": "up",
+   "key": "k3/2",
+   "raw": 0.10603780849415599,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.106037808494156
+  },
+  "k4_1": {
+   "dir": "up",
+   "key": "k4/0",
+   "raw": 0.442904038413879,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.44290403841387904
+  },
+  "k4_2": {
+   "dir": "up",
+   "key": "k4/1",
+   "raw": 0.5267039707069947,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.5267039707069948
+  },
+  "k4_3": {
+   "dir": "up",
+   "key": "k4/2",
+   "raw": 0.42415123397662396,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.424151233976624
+  },
+  "k4_4": {
+   "dir": "up",
+   "key": "k4/3",
+   "raw": 0.4250504477486595,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 0.4250504477486596
+  },
+  "two_PSI1": {
+   "dir": "up",
+   "key": "weight/two_PSI1",
+   "raw": 2.609742651694186,
+   "source": "/home/claude/s1spec/step3nl_v4/v4cert/out/c1_cut_sups.json",
+   "value": 2.6097426516941864
+  }
+ },
+ "legacy_typed": {
+  "names": [
+   "LAMT",
+   "PI3",
+   "MOD_ALPHA (env MODA=25)",
+   "MOD_E2",
+   "ALIN",
+   "nd1..nd8",
+   "nf1..nf7",
+   "t22",
+   "t12",
+   "r143",
+   "r163",
+   "r107",
+   "f572",
+   "qb752 factor 7.52",
+   "QPSI (unused in v4 E_I)",
+   "cubic_E0fine json (read)",
+   "ADD_STRIP_CUBIC 2.6e-3"
+  ],
+  "note": "E/E2-block and alpha-equation literals of fin12f4 constants.py / rhs_iv.py that EI_SPEC does not cover; carried over unchanged, provenance per ASSEMBLY.md (not re-derived in v4)"
+ },
+ "n": 269
+}

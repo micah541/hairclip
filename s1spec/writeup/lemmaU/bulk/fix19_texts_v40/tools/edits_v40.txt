@@ -1,0 +1,381 @@
+## edits_v40.txt -- the asserted text replacements of text v40, read by build_v40.py (plain text: no escaping).
+## Block format:  "@@ FILE <v39 source name>" starts a file section; "@@ REP" (exactly once), "@@ REP <k>" (exactly k times) or
+## "@@ REPQ" (exactly once, not recorded as new text) starts an edit; the old text follows up to "@@ NEW"; the new text up to "@@ END".
+## Placeholders in NEW text: @PINS@ (pin counts from tools/records_v40.json), @REV@ (the review file), @FINREV@ (open-list phrase),
+## @H4CERT@ (the stage-12 (H4) sentence).  Old and new texts are taken verbatim (trailing newline of each block removed).
+
+@@ FILE bootstrap_v39.tex
+@@ REP 1
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REPQ
+\author{}\date{21 November 2026 (text v40; text v39; set unchanged from text v38). \emph{Not compiled.}}
+@@ NEW
+\author{}\date{21 November 2026 (text v40: closure proof repaired for review fix18 F-1; the set itself is unchanged from text v38). \emph{Not compiled.}}
+@@ END
+@@ REP
+This section is the \emph{only} statement of the set (text v38, unchanged in text v39).
+@@ NEW
+This section is the \emph{only} statement of the set (text v38, unchanged in texts v39 and v40; text v40 repairs the closure proof, review @REV@ F-1).
+@@ END
+@@ REP
+so $\mathrm{BS}(\tau')$ implies $P(\tau)\in\mathfrak B_{\rm mod}$ on $[\tau_1,\tau']$.
+@@ NEW
+so $\mathrm{BS}(\tau')$ implies $P(\tau)\in\mathfrak B_{\rm mod}$ on $[\tau_1,\tau']$. $\mathfrak B_{\rm mod}$ is used only by the continuation statement (P2$'$)(c); parts (a), (b) of (P2$'$) and the regularity Theorem U-1 need only $\tau<\tau_{\rm mod}$, GS and G (text v40, review fix18 F-1).
+@@ END
+@@ REP
+\noindent\emph{What is not a member.}
+@@ NEW
+\noindent\emph{Members without a gap (text v40, review fix18 F-1).} B1(a) and B1(b) are members (every step that consumes them assumes them on $[\tau_1,\tau']$), but the implication step returns them in the \emph{same} form: $Y=\Lambda-Z\le L$ gives $\Lambda\le L+2C'$ again, because $Z$ can reach $2C'$; the $\alpha$-barrier of the march is its own conclusion, and in the tail the bound $a^*\lambda$ has no cushion. So B1(a,b) have no uniform gap and are \emph{not} extended past $\tau^*$ by continuity. They are re-derived on $[\tau_1,\tau^*+\delta]$ by first touch (Proposition~\ref{F:prop:abs}; \fn{step3nl_v4c/verifier/TAIL_LEMMA.tex}, section ``Tail contraction (first touch)''), an argument that uses only the other members; see the Open step of Proposition~\ref{BS:prop:close}. Every other member has a uniform gap.
+
+\noindent\emph{What is not a member.}
+@@ END
+@@ REP
+Under $\mathrm{BS}(\tau')$ every member holds on $[\tau_1,\tau']$ with a fixed smaller constant (a uniform gap).
+@@ NEW
+Under $\mathrm{BS}(\tau')$ every member except B1(a,b) holds on $[\tau_1,\tau']$ with a fixed smaller constant (a uniform gap). B1(a,b) are reproduced without a gap, by first touch (rows B1(a), B1(b); text v40, review fix18 F-1).
+@@ END
+@@ REP
+B1(a) & march $|\alpha|\le1.6\cdot10^{-4}$, tail $|\alpha|\le a^*\lambda$; whole-tail
+@@ NEW
+B1(a) & \emph{no gap; reproduced, not improved}: march $|\alpha|$ below the same $\alpha$-barrier ($\le1.6\cdot10^{-4}$), tail $|\alpha|\le a^*\lambda$ (first touch, cooperative in $\alpha$: $\beta$ is nondecreasing in $\Lambda$); certified is the room for the first-touch argument: whole-tail
+@@ END
+@@ REP
+B1(b) & $Y=\Lambda-Z\le L$ (march), $\le\ell$ (tail), so $\Lambda\le L+2C'$ with the pad $10^{-9}$ (C3 $\times\FluxCthreeV$) and the cell cushion $10^{-3}$ (C2 $\ge\times5.0\cdot10^7$) &
+@@ NEW
+B1(b) & \emph{no gap; reproduced, not improved}: $Y=\Lambda-Z\le L$ (march), $\le\ell$ (tail) by first touch, i.e.\ $\Lambda\le L+2C'$ again ($Z\le2C'$ can be attained); certified is the room for the first-touch argument: the pad $10^{-9}$ (C3 $\times\FluxCthreeV$), the cell cushion $10^{-3}$ (C2 $\ge\times5.0\cdot10^7$), (C4) in the tail &
+@@ END
+@@ REP
+(P2$'$) & $P\in\mathfrak B_{\rm mod}$ (GS, validity box, B1(b)); Neumann bound $\nu\le0.0466$ \tR & $C^1$ path $P(\tau)$ on $[\tau_1,\tau_{\rm mod})$; constraints kept\\
+@@ NEW
+(P2$'$) & (a), (b): $P(\tau)\in\mathcal O$, i.e.\ $\tau<\tau_{\rm mod}$; (c) only: $P\in\mathfrak B_{\rm mod}$ (GS, validity box, B1(b)); Neumann bound $\nu\le0.0466$ \tR & $C^1$ path $P(\tau)$ on $[\tau_1,\tau_{\rm mod})$; constraints kept; (c) end of the interval\\
+@@ END
+@@ REP
+U-1 & (P2$'$); GS, B1, G & $C^1$ energies, identities at every $\tau$\\
+@@ NEW
+U-1 & (P2$'$)(a), (b); GS, G (not B1; text v40, review fix18 F-1) & $C^1$ energies, identities at every $\tau$\\
+@@ END
+@@ REP
+& B1(a,b) strictly (with the flux row); B1(c) ratios;
+@@ NEW
+& B1(a,b) again, by first touch (no gap; with the flux row); B1(c) ratios;
+@@ END
+@@ REP
+give B1(a,b) strictly in the form $Y\le L$, $Y\le\ell$ (Proposition~\ref{F:prop:abs}, conditions (C0)--(C7)),
+@@ NEW
+give B1(a,b) again (not strictly: no gap) in the form $Y\le L$, $Y\le\ell$ (Proposition~\ref{F:prop:abs}, conditions (C0)--(C7)),
+@@ END
+@@ REP
+Each improved constant is a fixed number (independent of $\tau'$), so the gaps are uniform.
+@@ NEW
+Each improved constant is a fixed number (independent of $\tau'$), so the gaps are uniform, for every member except B1(a,b).
+@@ END
+@@ REP
+Each member except GS, G, (F1) and B3U(a) is an inequality $Q(\tau)\le c$ for a function $Q$ continuous on $[\tau_1,\tau_{\rm mod})$
+@@ NEW
+Each member except GS, G, (F1) and B3U(a) is an inequality $Q(\tau)\le c$ for a function $Q$ continuous on $[\tau_1,\tau_{\rm mod})$ (for B1(a,b) the right side is the continuous barrier function of $\tau$)
+@@ END
+@@ REP
+\emph{Open.} At $\tau^*$ all members hold with the uniform gaps of the implication step. $P(\tau^*)\in\mathfrak B_{\rm mod}\subset\mathcal O$ and $P$ is continuous on $[\tau_1,\tau_{\rm mod})$ ((P2$'$)(b)). GS: Lemma GS-3 (openness with the endpoint $x=\pm60$) gives GS on $[\tau^*,\tau^*+\delta]$. The scalar members: continuity and the gaps. (F1): the extra piece of a window beyond $\tau^*$ tends to $0$ uniformly in the window start (local integrability, U-1(d); \fn{flux2_lemma_v40.tex} Remark~\ref{F:rem:boot}), so the gap of $\times2$ persists for $\delta$ small. B3U(a) and G: as in \fn{lemmaU_v40.tex} (``Open'') and Lemma~\ref{C:lem:G}. Hence $\tau^*+\delta\in\mathcal T$ for some $\delta>0$, contradicting the definition of $\tau^*$.
+@@ NEW
+\emph{Open} (text v40: rewritten for review fix18 F-1). At $\tau^*$ all members hold, and all except B1(a,b) hold with the uniform gaps of the implication step. $P(\tau^*)\in\mathfrak B_{\rm mod}\subset\mathcal O$ and $P$ is continuous on $[\tau_1,\tau_{\rm mod})$ ((P2$'$)(b)); take $\delta>0$ with $\tau^*+\delta<\tau_{\rm mod}$, to be decreased below.
+
+\emph{Step 1: the members with a gap.} GS: Lemma GS-3 (openness with the endpoint $x=\pm60$) gives GS on $[\tau^*,\tau^*+\delta]$. The scalar members other than B1(a,b) (the box part B1(c), worst ratio $\BdV<1$; (F2); B2$'$; the scalar parts of B3U and B4): continuity and the gaps. (F1): the extra piece of a window beyond $\tau^*$ tends to $0$ uniformly in the window start (local integrability, U-1(d); \fn{flux2_lemma_v40.tex} Remark~\ref{F:rem:boot}), so the gap of $\times2$ persists for $\delta$ small. B3U(a) and G: as in \fn{lemmaU_v40.tex} (``Open'') and Lemma~\ref{C:lem:G}. No step of Step~1 uses B1(a,b) beyond $\tau^*$. So for $\delta$ small every member except B1(a,b) holds on $[\tau_1,\tau^*+\delta]$.
+
+\emph{Step 2: B1(a,b) by first touch.} Theorem U-1 applies on $[\tau_1,\tau^*+\delta]$: it needs only GS, G and $\tau^*+\delta<\tau_{\rm mod}$. Apply Proposition~\ref{F:prop:abs} on $[\tau_1,\tau^*+\delta]$. Its proof is a first-touch argument for the pair $(|\alpha|,Y)$: in $Y$ on every march step and in the tail (direct), and for $\alpha$ the comparison of \fn{step3nl_v4c/verifier/TAIL_LEMMA.tex}, section ``Tail contraction (first touch)'' (cooperative: $\beta$ is nondecreasing in $\Lambda$, and $\Lambda\le\mathrm{Ly}^{hi}_k$ up to the first touch). Its inputs are: the energy identities and inequalities of U-1(b), (c); inequality (F:eq:star) of the flux lemma, which needs BF, B2$'$ and B1(c); the cell certificates, valid for every state of a cell under the box part B1(c); and the certified conditions (C0)--(C7). All of them hold on $[\tau_1,\tau^*+\delta]$ by Step~1. B1(a,b) themselves are not assumed beyond $\tau^*$: the first touch starts at $\tau_1$, where (H1) puts the state below the first cell. Hence B1(a,b) hold on $[\tau_1,\tau^*+\delta]$.
+
+So $\tau^*+\delta\in\mathcal T$, contradicting the definition of $\tau^*$.
+@@ END
+@@ REP
+(2) Beyond the tail anchor the box assertions rest on the verifier's monotonicity statement (\fn{VERIFIER.md} ``Monotonicity check'' \tR, not audited; flux lemma, tail paragraph of Proposition~\ref{F:prop:abs}, for $\Lambda\le L^*+2C'$).
+@@ NEW
+(2) Beyond the tail anchor the boxes are covered without the verifier's monotonicity statement (text v40; review fix18, item GS-4, box part closed there): in the tail $\Lambda\le\ell+2C'\le L^*+2C'\le\mathrm{Ly}^{hi}$ of the last march cell and $|\alpha|\le a^*\lambda\le a^*\le\alpha^{\rm up}$ of that cell \tC\ (tail paragraph of Proposition~\ref{F:prop:abs}), and that cell's boxes are asserted for all shapes with these bounds. The scaling step of the rate in the tail (\fn{tail_cert}) stays \tR.
+@@ END
+
+@@ FILE flux2_lemma_v39.tex
+@@ REP 1
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REPQ
+\newcommand{\fD}{\mathfrak D}\newcommand{\fX}{\mathfrak X}\newcommand{\fa}{\mathfrak a}
+\begin{document}
+@@ NEW
+\newcommand{\fD}{\mathfrak D}\newcommand{\fX}{\mathfrak X}\newcommand{\fa}{\mathfrak a}
+\input{numbers_A_v40}% text v40 (review fix18 F-2): the standalone preamble used number macros without this \input
+\begin{document}
+@@ END
+@@ REP
+(F6) is B1(b)). On $[\tau_1,\tau']$ they are assumed; each is \emph{strictly improved} by the conclusions obtained under it (certified factor given):
+@@ NEW
+(F6) is B1(b)). On $[\tau_1,\tau']$ they are assumed; each of (F1)--(F5) is \emph{strictly improved} by the conclusions obtained under it (certified factor given); (F6) is reproduced without a gap, by first touch (text v40, review fix18 F-1):
+@@ END
+@@ REP
+\item B1 in the form $\Lambda\le L+2C'$ on the march, $\le\ell+2C'$ in the tail. Improved: Proposition~\ref{F:prop:abs} gives $Y\le L$ strictly (pad and cushion, (C2), (C3) $\times\FluxCthreeV$).
+@@ NEW
+\item B1 in the form $\Lambda\le L+2C'$ on the march, $\le\ell+2C'$ in the tail. \emph{Not improved with a gap}: Proposition~\ref{F:prop:abs} gives $Y\le L$, i.e.\ $\Lambda\le L+2C'$ again; the pad and the cushion ((C2), (C3) $\times\FluxCthreeV$) are what make its first-touch argument work. (F6) is re-derived on $[\tau_1,\tau^*+\delta]$ in the Open step of Proposition~\ref{BS:prop:close} of \fn{bootstrap_v40.tex} (text v40, review fix18 F-1; text v39 said ``strictly'').
+@@ END
+@@ REP
+(F2)--(F6) are closed conditions on continuous quantities and are improved strictly, so they are open by continuity (Theorem U-1).
+@@ NEW
+(F2)--(F5) are closed conditions on continuous quantities and are improved strictly, so they are open by continuity (Theorem U-1). (F6) is closed (both sides are continuous) but has no gap; past $\tau^*$ it is not extended by continuity but re-derived by first touch from the other items (Proposition~\ref{F:prop:abs} on $[\tau_1,\tau^*+\delta]$; Open step of Proposition~\ref{BS:prop:close}; text v40, review fix18 F-1).
+@@ END
+
+@@ FILE lemmaU_v39.tex
+@@ REPQ
+\textbf{Status (20 November 2026): not compiled; step 3 is NOT closed.} This text carries
+@@ NEW
+\textbf{Status (21 November 2026, text v40): not compiled; step 3 is NOT closed.} This text carries
+@@ END
+@@ REP 2
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REPQ
+\title{Lemma U: the uniformly local
+@@ NEW
+\input{numbers_A_v40}% text v40 (review fix18 F-2): \cdUV, \DcTwoV were used without this \input
+\title{Lemma U: the uniformly local
+@@ END
+@@ REPQ
+\author{}\date{20 November 2026 (v39; revision of
+@@ NEW
+\author{}\date{21 November 2026 (v40: fixes of review fix18 F-1, F-2, R-1; v39 of 20 November 2026, a revision of
+@@ END
+@@ REP
+D6 & D1 & B1 strictly\\
+@@ NEW
+D6 & D1 & B1(c) strictly; B1(a,b) again by first touch, no gap (text v40, review fix18 F-1: re-derived in the Open step of Proposition~\ref{BS:prop:close})\\
+@@ END
+@@ REP
+D1 and D6 use B1, B2$'$ (fluxes at $\beta_A\Eh$ by (K1)) and give H-J-W and B1 strictly.
+@@ NEW
+D1 and D6 use B1, B2$'$ (fluxes at $\beta_A\Eh$ by (K1)) and give H-J-W, the box part B1(c) strictly, and B1(a,b) again by first touch (no gap; text v40, review fix18 F-1).
+@@ END
+@@ REP
+Continuity of the finitely many scalar quantities gives the strict inequalities on $[\tau^*,\tau^*+\delta]$.
+@@ NEW
+Continuity of the finitely many scalar quantities gives the strict inequalities on $[\tau^*,\tau^*+\delta]$ for every member with a gap. B1(a,b) have none: on $[\tau_1,\tau^*+\delta]$ they are re-derived by first touch from the other members (Open step of Proposition~\ref{BS:prop:close} of \fn{bootstrap_v40.tex}; text v40, review fix18 F-1).
+@@ END
+@@ REP
+the final independent review of the v39 text set is pending.
+@@ NEW
+the final review of text v39 (@REV@) is done (closes with fixes, none blocking); its fixes are applied in text v40, and an independent check of the v40 changes is open.
+@@ END
+
+@@ FILE U1_regularity_v39.tex
+@@ REP
+\item \emph{(Theorem~3.1)} for a maximal solution with $T<\infty$, $\int|\kappa|^2ds\ge c(T-t)^{-1/4}$ \tD. (Not used below beyond (D1).)
+@@ NEW
+\item \emph{(Theorem~3.1, statement, p.~1234, as recorded verbatim in \fn{writeup/lit_P1/P1_CONFIRMATION.md} \S1)} ``Let $f:[0,T)\times I\to\mathbb R^n$ be a maximal solution of the curve diffusion equation $\partial_tf=-\nabla_s^2\kappa$. If $T<\infty$, then $\int_I|\kappa|^2ds\ge c(T-t)^{-1/4}$'' \tD. This is the criterion used below (text v40, review fix18 F-5; (D1) is kept for Remark~\ref{U:rem:D1}, and C-1 uses it separately). \emph{Author confirmation} (item A-2 of the review): that DKS's ``maximal solution'' means maximal among smooth solutions (DKS do not prove uniqueness; Lemma~\ref{U:lem:max} supplies it).
+@@ END
+@@ REP
+\begin{proof}\tH\ Otherwise (D1) extends $\Phi$ smoothly to $[0,T_{\max}]$; the extension is an \fn{IsFlow} on $[0,T_{\max}]$ (the velocity identity passes to the limit $t\uparrow T_{\max}$ with all derivatives, and $\Phi(T_{\max})$ is an immersion because DKS's extension is a smooth solution, in particular $|\partial_x\Phi|>0$ up to $T_{\max}$), contradicting Lemma~\ref{U:lem:max}.
+\end{proof}
+\noindent This is (P1$'$) with: existence and uniqueness from (L1), (L2); the criterion from (D1). DKS's rate (D2) is not needed.
+@@ NEW
+\begin{proof}\tH\ (Text v40, review fix18 F-5.) By Lemma~\ref{U:lem:max}, $\Phi$ is a smooth solution of $\partial_tf=-\nabla_s^2\kappa$ on $[0,T_{\max})$ (an \fn{IsFlow} at $n=1$ is such a solution, Lemma~\ref{U:lem:vel}), every smooth solution from $F$ on an interval $[0,T]$ is a restriction of $\Phi$, and $\Phi$ has no smooth extension to $[0,T_{\max}]$ when $T_{\max}<\infty$. So $\Phi$ is a maximal solution in the sense of DKS, read as ``maximal among smooth solutions'' (author item A-2). If $T_{\max}<\infty$, (D2) gives $\int_{\gamma(t_1+t)}k^2ds\ge c(T_{\max}-t)^{-1/4}\to\infty$ as $t\uparrow T_{\max}$.
+\end{proof}
+\begin{remark}[the route of text v39, through (D1)]\label{U:rem:D1}
+Alternatively: if $\sup\int k^2ds<\infty$, (D1) extends $\Phi$ smoothly to $[0,T_{\max}]$; the extension is an \fn{IsFlow} on $[0,T_{\max}]$ (the velocity identity passes to the limit $t\uparrow T_{\max}$ with all derivatives, and $\Phi(T_{\max})$ is an immersion because DKS's extension is a smooth solution, in particular $|\partial_x\Phi|>0$ up to $T_{\max}$), contradicting Lemma~\ref{U:lem:max}. This uses a step inside DKS's proof rather than its statement, and the immersion at $T_{\max}$ (the C-4 completion); the statement (D2) needs neither.
+\end{remark}
+\noindent This is (P1$'$) with: existence and uniqueness from (L1), (L2); the criterion from the statement of DKS Theorem~3.1, (D2) (text v40; text v39 used (D1)).
+@@ END
+@@ REP
+Let $\tau'<\tau_{\rm mod}$ and assume $P(\tau)\in\mathfrak B$ and (G) at $P(\tau)$ for $\tau\in[\tau_1,\tau']$. Then:
+@@ NEW
+Let $\tau'<\tau_{\rm mod}$ and assume (GS) and (G) at $P(\tau)$ for $\tau\in[\tau_1,\tau']$. (Text v40, review fix18 F-1: no other member of the bootstrap set is needed, in particular neither B1(b) nor the validity box; text v39 assumed $P(\tau)\in\mathfrak B$. The proof below uses only that $P$ is the $C^1$ solution of (P2$'$)(b) on $[\tau_1,\tau']\subset[\tau_1,\tau_{\rm mod})$, (GS) for the graph function $u=\mathcal U(P;\cdot)$, and (G) for the far-field energies of (d).) Then:
+@@ END
+@@ REP
+\item \textbf{DKS (D1)} is a step inside the proof of Theorem~3.1, not its statement (\fn{P1_CONFIRMATION.md} \S1, ``Smoothness up to and beyond $T$''). It is standard and explicitly written there.
+@@ NEW
+\item \textbf{DKS} (text v40, review fix18 F-5): the criterion is now the \emph{statement} of Theorem~3.1, (D2), recorded verbatim in \fn{P1_CONFIRMATION.md} \S1. Open author item: confirm that DKS's ``maximal solution'' means maximal among smooth solutions. (D1), a step inside the proof (``Smoothness up to and beyond $T$''), is kept as Remark~\ref{U:rem:D1} and is still used by C-1 (with the uniform bounds of C-4); DKS has not been re-read for it.
+@@ END
+
+@@ FILE continuation_v39.tex
+@@ REP
+\noindent\textbf{Standing facts.} (P1$'$) and (P2$'$) are proved in
+@@ NEW
+\noindent\textbf{Convention} (text v40, review fix18 F-4). $T_{\max}\in(0,\infty]$ is the \emph{length} of the maximal interval of the smooth flow from $\gamma(t_1)$, so the flow lives on $[t_1,t_1+T_{\max})$, as in Lemma ``maximal smooth solution'' of \fn{U1_regularity_v40.tex} and in \fn{bootstrap_v40.tex} (text v39 used $T_{\max}$ here as an absolute time).
+
+\noindent\textbf{Standing facts.} (P1$'$) and (P2$'$) are proved in
+@@ END
+@@ REP
+CDF has a unique smooth solution on a maximal interval $[t_1,T_{\max})$ (Lemma ``maximal smooth solution'' of \fn{U1_regularity_v40.tex}), and if $T_{\max}<\infty$ then $\sup_{t<T_{\max}}\int_{\gamma(t)}\kappa^2ds=\infty$
+@@ NEW
+CDF has a unique smooth solution on a maximal interval $[t_1,t_1+T_{\max})$ (Lemma ``maximal smooth solution'' of \fn{U1_regularity_v40.tex}), and if $T_{\max}<\infty$ then $\sup_{t<t_1+T_{\max}}\int_{\gamma(t)}\kappa^2ds=\infty$
+@@ END
+@@ REP
+\item \emph{criterion} (D1): ``bounded $\int\kappa^2ds$ on $[0,T)$, $T<\infty$, implies smooth extension to $[0,T]$'', a step inside the proof of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002} (\fn{writeup/lit_P1/P1_CONFIRMATION.md}); the rate of Theorem~3.1, $\int\kappa^2ds\ge c(T-t)^{-1/4}$, and Chou \cite{Chou2003} are not needed;
+@@ NEW
+\item \emph{criterion} (text v40, review fix18 F-5): the \emph{statement} of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002}, ``for a maximal solution with $T<\infty$, $\int\kappa^2ds\ge c(T-t)^{-1/4}$'' (verbatim in \fn{writeup/lit_P1/P1_CONFIRMATION.md} \S1), applied to the maximal smooth solution given by (L1), (L2) and gluing; author item: confirm that DKS's ``maximal solution'' means maximal among smooth solutions. Text v39 used instead the step (D1) inside the proof (now the Remark ``the route of text v39, through (D1)'' of \fn{U1_regularity_v40.tex}); Chou \cite{Chou2003} is not needed;
+@@ END
+@@ REP
+the constraints are conserved, and it continues until $t\to T_{\max}$ or the box fails
+@@ NEW
+the constraints are conserved, and it continues until $t\to t_1+T_{\max}$ or the box fails
+@@ END
+@@ REP
+hence $T_{\max}=t_1+\int_{\tau_1}^{\tau_{\max}}\lambda^4d\tau<\infty$. We show that $\int_{\gamma(t)}\kappa^2ds$ is bounded on $[t_1,T_{\max})$, contradicting (P1$'$).
+@@ NEW
+hence $T_{\max}=\int_{\tau_1}^{\tau_{\max}}\lambda^4d\tau<\infty$ ((P2$'$)(c)). We show that $\int_{\gamma(t)}\kappa^2ds$ is bounded on $[t_1,t_1+T_{\max})$, contradicting (P1$'$).
+@@ END
+@@ REP
+So $\sup_{t<T_{\max}}\int\kappa^2ds<\infty$, a contradiction.
+@@ NEW
+So $\sup_{t<t_1+T_{\max}}\int\kappa^2ds<\infty$, a contradiction.
+@@ END
+@@ REP
+\noindent\emph{Hand-off range.} G at $\tau_1$ needs (H4) on $[14,700]$; v3.2's (H4) reads ``graph over the $S_1$ ray on $y\in[48,350]$'' (review M7). The verifier's decomposition covers $x\le60$ ($y\le57.75$), and the step-4 (H2f) stage evaluates $f$ on $x\in[45,725]$ (\fn{step4/p2/v33/h2f_win.py}), which implies the graph property there; the wording of (H4) must be extended to $y\in[48,700]$ (\S\ref{C:sec:gaps}, item 2).
+@@ NEW
+\noindent\emph{Hand-off range} (text v40, review fix18 F-7). G at $\tau_1$ needs (H4) on $[14,700]$; v3.2's (H4) reads ``graph over the $S_1$ ray on $y\in[48,350]$'' (review M7). The range $[14,700]$ is \emph{certified}: @H4CERT@. The verifier's decomposition covers $x\le60$ in addition. Only the wording of step~4's hand-off list still says $[48,350]$ (\S\ref{C:sec:gaps}, item 3).
+@@ END
+@@ REP
+\item \textbf{(H4) range.} G at $\tau_1$ needs the graph property on $y\in[14,700]$ (verifier zone $y\le57.75$ plus (H4)). v3.2's (H4) says $[48,350]$. The step-4 v33 (H2f) stage implies the graph property on $x\in[45,725]$; the hand-off list must state it (also review M7).
+@@ NEW
+\item \textbf{(H4) range} (text v40, review fix18 F-7): \emph{certified}, not only implied: @H4CERT@. Open is only the wording of step~4's hand-off list (v3.2: $[48,350]$; \fn{step4_handoff_v40.tex} item (2), review M7).
+@@ END
+@@ REP
+(D1) is a step inside the proof of DKS Theorem~3.1, not its statement, and DKS has not been re-read (pp.~1234--35, including the uniform bounds on $\partial_s^m\kappa$ used in C-1);
+@@ NEW
+the criterion is the statement of DKS Theorem~3.1 (text v40, review fix18 F-5), with the author item ``maximal solution'' = maximal among smooth solutions; (D1), a step inside the proof, is still used by C-1 together with the uniform bounds on $\partial_s^m\kappa$, and DKS has not been re-read for it (pp.~1234--35);
+@@ END
+
+@@ FILE GS_lemma_v39.tex
+@@ REP 1
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REP
+(the solution is smooth at $t(\tau_b)<T_{\max}$)
+@@ NEW
+(the solution is smooth at $t(\tau_b)<t_1+T_{\max}$; text v40, review fix18 F-4: $T_{\max}$ is a length)
+@@ END
+
+@@ FILE step3_v39_main.tex
+@@ REP 2
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REP
+\textbf{Status (text v39). Step~3 is NOT closed.} \emph{New in v39:}
+@@ NEW
+\textbf{Status (text v40). Step~3 is NOT closed.} \emph{New in v40:} the fixes of the final review @REV@ (verdict ``closes with fixes, none blocking'', modulo the external and author items): F-1 the closure proof (B1(a,b) have no gap and are re-derived by first touch, \S\ref{BS:sec:close}; U-1 without B1(b)); F-2 every macro used is defined (\fn{tools/check_macros_v40.py}; the (H2), (H2f) thresholds and the (K6) datum are printed again); F-3 the symmetry of $\gamma(t_1)$ in (H6); F-4 one meaning of $T_{\max}$ (a length); F-5 DKS Theorem~3.1 cited by its statement; F-6; F-7 ((H4) range certified by stage 12); records R-1--R-3. \emph{Text v39 status. New in v39:}
+@@ END
+@@ REP
+the final independent review of this text set. Lemma~U is cited
+@@ NEW
+@FINREV@. Lemma~U is cited
+@@ END
+@@ REP
+\item[\textup{(H4)}] \emph{Graph}: the arc is a graph over the $S_1$ ray on $y\in[48,700]$ (v3.2: $[48,350]$; extended for (H2f) and Lemma~G, \S\ref{C:sec:graph}; proposed wording: the step-4 (H2f) stage evaluates $f$ on $x\in[45,725]$, which implies it, but the hand-off list must say so).
+@@ NEW
+\item[\textup{(H4)}] \emph{Graph}: the arc is a graph over the $S_1$ ray on $y\in[48,700]$ (v3.2: $[48,350]$; extended for (H2f) and Lemma~G, \S\ref{C:sec:graph}). For the clip this is certified on $y\in[14,700]$ by the coverage assertion of stage 12 of \fn{FINAL_manifest_v38.json} (\fn{win_arb.py} item (e): $\cos\varphi>0$ on every cell of $[14,60]$, $[50,380.25]$, $[60,700]$) \tC; text v40, review fix18 F-7.
+@@ END
+@@ REP
+\item[\textup{(H6)}] \emph{Regularity}: $\gamma(t_1)$ smooth; the forcing norm is determined by $\alpha(\tau_1)$. (For the clip, (H6) is Theorem C-1 of \fn{C1_identification_v40.tex}, not step~4's [A] sentence; step-4 wording: \fn{step4_handoff_v40.tex} item (3).)
+@@ NEW
+\item[\textup{(H6)}] \emph{Regularity and symmetry}: $\gamma(t_1)$ is a smooth closed immersed curve, \emph{symmetric about the $x$-axis} (text v40, review fix18 F-3: the symmetry is used by U-1, through (S4.2) and its Lemma ``symmetry'', and by the even class of the verifier); the forcing norm is determined by $\alpha(\tau_1)$. (For the clip, (H6) is Theorem C-1 (i), (iv) of \fn{C1_identification_v40.tex}, not step~4's [A] sentence; the symmetry comes from the symmetric $\Gamma_0$ of step~4 and uniqueness; step-4 wording, which states the symmetry: \fn{step4_handoff_v40.tex} item (3).)
+@@ END
+@@ REP
+Z3 $n^{\rm III}\le(0.071446,0.32707,3.0445)$
+@@ NEW
+Z3 $n^{\rm III}\le(0.071444,0.32707,3.0445)$
+@@ END
+@@ REP
+\item \textbf{Literature / Lean}: the Lean build at commit \fn{d72b744} and the $n=1$ instance; DKS (D1) re-read;
+@@ NEW
+\item \textbf{Literature / Lean}: the Lean build at commit \fn{d72b744} and the $n=1$ instance; DKS: confirm the statement of Theorem~3.1 and that ``maximal solution'' means maximal among smooth solutions (text v40, review fix18 A-2), and re-read (D1) with the uniform bounds used by C-1;
+@@ END
+@@ REP
+DS0--DS3, $K_\rho$, $K_W$, the monotonicity of $W$ on $[31.25,34.25]$, the tail monotonicity statement of \fn{VERIFIER.md}, the D-1a pins.
+@@ NEW
+DS0--DS3, $K_\rho$, $K_W$ (spot-audited in review fix18: form valid, five values reproduced \tHd), the D-1a pins. Closed by review fix18 \tHd: the monotonicity of $W$ on $[31.25,34.25]$ (A-7: $\psi'>0$ for $x>0$); the box part beyond the tail anchor (GS-4: no monotonicity statement needed, \fn{bootstrap_v40.tex} Remark (2)).
+@@ END
+@@ REP
+\item \textbf{LaTeX compile} of every v39 file; \textbf{final independent review} of this text set.
+@@ NEW
+\item \textbf{LaTeX compile} of every v40 file (the macro check of text v40 is static; it does not replace a compile); @FINREV@.
+@@ END
+
+@@ FILE main_v3_v39.tex
+@@ REP 3
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+@@ REPQ
+\title[CDF singularity
+@@ NEW
+\input{numbers_A_v40}% text v40 (review fix18 F-2): \cdUV, \CprimeV, \EzeroAoneMarV, \tailAlphaMarV, \tailAlphaMarBV were used without this \input
+\title[CDF singularity
+@@ END
+@@ REP
+\textbf{Status (20 November 2026, v39): not compiled; step 3 is NOT closed.} \emph{New in v39:}
+@@ NEW
+\textbf{Status (21 November 2026, v40): not compiled; step 3 is NOT closed.} \emph{New in v40:} the fixes of the final review @REV@ (``closes with fixes, none blocking'', modulo external and author items) are applied: the closure proof of the bootstrap (F-1), every macro defined (F-2), symmetry of $\gamma(t_1)$ in (H6) (F-3), $T_{\max}$ (F-4), the DKS citation (F-5), F-6, F-7, records (R-1--R-3). \emph{v39 text of this box. New in v39:}
+@@ END
+@@ REP
+LaTeX compilation; the final independent review of the v39 text set; the \texttt{[read]} inputs
+@@ NEW
+LaTeX compilation; @FINREV@; the \texttt{[read]} inputs
+@@ END
+@@ REP
+(g) the final independent review of the v39 text set;
+@@ NEW
+(g) @FINREV@;
+@@ END
+@@ REP
+(H6) regularity (v3.3) & smooth immersion & Theorem C-1;
+@@ NEW
+(H6) regularity (v3.3) & smooth immersion, symmetric about the $x$-axis (text v40, review fix18 F-3) & Theorem C-1;
+@@ END
+@@ REP
+(c) a re-reading of DKS pp.~1234--35 for (D1) and the uniform bounds used in C-1;
+@@ NEW
+(c) DKS: the authors' confirmation of the statement of Theorem~3.1 and of the meaning of ``maximal solution'' (the criterion is cited by its statement since text v40), and a re-reading of pp.~1234--35 for (D1) and the uniform bounds used in C-1;
+@@ END
+
+@@ FILE step4_handoff_v39.tex
+@@ REP
+29 stages, 629 distinct paths and 55 scripts (992 pin entries), \key{all_items_ok} true;
+@@ NEW
+29 stages, @PINS@ (text v40, review fix18 R-1; the manifest's own check reports \key{paths} 629 and \key{scripts} 55; text v39 printed ``629 distinct paths and 55 scripts''), \key{all_items_ok} true;
+@@ END
+@@ REP
+\item \textbf{Verifier runs.} Stage 28 pins
+@@ NEW
+\item \textbf{Pinned only transitively} (text v40, review fix18 R-2): the verifier code (\fn{rhs_iv.py}, \fn{unc.py}, \fn{bb.py}, \fn{ival.py}) and \fn{step3nl_v4c/cubic_E0fine_0.001_0.01_0.01.json} are pinned only through the args blocks of the pinned rate tables (12 inputs, all matching the disk according to the review); \fn{tail_cert.py}, \fn{mod_sups.py}, \fn{integ.py} are not pinned at all. To be pinned directly at the next manifest touch (records item; nothing rerun here).
+\item \textbf{Verifier runs.} Stage 28 pins
+@@ END
+@@ REP
+\item \textbf{(H4) range.} Step~3 v3.3 uses the graph property on $y\in[48,700]$ (v3.2: $[48,350]$). The (H2f) stages evaluate $f$ as a graph over the ray on $x\in[45,725]$, which implies it (\fn{continuation_v40.tex}, item ``(H4) range''); the hand-off list should state the range. \emph{Wording only; not re-checked in this file.}
+@@ NEW
+\item \textbf{(H4) range} (text v40, review fix18 F-7). Step~3 v3.3 uses the graph property on $y\in[48,700]$ (v3.2: $[48,350]$). It is \emph{certified} on $y\in[14,700]$ by stage 12 (M9 arb base sums, \fn{p2/v33/win_arb.py} item (e)): for every $t_c$ ball and both ball sets the cells used are consecutive along the arc and $\cos\varphi>0$ on every cell of $[14,60]$, $[50,380.25]$, $[60,700]$ \tC\ (\fn{continuation_v40.tex}, item ``(H4) range''). Only the wording of the hand-off list (Theorem~4(c) of \fn{step4_proof.tex}) still says $[48,350]$.
+@@ END
+@@ REP
+10, 11, 15, 16 & B0 profile difference, (H2) for $f-U_1$, (H2f) (carried) & as item (1)\\
+@@ NEW
+10, 11, 15, 16 & B0 profile difference, (H2) for $f-U_1$, (H2f) (carried) & as item (1)\\
+12 & M9 arb base sums (\fn{win_arb.py}), carried & coverage assertion (e): the (H4) range of item (2) \tC\\
+@@ END
+
+@@ FILE lemmaS_A_v39.tex
+@@ REP 2
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END
+
+@@ FILE G1_export_k2_v39.tex
+@@ REP 1
+629 paths and 55 scripts pinned
+@@ NEW
+@PINS@
+@@ END

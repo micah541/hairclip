@@ -1,0 +1,56 @@
+sigma_end (half-curve length in rescaled units): k=10: 159, k=30: 470, k=100: 1567, k=400: 6288, k=1600: 25164
+elements (r=0.25/0.5/1): k=10: 21/14/10; k=30: 26/16/11; k=100: 31/19/13; k=400: 37/23/15; k=1600: 44/26/17
+
+DOF with all trailing Chebyshev coefficients of theta < 1e-10
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 197 | 231 | 260 | 296 | 338 | 28.1 | 354 |
+| 0.5 | 156 | 172 | 196 | 222 | 245 | 17.7 | 256 |
+| 1.0 | 127 | 140 | 157 | 176 | 193 | 13.0 | 201 |
+
+DOF with all trailing Chebyshev coefficients of theta < 1e-11
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 218 | 252 | 289 | 331 | 375 | 31.0 | 393 |
+| 0.5 | 169 | 189 | 215 | 247 | 272 | 20.6 | 285 |
+| 1.0 | 139 | 157 | 180 | 201 | 221 | 14.8 | 230 |
+
+DOF with all trailing Chebyshev coefficients of theta < 1e-12
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 236 | 278 | 318 | 366 | 411 | 33.5 | 431 |
+| 0.5 | 186 | 205 | 248 | 280 | 307 | 21.3 | 320 |
+| 1.0 | 154 | 173 | 216 | 239 | 259 | 15.5 | 269 |
+
+DOF with all trailing Chebyshev coefficients of theta < 1e-13
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 250 | 296 | 358 | 408 | 462 | 37.5 | 484 |
+| 0.5 | 200 | 219 | 281 | 321 | 351 | 25.2 | 368 |
+| 1.0 | 171 | 183 | 247 | 271 | 295 | 17.3 | 305 |
+
+max degree p (tol 1e-13): r=0.25: 16,17,18,20,19; r=0.5: 25,24,27,28,28; r=1.0: 24,31,35,35,35
+max over elements of sup-error of theta'''' (truncation at tol 1e-13, bound, noise-cut 3e-15): r=0.25: 4.8e-06,3.1e-06,2.7e-06,2.5e-06,2.4e-06; r=0.5: 4.8e-06,3.1e-06,8.7e-06,5.4e-06,5.1e-06; r=1.0: 1.8e-05,3.1e-06,1.0e-04,9.5e-05,9.1e-05
+same for tol 1e-12: r=0.25: 3.2e-05,2.3e-05,2.7e-05,2.5e-05,2.5e-05; r=0.5: 3.2e-05,2.3e-05,2.7e-05,2.5e-05,2.5e-05; r=1.0: 3.2e-05,2.3e-05,1.1e-04,1.3e-04,1.3e-04
+sup|theta''''| itself (max over elements): 1.22,1.06,0.98,0.96,0.95
+
+DOF so that sup error of theta'''' <= 1e-08 (geometric extrapolation of the coefficient tail below the 3e-15 noise floor)
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 257 | 265 | 222 | 194 | 196 | -9.4 | 185 |
+| 0.5 | 206 | 202 | 182 | 162 | 159 | -8.3 | 151 |
+| 1.0 | 171 | 169 | 195 | 171 | 168 | -9.7 | 159 |
+
+DOF so that sup error of theta'''' <= 1e-10 (geometric extrapolation of the coefficient tail below the 3e-15 noise floor)
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 305 | 324 | 335 | 283 | 260 | -27.1 | 239 |
+| 0.5 | 244 | 247 | 269 | 224 | 205 | -23.1 | 187 |
+| 1.0 | 203 | 208 | 267 | 226 | 216 | -18.4 | 200 |
+
+DOF so that sup error of theta'''' <= 1e-12 (geometric extrapolation of the coefficient tail below the 3e-15 noise floor)
+| r | k=10 | k=30 | k=100 | k=400 | k=1600 | slope per ln k | DOF(k=2900) |
+|---|---|---|---|---|---|---|---|
+| 0.25 | 351 | 378 | 402 | 408 | 354 | -17.3 | 354 |
+| 0.5 | 279 | 289 | 329 | 329 | 277 | -18.8 | 275 |
+| 1.0 | 233 | 245 | 324 | 317 | 271 | -19.1 | 266 |

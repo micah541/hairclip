@@ -1,0 +1,24 @@
+GS strictness under the bootstrap on |x| <= 60: {'ku': 0.0005390215205107008, 'up': 0.04093519089415074} {'0-8': {'ku': 0.0005390215205107008, 'up': 0.002060610701957133, 'sup_u': 0.005668327583503409}, '8-10.25': {'ku': 6.27944186242442e-05, 'up': 0.004165021974901523, 'sup_u': 0.03086722863839477}, '10.25-16.25': {'ku': 1.7882516076621515e-06, 'up': 0.005882549335248569, 'sup_u': 0.03475103187627504}, '16.25-34.25': {'ku': 1.7024094871017578e-09, 'up': 0.03140706745977773, 'sup_u': 0.20013212852288578}, '34.25-60': {'ku': 1.951345428485548e-22, 'up': 0.04093519089415074, 'sup_u': 1.0961517257141282}} W1 on [8,10.25] <= 0.00141442610491796 ok True (2s)
+	Command being timed: "timeout 3000 nice -n 19 python3 -B GS_boot.py"
+	User time (seconds): 4.27
+	System time (seconds): 0.12
+	Percent of CPU this job got: 140%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 149600
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 46039
+	Voluntary context switches: 24
+	Involuntary context switches: 50
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,30 @@
+{
+ "PASS": true,
+ "files": {
+  "/home/claude/s1spec/step3nl_v4/runs/P:fin13v4_1.25e-4.out": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:fin13v4_1.5e-4.out": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:fin13v4_status.txt": "identical",
+  "/home/claude/s1spec/step3nl_v4/runs/P:fin13v4_tail.out": "identical",
+  "/home/claude/s1spec/step3nl_v4/runs/P:modsups_fin13v4/final_alpha_points_5e-8.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:modsups_fin13v4/mod_sups.out": "identical",
+  "/home/claude/s1spec/step3nl_v4/runs/P:rate_table_fin13v4_a0.000125.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:rate_table_fin13v4_a0.00015.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:tail_cert_log.txt": "identical",
+  "/home/claude/s1spec/step3nl_v4/runs/P:verify_log_fin13v4_a0.000125.txt": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/runs/P:verify_log_fin13v4_a0.00015.txt": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c1_cut_sups.json": "identical",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/IR_0.00025.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/IR_0.001.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/ZA_0.00025.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/ZA_0.001.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/ZB_0.00025.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_ckpt/ZB_0.001.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_t3d.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c2_t3d_boxes.json": "identical",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c3_modx.json": "identical",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:c4_hardy.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:constants_v4.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:s1_identities.json": "equal apart from timing",
+  "/home/claude/s1spec/step3nl_v4/v4cert/out:u3_strip_form.json": "identical"
+ }
+}

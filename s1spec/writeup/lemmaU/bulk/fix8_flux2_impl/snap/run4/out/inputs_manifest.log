@@ -1,0 +1,6 @@
+rate table 0.00015: env FLUX0/FLUX2/S0V/S1V as expected                        True
+rate table 0.000125: env FLUX0/FLUX2/S0V/S1V as expected                       True
+v36 asm has the level-2 export block export["2"] with C0, C1                   True
+v36 asm args pin the fin13v4b rate table with the same sha                     True
+v36 hjw_rep reads the fin13v4b rate table (same sha)                           True
+X0 done: 28 inputs pinned; sha 26cb6f4219655308bb0ebd17c22083bff124bdedc3926c5e361af5d66215792c

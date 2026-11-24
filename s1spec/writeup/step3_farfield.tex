@@ -1,0 +1,111 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage{hyperref}
+\sloppy
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\lt}{\tilde\lambda}
+
+\title[Step 3: far field and coupling]{Step 3, nonlinear part: exact modulation forms, the intermediate energy, and the inner/intermediate coupling}
+\author{Supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 7, 2026. Proof, code and draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+This supplement completes the constants of the trapping argument outside the inner region. Every number marked certified was computed in interval arithmetic; the code is in \texttt{step3nl/} (\texttt{agent\_mod}, \texttt{agent\_coup}, \texttt{agent\_int/v2}, \texttt{agent\_lint}, \texttt{agent\_sob}, \texttt{design}).
+
+(i) The modulation enters the energies only through two finite-rank quadratic forms. Their exact spectral bounds on $\{f_1,f_2\}^\perp$ are $13.55$ and $43.33$, against Cauchy--Schwarz bounds of $268$ and $458$.
+
+(ii) The inner cutoff and the intermediate energy are coupled in both directions. Integrating the cutoff commutators by parts reduces each coupling to a pointwise coefficient. Feasibility is then governed by the product $(W/\rho)_{\rm ramp}(\rho/W)_{\rm strip}$, and this forces a weak polynomial weight. An energy for $w'$ with $W=(1+x^2)^{-2}$ on the overlap closes, with a certified window $\mu\in[2.9\cdot10^{-3},0.1135]$ for the Lyapunov weight of the intermediate energy. Two alternatives fail for structural reasons: the earlier $W=(1+x^2)^{-3}$, and an energy for $w$ itself.
+
+(iii) All intermediate-region constants are certified for this weight.
+
+(iv) A float closure of the coupled system with these constants traps the solution for $|\alpha_1|\le2\cdot10^{-3}$ and $\|\tilde w_1\|_\rho\lesssim10^{-6}$. Still to do: the outer short-time lemma, writing out the intermediate inequality, and the rigorous assembly.
+\end{abstract}
+\maketitle
+
+\section{Exact modulation forms}
+The constraints give $a=\ip{w}{h_a}$ and $b=\ip{w}{h_b}$ with $h_a,h_b\in\operatorname{span}\{L^*f_1,L^*f_2\}$, where the coefficients come from the inverse Gram matrix of $(f_1,f_2)$. The modulation therefore contributes $\alpha Q_1(\tilde w)$ to $\frac12\frac{d}{d\tau}\|\tilde w\|^2$ and $\eps Q_2(\tilde w)$ to the $H^2$ level, where
+\[
+Q_1(w)=-\ip{w}{h_a}\ip{w}{g_A}+\ip{w}{h_b}\ip{w}{g_B},\qquad Q_2(w)=-\ip{w}{h_a}\ip{w}{D_\rho f_1}-\ip{w}{h_b}\ip{w}{D_\rho f_2}.
+\]
+Here $g_A=\chi(\hat\psi_3-q\hat\psi_3')$, $g_B=\chi\hat\psi_3'\cos\theta$, and $D_\rho g=\rho^{-1}(\rho g'')''$.
+
+Both forms have rank at most $4$. Their extreme values on $\{f_1,f_2\}^\perp$ are eigenvalues of $RCR^{\!\top}$, where $G_4=R^{\!\top}R$ is the Gram matrix of the projected vectors. The $8\times8$ Gram matrix was certified with second-order Taylor models on the $51{,}246$ tight-profile boxes. Results:
+\[
+\sup|Q_1|/\|w\|^2\le13.549,\qquad \sup Q_2/\|w\|^2\le43.327,\qquad \inf Q_2/\|w\|^2\in[-0.1894,-0.1843].
+\]
+
+\section{The coupling problem and its resolution}
+Let $\chi=\chi_{32}$ be the inner cutoff, supported on the strip $\sigma\in[29,32]$. Let $v=\zeta w'$ be the intermediate variable, where $\zeta$ rises from $0$ to $1$ on $x\in[10.25,16.25]$ and falls from $1$ to $0$ on $[57,60]$. Integrating by parts three times gives
+\begin{align*}
+-\ip{[L,\chi]w}{\chi w}_\rho&=\int A\,w^2+B\,w'^2,\\
+A&=-2(\rho\chi\chi')'''+3(\rho\chi\chi'')''-2(\rho\chi\chi''')'+\rho\chi\chi''''\\
+&\qquad-(\rho k^2\chi\chi')'+\rho\chi\big(k^2\chi''+(5km+\tfrac q4)\chi'\big),\\
+B&=6\rho(\chi'^2-\phi'\chi\chi').
+\end{align*}
+This identity was verified symbolically. The drift term $\frac q4\rho\chi\chi'$ in $A$ has a good sign, and $A>0$ only on a small part of the strip. The same identity holds at the inner ramp of $\zeta$, with $(W,\zeta,g=w')$ in place of $(\rho,\chi,w)$. There, however, the drift term has the bad sign: mass leaving the inner energy enters the intermediate one.
+
+The strip term is bounded by $s_B\|v\|_W^2+s_A\|v\|_W^2$. Here $s_A$ comes from a Hardy step from $x=16.25$, which needs $\int W^{-1}$. The ramp flux is bounded by $a_f\|\tilde w'\|_\rho^2+b_f\|\tilde w''\|_\rho^2$. In the Lyapunov functional $E+\mu E_I$ these two estimates give an admissible window $\mu_{\min}\le\mu\le\mu_{\max}$. Its width is controlled by
+\[
+(W/\rho)_{\rm ramp}\,(\rho/W)_{\rm strip}=\frac{W(x_r)}{W(x_s)}\,\frac{\rho(x_s)}{\rho(x_r)},
+\]
+which decreases with the polynomial power $P$ of $W$. Two constraints pin down the choice:
+\begin{itemize}
+\item For $P=3$ the Hardy term $s_A$ is large, and the window ratio is about $7$ for the best ramp.
+\item An energy for $w$ itself, which would avoid the Hardy step, fails: the drift flux into the intermediate energy at its inner ramp must then be absorbed by the inner $L^2$ coercivity $\omega_0=1/32-0.016$, which is too weak.
+\end{itemize}
+
+\begin{proposition}[certified]
+Let $W=e^{-\psi}$ with $\psi'=(1-s)\frac{4x}{1+x^2}+s\phi'$ and $s=S((x-30.25)/8)$, so that $W=(1+x^2)^{-2}$ for $x\le30.25$. Then:
+\begin{enumerate}
+\item for all $v\in C_c^\infty((10.25,\infty))$,
+\[
+\operatorname{Re}\ip{L_1v}{v}_W\le-\tfrac12\|v''\|_W^2-\int W\mu_1v^2,
+\]
+with $\mu_1\ge0.1552$, $\mu_1\ge0.3357$ on the blend, and $\mu_1\ge1.0378$ beyond;
+\item the level-$2$ G\aa rding constant satisfies $-\mu_2\le-0.6555$;
+\item $s_B=3.596\cdot10^{-5}$, $s_A=1.337\cdot10^{-4}$, $a_f=6.956\cdot10^{-2}$, $b_f=3.936\cdot10^{-2}$;
+\item the window is $\mu\in[2.906\cdot10^{-3},0.1135]$, with ratio $\ge39$.
+\end{enumerate}
+\end{proposition}
+
+\section{Intermediate-region constants}
+Table~\ref{t:int} lists the certified constants for $P=2$ on $[10.25,60]$, with $|\alpha|\le10^{-3}$ and jet box $10^{-2}$. They enter the inequality for $E_I=\|v\|_W^2+\eps_I\|v''\|_W^2$, written out term by term in \texttt{ASSEMBLY.md} \S5--6. The Sobolev constants for the new weight are $K_W=7.03\cdot10^4$, $1.61\cdot10^5$, $8.12\cdot10^5$ and $2.32\cdot10^6$ on $[10.25,16.25]$, $[16.25,20]$, $[20,30]$ and $[30,34.25]$, with $\Psi_1=1.305$ and $c_{1W}=0.848$.
+\begin{table}[h]\small
+\begin{tabular}{p{0.34\textwidth}p{0.58\textwidth}}
+\toprule
+forcing $\|N_0(u_0)-\alpha^2Q_2\|_W$ & $\le0.1823|\alpha|^3$; residuals of $\hat\psi_3,\hat h_2$: $1.09\cdot10^{-7}$, $6.5\cdot10^{-9}$\\
+quasilinear coefficients & $\sup|1-J^{-4}|=1.85\cdot10^{-2}$; for $w'''$, $w''$, $w''^2$, $w''w'''$, $w''^3$: $1.5\cdot10^{-3}$, $1.1\cdot10^{-4}$, $0.015$, $0.98$, $3.26$\\
+modulation sources & $\|\zeta\hat\psi_3'\|_W=0.26$; $\|\zeta A(u_0)'\|_W/|\alpha|=0.273$; $\|\zeta B(u_0)'\|_W/|\alpha|=0.016$\\
+outer ramp & $W(60)=2.8\cdot10^{-20}$; $\sup|A_{\zeta,\rm out}|=3.2\cdot10^{-18}$\\
+chart & $\sup|u_0'|=0.085$ at $|\alpha|=10^{-3}$ on $[40,60]$\\
+\bottomrule
+\end{tabular}
+\caption{Certified intermediate constants ($P=2$).}\label{t:int}
+\end{table}
+
+\section{Coupled closure (float) and what remains}
+The comparison system tracks $(\alpha,\Lambda)$ with $\Lambda=E+\mu E_I$, using $\mu=0.08$, $\eps=10^{-5}$ and $\eps_I=3\cdot10^{-5}$. At each $\Lambda$ it takes the worst case over the split of $\Lambda$ between $E$ and $\mu E_I$ and over both shape families. Two refinements are used: the $\alpha$-linear inner form through its regional spectral radii, and cubic coefficients on seven $x$-regions. With every constant certified except the bookkeeping of the intermediate inequality:
+\begin{itemize}
+\item $|\alpha_1|=10^{-3}$, $\sqrt{\Lambda_1}=1.3\cdot10^{-6}$ gives $\max\sqrt\Lambda=1.92\cdot10^{-6}$;
+\item $|\alpha_1|=2\cdot10^{-3}$ gives $\max\sqrt\Lambda=4.43\cdot10^{-6}$;
+\item the nonlinear cap is $\sqrt\Lambda\approx7.5$--$10\cdot10^{-6}$.
+\end{itemize}
+For $|\alpha_1|=3\cdot10^{-3}$ the closure fails. The cause is the third-order forcing together with the time-integrable $\alpha$-linear growth.
+
+Remaining for Step~3:
+\begin{enumerate}
+\item the outer short-time stability lemma in physical variables (plan in \texttt{ASSEMBLY.md} \S7; the time ratios are $\le3.2\cdot10^{-4}$);
+\item the modulation lemma with all perturbation terms;
+\item the derivative-level forcing for the level-$2$ intermediate energy;
+\item replacing the float worst-case search by explicit splits or interval branch-and-bound.
+\end{enumerate}
+\end{document}

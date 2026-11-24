@@ -1,0 +1,280 @@
+F10p args keys ['J', 'J4', 'M1s', 'abar', 'alpha1', 'beta', 'c1W', 'core', 'gam', 'handoff', 'l4', 'm2r', 'mh', 'mhr', 'ramp', 'rampl4', 'rho', 'rs33', 's33', 'sJ4', 'slopes', 'sqLam', 'tag', 'tmin']
+consumed: ['6.0245e-12', '8.4668e-12', '1.8738e-12'] ['3.4546e-18', '4.8551e-18', '1.0745e-18'] 6.2463e-08 3.5818e-14 5.3085e-08 0.002679 2.14039e-07 2.35488e-09 alpha1 0.00015 handoff [1e-08, 1e-06, 0.001]
+PASS J0 up 1.3448370327531806e-05
+PASS slope0 up 1.7296934169153337e-05
+PASS J1 up 7.2285048309362105e-06
+PASS slope1 up 1.5954804445150206e-05
+PASS J2 up 3.4849337336494745e-06
+PASS slope2 up 2.2128346793820554e-05
+PASS J4 up 1.2184083712321882e-05
+PASS sJ4 up 2.0023722166727637e-05
+PASS sqLam up 2.61372883513799e-07
+PASS rho down 8.388610681819297e-05
+PASS abar == mod_sups 2.14039e-07
+PASS beta == mod_sups 2.35488e-09
+PASS 1.5e-4 row dominates the 1.25e-4 row (J, slopes, peak, rho, sup_ab, sup_beta, M1, sI1, sI2, S_ramp) [True, True, True, True, True, True, True, True, True, True, True, True]
+PASS mod_sups J/peak/rho == rate table 
+PASS rate table env FLUX0/FLUX2/S0V/S1V/V4B ['1.64e-20', '8.0e-20', '0.0153', '0.6', '1', 'fin13v4c', '25', '0.01']
+PASS all sha256 pins in args blocks match disk (259 pins, 131 files) []
+no args block: ['t2_A/base_ibp/lemmaS_B.json', 't2_A/base_ibp/lemmaS_B3.json', 't2_A/base_ibp/lemmaS_Bbox_1e-05.json', 't2_A/base_ibp/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json', 't2_A/base_ibp/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json', 't2_A/base_ibp/lemmaS_Bbox_3e-05.json', 't2_A/base_ibp/lemmaS_Bbox_3e-06.json', 't2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json', 't2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json', 't2_A/base_ibp/lemmaS_Bbox_3e-06_dv05.json', 't2_A/base_ibp/lemmaS_F1.json', 't2_A/base_ibp/lemmaS_F1_scan.json', 't2_A/base_ibp/lemmaS_F4.json', 't2_A/base_ibp/lemmaS_F4B_F10_M0.52.json', 't2_A/base_ibp/lemmaS_F4B_F10p_M0.52.json', 't2_A/base_ibp/lemmaS_F4B_F9_M0.52.json', 't2_A/base_ibp/lemmaS_F4B_L4b.json', 't2_A/base_ibp/lemmaS_F4B_N5b_M0.52.json', 't2_A/base_ibp/lemmaS_F4B_P1_M0.6.json', 't2_A/base_ibp/lemmaS_F4B_P2_M0.6.json', 't2_A/base_ibp/lemmaS_F4B_R5_M0.6.json', 't2_A/base_ibp/lemmaS_F4B_R8_M0.52.json', 't2_A/base_ibp/lemmaS_F5_geom.json', 't2_A/base_ibp/lemmaS_assembled.json', 't2_A/base_ibp/lemmaS_cflux.json', 't2_A/base_ibp/lemmaS_consts.json', 't2_A/base_ibp/lemmaS_nested.json', 't2_A/base_ibp/rigor/assembly_arb.json', 't2_A/base_ibp/rigor/assembly_arb_pre_v33.json', 't2_A/base_ibp/rigor/cap_F10p.json', 't2_A/base_ibp/rigor/cap_F10p_pre_v33.json', 't2_A/base_ibp/rigor/ramp_tables.json', 't2_A/base_ibp/rigor/weights_exact.json', 't2_A/base_ibp/rigor/weights_exact_pre_v33.json']
+verifier paths pinned:
+   /home/claude/s1spec/step3nl/agent_int/v3/c4fun.py
+   /home/claude/s1spec/step3nl/h2fun.py
+   /home/claude/s1spec/step3nl/psi3fun.py
+   /home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json
+   /home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json
+   /home/claude/s1spec/step3nl_v4c/verifier/constants.py
+PASS no pinned verifier path outside step3nl_v4b (or verifier-independent step3nl modules) ['/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py', '/home/claude/s1spec/step3nl/h2fun.py', '/home/claude/s1spec/step3nl/psi3fun.py']
+PASS kappa_J certified reproduced (0.04242965327210912, 0.04242965327210913)
+PASS kappa_J used - certified >= 1e-9 (1 ulp) 1.000000010145651e-09
+PASS C'/X_const <= 1e-9 pad margin x141.3
+PASS X_const >= sum of its parts, excess < 1e-9 relative (verifier-side rounding; info) 3.749005159021563e-10
+u34 launch keys ['CA_D', 'D350phi', 'Delta_in', 'Phi_late', 'c_dU', 'int_W_em2s', 'q', 'qD', 'sobolev', 'wmin']
+c_dU stored {'arb': '[1.4634273777631559975e-8 +/- 4.34e-28]', 'double': 1.463427377763156e-08, 'label': 'cert'}
+c_dU mine [1.46342737776316e-8 +/- 4.01e-23]  2e-8/c_dU 1.3666547656481551
+PASS c_dU < 2e-8 [1.46342737776e-8 +/- 3.16e-20]
+PASS verifier LAMT literal == -0.2561532 
+r0 mine (no ulp inflation) [3.75163377347635e-9 +/- 2.01e-24]  stored [3.7516337734763527044e-9 +/- 1.02e-29]  c_dU stored r3 [1.4634273777631559975e-8 +/- 4.34e-28]
+r2_export {"k": 2, "z": "z_4 = d_s^4 (f - U), s = ln y", "r_2": "1/1000", "amin_c": {"arb": "[0.976232249400864 +/- 3.04e-16]", "double": 0.9762322494008643, "bound": "lo", "label": "cert"}, "C0_ref": {"arb": "[114.763281596121 +/- 1.24e-13]", "double": 114.76328159612088, "bound": "up", "label": "cert"}, "C1_ref": {"arb": "[0.0698137226942065 +/- 4.19e-17]", "double": 0.06981372269420646, "bound": "up", "label": "cert"}, "C1_0": {"arb": "[0.00621833844662229 +/- 4.67e-18]", "double": 0.006218338446622295, "bound": "up", "label": "cert"}, "C0_ref4": {"arb": "[116.359231420442 +/- 8.49e-14]", "double": 116.35923142044192, "bound": "up", "label": "cert"}, "C1_ref4": {"arb": "[0.260599875436956 +/- 5.03e-17]", "double": 0.26059987543695595, "bound": "up", "label": "cert"}, "C0_rule": "(EA_2 + D_2)/(r_2 amin_c)", "C1_rule": "(2 F_2^2/gp_2 + coup_2 + o_2 + D_2^slope)/(r_2 amin_c);  C1_2(Nbar) = C1_0 + o_2/(r_2 amin_c)", "window_data": {"EA_2": {"arb": "[0.0567838414674173 +/- 3.99e-17]", "double": 0.056783841467417266, "bound": "up", "label": "cert"}, "D_2": {"arb": "[0.0552517750737886 +/- 3.55e-17]", "double": 0.05525177507378864, "bound": "up", "label": "cert"}, "D_window_const": {"arb": "[0.0552014185248182 +/- 5.00e-17]", "double": 0.05520141852481825, "bound": "up", "label": "cert"}, "D_window_slope": {"arb": "[6.05040279650139e-6 +/- 1.65e-21]", "double": 6.050402796501392e-06, "bound": "up", "label": "cert"}, "F2_2": {"arb": "[4.15720668273544e-13 +/- 4.91e-28]", "double": 4.1572066
+PASS prod1 == prod2 for every JSON (bytes) []
+PASS in-place outputs == runs/prod2 []
+identical to v36 prod2: ['t5_zone3/ramp_U.json', 'base_ibp/rigor/weights_exact.json']
+older than prod2: 235
+    t2_A/base_v31H2/lemmaS_F4B_F10_M0.52.json
+    t2_A/base_v31H2/lemmaS_F10b_M0.45.json
+    t2_A/base_v31H2/lemmaS_F4B_F10p_M0.52.json
+    t2_A/base_v31H2/lemmaS_F10b_M0.52.json
+    t2_A/base_v31H2/lemmaS_R4_M0.5.json
+    t2_A/base_v31H2/lemmaS_R5_M0.55.json
+    t2_A/base_v31H2/lemmaS_N5_M0.3.json
+    t2_A/base_v31H2/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json
+    t2_A/base_v31H2/lemmaS_R4_M0.6.json
+    t2_A/base_v31H2/cflux_forms.pkl
+    t2_A/base_v31H2/lemmaS_L4.json
+    t2_A/base_v31H2/lemmaS_F4B_N5b_M0.52.json
+    t2_A/base_v31H2/lemmaS_P2_M0.6.json
+    t2_A/base_v31H2/lemmaS_F1_scan.json
+    t2_A/base_v31H2/lemmaS_F10_M0.52.json
+    t2_A/base_v31H2/lemmaS_Bbox_1e-05.json
+    t2_A/base_v31H2/lemmaS_N1_M0.65.json
+    t2_A/base_v31H2/lemmaS_N1_M0.5.json
+    t2_A/base_v31H2/lemmaS_Q5o_M0.6.json
+    t2_A/base_v31H2/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json
+    t2_A/base_v31H2/lemmaS_T0.6.json
+    t2_A/base_v31H2/lemmaS_L4b.json
+    t2_A/base_v31H2/lemmaS_Q5o_M0.5.json
+    t2_A/base_v31H2/lemmaS_S33_M0.55.json
+    t2_A/base_v31H2/lemmaS_S33b_M0.65.json
+    t2_A/base_v31H2/lemmaS_S33r30_M0.55.json
+    t2_A/base_v31H2/lemmaS_diag.json
+    t2_A/base_v31H2/lemmaS_P2_M0.5.json
+    t2_A/base_v31H2/lemmaS_B.json
+    t2_A/base_v31H2/prop1_forms3.pkl
+    t2_A/base_v31H2/lemmaS_S33r30_M0.6.json
+    t2_A/base_v31H2/lemmaS_F4B_L4b.json
+    t2_A/base_v31H2/lemmaS_F4B_R5_M0.6.json
+    t2_A/base_v31H2/lemmaS_F10b_M0.4.json
+    t2_A/base_v31H2/lemmaS_F4B_F9_M0.52.json
+    t2_A/base_v31H2/lemmaS_P2_M0.75.json
+    t2_A/base_v31H2/lemmaS_N5_M0.6.json
+    t2_A/base_v31H2/lemmaS_F10p_M0.52.json
+    t2_A/base_v31H2/lemmaS_T0.5.json
+    t2_A/base_v31H2/lemmaS_N1b_M0.575.json
+    t2_A/base_v31H2/lemmaS_F5_geom.json
+    t2_A/base_v31H2/lemmaS_mh0.json
+    t2_A/base_v31H2/lemmaS_Bbox_3e-06.json
+    t2_A/base_v31H2/lemmaS_N1_M0.4.json
+    t2_A/base_v31H2/lemmaS_cflux.json
+    t2_A/base_v31H2/lemmaS_F4B_P1_M0.6.json
+    t2_A/base_v31H2/lemmaS_BR14.4_M0.6.json
+    t2_A/base_v31H2/lemmaS_Q5p_M0.4.json
+    t2_A/base_v31H2/lemmaS_F4.json
+    t2_A/base_v31H2/lemmaS_N5_M0.5.json
+    t2_A/base_v31H2/lemmaS_R8_M0.52.json
+    t2_A/base_v31H2/lemmaS_S33_M0.5.json
+    t2_A/base_v31H2/lemmaS_N5_M0.4.json
+    t2_A/base_v31H2/lemmaS_R4_M0.55.json
+    t2_A/base_v31H2/lemmaS_Bbox_3e-06_dv05.json
+    t2_A/base_v31H2/lemmaS_T0.75.json
+    t2_A/base_v31H2/lemmaS_BR0_M0.6.json
+    t2_A/base_v31H2/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json
+    t2_A/base_v31H2/lemmaS_F1.json
+    t2_A/base_v31H2/lemmaS_N5_M0.65.json
+    t2_A/base_v31H2/lemmaS_R5_M0.6.json
+    t2_A/base_v31H2/lemmaS_P2_M0.52.json
+    t2_A/base_v31H2/lemmaS_N1_M0.6.json
+    t2_A/base_v31H2/lemmaS_N1_M0.55.json
+    t2_A/base_v31H2/lemmaS_Q5o_M0.4.json
+    t2_A/base_v31H2/lemmaS_R5_M0.5.json
+    t2_A/base_v31H2/lemmaS_P3_M0.52.json
+    t2_A/base_v31H2/lemmaS_assembled.json
+    t2_A/base_v31H2/lemmaS_mh3.json
+    t2_A/base_v31H2/lemmaS_F2.json
+    t2_A/base_v31H2/lemmaS_BR7.2_M0.6.json
+    t2_A/base_v31H2/lemmaS_F4B_P2_M0.6.json
+    t2_A/base_v31H2/lemmaS_N5b_M0.52.json
+    t2_A/base_v31H2/lemmaS_F9_M0.52.json
+    t2_A/base_v31H2/lemmaS_P1000_M0.52.json
+    t2_A/base_v31H2/lemmaS_P1_M0.6.json
+    t2_A/base_v31H2/lemmaS_consts.json
+    t2_A/base_v31H2/lemmaS_F4B_R8_M0.52.json
+    t2_A/base_v31H2/lemmaS_S33r30_M0.5.json
+    t2_A/base_v31H2/lemmaS_P10000_M0.52.json
+    t2_A/base_v31H2/lemmaS_P1_M0.5.json
+    t2_A/base_v31H2/lemmaS_S33r300_M0.6.json
+    t2_A/base_v31H2/lemmaS_nested.json
+    t2_A/base_v31H2/lemmaS_S33_M0.6.json
+    t2_A/base_v31H2/lemmaS_Q5p_M0.5.json
+    t2_A/base_v31H2/lemmaS_Q5p_M0.6.json
+    t2_A/base_v31H2/lemmaS_B3.json
+    t2_A/base_v31H2/lemmaS_F10a_M0.52.json
+    t2_A/base_v31H2/lemmaS_Bbox_3e-05.json
+    t2_A/base_v31H2/lemmaS_P1_M0.75.json
+    t2_A/base_v31H2/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json
+    t2_A/base_v31H2/lemmaS_mh10.json
+    t2_A/base_v31H2/prop1_forms.pkl
+    t2_A/base_v31H2/ref/lemmaS_F10p_M0.52.json
+    t2_A/base_v31H2/ref/assembly_arb.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_F4B_F10_M0.52.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_F4B_F10p_M0.52.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_F10_M0.52.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_F10p_M0.52.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_consts.json
+    t2_A/base_v31H2/v3.0_backup/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json
+    t2_A/base_v31H2/v3.0_backup/rigor/cap_F10p.json
+    t2_A/base_v31H2/v3.0_backup/rigor/weights_exact.json
+    t2_A/base_v31H2/v3.0_backup/rigor/ramp_tables.json
+    t2_A/base_v31H2/v3.0_backup/rigor/assembly_arb.json
+    t2_A/base_v31H2/rigor/cap_F10p.json
+    t2_A/base_v31H2/rigor/tables_exact.pkl
+    t2_A/base_v31H2/rigor/weights_exact.json
+    t2_A/base_v31H2/rigor/ramp_tables.json
+    t2_A/base_v31H2/rigor/assembly_arb.json
+    t2_A/base_v31H2/rigor/lemmaS_rigcap_M0.52.json
+    t2_A/base_ibp/lemmaS_F4B_F10_M0.52.json
+    t2_A/base_ibp/lemmaS_F10b_M0.45.json
+    t2_A/base_ibp/lemmaS_F4B_F10p_M0.52.json
+    t2_A/base_ibp/lemmaS_F10b_M0.52.json
+    t2_A/base_ibp/lemmaS_R4_M0.5.json
+    t2_A/base_ibp/lemmaS_R5_M0.55.json
+    t2_A/base_ibp/lemmaS_N5_M0.3.json
+    t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json
+    t2_A/base_ibp/lemmaS_R4_M0.6.json
+    t2_A/base_ibp/cflux_forms.pkl
+    t2_A/base_ibp/lemmaS_L4.json
+    t2_A/base_ibp/lemmaS_F4B_N5b_M0.52.json
+    t2_A/base_ibp/lemmaS_P2_M0.6.json
+    t2_A/base_ibp/lemmaS_F1_scan.json
+    t2_A/base_ibp/lemmaS_F10_M0.52.json
+    t2_A/base_ibp/lemmaS_Bbox_1e-05.json
+    t2_A/base_ibp/lemmaS_N1_M0.65.json
+    t2_A/base_ibp/lemmaS_N1_M0.5.json
+    t2_A/base_ibp/lemmaS_Q5o_M0.6.json
+    t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json
+    t2_A/base_ibp/lemmaS_T0.6.json
+    t2_A/base_ibp/lemmaS_L4b.json
+    t2_A/base_ibp/lemmaS_Q5o_M0.5.json
+    t2_A/base_ibp/lemmaS_S33_M0.55.json
+    t2_A/base_ibp/lemmaS_S33b_M0.65.json
+    t2_A/base_ibp/lemmaS_S33r30_M0.55.json
+    t2_A/base_ibp/lemmaS_diag.json
+    t2_A/base_ibp/lemmaS_P2_M0.5.json
+    t2_A/base_ibp/lemmaS_B.json
+    t2_A/base_ibp/prop1_forms3.pkl
+    t2_A/base_ibp/lemmaS_S33r30_M0.6.json
+    t2_A/base_ibp/lemmaS_F4B_L4b.json
+    t2_A/base_ibp/lemmaS_F4B_R5_M0.6.json
+    t2_A/base_ibp/lemmaS_F10b_M0.4.json
+    t2_A/base_ibp/lemmaS_F4B_F9_M0.52.json
+    t2_A/base_ibp/lemmaS_P2_M0.75.json
+    t2_A/base_ibp/lemmaS_N5_M0.6.json
+    t2_A/base_ibp/lemmaS_T0.5.json
+    t2_A/base_ibp/lemmaS_N1b_M0.575.json
+    t2_A/base_ibp/lemmaS_F5_geom.json
+    t2_A/base_ibp/lemmaS_mh0.json
+    t2_A/base_ibp/lemmaS_Bbox_3e-06.json
+    t2_A/base_ibp/lemmaS_N1_M0.4.json
+    t2_A/base_ibp/lemmaS_cflux.json
+    t2_A/base_ibp/lemmaS_F4B_P1_M0.6.json
+    t2_A/base_ibp/lemmaS_BR14.4_M0.6.json
+    t2_A/base_ibp/lemmaS_Q5p_M0.4.json
+    t2_A/base_ibp/lemmaS_F4.json
+    t2_A/base_ibp/lemmaS_N5_M0.5.json
+    t2_A/base_ibp/lemmaS_R8_M0.52.json
+    t2_A/base_ibp/lemmaS_S33_M0.5.json
+    t2_A/base_ibp/lemmaS_N5_M0.4.json
+    t2_A/base_ibp/lemmaS_R4_M0.55.json
+    t2_A/base_ibp/lemmaS_Bbox_3e-06_dv05.json
+    t2_A/base_ibp/lemmaS_T0.75.json
+    t2_A/base_ibp/lemmaS_BR0_M0.6.json
+    t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json
+    t2_A/base_ibp/lemmaS_F1.json
+    t2_A/base_ibp/lemmaS_N5_M0.65.json
+    t2_A/base_ibp/lemmaS_F10p_M0.52_pre_v33.json
+    t2_A/base_ibp/lemmaS_R5_M0.6.json
+    t2_A/base_ibp/lemmaS_P2_M0.52.json
+    t2_A/base_ibp/lemmaS_N1_M0.6.json
+    t2_A/base_ibp/lemmaS_N1_M0.55.json
+    t2_A/base_ibp/lemmaS_Q5o_M0.4.json
+    t2_A/base_ibp/lemmaS_R5_M0.5.json
+    t2_A/base_ibp/lemmaS_P3_M0.52.json
+    t2_A/base_ibp/lemmaS_assembled.json
+    t2_A/base_ibp/lemmaS_mh3.json
+    t2_A/base_ibp/lemmaS_F2.json
+    t2_A/base_ibp/lemmaS_BR7.2_M0.6.json
+    t2_A/base_ibp/lemmaS_F4B_P2_M0.6.json
+    t2_A/base_ibp/lemmaS_N5b_M0.52.json
+    t2_A/base_ibp/lemmaS_F9_M0.52.json
+    t2_A/base_ibp/lemmaS_P1000_M0.52.json
+    t2_A/base_ibp/lemmaS_P1_M0.6.json
+    t2_A/base_ibp/lemmaS_consts.json
+    t2_A/base_ibp/lemmaS_F4B_R8_M0.52.json
+    t2_A/base_ibp/lemmaS_S33r30_M0.5.json
+    t2_A/base_ibp/lemmaS_P10000_M0.52.json
+    t2_A/base_ibp/lemmaS_P1_M0.5.json
+    t2_A/base_ibp/lemmaS_S33r300_M0.6.json
+    t2_A/base_ibp/lemmaS_nested.json
+    t2_A/base_ibp/lemmaS_S33_M0.6.json
+    t2_A/base_ibp/lemmaS_Q5p_M0.5.json
+    t2_A/base_ibp/lemmaS_Q5p_M0.6.json
+    t2_A/base_ibp/lemmaS_B3.json
+    t2_A/base_ibp/lemmaS_F10a_M0.52.json
+    t2_A/base_ibp/lemmaS_Bbox_3e-05.json
+    t2_A/base_ibp/lemmaS_P1_M0.75.json
+    t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json
+    t2_A/base_ibp/lemmaS_mh10.json
+    t2_A/base_ibp/prop1_forms.pkl
+    t2_A/base_ibp/ref/lemmaS_F10p_M0.52.json
+    t2_A/base_ibp/ref/assembly_arb.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_F4B_F10_M0.52.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_F4B_F10p_M0.52.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_F10_M0.52.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_F10p_M0.52.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_consts.json
+    t2_A/base_ibp/v3.0_backup/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json
+    t2_A/base_ibp/v3.0_backup/rigor/cap_F10p.json
+    t2_A/base_ibp/v3.0_backup/rigor/weights_exact.json
+    t2_A/base_ibp/v3.0_backup/rigor/ramp_tables.json
+    t2_A/base_ibp/v3.0_backup/rigor/assembly_arb.json
+    t2_A/base_ibp/rigor/tables_exact.pkl
+    t2_A/base_ibp/rigor/cap_F10p_pre_v33.json
+    t2_A/base_ibp/rigor/weights_exact_pre_v33.json
+    t2_A/base_ibp/rigor/ramp_tables.json
+    t2_A/base_ibp/rigor/assembly_arb_pre_v33.json
+    t2_A/prov/zone3_provisional.json
+    t2_A/ref_phase2a/outer_rep.json
+    t2_A/ref_phase2a/weights_rep.json
+    t2_A/ref_phase2a/ramp_rep.json
+    t2_A/ref_phase2a/assembly_rep.json
+    t2_A/ref_phase2a/rerun_copy/outer_rep.json
+    t2_A/ref_phase2a/rerun_copy/weights_rep.json
+    t2_A/ref_phase2a/rerun_copy/export_for_U.json
+    t2_A/ref_phase2a/rerun_copy/assembly_rep.json
+    t5_zone3/out/ramp_U.json
+    n1/out/n1_chart_fin13v4b.json
+    n1/regtest/n1_chart_fin12f4.json
+mentions v4b/fix6: []
+FAILS: []
+b_check maxrss_kb=33056 wall=0.24

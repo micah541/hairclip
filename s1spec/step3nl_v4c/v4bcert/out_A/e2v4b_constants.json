@@ -1,0 +1,238 @@
+{
+ "args": {
+  "argv": [
+   "e2_v4b_constants.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/e2_v4b_constants.py": "fff2bebb8bccaa0aaf833310e7e1a0e5615c286647acd00e821910385a207d77",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2_consts.json": "486c203259189e3164c644d54b66043476ea8be80798223062e95252acf9b288",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/nl_regions_a2.5e-4.json": "bdbe8094a6278a936f69922834e889ee3d7648380fe472e355c4c57d9405fcc7",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/v4bcommon.py": "c426baf38db609679433630048f7a21ee518d6192f5b552d1b23a123c5e7c06e"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "constants": {
+  "AMAX_E2": {
+   "dir": "exact",
+   "raw": 0.00025,
+   "source": "hypothesis H-E2a, asserted in closure.box_assert",
+   "value": 0.00025
+  },
+  "DAB": {
+   "dir": "up",
+   "raw": 0.013113620982167487,
+   "source": "e2_consts d_modulation |lemma lead - Minv l|/A",
+   "value": 0.01311362098216749
+  },
+  "ETA_TIP_E2": {
+   "dir": "exact",
+   "raw": 0.0001,
+   "source": "hypothesis H-E2b: sup(|w|,|w'|) <= 1e-4 on [0,8], asserted in closure.box_assert",
+   "value": 0.0001
+  },
+  "N3E2": {
+   "dir": "up",
+   "raw": 7.696981446794132,
+   "source": "e2_consts ||chi psi3|| (C^4 padded)",
+   "value": 7.696981446794133
+  },
+  "ND1": {
+   "dir": "up",
+   "raw": 0.002166398408007808,
+   "source": "nl_regions max(R1,R2a) (0, 0, 1)",
+   "value": 0.0021663984080078085
+  },
+  "ND2": {
+   "dir": "up",
+   "raw": 0.0037854321381018963,
+   "source": "nl_regions max(R1,R2a) (0, 1, 0)",
+   "value": 0.0037854321381018967
+  },
+  "ND3": {
+   "dir": "up",
+   "raw": 0.011449540121247992,
+   "source": "nl_regions max(R1,R2a) (1, 0, 0)",
+   "value": 0.011449540121247994
+  },
+  "ND4": {
+   "dir": "up",
+   "raw": 0.20523803577732186,
+   "source": "nl_regions max(R1,R2a) A0",
+   "value": 0.2052380357773219
+  },
+  "ND5": {
+   "dir": "up",
+   "raw": 0.22952470522969717,
+   "source": "nl_regions max(R1,R2a) A1",
+   "value": 0.2295247052296972
+  },
+  "ND6": {
+   "dir": "up",
+   "raw": 4.657371178269386,
+   "source": "nl_regions max(R1,R2a) (2, 0, 0)",
+   "value": 4.657371178269387
+  },
+  "ND7": {
+   "dir": "up",
+   "raw": 0.04372550582047552,
+   "source": "nl_regions max(R1,R2a) (1, 1, 0)",
+   "value": 0.043725505820475526
+  },
+  "ND8": {
+   "dir": "up",
+   "raw": 3.0162958055734634,
+   "source": "nl_regions max(R1,R2a) (3, 0, 0)",
+   "value": 3.016295805573464
+  },
+  "NF1": {
+   "dir": "up",
+   "raw": 0.0019776416665990837,
+   "source": "nl_regions max(R2b,R3) (0, 0, 1)",
+   "value": 0.001977641666599084
+  },
+  "NF12": {
+   "dir": "up",
+   "raw": 2.0619618907360837,
+   "source": "e2_consts lambda_max^(1/2) Gram(f1,f2)",
+   "value": 2.061961890736084
+  },
+  "NF2": {
+   "dir": "up",
+   "raw": 0.00011536657154920249,
+   "source": "nl_regions max(R2b,R3) (0, 1, 0)",
+   "value": 0.0001153665715492025
+  },
+  "NF3": {
+   "dir": "up",
+   "raw": 3.9866346455141866e-06,
+   "source": "nl_regions max(R2b,R3) (1, 0, 0)",
+   "value": 3.986634645514187e-06
+  },
+  "NF4": {
+   "dir": "up",
+   "raw": 0.0033255811904382426,
+   "source": "nl_regions max(R2b,R3) (2, 0, 0)",
+   "value": 0.003325581190438243
+  },
+  "NF5": {
+   "dir": "up",
+   "raw": 0.31500035151839256,
+   "source": "nl_regions max(R2b,R3) (1, 1, 0)",
+   "value": 0.3150003515183926
+  },
+  "NF6": {
+   "dir": "up",
+   "raw": 3.0267555862665176,
+   "source": "nl_regions max(R2b,R3) (3, 0, 0)",
+   "value": 3.026755586266518
+  },
+  "NF7": {
+   "dir": "up",
+   "raw": 2.9879385827769056e-06,
+   "source": "nl_regions max(R2b,R3) of A0, A1",
+   "value": 2.987938582776906e-06
+  },
+  "NH2R": {
+   "dir": "up",
+   "raw": 13.108439653183156,
+   "source": "e2_consts ||h2|| (C^4 padded)",
+   "value": 13.108439653183158
+  },
+  "R143": {
+   "dir": "up",
+   "raw": 14.343002687670673,
+   "source": "garding_cert.json via e2_consts c_garding.r143",
+   "value": 14.343002687670674
+  },
+  "SRW": {
+   "dir": "up",
+   "raw": 0.0044291959662295455,
+   "source": "e2_consts sup_strip (rho/W)^(1/2)",
+   "value": 0.004429195966229546
+  }
+ },
+ "typed_fin13v4_vs_new": {
+  "nd1": {
+   "new": 0.0021663984080078085,
+   "typed": 0.0069,
+   "typed_covers": true
+  },
+  "nd2": {
+   "new": 0.0037854321381018967,
+   "typed": 0.012,
+   "typed_covers": true
+  },
+  "nd3": {
+   "new": 0.011449540121247994,
+   "typed": 0.042,
+   "typed_covers": true
+  },
+  "nd4": {
+   "new": 0.2052380357773219,
+   "typed": 0.54,
+   "typed_covers": true
+  },
+  "nd5": {
+   "new": 0.2295247052296972,
+   "typed": 0.62,
+   "typed_covers": true
+  },
+  "nd6": {
+   "new": 4.657371178269387,
+   "typed": 4.75,
+   "typed_covers": true
+  },
+  "nd7": {
+   "new": 0.043725505820475526,
+   "typed": 0.136,
+   "typed_covers": true
+  },
+  "nd8": {
+   "new": 3.016295805573464,
+   "typed": 3.05,
+   "typed_covers": true
+  },
+  "nf1": {
+   "new": 0.001977641666599084,
+   "typed": 0.0043,
+   "typed_covers": true
+  },
+  "nf2": {
+   "new": 0.0001153665715492025,
+   "typed": 0.00069,
+   "typed_covers": true
+  },
+  "nf3": {
+   "new": 3.986634645514187e-06,
+   "typed": 2.9e-05,
+   "typed_covers": true
+  },
+  "nf4": {
+   "new": 0.003325581190438243,
+   "typed": 0.014,
+   "typed_covers": true
+  },
+  "nf5": {
+   "new": 0.3150003515183926,
+   "typed": 0.46,
+   "typed_covers": true
+  },
+  "nf6": {
+   "new": 3.026755586266518,
+   "typed": 3.06,
+   "typed_covers": true
+  },
+  "nf7": {
+   "new": 2.987938582776906e-06,
+   "typed": 8.6e-06,
+   "typed_covers": true
+  }
+ }
+}

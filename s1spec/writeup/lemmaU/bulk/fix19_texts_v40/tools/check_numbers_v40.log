@@ -1,0 +1,2 @@
+PASS {'KEYED': 386, 'FILE': 129, 'VALUE': 1113, 'HISTORICAL': 676, 'STALE': 0, 'RECORD': 14, 'WHITELIST': 141, 'UNMATCHED': 0, 'short': 9530} macros 126 0 pinned 56 0
+v40: {"new_numbers": {"NEW-M38": 16, "NEW-CURRENT": 4, "NEW-WHITELIST": 6, "NEW-MISS": 0, "NEW-DIR-FAIL": 0}, "hashes": {"KNOWN": 89, "INHERITED-UNVERIFIED": 12, "NEW-UNKNOWN": 0}, "files_with_0.1475": [], "m38_ledger_values": 31588, "hash_registry": 2429}

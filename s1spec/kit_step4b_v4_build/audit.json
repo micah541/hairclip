@@ -1,0 +1,241 @@
+{
+ "code_hits_bad": [],
+ "comment_hits": 132,
+ "data_files_with_provenance": 417,
+ "unresolved_imports": [
+  [
+   "step4/p2/v33/verify_v32_with_exceptions.py",
+   "verify_v32_manifest"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_assemble.py",
+   "unc"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/n1/n1_chart.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/r3/r3_forcing.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp/rigor/assembly_arb.py",
+   "r3_forcing"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp/rigor/assembly_arb.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp/rigor/capture_F2.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/base_ibp/run_F10p_ibp.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/rigor/arlib.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t2_A/rigor/assembly_rep.py",
+   "r3_forcing"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/rampphi.py",
+   "ulib"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/t4lib.py",
+   "v36cfg"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u1_ghat.py",
+   "ghat_arb"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u1_ghat.py",
+   "weight_consts_arb"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u2_K.py",
+   "ghat_arb"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u2_K.py",
+   "ulib"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u34_sweeps.py",
+   "r3_forcing"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u34_sweeps.py",
+   "ulib"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t4_cert/u5_enum.py",
+   "ulib"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/ramp_U.py",
+   "ghat_arb"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/ramp_U.py",
+   "ulib"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/ramp_U.py",
+   "weight_consts_arb"
+  ],
+  [
+   "writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/zone3.py",
+   "v36cfg"
+  ]
+ ],
+ "unresolved_inputs": [],
+ "chain_inputs": 81,
+ "absent_literals": {
+  "/step4/t1/polished_v2/slab_180.pkl": [
+   "step4/p2/v33/h2f_win.py",
+   "step4/p2/v33/win_arb.py"
+  ],
+  "/step4/p2/out": [
+   "step4/p2/v33/h2t_v33.py",
+   "step4/p2/v33/h2t_v33_arb.py",
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/t8se/constants/amp_A1_w180.json": [
+   "step4/p2/v33/h2t_v33.py",
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h2t_v33.json": [
+   "step4/p2/v33/h2t_v33.py"
+  ],
+  "/step4/p2/out_v33/m9/win_arb_summary.json": [
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h2t_v33_arb.json": [
+   "step4/p2/v33/h2t_v33_arb.py"
+  ],
+  "/step4/p2/out_v33": [
+   "step4/p2/v33/h2u_v33.py",
+   "step4/p2/v33/h2u_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/h4far_v33.json": [
+   "step4/p2/v33/h4far_v33.py"
+  ],
+  "/step4/p2/out_v33/h4loc_v33.json": [
+   "step4/p2/v33/h4loc_v33.py"
+  ],
+  "/step4/p2/out/h4loc_A1_w180.json": [
+   "step4/p2/v33/h4loc_v33.py"
+  ],
+  "/step4/p2/t8se/constants/h4loc_v32.json": [
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/out_v33/notes_v33.json": [
+   "step4/p2/v33/notes_v33.py"
+  ],
+  "/step4/p2/out_v33/ratio_v33.json": [
+   "step4/p2/v33/ratio_v33.py"
+  ],
+  "/step4/p2/t8se/constants/n3_b1.json": [
+   "step4/p2/v33/t9_cone_v33.py",
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out/t9_cone_kch.json": [
+   "step4/p2/v33/t9_cone_v33.py",
+   "step4/p2/v33/t9_h2f.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/t9_cone_v33.json": [
+   "step4/p2/v33/t9_cone_v33.py"
+  ],
+  "/step4/t7/constants.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out/t9_h1_clam_s180.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/out_v33/t9_h2f.json": [
+   "step4/p2/v33/t9_h2f.py"
+  ],
+  "/step4/p2/t6": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out/t9_lemmaO_v32.json": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/t1/polished_v2/slab_": [
+   "step4/p2/v33/t9_lemmaO_v33.py",
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/step4/p2/out_v33/t9_lemmaO_v33.json": [
+   "step4/p2/v33/t9_lemmaO_v33.py"
+  ],
+  "/step4/p2/out_v33/t9_lemmaO_v33_arb.json": [
+   "step4/p2/v33/t9_lemmaO_v33_arb.py"
+  ],
+  "/writeup/lemmaU/bulk/fix6_v36/runs/prod2": [
+   "writeup/lemmaU/bulk/fix10_proofs/G1_check.py"
+  ],
+  "/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_data.json": [
+   "writeup/lemmaU/bulk/fix10_proofs/G1_check.py"
+  ],
+  "/step4/p2/out_v33/h2u_v33_arb.json": [
+   "writeup/lemmaU/bulk/fix12_texts/tools/gen_numbers_A_v37.py"
+  ],
+  "/step4/p2/out_v33/b0_dprof.json": [
+   "writeup/lemmaU/bulk/fix12_texts/tools/gen_numbers_A_v37.py",
+   "writeup/lemmaU/bulk/fix13_v37chain/v36cfg.py"
+  ],
+  "/step4/p2/out_v33/n1_chart.json": [
+   "writeup/lemmaU/bulk/fix13_v37chain/flux/code/chart4_shell.py",
+   "writeup/lemmaU/bulk/fix13_v37chain/v36cfg.py"
+  ],
+  "/step3nl_v4b/verifier": [
+   "writeup/lemmaU/bulk/fix13_v37chain/v36cfg.py"
+  ],
+  "/writeup/lemmaU/bulk/t4_cert/out/U_cert_v34.json": [
+   "writeup/lemmaU/bulk/t5_zone3/zone3.py"
+  ],
+  "/writeup/step3_gap_v32/gonogo/lemmaS_A_rerun/rigor/assembly_arb.json": [
+   "writeup/lemmaU/phase1/ghat/ghat_arb.py"
+  ],
+  "/writeup/step3_gap_v32/gonogo/t8_L4_cost.json": [
+   "writeup/lemmaU/phase1/ghat/ghat_arb.py"
+  ]
+ },
+ "code_allowed": {
+  "run_all.py": "tr(): rewrite table for provenance strings of the proof tree manifest",
+  "verify_outputs.py": "strip(): provenance prefix of reference JSON"
+ },
+ "code_all": [
+  [
+   "run_all.py",
+   "'/home/claude/s1spec/step4'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1_tight'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1spec'"
+  ],
+  [
+   "run_all.py",
+   "'/home/claude/s1spec/step4|/home/claude/s1_tight|/home/claude/s1spec'"
+  ],
+  [
+   "verify_outputs.py",
+   "'/home/claude/s1spec/step4/'"
+  ]
+ ]
+}

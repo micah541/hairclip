@@ -1,0 +1,4 @@
+level 0: core Ghat_jj 4347.66 (Bc 11/20, used 0.2000, retained 1.2500) | ramp Ghat_jj 2259.0 slack 0.3038 | seg ok True (Ghat_jj 4767.7, Bc 262089/500000) | t1 True worst 0.2411 | t2 True worst 0.000744 | O ok True (Ghat_jj 5263, Bc 31/20) | Y c/s/o 83.7/85.6/108.2
+level 1: core Ghat_jj 5492.07 (Bc 9/20, used 0.3000, retained 1.2500) | ramp Ghat_jj 2429.0 slack 0.2057 | seg ok True (Ghat_jj 9346.7, Bc 15349/40000) | t1 True worst 0.2704 | t2 True worst 0.0274 | O ok True (Ghat_jj 2.44e+05, Bc 29/20) | Y c/s/o 87.3/107.9/864.9
+level 2: core Ghat_jj 80141.64 (Bc 169/100, used 0.3100, retained -0.0000) | ramp Ghat_jj 95088.5 slack 0.3259 | seg ok True (Ghat_jj 137582.7, Bc 1524999/1000000) | t1 True worst 0.2484 | t2 True worst 0.0345 | O ok True (Ghat_jj 1.751e+07, Bc 29/20) | Y c/s/o 684.9/858.1/6945.1
+all checks: True  r_export ['1249/1000', '1249/1000', '0']  wrote /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t2_A/out/weights_t2.json

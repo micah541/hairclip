@@ -1,0 +1,7 @@
+s1_identities rc=0 maxrss_kB=570772
+c1_cut_sups rc=0 maxrss_kB=85332
+u3_strip_form rc=0 maxrss_kB=68032
+c3_modx rc=0 maxrss_kB=91164
+c2_t3d rc=0 maxrss_kB=213952
+c4_hardy rc=0 maxrss_kB=95096
+c5_constants rc=0 maxrss_kB=68400

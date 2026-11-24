@@ -1,0 +1,11 @@
+order eps^0 of the error equation (must be 0): 0
+e_tau - (L e - r1) = 0
+w' - k V (must be 0, so w = varpi when Q(0)=q(0)=t1(0)=0): 0
+kappa_tau - local form (must be 0): 0
+Phi' - local form (flux form, must be 0): 0
+Phi - theta_tau (must be 0): 0
+far end: ell_tau = -w_l  theta_tau = k_l*w_l
+b1(ell) with q = t1 = kappa' = 0 is w(ell) = varpi(ell) = -ell_tau: 0
+boundary terms at ell: W e^2 (b1(ell) + ell_tau) = -w_l + w(x)
+tip: b = -D_S1*atil + D_S1/4 + k2_0 ;  S1 (k2_0 = -DS1/4, a = 0): 0
+tip: a = K_0*k2_0 + 1/4 + k4_0/K_0

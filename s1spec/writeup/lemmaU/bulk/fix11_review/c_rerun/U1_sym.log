@@ -1,0 +1,33 @@
+S1 flowVel (Lean, n=1) == -k_ss N, general parametrisation (jets)      True
+S2 R J = -J R                                                          True
+S2 flowVel(R X) == R flowVel(X)                                        True
+S3 -k_ss N invariant under reparametrisation, orientation preserving (p1 > 0) True
+S3 -k_ss N invariant under reparametrisation, orientation reversing (p1 < 0) True
+S3 Lean flowVel invariant under reparametrisation (any p1 != 0)        True
+S4 <J v, v> = 0 (curves are Lagrangian)                                True
+S5 <Gamma_tau,nu> = -kappa_ss - (lam_tau/lam)<Gamma,nu> - lam^-1 <p_tau,nu> True
+S5 scaling: kappa(s) of lam*Gamma at lam*s is kappa/lam; d^2/ds_phys^2 gives lam^-3 True
+S6 S7^(0)(0) = 0                                                       True
+S6 S7^(1)(0) = 0                                                       True
+S6 S7^(2)(0) = 0                                                       True
+S6 S7^(3)(0) = 0                                                       True
+S6 S7^(4)(0) = 840                                                     True
+S6 S7^(0)(1) = 1                                                       True
+S6 S7^(1)(1) = 0                                                       True
+S6 S7^(2)(1) = 0                                                       True
+S6 S7^(3)(1) = 0                                                       True
+S6 S7^(4)(1) = -840                                                    True
+S6 S^(0)(0) = 0                                                        True
+S6 S^(1)(0) = 0                                                        True
+S6 S^(2)(0) = 0                                                        True
+S6 S^(3)(0) = 60                                                       True
+S6 S^(0)(1) = 1                                                        True
+S6 S^(1)(1) = 0                                                        True
+S6 S^(2)(1) = 0                                                        True
+S6 S^(3)(1) = 60                                                       True
+S6 S7(t) + S7(1-t) = 1                                                 True
+S7 d/dx[W v'' h' - (W v'')' h] = W v'' h'' - (W v'')'' h               True
+S7 (W v'')''/W = v'''' - 2 psi' v''' + (psi'^2 - psi'') v''            True
+S7 (W zeta v)' = W (zeta v' + (zeta' - psi' zeta) v)                   True
+S8 d/dx f^2 = 2 f f'                                                   True
+all_pass True

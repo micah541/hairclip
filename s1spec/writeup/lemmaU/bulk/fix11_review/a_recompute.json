@@ -1,0 +1,305 @@
+{
+ "A2_budget": {
+  "excess": 0.0033852846006950208,
+  "excess_with_omitted": 0.0034307903422160987,
+  "margin": 1.6792215196581441,
+  "margin_with_omitted": 1.6569484534524035,
+  "need_reported_form": 38.541138402780085,
+  "need_with_omitted": 38.723161368864396,
+  "omitted": {
+   "lead_mismatch_dab": 0.17938241628366314,
+   "loop_r_times_MAB": 0.0026405498006482025
+  },
+  "parts": {
+   "E33_fb": 0.017449717432566687,
+   "Qfull": 6.194178812420178,
+   "ab_corr_Q1": 1.2492038918813824,
+   "ab_corr_loop": 0.8765452233263105,
+   "beta_Lin": 29.52744358748302,
+   "drift": 0.5493079564942096,
+   "h2_direct": 0.06396314471735276,
+   "loop_2nd": 0.06304606902506102
+  },
+  "slack": 0.005684642751654406
+ },
+ "E0_forcing_budget": {
+  "margin": 1.0703701429513583,
+  "parts": {
+   "A1rem": 7.777135419356772e-06,
+   "E33": 0.0011739038771393945,
+   "H12": 3.0031008390740077e-06,
+   "T2": 5.325325093044813,
+   "abQ1": 0.0077080604544508885,
+   "h2": 0.0043030257577462705,
+   "loop": 0.005424908723066346
+  },
+  "total": 5.343945772093475
+ },
+ "FE2_at_2.5e-4": 13.983863113681464,
+ "H33_crude_1_over_g33lo": 32.146679991676564,
+ "H33_lemma": 32.14858680963516,
+ "Pi3_true": 0.010385357248345594,
+ "R3": {
+  "rt125": {
+   "QBL_sq_backed_out": 0.029526118711494156,
+   "difference": 175.09741116178864,
+   "grid_max": 0.0845219228598495,
+   "lhs": 175.21325990993532,
+   "ratio": 1512.431189054236,
+   "rhs_all_monotone": 0.11584874814668486,
+   "stored_rhs_whole_tail": 0.11584874814668489,
+   "strip_at_LF": 0.08113565818263001
+  },
+  "rt15": {
+   "QBL_sq_backed_out": 0.030054786897870486,
+   "difference": 177.07813487683,
+   "grid_max": 0.08206206720782445,
+   "lhs": 177.19210307266096,
+   "ratio": 1554.7504440229582,
+   "rhs_all_monotone": 0.11396819583094743,
+   "stored_rhs_whole_tail": 0.11396819583094744,
+   "strip_at_LF": 0.07865281240158435
+  }
+ },
+ "X": 1.0238273017257779e-05,
+ "args": {
+  "argv": [
+   "a_recompute.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "alin": {
+    "path": "/home/claude/s1spec/step3nl_v4b/alin_E0_spec_0.001.json",
+    "sha256": "ccc02b4baa68c0ba4def283444bdc2ac19ef075a0124d49d7126bc0a36fad1c5"
+   },
+   "bloop": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/bloop/bloop.json",
+    "sha256": "ece9bd1eb8a795eab48ae3b66e183095813a85df67376fa32f4968ed93520a29"
+   },
+   "c4": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4cert/out/constants_v4.json",
+    "sha256": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+   },
+   "e0lc": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0_lemma_consts.json",
+    "sha256": "e1d09da3d3ab1a79010083a33eba52f98bbe8e5770b807db65d6b672fe815632"
+   },
+   "e0v4b": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0v4b_constants.json",
+    "sha256": "4759b923190c8674e552ba82390c491e30568dbcbfd8f3bf5310faa30fd7f241"
+   },
+   "e2v4b": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e2v4b_constants.json",
+    "sha256": "da2ad87a842b47679c45c90cbc752efb23d369e1b14e1e715ffc61eb753c28e7"
+   },
+   "final": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/ibp/final_5e-4.json",
+    "sha256": "39caabfe877457bebdb9ea366663640c738ae0a54980d4e4b172981cfc2717f9"
+   },
+   "gard": {
+    "path": "/home/claude/s1spec/step3nl_v4b/garding_cert.json",
+    "sha256": "0d401b28a8bea545d77384c392542938720a85c1f4bd6d9f0ab2d67e1c91e96c"
+   },
+   "gram7": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/bloop/gram7_g3.json",
+    "sha256": "b8b6fa43b81e891c48b756ee534d218d570c25a301606b8783e80c6b0c95df45"
+   },
+   "gram8": {
+    "path": "/home/claude/s1spec/step3nl/agent_mod/gram8_g1s4.json",
+    "sha256": "f18ce9b2cb2b63c5470560fb66033162a7c626b95c99765e965ae73ff90baa13"
+   },
+   "h2res": {
+    "path": "/home/claude/s1spec/step3nl_v4b/h2res.json",
+    "sha256": "19525dd139af17f9292105b44d22e9ee458020b8b120eab133fceac01fd51ea6"
+   },
+   "lem_int": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/lemma/lem_integrals.json",
+    "sha256": "987afb8843489308d04538949c577c6af4e3310d69dbc1fc1f83fb01b01b0403"
+   },
+   "lyap2": {
+    "path": "/home/claude/s1spec/step3/lyap_consts2.json",
+    "sha256": "4221c83e658bf7d2cdba61951a0762e4ca9987bd287a7c950900a2a8d9289d87"
+   },
+   "lyap_extra": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/lemma/lyap_extra.json",
+    "sha256": "73427d2242cbf467c8846b99c706958f037c076da7f5be4def192ead7a7c6917"
+   },
+   "nl": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/nl_regions_a2.5e-4.json",
+    "sha256": "6d2b7b9012c8cd830eb8ebd4c73820ab84a79667c8798c9c1ca9334a4eb57ba4"
+   },
+   "pair_f3": {
+    "path": "/home/claude/s1spec/step3nl_v4b/agent_mod/bloop/pair_f3.json",
+    "sha256": "311777ac4c1832844f1d76f9149e146145f5ad88958d6c483af9759bcd56a4c7"
+   },
+   "psi3ip": {
+    "path": "/home/claude/s1spec/step3nl/psi3ip.json",
+    "sha256": "a8cd8f3b1268e7c05dc0d80fa1130980aa70117a05ef87ca5ff40b5c1b106704"
+   },
+   "r2": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/r2_strip_ibp.json",
+    "sha256": "349f637d260c93f5b2a877dab44d77a1680b69295ba78dfc9cd2ec947aab21e4"
+   },
+   "rt125": {
+    "path": "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json",
+    "sha256": "c2fa7e18ab15178e7828b0a9219c5d183f890dd6702fcd3ffd1c7d9db296c61f"
+   },
+   "rt15": {
+    "path": "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json",
+    "sha256": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007"
+   },
+   "sd": {
+    "path": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0_strip_drift.json",
+    "sha256": "9b58e0270582cf30b6c7a07b8a1f5f74b8887710d8468069a82274c040370287"
+   }
+  },
+  "prec": 200,
+  "script_sha256": "ffb10fa0e1c5091d2e68fd320f68bd6c2ebebbdec5fa741927c1ce9acedbbf54"
+ },
+ "checks": [
+  {
+   "coded": 6.588185403479989,
+   "mine": 6.588185401555147,
+   "name": "N3P coded >= my n3_123",
+   "ok": true
+  },
+  {
+   "coded": 7.696981446794133,
+   "mine": 7.696981446600584,
+   "name": "N3E2 coded >= ||g0||",
+   "ok": true
+  },
+  {
+   "name": "7.52 >= n3_123 (qb752 literal)",
+   "ok": true
+  },
+  {
+   "crude": 32.146679991676564,
+   "lemma": 32.14858680963516,
+   "name": "H33 lemma value consistent with 1/g33_lo (rel < 1e-3)",
+   "ok": true
+  },
+  {
+   "bump": 1.292458143233717e-06,
+   "eps1": 6.645150683094182e-05,
+   "far": 5.1351421535344184e-05,
+   "name": "r3 = r3_far + r3_bump (support split of u3) and r3 <= eps1",
+   "ok": true,
+   "r3": 5.26438796785779e-05
+  },
+  {
+   "mine": 0.010385357248345594,
+   "name": "Pi3_true <= 0.01607",
+   "ok": true,
+   "reported": 0.0103854
+  },
+  {
+   "mine": 1.6792215196581441,
+   "name": "A^2 budget (reported form) margin x1.679 reproduced",
+   "ok": true
+  },
+  {
+   "margin": 1.6569484534524035,
+   "name": "A^2 budget still holds with the omitted pieces",
+   "ok": true
+  },
+  {
+   "coded": 5.650496737475289,
+   "mine": 5.650496735777515,
+   "name": "LOOPC coded >= mine",
+   "ok": true
+  },
+  {
+   "coded": 8.028590463071954,
+   "mine": 8.028590463072723,
+   "name": "GABN coded >= mine",
+   "ok": true
+  },
+  {
+   "coded": 33.369078246793634,
+   "mine": 33.369078244704,
+   "name": "HOB coded >= mine",
+   "ok": true
+  },
+  {
+   "name": "E0 forcing budget <= 5.72",
+   "ok": true,
+   "total": 5.343945772093475
+  },
+  {
+   "mine": 13.983863113681464,
+   "name": "FE2 = 13.98 at alpha_E",
+   "ok": true
+  },
+  {
+   "name": "ALIN constants >= raw region maxima",
+   "ok": true,
+   "raw": {
+    "ALIN_AB": 35.86873623501742,
+    "ALIN_BB": 6.21990350849228,
+    "ALIN_W1B": 7.896699465811253,
+    "ALIN_sq": 59.32715308450967
+   }
+  },
+  {
+   "name": "R143 >= max(-mu2)",
+   "ok": true,
+   "raw": 14.343002687670673
+  },
+  {
+   "e0": 10.668646301554134,
+   "e1": 16.276330901647174,
+   "name": "typed r163 16.3, r107 10.7 >= raw",
+   "ok": true
+  },
+  {
+   "name": "nd/nf >= region maxima of nl_regions_a2.5e-4.json (column map as rhs_iv ND)",
+   "ok": true
+  },
+  {
+   "name": "A-coefficient nd4+nf7 >= max A0 all regions; W1-coefficient nd5+nf7 >= max A1",
+   "ok": true
+  },
+  {
+   "lhs": 177.19210307266096,
+   "name": "R-3 whole-tail alpha-condition rt15",
+   "ok": true,
+   "ratio": 1554.7504440229582,
+   "rhs": 0.11396819583094743
+  },
+  {
+   "name": "R-3 box/hypothesis ratios rt15 all <= 1",
+   "ok": true
+  },
+  {
+   "lhs": 175.21325990993532,
+   "name": "R-3 whole-tail alpha-condition rt125",
+   "ok": true,
+   "ratio": 1512.431189054236,
+   "rhs": 0.11584874814668486
+  },
+  {
+   "name": "R-3 box/hypothesis ratios rt125 all <= 1",
+   "ok": true
+  },
+  {
+   "STRIP_AB_R2": 4.227131780191151e-10,
+   "STRIP_BETA_R2": 7.786633689656624e-11,
+   "name": "R-2: S3 coefficients are 0 and constants consumed by the verifier are the R2 ones",
+   "ok": true
+  }
+ ],
+ "gram8_keys": [
+  "names",
+  "G",
+  "group",
+  "nsub",
+  "runtime_s"
+ ],
+ "n3_123": 6.588185401555147,
+ "n3_true": 7.696981446600584,
+ "n_fail": 0
+}

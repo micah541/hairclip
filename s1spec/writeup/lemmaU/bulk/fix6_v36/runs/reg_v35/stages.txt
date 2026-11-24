@@ -1,0 +1,15 @@
+nice -n 19 python3 -B run_F10p_ibp.py|116.75_s|86648_KB
+nice -n 19 python3 -B rigor/capture_F2.py|112.90_s|85396_KB
+nice -n 19 python3 -B rigor/weights_exact.py|8.53_s|88096_KB
+nice -n 19 python3 -B rigor/assembly_arb.py|0.54_s|74644_KB
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/run_t2.sh|38.28_s|92932_KB
+nice -n 19 python3 -B u1_ghat.py|1.26_s|77900_KB
+nice -n 19 python3 -B u34_sweeps.py --case primary|45.32_s|75652_KB
+nice -n 19 python3 -B u2_K.py --fresh|48.93_s|79992_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass1.json|0.36_s|73136_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass1.json out/U_cert_for_zone3_v36_pass1.json|0.02_s|16656_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36_pass1.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t4_cert/out/U_cert_v36_pass1.json|0.11_s|36240_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t5_zone3/out/zone3_interface_pass1.json --out U_cert_v36_pass2.json|0.35_s|73064_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass2.json out/U_cert_for_zone3_v36.json|0.02_s|16676_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t4_cert/out/U_cert_v36_pass2.json|0.09_s|36336_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass3.json|0.30_s|72984_KB

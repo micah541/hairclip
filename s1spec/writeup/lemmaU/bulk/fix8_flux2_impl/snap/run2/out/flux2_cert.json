@@ -1,0 +1,495 @@
+{
+ "args": {
+  "argv": [
+   "flux2_assemble.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4b/runs/P/modsups_fin13v4b/final_alpha_points_5e-8.json": "3c4b17228dc8aa11f603a42a808a4637432213679738eb078a35fcf720f0ce65",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json": "c2fa7e18ab15178e7828b0a9219c5d183f890dd6702fcd3ffd1c7d9db296c61f",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/hjw_rep.json": "80a7d2081572b55037f44fd42ca4a5eb40485ec19eea8ed30f9461cb90293497",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "4b3c477e10eb1637e51bd87ea96d3c177d7b3ab865f54395d39a84f3aa5c7ccb",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/flux2_assemble.py": "0ff571adbfa929d796fbd8000dce3f484e8176fa64fae9eecbd0f57f30bb3b9b",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_coef.json": "c9bb62286375cd0e7d6739a72e9809eb8ee0700f21b968d2dcea75ec38c3f299",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_data.json": "433865a51402b509e067f4c3ad6a34f4219f8e00f039ac2b52c7838c8f983bf8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/inputs.json": "31f957cd9b59cde5fcf902a97c4be7a87552e183e39ccb515995eb447d219409"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "alpha 0.000125: L_F lower bound 2F0/|rate_s_U| <= sqrt_LF^2 (consistency)": true,
+  "alpha 0.00015: L_F lower bound 2F0/|rate_s_U| <= sqrt_LF^2 (consistency)": true,
+  "hjw X_const equals the rate-table unc.X_const": true,
+  "hjw kappa_J reserve > 0.99 x pad (pad applied; double rounding only)": true
+ },
+ "conditions": {
+  "C0": {
+   "margin": 0.7918582970381328,
+   "note": "s/F0 (s = F0 - mu Kbar0 - mu eps_I K2pt > 0)",
+   "pass_": true
+  },
+  "C1": {
+   "margin": 9848042.90163791,
+   "note": "S' <= s",
+   "pass_": true
+  },
+  "C2[0.000125]": {
+   "margin": 49966781.82814805,
+   "note": "min over steps of (Ly_hi - max L)/2C'",
+   "pass_": true
+  },
+  "C2[0.00015]": {
+   "margin": 53432053.46163058,
+   "note": "min over steps of (Ly_hi - max L)/2C'",
+   "pass_": true
+  },
+  "C3[0.000125]": {
+   "margin": 2235.7596479072695,
+   "note": "min over steps with U>0 of pad L/(U 2C')",
+   "pass_": true
+  },
+  "C3[0.00015]": {
+   "margin": 1547.2063691527858,
+   "note": "min over steps with U>0 of pad L/(U 2C')",
+   "pass_": true
+  },
+  "C4[0.000125]": {
+   "margin": 173628.07117516702,
+   "note": "2C' <= ETA L_F",
+   "pass_": true
+  },
+  "C4[0.00015]": {
+   "margin": 184762.97864935602,
+   "note": "2C' <= ETA L_F",
+   "pass_": true
+  },
+  "C5[0.000125]": {
+   "margin": 1512.431101946713,
+   "note": "lhs >= rhs_whole_tail (1 + 2C'/L_F)",
+   "pass_": true
+  },
+  "C5[0.00015]": {
+   "margin": 1554.7503598745861,
+   "note": "lhs >= rhs_whole_tail (1 + 2C'/L_F)",
+   "pass_": true
+  },
+  "C6": {
+   "margin": 141.32269588715778,
+   "note": "C' <= (kappa_J - kappa_J_cert) X_const (pad 1/1000000000; reserve 1.0000e-09)",
+   "pass_": true
+  },
+  "C7.mod[1.25e-4]": {
+   "margin": 315178597.63946533,
+   "note": "mod_sups tail row: 6-digit reserve >= 2C'/L*",
+   "pass_": true
+  },
+  "C7.mod[1.5e-4]": {
+   "margin": 249678716.96102718,
+   "note": "mod_sups tail row: 6-digit reserve >= 2C'/L*",
+   "pass_": true
+  },
+  "C7.tail[0.000125]": {
+   "margin": 51141783.44380028,
+   "note": "L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)",
+   "pass_": true
+  },
+  "C7.tail[0.00015]": {
+   "margin": 197278468.75440174,
+   "note": "L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)",
+   "pass_": true
+  },
+  "C8": {
+   "note": "regularity lemma U-1 (Lambda absolutely continuous, g'''' in L^2(OR) a.e., level-2 identity with a C^3 cutoff): OPEN, not checkable by script",
+   "pass_": null
+  },
+  "C9": {
+   "note": "all window constants are at the (B Phi) level: exports doubled in X4 (2 (C0_k + C1_k T)); pointwise energies at beta_A = 2",
+   "pass_": true
+  }
+ },
+ "failing": [],
+ "res": {
+  "C6": {
+   "Cp_over_Xconst": 7.0760041712926865e-12,
+   "X_const": 3.748331086347241e-15,
+   "kappa_J": 0.042431870764566434,
+   "kappa_J_certified": 0.042431869764566435,
+   "pad": "1/1000000000",
+   "reserve": 9.999999855958561e-10
+  },
+  "C7": {
+   "consumers_v36": [
+    {
+     "consumer": "v36cfg J_m, slopes, J4, sJ4 -> base_ibp/assembly_arb",
+     "covered_by": "C6 (constants gain C'; slopes unchanged)",
+     "reads": "unc const/slope",
+     "treatment": "up 5 digits; kappa_J pad"
+    },
+    {
+     "consumer": "v36cfg sqLam (sqrtL_max)",
+     "covered_by": "C2 + C7.tail",
+     "reads": "max_k sqrt(Ly_hi_k)"
+    },
+    {
+     "consumer": "v36cfg rho (tail)",
+     "covered_by": "unchanged: the tail decay rate of the barrier is the same (sec. 7.3 C4)",
+     "reads": "tail rho, down 4 digits"
+    },
+    {
+     "consumer": "mod_sups sup_ab, sup_beta (abar, betabar) -> assembly_arb, t4lib, zone3, r3",
+     "covered_by": "C2 (march rows) + C7.mod (tail row reserve)",
+     "reads": "march rows at Ly_hi; tail row at L*"
+    },
+    {
+     "consumer": "hjw_rep kappa_J",
+     "covered_by": "C6 (pad 1e-9); W2 (L_F <= L*) unaffected",
+     "reads": "Ly_hi, D, X_const, F0, sqrt_LF, L*"
+    },
+    {
+     "consumer": "assembly_rep.margins (mod_sups M1, sI1), n1_chart (far_max)",
+     "covered_by": "C2 + C7.tail",
+     "reads": "max over march steps"
+    },
+    {
+     "consumer": "assembly_arb.f4b PHI_S (raw sqrt_LF), PHI_C (raw sqrt L*)",
+     "covered_by": "NOT cushioned; consumed only by I3c/I3s and v3.1-only rows (V36_REPORT sec. 5), which flux lemma v2 does not use: unused",
+     "reads": "floor / anchor doubles, one ulp"
+    }
+   ],
+   "floor_relative_reserve_needed": {
+    "note": "consumers of sqrt_LF / alpha_F need relative reserve >= C'/L_F (sqrt: (1 + 2C'/L_F)^1/2 - 1 <= C'/L_F)",
+    "value": 2.8797186803714964e-08
+   },
+   "march_consumers": "farsup, sramp_sup, box_assert, sqrtL_max, mod_sups march rows, unconditional r1+ Ly_hi read Ly_hi of the cell: covered by C2 [read closure.py]",
+   "mod_sups_tail_row[1.25e-4]": {
+    "needed": 1.957638831692112e-11,
+    "ok": true,
+    "reserve_ab": 0.006170058616572811,
+    "reserve_beta": 0.17879205838861226,
+    "row_ab": 2.0900542428100454e-07,
+    "row_beta": 1.884853214092085e-09,
+    "sup_ab": 2.10295e-07,
+    "sup_beta": 2.22185e-09
+   },
+   "mod_sups_tail_row[1.5e-4]": {
+    "needed": 1.889374232934999e-11,
+    "ok": true,
+    "reserve_ab": 0.004717365343384353,
+    "reserve_beta": 0.20817525336245996,
+    "row_ab": 2.1303603120948028e-07,
+    "row_beta": 1.949121200294542e-09,
+    "sup_ab": 2.14041e-07,
+    "sup_beta": 2.35488e-09
+   },
+   "tail_inside_last_march_cell[0.000125]": {
+    "L_star": 2.709713964904694e-15,
+    "Ly_hi_last": 2.7124268530608256e-15,
+    "margin": 51141783.44380028
+   },
+   "tail_inside_last_march_cell[0.00015]": {
+    "L_star": 2.80761809280921e-15,
+    "Ly_hi_last": 2.818083007900247e-15,
+    "margin": 197278468.75440174
+   }
+  },
+  "Cp": {
+   "arb": "[2.6523206402379126672e-26 +/- 4.88e-46]",
+   "label": "cert",
+   "note": "C' = mu eps_I C''",
+   "up": 2.652320640237913e-26
+  },
+  "Cpp": {
+   "arb": "[1.1051336000991299432e-20 +/- 3.11e-40]",
+   "label": "cert",
+   "note": "int_I phi2 <= C'' + S'' T",
+   "up": 1.1051336000991301e-20
+  },
+  "D_pt": {
+   "arb": "[2.5422772435491074555e-10 +/- 3.74e-30]",
+   "label": "cert",
+   "up": 2.542277243549108e-10
+  },
+  "F0": {
+   "arb": "[1.3121920000000000000e-21 +/- 3e-45]",
+   "label": "cert",
+   "up": 1.3121920000000001e-21
+  },
+  "K0_parts": {
+   "lin": {
+    "arb": "[3.4095444650452368800e-21 +/- 4.68e-41]",
+    "label": "cert",
+    "up": 3.409544465045237e-21
+   },
+   "nl": {
+    "arb": "[3.0896815002152613307e-25 +/- 2.27e-45]",
+    "label": "cert",
+    "up": 3.0896815002152618e-25
+   },
+   "w": {
+    "arb": "[9.9249490547125943317e-70 +/- 7.41e-91]",
+    "label": "cert",
+    "up": 9.924949054712596e-70
+   }
+  },
+  "K0bar": {
+   "arb": "[3.4098534331952592648e-21 +/- 3.45e-41]",
+   "label": "cert",
+   "note": "level-0 pointwise bound of K0^OR",
+   "up": 3.40985343319526e-21
+  },
+  "K2pt": {
+   "arb": "[1.3900118221562854590e-19 +/- 3.66e-39]",
+   "label": "cert",
+   "note": "level-2 pointwise part",
+   "up": 1.3900118221562857e-19
+  },
+  "K2pt_vs_FLUX2_record": 1.737514777695357,
+  "Sp": {
+   "arb": "[1.0551031640350036004e-28 +/- 4.84e-48]",
+   "label": "cert",
+   "up": 1.0551031640350038e-28
+  },
+  "Spp": {
+   "arb": "[4.3962631834791807543e-23 +/- 3.30e-43]",
+   "label": "cert",
+   "up": 4.3962631834791813e-23
+  },
+  "X_pt": {
+   "arb": "[2.7303157089862674421e-10 +/- 3.07e-30]",
+   "label": "cert",
+   "up": 2.730315708986268e-10
+  },
+  "lam1": "1",
+  "lam2": "1",
+  "margin_K0_vs_FLUX0": {
+   "arb": "[4.8095908874980901615 +/- 3.87e-22]",
+   "dn": 4.809590887498089,
+   "label": "cert"
+  },
+  "margin_combined": {
+   "arb": "[4.8044192286790625701 +/- 8.73e-21]",
+   "dn": 4.804419228679062,
+   "label": "cert",
+   "note": "(FLUX0 + eps_I FLUX2)/(Kbar0 + eps_I K2pt)"
+  },
+  "slack_s": {
+   "arb": "[1.0390701225070616029e-21 +/- 1.50e-41]",
+   "dn": 1.0390701225070614e-21,
+   "label": "cert",
+   "note": "s = F0 - mu Kbar0 - mu eps_I K2pt (lower bound)"
+  },
+  "stop_rules_triggered": [],
+  "strictness_pad_C3": {
+   "0.000125": {
+    "C2_min_margin": 49966781.82814805,
+    "C3_min_margin": 2235.7596479072695,
+    "C4_margin": 173628.07117516702,
+    "C5_margin": 1512.431101946713,
+    "ETA": "0.01",
+    "L_F_lower": 9.210346338051857e-19,
+    "steps": [
+     {
+      "C2_margin": 2244229375.027912,
+      "C3_margin": 2235.7596479072695,
+      "Lmax": 2.5085766821463336e-15,
+      "Ly_hi": 2.6276250000026283e-15,
+      "Ly_lo": 2.497500000002497e-15,
+      "k": 0,
+      "rate_U": 0.021058351122525923
+     },
+     {
+      "C2_margin": 49966781.82814805,
+      "C3_margin": 2246.117083506807,
+      "Lmax": 2.5726984346834002e-15,
+      "Ly_hi": 2.575348993218781e-15,
+      "Ly_lo": 2.5060681054641847e-15,
+      "k": 1,
+      "rate_U": 0.021033156712663512
+     },
+     {
+      "C2_margin": 394897424.60362923,
+      "C3_margin": 3181.227423324297,
+      "Lmax": 2.620149771352518e-15,
+      "Ly_hi": 2.6410976631535775e-15,
+      "Ly_lo": 2.5701257362487145e-15,
+      "k": 2,
+      "rate_U": 0.0152301307693313
+     },
+     {
+      "C2_margin": 216219145.68446717,
+      "C3_margin": 3954.7805992657486,
+      "Lmax": 2.6596751357038635e-15,
+      "Ly_hi": 2.6711447857621333e-15,
+      "Ly_lo": 2.617529621581163e-15,
+      "k": 3,
+      "rate_U": 0.012477086602523293
+     },
+     {
+      "C2_margin": 361449160.81848645,
+      "C3_margin": 6790.165095119033,
+      "Lmax": 2.6833229616402736e-15,
+      "Ly_hi": 2.7024965430329843e-15,
+      "Ly_lo": 2.6570154605681577e-15,
+      "k": 4,
+      "rate_U": 0.007376625355918119
+     },
+     {
+      "C2_margin": 199691885.5514881,
+      "C3_margin": 10217.810717643879,
+      "Lmax": 2.6992952890661583e-15,
+      "Ly_hi": 2.7098882272608827e-15,
+      "Ly_lo": 2.680639638678631e-15,
+      "k": 5,
+      "rate_U": 0.004945663471302098
+     },
+     {
+      "C2_margin": 195446699.13282734,
+      "C3_margin": 19598.042302666327,
+      "Lmax": 2.7077103072706138e-15,
+      "Ly_hi": 2.7180780535541408e-15,
+      "Ly_lo": 2.69659599377709e-15,
+      "k": 6,
+      "rate_U": 0.002593863832271449
+     },
+     {
+      "C2_margin": 191420577.986364,
+      "C3_margin": 165187.47273863183,
+      "Lmax": 2.7087135357456435e-15,
+      "Ly_hi": 2.7188677107448334e-15,
+      "Ly_lo": 2.7050025969633414e-15,
+      "k": 7,
+      "rate_U": 0.00030869852683977465
+     },
+     {
+      "C2_margin": 51141783.4437942,
+      "C3_margin": 165772.36283158697,
+      "Lmax": 2.709713964904695e-15,
+      "Ly_hi": 2.7124268530608256e-15,
+      "Ly_lo": 2.7060048222098957e-15,
+      "k": 8,
+      "rate_U": 0.00030772332601524755
+     }
+    ]
+   },
+   "0.00015": {
+    "C2_min_margin": 53432053.46163058,
+    "C3_min_margin": 1547.2063691527858,
+    "C4_margin": 184762.97864935602,
+    "C5_margin": 1554.7503598745861,
+    "ETA": "0.01",
+    "L_F_lower": 9.801013236470475e-19,
+    "steps": [
+     {
+      "C2_margin": 2172097527.0478616,
+      "C3_margin": 1547.2063691527858,
+      "Lmax": 2.512403017930653e-15,
+      "Ly_hi": 2.6276250000026283e-15,
+      "Ly_lo": 2.497500000002497e-15,
+      "k": 0,
+      "rate_U": 0.030429949507632198
+     },
+     {
+      "C2_margin": 243051105.81670633,
+      "C3_margin": 1743.7743352031234,
+      "Lmax": 2.5955542420004662e-15,
+      "Ly_hi": 2.608447231292272e-15,
+      "Ly_lo": 2.509890614912721e-15,
+      "k": 1,
+      "rate_U": 0.02713366711123776
+     },
+     {
+      "C2_margin": 434149220.50344664,
+      "C3_margin": 2351.6634699084734,
+      "Lmax": 2.6611088619613446e-15,
+      "Ly_hi": 2.684138920731034e-15,
+      "Ly_lo": 2.5929586877584632e-15,
+      "k": 2,
+      "rate_U": 0.02078568798606451
+     },
+     {
+      "C2_margin": 405026599.6266489,
+      "C3_margin": 3332.8502935077618,
+      "Lmax": 2.7095622732501343e-15,
+      "Ly_hi": 2.731047481450837e-15,
+      "Ly_lo": 2.6584477530993813e-15,
+      "k": 3,
+      "rate_U": 0.015036830442585516
+     },
+     {
+      "C2_margin": 222005961.62234837,
+      "C3_margin": 4145.740214143281,
+      "Lmax": 2.7498802012176127e-15,
+      "Ly_hi": 2.761656821102949e-15,
+      "Ly_lo": 2.7068527109768825e-15,
+      "k": 4,
+      "rate_U": 0.012308539397091471
+     },
+     {
+      "C2_margin": 371004757.48087835,
+      "C3_margin": 7143.120645294166,
+      "Lmax": 2.7739083811532117e-15,
+      "Ly_hi": 2.793588852671071e-15,
+      "Ly_lo": 2.747130321016393e-15,
+      "k": 5,
+      "rate_U": 0.0072499540905940916
+     },
+     {
+      "C2_margin": 205209855.3217688,
+      "C3_margin": 10798.082935273047,
+      "Lmax": 2.7900590167572788e-15,
+      "Ly_hi": 2.8009446634542815e-15,
+      "Ly_lo": 2.771134472772056e-15,
+      "k": 6,
+      "rate_U": 0.004837878103714661
+     },
+     {
+      "C2_margin": 200861216.32834318,
+      "C3_margin": 20984.446604221106,
+      "Lmax": 2.7984550235297264e-15,
+      "Ly_hi": 2.8091099905275452e-15,
+      "Ly_lo": 2.7872689577405188e-15,
+      "k": 7,
+      "rate_U": 0.002503948180061254
+     },
+     {
+      "C2_margin": 53432053.46163058,
+      "C3_margin": 21116.453884001923,
+      "Lmax": 2.8068487935819027e-15,
+      "Ly_hi": 2.8096831723468337e-15,
+      "Ly_lo": 2.795656568506195e-15,
+      "k": 8,
+      "rate_U": 0.0024957829337399254
+     },
+     {
+      "C2_margin": 197278468.75439906,
+      "C3_margin": 231470.08072924713,
+      "Lmax": 2.8076180928092106e-15,
+      "Ly_hi": 2.818083007900247e-15,
+      "Ly_lo": 2.804041944788318e-15,
+      "k": 9,
+      "rate_U": 0.00022836714479750056
+     }
+    ]
+   }
+  },
+  "two_Cp": {
+   "arb": "[5.3046412804758253343e-26 +/- 2.54e-47]",
+   "label": "cert",
+   "up": 5.304641280475826e-26
+  }
+ },
+ "stage": "X5 flux2_assemble",
+ "timing": {
+  "runtime_s": 0.3
+ },
+ "verdict": "PASS"
+}

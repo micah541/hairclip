@@ -1,0 +1,6 @@
+slab 6 (k 25.1): tip n4 6.166 n3 9.363 n2 18.764 | far (T5 box) n4 6.387 x n3 285.286 x^2 n2 8.59e+05 | far (sharp box) n4 0.429 x n3 125 x^2 n2 6.7e+05 (351s)
+slab 8 (k 27.1): tip n4 6.166 n3 9.363 n2 18.645 | far (T5 box) n4 6.230 x n3 290.685 x^2 n2 1.08e+06 | far (sharp box) n4 0.409 x n3 125 x^2 n2 8.41e+05 (215s)
+slab 10 (k 29.3): tip n4 6.166 n3 9.363 n2 18.533 | far (T5 box) n4 6.121 x n3 301.405 x^2 n2 1.35e+06 | far (sharp box) n4 0.389 x n3 125 x^2 n2 1.05e+06 (24s)
+slab 12 (k 31.6): tip n4 6.166 n3 9.363 n2 18.428 | far (T5 box) n4 6.050 x n3 329.399 x^2 n2 1.7e+06 | far (sharp box) n4 0.37 x n3 124 x^2 n2 1.32e+06 (24s)
+slab 14 (k 34.1): tip n4 6.166 n3 9.362 n2 18.330 | far (T5 box) n4 6.012 x n3 632.731 x^2 n2 2.13e+06 | far (sharp box) n4 0.351 x n3 124 x^2 n2 1.66e+06 (26s)
+slab 16 (k 36.7): tip n4 6.166 n3 9.362 n2 18.238 | far (T5 box) n4 6.004 x n3 224.949 x^2 n2 2.67e+06 | far (sharp box) n4 0.333 x n3 124 x^2 n2 2.08e+06 (26s)

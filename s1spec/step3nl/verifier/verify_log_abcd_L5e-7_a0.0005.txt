@@ -1,0 +1,23 @@
+alpha1=0.0005 Ly1=2.500000e-13 sqrt=5.000000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8969e-04 sqrtLy<=5.0281e-07 rate<=+0.06898 (lb +0.06848) cell 2.45s
+  k=   6 tau=  2.934 D=0.600 alpha<=2.3583e-04 sqrtLy<=5.6726e-07 rate<=+0.02511 (lb +0.02461) cell 2.2s
+  k=   7 tau=  3.534 D=0.600 alpha<=2.0224e-04 sqrtLy<=5.7380e-07 rate<=+0.01908 (lb +0.01858) cell 1.91s
+  k=   8 tau=  4.134 D=0.600 alpha<=1.7343e-04 sqrtLy<=5.7893e-07 rate<=+0.01483 (lb +0.01433) cell 1.77s
+  k=   9 tau=  4.734 D=0.600 alpha<=1.4873e-04 sqrtLy<=5.8268e-07 rate<=+0.01078 (lb +0.01029) cell 1.93s
+  tail anchor: a*=1.4873e-04 L*=3.3952e-13  rate_s bound U=+0.00675
+  k=  10 tau=  5.334 D=0.600 alpha<=1.2754e-04 sqrtLy<=5.8511e-07 rate<=+0.00691 (lb +0.00641) cell 2.06s
+  tail anchor: a*=1.2754e-04 L*=3.4235e-13  rate_s bound U=+0.00411
+  k=  11 tau=  5.934 D=0.600 alpha<=1.0938e-04 sqrtLy<=5.8666e-07 rate<=+0.00442 (lb +0.00392) cell 1.84s
+  tail anchor: a*=1.0938e-04 L*=3.4417e-13  rate_s bound U=+0.00190
+  k=  12 tau=  6.534 D=0.600 alpha<=9.3797e-05 sqrtLy<=5.8736e-07 rate<=+0.00198 (lb +0.00148) cell 1.7s
+  tail anchor: a*=9.3797e-05 L*=3.4499e-13  rate_s bound U=+0.00004
+  k=  13 tau=  7.134 D=0.600 alpha<=8.0437e-05 sqrtLy<=5.8763e-07 rate<=+0.00078 (lb +0.00028) cell 1.83s
+  tail anchor: a*=8.0437e-05 L*=3.4531e-13  rate_s bound U=-0.00153
+  k=  14 tau=  7.734 D=0.600 alpha<=6.8981e-05 sqrtLy<=5.8749e-07 rate<=-0.00040 (lb -0.00090) cell 1.52s
+  tail anchor: a*=6.8981e-05 L*=3.4514e-13  rate_s bound U=-0.00287
+  tail: rho=0.00287 alpha-condition OK (margin 2.990e+01); floor sqrt(L_F)=2.363e-08, alpha_F<= 2.775e-06
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 8.2870e-03   (sup|w'| alone: 8.2870e-03);  box certified: 1e-2
+  theta=0.3: max step rate_theta=+0.0690
+  theta=0.3: tail anchor rate_s_theta = -0.00287
+  int V0^2 <= 8.0239e-11 + 2.148e-16(T-tau_t);  int V1^2 <= 1.1272e-10 + 3.017e-16(T-tau_t);  int V2^2 <= 2.4905e-11 + 6.667e-17(T-tau_t)
+RESULT alpha1=0.0005: rigorous max sqrt(Ly) <= 5.8851e-07   (float code: see baseline)  tail=True  runtime 70.7 s

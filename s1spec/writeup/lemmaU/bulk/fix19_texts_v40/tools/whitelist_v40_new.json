@@ -1,0 +1,9 @@
+{
+ "0.1476": "lemmaU quote sqrt2*S1v <= 0.1476; certified sqrt2*S1v = 0.147557 (REPIN_REPORT stage 20, f12_sliver check), rounded up",
+ "0.28578": "erratum O4: the value text v37 printed (history)",
+ "27.15": "P2 horizon tau = 27.15 of step 4 (step4_proof.tex), a design constant",
+ "5.7\\cdot10^{-16}": "kit3v4_run_wsl5/RUN_NOTES.md: relative float difference of the WARN (ibp final_5e-4.json); a run note, not a certified value",
+ "380.25": "upper end of the window coverage range [50, 380.25] asserted by step4/p2/v33/win_arb.py (covered(W, 50.0, 380.25, ...), l.124; header item (e)); a range constant of the stage-12 script, not a JSON value",
+ "0.0466": "Neumann bound nu <= 0.0466 of the modulation matrix, [read] from step3nl_v4c/agent_mod/ibp/MOD_IBP.md (l.19); quoted unchanged from the v39 order table",
+ "0.071446": "erratum P4 quotes the value text v39 printed (history); the certified value is 0.0714437... (zone3_interface.json n_III[0])"
+}

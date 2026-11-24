@@ -1,0 +1,168 @@
+% partA_conventions.tex -- Supplement, Part A: notation and conventions.
+% Included by supplement.tex after \input{preamble} (with \supplementtrue).  Unit U1.
+% The notation table is generated from notation.md's data; edit notation.md and
+% this table together (U1 owns both).
+
+\section{Notation and conventions}\label{pA:sec-top}
+
+\noindent\textbf{What this part is.} Part~A fixes the vocabulary of the whole paper and supplement: the four trust classes attached to every statement, the rule by which numbers are printed, the way a printed number is tied to a pinned computer output, the names and numbering of hypotheses and lemmas, and one table of notation. It proves nothing and supports every statement of the main paper. Its trust base is empty.
+
+\subsection{Trust classes}\label{pA:sec-trust}
+Every statement, every number and every proof step in the supplement carries one of four tags. (In the main paper the certified class is the default and is left unmarked; a number of the class \test{} is marked ``(floating point)'' and never occurs in a theorem.)
+
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[\tcert{} certified.] An inequality between exact objects (dyadic numbers, stored balls, finite series, exact rationals) evaluated in ball or interval arithmetic with outward rounding, by a pinned script, from pinned inputs. Floating point may \emph{propose} an object (a semidefinite certificate, a basis, a step size, the base solution of step~4); the certified statement is about the exact object that is stored and re-checked. There is no sampling-based claim. Three arithmetic kinds occur and are named wherever they are used: ball arithmetic of \texttt{arb} (python-flint; Steps~2--4 and the shell and far-field chains), interval arithmetic of CAPD (Steps~1 and~2), and the outward-rounded double arithmetic of the step-3 verifier, where every operation is widened with \texttt{nextafter} (this one is \emph{not} \texttt{arb}). The trust base is listed in Section~8 of the paper and in Part~J.
+\item[\thand{} proved by hand.] Every reduction from the partial differential equation to the certified inequalities: energy identities, comparison and continuation arguments, the open--closed argument of the bootstrap, the Galerkin-limit lemma, the passage to the conclusions. Identities that were also checked by computer algebra say so; that check is a safeguard and not part of the proof.
+\item[\test{} estimate.] A floating-point value or heuristic used for orientation only (snapshots of the flow, the floating-point first crossing time $t\approx0.003$, a numerically computed spectrum). An \test{} number never occurs in a hypothesis, a conclusion or a margin.
+\item[\tlit{} cited.] A statement taken from the literature: the facts \Lh{1}--\Lh{3} (Part~K gives the references and what has been confirmed against the sources), and, in Step~2 only, the equality of the order of an Evans zero with its algebraic multiplicity.
+\end{description}
+\noindent A theorem closes with one sentence naming its class (``The proof is computer-assisted; see Section~8''), and a proof step that mixes classes names each. The Main Theorem has no unproved hypothesis: it depends on the three classes \tcert, \thand, \tlit{} above and on nothing else.
+
+\subsection{How numbers are printed}\label{pA:sec-numbers}
+\begin{convention}[rounding]\label{pA:conv-round}
+A printed decimal is rounded \emph{outward} at the last printed digit: upper bounds up, lower bounds and margins down. An interval is printed with its lower end rounded down and its upper end rounded up. A \emph{margin} is always threshold$\,/\,$bound, printed as $\mgn{m}$ for the number $m$; a margin $\le1$ would be a failure, so every printed margin exceeds $1$.
+\end{convention}
+\begin{convention}[labels and macros]\label{pA:conv-labels}
+Every certified or estimated number in the text is a macro defined in \fn{numbers/numbers_paper.tex}, generated from the ledger of Section~\ref{pA:sec-ledger}. A literal certified number is an error. The same number is quoted in two places only through the same macro. A threshold that is a \emph{hypothesis} (for instance $\alpha_1=1.5\cdot10^{-4}$ of \Hh{1}) is a design value, not an output: it is printed as typed and tagged \thand{} or \tlit{} as it occurs in a statement, and the corresponding certified output is quoted next to it.
+\end{convention}
+
+\subsection{The number ledger}\label{pA:sec-ledger}
+Each printed number has an entry in \fn{numbers/ledger.json} (built before the drafting, by unit U0), with the fields of Table~\ref{pA:tab-ledger}. The macro file is generated from the ledger, and a checker script re-evaluates every entry against its pinned source and checks that every macro that is used is defined and every defined macro is used. When two archive documents disagree on a number the pinned JSON output decides, and the disagreement is reported, not resolved silently. Part~J prints, for the headline outputs, the SHA-256 digest of the file that holds the number; the per-file digests stay in the archive.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lp{0.62\linewidth}@{}}\toprule
+field & content\\\midrule
+\texttt{name} & the macro name, unique\\
+\texttt{value} & the string as printed (after the rounding rule)\\
+\texttt{kind} & \texttt{cert} or \texttt{est}\\
+\texttt{source} & the pinned output file, path relative to the archive root\\
+\texttt{key} & the dotted key of the value inside \texttt{source}\\
+\texttt{sha256} & digest of \texttt{source} at the time the ledger was built\\
+\bottomrule\end{tabular}
+\caption{Fields of a ledger entry.}\label{pA:tab-ledger}
+\end{table}
+\GAP{The name of the ledger checker script and the exact macro naming scheme are fixed by unit U0 (numbers/); insert them here and in Part~J once that unit has reported.}
+
+\subsection{Names and numbering}\label{pA:sec-names}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Theorems of the paper.} \textbf{Main Theorem}; \textbf{Theorem~A} (the shrinker $S_1$), \textbf{B} (spectrum), \textbf{C} (trapping), \textbf{D} (validated integration). Other results are numbered by section: Theorem~$m.n$ in the paper, and in the supplement Theorem~$X.n$ where the letter $X$ of the Part replaces the section number (so ``Theorem~A'' of the paper and ``Theorem~A.1'' of Part~A are different things). Equations are numbered by section in the same way.
+\item \emph{Condition families, always written with a letter and a number in parentheses.} \Hh{1}--\Hh{7}: the hand-off hypotheses of Theorem~C. \Oh{1}--\Oh{9}: the hypotheses of Lemma~O (the label \Oh{6} is not used: the corresponding statement is proved and called the recovery of the cylinder bounds). \Lh{1}--\Lh{3}: facts from the literature. \Bh{1}--\Bh{5}: the bootstrap conditions. \Kh{1}--\Kh{6}: the closure conditions of the bootstrap. \Wh{1}--\Wh{5}: the conclusions of Theorem~C. The derivation steps D1--D6 occur in Part~H only.
+\item \emph{Phases of step~4.} \PhaseI{} (validated Fourier slabs) and \PhaseII{} (energy shadowing).
+\item \emph{Lemmas.} Lemma~O, R, S, T, U, N and the chart lemma keep their one-letter names. Where two lemmas of the sources had the same name the supplement uses a descriptive name in parentheses, for example ``Lemma (sup-free bounds)''.
+\item \emph{What does not appear.} Version tags, review codes, the names of former hypotheses and the stage names of the computations appear only in Parts~J and~K, together with the map from the names used here to the names in the archive.
+\end{enumerate}
+
+\subsection{Notation}\label{pA:sec-notation}
+Table~\ref{pA:tab-notation} lists every symbol that has a fixed meaning throughout. A symbol has one meaning; the table says which former uses were renamed (that map is in Part~K). Auxiliary symbols introduced inside a proof (``write $\dots$ for $\dots$'') are local to that proof. Sections are those of the main paper: \S1 introduction, \S2 objects and theorems, \S3 the rescaled formulation, \S4 step~1, \S5 step~2, \S6 step~3, \S7 step~4.
+
+Three conventions govern the table: the log-radius of the far field is $s=\ln y$ and $\partial_s=y\partial_y$, so that the arclength of the flow curve is written $\mathfrak s$ (this only enters the flow equation $\partial_t\gamma=-\kappa_{\mathfrak{ss}}\nu$); an unsubscripted $\varepsilon$ is the shooting parameter of Step~1, while the energy weights are $\varepsilon_E,\varepsilon_I$; the point of the frame is $c(t)e_1$, and $p=\langle\Gamma_{\!*},\nu\rangle$ is the support function of the profile curve of $S_1$.
+
+\begingroup\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}>{\raggedright\arraybackslash}p{0.53\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}@{}}
+\caption{Notation.}\label{pA:tab-notation}\\
+\toprule symbol & meaning & defined in\\\midrule\endfirsthead
+\toprule symbol & meaning & defined in\\\midrule\endhead
+\bottomrule\endfoot
+\multicolumn{3}{@{}l}{\textit{Flow and curves}}\\
+$\gamma(t)$ & closed immersed plane curve evolving by curve diffusion flow (CDF) & \S1\\
+$\mathfrak s$ & arclength of the flow curve; CDF is $\partial_t\gamma=-\kappa_{\mathfrak{ss}}\nu$ (macros \texttt{\textbackslash arclen}, \texttt{\textbackslash kss}) & \S1\\
+$\kappa,\ k,\ \kappa_\Gamma$ & curvature of $\gamma$; curvature of the profile curve of $S_1$; curvature of the rescaled curve & \S1, \S2, \S3\\
+$T,\ \nu,\ \theta$ & unit tangent $T=e^{i\theta}$, normal $\nu=iT$, tangent angle & \S1\\
+$\operatorname{Area},\ \mathcal L,\ \operatorname{rot}$ & signed enclosed area; length of a curve; turning number & \S1\\
+$T_*,\ T_{\max}$ & singular time; maximal time of existence & \S1, \S6.7\\
+$p_*$ & image point of the singularity (D13) & \S1\\
+$\Gamma_0,\ \vartheta\in[0,2\pi]$ & initial curve; its parameter (proportional to arclength) & \S2, \S7\\
+$u_n,\ b_n,\ \varpi_n=n^4-n^2$ & Fourier coefficients of the tangent angle $\theta(\vartheta)=-\frac\pi2+\vartheta+\sum_nu_n\sin n\vartheta$ (evolving), their value $b_n$ for $\Gamma_0$; linear damping rates & \S7\\
+$\delta_t$ & clock defect: $t_\tau=\lambda^4(1-\delta_t)$ in step 4 (macro \texttt{\textbackslash dclk}) & \S7\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Rescaling, modulation}}\\
+$\lambda(t),\ \lambda_1=\lambda(t_1)$ & scale of the singular profile; scale at the hand-off & \S3\\
+$\tau,\ \tau_1,\ \tau_{\max}$ & rescaled time $d\tau=\lambda^{-4}dt$; value at $t_1$; end of the rescaled interval of existence & \S3, \S6.7\\
+$c(t)e_1,\ \Gamma(\tau)$ & centre of the frame, $\gamma=c\,e_1+\lambda\Gamma$; rescaled curve $\Gamma(\tau)=(\gamma-ce_1)/\lambda$ & \S3\\
+$a,\ b$ & scale and translation modulation: $a=\frac14+\lambda_\tau/\lambda$, $b=-c_\tau/\lambda$; bounds $\bar a,\bar b$ & \S3, \S6\\
+$\varsigma:=\tfrac14-a$ & scale rate, $\lambda_\tau/\lambda=-\varsigma$ (macro \texttt{\textbackslash rate}); $\varsigma^\pm=\frac14\pm\bar a$ & \S3, \S6.4\\
+$\xi_a:=(1-4\bar a)^{-1}$ & constant of Lemma U & \S6.4\\
+$\alpha,\ \beta$ & slow-mode amplitude; its forcing, $\alpha_\tau=\mu_3\alpha+\beta$; bound $\bar\beta$ & \S3\\
+$e_1,\ (X_1,X_2)$ & unit vector of the symmetry axis of the clip; ambient coordinates & \S2\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{The shrinker $S_1$ and step 1}}\\
+$S_1,\ \Gamma_{\!*},\ \mathcal S$ & the shrinker; its arclength-parametrised profile curve; the certified set of profiles (macros \texttt{\textbackslash Sone}, \texttt{\textbackslash Gsh}, \texttt{\textbackslash cSet}) & \S2\\
+$\sigma,\ \sigma_{\rm tip}$ & arclength of $\Gamma_*$; position of the tip, $\sigma_{\rm tip}\in[-2.249127,-2.249019]$ & \S2\\
+$x,\ y,\ X_0$ & arclength from the tip, $x=\sigma-\sigma_{\rm tip}$; $y=x-X_0$, $X_0=2.2490776515$; far field: $y=r/\lambda$ & \S2, \S3\\
+$p,\ q,\ k,\ m$ & on $\Gamma_*$: $p=\langle\Gamma_*,\nu\rangle$, $q=\langle\Gamma_*,T\rangle$, $k=\theta'$, $m=k'$ & \S2\\
+$D,\ k_0$ & tip distance $D=2.500806277$; tip curvature $k_0=1.539820638$ & \S2\\
+$\varepsilon,\ M(\varepsilon)$ & shooting parameter and shooting function of step 1 (unsubscripted $\varepsilon$ occurs only in \S4 and Part B) & \S4\\
+$\mathcal Y$ & certified parallelepiped of step 1 & \S4\\
+$\Sigma$ & symmetry axis of $S_1$ (reflection line) & \S2\\
+$\sigma_{\rm c},\ \sigma^{\rm rev}$ & start of the conical-end construction ($=8$); reversed variable $\sigma_{\rm c}-\sigma$ of the shooting & \S4\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Linear theory (step 2 and the linearisation)}}\\
+$L$ & linearised operator at $S_1$: $Lu=-u''''-k^2u''-(5km+\frac q4)u'+(\frac14-3m^2-kp)u$ & \S3, \S5\\
+$\rho,\ \|\cdot\|_\rho,\ \mathcal H_\rho$ & weight $\rho=\exp(-\frac14(1+x^2)^{2/3})$; norm; Hilbert space $L^2(\rho\,dx)$ & \S3, \S5\\
+$\mu,\ \mu_3$ & spectral parameter; slow even eigenvalue $\mu_3=-0.2562$ & \S5, \S3\\
+$\hat\psi_3,\ \hat h_2,\ w,\ \tilde w$ & slow eigenfunction, second-order correction, remainder: $u=\alpha\hat\psi_3+\alpha^2\hat h_2+w$; $\tilde w=\chi w$ ($\chi$ cutoff) & \S3\\
+$\mathfrak r_{\rm re},\ \mathfrak r_{\rm im}$ & constants $1.790819$, $1.768282$ of the trapezoid of Theorem B & \S5\\
+$\mathrm{Ev}_{\rm even},\ \mathrm{Ev}_{\rm odd}$ & Evans functions & \S5\\
+$\mathbf g$ & translation vector in $\mathbb R^2$ ($\mathbf g_\parallel,\mathbf g_\perp$) & \S5\\
+$\mathfrak f_j,\ j=1,2,3$ & constraint functions of the modulation & \S3\\
+$\varphi_\rho$ & exponent, $\rho=e^{-\varphi_\rho}$, $\varphi_\rho=\frac14(1+x^2)^{2/3}$ & \S5\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Energies and the tip}}\\
+$E,\ E_I,\ \Lambda,\ \mu_I$ & inner energy, intermediate energy, $\Lambda=E+\mu_IE_I$, $\mu_I=0.08$ & \S3, \S6.2\\
+$\varepsilon_E,\ \varepsilon_I$ & $10^{-5}$ and $3\cdot10^{-5}$: weights of the second-derivative terms & \S3, \S7\\
+$\mathsf w_j=\|\tilde w^{(j)}\|_\rho$ & shape variables $j=0,\dots,4$ (macro \texttt{\textbackslash wn\{j\}}) & \S3\\
+$v_I=\zeta w'$ & intermediate-zone variable on $x\in[10.25,60]$, cutoff $\zeta$ & \S3\\
+$J_j,\ \Lambda_{\rm bar}$ & time integrals of $V_j^2$; barrier level of $\Lambda$ & \S6.2\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Far field (Lemma S, Lemma U, zone III)}}\\
+$s=\ln y,\ \partial_s$ & log-radius; $\partial_s=y\partial_y$ & \S3\\
+$f$ & slope of the curve as a graph over the $S_1$ ray & \S3\\
+$p_U,\ U,\ U_1$ & $p_U=1.0246$; $U(\alpha,y)=1.3056\,\alpha\,y^{p_U}$; frozen profile $U_1(r)=1.3056\,\alpha(\tau_1)(r/\lambda_1)^{p_U}$ & \S3\\
+$v,\ v_A,\ z_k$ & $v=f-U_1$ (Lemma U), $v_A=f-U$ (Lemma S), $z_k=\partial_s^kv$ & \S3, \S6\\
+$d,\ \delta U$ & profile difference $d=v_A-w'$; mismatch $\delta U=v_A-v$ & \S6.3, \S6.4\\
+$\omega=28/y,\ \operatorname{sm}(t)$ & shell weight; smoothstep $t^3(10-15t+6t^2)$ & \S6.3\\
+$\eta_{\rm in},\ \eta_o,\ \eta_A,\ \Theta_A$ & ramp cutoffs, $\eta_A=\eta_{\rm in}\eta_o$, $\Theta_A=y^{-4}\omega\eta_A^2$ & \S6.3\\
+$E^A_j,\ \hat E,\ \mathfrak E^{r_c}_j,\ \hat B,\ \hat B^{\rm fine}$ & shell energies; their certified bounds; uniformly local energies centred at $r_c$; their certified bounds & \S6.3, \S6.4\\
+$r,\ r_c,\ r_\chi$ & physical radius; centre of a local energy; outer centre limit $r_\chi=253\lambda_1$ & \S6.4\\
+$\varrho,\ \varrho_c$ & tail rate; coercivity rate of the step-4 comparison system ($\min\varrho_c=0.04711$) & \S6.4, \S7.4\\
+$I_w=[y_w,1.5y_w]$ & hand-off window & \S6, \S7\\
+$\mathfrak q_1(V'),\ \mathfrak q_2(V')$ & quasilinear coefficients of the slope equation & \S6.4\\
+$b_s=b\cos\theta\,e^{-s}$ & translation drift term of the slope equation & \S6.4\\
+$g^A_j$ & level-$j$ coefficients of the (A) energy inequality (certified; Part E) & \S6.3\\
+$K_4$ & fourth-derivative time-average bound on the cone cylinders at the hand-off (Lemma O data) & \S6.5, \S7\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Cylinders (Lemma O, Lemma R)}}\\
+$\ell$ & cylinder length unit; cone family $\ell=50\lambda_1$, far family $\ell=113\lambda_1$ & \S6.5\\
+$X,\ h_0,\ t^*$ & half-length in cylinder units, graph function at the start time, certified time-ratio threshold & \S6.5\\
+$M_O,\ K_O$ & Lemma O slope/jet constants, $(M_O,K_O)=(0.12,0.18)$ cone, $(0.15,0.3)$ far & \S6.5\\
+$H_{\rm cyl},\ C^O_j,\ \Lambda^O,\ \Xi_O,\ f_O$ & height of the cylinder box; Lemma O constants $C_*,C_1,C_2,C_3,\Lambda_1$; $\kappa:=K_3+\min\{\sqrt{2X}M,K_3\}$; slack fraction $f_O=\frac12$ & \S6.5\\
+$M_0,\ M_1$ & core boxes of Lemma S: $\sup|f|$, $\sup y|f_y|$ & \S6.3\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Step 4 (Phase I, Phase II, hand-off)}}\\
+$\bar Y,\ Y$ & error majorant and its certified constant; $Y=\sqrt{\Lambda_e}$ & \S7\\
+$\Lambda_e,\ \mu_{\rm err}$ & error energy $\Lambda_e=A_e^2+\varepsilon_EB^2+\mu_{\rm err}(V_0^2+\varepsilon_IV_2^2)$, $\mu_{\rm err}=0.036$ & \S7.4\\
+$\widetilde L$ & linearisation about the corrected base & \S7.4\\
+$\Pi,\ \mathrm{res},\ \mathrm{Res}_1,\mathrm{Res}_2$ & transport integral $\int_0^x\tilde\kappa\tilde V$; residual of the base; its first and second integrals & \S7.4\\
+$\tilde\nu_1,\ \tilde T_1$ & $\langle e_1,\tilde\nu\rangle$ and $\langle e_1,\tilde T\rangle$ & \S7.4\\
+$\Box_{\rm tip},\ \Box_{\rm far}$ & validity boxes of the error in the tip and far regions & \S7.4\\
+$\mathcal E_{\rm env}(x)$ & far envelope of the error & \S7.4\\
+$\beta_{\rm base}$ & $\beta:=Q-cX_0-6\tilde\kappa\tilde\kappa'+A$ in the coefficient $b_1$ of $\widetilde L$ & \S7.4\\
+$i$ & slab index, slab $i$ covers $\tau\in[0.15i,0.15(i+1)]$ & \S7\\
+$\tau^{\rm I}$ & Phase I clock, $d\tau^{\rm I}=(2\pi/\mathcal L)^4dt$ & \S7.2\\
+$\text{Phase I, Phase II}$ & the two phases of step 4 & \S7\\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Names of conditions}}\\
+$\mathrm{(H1)}$--$\mathrm{(H7)}$ & hand-off hypotheses of Theorem C & \S2\\
+$\mathrm{(O1)}$--$\mathrm{(O9)}$ & hypotheses of Lemma O & \S6.5\\
+$\mathrm{(L1)}$--$\mathrm{(L3)}$ & literature facts & \S2, \S6.7\\
+$\mathrm{(B1)}$--$\mathrm{(B5)}$ & bootstrap conditions & \S6.1\\
+$\mathrm{(K1)}$--$\mathrm{(K6)}$ & closure conditions & \S6.6\\
+$\mathrm{(W1)}$--$\mathrm{(W5)}$ & conclusions of Theorem C & \S2\\
+\addlinespace
+\end{longtable}
+
+\endgroup
+
+\subsection{Cross references and citations}\label{pA:sec-xref}
+Labels carry a prefix naming the unit that owns them: \texttt{intro:}, \texttt{obj:}, \texttt{s3:}, \dots, \texttt{s9:} in the main paper and \texttt{pA:}, \dots, \texttt{pK:} in the supplement, followed by a kind (\texttt{thm-}, \texttt{lem-}, \texttt{tab-}, \texttt{fig-}, \texttt{eq-}) and a name. A reference from the paper to the supplement is written with the macro \verb|\Xref{pE:lem-chart}| and from the supplement to the paper in the same way; a reference inside one document is an ordinary \verb|\ref|. Citation keys are those of the bibliography of the archive (\texttt{main.bib}); a key that has not been verified against the publisher or arXiv page is not used.

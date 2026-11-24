@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.lake/
+lean/.lake/
+lake-packages/
+*.aux
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+.venv/
+venv/
+kitenv/
+scratch*/
+.DS_Store
+Thumbs.db

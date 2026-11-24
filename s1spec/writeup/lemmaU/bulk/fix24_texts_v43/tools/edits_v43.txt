@@ -1,0 +1,217 @@
+## edits_v43.txt -- the asserted replacements of text v43 (delta check fix23_delta_check/DELTA_CHECK_v42.md: S-1..S-4, W-1..W-9).
+## Format as edits_v42.txt: @@ FILE <v42 source name>, then @@ REP (old must occur once in the retagged v42 text) / @@ NEW / @@ END.
+## Old strings are written with the v43 file names (the builder retags the v42 names first).  @S3LOGS@ is filled in by build_v43.py.
+@@ FILE U1_regularity_v42.tex
+@@ REP
+\newcommand{\tL}{\textup{[Lean]}}\newcommand{\tD}{\textup{[DKS]}}
+@@ NEW
+\newcommand{\tL}{\textup{[Lean]}}
+@@ END
+@@ REP
+\emph{Source} (text v42; independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: ``sound; no blocking finding'').
+@@ NEW
+\emph{Source} (text v42; independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: ``sound; no blocking finding'', for the theorems of \fn{writeup/lean_bridge/snap_final/}; text v43: the S3 theorems (PC), (MS), (GE) of \fn{writeup/lean_bridge/snap_s3/}, written after review W7, were reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A: statements faithful, not vacuous).
+@@ END
+@@ REP
+(re-checked by \fn{tools/check_numbers_v42.py} of this text set)
+@@ NEW
+(re-checked by \fn{tools/check_numbers_v43.py} of this text set)
+@@ END
+@@ REP
+no log is kept for \fn{N1Basic}, whose build output exists and against which these compiled). A full \fn{lake build CWFlow.Curve.All} is \emph{pending} (review W7 item S1).
+@@ NEW
+no log is kept for \fn{N1Basic}, whose build output exists and against which these compiled; @S3LOGS@). A full \fn{lake build CWFlow.Curve.All} is \emph{pending} (review W7 item S1); its log is to be kept (records item L-2 of \fn{RECORDS_ERRATA_v43.md}).
+@@ END
+@@ REP
+is followed in its file by an axiom check
+@@ NEW
+is followed, in its file or (for (T4), (T5)) in \fn{Criterion.lean}, by an axiom check
+@@ END
+@@ REP
+\LeanSthree\ (review W7 S3a; it also shows that the hypothesis of (T1) is inhabited).
+@@ NEW
+\LeanSthree\ (review W7 S3a; applied to one regular periodic curve, e.g.\ $c(\theta)=e^{i\theta}$, with $c'(\theta)=ie^{i\theta}\ne0$, it shows that the hypothesis of (T1) is inhabited).
+@@ END
+@@ REP
+$\fn{bendingEnergy}(\fn{lift}(\Phi(t_1+t)))$ is unbounded \LeanSthree\ (review W7 S3b).
+@@ NEW
+$\fn{bendingEnergy}(\fn{lift}(\Phi(t_1+t)))$ is unbounded for $t\in[0,T_{\max}-t_1)$ \LeanSthree\ (review W7 S3b).
+@@ END
+@@ REP
+then $\Phi(t)=\Phi_1(t)$ ($t\le a$), $\Phi_2(t-a)$ ($t\ge a$) is an \fn{IsFlow} on $[0,a+b]$.
+@@ NEW
+then there is an \fn{IsFlow} $\Psi$ on $[0,a+b]$ with $\Psi=\Phi_1$ on $[0,a]$ and $\Psi(a+t)=\Phi_2(t)$ for $t\in[0,b]$. In particular the piecewise map $\Phi(t)=\Phi_1(t)$ ($t\le a$), $\Phi_2(t-a)$ ($t\ge a$) equals $\Psi$ on $[0,a+b]$ and is an \fn{IsFlow} there.
+@@ END
+@@ REP
+\begin{proof}\LeanSthree\ (GE) \fn{CWFlow.Curve.isFlow_glue_endpoint} (a $\Psi$ equal to $\Phi_1$ on $[0,a]$ and to $\Phi_2(\cdot-a)$ on $[a,a+b]$, i.e.\ $\Psi=\Phi$ on $[0,a+b]$; the clauses of \fn{IsFlow} on $[0,a+b]$ involve only the values on $[0,a+b]$).
+@@ NEW
+\begin{proof}\LeanSthree\ The first sentence is (GE) \fn{CWFlow.Curve.isFlow_glue_endpoint}. The second is a hand step \tH: $\Psi=\Phi$ pointwise on $[0,a+b]$, and the clauses of \fn{IsFlow} on $[0,a+b]$ (joint smoothness on $[0,a+b]\times\mathbb S^1$, immersion at each time, the equation with time derivatives within $[0,a+b]$) involve only the values on $[0,a+b]$ (text v43, delta check fix23 W-4: text v42 labelled this congruence step [Lean] too).
+@@ END
+@@ REP
+(L1), (L2), (T1)--(T5), (V), (Sy), (Sh), (Gl) are compiled theorems (\S\ref{U:sec:lean}). Open: (a) a full \fn{lake build CWFlow.Curve.All} (so far each file is compiled against the repository's existing build outputs; the aggregator \fn{All.lean} was never compiled);
+@@ NEW
+(L1), (L2), (T1)--(T5), (V), (Sy), (Sh), (Gl), (PC), (MS), (GE) are compiled theorems (\S\ref{U:sec:lean}). Open: (a) a full \fn{lake build CWFlow.Curve.All} (so far each file, the aggregator \fn{All.lean} included, is compiled against the repository's existing build outputs; text v43, delta check fix23 S-2: text v42 said here that \fn{All.lean} was never compiled, contrary to \S\ref{U:sec:lean});
+@@ END
+@@ REP
+are now Lean theorems, (PC), (MS), (GE) \LeanSthree.
+@@ NEW
+are now Lean theorems, (PC), (MS), (GE) \LeanSthree, reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A (faithful).
+@@ END
+@@ REP
+\ref{U:lem:sym}, \ref{U:lem:bu} are \tL\ since text v42.
+@@ NEW
+\ref{U:lem:sym}, \ref{U:lem:bu} are \tL\ since text v42 (text v43: the second sentence of Lemma~\ref{U:lem:glue}, the piecewise map, is \tH).
+@@ END
+@@ FILE C1_identification_v42.tex
+@@ REP
+files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}; compiled per file;
+@@ NEW
+files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and, for the S3 files and the current \fn{All.lean}, of \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}; compiled per file;
+@@ END
+@@ REP
+(snapshot \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}), printed as [Lean];
+@@ NEW
+(snapshot \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}; not seen by review W7, reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A: faithful), printed as [Lean];
+@@ END
+@@ REP
+(Text v42; review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding.)
+@@ NEW
+(Text v42; review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding, for the theorems other than (PC), (MS), (GE); these three, written after review W7, were reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A: faithful (text v43).)
+@@ END
+@@ REP
+These are the defining properties of the maximal flow of Lemma ``maximal smooth solution'' of \fn{U1_regularity_v43.tex} (from (T1) for $F=\gamma(t_1)$); by its clause (ii) and the one just stated, the two flows agree and $T_{\max}=T_*-t_1$.
+@@ NEW
+The identification of the maximal times is a hand step \tH\ on top of (MS) (text v43, delta check fix23 W-4). Let $\Phi$, $T_{\max}$ be the maximal flow of Lemma ``maximal smooth solution'' of \fn{U1_regularity_v43.tex} ((T1) for $F=\gamma(t_1)$). For $0<T<T_{\max}$, $\Phi|_{[0,T]}$ is an \fn{IsFlow} from $\gamma(t_1)$, so the uniqueness clause of (MS) gives $T<T_*-t_1$ and $\Phi=\gamma(t_1+\cdot)$ on $[0,T]$. For $0<T<T_*-t_1$, $\gamma(t_1+\cdot)$ is an \fn{IsFlow} on $[0,T]$ from $\gamma(t_1)$ by the existence clause of (MS), so clause (ii) of (T1) gives $T<T_{\max}$. Hence $T_{\max}=T_*-t_1$, and the two flows agree on $[0,T_{\max})$.
+@@ END
+@@ FILE continuation_v42.tex
+@@ REP
+and the Lean bridge was reviewed independently (\fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding).
+@@ NEW
+and the Lean bridge was reviewed independently (\fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding; the S3 theorems (PC), (MS), (GE), written after it, in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A: faithful; text v43).
+@@ END
+@@ REP
+with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}); statements and details
+@@ NEW
+with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}); statements and details
+@@ END
+@@ REP
+\textbf{commit pending} (files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS});
+@@ NEW
+\textbf{commit pending} (files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}; the latter holds \fn{Periodic2Circle.lean}, \fn{MaxShift.lean} and the current \fn{All.lean}, which supersedes the one in \fn{snap_final});
+@@ END
+@@ FILE step3_v42_main.tex
+@@ REP
+\textbf{Status (text v42). Step~3 is NOT closed.} \emph{New in v42:}
+@@ NEW
+\textbf{Status (text v43). Step~3 is NOT closed.} \emph{New in v43:} the findings of the delta check \fn{fix23_delta_check/DELTA_CHECK_v42.md} of text v42 (``OK with fixes; no blocking finding''; its Part~A reviewed the S3 theorems (PC), (MS), (GE): faithful) are applied: S-1 (compile records of the S3 files), S-2, S-3, S-4 and the wording items W-1 to W-9; wording and records only, no number changed. \emph{Text v42 status.} \emph{New in v42:}
+@@ END
+@@ REP
+(\fn{exists_isLagImmersion_of_periodic}, \fn{cdf_maximal_shift}, \fn{isFlow_glue_endpoint}) \LeanSthree. The independent check
+@@ NEW
+(\fn{exists_isLagImmersion_of_periodic}, \fn{cdf_maximal_shift}, \fn{isFlow_glue_endpoint}) \LeanSthree; review W7 did not see these three, they were reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A (faithful). The independent check
+@@ END
+@@ REP
+The bridges S3a, S3b of review W7 are Lean theorems since text v42 \LeanSthree.
+@@ NEW
+The bridges S3a, S3b of review W7 are Lean theorems since text v42 \LeanSthree, reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A (faithful).
+@@ END
+@@ REP
+\textbf{LaTeX compile} of every v42 file
+@@ NEW
+\textbf{LaTeX compile} of every v43 file
+@@ END
+@@ REP
+the text-v41 and text-v42 changes have not been checked independently.
+@@ NEW
+the text-v42 changes were checked in \fn{fix23_delta_check/DELTA_CHECK_v42.md} (``OK with fixes; no blocking finding''; applied in text v43); the text-v41 and text-v43 wording changes have not been checked independently.
+@@ END
+@@ REP
+\textbf{commit pending}; files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} (text v41
+@@ NEW
+\textbf{commit pending}; files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS} (the S3 files and the current \fn{All.lean}) (text v41
+@@ END
+@@ FILE main_v3_v42.tex
+@@ REP
+\textbf{Status (23 November 2026, v42): not compiled; step 3 is NOT closed.} \emph{New in v42:}
+@@ NEW
+\textbf{Status (23 November 2026, v43): not compiled; step 3 is NOT closed.} \emph{New in v43:} the delta check \fn{fix23_delta_check/DELTA_CHECK_v42.md} of text v42 (``OK with fixes; no blocking finding'') is applied (S-1 to S-4, W-1 to W-9; wording and records only, no number changed); its Part~A reviewed the S3 theorems: faithful. \emph{v42 text of this box:} \emph{New in v42:}
+@@ END
+@@ REP
+commit pending (cited by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}), a full
+@@ NEW
+commit pending (cited by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}), a full
+@@ END
+@@ REP
+the two bridges S3a, S3b of the review are Lean theorems too \LeanSthree; independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding.
+@@ NEW
+independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding; the two bridges S3a, S3b of that review are Lean theorems too \LeanSthree, written after it and reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A (faithful).
+@@ END
+@@ REP
+\textbf{Status (13 November 2026).}
+@@ NEW
+\textbf{Status (13 November 2026; superseded, see the v43/v42 box above).}
+@@ END
+@@ REP
+which the step-3 text still lists; the literature facts (P1); and the frame conventions.
+@@ NEW
+which the step-3 text still lists; the facts (P1) (since text v42 from compiled Lean theorems, not literature; text v43, delta check fix23 W-5); and the frame conventions.
+@@ END
+@@ REP
+\item \textbf{Status v42 (23 November 2026; v39 of 20 November 2026): step 3 is not closed.}
+@@ NEW
+\item \textbf{Status v43 (23 November 2026; v42 of the same day, v39 of 20 November 2026): step 3 is not closed.}
+@@ END
+@@ REP
+(the bridges S3a, S3b are Lean theorems too \LeanSthree);
+@@ NEW
+(the bridges S3a, S3b are Lean theorems too \LeanSthree, reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A);
+@@ END
+@@ REP
+\fn{fix18_final_review/FINAL_REVIEW_v39.md}, is done too); open: a final review
+@@ NEW
+\fn{fix18_final_review/FINAL_REVIEW_v39.md}, is done too; so is the delta check of text v42, \fn{fix23_delta_check/DELTA_CHECK_v42.md}, applied in text v43); open: a final review
+@@ END
+@@ FILE lemmaU_v42.tex
+@@ REP
+the continuation criterion in $L^2$ form: if the maximal time is finite then $\int\kappa^2ds\to\infty$ (Chou's
+@@ NEW
+the continuation criterion in $L^2$ form: if the maximal time $T_{\max}$ is finite then $\sup_{t<T_{\max}}\int\kappa^2ds=\infty$ (text v43, delta check fix23 S-4: text v42 wrote ``$\int\kappa^2ds\to\infty$'', which is more than (T1) states; every use is a contradiction with a uniform bound, so the sup form suffices) (Chou's
+@@ END
+@@ FILE bootstrap_v42.tex
+@@ REP
+compiled Lean theorems (T1), (Sy) (text v42; with the bridges S3a, S3b \LeanSthree)
+@@ NEW
+compiled Lean theorems (T1), (Sy) (text v42; with the bridges S3a, S3b \LeanSthree; compiled per file, full build and commit pending)
+@@ END
+@@ FILE b12_preamble_v42.tex
+@@ REP
+% text v42: compiled theorem of the Lean development CWFlow/Curve (commit pending; snapshot SHA256SUMS in writeup/lean_bridge/snap_final)
+@@ NEW
+% text v42: compiled theorem of the Lean development CWFlow/Curve (commit pending; snapshot SHA256SUMS in writeup/lean_bridge/snap_final and, for the S3 files and the current All.lean, writeup/lean_bridge/snap_s3; text v43)
+@@ END
+@@ FILE erratum_v42.tex
+@@ REP
+the texts cite ``commit pending'' with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}.
+@@ NEW
+the texts cite ``commit pending'' with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} [text v43: and of \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}, see S2].
+@@ END
+@@ REP
+(b) The gluing lemma of U-1 was stated in an endpoint form that is not a Lean theorem; text v42 states it as \fn{rst_glue} (gluing with an overlap) and no longer needs it for the maximal flow.
+@@ NEW
+(b) [Rewritten in text v43, see S1; delta check fix23 S-3.] Text v41 stated the gluing lemma of U-1 in the endpoint form with a hand proof; at text v41 that form was not a Lean theorem. Text v42 keeps the endpoint form and proves it by \fn{isFlow_glue_endpoint} (R4); the overlap form \fn{rst_glue} is cited only as (Gl); the maximal flow no longer needs gluing.
+@@ END
+@@ REP
+These theorems have not been reviewed independently (review W7 predates them).
+@@ NEW
+Review W7 predates these theorems; [text v43:] they were reviewed in \fn{writeup/lemmaU/bulk/fix23_delta_check/DELTA_CHECK_v42.md} Part~A (statements faithful, not vacuous, no ENNReal or interval-endpoint problem).
+@@ END
+@@ REP
+an independent check of the S3 theorems;
+@@ NEW
+
+@@ END
+@@ REP
+The text-v41 and text-v42 changes have not been checked independently.
+@@ NEW
+[Text v43:] the text-v42 changes were checked in \fn{writeup/lemmaU/bulk/fix23_delta_check/DELTA_CHECK_v42.md} (``OK with fixes; no blocking finding'') and its findings are applied in text v43 (section S); the text-v41 and text-v43 wording changes have not been checked independently.
+@@ END

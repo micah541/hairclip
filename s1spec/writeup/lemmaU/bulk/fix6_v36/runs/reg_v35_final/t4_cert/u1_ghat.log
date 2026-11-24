@@ -1,0 +1,11 @@
+Theta    : Gamma [4.000000000000001, 16.000000000000004, 64.00000000000001] kappa~ 8.000000000000002 kappa2~ 64.00000000000001
+Theta*phi: Gamma [4.000035714285715, 16.00032142984694, 64.00217859056127] kappa~ 8.000035714285715 kappa2~ 64.00060714413266
+contract_noPhi_M1z=M1      Ghat_jj [51319.27, 33579.63, 338258.77]  Y_next [457.075, 354.489, 1299.674]  budget [True, True, True]  g 350321  rate x29.073  R<2 x[4.35, 6.64]  D56 1.035622 D28 1.56995  theta28 0.3630
+   contract convention reproduces ghat_design_arb.json Ghat_jj (rel < 1e-9)
+phi_only                   Ghat_jj [51320.88, 33580.6, 338263.58]  Y_next [457.083, 354.495, 1299.683]  budget [True, True, True]  g 350327  rate x29.072  R<2 x[4.35, 6.64]  D56 1.035622 D28 1.56996  theta28 0.3630
+primary                    Ghat_jj [51322.51, 33962.86, 348341.02]  Y_next [457.092, 356.94, 1320.219]  budget [True, True, True]  g 361147  rate x28.231  R<2 x[4.43, 6.7]  D56 1.036722 D28 1.58756  theta28 0.3701
+primary_M1z=M1             Ghat_jj [51320.88, 33581.28, 338444.99]  Y_next [457.083, 354.499, 1300.057]  budget [True, True, True]  g 350521  rate x29.057  R<2 x[4.35, 6.65]  D56 1.035642 D28 1.57027  theta28 0.3632
+fallback                   Ghat_jj [54815.41, 49785.64, 712754.52]  Y_next [468.299, 442.065, 1896.261]  budget [True, True, True]  g 768479  rate x13.797  R<2 x[6.23, 6.86]  D56 1.078141 D28 2.25026  theta28 0.5556
+fallback_M1z=M1            Ghat_jj [54792.95, 44766.85, 591104.1]  Y_next [468.188, 415.216, 1719.047]  budget [True, True, True]  g 628930  rate x16.637  R<2 x[5.67, 6.94]  D56 1.063951 D28 2.02322  theta28 0.5057
+phi effect (rel): [3.129935034751341e-05, 2.8899058696518765e-05, 1.4204222673619427e-05]  M1z effect (rel): [3.187019077199871e-05, 0.01136276869708297, 0.029239681812556206]
+wrote out/u1_ghat.json, wall 1.1 s

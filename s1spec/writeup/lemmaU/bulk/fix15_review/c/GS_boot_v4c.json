@@ -1,0 +1,77 @@
+{
+ "label": "[cert]",
+ "ok": true,
+ "sup_ku": 0.0005390215205107008,
+ "sup_uprime": 0.04093519089415074,
+ "regions": {
+  "0-8": {
+   "ku": 0.0005390215205107008,
+   "up": 0.002060610701957133,
+   "sup_u": 0.005668327583503409
+  },
+  "8-10.25": {
+   "ku": 6.27944186242442e-05,
+   "up": 0.004165017029551984,
+   "sup_u": 0.03086722863839477
+  },
+  "10.25-16.25": {
+   "ku": 1.7882516076621515e-06,
+   "up": 0.005882549335248569,
+   "sup_u": 0.03475103187627504
+  },
+  "16.25-34.25": {
+   "ku": 1.7024094871017578e-09,
+   "up": 0.03140706745977773,
+   "sup_u": 0.20013212852288578
+  },
+  "34.25-60": {
+   "ku": 1.951345428485548e-22,
+   "up": 0.04093519089415074,
+   "sup_u": 1.0961517257141282
+  }
+ },
+ "W1_on_8_10": 0.0014144211595684218,
+ "box_max_ratios": {
+  "E0_alpha": 0.64,
+  "E2_tip_jet": 0.32447853055939596,
+  "E0_w_all34": 0.02953517951670946,
+  "Bb_IR_jet": 0.7475057733935293,
+  "Bc_w1_far_EI": 0.058028246813931206,
+  "Bc_w1_far_S0V": 0.7649999999999999,
+  "Bd_w_34_60": 0.7891314071814564,
+  "Bf_mod_alpha": 0.32,
+  "CF_w_16_31": 0.05907035903341892,
+  "CF_w1_16_31": 0.11605649362786241,
+  "CF_alpha": 0.16
+ },
+ "sqrtL_max": 5.3084986125024105e-08,
+ "B_max": 1.6786946571351214e-05,
+ "statement": "under the asserted box hypotheses of fin13v4b and B1, every (GS) graph function u on |x| <= 60 satisfies sup|k u| <= sup_ku < 1/2 and sup|u'| <= sup_uprime < 1",
+ "args": {
+  "argv": [
+   "GS_boot_v4c.py"
+  ],
+  "env": {},
+  "python": "3.14.4",
+  "cell": 0.015625,
+  "script": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.py",
+   "sha256": "492b77ea9d70cb693cbd4668694e553650b7f6ab38a8b740817f507977af1e88"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0v4b_constants.json": "c209638bc8ed34655076562d275142d0c84cf09195fcfbe680171cba3323297f",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88",
+   "/home/claude/s1spec/step3nl_v4c/verifier/constants.py": "3a5ca5a43aaf4d77e97ac8e0be4c0468ffd78d70aea6a3d0bc6fd3fb2233f9a9",
+   "/home/claude/s1spec/step3nl_v4c/verifier/closure.py": "67583dc7da0335d62f3465d06b6aa739909e5e90ad959bf537a16347ba6b08e5",
+   "/home/claude/s1_tight/prof/prof_tight.txt": "c55625ae0b1356a367270cd2d3a208cbb5eed9dae61b5187b2987a708fa07c77",
+   "/home/claude/s1_tight/ext813/ext813_prof.txt": "49e01a0933e65aaf8ff22b25d87b34dfe62960691ee128c9546646a2feb908aa",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart2.py": "5285198c7be78be27b103be644882bcef51a1213cba003b1c4a39c4c55c2721d",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl_v4c/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad"
+  },
+  "cpu_s": 2.048090696334839
+ }
+}

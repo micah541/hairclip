@@ -1,0 +1,2 @@
+regcheck rc=0
+prod done

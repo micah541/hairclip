@@ -1,0 +1,18 @@
+tc_weighted maxrss_kb=271248 wall_s=102.66
+tc_weighted rc=0
+e0_strip_drift maxrss_kb=143516 wall_s=6.26
+e0_strip_drift rc=0
+e0_lemma_consts maxrss_kb=87948 wall_s=0.60
+e0_lemma_consts rc=0
+e0_identities maxrss_kb=93332 wall_s=2.40
+e0_identities rc=0
+r2_strip_ibp maxrss_kb=97304 wall_s=0.83
+r2_strip_ibp rc=0
+e2_nlin_regions maxrss_kb=212264 wall_s=61.21
+e2_nlin_regions rc=0
+e2_consts maxrss_kb=86528 wall_s=0.70
+e2_consts rc=0
+e2_v4b_constants maxrss_kb=66912 wall_s=0.26
+e2_v4b_constants rc=0
+e2_identity_check maxrss_kb=179668 wall_s=10.52
+e2_identity_check rc=0

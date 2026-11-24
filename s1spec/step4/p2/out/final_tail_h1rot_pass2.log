@@ -1,0 +1,10 @@
+rerun from stage 4 (H1 exact points (16 x h1.py p<t_k>: Krawczyk, Lambda, certified rotation-mode term)): stages 0-3 reused, 370 paths verified
+H1 exact points (16 x h1.py p<t_k>: Krawczyk, Lambda, certified rotation-mode term): rc 0 (1938s)
+H1 slab summary (h1_summary.py): rc 0 (0s)
+clam (error transfer; mu_e from the B1 constants): rc 0 (36s)
+T8 camp (no N3): rc 0 (0s)
+T8 n3far it0: rc 0 (32s)
+T8 camp --n3 it0: rc 0 (1s)
+T8 n3far (final boxes): rc 0 (31s)
+camp --n3 n3_b1 --window 180-180 (T9WIN) [A]: rc 0 (1s)
+n3boxes [A]: rc 0 (0s)

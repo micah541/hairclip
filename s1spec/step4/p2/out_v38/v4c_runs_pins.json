@@ -1,0 +1,197 @@
+{
+ "item": "pins of the verifier fin13v4c runs (runs/P pinned; runs/P_A, runs/reg_fin13v4b with the documented exception)",
+ "exception": {
+  "path": "/home/claude/s1spec/step4/p2/v38/EXCEPTION_v4c_PA_reg_e2v4b.json",
+  "sha256": "ff0151c0139d09a4559461c8657ac95bccbf4397f86c2d8344397f23ad7b60fb"
+ },
+ "runs": {
+  "P": {
+   "P/modsups_fin13v4c/final_alpha_points_5e-8.json": {
+    "sha256": "88d568f336dc6f251ea3a664d710d425307cee9ba514067febeece5cf92b60d9",
+    "pins": 9,
+    "mismatches": {},
+    "accepted_by_exception": [],
+    "other": []
+   },
+   "P/rate_table_fin13v4c_a0.000125.json": {
+    "sha256": "6aaeff628dfaf5b2f056030a7feb5deafb2d878ccf89a0e8b8cefaade14a031e",
+    "pins": 12,
+    "mismatches": {},
+    "accepted_by_exception": [],
+    "other": []
+   },
+   "P/rate_table_fin13v4c_a0.00015.json": {
+    "sha256": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+    "pins": 12,
+    "mismatches": {},
+    "accepted_by_exception": [],
+    "other": []
+   }
+  },
+  "P_A": {
+   "P_A/modsups_fin13v4c/final_alpha_points_5e-8.json": {
+    "sha256": "e7df00be897ab973028d49845645c5ccbcc5f7419fa93e41d880a222bd5c90d5",
+    "pins": 9,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   },
+   "P_A/rate_table_fin13v4c_a0.000125.json": {
+    "sha256": "c10f55315e726f8e9badf80facaf86386da4f5aa826e8978319f6faab42b1122",
+    "pins": 12,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   },
+   "P_A/rate_table_fin13v4c_a0.00015.json": {
+    "sha256": "3b7a76b839f04d6dd74227bc42e4a5e4863bdf46105f5787432d86992f4f4a0c",
+    "pins": 12,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   }
+  },
+  "reg_fin13v4b": {
+   "reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json": {
+    "sha256": "b64c7bc1d23a96fa51518cc649b3a821b3dcbb36fd5b765ca99749ab94d83e7b",
+    "pins": 9,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   },
+   "reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": {
+    "sha256": "69131a0ee22381f84449c15a6e6721a115e98cddb04ead2ab99005151c6299fe",
+    "pins": 11,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   },
+   "reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": {
+    "sha256": "e7ecf9fdfabe1475becabc514159fba1591cfbb747337e682fed3ed01593eb0b",
+    "pins": 11,
+    "mismatches": {
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": {
+      "pinned": "37386e13f75364ce1380a27173ab1344eaf9be3bb1034320320d82e4a40cd849",
+      "disk": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88"
+     }
+    },
+    "accepted_by_exception": [
+     "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json"
+    ],
+    "other": []
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "runs/P: every pin matches the disk",
+   "ok": true,
+   "detail": {
+    "P/modsups_fin13v4c/final_alpha_points_5e-8.json": 0,
+    "P/rate_table_fin13v4c_a0.000125.json": 0,
+    "P/rate_table_fin13v4c_a0.00015.json": 0
+   }
+  },
+  {
+   "check": "runs/P_A: every pin matches the disk except the documented exception",
+   "ok": true,
+   "detail": {
+    "P_A/modsups_fin13v4c/final_alpha_points_5e-8.json": 1,
+    "P_A/rate_table_fin13v4c_a0.000125.json": 1,
+    "P_A/rate_table_fin13v4c_a0.00015.json": 1
+   }
+  },
+  {
+   "check": "runs/reg_fin13v4b: every pin matches the disk except the documented exception",
+   "ok": true,
+   "detail": {
+    "reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json": 1,
+    "reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": 1,
+    "reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": 1
+   }
+  },
+  {
+   "check": "runs/P: no pin needs the exception",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "numbers: runs/P_A == runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs)",
+   "ok": true,
+   "detail": {
+    "P_A/modsups_fin13v4c/final_alpha_points_5e-8.json": true,
+    "P_A/rate_table_fin13v4c_a0.000125.json": true,
+    "P_A/rate_table_fin13v4c_a0.00015.json": true
+   }
+  },
+  {
+   "check": "numbers: runs/reg_fin13v4b == step3nl_v4b/runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs)",
+   "ok": true,
+   "detail": {
+    "reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json": true,
+    "reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": true,
+    "reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": true
+   }
+  }
+ ],
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "verify_v4c_runs_with_exceptions.py"
+  ],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v38/verify_v4c_runs_with_exceptions.py": "b9e39f046bdb85d5d34f4298c406823b548889eed44ceff610774e3f3184cd22",
+   "/home/claude/s1spec/step4/p2/v38/EXCEPTION_v4c_PA_reg_e2v4b.json": "ff0151c0139d09a4559461c8657ac95bccbf4397f86c2d8344397f23ad7b60fb",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json": "88d568f336dc6f251ea3a664d710d425307cee9ba514067febeece5cf92b60d9",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.000125.json": "6aaeff628dfaf5b2f056030a7feb5deafb2d878ccf89a0e8b8cefaade14a031e",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd"
+  },
+  "not_pinned_read": [
+   "/home/claude/s1spec/step3nl_v4c/runs/P_A/modsups_fin13v4c/final_alpha_points_5e-8.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/P_A/rate_table_fin13v4c_a0.000125.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/P_A/rate_table_fin13v4c_a0.00015.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/reg_fin13v4b/rate_table_fin13v4b_a0.000125.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/reg_fin13v4b/rate_table_fin13v4b_a0.00015.json",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/modsups_fin13v4b/final_alpha_points_5e-8.json",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json"
+  ]
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "ball": 23,
+ "tc_ball": [
+  0.4375,
+  0.5
+ ],
+ "G_60_700": [
+  2.797824283891223e-07,
+  9.061653966123301e-07,
+  2.2322287852273133e-06,
+  3.7605788677996094e-06
+ ],
+ "G_60_379p5": [
+  4.284532485961356e-08,
+  1.59467621891493e-07,
+  4.862963555120334e-07,
+  1.356454772126585e-06
+ ],
+ "G_379p5_700": [
+  2.3727884072952477e-07,
+  7.479089094778705e-07,
+  1.7494189824147126e-06,
+  2.412381561259921e-06
+ ],
+ "ncells": 1372,
+ "y_range": [
+  42.556188193983715,
+  721.466290951695
+ ],
+ "min_cos_phi": 0.9924496953349256,
+ "fidelity_vs_win_energies_45_390": {
+  "identical": true,
+  "cells": 699
+ },
+ "info_379p5_700": {
+  "sup_f": 0.12007644888944925,
+  "sup_yfy": 0.12148398952558638,
+  "sup_z": [
+   0.0027416566976204418,
+   0.004650316524260919,
+   0.006405612656197302,
+   0.0060403369041231525
+  ]
+ },
+ "alpha": [
+  -0.00011418884487378195,
+  -0.00011405078256020035
+ ],
+ "cpu": 4.4,
+ "args": {
+  "argv": [
+   "23"
+  ],
+  "env": {
+   "T9TC": "0.46875,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out_v33/h2f/ift_23.json"
+  },
+  "xmax": 730.0,
+  "x_range": [
+   45.0,
+   725.0
+  ],
+  "y_range": [
+   60.0,
+   700.0
+  ],
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/h2f_win.py": "1718eee5ff13cf6240423d1313177cb964a1b60d34e3a93fc134ce98e1051257",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/ift_23.json": "0c1d1cdcc8dc46b587219cfbaa78580007d07728464ff8325ace29dbd07ded1a",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

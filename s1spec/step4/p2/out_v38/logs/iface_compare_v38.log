@@ -1,0 +1,17 @@
+PASS C1_ke: rerun ok / all_pass is true 
+PASS C1_ke: every input pin of the rerun matches the disk (180 pins) []
+PASS C1_ke: rerun equals the primary reference fix15_review/c/C1_ke.json apart from args 
+PASS GS_tau1: rerun ok / all_pass is true 
+PASS GS_tau1: every input pin of the rerun matches the disk (7 pins) []
+PASS GS_tau1: rerun equals the primary reference fix15_review/c/GS_tau1.json apart from args 
+PASS GS_boot_v4c: rerun ok / all_pass is true 
+PASS GS_boot_v4c: every input pin of the rerun matches the disk (12 pins) []
+PASS GS_boot_v4c: rerun equals the primary reference fix15_review/c/GS_boot_v4c.json apart from args 
+PASS G1_check: rerun ok / all_pass is true 
+PASS G1_check: every input pin of the rerun matches the disk (7 pins) []
+PASS G1_check on chain v37: all checks pass (values are v37, differ from the v36 reference by design) {"n_changed": 9}
+PASS G1_check: the rerun reads chain v37 runs/prod2 and flux v37 flux2_data.json only ["/home/claude/s1spec/step4/p2/v38/G1_check_v38.py", "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json", "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/A_interface.json", "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/a
+PASS U1_sym: rerun ok / all_pass is true 
+PASS U1_sym: every input pin of the rerun matches the disk (1 pins) []
+PASS U1_sym: rerun equals the primary reference fix10_proofs/U1_sym.json apart from args 
+all ok: True (16/16)

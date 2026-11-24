@@ -1,0 +1,189 @@
+{
+ "regression_vs_fin13v4b": true,
+ "double_run_fin13v4c": true,
+ "double_run_cert_chain": false,
+ "cert_chain_vs_fin13v4b": false,
+ "production_checks": true
+}
+double_run_cert_chain {
+ "e0_A2_budget_v4c.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e0_A2_budget_v4c.log": {
+  "equal_wo_timing": true
+ },
+ "e0_identities.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e0_identities.log": {
+  "equal_wo_timing": false
+ },
+ "e0_lemma_consts.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e0_lemma_consts.log": {
+  "equal_wo_timing": true
+ },
+ "e0_strip_drift.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e0_strip_drift.log": {
+  "equal_wo_timing": true
+ },
+ "e0v4b_constants.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e2_consts.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e2_consts.log": {
+  "equal_wo_timing": true
+ },
+ "e2_identity_check.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "e2_identity_check.log": {
+  "equal_wo_timing": true
+ },
+ "e2_nlin_regions.log": {
+  "equal_wo_timing": true
+ },
+ "e2_v4b_constants.log": {
+  "equal_wo_timing": true
+ },
+ "e2v4b_constants.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "nl_regions_a2.5e-4.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "r2_strip_ibp.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "r2_strip_ibp.log": {
+  "equal_wo_timing": true
+ },
+ "strip_cubic_v4c.json": {
+  "equal": true,
+  "byte_identical": true,
+  "diffs": []
+ },
+ "strip_cubic_v4c.log": {
+  "equal_wo_timing": true
+ },
+ "tc_weighted.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "tc_weighted.log": {
+  "equal_wo_timing": false
+ },
+ "tc_weighted.pkl": {
+  "byte_identical": true
+ }
+}
+cert_chain_vs_fin13v4b {
+ "e0_identities.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e0_identities.log": {
+  "equal_wo_timing": false
+ },
+ "e0_lemma_consts.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e0_lemma_consts.log": {
+  "equal_wo_timing": true
+ },
+ "e0_strip_drift.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e0_strip_drift.log": {
+  "equal_wo_timing": false
+ },
+ "e0v4b_constants.json": {
+  "equal": false,
+  "byte_identical": false,
+  "diffs": [
+   "/sources/e0_lemma_consts: '/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0_lemma_consts.json' != '/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0_lemma_consts.json'"
+  ]
+ },
+ "e2_consts.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e2_consts.log": {
+  "equal_wo_timing": true
+ },
+ "e2_identity_check.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "e2_identity_check.log": {
+  "equal_wo_timing": false
+ },
+ "e2_nlin_regions.log": {
+  "equal_wo_timing": true
+ },
+ "e2_v4b_constants.log": {
+  "equal_wo_timing": false
+ },
+ "e2v4b_constants.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "nl_regions_a2.5e-4.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "r2_strip_ibp.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "r2_strip_ibp.log": {
+  "equal_wo_timing": false
+ },
+ "tc_weighted.json": {
+  "equal": true,
+  "byte_identical": false,
+  "diffs": []
+ },
+ "tc_weighted.log": {
+  "equal_wo_timing": false
+ },
+ "tc_weighted.pkl": {
+  "byte_identical": true
+ }
+}

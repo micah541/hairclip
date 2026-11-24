@@ -1,0 +1,84 @@
+{
+ "STRIP_AB": 4.36775885830452e-10,
+ "STRIP_AB_without_feedback": 4.059139988834605e-10,
+ "STRIP_BETA": 8.039642303460082e-11,
+ "STRIP_BETA_without_feedback": 7.667534826659505e-11,
+ "a": {
+  "alpha_coef_S0": 1.148637519539874e-07,
+  "const_coef_S0_S3": [
+   4.131356280016532e-09,
+   3.5000287541899853e-09,
+   2.0772407797545105e-09,
+   5.076250942430124e-10
+  ]
+ },
+ "ab": {
+  "alpha_coef_S0": 2.439586858119067e-07,
+  "const_coef_S0_S3": [
+   8.782323333487766e-09,
+   7.439626663258615e-09,
+   4.415412906897853e-09,
+   1.079452044972413e-09
+  ]
+ },
+ "args": {
+  "argv": [
+   "u3_strip_form.py"
+  ],
+  "env": {
+   "ADD": null,
+   "DELTA": null,
+   "ETA": null,
+   "FIX": null,
+   "FLUX0": null,
+   "FLUX2": null,
+   "LY1SQ": null,
+   "MOD": null,
+   "MODA": null,
+   "NEW": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": "0",
+   "S0V": null,
+   "S1V": null,
+   "TAG": null,
+   "THETA": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/final_5e-4.json": "39caabfe877457bebdb9ea366663640c738ae0a54980d4e4b172981cfc2717f9",
+   "/home/claude/s1spec/step3nl_v4/agent_mod/ibp/mod_ibp.json": "3a6cd3ec8ef76bd7c195e1839de19549d25e7f75d3d9ef9ed1266b5cf65d05e0",
+   "/home/claude/s1spec/step3nl_v4/v4cert/u3_strip_form.py": "b774475141285c3d62b6366cb0a6940098e2c2a249bb528443b68cc7acef5072"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "b": {
+  "alpha_coef_S0": 2.1522583225562274e-07,
+  "const_coef_S0_S3": [
+   7.74990957505258e-09,
+   6.564894790361215e-09,
+   3.896272819160001e-09,
+   9.526455170155883e-10
+  ]
+ },
+ "beta": {
+  "alpha_coef_S0": 4.5385996899682516e-08,
+  "const_coef_S0_S3": [
+   1.6158750485500848e-09,
+   1.3703088528715896e-09,
+   8.131605533689137e-10,
+   1.977836984896118e-10
+  ]
+ },
+ "description": "U-3 (fin13v4): the strip part of the IBP modulation lemma (agent_mod/ibp, alpha1 = 5e-4, eta = 0.02) as a LINEAR FORM in the strip sups\nS_r = sup_{sigma in [29,32]} |w^(r)|, r = 0..3, read from mod_ibp.json key alpha_max_5e-4.strip (code: ibp_run.py, ibp_final.py), per component i in {a, b, beta}:\n   s_i(S) = |alpha| Lalpha_i S0 + sum_r kappa_ir S_r + sum_{ab} gamma_i,ab S_a S_b + eta [ M3_i/3 (S0+S1)^2 + M2_i (S0+S1) S2 + 2 M1_i S2^2 ]\n(linear term: kappa_j = d_alpha Lam is per unit alpha, as m_j; commutator: [L,chi]w pairing; quadratic/cubic forms as in ibp_final.forms_of).\nLinearised with the box S0, S1, S2 <= SB = 0.02 on the second factor (S0, S1 <= 0.02 is the lemma's strip hypothesis; S2 <= 0.02 is a new\nasserted hypothesis, certified along the march: sup|w''| on [16.25,34.25] <= sI2):\n   c_i0 = |alpha| Lalpha_i + kappa_i0 + SB (g00 + g01 + g02) + eta (2 SB M3_i/3 + SB M2_i)\n   c_i1 = kappa_i1 + SB (g11 + g12) + eta (2 SB M3_i/3 + SB M2_i)\n   c_i2 = kappa_i2 + SB g22 + 2 eta SB M1_i\n   c_i3 = kappa_i3\nNEUMANN FEEDBACK (correction found in v4): the strip terms are source terms of x = H R + H E x like every other term, so they get the same\nfeedback as cPhi in ibp_final.finalize: x_i <= s_i + gamma_i max_k s_k/d_k.  As a linear form: cf_ir = c_ir + gamma_i max_k c_kr/d_k (coefficientwise max\nis >= the max of the forms).  The lemma's json (and fin12f4's STRIP_BETA, STRIP_AB) omit this feedback.\n(a, b): Euclidean norm, Minkowski: |(s_a, s_b)| <= sum_r sqrt(cf_ar^2 + cf_br^2) S_r.\nOutputs: coefficient vectors with alpha-part separated (c_i0 = c_i0^const + |alpha| Lalpha_i^fb), and the constants STRIP_BETA, STRIP_AB at S_r = 0.02 (r = 0..3) and\n|alpha| = 5e-4 (the form used by the alpha-equation and mod_sups, where S_3 <= 0.02 remains a HYPOTHESIS: SF-2, open).\nOutput out/u3_strip_form.json.  Run: PYTHONHASHSEED=0 python3 u3_strip_form.py",
+ "fin12f4_typed": {
+  "STRIP_AB": 5.52e-09,
+  "STRIP_BETA": 1.06e-09
+ },
+ "hypotheses": {
+  "S0_S1_S2_le": 0.02,
+  "S3_le_for_constants": 0.02,
+  "alpha_le": 0.0005,
+  "note": "S3 <= 0.02 is needed only for the constants STRIP_BETA/STRIP_AB (alpha-equation, mod_sups); the E_I/E0 state form uses S3 <= supv2"
+ }
+}

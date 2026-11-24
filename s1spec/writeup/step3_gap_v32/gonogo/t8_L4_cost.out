@@ -1,0 +1,19 @@
+core_YC reproduces F.constants YC (gam = 4, crude box)
+power weight, Lemma S(A) core (gamma=1, kappa=5): Ghat_jj no L4 ['2278', '1360', '1.906e+04'], with L4 ['2281', '2351', '7.772e+04'], L4 factor (22) x4.08
+previous T2 v1 (Gamma=4, kappa=5): Ghat_jj no L4 ['4.052e+04', '1.751e+04', '6.702e+04'], with L4 ['4.054e+04', '2.198e+04', '1.786e+05'], L4 factor (22) x2.67
+previous shortcut (Gamma=4, kappa=nu+4=8): Ghat_jj no L4 ['4.93e+04', '2.303e+04', '7.845e+04'], with L4 ['4.932e+04', '2.856e+04', '2.398e+05'], L4 factor (22) x3.06
+previous shortcut (Gamma=4, kappa=nu+4=6): Ghat_jj no L4 ['4.3e+04', '1.907e+04', '7.024e+04'], with L4 ['4.301e+04', '2.384e+04', '1.965e+05'], L4 factor (22) x2.80
+crude|mu=4,nu=4,a=0.3: theta_a = 0.3901, g = 3.931e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 8.0000 (nu+4 = 8), kappa2 = 64.000 (kappa^2 = 64.00)
+   Ghat_jj no L4 ['4.93e+04', '2.303e+04', '7.845e+04'], with general-weight L4 ['4.932e+04', '2.856e+04', '2.398e+05'] (budget ok True); L4 factor (22) x3.06 [power weight, same box: x4.08]; L4 extras general/power x2.75; rate margin 28^4/Ghat_22 = 2.564, Gw = 1.639
+fine|mu=4,nu=4,a=0.3: theta_a = 0.1776, g = 1.328e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 8.0000 (nu+4 = 8), kappa2 = 64.000 (kappa^2 = 64.00)
+   Ghat_jj no L4 ['5.053e+04', '2.196e+04', '5.466e+04'], with general-weight L4 ['5.054e+04', '2.441e+04', '1.092e+05'] (budget ok True); L4 factor (22) x2.00 [power weight, same box: x2.45]; L4 extras general/power x3.64; rate margin 28^4/Ghat_22 = 5.629, Gw = 1.216
+crude|mu=4,nu=2,a=0.5: theta_a = 0.3197, g = 2.888e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 6.0000 (nu+4 = 6), kappa2 = 36.000 (kappa^2 = 36.00)
+   Ghat_jj no L4 ['4.3e+04', '1.907e+04', '7.024e+04'], with general-weight L4 ['4.301e+04', '2.384e+04', '1.965e+05'] (budget ok True); L4 factor (22) x2.80 [power weight, same box: x4.08]; L4 extras general/power x2.15; rate margin 28^4/Ghat_22 = 3.128, Gw = 1.470
+fine|mu=4,nu=2,a=0.5: theta_a = 0.1458, g = 1.050e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 6.0000 (nu+4 = 6), kappa2 = 36.000 (kappa^2 = 36.00)
+   Ghat_jj no L4 ['4.43e+04', '1.82e+04', '4.817e+04'], with general-weight L4 ['4.43e+04', '2.027e+04', '8.965e+04'] (budget ok True); L4 factor (22) x1.86 [power weight, same box: x2.45]; L4 extras general/power x2.77; rate margin 28^4/Ghat_22 = 6.856, Gw = 1.171
+crude|mu=4,nu=4,a=0.0: theta_a = 0.3901, g = 3.931e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 8.0000 (nu+4 = 8), kappa2 = 64.000 (kappa^2 = 64.00)
+   Ghat_jj no L4 ['4.93e+04', '2.303e+04', '7.845e+04'], with general-weight L4 ['4.932e+04', '2.856e+04', '2.398e+05'] (budget ok True); L4 factor (22) x3.06 [power weight, same box: x4.08]; L4 extras general/power x2.75; rate margin 28^4/Ghat_22 = 2.564, Gw = 1.639
+fine|mu=4,nu=4,a=0.0: theta_a = 0.1776, g = 1.328e+5; Gamma_m = [4.0, 16.0, 64.0], Gamma_eff = 4.0000, kappa = 8.0000 (nu+4 = 8), kappa2 = 64.000 (kappa^2 = 64.00)
+   Ghat_jj no L4 ['5.053e+04', '2.196e+04', '5.466e+04'], with general-weight L4 ['5.054e+04', '2.441e+04', '1.092e+05'] (budget ok True); L4 factor (22) x2.00 [power weight, same box: x2.45]; L4 extras general/power x3.64; rate margin 28^4/Ghat_22 = 5.629, Gw = 1.216
+inner-ramp L4 foot terms (est., crude, mu=nu=4, a=0.3): F_j = ['2.67e-12', '1.8e-09', '1.06e-06']; foot_1 = 0.00000458, foot_2 = 0.00834, S33 = 0.000106; level-2 total 0.00845
+exit=0

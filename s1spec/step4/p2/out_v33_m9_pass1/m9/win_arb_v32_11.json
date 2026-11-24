@@ -1,0 +1,95 @@
+{
+ "set": "v32",
+ "ball": 11,
+ "tc_ball": [
+  -0.3125,
+  -0.25
+ ],
+ "label": "certified (arb, outward; M9 cells)",
+ "windows_max": [
+  3.2581190938690766e-08,
+  1.1856790712915009e-07,
+  3.541312879459638e-07,
+  9.223559177743051e-07
+ ],
+ "windows_at": [
+  253.0,
+  253.0,
+  253.0,
+  253.0
+ ],
+ "n_windows": 407,
+ "shells": [
+  7.659889097961226e-11,
+  1.265970322028628e-10,
+  2.8096965270806737e-10
+ ],
+ "G_60_700": [
+  2.9475594671922117e-07,
+  9.50241327259829e-07,
+  2.321018142032363e-06,
+  3.834477555982749e-06
+ ],
+ "G_60_379p5": [
+  4.535928551103253e-08,
+  1.6847192451656094e-07,
+  5.125696240356217e-07,
+  1.4214137916633496e-06
+ ],
+ "G_379p5_700": [
+  2.497600965311087e-07,
+  7.830534905440566e-07,
+  1.812127974691201e-06,
+  2.4216774878242632e-06
+ ],
+ "coverage": {
+  "windows": {
+   "cells": 1369,
+   "first_yhi": 43.1815872699928,
+   "last_ylo": 719.9818511650753,
+   "min_cos_phi": 0.9922359787599263
+  },
+  "shells": {
+   "cells": 110,
+   "first_yhi": 11.291353070348443,
+   "last_ylo": 61.28393815518609,
+   "min_cos_phi": 0.99994677744531
+  },
+  "h2f": {
+   "cells": 1369,
+   "first_yhi": 43.1815872699928,
+   "last_ylo": 719.9818511650753,
+   "min_cos_phi": 0.9922359787599263
+  }
+ },
+ "ncells": [
+  1369,
+  110
+ ],
+ "max_rel_rad_hh": 0.0014910416187978413,
+ "alpha": [
+  -0.00011584609071945658,
+  -0.00011570602729837303
+ ],
+ "args": {
+  "argv": [
+   "v32",
+   "11"
+  ],
+  "env": {
+   "T9TC": "-0.28125,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out/h1slab/ift_11.json"
+  },
+  "xmax": 730.0,
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/out/h1slab/ift_11.json": "88c77a8b5b5e0b05ce0e0c267c8b0cd6bb0d973369b4e8e59f8ad3d8588658e2",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

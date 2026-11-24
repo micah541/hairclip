@@ -1,0 +1,175 @@
+// Rigorous Evans-function enclosure on a lambda-segment  lam(t) = lam_a + t (lam_b - lam_a),  t in [0,1].
+// State (17): (p,q,k,m, W01r,W01i,W02r,W02i,W03r,W03i,W12r,W12i,W13r,W13i,W23r,W23i, t), reversed time tau = 8 - sigma.
+// Profile (reversed): p' = k q, q' = -1 - k p, k' = -m, m' = -p/4.   Second compound of the eigen-ODE
+//   u^(4) = a2 u'' + a1 u' + a0 u,  a0 = 1/4 - 3m^2 - kp - lam,  a1 = -(5km + q/4),  a2 = -k^2  (minus sign: reversed time).
+// Stage B (sigma0 -> 8): W rescaled by exp(-int (q/4)^{1/3}) (a positive factor), profile box from the tail theorem.
+// Stage C (8 -> tip): tight step-1 profile set; the W and t rows of the stage-B Lohner set are carried over (so the
+//   correlation with t is kept), W multiplied by a power of two.  Fixed time TLO, then the window [TLO, THI] that
+//   contains the tip time of S1 (step 1); output the affine form  D in x + v (t - 1/2) + E  for D = W13, W02.
+// Input:  lra_lo lra_hi lia_lo lia_hi dr di   (lam = [lra] + i[lia] + t (dr + i di); dr = di = 0 gives a lambda-box run) / tauB / 17 lines xB / 17x17 CB / 17 lines r0B / tau1 / 4 lines xC / 4x4 CC / 4 lines r0C
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include "capd/capdlib.h"
+using namespace std;
+using namespace capd;
+@VF@
+@VFB@
+@VFS@
+
+int main(int argc, char* argv[]) {
+  cout.precision(17);
+  if (argc < 2) { cerr << "usage: evans_seg input [order]\n"; return 2; }
+  int order = (argc > 2) ? atoi(argv[2]) : 25;
+  const int n = 17;
+  ifstream in(argv[1]);
+  double lra0, lra1, lia0, lia1, dr, di; in >> lra0 >> lra1 >> lia0 >> lia1 >> dr >> di;
+  interval lra(lra0, lra1), lia(lia0, lia1);
+  double tauB; in >> tauB;
+  IVector xB(n), r0B(n); IMatrix CB(n, n);
+  for (int i = 0; i < n; ++i) { double lo, hi; in >> lo >> hi; xB[i] = interval(lo, hi); }
+  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) { double v; in >> v; CB[i][j] = interval(v); }
+  for (int i = 0; i < n; ++i) { double lo, hi; in >> lo >> hi; r0B[i] = interval(lo, hi); }
+  double tau1; in >> tau1;
+  IVector xC(4), r0C(4); IMatrix CC(4, 4);
+  for (int i = 0; i < 4; ++i) { double lo, hi; in >> lo >> hi; xC[i] = interval(lo, hi); }
+  for (int i = 0; i < 4; ++i) for (int j = 0; j < 4; ++j) { double v; in >> v; CC[i][j] = interval(v); }
+  for (int i = 0; i < 4; ++i) { double lo, hi; in >> lo >> hi; r0C[i] = interval(lo, hi); }
+  if (!in) { cerr << "bad input\n"; return 2; }
+  const char* nm[17] = {"p","q","k","m","W01r","W01i","W02r","W02i","W03r","W03i","W12r","W12i","W13r","W13i","W23r","W23i","t"};
+  try {
+    IMap vf(VF), vfb(VFS);
+    IMap* fs[2] = {&vf, &vfb};
+    for (int u = 0; u < 2; ++u) { fs[u]->setParameter("lra", lra); fs[u]->setParameter("lia", lia);
+                                  fs[u]->setParameter("dr", interval(dr)); fs[u]->setParameter("di", interval(di)); }
+    // stage B: profile rows carry p~ = S p, k~ = S k, m~ = S m (S chosen per chunk, iS2 = 1/S^2)
+    IOdeSolver solverB(vfb, order), solver(vf, order);
+    if (getenv("FIXSTEPC")) { double h = atof(getenv("FIXSTEPC")); solver.setStep(h); solver.turnOffStepControl(); }
+    if (getenv("MAXSTEP")) { solverB.setMaxStep(atof(getenv("MAXSTEP"))); solver.setMaxStep(atof(getenv("MAXSTEP"))); }
+    if (getenv("RELTOL")) { solverB.setRelativeTolerance(atof(getenv("RELTOL"))); solver.setRelativeTolerance(atof(getenv("RELTOL")));
+                            solverB.setAbsoluteTolerance(1e-300); solver.setAbsoluteTolerance(1e-300); }
+    ITimeMap tmB(solverB), tm(solver);
+    // ---------------- stage B
+    IVector xm(n), rx(n);
+    for (int i = 0; i < n; ++i) { xm[i] = interval(xB[i].mid().leftBound()); rx[i] = xB[i] - xm[i]; }
+    // stage B in chunks of length <= CH; after each chunk the W rows are multiplied by a power of two (exact) and
+    // the box part is re-boxed (B r -> interval vector), keeping x, C, r0 (so all parameter correlations survive)
+    const double CH = getenv("CHUNK") ? atof(getenv("CHUNK")) : 8.0;
+    IVector x = xm, r0 = r0B, Br = rx;
+    IMatrix C = CB;
+    int prow[3] = {0, 2, 3};
+    double lS = 0.0;     // log2 S
+    {
+      double mp = 0; for (int a = 0; a < 3; ++a) { int i = prow[a]; mp = std::max(mp, std::max(std::fabs((xm[i] + rx[i]).leftBound()), std::fabs((xm[i] + rx[i]).rightBound()))); }
+      int e = (mp > 0) ? (int)std::floor(std::log2(1e-4 / mp)) : 0;
+      interval sc(std::ldexp(1.0, e)); lS = e;
+      for (int a = 0; a < 3; ++a) { int i = prow[a]; x[i] *= sc; Br[i] *= sc; for (int j = 0; j < n; ++j) C[i][j] *= sc; }
+    }
+    double done = 0.0;
+    while (done < tauB) {
+      double len = std::min(CH, tauB - done);
+      vfb.setParameter("iS2", interval(std::ldexp(1.0, (int)(-2 * lS))));
+      {   // fixed step, h * (sigma/4) <= 0.8 on the chunk (sigma = 8 + tauB - done is the chunk start)
+        double sig = 8.0 + tauB - done;
+        double h = std::min(0.1, 3.2 / sig);
+        if (getenv("FIXSTEP")) h = std::min(h, atof(getenv("FIXSTEP")));
+        solverB.setStep(h); solverB.turnOffStepControl();
+      }
+      IMatrix Id(n, n); for (int i = 0; i < n; ++i) Id[i][i] = interval(1.0);
+      IVector xc_(n), rr_(n);
+      for (int i = 0; i < n; ++i) { xc_[i] = interval(x[i].mid().leftBound()); rr_[i] = (x[i] - xc_[i]) + Br[i]; }
+      C0Rect2Set setB(xc_, C, r0, rr_);
+      ITimeMap tmc(solverB);
+      tmc(interval(len), setB);
+      x = setB.get_x(); r0 = setB.get_r0(); C = setB.get_C();
+      Br = setB.get_B() * setB.get_r();
+      done += len;
+      double mxw = 0;
+      for (int i = 4; i < 16; ++i) mxw = std::max(mxw, std::max(std::fabs(x[i].leftBound()), std::fabs(x[i].rightBound())));
+      int e = (int)std::floor(std::log2(1e-8 / mxw));
+      interval scl(std::ldexp(1.0, e));
+      for (int i = 4; i < 16; ++i) { x[i] *= scl; Br[i] *= scl; for (int j = 0; j < n; ++j) C[i][j] *= scl; }
+      double mp = 0; for (int a = 0; a < 3; ++a) { int i = prow[a]; mp = std::max(mp, std::max(std::fabs(x[i].leftBound()), std::fabs(x[i].rightBound()))); }
+      int ep = (mp > 0) ? (int)std::floor(std::log2(1e-4 / mp)) : 0;
+      interval scp(std::ldexp(1.0, ep)); lS += ep;
+      for (int a = 0; a < 3; ++a) { int i = prow[a]; x[i] *= scp; Br[i] *= scp; for (int j = 0; j < n; ++j) C[i][j] *= scp; }
+    }
+    IVector hullB = x + C * r0 + Br;
+    IVector r(n); IMatrix B(n, n); for (int i = 0; i < n; ++i) { B[i][i] = interval(1.0); r[i] = Br[i]; }
+    cout << "STAGEB q(8) = " << hullB[1] << "  t = " << hullB[16] << "\n";
+    { double mxw = 0, mxd = 0; for (int i = 4; i < 16; ++i) { mxw = std::max(mxw, std::max(std::fabs(hullB[i].leftBound()), std::fabs(hullB[i].rightBound()))); mxd = std::max(mxd, (double)diam(hullB[i]).rightBound()); }
+      cout << "STAGEB rel width " << mxd / mxw << "\n"; }
+    double mx = 0;
+    for (int i = 4; i < 16; ++i) mx = std::max(mx, std::max(std::fabs(hullB[i].leftBound()), std::fabs(hullB[i].rightBound())));
+    if (!(mx > 0) || !std::isfinite(mx)) { cout << "RESULT FAIL stageB\n"; return 1; }
+    int e2 = (int)std::floor(std::log2(1e-8 / mx));
+    interval sc(std::ldexp(1.0, e2));
+    // ---------------- stage C set
+    IVector xn(n), r0n(n), rn(n); IMatrix Cn(n, n);
+    for (int i = 0; i < 4; ++i) {
+      xn[i] = interval(xC[i].mid().leftBound()); rn[i] = xC[i] - xn[i];
+      for (int j = 0; j < 4; ++j) Cn[i][j] = CC[i][j];
+      r0n[i] = r0C[i];
+    }
+    // carry the t column and the parameter columns whose W-contribution is not negligible; box the others
+    int col = 4;
+    double xw = 0; for (int i = 4; i < 16; ++i) xw = std::max(xw, std::max(std::fabs(x[i].leftBound()), std::fabs(x[i].rightBound())));
+    IVector boxed(n);
+    for (int j = 0; j < n; ++j) {
+      bool used = !(r0[j].leftBound() == 0.0 && r0[j].rightBound() == 0.0);
+      if (!used) continue;
+      bool tcol = C[16][j].contains(1.0) && r0[j].leftBound() == -0.5;
+      double contrib = 0; for (int i = 4; i < 16; ++i) contrib = std::max(contrib, (double)rightBound(abs(C[i][j] * r0[j])));
+      if (!tcol && contrib < 1e-7 * xw) { for (int i = 4; i < n; ++i) boxed[i] += C[i][j] * r0[j]; continue; }
+      if (col >= n) { cout << "RESULT FAIL too many columns\n"; return 1; }
+      for (int i = 4; i < n; ++i) Cn[i][col] = ((i < 16) ? sc : interval(1.0)) * C[i][j];
+      r0n[col] = r0[j];
+      ++col;
+    }
+    for (int i = 4; i < n; ++i) {
+      interval s = (i < 16) ? sc : interval(1.0);
+      interval xi = s * x[i];
+      xn[i] = interval(xi.mid().leftBound());
+      rn[i] = (xi - xn[i]) + s * Br[i] + s * boxed[i];
+    }
+    if (getenv("EVDEBUG2")) { double a1 = 0, a2 = 0; for (int i = 4; i < 16; ++i) { a1 = std::max(a1, (double)rightBound(abs(rn[i]))); a2 = std::max(a2, std::fabs(xn[i].leftBound())); } cout << "STAGEC start: max|box W| = " << a1 << "  max|x W| = " << a2 << "\n"; }
+    C0Rect2Set setC(xn, Cn, r0n, rn);
+    // tip time of S1 (step 1, certified for the bracket set): tau_tip in [TLO, THI]
+    const double TLO = 10.249019, THI = 10.249127;
+    tm(interval(TLO), setC);
+    C0Rect2Set setD = setC;
+    ITimeMap::SolutionCurve sol(TLO);
+    tm(interval(THI), setD, sol);
+    IVector K = sol(interval(TLO, THI));
+    IVector FK = vf(K);
+    cout << "TIPWINDOW q in " << K[1] << "\n";
+    IVector xc2 = setC.get_x(), r0c = setC.get_r0(), rc = setC.get_r();
+    IMatrix Cc = setC.get_C(), Bc = setC.get_B();
+    IVector Brc = Bc * rc;
+    int jt = -1;
+    for (int j = 0; j < n; ++j)
+      if (r0c[j].leftBound() == -0.5 && r0c[j].rightBound() == 0.5 && Cc[16][j].contains(1.0)) jt = j;
+    if (jt < 0) { cout << "RESULT FAIL no t column\n"; return 1; }
+    // t = 1/2 + s exactly only up to the off-column part of the t-row; the defect enters as v * dt
+    interval dt = Brc[16];
+    for (int j = 0; j < n; ++j) if (j != jt) dt += Cc[16][j] * r0c[j];
+    dt += (Cc[16][jt] - interval(1.0)) * r0c[jt];
+    int Drows[4] = {12, 13, 6, 7};      // W13r, W13i, W02r, W02i
+    for (int a = 0; a < 4; ++a) {
+      int i = Drows[a];
+      interval E = Brc[i] + interval(0.0, THI - TLO) * FK[i] - Cc[i][jt] * dt;
+      for (int j = 0; j < n; ++j) if (j != jt) E += Cc[i][j] * r0c[j];
+      if (getenv("EVDEBUG2")) {
+        cout << "BREAK " << nm[i] << " Br=" << Brc[i] << " time=" << interval(0.0, THI - TLO) * FK[i] << " tdef=" << Cc[i][jt] * dt << "\n";
+        for (int j = 0; j < n; ++j) if (j != jt && !(r0c[j].leftBound() == 0.0 && r0c[j].rightBound() == 0.0)) cout << "   col " << j << ": " << Cc[i][j] * r0c[j] << "\n";
+      }
+      cout << "AFF " << nm[i] << " " << xc2[i].leftBound() << " " << xc2[i].rightBound() << " "
+           << Cc[i][jt].leftBound() << " " << Cc[i][jt].rightBound() << " " << E.leftBound() << " " << E.rightBound() << "\n";
+    }
+    cout << "RESULT OK\n";
+  } catch (std::exception& e) {
+    cout << "RESULT EXCEPTION: " << e.what() << "\n";
+    return 1;
+  }
+  return 0;
+}

@@ -1,0 +1,14 @@
+{
+ "C1_sym": true,
+ "C3_total_derivative_form": true,
+ "C3_sym_boundary_at_0": true,
+ "C4_num": {
+  "sym_FDg_vs_f2g2": 4.3099601478295246e-13,
+  "sym_FDg_vs_DfG": 4.3555462647777214e-13,
+  "C5_ratio": 0.38291008603268906
+ },
+ "C4_ok": true,
+ "C5_ok": true,
+ "all_ok": true
+}
+sha256 bb802577c55a20993cb715e55a721c670a6a823436fe0a34ccaeb37c1d35d526

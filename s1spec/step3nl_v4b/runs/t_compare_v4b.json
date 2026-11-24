@@ -1,0 +1,135 @@
+{
+ "regression_vs_fin13v4": {
+  "rate_table_a0.00015": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.00015": {
+   "equal": true
+  },
+  "rate_table_a0.000125": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.000125": {
+   "equal": true
+  },
+  "final_alpha_points": {
+   "equal": true,
+   "diffs": []
+  },
+  "tail_cert_log": {
+   "equal": true
+  }
+ },
+ "double_run_fin13v4b": {
+  "rate_table_a0.00015": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.00015": {
+   "equal": true
+  },
+  "rate_table_a0.000125": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.000125": {
+   "equal": true
+  },
+  "final_alpha_points": {
+   "equal": true,
+   "diffs": []
+  },
+  "tail_cert_log": {
+   "equal": true
+  }
+ },
+ "double_run_cert_chain": {
+  "e0_identities.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e0_identities.log": {
+   "equal_wo_timing": false
+  },
+  "e0_lemma_consts.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e0_lemma_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e0_strip_drift.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e0_strip_drift.log": {
+   "equal_wo_timing": true
+  },
+  "e0v4b_constants.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_consts.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e2_identity_check.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_identity_check.log": {
+   "equal_wo_timing": true
+  },
+  "e2_nlin_regions.log": {
+   "equal_wo_timing": true
+  },
+  "e2_v4b_constants.log": {
+   "equal_wo_timing": true
+  },
+  "e2v4b_constants.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "nl_regions_a2.5e-4.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "r2_strip_ibp.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "r2_strip_ibp.log": {
+   "equal_wo_timing": true
+  },
+  "tc_weighted.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "tc_weighted.log": {
+   "equal_wo_timing": false
+  },
+  "tc_weighted.pkl": {
+   "byte_identical": true
+  }
+ },
+ "verdict": {
+  "regression_vs_fin13v4": true,
+  "double_run_fin13v4b": true,
+  "double_run_cert_chain": false
+ }
+}

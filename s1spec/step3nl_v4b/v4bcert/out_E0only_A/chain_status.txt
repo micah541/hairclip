@@ -1,0 +1,10 @@
+tc_weighted maxrss_kb=271188 wall_s=103.48
+tc_weighted rc=0
+e0_strip_drift maxrss_kb=143484 wall_s=6.32
+e0_strip_drift rc=0
+e0_lemma_consts maxrss_kb=88188 wall_s=0.55
+e0_lemma_consts rc=0
+e0_identities maxrss_kb=93264 wall_s=2.32
+e0_identities rc=0
+r2_strip_ibp maxrss_kb=97184 wall_s=0.89
+r2_strip_ibp rc=0

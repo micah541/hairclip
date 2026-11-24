@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\nrm}[1]{\lVert #1\rVert}
+\title{Lemma O, version 2: cylinder $[-X,X]$, small data, additive thresholds}\author{}\date{}
+\begin{document}\maketitle
+This note modifies \texttt{lemmaO.tex} (v1; ``v1'' below). Everything not restated here (Lemma 1 on coefficients, the smoothstep, Lemma 3 (S),(L4),(Y),(Y$_2$), the structure of Props.\ 2--3 and of the proof of Thm.\ 1) is unchanged except that $I_0=(-X,X)$ has length $2X$ instead of $4$. Constants are evaluated by \texttt{lemmaO\_consts\_v2.py}; \texttt{sanity\_v2.py} is the PDE check.
+
+\section{Statement on $[-X,X]$}
+Let $X>1$, $\lambda:=\sqrt{2X}$ (so $|I_0|^{1/2}=\lambda$), and let $h$ be smooth on $[-X,X]\times[0,t_1]$ solving the graph equation, with (A),(I) of v1 on $[-X,X]$. Choose $w\in(0,\frac{X-1}{2})$ and put $w_E=X-1-2w$,
+\[
+\zeta_p=\zeta_{1,w},\ \zeta_q=\zeta_{1+w,w},\ \zeta=\zeta_E=\zeta_{1+2w,\,w_E}\ (=1\text{ on }|x|\le1+2w,\ =0\text{ for }|x|\ge X),
+\]
+$Z=S_1/w_E$, $Z_2=S_2/w_E^2$, $m=2w_E$, $q=12Z^2+4Z_2$, $Z_p=Z_q=S_1/w$ (all as in v1; $S_1=15/8$, $S_2=10/\sqrt3$). The \emph{cutoff curvature} is $q\sim 12(1.875)^2/(X-1-2w)^2+\dots$, i.e.\ it decays like $(X-1-2w)^{-2}$.
+
+\begin{theorem}[Lemma O on a cylinder of half-width $X$]
+For $0\le t\le t_1$, $|x|\le1$: $|g|\le C_0\sqrt t$, $|g_x|\le C_1\sqrt t$, $|g_{xx}|\le C_2\sqrt t$, $\int_{-1}^1g_{xxx}^2\le C_3t$, where $g=h-h_0$ and
+\[
+\kappa=K_3+\lambda M,\quad C_3=C_*,\quad C_1^2=\min\Big\{\sqrt{\Lambda_1}(Y_c+Z_q\sqrt{\Lambda_1}),\ \tfrac{\Lambda_1}{\ell}+2\sqrt{\Lambda_1}Y_c\Big\},\quad
+C_2^2=\min\Big\{Y_c(\sqrt{C_*}+Z_pY_c),\ \tfrac{Y_c^2}{\ell}+2Y_c\sqrt{C_*}\Big\},
+\]
+$\ell=2+2w$, $Y_c=2Z_q\sqrt{\Lambda_1}+(\Lambda_1C_*)^{1/4}$, $C_0=\sqrt{2+w}\sqrt{\Lambda_1}+\tfrac12\sqrt{2S_{11}/w}\,\Gamma\sqrt{t_1}$ with $\Gamma=K_3+\lambda B_0K_2^2$, $S_{11}=\frac{10}{7}$, and
+\begin{align*}
+\Lambda_1&=\frac{\beta_1^2}{2a_{\min}}+2\gamma_1,\quad \rho_0=M(1+C_2'K_2)+B_1K_2^3\ (C_2'=\tfrac52(16/17)^3),\ p_1=\tfrac14+M,\ k_2=K_2+M,\\
+\beta_1&=4Zk_2\sqrt m+\lambda A_1K_2k_2+2ZA_1K_2p_1\sqrt m+\lambda C_2'K_2k_2+2Zp_1C_2'K_2\sqrt m,\\
+\gamma_1&=2(Z^2+Z_2)p_1\sqrt m\,\kappa+2Xk_2\rho_0+2Zp_1\rho_0m,
+\end{align*}
+and $C_*=2\max_{u\ge0}f(u)$ with $f$ exactly as in v1 Prop.\ 3 (with $K=\kappa$) except
+\[
+\nu_0=M+C_1'K_2\lambda M+2C_2'\lambda M^2+C_3'K_2^2(\lambda M+\kappa)+\lambda C_4'K_2^4
+\]
+($C_1',C_2',C_3',C_4'$ = the coefficient sups $C_1,\dots,C_4$ of v1 Lemma 1; primes only to avoid clash with the conclusion constants).
+\end{theorem}
+\begin{proof}
+The proofs of v1 Props.~2,3 go through verbatim with $|I_0|=2X$: wherever v1 used $\nrm{1}_{L^2(I_0)}=2$ (resp.\ $\int_{I_0}\zeta^2\le4$, $\nrm{\zeta}_{L^4}\le4^{1/4}$, $\nrm{h_0'''}\le2M$) one uses $\lambda$ (resp.\ $2X$, $\lambda^{1/2}$, $\lambda M$). This changes: $\int\zeta^2|g_3|\le\lambda\sigma$ (the terms $2A_1K_2k_2$ and $2k_2C_2K_2$ of $\beta_1$ become $\lambda(\cdot)$), $\int\zeta^2\le2X$ (the $4k_2\rho_0$ of $\gamma_1$ becomes $2Xk_2\rho_0$), $\nrm{\zeta^2h_0^{(4)}}\le\lambda M$, $\nrm{\zeta h_0'''}_{L^4}^2\le\lambda M^2$ (so $4M^2\to2\lambda M^2$ after $(x+y)^2\le2x^2+2y^2$), $\nrm{\zeta^2}\le\lambda$ for the $C_4K_2^4$ term, and $\kappa=K_3+\lambda M$, $\Gamma$. The only genuinely new ingredient is the second alternative in $C_1,C_2$:
+
+\smallskip\noindent\textbf{(S$'$)} For $u\in H^1(J)$, $J$ an interval of length $\ell$: $\sup_Ju^2\le\ell^{-1}\nrm u_J^2+2\nrm u_J\nrm{u'}_J$. \emph{Proof:} $u(x)^2=u(y)^2+2\int_y^xuu'\le u(y)^2+2\nrm u\nrm{u'}$; average over $y\in J$. 
+
+Apply with $J=[-1-w,1+w]$ (where $\zeta_q=1$): $\nrm{g_1}_J\le X_1\le\sqrt{\Lambda_1t}$, $\nrm{g_2}_J\le Y_2\le Y_c\sqrt t$, $\nrm{g_3}_J\le X_3\le\sqrt{C_*t}$ give the second alternatives. The first alternatives are v1's. Both are valid, so the minimum is.
+\end{proof}
+
+\section{Additive thresholds}
+The continuity argument needs $|h_x|\le|h_{0,x}|+|g_x|$ etc.\ to stay below the a priori levels with a margin: if $K_2=M+\sigma_2$ the deviation must stay $\le\sigma_2$ (additive slack), not $\le M$. We tabulate, for slack $=f M$ with $f=\frac12$ (i.e.\ $K=\frac32M$ for pointwise quantities):
+\[
+t_1^*=(fM/C_1)^2,\qquad t_2^*=(fM/C_2)^2,\qquad t_3^*=(\sqrt2\,fM)^2/C_3 ,
+\]
+(the last: $L^2(-1,1)$ norm of $g_{xxx}$ equal to the density level $fM$ on an interval of length $2$). $C_1,C_2,C_3$ do not depend on $t_1$, so the $t^*$ are exact solutions of $C_j\sqrt t=\text{slack}$; $w$ is chosen to maximise $\min_jt_j^*$. (\texttt{t\_star(K2,K3,M,X,f)} takes any other slack factor.) Since the constants are monotone in $K_2,K_3,M$, a larger slack does not change $C_j$, only $t^*\propto f^2$.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{cc cccc ccc}\toprule
+$X$ & $M$ ($K_2=K_3=\tfrac32M$) & $C_1$ & $C_2$ & $C_3$ & $t_1^*$ & $t_2^*$ & $t_3^*$ & miss at $4\!\cdot\!10^{-5}$ / $10^{-5}$\\\midrule
+2 & 0.1 & 31.9 & 270 & $4.2\!\cdot\!10^4$ & $2.5\!\cdot\!10^{-6}$ & $3.4\!\cdot\!10^{-8}$ & $1.2\!\cdot\!10^{-7}$ & 1170 / 290\\
+2.4& 0.03& 8.8 & 52 & 922 & $2.9\!\cdot\!10^{-6}$ & $8.2\!\cdot\!10^{-8}$ & $4.9\!\cdot\!10^{-7}$ & 490 / 120\\
+2.4& 0.1 & 23 & 161 & $1.3\!\cdot\!10^4$ & $4.7\!\cdot\!10^{-6}$ & $9.7\!\cdot\!10^{-8}$ & $3.9\!\cdot\!10^{-7}$ & 410 / 100\\
+2.4& 0.3 & 72 & 568 & $2.3\!\cdot\!10^5$ & $4.4\!\cdot\!10^{-6}$ & $7.0\!\cdot\!10^{-8}$ & $2.0\!\cdot\!10^{-7}$ & 570 / 140\\
+3 & 0.03& 6.1 & 30 & 298 & $6.1\!\cdot\!10^{-6}$ & $2.5\!\cdot\!10^{-7}$ & $1.5\!\cdot\!10^{-6}$ & 160 / 39\\
+3 & 0.1 & 16 & 96 & $4.7\!\cdot\!10^3$ & $9.5\!\cdot\!10^{-6}$ & $2.7\!\cdot\!10^{-7}$ & $1.1\!\cdot\!10^{-6}$ & 150 / 37\\
+3 & 0.3 & 54 & 366 & $9.1\!\cdot\!10^4$ & $7.7\!\cdot\!10^{-6}$ & $1.7\!\cdot\!10^{-7}$ & $4.9\!\cdot\!10^{-7}$ & 240 / 60\\
+5 & 0.03& 3.2 & 11 & 33 & $2.2\!\cdot\!10^{-5}$ & $1.9\!\cdot\!10^{-6}$ & $1.4\!\cdot\!10^{-5}$ & 21 / 5\\
+5 & 0.1 & 9.2 & 40 & 767 & $3.0\!\cdot\!10^{-5}$ & $1.6\!\cdot\!10^{-6}$ & $6.5\!\cdot\!10^{-6}$ & 25 / 6\\
+5 & 0.3 & 34 & 185 & $2.7\!\cdot\!10^4$ & $2.0\!\cdot\!10^{-5}$ & $6.6\!\cdot\!10^{-7}$ & $1.6\!\cdot\!10^{-6}$ & 61 / 15\\\bottomrule
+\end{tabular}\end{table}
+Other $(K_2,K_3)$ at $X=2.4$ (all 27 combinations are printed by the script's driver; minimum over $j$ of $t_j^*$): from $6.7\cdot10^{-9}$ ($K_2=K_3=M{=}0.3,0.3,0.03$) to $3.2\cdot10^{-7}$ ($K_2=K_3=0.03$, $M=0.3$). In every case $t_2^*$ (pointwise $h_{xx}$) is the binding one, then $t_3^*$, then $t_1^*$; the value of $K_3$ matters more than $K_2$ ($\kappa=K_3+\lambda M$).
+
+\section{Pairing the forcing with the energy (item 4)}
+\textbf{What is possible.} If $h_0^{(5)},h_0^{(6)},h_0^{(7)}\in L^2(I_0)$ then $F_4:=\partial_x^4G(h_0)\in L^2$ (every term of $\partial_x^4G$ contains at most one factor of order $\ge5$, the others being bounded by $M$), and the forcing part of $\frac12E_3'$ becomes $-\int\zeta^4g_3F_4\le\sqrt{E_3}\,\nrm{\zeta^2F_4}$ instead of $\int(\zeta^4g_3)''\partial_x^2G(h_0)$; likewise at level $1$. The remainder $G_{xx}(h)-G_{xx}(h_0)-a\,g_5$ is a sum of terms each containing a factor $g_1,\dots,g_4$ (telescoping, with coefficients bounded by Lemma~1 and (A),(I)). Hence $\frac12E_3'\le A_2+A_1\sqrt{E_3}+A_0E_3$ with $A_2$ built from the \emph{unweighted} sizes of $g_j$ on the cutoff transition region, and (comparison argument $\psi=\sqrt{E_3+a_2t^2}$) $\sqrt{E_3}\lesssim t$ \emph{iff} $A_2=O(t)$, i.e.\ iff $\nrm{g_3}_{L^2(\text{transition})}$, $\nrm{g_2}_{L^2}$, $\sup|g_1|$ there are $O(\sqrt t)$.
+
+\textbf{Why it does not help here.} (i) The constants of the $\sqrt t$ version are \emph{not} dominated by the forcing. We recomputed all constants with every forcing-side term deleted ($\nu_0:=0$ in $f$, $\rho_0:=0$ in $\Lambda_1$; this is more than any energy pairing could remove, since it also drops the a priori nonlinear $K_2$ terms): $t_j^*$ increases by at most $28\%$ over the cases checked ($(X,M)=(2.4,0.1),(2.4,0.3),(3,0.1),(5,0.1)$: ratios of $t_2^*$ with/without forcing terms $1.05,1.09,1.08,1.19$; script option \texttt{drop=True}). The dominant terms are $qK s$, $8ZYs$, $qK\nu$ (cutoff curvature $\times$ unweighted $\kappa$) in $E_3$ and $4Zk_2\sqrt m$, $2(Z^2+Z_2)p_1\sqrt m\,\kappa$ in $E_1$, none of which involve the forcing. (ii) The $O(\sqrt t)$ smallness of the unweighted transition-zone quantities needed for the linear-in-$t$ version can only be taken from the $\sqrt t$ version itself, which provides it only for $C_*t\lesssim\kappa^2$, i.e.\ $t\lesssim\kappa^2/C_*\approx(0.37)^2/1.3\cdot10^4\approx10^{-5}$ ($X=2.4$, $M=0.1$); and the linear-in-$t$ coefficient it would produce is again of size $\sim q\sqrt{C_*}$ (cutoff curvature times the $\sqrt t$-constant), i.e.\ no better than the $\sqrt t$ version at these times.
+\textbf{Status:} the linear-in-$t$ version is \emph{not} written out as a theorem; items (i)--(ii) are the quantitative reason it would not reach $t\ge4\cdot10^{-5}$ with this localisation method. The statement ``$t^*$ changes by $\le28\%$ with forcing deleted'' is a numerical evaluation of the proved formulas, not a theorem.
+
+\section{Nested cutoffs (item 5)}
+The v1 chain ($n$ cutoffs, $\kappa_j=\min\{\kappa,\sqrt{C_*^{(j-1)}t}\}$ in the $E_3$ constants, the last level also used for $E_1$) was tried again with $X$-dependent widths (not part of the proof; the formulas are v1's with $\kappa_j$ in place of $\kappa$). At $t\in\{4\cdot10^{-5},10^{-5}\}$, $M\in\{0.1,0.3\}$, $X\in\{2.4,3,5\}$ the worst ratio $C_j\sqrt t/\text{slack}$ is \emph{smallest for $n=1$} (e.g.\ $X=2.4$, $M=0.1$, $t=4\cdot10^{-5}$: $30,\,62,\,99,\,146$ for $n=1,2,3,4$): the chain only pays when $C_*t\ll\kappa^2$, and the extra cutoffs shrink the width of each ($Z\propto n$, $q\propto n^2$). It does not help in the target range and is not used.
+
+\section{Verdict}
+Target $t\ge4\cdot10^{-5}$ (best $10^{-5}$), $K,M\sim0.1$--$0.3$, $X\approx2.4$: \textbf{not reached}. With slack $\tfrac12M$ the binding threshold is $t_2^*\approx(0.7$--$1)\cdot10^{-7}$ (pointwise $h_{xx}$), so $t$ must be smaller by a factor $\approx410$--$570$ ($4\cdot10^{-5}$) or $\approx100$--$140$ ($10^{-5}$) [$X=2.4$]; $t_1^*\approx4.5\cdot10^{-6}$ (misses by $\approx9$ / $2$). Even $X=5$ misses by $\approx21$--$61$ ($4\cdot10^{-5}$) and $\approx5$--$15$ ($10^{-5}$); $X=3$ by $150$--$240$ / $37$--$60$. Only $g_x$ at $X=5$ ($t_1^*\approx2$--$3\cdot10^{-5}$) comes close. What dominates: unweighted $\|g_{xxx}\|$ (through $\kappa=K_3+\lambda M$, itself dominated by $\lambda M$ since $K_3,M$ are comparable) times the cutoff curvature, then the conversion of $L^2$ to pointwise bounds for $g_{xx}$ ($C_2\approx\sqrt{Y_c\sqrt{C_*}}$). Widening the cylinder helps like $(X-1)^{-2}$ in $q$ but only by a factor $\approx3$ in $t_2^*$ for $X=2.4\to3$ and $\approx6$ for $3\to5$ because $\kappa\propto\sqrt{2X}$ grows and $E_1$'s $\beta_1$ is not curvature-limited.
+\end{document}

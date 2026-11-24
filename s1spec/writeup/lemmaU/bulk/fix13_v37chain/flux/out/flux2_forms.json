@@ -1,0 +1,113 @@
+{
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "flux2_forms.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code",
+  "env": {
+   "F2_NCELL": null,
+   "F2_VTAG": "fin13v4c",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/graph_struct.pkl": "646b444445b82eb435b094ba7e283a5e619c6cb3bbfa67f495070f9a18f4195d",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/f2common.py": "4d813dc2c0af0dbf57717734d8ede9d147e0b170ff1d84518fa6980587f73242",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_forms.py": "74b94fdac8e0a11a095b980099ab4cee913cf96c6a1e9122539caf4c1fbafcac",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/flux_forms.pkl": "56202f4023447377fc701a5a833d2245c61ccf3b8ba9271ba61e57140fef27ba"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "(a1) zeta(L1 g + (c g''')') - L1 v - (c v''')' - zeta' mT9 g == j K4 + j' K3 + k^2 K2 + C_eff zeta' g": true,
+  "(a2) SPEC I2: zeta (c g''')' == (c v''')' - c K4 - c' K3": true,
+  "(a3) zeta (-(j g''')') == -(j v''')' + j K4 + j' K3": true,
+  "(a4) -[L1, zeta] g == K4 + k^2 K2 + C zeta' g": true,
+  "(a5) -d^4 + (c d^3)' == -(j d^3)' on g": true,
+  "(b1) Euler: integrand - reduced level-0 form is a total derivative": true,
+  "(b10) hand pair list of sec. 4 item 1 == reduced form modulo total derivatives": true,
+  "(b2) no stuck monomial (every pair has a <= 2)": true,
+  "(b3) no j'' in the level-0 form (J derivative order <= 1)": true,
+  "(b4) no derivative of C_eff or of k^2 in the level-0 form": true,
+  "(b5) exactly one monomial moved, and it is 4 W zeta zeta' J g g'''": true,
+  "(b6) the moved monomial's coefficient vanishes at 57+ and 60-": true,
+  "(b7) reduced coefficients are affine (degree <= 1) in (j, j')": true,
+  "(b8) regression: j = 1, j' = 0 reproduces F1 flux_forms.pkl level 0 pair by pair": true,
+  "(b9) hand reduction int kappa g g''' = -int kappa' g g'' + 1/2 int kappa' g'^2 (Euler)": true,
+  "(c1) D2v = (W v'')''/W coefficients of g^(i), i = 0..4 (sec. 5)": true,
+  "(c2) D2v = v'''' - 2 psi' v''' + psi2 v''": true,
+  "(c3) (W zeta v)'/W = zeta^2 g' + (2 zeta zeta' - psi' zeta^2) g": true,
+  "(c4) level-0 IBP: W v zeta f' + (W zeta v)' f is a total derivative": true,
+  "(d1) graph_struct monomials = {(0,0,0),(0,0,1),(0,1,0),(1,0,0),(1,1,0),(2,0,0),(3,0,0)}": true,
+  "(d2) u'''' coefficient = -Ji^4 (so c = 1 - J^-4)": true,
+  "(d3) d110 = G110 = 10 Ji^6 u1": true,
+  "(d4) d300 = G300 = 3 Ji^6 (1 - 6 Ji^2 u1^2)": true,
+  "(d5) N(w) - lin. part in g-jets: monomials of (g', g'', g''') = {g''', g'', g', g'^2, g'g'', g'^3}": true,
+  "(d6) d001 (c) = G001; d110 = G110; d300 = G300; d200 = G200 + 3 a2 G300; d010 = G010 + a2 G110": true,
+  "(d7) N_low' == the twelve-monomial list of EI_SPEC 4.5 / FLUX2_DESIGN sec. 5 table": true,
+  "(d8) D d = d_x + d_U0 U1 + d_U1 (a2 + g'): affine in g' with slope d_U1": true,
+  "(e1) sigma^3 d^3 = D^3 - 3D^2 + 2D": true,
+  "(e2) sigma^4 d^4 = D^4 - 6D^3 + 11D^2 - 6D": true,
+  "(e3) sigma^2 d^2 = D^2 - D; sigma d = D": true,
+  "(e4) D^4 = sigma d + 7 sigma^2 d^2 + 6 sigma^3 d^3 + sigma^4 d^4 (Stirling, used for D^4 d)": true,
+  "(f1) (g'g'')' g'''' + (5/2) g'' g'''^2 is a total derivative": true,
+  "(f2) ... with 0 in place of 5/2: not a total derivative": true,
+  "(f3) ... with 2 in place of 5/2: not a total derivative": true
+ },
+ "label": "sym (exact sympy identities; no numbers)",
+ "level0_ends_vanish": {
+  "0,0": false,
+  "1,0": true,
+  "2,0": true,
+  "2,1": true
+ },
+ "level0_moved": [
+  {
+   "coef": "Mul(Integer(4), Function('J')(Symbol('x', real=True)), Function('W')(Symbol('x', real=True)), Function('Z')(Symbol('x', real=True)), Derivative(Function('Z')(Symbol('x', real=True)), Tuple(Symbol('x', real=True), Integer(1))))",
+   "pair": "3,0"
+  }
+ ],
+ "level0_pairs": [
+  "0,0",
+  "1,0",
+  "2,0",
+  "2,1"
+ ],
+ "level0_stuck": {},
+ "outputs": {
+  "flux2_forms.pkl": "83c2a91dd65476f8f25ebe3fa29328465759e9c64b42bd4d7ef950cf872c09af"
+ },
+ "regression_F1_level0": {
+  "0,0": true,
+  "1,0": true,
+  "2,0": true,
+  "2,1": true
+ },
+ "stage": "X1 flux2_forms",
+ "zeta_end_values": {
+  "57": [
+   "1",
+   "0",
+   "0",
+   "0",
+   "-280/27",
+   "1120/27",
+   "-5600/81",
+   "11200/243"
+  ],
+  "60": [
+   "0",
+   "0",
+   "0",
+   "0",
+   "280/27",
+   "1120/27",
+   "5600/81",
+   "11200/243"
+  ]
+ }
+}

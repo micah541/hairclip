@@ -1,0 +1,20 @@
+{
+ "I1_sym": true,
+ "I1_num_rel": 1.2360666310300044e-15,
+ "I2_sym": true,
+ "I2_num_rel": 5.995972666526306e-16,
+ "I3_sym": true,
+ "I4_sym": true,
+ "I5_sym": true,
+ "I6_sym": true,
+ "I7_ref_tc_weighted": {
+  "X1_reduction_ok": true,
+  "euler_curv_ok": true,
+  "euler_drift_ok": true,
+  "drift_split_ok": true,
+  "drift_lin_ok": true
+ },
+ "I8_sym": true,
+ "all_ok": true
+}
+sha256 f150b65607463c4c74dd19f88846289f41a795440af16168ab1f6dda15adb51f

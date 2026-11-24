@@ -1,0 +1,406 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,enumitem,array,graphicx}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textsc{[C]}}
+\newcommand{\tA}{\textsc{[A]}}
+\newcommand{\tF}{\textsc{[F]}}
+\newcommand{\tO}{\textsc{[O]}}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\sL}{\sqrt{\Lambda}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\setlist{itemsep=2pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.12}
+\title{Step 3 of the hair-clip proof: nonlinear trapping near the shrinker $S_1$\\[2pt]
+\large Assembly of the components, bootstrap argument and conclusion}
+\author{Working supplement to the notes for W.\,J.~Ogden and M.~Warren\\ (assembled by Claude, Anthropic; November 10--11, 2026; v3.2 of November 12, 2026)}
+\date{}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\parbox{0.93\linewidth}{\small\textbf{Status.} \textbf{v3.2 (Nov~12)}, amending v3.1 (kept intact in \fn{writeup/step3_proof/}; summary of the amendment in \fn{writeup/step3_amend_v32/amend_v32.tex}). Changes: far Lemma~O family $(M,K)=(0.15,0.3)$; Lemma~O hypothesis H6 is now proved (D5b), with six data thresholds added to (H5); the window deviation of Lemma~S(B) is taken against the profile frozen at entry (\S3.7, repairing a gap of v3.1); deviation numbers quoted at the withdrawn ratio $1.2\cdot10^{-7}$ are corrected. The outer cutoff ramp of the strip energies is now bounded (Lemma~R, \fn{lemmaO_v32/lemmaR.tex}: ramp $[190,379.5]\lambda_1$, certified contribution $1.6\%$, $0.09\%$, $3.05\times$ the entry energies at levels $0,1,2$). \textbf{Step 3 is not closed: one analytic item is open,} the \emph{inner edge} of the strip (\S3.7): the claim that the window energies on $r\in[50,150)\lambda_1$ stay at the hand-off level needs bounds on $z_2,z_3$ just inside the strip that neither v3.1 nor v3.2 provides (missed by a factor of order $10^2$--$10^3$ with the available estimates). D4 on the strip at levels 1, 2, and hence D5b (H6), are conditional on it. \textbf{The same omission affects the crude window bounds beyond $y=60$} (B3, W4: $E_B$, $|f|\le\frac12$, curvature $\le S_1^f/r$), which v3.1 derives by the same edge-free computation, and through them the coefficient box and the outer end of Lemma~S(A). So the main trapping argument is independent of the hand-off-level strip bounds and of H6, but not of the gap: it needs the crude far-field bounds, which have large numerical room but no complete proof. Precise statement and a feasibility study of two repairs: \fn{writeup/step3_gap_v32/gap_v32.tex}. This gap is also present in v3.1. \emph{Earlier status:} v3.1 (Nov~10): independent reproduction on Windows~11 (bit-identical), safe rounding of all typed inputs; see \fn{CHANGES_v3.1.md}. Apart from the inner-edge item, step 3 is closed modulo the final-rigor-pass items listed in \S6: (i) the assembly arithmetic of Lemma~S runs in IEEE double precision without outward rounding; (ii) the class weights of the $L^4$ terms use sympy floats; (iii) the sliver $x\in[16.2491,16.25]$ where $\zeta<1$ is bounded by an argument that needs an a-priori $|z_j|\le10^3$; (iv) literature references and frame conventions; (v) the upgrade to convergence (version C) is not part of the claim. The hand-off point is $\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda_1}=5\cdot10^{-8}$ (moved from $\alpha_1=5\cdot10^{-4}$, see \S6). All numbers below are those of the final verifier run at this point (\fn{final_alpha_points_5e-8.json}, \fn{rate_table_fin11_a0.00015.json}) and of Lemma~S ``Summary~v3'' (\fn{lemmaS_consts.json}, key \fn{v3_nov10}); every earlier verifier run (before \fn{fix8}) and the $\alpha_1=5\cdot10^{-4}$ version are superseded. Minimum margin $2.05\times$ in v3.1; the H6 closure of v3.2 has $1.69\times$ in the bounds and $>3.5\times$ in time (\S4, D5b), and the data thresholds of (H5) are met with $\ge1.40\times$. The hand-off requirements on step~4 are listed in \S2.}}\end{center}
+\begin{abstract}
+\noindent Step 3 of the computer-assisted proof that a hair-clip curve (embedded at the start of the flow) under curve diffusion flow (CDF) develops a finite-time singularity modelled on the self-similar shrinker $S_1$ is the \emph{nonlinear trapping} near $S_1$ in rescaled variables. This note assembles it. It fixes the frame, decomposition, weights and norms (\S1); states the trapping theorem (version~W: trapping with a floor) with the hand-off conditions from step~4 as hypotheses (\S2); states each component with its exact constants, source file and status (\S3); writes out the continuity argument in the order of the dependency graph (\S4); and derives the conclusion $\lambda\to0$, $T<\infty$, single singular point, self-similar rate, smooth far curve (\S5). Nothing is recomputed: every number is quoted from a component document or certificate. \S6 lists the remaining final-rigor-pass items; the source inconsistencies and review findings found during assembly are resolved (record in \fn{INCONSISTENCIES.md}) and incorporated.
+
+\smallskip\noindent\textbf{Status tags.} \tC\ certified by interval/ball arithmetic (or a proof whose only non-closed-form step is so certified); \tA\ analytic argument, possibly with machine-verified identities or non-rigorous numerical sups, not yet a complete certificate; \tF\ float or design estimate only; \tO\ open.
+\end{abstract}
+
+\section{Setup: frame, decomposition, weights, norms}
+
+\subsection{Flow, rescaling, shrinker}
+CDF moves a closed curve $\gamma$ (immersed in general, see \S2) with normal velocity $-\kappa_{ss}$ ($\kappa$ curvature, $s$ arclength). Near a developing singularity at a point $p(t)$ we write $\gamma(t,\cdot)=p(t)+\lambda(t)\,\Gamma(\tau,\cdot)$, $d\tau=\lambda^{-4}dt$, and $\lambda_\tau/\lambda=-(\tfrac14-a)$. The rescaled normal velocity is then
+\[
+\ip{\Gamma_\tau}{\nu}=-\kappa_{ss}+(\tfrac14-a)\ip{\Gamma}{\nu}\quad(\text{plus the translation term }b\ip{e_1}{\nu}),
+\]
+so $a$ and $b$ are the scale and translation modulation parameters. (This sign convention is the one implied by \fn{STEP3_FIXPLAN.md} F5, where a window fixed in physical space moves as $y_{\rm edge}'=(\tfrac14-a)y_{\rm edge}$; it should be checked against the frame definition of \fn{STEP3_ARGUMENT.md} \S1, see \S6.) The shrinker $S_1$ is the even stationary solution $\kappa_{ss}=\tfrac14\ip{\Gamma}{\nu}$; in arclength $\sigma$, with $p=\ip{\Gamma}{\nu}$, $q=\ip{\Gamma}{\tau}$, $k=\kappa$, $m=\kappa_\sigma$,
+\[
+p'=-kq,\quad q'=1+kp,\quad k'=m,\quad m'=p/4,\qquad q-\sigma\to0\ (\sigma\to+\infty).
+\]
+Its symmetry point is $\sigma_{\rm tip}\in[-2.249127,-2.249019]$ and $x:=\sigma-\sigma_{\rm tip}$ is the arclength from the tip. We also use $y:=x-2.2490776515$ in the far field. The linearization at $S_1$ on even functions is
+\[
+Lu=-u''''-k^2u''-(5km+\tfrac q4)u'+(\tfrac14-3m^2-kp)u ,
+\]
+self-adjoint in $L^2_{\rm even}(\rho)$ up to lower order, with weight $\rho=\exp(-\tfrac14(1+x^2)^{2/3})$. Its even spectrum begins $1,\ \tfrac14,\ \tilde\lambda=-0.2561532,\ -0.6999,\dots$ \tC\ (step~2): $1$ and $\tfrac14$ are the scaling and translation modes $\psi_1=p$, $\psi_2=\pm\ip{e_1}{\nu}$, and $\tilde\lambda$ is the first stable (slow) mode.
+
+\subsection{Chart, decomposition, modulation}
+In the even class the curve is a normal graph $u$ over $S_1$ in the variable $x$. We decompose
+\[
+u=\alpha\,\hat\psi_3+\alpha^2\hat h_2+w,
+\]
+where $\hat\psi_3$ is the slow eigenfunction and $\hat h_2$ the second-order slow-manifold correction, both in $C^4$ versions (\fn{agent_int/v3/c4fun.py}). Let $\chi_{32}$ be the cutoff equal to $1$ for $\sigma\le29$ ($x\le31.25$), equal to $S((32-\sigma)/3)$ on $[29,32]$ with the $C^3$ smoothstep $S(u)=u^4(35-84u+70u^2-20u^3)$, and $0$ for $\sigma\ge32$ ($x\ge34.25$); put $\tilde w=\chi_{32}w$. The parameters $(a,b,\beta)$ are fixed by the three constraints
+\[
+\ip{\tilde w}{f_j}_\rho=0,\quad j=1,2,3,\qquad\text{and then}\qquad \alpha_\tau=\tilde\lambda\alpha+\beta .
+\]
+The constraint functions $f_1,f_2,f_3$ are those of \S3.1. Existence of the modulated decomposition for small data (implicit function theorem) is part of the continuation argument of \S4.
+
+\subsection{Weights, cutoffs, energies}
+\begin{itemize}
+\item \textbf{Inner energy.} $E=\norm{\tilde w}_\rho^2+\varepsilon\norm{\tilde w''}_\rho^2$, $\varepsilon=10^{-5}$. Shape variables: $A=\norm{\tilde w}_\rho$, $W_1=\norm{\tilde w'}_\rho$, $B=\norm{\tilde w''}_\rho$, $W_3,D_4=\norm{\tilde w^{(3)}}_\rho,\norm{\tilde w^{(4)}}_\rho$.
+\item \textbf{Intermediate energy.} $v:=\zeta w'$, with $\zeta$ rising $0\to1$ on $x\in[10.25,16.25]$ and falling $1\to0$ on $[57,60]$; $V_j:=\norm{v^{(j)}}_W$ and $E_I=V_0^2+\varepsilon_IV_2^2$, $\varepsilon_I=3\cdot10^{-5}$. The weight is $W=(1+x^2)^{-2}$ for $x\le30.25$, blended into a $\rho$-type weight beyond (\fn{ASSEMBLY.md} \S0, not re-read here).
+\item \textbf{Lyapunov functional.} $\Lambda=E+\mu E_I$, $\mu=0.08$ (admissible window $\mu\in[2.906\cdot10^{-3},0.1135]$ \tC).
+\item \textbf{Time integrals.} $J_j=\int_{\tau_1}^{\tau}V_j^2\,d\tau'$ ($j=0,1,2,4$; $J_3$ by interpolation, \S3.5).
+\item \textbf{Shell variables (Lemma S).} $v=w'$ on the deviation shells; $E_j$ ($j=0,1,2$) are the $\omega$-normalised, $\omega=(y/28)^{-1}$, weighted energies of the level-$j$ $s$-derivatives of the shell variable, $\varepsilon_s=e^{-4s}$, damping $\gamma=1$; $S_0^v=\sup|v|$, $S_1^v=\sup y|v'|$ on the core; for the full slope $f=U+v$ ($U$ the explicit $S_1$ ray): $M_0=\sup|f|$ (resp.\ $|V|$), $M_1=\sup y|f'|$. Definitions are in \fn{lemmaS.tex}, Prop.~1.
+\end{itemize}
+
+\subsection{Regions}
+\begin{center}\small
+\begin{tabular}{@{}p{0.31\linewidth}p{0.20\linewidth}p{0.40\linewidth}@{}}
+\toprule region & range & controlled by\\\midrule
+inner (tip) & $x\le31.25$ (cutoff to $34.25$) & $E$; forcing, modulation\\
+$E_I$ ramp / zone & $x\in[10.25,60]$, $\zeta=1$ on $[16.25,57]$ & $E_I$, verifier \S3.5\\
+shell (A) ramp & $y\in[14,28]$ ($x\in[16.25,30.25]$) & Lemma S(A); coefficients read off $E_I$\\
+shell (A) core & $y\in[28,60]$ & Lemma S(A); bootstrap box B2\\
+(B) windows & $y\in[48,R(\tau)]$, $R_1=175$, outer ramp $[150,175]$ (v3.2: $[190,379.5]$, Lemma~R, \S3.7; inner edge open) & Lemma S(B); physically fixed edges\\
+strip & $y\in[50,150]$ & (B) windows present at $\tau_1$\\
+Lemma O cylinders & physical $r\ge150\lambda_1$ (centres $\ge200\lambda_1$, half-width $0.75\,r$) & Lemma O at $t_1$, used once\\
+\bottomrule\end{tabular}\end{center}
+The $E_I$ outer ramp $x\in[57,60]$ corresponds to $y\in[54.75,57.75]$, inside the shell core: this is where term (c) (the flux of $E_I$ through its cutoff) is fed by the shell energies.
+
+\section{The theorem}
+
+\begin{theorem}[Trapping near $S_1$ with a floor --- version W]\label{thm:W}
+Let $\gamma$ be a smooth closed \emph{immersed} curve evolving by CDF, and let $t_1$ be a time (with $\lambda_1,x_{c,1},\alpha(\tau_1)$ given by the implicit function theorem) at which the following hand-off conditions hold.
+\begin{enumerate}[label=\textup{(H\arabic*)},leftmargin=*]
+\item \textbf{Modulation and smallness.} The modulated decomposition of \S1.2 exists at $\tau_1$ with all three constraints satisfied, $|\alpha(\tau_1)|\le\alpha_1:=1.5\cdot10^{-4}$ and $\sqrt{\Lambda(\tau_1)}\le\sqrt{\Lambda_1}:=5\cdot10^{-8}$.
+\item \textbf{Shell energies.} On $y\in[14,60]$: $E_0(\tau_1)\le2\cdot10^{-7}$, $E_1(\tau_1)\le10^{-4}$, $E_2(\tau_1)\le0.2$ ($\omega$-normalised).
+\item \textbf{Windows (energies of the deviation).} All (B) energies are those of the \emph{deviation} $v=f-U$ ($U=1.3056\,\alpha(\tau_1)\,y^{1.0246}$ the slow-manifold part at $\tau_1$; for $\tau>\tau_1$ the deviation is taken against this profile frozen in physical space, \S3.7), $\omega$-normalised, on every window $[y,1.5y]$, $y\in[50,253]$: $E_0\le2\cdot10^{-7}$ and $E_1,E_2,E_3\le10^{-5}$ at $\tau_1$. On the overlap $[50,60]$ this is stricter than (H2). Together with $U$ it gives the Lemma~O cone jets $K_2\le0.024$, $K_3\le0.025$ (cylinder units, $L=50$). In addition the fourth jet of the full curve at $\tau_1$ on $y\in[50,350]$ satisfies $K_4\le0.06$, \emph{certified directly}; $E_4$ is no longer required (it entered only through $K_4$ at $\tau_1$ and is not propagated).
+\item \textbf{Far curve as a graph.} The curve is a graph over the $S_1$ ray on $y\in[48,350]$. No pointwise slope bound is assumed (the earlier ``$y|f'|\le0.12$'' is withdrawn): the per-window pointwise bounds are \emph{derived} from (H3) (\S3.7).
+\item \textbf{Lemma O data.} For the cylinder families covering physical $r\ge150\lambda_1$: hypotheses H1--H7, H9 of Lemma~O (\S3.8), read arc by arc, hold. Cone cylinders (centres $r\in[200,380]\lambda_1$, unit $L=r/4$, $X=3$): $|h_0^{(j)}|\le M=0.12$ ($j=2,3,4$), and in own cylinder units on the whole cylinder: slope $\le0.08$, $\sup|h_0''|\le0.03$, $\norm{h_0'''}_{L^2(-3,3)}\le0.004$. Far cylinders ($X=2$, unit $L=113\lambda_1$, $M=0.15$, $K=0.3$): slope $\le0.08$, $\sup|h_0''|\le0.04$, $\norm{h_0'''}_{L^2(-2,2)}\le0.004$, $|h_0'''|,|h_0''''|\le0.15$ in cylinder units; in $\lambda_1$ units $|h_{xx}|\le3.53\cdot10^{-4}$, $|h_{xxx}|\le1.17\cdot10^{-5}$, $|h_{xxxx}|\le1.03\cdot10^{-7}$, $\norm{h_{xxx}}_{L^2(|x|\le2L)}\le3.32\cdot10^{-6}$. (v3.1: cone $\norm{h_0'''}\le0.14$; far $M=1$, $K=1.5$, $8.8\cdot10^{-3}$, $7.0\cdot10^{-5}$, $6.2\cdot10^{-7}$, slope $\le0.21$. Step-4 values: cone $0.0573$, $0.0189$, $1.20\cdot10^{-3}$; far $0.0428$, $0.0208$, $7.2\cdot10^{-4}$.)
+\item \textbf{Regularity.} $\gamma(t_1)$ is a smooth closed immersed curve; the forcing norm $\norm{\chi\Phi_F}$ is the one determined by $\alpha(\tau_1)$ (it enters only through $F_n(\alpha)$, \S3.3).
+\end{enumerate}
+Then the solution exists for all $\tau\ge\tau_1$, i.e.\ on $[t_1,T)$ with $T:=t_1+\int_{\tau_1}^\infty\lambda^4d\tau<\infty$, the modulated decomposition persists, and for all $\tau\ge\tau_1$:
+\begin{enumerate}[label=\textup{(W\arabic*)},leftmargin=*]
+\item \textbf{Trapping.} $|\alpha|\le1.5\cdot10^{-4}$ and $\sqrt\Lambda\le5.31\cdot10^{-8}$ (the certified barrier). After the tail start $\tau_t\approx5.5$ the barrier decays at rate $\rho=2.69\cdot10^{-3}$ in $\Lambda$ down to the floor $\sqrt{\Lambda_F}=4.94\cdot10^{-10}$, and $|\alpha|\le\alpha_F=3.43\cdot10^{-7}$ eventually. Modulation validity: $A\le5.31\cdot10^{-8}$, $W_1\le6.7\cdot10^{-7}$ (box $10^{-3}$); $\sup|a|,\sup|b|\le2.19\cdot10^{-7}$, $\sup|\beta|\le3.34\cdot10^{-9}$ (certified $3.33811\cdot10^{-9}$).
+\item \textbf{Pointwise tip control.} $\sup_{[10.25,16.25]}\max(|w|,|w'|)\le7.5\cdot10^{-4}$; on $x\ge16.25$: $|w'|\le1.16\cdot10^{-3}$, $|w''|\le1.55\cdot10^{-2}$.
+\item \textbf{Shells.} $E_j\le(3.12\cdot10^{-7},1.81\cdot10^{-4},0.248)$; core $S^v_0\le0.00575$, $S^v_1\le0.171$, $M_0\le0.0188$, $M_1\le0.1844$; (B) energies $(3.15\cdot10^{-7},1.83\cdot10^{-4},0.250)$ and $|f|\le0.093$ on all windows to $y=350$.
+\item \textbf{Far curve.} On $y\in[48,R(\tau)]$ the curve is a graph over the $S_1$ ray with $|f|\le\tfrac12$ and curvature $\le S_1^f/r$; on $r\ge150\lambda_1$ it is a graph over the cylinders of Lemma O with a-priori bounds $K_2=K_3=0.18$ (cone) resp.\ $0.3$ in cylinder units (far), arc by arc (other arcs of the immersed curve are irrelevant, CDF being local).
+\item \textbf{Consequences.} $\lambda\to0$ and $T<\infty$; with $\bar a:=\sup_{\tau\ge\tau_1}|a|\le2.19\cdot10^{-7}$, $T-t_1\le\lambda_1^4/(1-4\bar a)$ and $\lambda(t)=(T-t)^{1/4}(1+O(\bar a))$; $p(t)\to p_*$; the singular set of the flow at $T$ is $\{p_*\}$; the curve outside every neighbourhood of $p_*$ is smooth up to time $T$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[embeddedness]
+The shrinker $S_1$ is not embedded, so after the hand-off the curve is only immersed; the original hair-clip curve is embedded, and embeddedness is lost (if at all) during step~4. It is therefore a property of the step-4 initial curve only and plays no role in step~3: CDF is local, and the estimates of Lemma~O and of the shells hold arc by arc, unaffected by other arcs passing through a cylinder.
+\end{remark}
+\begin{remark}
+Version W is \emph{trapping}, not convergence: the rescaled tip stays within $A+W_1\lesssim10^{-6}$ of the $S_1$ family (and $\norm{\tilde w''}_\rho\le\sqrt{\Lambda/\varepsilon}\le2.6\cdot10^{-5}$) for all time and eventually within the floor, but convergence of the profile to $S_1$ (upgrade C of \fn{STEP3_FIXPLAN.md}) is not claimed. Conclusion (W1)--(W5) are exactly what steps~4--5 need. The numbers in (W1)--(W3) are the certified outputs recorded in \S3; the verifier's floor is stated as reported (\S6, item~2).
+\end{remark}
+
+\section{Components}
+Each subsection gives the statement, the constants, the source, and the status. Throughout, the adopted operating point is $\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda_1}=5\cdot10^{-8}$ (VERIFIER.md update~5, Lemma S Summary~v3). The step-4 float go/no-go showed that the true flow meets the window thresholds only from $k\approx1.6$--$2.3\cdot10^4$, where the deviation is $-40(y/k)^3$ and $E_j\sim k^{-5.9}$; hence $\alpha_1$ dropped from $5\cdot10^{-4}$. The point $\alpha_1=1.25\cdot10^{-4}$ is also certified (remark in \S3.6). Earlier operating points ($\alpha_1=10^{-3}$ with $\sqrt{\Lambda_1}=3.5\cdot10^{-7}$ in \fn{STEP3_ARGUMENT.md}; $2\cdot10^{-7}$ in \fn{STEP3_FIXPLAN.md}; $10^{-7}$ in \fn{STEP3_FIXPLAN2.md}) are superseded and are quoted only where a component document has not been regenerated.
+
+\subsection{Linear coercivity \tC}
+\emph{Source:} \fn{writeup/step3_linear_certificate.tex}.
+
+\begin{theorem}[constrained coercivity]\label{thm:lin}
+With $\omega=3/64$ and the constraint functions $f_1=\chi p$, $f_2=\chi\ip{\tau}{\tau(\sigma_{\rm tip})}$ (cut-off scaling and translation modes) and $f_3=\chi F-a\eta_1-b\eta_3$ (cut-off approximate adjoint eigenfunction for $\tilde\lambda=-0.2561532224577463$, with tip bumps $\eta_1,\eta_3$ making $f_3'(0)=f_3'''(0)=0$; $|a|\le9.1\cdot10^{-8}$, $|b|\le2.6\cdot10^{-7}$), for every even $v\in D(L)$ with $\ip{v}{f_j}_\rho=0$, $j=1,2,3$:
+\[
+\operatorname{Re}\ip{Lv}{v}_\rho\le-\tfrac3{64}\norm{v}_\rho^2 .
+\]
+\end{theorem}
+Ingredients (all \tC): Morse index of $A=-H_{\rm sym}-\omega$ on even functions is $3$; $A$ is invertible; the $3\times3$ Gram matrix $[\ip{A^{-1}f_j}{f_i}_\rho]$ is negative definite with Schur complement in $[-7.31\cdot10^{-4},-1.95\cdot10^{-4}]$. The triangular Lyapunov constants of Proposition ``the constants'' there ($\norm{f_3}=0.0194760$, $\norm{r_3}\le5.27\cdot10^{-5}$, $\norm{M^{-1}}\le2.0005$, $\Lambda_{\rm tri}\le15.59$, $\norm\Pi\le1.00008$, \dots) give the modulated linear decay
+\[
+\norm{e^{\tau\mathcal L}u}_\rho\le14.8\,e^{-0.0213\tau}\norm{u}_\rho\quad\text{on even }u\perp\{f_j\}.
+\]
+The theorem is the linear input of the energy estimates of \S3.2--3.5. The energy uses the $\theta$-form of the same estimate, $\operatorname{Re}\ip{Lv}{v}_\rho+\tfrac19\norm{v''}_\rho^2\le-\tfrac1{32}\norm v_\rho^2$ on the same constraint set (\fn{STEP3_ARGUMENT.md} \S2; constant \fn{PI3}), certified separately by the $\theta$-form certificate \fn{step3/certificate_step3_theta_T1.json} (CERT_PLAN.md, Nov~6: positivity at infinity, tail theorem with $\lambda=-1/32$, Morse count $3$, Gram Schur complement in $[-4.93\cdot10^{-4},-1.73\cdot10^{-4}]$); the $3/64$ statement above is the form without the $\theta$ term.
+
+\subsection{Energies and Lyapunov constants \tC}
+\emph{Source:} \fn{verifier/constants.py} (single source of constants), \fn{STEP3_ARGUMENT.md} \S3, \fn{agent_coup}.
+\begin{center}\small\begin{tabular}{@{}lll@{}}\toprule
+constant & value & role\\\midrule
+$\varepsilon,\ \varepsilon_I,\ \mu$ & $10^{-5},\ 3\cdot10^{-5},\ 0.08$ & weights in $E$, $E_I$, $\Lambda$\\
+$\mu_1$ (L-int), $\mu_2$ (G\aa rding) & $0.1552$, $0.6555$ & dissipation of $E_I$ at orders $V_0,V_2$\\
+$c_{1W}$ & $0.8477$ & $V_1^2\le V_0V_2+c_{1W}V_0^2$\\
+$K_W$ & $2.323\cdot10^6$ & pointwise $|w'|$ from $E_I$\\
+$\sup|\psi'|$ (\fn{PSI1W}) & $1.305$ ($\le1.31$ used) & identity $\norm{v''^2}_W\le\sup|v'|(3V_3+1.31V_2)$\\
+admissible $\mu$ & $[2.906\cdot10^{-3},0.1135]$ & $\mu=0.08$ inside\\\bottomrule\end{tabular}\end{center}
+\emph{Status.} \tC\ as recorded in the cited notes. The identity bounding $\norm{v''^2}_W$ (which removes $\sup|w'''|$ from the coefficients) is the exact integration by parts of \fn{STEP3_FIXPLAN.md} F2, implemented in \fn{verifier/rhs_iv.py}.
+
+\subsection{Forcing \tC}
+Inner and far forcing norms (from the approximate solution $\alpha\hat\psi_3+\alpha^2\hat h_2$):
+\[
+F_n(\alpha)=7.93\cdot10^{-7}|\alpha|+2.769\cdot10^{-6}\alpha^2+12.104|\alpha|^3,\qquad
+F_{nW}(\alpha)=1.09\cdot10^{-7}|\alpha|+6.5\cdot10^{-9}\alpha^2+0.1823|\alpha|^3 .
+\]
+At $\alpha_1=1.5\cdot10^{-4}$, $F_n\approx1.6\cdot10^{-10}$ (\fn{STEP3_FIXPLAN.md} V1). This is the only forcing that is absolute (degree $0$ in the shape variables) apart from term (c). \emph{Source:} \fn{STEP3_ARGUMENT.md} \S4, \fn{verifier/constants.py} (\fn{FN}, \fn{FNW}).
+
+\subsection{Modulation by integration by parts \tC}
+\emph{Source:} \fn{step3nl/agent_mod/ibp/MOD_IBP.md}, \fn{mod_ibp.json} (symbolic identities: \fn{ibp_sym.py}, residual $0$; bounds: arb simplex branch-and-bound on the $3425$ \fn{outA5} hull boxes with $C^4$ jets).
+
+\emph{Statement.} Put $Q=(A+W_1+B)^2$. Under the validity box $|\alpha|\le5\cdot10^{-4}$ (the certified range, used unchanged for $\alpha_1=1.5\cdot10^{-4}$, conservatively), $A,W_1\le10^{-3}$, $|w|,|w'|\le0.02$ on $\operatorname{supp}\chi$ (jet box $\eta$), with $N(w)=F(a+w)-F(a)-L_0w$ and the quasilinear structure $F=c_4u_4+c_3u_3+G$:
+\begin{align*}
+|\beta|&\le(0.00244+66.53|\alpha|)\,A+5.53\,Q+0.657\,\norm{\chi\Phi_F}+\text{strip},\\
+|(a,b)|&\le(3.7083+622.4|\alpha|)\,A+51.34\,Q+3.8404\,\norm{\chi\Phi_F}+\text{strip}.
+\end{align*}
+The strip terms (sums of coefficients per unit $S_i=\sup_{\sigma\in[29,32]}|w^{(i)}|$: $5.3\cdot10^{-8}$ for $\beta$, $1.29\cdot10^{-7}$ for $a$, $2.43\cdot10^{-7}$ for $b$; $S\le0.02$) are now included literally in the verifier (\fn{STRIP_BETA}, \fn{STRIP_AB}); the rerun moves nothing ($J_0$: $2.6422\to2.6424\cdot10^{-11}$). \emph{Features used downstream:} no $D_4$ or $W_3$ terms, the cubic term $w''^3$ cancels exactly, $u_0\in C^4$ suffices, and the $E$-matrix feedback $W_1A$ is part of $q_{ab}$. Certified values $q_\beta=5.526$, $q_{ab}=51.34$ ($\alpha_1=5\cdot10^{-4}$). Verifier mapping: \fn{BETA0=0.00244}, \fn{BETA1=66.5}, \fn{BETAF=0.657}, \fn{QB=5.53}, \fn{CAB=3.708+622.4|alpha|}, \fn{q_ab=51.3}, \fn{Phi_F coefficient 3.84}.
+
+\emph{Certified sups at $\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda_1}=5\cdot10^{-8}$} (regenerated for the final march, \fn{final_alpha_points_5e-8.json}): $\sup|a|,\sup|b|\le2.19\cdot10^{-7}$, $\sup|\beta|\le3.34\cdot10^{-9}$ (certified $3.33811\cdot10^{-9}$). These certified sups (not the legacy $7.57\sqrt\Lambda$ and $(0.00244+63.5\alpha)\sqrt\Lambda$, the latter not being an upper bound: $6.5\cdot10^{-10}$ against $3.34\cdot10^{-9}$) are what the assembly uses for $\bar a=\bar b$ and $\beta$ (generated by \fn{verifier/mod_sups.py}, outward-rounded to $6$ digits; the modulation constants are rounded outward to \fn{BETA1}$=66.53$, \fn{CAB0}$=3.7083$, \fn{QAB}$=51.34$, \fn{PHIAB}$=3.8404$, strip $2.76\cdot10^{-7}$ per unit $S$); the forcing terms they feed are $\le3\cdot10^{-11}$ in every $E_j$, so no earlier conclusion changes. The $E_0$ $\alpha$-term is treated with the certified worst case \fn{MOD_ALPHA}$=25$ (replacing $6.19\cdot66.5/63.5$). Hull boxes (up to $20\%$ wide) inflate far-region sups. With \fn{FIX=1} (default) \fn{constants.py} now sets the \fn{MOD=ibp} constants; the old $7.57$, $63.5$ remain only for \fn{FIX=0}.
+
+\subsection{Inner and intermediate closure (verifier) \tC}
+\emph{Sources:} \fn{verifier/VERIFIER.md} (``Final pass'', ``Fix plan'', ``update~2''), \fn{verifier/TAIL_LEMMA.tex}, data \fn{E_I_sups_fix6.json}, \fn{rate_table_unc6_L5e-8.json}, \fn{verify_log_fix6_L5e-8_a0.0005.txt}, \fn{unc_log_unc6_L5e-8.txt}.
+
+\paragraph{Comparison system.} With shape variables $x=(A,B,D_4,V_0,V_2,V_4)$,
+\[
+\tfrac{d}{d\tau}|\alpha|\le\tilde\lambda|\alpha|+\beta(\alpha,\Lambda),\qquad
+\tfrac12\tfrac{d}{d\tau}\Lambda=H+L-\mathrm{NEG}\le r(\alpha,\Lambda)\Lambda ,
+\]
+$\beta=(\beta_0+\beta_1|\alpha|)\sqrt\Lambda+\beta_FF_n(\alpha)$ from \S3.4; $r$ is the interval branch-and-bound maximum over the shape variables. $H$ (resp.\ $L$) collects the summands of degree $\ge2$ (resp.\ $<2$) in $x$. Inputs on $[34.25,60]$ are the bootstrap constants $S_0^v$ and $S_1^v$ (via \fn{S0V}, \fn{S1V}; coefficient $S_1^v/32$ for $|w''|$) and the absolute term-(c) fluxes $K_0,K_2$ (\fn{FLUX0}, \fn{FLUX2}); ramp ``term (a)'' uses the certified table of \fn{agent_int/planB/planB_ramp.json} (valid for $S_{\rm ramp}=\max(\sup|w|,\sup|w'|)\le10^{-2}$ on $[10.25,16.25]$) and the far T3 coefficients of \fn{r60_T3_boxw1_0.02.json} (valid for $|w'|\le0.02$ on $[16.25,60]$). Rounding is outward at every operation (\fn{nextafter}, 200-bit \fn{arb} constants).
+
+\paragraph{Run.} \fn{THETA=0.05 ADD=abcd FIX=1 DELTA=0.2 MOD=ibp S1V=0.6 FLUX0=4.1e-21 FLUX2=2.0e-20 MODA=25 ETA=0.01}, tag \fn{fin11} (\fn{S0V=0.0153} was exported in the launching shell for all runs; the code default $0.011$ was \emph{not} used; \fn{VERIFIER.md} ``update~3''; the logs do not echo it), $\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda_1}=5\cdot10^{-8}$; the modulation constants (certified for $|\alpha|\le5\cdot10^{-4}$) and the $\alpha=2.5\cdot10^{-4}$ row of the ramp table are used unchanged at all steps (conservative).
+\begin{center}\small\begin{tabular}{@{}lll@{}}\toprule
+quantity & value (5e-8) & role\\\midrule
+steps in the march / tail start $\tau_t$ & $10$ / $5.48$ & first-touch barrier, then tail lemma\\
+peak $\sqrt\Lambda$ & $5.307\cdot10^{-8}$ & (W1)\\
+tail rate $\rho$ (for $\Lambda$) & $2.693\cdot10^{-3}$, $\alpha$-condition margin $177$ & tail lemma\\
+floor $\sqrt{\Lambda_F}$, $\alpha_F$ & $4.936\cdot10^{-10}$, $\le3.433\cdot10^{-7}$ & anchor cell $[L^*,1.01L^*]$\\
+$A_{\max}$, $W_{1,\max}$ & $5.307\cdot10^{-8}$, $6.7\cdot10^{-7}$ & modulation box $10^{-3}$: margin $>1400$\\
+$S_{\rm ramp}$ (box $10^{-2}$) & $7.47\cdot10^{-4}$ & term (a)\\
+$s_{I1}=\sup|w'|$, $s_{I2}=\sup|w''|$ ($x\ge16.25$) & $1.160\cdot10^{-3}$, $1.546\cdot10^{-2}$ & ramp coefficients\\
+$M_1^{\rm ramp}=28\,s_{I2}$ (deviation) & $0.433$ & input to Lemma S (full-slope box $0.9$)\\
+$J_0,J_1,J_2$ (const.) & $6.027,\ 8.467,\ 1.871\ (\times10^{-12})$ & shell inflow\\
+$J_4$ (const.) & $6.236\cdot10^{-8}$ & ($J_3\approx\sqrt{J_2J_4}+c_{1W}J_2\approx1.5\cdot10^{-9}$)\\
+slopes per unit $\tau$ & $8.64,\ 12.2,\ 2.69\ (\times10^{-19})$; $8.9\cdot10^{-15}$ & $J(\tau)=J^{\rm const}+\text{slope}\,(\tau-\tau_t)$\\\bottomrule\end{tabular}\end{center}
+
+\paragraph{Tail lemma \tC/\tA.} Structural facts (degree tracking of the code \fn{rhs_pn}: $H$ and $L$ valuations in the radial, $s$-scaled and joint $(\alpha,x)$ modes) are machine-certified by \fn{tail_cert.py}; the numerical inequality $\mathrm{POS}(q^*)\le q^{*2}/2$ is checked in every cell. \emph{Bug fix of the final run:} the $x$-degree-$0$ part of the $(a,b)$ bound ($3.84F_{nW}+$strip) had been multiplied into $H$ with valuation $1$; it now sits in $L$, and \fn{tail_cert.py} ends with \fn{TAIL_CERT PASS} (radial, $s$ and joint modes; floor terms are $L$-only). All runs before \fn{fix8} are superseded. Given an anchor cell (now certified on $[L^*,1.01L^*]$, $\eta=0.01$, also for the $V_1$ $\delta_t$ check) with certified $\sup\mathrm{tot}_s/\Lambda\le-\rho$ and $(|\tilde\lambda|-\rho/2)\kappa\ge\beta_0+\beta_1\kappa\sqrt{L^*}+\beta_FF_n(a^*)/\sqrt{L^*}$, a first-touch argument gives $\Lambda\le\ell(\tau)$, $\alpha\le\kappa\sqrt{\ell(\tau)}$ with $\ell=\max(L_F,L^*e^{-\rho(\tau-\tau_t)})$; with $L^1_{\rm loc}$ absolute forcing (term (c)) the floor is $L_F\ge Z_{\max}/\eta$. The decay is only used at $\Lambda=\ell$; $\ell'=-\rho\ell$ is conservative by a factor $2$.
+
+\paragraph{Unconditional time integrals (V1) \tC.} Only the upper barrier is used: $H-(1-\delta)N\le r_1s^2$ for all $s\le s_{\rm up}$, and $L-\delta N\le\Phi(\alpha)$ with $\Phi$ nondecreasing in $\alpha$; hence along the true trajectory
+\[
+\theta\!\int\!\mathrm{NEGV}\le\tfrac12\Lambda(\tau_1)+\sum_k\bigl(r^+_{1,k}L_{{\rm up},k}+\Phi(a_k)\bigr)D_k+\tfrac12L^*+\frac{\Phi(a^*)}\rho+\Bigl(\frac{\Phi(a^*)L_F}{L^*}+F_0\Bigr)(T-\tau_t),
+\]
+which gives the $J$'s in the table (here $\theta=0.05$, $\delta=0.2$, $\delta_t=0.2$). The $J$'s are valid on every initial segment $[\tau_1,\tau]$, the integrands being nonnegative. Branch-and-bound leaf acceptance is proved sound for any tolerance (\fn{TAIL_LEMMA.tex}, leaves).
+
+\paragraph{Inputs the verifier takes from the bootstrap.} (i) $S_0^v\le0.0153$ and $S_1^v\le0.6$ on $[34.25,60]$; (ii) $K_0\le4.1\cdot10^{-21}$, $K_2\le2.0\cdot10^{-20}$ per unit $\tau$ (term (c), computed from shell energies on $y\in[54.75,57.75]$; linear in the energies, see \S3.6); (iii) $|w'|\le0.02$ on $[16.25,60]$, $S_{\rm ramp}\le10^{-2}$.
+
+\subsection{Lemma S(A): deviation shells on the ramp and core \tC}
+\emph{Source:} \fn{writeup/lemmaS/lemmaS.tex}, Summary on page~1 (binding) and the resolutions on page~2; \fn{lemmaS_R8_M0.52.json}, \fn{lemmaS_consts.json}.
+
+\emph{Method.} Write each level-$j$ estimate in divergence form: test $\partial_s^j\tilde v$ and move two derivatives to the test function (Proposition~1, symbolic identities machine-verified). With $\Theta=\omega\eta^2e^{-4s}$ the ramp commutators obey the order-$j$ identity
+\[
+\int\Theta\,w\,\partial^2(a w'')=\int a\Theta w''^2+2\int a\Theta''ww''-\int(a\Theta'')'ww'-\int a_s\Theta'w'^2 ,
+\]
+so level $j$ needs ramp data of order $\le j$ only. The only genuinely nonlinear product at level~2 is $\tilde v_{ss}^2$, bounded in $L^4$ by the exact identity $\int\Theta z_2^4=-3\int\Theta z_1z_2^2z_3-\int\Theta'z_1z_2^3$; classes $\{2,3,3\}$ are handled by integration by parts. Pointwise coefficients: $M_0$, $M_1$ and jets of $U$ up to order $4$. On the ramp the nonlinear terms are bounded as data by the ``$\varepsilon$-split'' ($\sup(\varepsilon G_j\eta^2y^{2m-1}/W)\cdot J_m$); on the core the rate condition is $\varepsilon(28)G_{22}(M_1^{\rm core})<\gamma$. The foot term of the ramp cutoff ($\eta'/\eta$ unbounded) is covered by a cutoff-free energy $g=(\varepsilon\omega)^{1/2}z_2$, Sobolev in $s$ and H\"older in time, with inputs $J_2^{\rm free}=5.0\cdot10^{-7}$, $J_{2,3,4}$ and the pointwise $\Lambda$ bound. $J_2^{\rm free}$ is not independent: it is $2\,(51.6\,J_1^e+3.02\cdot10^4J_2^e)$ with $J_m^e=J_m+s_m/\gamma_2'$, i.e.\ certified by the verifier's $J_1,J_2$; $J_3\le\sqrt{J_2J_4}+c_{1W}J_2\approx1.5\cdot10^{-9}$; no $M_2^r$ is used (final run \fn{--rs33 ibp2}).
+
+\emph{Statement (consolidated).} Under the hypotheses of the next table and the hand-off (H2), for all $\tau\ge\tau_1$ (no horizon): $E_j\le(3.12\cdot10^{-7},\,1.81\cdot10^{-4},\,0.248)$, damping $\gamma'=(0.246,0.246,0.143)$; $S_0^v\le0.00575$, $S_1^v\le0.171$, hence $M_0\le0.0188$, $M_1^{\rm core}\le0.1844$; far-field flux constants $K_0=6.83\cdot10^{-22}$, $K_2=3.26\cdot10^{-21}$ per unit $\tau$ (linear in the shell energies, so at energies $\le2\hat E$ at most twice, within the verifier inputs) and $I_3\le1.84\cdot10^{-21}+1.39\cdot10^{-27}(T-\tau_1)$.
+
+\begin{center}\small\begin{tabular}{@{}p{0.07\linewidth}p{0.55\linewidth}p{0.30\linewidth}@{}}\toprule
+ & hypothesis (as in \fn{lemmaS.tex}) & status given there\\\midrule
+H-B1 & $\alpha\le1.5\cdot10^{-4}$, $\Lambda$ barrier (peak $5.31\cdot10^{-8}$), tail $\rho=2.69\cdot10^{-3}$, $\sqrt{L_F}=4.94\cdot10^{-10}$ & closed by verifier\\
+H-J & $J_{0,1,2}=(6.03,8.47,1.88)\cdot10^{-12}$, $J_4=6.24\cdot10^{-8}$ and slopes as in \S3.5 & closed by verifier\\
+H-R & ramp $M_0\le0.05$ (cert.\ $1.16\cdot10^{-3}$), ramp $M_1\le0.9$ for the full $y|f'|$ (cert.\ $0.4328+0.0061+2\cdot10^{-5}\le0.4390$; the $\alpha^2\hat h_2'$ allowance is certified by arb jets of the $C^4$ functions) & closed by verifier\\
+H-B2 & core $|v|\le0.02$, $M_0\le0.11$, $M_1\le0.52$ & closed by the lemma ($0.00575,0.0188,0.1844$)\\
+H-L4, H-L4r & core and ramp $L^4$ classes incl.\ $\{2,3,3\}$, foot term & closed by identity, IBP, $J_{2,3,4}$, pointwise $\Lambda$\\
+H-Z2 & ramp $\sup|z_2|$ & not needed (sup-free foot term)\\
+H-F4 & $K_0,K_2,I_3$ affine in $T$ & closed\\
+H-B3 & (B) level 3, strip $M_1\le0.3$, $|z_2|\le0.5$ & closed (Sobolev from $E_{1,2,3}$)\\
+H-H6 & $K_2\le0.024$, $K_3\le0.025$ from (H3) (including $U$), $K_4\le0.06$ certified at $\tau_1$ (H3), vs.\ $M=0.12$ & closed given (H3)\\\bottomrule\end{tabular}\end{center}
+\emph{Margins.} $S_0^v$ vs.\ $0.02$: $3.48$; $M_0^{\rm core}$ vs.\ $0.11$: $5.86$; $M_1^{\rm core}$ vs.\ $0.52$: $2.82$; $\hat G_{22}=6.58\cdot10^4$ (ramp $2.36\cdot10^5$): $2.33$; $\gamma_2'=0.143>0$; ramp $M_1$ box $0.9$ vs.\ $0.4390$ certified: $2.05$; (B) boxes: $M_0$ $2.54$, $M_1$ $2.05$, $z_2$ $4.26$, derived $|f|$ vs.\ $\tfrac12$: $5.38$; Lemma O jets $K_2,K_3$ $\ge4.8$. \textbf{Minimum margin $2.05$} (ramp box and (B) $M_1$ box); no margin below $2\times$.
+
+\emph{Remark ($\alpha_1=1.25\cdot10^{-4}$).} This point is also certified (v3.1 runs; the (B) boxes rerun with the frozen profile in \fn{lemmaS_v32/} give the same $K_2=0.022$, $K_3=0.025$) (\fn{rate_table_fin11_a0.000125.json}, \fn{lemmaS_Bbox_1e-05_a0.000125_dv0.15.json}): peak $5.22\cdot10^{-8}$, $\rho=2.860\cdot10^{-3}$, $\sqrt{L_F}=4.789\cdot10^{-10}$, $J_{0,1,2}=(5.68,7.98,1.77)\cdot10^{-12}$, $J_4=5.87\cdot10^{-8}$; $E=(3.05\cdot10^{-7},1.761\cdot10^{-4},0.245)$, $S_0^v=0.0057$, $S_1^v=0.170$, $M_1=0.181$, ramp margin $2.09$, (B) box margin $\ge2.2$, $K_2=0.022$, $K_3=0.025$; $\sup|(a,b)|\le2.154\cdot10^{-7}$, $\sup|\beta|\le3.21\cdot10^{-9}$.
+
+\emph{Status \tC, modulo three final-rigor-pass items.} The conversion-weight suprema are \fn{arb} ball enclosures over $400$ cells and $C_\eta=15.84$ over $4000$ cells; no grid maxima remain. Not interval-certified: (i) the assembly runs in IEEE double arithmetic without outward rounding; (ii) the class weights of the $L^4$ terms use sympy floats; (iii) the sliver $x\in[16.2491,16.25]$ where $\zeta<1$ is neglected ($<10^{-29}$, needs $|z_j|\le10^3$; effect on $z_2\sim10^{-6}$ relative). Prop.~1 identities are machine-verified symbolically.
+
+\subsection{Lemma S(B): full slope beyond the core, windows and strip \tC}
+\emph{Source:} \fn{lemmaS.tex} (consolidated statement and ``Part (B)''), \fn{STEP3_FIXPLAN.md} F5, \fn{lemmaS_B3.py}; v3.2: \fn{writeup/lemmaS_v32/} (\fn{lemmaS_Bbox.py} with \fn{FROZEN=1}, \fn{cres.py}, \fn{ramp_out.py}, \fn{ramp_budget.py}).
+
+On $y\in[48,R(\tau)]$ the full slope $f=U+v$ is controlled by energy estimates on windows that are \emph{fixed in physical space} ($y_{\rm edge}'=(\tfrac14-a)y_{\rm edge}$). Then the $a$-flux vanishes and the $b$-flux costs $\int|b|e^{-s}d\tau\le4\sup|b|/y_{\rm entry}$, so (B) needs only $\sup|a|$, $\sup|b|$ (no $\int|a|$). Entry energies are those of (A) on $[48,56]$ and the hand-off data. Results: $E_B=(3.14\cdot10^{-7},\,1.83\cdot10^{-4},\,0.250)$. Since a single global box is invalid at level~3, (B) is run on local windows $[y_w,1.5y_w]$, $y_w=50,75,112.5,168.75,253.1$, with per-window boxes $|f|\le U(1.5y_w)+0.15$, $y|f'|\le1.05\,U(1.5y_w)+0.15$ and $\hat G$ recomputed per window (\fn{lemmaS_Bbox_1e-05_a0.00015_dv0.15.json}); all $\gamma'\ge0.181$, derived $|f|\le0.093$ (margin $5.4$ against $\tfrac12$), $y|f'|\le0.118$, $|z_2|\le0.118$; the boxes close with margins $2.54$ ($M_0$), $2.05$ ($M_1$), $4.27$ ($z_2$). Hand-off energies are those of the deviation $v=f-U$ at $\tau_1$ (H3): $E_{1,2,3}\le10^{-5}$, $E_0\le2\cdot10^{-7}$; no $E_4$. They give, \emph{including the $U$-part}, the Lemma~O jets $K_2\le0.024$, $K_3\le0.025$ (cylinder units, $L=50$; margins $\ge4.8$ against $M=0.12$); $K_4\le0.06$ at $\tau_1$ is certified directly. These are the hand-off data multiplied by $e^{C\cdot50^{-4}}$ (in the weight frozen at entry and for the deviation from the frozen profile, Proposition~\ref{prop:B} below) and do not depend on (A) or on $J$. Windows entering later through $y=48$ stay at $r<48\lambda$ and need only finite bounds ($|f|\le0.093$ from levels 0--1; level~2 from $E_2^A$), giving curvature $\le S_1^f/r$.
+
+\paragraph{v3.2: frozen profile.} v3.1 ((H3), this subsection, D5, and \fn{lemmaS.tex}) defined the window deviation as $v=f-U$, $U=1.3056\,\alpha\,y^{p}$, $p=1.0246$, with the \emph{current} $\alpha(\tau)$. The forcing is then $R\simeq(\beta-pa\alpha)\,1.3056\,y^p$, and \fn{lemmaS_Bbox.py} (as \fn{lemmaS.tex} l.116) evaluates $F_j^2=\int\omega|\partial_s^jR|^2$ in entry coordinates. For a window fixed in physical space $y=r/\lambda(\tau)$ grows like $e^{\tau/4}$, so the forcing grows like $e^{0.256\tau}$, while step 3 certifies only $\sup|\beta|\le3.34\cdot10^{-9}$ and a floor for $\alpha$. Indeed
+\[\frac{d}{d\tau}\bigl[\alpha\lambda^{-p}\bigr]=(\beta-pa\alpha)\lambda^{-p}\qquad(\tilde\lambda=-p/4),\]
+so $U(\alpha(\tau),r/\lambda(\tau))$ is not controlled at fixed $r$: with $|\alpha|$ only below the floor $3.43\cdot10^{-7}$ it is unbounded as $\lambda\to0$. Hence ``window energies $\le2\times$ entry'' (B3) cannot be derived for all $\tau$ for this $v$; the integrated forcing reaches the strip sup $\approx0.012$ after $\approx37$ units of $\tau$. The full slope $f$ at fixed $r$ is nearly frozen, so only the bookkeeping is wrong. A second, related point: a $\tau$-uniform bound on the $\omega(\tau)$-normalised energy does not give a uniform physical bound (it loses $\lambda_1/\lambda$); the conversion $c_v=y_b/28$ at entry is correct only for the weight frozen at entry.
+
+\begin{proposition}[B$'$, physically fixed window]\label{prop:B}
+Let a window $r\in[r_E,1.5r_E]$ be present at $\tau_e$ ($\tau_e=\tau_1$ for the strip; the entry time through $y=48$ otherwise), $y_E=r_E/\lambda(\tau_e)$. Put $U_e(r)=1.3056\,\alpha(\tau_e)(r/\lambda(\tau_e))^p$, $v=f-U_e$, $z_j=(y\partial_y)^jv$, and $\hat E_j(\tau)=\int_{\rm window}\hat\omega z_j^2\,ds$ with the weight frozen at entry, $\hat\omega=28\lambda(\tau_e)/r$. Then $v$ solves the equation of Lemma S with forcing
+\[\hat R=b\cos\theta\,U_e'-y^{-4}(D-2)(D-3)\Phi(U_e),\qquad \Phi(U)=\frac{p(p-1)U}{(1+U^2)^2}-\frac{3p^2U^3}{(1+U^2)^3},\quad D=y\partial_y,\]
+(no $\beta$-term and no $a$-term, because $\partial_\tau U_e+(\tfrac14-a)yU_e'=0$ exactly), and for $j\le3$, under the boxes of H-B3,
+\[\hat E_j(\tau)\le e^{q\hat G_{\max}y_E^{-4}+29q\bar a/y_E}\bigl(\sqrt{\hat E_j(\tau_e)}+\Phi_j\bigr)^2+\frac{2}{\gamma_j'}\sum_{k<j}\hat G_{jk}y_E^{-4}\sup\hat E_k,\qquad q=\frac1{1-4\bar a},\]
+\[\Phi_j=4q\bar b\,p\Bigl(\int_{y_E}^{1.5y_E}\tfrac{28}{y}\tfrac{U^2}{y^2}\tfrac{dy}{y}\Bigr)^{1/2}+q\,c_j\Bigl(\int_{y_E}^{1.5y_E}\tfrac{28}{y}\tfrac{U^2}{y^8}\tfrac{dy}{y}\Bigr)^{1/2},\]
+with $c_j\ge\sup_{0<U\le0.1}|(D-4)^j(D-2)(D-3)\Phi|/U=(0.0520,\,0.1446,\,0.4324,\,1.2807)$. Unweighted: $\int z_j^2ds\le(1.5y_E/28)\hat E_j$ for all $\tau\ge\tau_e$.
+\end{proposition}
+\begin{proof}[Proof (changes against v3.1 only)]
+In the frozen weight the transport term contributes the rate $(\gamma+|1-2j|+1)\bar b/y(\tau)\le7\bar b/y(\tau)$ and the fourth-order terms $y(\tau)^{-4}\hat G_{jj}$; both are integrable along $y(\tau)=y_Ee^{\int(\frac14-a)}$, which gives the exponential (this is the factor $e^{Cy_E^{-4}}$ of v3.1; the $b$-exponent $8\bar a/y_E$ of the script becomes $29\bar a/y_E$, a change of $10^{-7}$). The forcing terms decay like $e^{-\tau/4}$ and $e^{-\tau}$ at fixed $r$, and $\frac{d}{d\tau}\sqrt{\hat E_j}\le\hat F_j$ integrates to $\Phi_j$. The coupling is bounded as in v3.1 (conservatively, $2/\gamma'\ge8>q$).
+\end{proof}
+\noindent\textbf{Rerun} (\fn{lemmaS_v32/lemmaS_Bbox.py}, \fn{FROZEN=1}; without it the copy reproduces the stored v3.1 JSON to $4\cdot10^{-16}$). Boxes, $\hat G$ and $\gamma'$ are identical.
+\begin{center}\resizebox{\textwidth}{!}{\begin{tabular}{lcccccc}\toprule
+window & box $(M_0,M_1)$ & $\gamma'_{0..3}$ & forcing v3.1 / frozen $\Phi_3$ & $E_B$ ($j=1,2,3$)$\cdot10^{5}$ & derived $|f|$, $y|f'|$, $|z_2|$ & $K_2,K_3$ ($L=50$)\\\midrule
+$[50,75]$ & $(0.1663,0.1672)$ & $.2496,.2498,.2473,.1810$ & $2.2\cdot10^{-6}$ / $6.9\cdot10^{-10}$ & $1.0714,1.0715,1.0731$ & $.0194,.0295,.0295$ & $.0236,.0249$\\
+$[75,112.5]$ & $(0.1747,0.1760)$ & $.2499,.2500,.2494,.2351$ & $2.6\cdot10^{-6}$ / $2.2\cdot10^{-10}$ & $1.0151,1.0151,1.0153$ & $.0284,.0407,.0407$ & $.0212,.0133$\\
+$[112.5,168.8]$ & $(0.1875,0.1894)$ & $.2500,.2500,.2499,.2466$ & $3.7\cdot10^{-6}$ / $9.4\cdot10^{-11}$ & $1.0034,1.0034,1.0035$ & $.0420,.0573,.0573$ & $.0195,.0072$\\
+$[168.8,253.1]$ & $(0.2068,0.2096)$ & $.2500,.2500,.2500,.2492$ & $5.6\cdot10^{-6}$ / $5.6\cdot10^{-11}$ & $1.0008,1.0008,1.0008$ & $.0623,.0815,.0815$ & $.0181,.0040$\\
+$[253.1,379.7]$ & $(0.2361,0.2404)$ & $.2500,.2500,.2500,.2498$ & $8.4\cdot10^{-6}$ / $4.1\cdot10^{-11}$ & $1.0002,1.0002,1.0002$ & $.0928,.1172,.1171$ & $.0171,.0022$\\\bottomrule
+\end{tabular}}\end{center}
+All entries agree with v3.1 to the digits shown (largest relative change of any derived bound: $8.9\cdot10^{-5}$, downward). The binding statement $K_2\le0.024$, $K_3\le0.025$, $|f|\le0.093$, $y|f'|\le0.118$ stands.
+
+\noindent Nothing changes in the verifier or in Lemma S(A) (fixed rescaled $y\in[14,60]$, where $U(\alpha(\tau))$ with the $\beta$-forcing is correct). For the windows entering later through $y=48$ ($E_B$ above, \fn{lemmaS_F4B.py}) the same repair applies with $\tau_e$ the entry time; rerun in \fn{lemmaS_v32/}: $E_B=(3.15\cdot10^{-7},1.83\cdot10^{-4},0.250)$, changes $\le10^{-7}$ relative.
+
+\paragraph{Edges of the strip energies (v3.2).} Proposition~\ref{prop:B} is an estimate for a window with no contribution from its edges; v3.1 (\fn{lemmaS.tex}, Prop.~B: ``no ramp inflow'') did not estimate the fourth-order terms there, and placed an outer ramp on $[150,175]$ entering ``only through $R_1^{-4}$''. In v3.2 the strip energies are cutoff energies $\mathfrak E_j=\int\chi^2\hat\omega z_j^2\,ds$, $j=0,1,2$ (level 3 is not propagated on the strip and is not used), with $\chi$ fixed in physical space. With the divergence-form identities of \fn{lemmaS_F1.py} a ramp contributes to $\mathfrak E_j$ over all time at most $q\sum_{k\le j+1}c_{jk}N_k^2$, $N_k^2$ the time average over $[t_1,T)$ of $\int_{\rm ramp}z_k^2ds$ (because $\varepsilon(\tau)d\tau=y_E^{-4}dt/\lambda_1^4$).
+
+\emph{Outer ramp $[190,379.5]\lambda_1$ (closed; Lemma~R, \fn{lemmaO_v32/lemmaR.tex}).} The ramp lies in the conclusion regions of three cone members. $N_0,N_1,N_2$ follow from D5a; $N_3$ needs $h_{xxxx}$, which Lemma~O does not bound. Lemma~R supplies it from the dissipation of the energy $E_3$ of Lemma~O: for $\theta,\delta\in(0,1)$,
+\[\frac1t\int_0^t\!\!\int_{|x|\le1+w}g_{xxxx}^2\le R_4(t)=\frac1{1-\delta}\Bigl[\sqrt{\tfrac{C_*C_\theta}{4\theta a_{\min}}}\,t^{1/2}+\tfrac{Z_q^2C_*}{2\delta}\,t\Bigr],\qquad C_\theta=2\max_u\bigl[f(u)+\theta a_{\min}u^8\bigr],\]
+with $R_4\le0.2076$, $0.1297$, $0.0811$ for the members of unit $190/3$, $77.57$, $95$ (\fn{lemmaR_consts.json}, \fn{arb}; uses $\norm{h_0'''}\le n_3=0.004$ of (H5)). Certified result (\fn{lemmaS_v32/ramp_cert.json}): $N_k^2\le(0.0192,0.0435,0.1682,742.2)$ and $\Delta_j\le(3.03\cdot10^{-9},\,8.94\cdot10^{-9},\,3.043\cdot10^{-5})$, i.e.\ $1.6\%$, $0.09\%$ and $3.05$ times the window entry energies. Starting from the five window energies of (H3) on $[50,379.5]$, the outer edge alone gives $\mathfrak E_j\le5.0$, $5.0$, $7.9$ times the per-window bounds of the table above. (On the v3.1 ramp $[150,175]$ the corresponding coefficients are $\approx300$ times larger.)
+
+\emph{Inner edge (open).} The cutoff energy also needs an inner ramp. Lemma~R does not reach it: at $r\approx50$--$75\lambda_1$ a cylinder has unit $\lesssim25\lambda_1$ and time ratio $\gtrsim2.6\cdot10^{-6}$, beyond every certified $t^*$, and no a-priori bounds of type (A) exist at that scale. For the ramp $[50,75]\lambda_1$ the certified coefficients are $c^{\rm in}_{2\cdot}=(3.8\cdot10^{-7},1.46\cdot10^{-5},2.43\cdot10^{-4},3.36\cdot10^{-5})$, $c^{\rm in}_{1\cdot}=(3.4\cdot10^{-8},7.03\cdot10^{-5},3.41\cdot10^{-5})$ (\fn{lemmaS_v32/ramp_in_50_75.json}), and D5b needs about $c^{\rm in}_{22}N_2^2+c^{\rm in}_{23}N_3^2\lesssim2\cdot10^{-4}$, e.g.\ $N_2^2\le0.4$, $N_3^2\le3$ on that ramp for all $t$. Step 3 controls this region after $\tau_1$ only at the level of Lemma~S(A) ($E_2^A\le0.25$, so $N_2^2\approx0.7$ while the ramp is in the region of (A)), and $z_3$ only through the dissipation of levels 1, 2, which carries the factor $\varepsilon\omega\approx10^{-7}$ and gives $N_3^2\sim10^3$ (estimates). So the strip statement above (hand-off data times $e^{C\cdot50^{-4}}$ on $r\in[50,150)\lambda_1$) is \emph{not proved} at levels 1, 2. Details and the precise missing statement: \fn{lemmaO_v32/lemmaR.tex} \S5.
+
+\subsection{Lemma O: far curve and cone region \tC}
+\emph{Source:} \fn{writeup/lemmaO_v32/lemmaO_v32.tex} (constants \fn{lemmaO_v32_consts.json}, closure \fn{lemmaO_v32_h6.py}/\fn{.json}; python-flint \fn{arb}, 200 bits). The statement (graph persistence with bounds $|h_{xx}|<K_2$, $\norm{h_{xxx}}_{L^2(-X,X)}\le K_3$, slope $<\tfrac14$, on a cylinder $[-X,X]\times[-H,H]$ for $t\le t^*$) is the one of \fn{lemmaO_v2.tex}/v1, whose formulas v3 reuses with a sharper $\kappa$; v3 is not self-contained (\S6).
+
+\begin{center}\small\begin{tabular}{@{}lcc@{}}\toprule
+cylinder & cone $X=3$ & far $X=2$\\\midrule
+unit $L$; $M$; $K_2=K_3$ & $r/4\ge50\lambda_1$; $0.12$; $0.18$ & $113\lambda_1$; $0.15$; $0.3$\\
+needed time ratio, incl.\ $(1-4\bar a)^{-1}$ & $1.6001\cdot10^{-7}$ & $6.134\cdot10^{-9}$\\
+certified $t^*\ge$ & $3.683\cdot10^{-7}$ & $9.511\cdot10^{-8}$\\
+margin & $2.30$ & $15.5$\\
+$C_1\sqrt t$; data slope threshold & $0.00748$; $0.08$ & $0.00438$; $0.08$\\
+$C_2\sqrt t$; $\sqrt{C_3t}$ (per conclusion region) & $0.03955$; $0.02392$ & $0.03810$; $0.02878$\\\bottomrule\end{tabular}\end{center}
+The needed ratio is $t_1/L^4$ with $t_1=1$ ($\lambda_1^4$) and $L=\text{half-width}/X$ (cone: $y_O=200$, half-width $0.75r=150\lambda_1$). The earlier $1.2\cdot10^{-7}$ (margin $3.08$) corresponded to half-width $161\lambda_1$ and is withdrawn; the cone column is the v3.2 run ($w=0.271$; v3.1: $w=0.317$, $t^*\ge3.701\cdot10^{-7}$, margin $2.31$, also valid). The far cylinders are re-specified in v3.2 at $(M,K)=(0.15,0.3)$: with the v3.1 values $(1,1.5)$ ($t^*\ge1.231\cdot10^{-8}$, margin $2.008$, $C_2\sqrt t=0.353$) the a-priori bounds of the cone cylinders reaching $r>475\lambda_1$ do not close ($\times0.54$). Data: \fn{lemmaO_v32_consts.json}, keys \fn{cases}, \fn{far_v32}. Hypotheses to be checked on the step-4 data (v3 \S5, Revision): H1 graph, H2 slope ($\le0.08$, both families), H3 jets $\le M$ (cone: $j=2,3,4$ with $K_2=0.024$, $K_3=0.025$ from (H3) and $K_4\le0.06$ directly, all including $U$; far, physical: $3.53\cdot10^{-4}$, $1.17\cdot10^{-5}$, $1.03\cdot10^{-7}$ in $\lambda_1$ units for $j=2,3,4$), H4 $\int(h_0^{(5)})^2\le M^2$, H5 the data thresholds of (H5) ($s_0$, $m_2$, $n_3$; v3.1 had $\norm{h_{0,xxx}}_{L^2}\le0.14$, which at $1.6\cdot10^{-7}$ would read $0.1337$), H7 time ratio, H9 regularity. H6 (the a-priori bounds recover at all centres) is no longer a hand-off check: it is proved in D5b (\S4) from these hypotheses and the strip. The former H8 (distance to other arms) is dropped: Lemma~O is applied to each arc separately, since CDF is local and an arc crossing a cylinder does not affect the estimates on the graph arc. Geometry (\tF, \fn{lemmaS_F5_geom.json}, true coefficient $1.3056$): tangent-frame slope of the bent cone $0.112$ (limit $0.2437$), curvature in cylinder units $0.037$ (vs.\ $M=0.12$), $S_1$-ray chart slope at $R_1=175$: $0.14$.
+
+\section{The bootstrap argument}
+
+\subsection{Preliminaries and bookkeeping}
+We use three standard facts, all \tA\ (literature, to be cited precisely by the authors; see \S6):
+\begin{enumerate}[label=(P\arabic*),leftmargin=*]
+\item \emph{Local well-posedness and continuation.} For smooth closed immersed data CDF has a unique smooth solution on a maximal interval $[t_1,T_{\max})$, and if $T_{\max}<\infty$ the curvature (with enough derivatives in $L^2$) cannot remain bounded as $t\uparrow T_{\max}$. In the rescaled frame the same holds for the quantities controlled below.
+\item \emph{Modulation along the flow.} As long as $|\alpha|\le5\cdot10^{-4}$ (certified range) and $A,W_1\le10^{-3}$ (validity box of \S3.4) the constraints $\ip{\tilde w}{f_j}_\rho=0$ determine $(a,b,\beta)$ smoothly (implicit function theorem), and $x_c,\lambda,\alpha,w$ depend continuously on $\tau$.
+\item \emph{Continuity of all controlled quantities} in $\tau$ on the interval of existence.
+\end{enumerate}
+
+\paragraph{Bootstrap hypotheses.} Let $\tau_{\max}$ be the end of the rescaled interval of existence. For $\tau^\ast\in[\tau_1,\tau_{\max})$ say that $\mathrm{BS}(\tau^\ast)$ holds if on $[\tau_1,\tau^\ast]$ the following four groups hold --- \emph{exactly these and nothing else}.
+\begin{description}[leftmargin=1.2em,labelindent=0pt]
+\item[B1] $|\alpha|\le\alpha_{\rm bar}(\tau)\le1.5\cdot10^{-4}$ and $\sqrt\Lambda\le\sqrt{\Lambda_{\rm bar}(\tau)}$, where $(\alpha_{\rm bar},\Lambda_{\rm bar})$ is the barrier of the verifier of \S3.5 (the interval-arithmetic march followed by the tail barrier $\ell(\tau)$); peak $\sqrt{\Lambda_{\rm bar}}=5.31\cdot10^{-8}$.
+\item[B2] \emph{(core $y\in[28,60]$)} $\sup|v|\le0.0153$, $M_0\le0.11$, $M_1=\sup y|V'|\le0.52$ (so $S_1^v\le0.57\le0.6$); shell energies $E_j\le2\hat E_j$ with $\hat E=(3.12\cdot10^{-7},1.81\cdot10^{-4},0.248)$.
+\item[B3] \emph{(windows $y\in[48,R(\tau)]$)} $|f|\le\tfrac12$; window energies (deviation from the profile frozen at entry, weight frozen at entry, \S3.7) $\le2\times$ their entry values; the per-window boxes of \S3.7 ($|z_2|\le0.5$).
+\item[B4] \emph{(Lemma O)} the a-priori bounds $K_2=K_3=0.18$ on the cone cylinders and $K=0.3$ (cylinder units; far cylinders $X=2$, $L=113\lambda_1$, $M=0.15$) on the far cylinders, for all centres.
+\end{description}
+At $\tau=\tau_1$ they hold with room: (H1) gives B1 ($\sqrt{\Lambda_1}=5\cdot10^{-8}$ lies below the first barrier cell); (H2) gives $E_j(\tau_1)\le(2\cdot10^{-7},10^{-4},0.2)<2\hat E$; (H3)--(H5) give B3, B4. Let $\tau^\ast$ be the supremum of $\tau'$ for which $\mathrm{BS}(\tau')$ holds. By (P2)--(P3) the set is nonempty, and all the inequalities defining it are closed conditions.
+
+\subsection{Dependency graph and the derivation order}
+\begin{center}\small\begin{tabular}{@{}l p{0.30\linewidth} p{0.27\linewidth} p{0.2\linewidth}@{}}\toprule
+step & uses & gives & section\\\midrule
+D1 closure & B1; B2 as coefficients on $x\in[34.25,60]$ ($S_0^v,S_1^v$); B2 energies for the (c) fluxes $K_0,K_2$ & $J_{0,1,2,4}$ (affine in $\tau$); pointwise $s_{I1},s_{I2},S_{\rm ramp}$ on $[10.25,34.25]$; $A,W_1$; bound on $a,b$ & \S3.5, 3.4\\
+D2 ramp $M$-values & D1 only & $M_0^{\rm ramp}\le s_{I1}$, $M_1^{\rm ramp}=28\,s_{I2}$ (\emph{derived}, not assumed) & \S3.5\\
+D3 shells (A), levels $0\to1\to2$ & D1 ($J$'s), D2 (ramp coefficients), B2 (core coefficients $M_0,M_1$), B3 ($|V|\le\tfrac12$ on the outer ramp $y>60$), (H2) & $E_0,E_1,E_2$; $S_0^v$, $S_1^v$; $K_0,K_2$ & \S3.6\\
+D5a Lemma O conclusions & B4; (H5); horizon from D1 & bounds on $g=h-h_0$ on every conclusion region & \S3.8\\
+D4 windows (B) & D3 on $[48,56]$; (H3),(H4); D5a and Lemma~R on the outer ramp; \emph{inner edge open} & B3 strictly; curvature $\le S_1^f/r$ & \S3.7\\
+D5b closure H6 & D5a; (H5); D4 on the strip $[50,150)$, levels $0$--$2$ & B4 strictly & \S3.8, Thm.~H6 of \fn{lemmaO_v32.tex}\\
+D6 barrier & D1 & B1 strictly (first touch) & \S3.5\\\bottomrule
+\end{tabular}\end{center}
+$M_1$ enters twice and is never circular: on the ramp it is \emph{derived} in D2 from $\Lambda$ alone ($M_1^{\rm ramp}=28\,s_{I2}$ with $s_{I2}$ certified in D1); on the core it is the hypothesis B2, re-derived in D3 with margin. No time-integrated quantity is used as a coefficient of a rate: the $J$'s are \emph{data} (inflow through the ramp) for the shells, and the integral $\int|a|\,d\tau$ no longer occurs because the windows are fixed in physical space.
+
+\subsection{Proof that BS closes}
+Assume $\mathrm{BS}(\tau')$ for some $\tau'\le\tau^\ast$. We derive, on $[\tau_1,\tau']$, the following bounds, \emph{each strictly better than the corresponding hypothesis}, using nothing but the hypotheses of the same $\mathrm{BS}(\tau')$, the hand-off data and the certified constants of \S3.
+
+\paragraph{D1 (closure; verifier).} The inputs of the verifier are inequalities that BS provides: $S_0^v\le0.0153$ and $S_1^v\le0.6$ on $[34.25,60]$ (B2; only the weaker input is used), $|w'|\le0.02$ on $[16.25,60]$, $K_0,K_2$ below the verifier's \fn{FLUX0}, \fn{FLUX2} (B2 energies; the fluxes are linear in the energies, so at $2\hat E$ they stay below the inputs, \S3.6), and $|\alpha|\le1.5\cdot10^{-4}$, $\Lambda\le\Lambda_{\rm bar}$ (B1). The V1 inequality of \S3.5 (which uses \emph{only} the upper barrier) yields on every segment $[\tau_1,\tau]$, $\tau\le\tau'$:
+\[
+J_0\le6.03\cdot10^{-12},\ J_1\le8.47\cdot10^{-12},\ J_2\le1.88\cdot10^{-12}\ (+\text{slope}\cdot(\tau-\tau_t)^+),\qquad J_4\le6.24\cdot10^{-8},
+\]
+and the pointwise bounds $|w'|\le s_{I1}=1.16\cdot10^{-3}$, $|w''|\le s_{I2}=1.55\cdot10^{-2}$ on $x\ge16.25$, $S_{\rm ramp}\le7.5\cdot10^{-4}$, $A\le5.31\cdot10^{-8}$, $W_1\le6.7\cdot10^{-7}$. Because the integrands are nonnegative these bounds do not depend on $\tau'$ except through the (tiny) affine slope. The modulation inequalities then give $\bar a,\bar b$ on $[\tau_1,\tau']$ (\S5.1). Strict improvement of the coefficient hypotheses: $|w'|\le0.02$ is improved by the factor $17$ ($0.02/1.16\cdot10^{-3}$), $S_{\rm ramp}$ vs.\ $10^{-2}$ by $13$, and $A,W_1$ vs.\ the validity box $10^{-3}$ by $>1400$.
+
+\paragraph{D2 (ramp values).} From D1: $M_0^{\rm ramp}\le s_{I1}=1.16\cdot10^{-3}\ (\le0.05$; factor $43)$, $M_1^{\rm ramp}\le28\,s_{I2}+y|U'|+2\cdot10^{-5}=0.4328+0.0061+0.00002\le0.4390$ ($\le0.9$, the box of the full $y|f'|$; factor $2.05$).
+
+\paragraph{D3 (shells, triangular).} Level $0$ uses $J_0$, level~1 the level-0 dissipation and $J_1$, level~2 the level-1 dissipation and $J_2$ (and, through the foot term, $J_3\approx\sqrt{J_2J_4}+c_{1W}J_2$); each level is damped, $\gamma'=(0.246,0.246,0.143)>0$, with the quasilinear coefficients $(M_0,M_1)$ taken from B2 on the core and from D2 on the ramp. The hypothesis B3 enters only through $|V|\le\tfrac12$ on the outer ramp $y>60$. With the hand-off (H2) as initial energies, Lemma S(A) (\S3.6) gives the derived values below. The rate conditions are verified on the \emph{boxes} (not on the derived values), e.g.\ $\hat G_{22}=6.57\cdot10^{4}$ at the core box $M_1=0.52$; the derived values then have to be below the boxes, which is the content of the table.
+
+\begin{center}\small\begin{tabular}{@{}lccc@{}}\toprule
+quantity (hypothesis in BS) & hypothesis & derived & factor\\\midrule
+$S_0^v=\sup|v|$ (B2; verifier input) & $0.0153$ & $0.00575$ & $2.66$\\
+$S_0^v$ vs.\ Lemma S box & $0.02$ & $0.00575$ & $3.48$\\
+$M_0^{\rm core}=|U|+S_0^v$ & $0.11$ & $0.0188$ & $5.86$\\
+$M_1^{\rm core}=y|U'|+S_1^v$ & $0.52$ & $0.1844$ & $2.82$\\
+$S_1^v$ (verifier input) & $0.6$ & $0.171$ & $3.5$\\
+rate condition $\hat G_{22}$ & $1.54\cdot10^5$ & $6.57\cdot10^4$ & $2.34$\\
+damping $\gamma_2'$ & $>0$ & $0.143$ & ---\\
+shell energies $E_0,E_1,E_2$ & $2\hat E$ & $\hat E=(3.12\cdot10^{-7},1.81\cdot10^{-4},0.248)$ & $2$\\
+flux $K_0,K_2$ (per unit $\tau$) & $\le(4.1,\,20)\cdot10^{-21}$ (verifier input) & $(0.683,\,3.26)\cdot10^{-21}$ & $6.0,\ 6.1$ ($3.0,\,3.0$ at $2\hat E$)\\\bottomrule\end{tabular}\end{center}
+The smallest computed factors are $2.7$ (the coefficient $S_0^v$ against the verifier's input) and $2.34$ ($\hat G_{22}$); with the ramp box ($2.05$, a certified input) and the (B) $M_1$ box ($2.05$) the overall minimum is $2.05$.
+
+\paragraph{D4 (windows).} Entry data on the windows are D3 on $[48,56]$ and (H3), (H4). Lemma S(B) with physically fixed windows gives $E_B=(3.15\cdot10^{-7},1.83\cdot10^{-4},0.250)$ ($\le2\times$ the entry values) and, on each window, the derived $|f|\le0.093$ (factor $5.38$ against $\tfrac12$), $y|f'|\le0.118$, $|z_2|\le0.118$, i.e.\ the per-window boxes of \S3.7 are improved by factors $2.05$--$4.26$. The input from Lemma O is D5a and Lemma~R on the outer ramp $[190,379.5]\lambda_1$ (\S3.7: $1.6\%$, $0.09\%$, $3.05\times$ the entry energies at levels $0,1,2$). The inner edge of the strip is open (\S3.7), so on the strip D4 is proved at no level beyond what Lemma~S(A) gives; the numbers of this paragraph for the strip windows are conditional on it. (v3.1: ``B4 on $[150,175]$''.) Curvature on $r\ge48\lambda$ is $\le S_1^f/r$.
+
+\paragraph{D5a, D5b (Lemma O).} The conclusion region of the cylinders is reached from data at $t_1$ only. The horizon of the cylinders is
+\[
+T_{\tau'}-t_1=\int_{\tau_1}^{\tau'}\lambda^4d\tau\le\frac{\lambda_1^4}{1-4\bar a}
+\]
+by D1 (the same computation as \S5.2), i.e.\ time ratio $(T_{\tau'}-t_1)/L^4\le(1/50)^4(1-4\bar a)^{-1}\approx1.6\cdot10^{-7}$ for $L=50\lambda_1$ (innermost cone cylinder: centre $200\lambda_1$, half-width $0.75\cdot200\lambda_1=3L$), against the certified $t^*\ge3.683\cdot10^{-7}$ (factor $2.30$); for the far cylinders ($L=113\lambda_1$, ratio $6.134\cdot10^{-9}$) against $9.511\cdot10^{-8}$ (factor $15.5$). \emph{D5a.} Under B4, Lemma~O gives on the conclusion region $|x|\le1$ of every member $|g_x|\le C_1\sqrt t$, $|g_{xx}|\le C_2\sqrt t$, $\int_{-1}^1g_{xxx}^2\le C_3t$ ($g=h-h_0$; cone member of unit $L_m$: the values of the table in \S3.8 times $(50/L_m)^2$). \emph{D5b (Theorem H6 of \fn{lemmaO_v32.tex}).} Every point $p$ of a cone cylinder $c$ lies in the strip $r_p<150\lambda_1$, or in the conclusion region of the cone member $r_m=\min(4r_p/3,380\lambda_1)$ (unit ratio $L_c/L_m\le1.9$), or, for $r_p>475\lambda_1$, in that of the far member centred at $p$; a point of a far cylinder lies in a cone conclusion region ($150\le r_p<263$) or a far one. With the frame conversions between cylinders and the data thresholds of (H5), the recovered bounds are: slope $\le0.1354$ (cone, strip points) and $0.0876$ (far) against $\tfrac14$ (factors $1.85$, $2.86$); $|h_{xx}|\le0.1067$ against $K_2=0.18$ (cone, factor $1.69$; worst case $r_c=380$, $r_p=150$; strip part $0.0497$) and $0.1313$ against $0.3$ (far, $2.29$); $\norm{h_{xxx}}_{L^2}\le0.0938$ against $0.18$ (cone, $1.92$; strip part $0.0194$) and $0.1255$ against $0.3$ (far, $2.39$). The strip enters through D4 at levels $0$--$2$ only ($\sup|v|$, $\sup y|v'|$, and $E_1,E_2$ for the third derivative in $L^2$), i.e.\ hand-off data times $e^{C\cdot50^{-4}}$, independent of D1--D3 --- \emph{conditional on the inner-edge item of \S3.7}. With the outer ramp alone (strip energies $\le8$ times the per-window values) the factors become $1.60$ (cone slope), $1.69$ (cone $K_2$), $1.69$ (cone $K_3$), $2.29$, $2.39$ (far). With all deviations taken at $3.5$ times the horizon the closure still holds, so $t^*$ remains the binding time margin; with the strip energies multiplied by $30$ the smallest factor is $1.26$. (v3.1 wrote $|h_{xx}|\le M+C_2\sqrt t\le0.154$ and slope $\le0.126$, with $C_j\sqrt t$ at the withdrawn ratio; this self-recovery holds only on the conclusion region and did not address the rest of the cylinder.) So B4 is strictly improved.
+
+\paragraph{D6 (barrier).} The comparison system of \S3.5 with the B2 coefficients closes at every cell of the march and at the tail anchor; at a first touch of $\Lambda=\Lambda_{\rm bar}$ or $\alpha=\alpha_{\rm bar}$ the derivative is strictly inward (the proof of the tail lemma is exactly such a first-touch argument, with the strictness $(1+\eta)$, $\eta\downarrow0$, built in). Hence B1 holds with strict inequality on $(\tau_1,\tau']$.
+
+\paragraph{Closing the continuity argument.} By D1--D6, if $\mathrm{BS}(\tau')$ holds then every inequality in B1--B4 holds on $[\tau_1,\tau']$ with a strictly smaller right-hand side. By continuity (P3) the strict inequalities persist on $[\tau_1,\tau'+\delta]$ for some $\delta>0$ unless $\tau'=\tau_{\max}$. Therefore $\tau^\ast=\tau_{\max}$ and BS holds on all of $[\tau_1,\tau_{\max})$.
+
+\begin{proposition}\label{prop:global}
+$\tau_{\max}=\infty$, and BS holds for all $\tau\ge\tau_1$.
+\end{proposition}
+\begin{proof}
+On $[\tau_1,\tau_{\max})$ the energies $E,E_I$, the shell energies up to level~2 (with the strip to level~3), the pointwise bounds of D1--D5 and the Lemma-O bounds are uniformly bounded. If $\tau_{\max}<\infty$ these control the curvature and its first derivatives uniformly up to $\tau_{\max}$ (tip region: $E$ and $\varepsilon\norm{\tilde w''}^2$; $E_I$ and the shells for $x\ge10$; (B) and Lemma O beyond), so by (P1) the solution continues past $\tau_{\max}$. Contradiction.
+\end{proof}
+\noindent This is the place where the argument depends on the literature (P1); everything quantitative above is certified or analytic as tagged in \S3.
+
+\section{Conclusion: $\lambda\to0$, finite time, single point, rate, smooth far curve}
+
+\subsection{Modulation parameters}
+By \S3.4 (strip terms included) and D1, the certified maxima over the whole march and tail at $\sqrt{\Lambda_1}=5\cdot10^{-8}$ are $\bar a,\bar b\le2.19\cdot10^{-7}$ and $\sup|\beta|\le3.34\cdot10^{-9}$ (certified $3.33811\cdot10^{-9}$) (regenerated for the final march, \S3.4); this replaces the earlier estimate $\lesssim10^{-5}$. Below only $\bar a<\tfrac14$ is needed, so there is a margin of $>7\cdot10^5$.
+
+\subsection{Scale: $\lambda\to0$, finite $T$, self-similar rate}
+Since $\lambda_\tau=-(\tfrac14-a)\lambda$,
+\[
+\lambda(\tau)=\lambda_1\exp\Bigl(-\int_{\tau_1}^{\tau}(\tfrac14-a)\Bigr)\in\lambda_1\,e^{-(\frac14\pm\bar a)(\tau-\tau_1)} ,
+\]
+so $\lambda\to0$ exponentially. With $dt=\lambda^4d\tau$,
+\[
+T-t(\tau)=\int_\tau^\infty\lambda^4d\tau'\in\Bigl[\frac{\lambda(\tau)^4}{1+4\bar a},\ \frac{\lambda(\tau)^4}{1-4\bar a}\Bigr],\qquad T-t_1\le\frac{\lambda_1^4}{1-4\bar a}<\infty .
+\]
+Hence $\lambda(t)^4=(T-t)(1+O(\bar a))$, i.e. $\lambda(t)=(T-t)^{1/4}(1+O(\bar a))$: the blow-up rate is the self-similar one up to the factor $(1\pm4\bar a)^{1/4}$. Since the tip of $\gamma$ has curvature $k(0)/\lambda+\ldots$ with $k(0)\neq0$ (the curvature of $S_1$ at its tip; the correction is controlled by $\sup|w''|\le2.31\cdot10^{-2}$ on $x\ge16.25$ and by $E$ near the tip, \tA), the curvature is unbounded as $t\uparrow T$. By (P1) the solution cannot be continued beyond $T$: $T$ is exactly the maximal existence time.
+
+\subsection{Position: a single singular point}
+The translation parameter $b$ moves the centre by $p_\tau=O(\lambda\,b)$ (frame convention of \S1.1, \S6 item~4), so
+\[
+\int_{\tau_1}^\infty|p_\tau|\,d\tau\le C\bar b\int\lambda\,d\tau\le\frac{C\bar b\,\lambda_1}{\tfrac14-\bar a}<\infty ,
+\]
+and $p(t)\to p_*$ with $|p_*-p(t_1)|\le C\bar b\lambda_1$, $\le C\cdot3.4\cdot10^{-7}\lambda_1$, negligible against $48\lambda_1$. Fix $r_0>0$ and let $t_0<T$ with $48\lambda(t)\le r_0/2$ and $|p(t)-p_*|\le r_0/2$ for $t\ge t_0$. Then for $t\in[t_0,T)$ the part of the curve at distance $\ge r_0$ from $p_*$ lies in $y\ge48$, hence is controlled by the windows (B) (curvature $\le S_1^f/r\le2S_1^f/r_0$ for $r\le150\lambda_1$) and by Lemma O (bounded jets $K_2,K_3$ on the cylinders for $r\ge150\lambda_1$). On $[t_1,t_0]$ the solution is smooth. Altogether the curvature is bounded on $[t_1,T)\times\{r\ge r_0\}$ for every $r_0>0$, while it is unbounded at $p_*$ (\S5.2). Further, all statements are arc by arc (Lemma~O is read per arc), and near the tip the curve remains a small normal graph over $S_1$; hence the curvature blows up only at the tip point of the parameter domain, whose image is $p_*$, and the curve stays immersed up to $T$. (Other arcs may pass through $p_*$ geometrically; they are smooth there.)
+
+\subsection{Smoothness of the far curve up to $T$}
+On $\{r\ge r_0\}$ the curve is a graph with bounded slope over the cylinders of Lemma~O (resp.\ over the $S_1$ ray in the windows), with $|h_{xx}|\le K_2$ and $\norm{h_{xxx}}_{L^2}\le K_3$ uniformly in time. By interior parabolic regularity for the fourth-order flow (the equation is quasilinear parabolic in graph form; the standard bootstrapping of higher derivatives from bounded curvature, \tA\ (literature)), all derivatives are bounded on $[t_1,T)\times\{r\ge r_0\}$, so $\gamma(t)\to\gamma(T)$ in $C^\infty(\{r\ge r_0\})$ and $\gamma(T)$ is smooth away from $p_*$.
+
+\subsection{Summary and what is not claimed}
+(W1)--(W5) follow from Proposition~\ref{prop:global}, \S5.1--5.4. In particular the rescaled tip profile satisfies, for all $\tau\ge\tau_1$, $A+W_1\lesssim10^{-6}$ and $\norm{\tilde w''}_\rho\le2.6\cdot10^{-5}$ \emph{and} $|\alpha|\le1.5\cdot10^{-4}$ (eventually $\le3.4\cdot10^{-7}$), $\sqrt\Lambda\to\le4.9\cdot10^{-10}$: the profile stays in a tiny tube around the $S_1$ family and the tube shrinks to the floor. Convergence to $S_1$ itself, with a rate $\min(\rho/2,\gamma'/2)=\rho/2\approx1.1\cdot10^{-3}$, requires the extra lemma of \fn{STEP3_FIXPLAN.md} (upgrade C) and is not part of this note.
+
+\section{Open items and caveats}
+Step 3 v3.2 is \emph{not closed}: it has one open analytic item, the localisation of the far-field energies (item 0 below). Apart from it, step 3 is closed modulo the following final-rigor-pass items.
+\begin{enumerate}[leftmargin=*]
+\item[0.] \textbf{Far-field localisation (open).} The energies of Lemma~S(B) on windows fixed in physical space are estimated in v3.1 without the fourth-order terms at the window edges, and the outer end of the shell energies of Lemma~S(A) is unquantified. v3.2 bounds the outer edge inside the Lemma~O region (Lemma~R, ramp $[190,379.5]\lambda_1$, certified). Unproved, at levels 1 and 2, is every edge in $60\lambda(\tau)\lesssim r<150\lambda_1$: (i) the strip statement on $r\in[50,150)\lambda_1$ (needs time-averaged $N_2^2\lesssim0.4$, $N_3^2\lesssim3$ on $[50,75]\lambda_1$; nothing in step 3 supplies a time-uniform $z_3$ bound there), hence D4 on the strip and D5b (H6); (ii) the crude bounds B3/W4 beyond $y=60$; (iii) through (ii), the coefficient box and outer cutoff of Lemma~S(A) (D3). Not affected: the linear theory, Lemma~O and Lemma~R, the verifier given its inputs, and the core and inner-ramp computations of Lemma~S(A) given a crude far-field box. A repair by non-vanishing power weights and a fixed-$L$ innermost Lemma~O family closes on float estimates with margin $\approx10$ but needs a uniformly local version of Lemma~S(B) that is not available (\fn{writeup/step3_gap_v32/gap_v32.tex}).
+\item \textbf{Frozen-profile runs.} \fn{lemmaS_v32/}: the per-window boxes (\fn{lemmaS_Bbox.py}), the windows entering through $y=48$ (\fn{lemmaS_F4B.py}: $E_B$ changes by $\le10^{-7}$ relative) and the $\alpha_1=1.25\cdot10^{-4}$ point ($K_2=0.022$, $K_3=0.025$, unchanged) were rerun with the frozen profile. In $\hat R$, $\cos\theta$ is taken constant along the ray. The commutator tables behind the ramp coefficients use IEEE-double coefficient bounds.
+\item \textbf{Lemma S assembly arithmetic.} The assembly of the rate and energy constants runs in IEEE double arithmetic without outward rounding (the suprema themselves are \fn{arb} enclosures).
+\item \textbf{Class weights.} The weights of the $L^4$ classes use sympy floats.
+\item \textbf{The $\zeta<1$ sliver.} The strip $x\in[16.2491,16.25]$ is neglected ($<10^{-29}$; the bound needs an a-priori $|z_j|\le10^3$).
+\item \textbf{Literature and conventions \tA.} Local well-posedness for immersed data, the continuation criterion and interior regularity (P1) are quoted without precise references. The convention $\lambda_\tau=-(\tfrac14-a)\lambda$, $p_\tau=O(\lambda b)$ is inferred from \fn{STEP3_FIXPLAN.md} F5 and must be matched with the definition of $(a,b)$ in the modulation lemma; $k(0)\ne0$ at the tip is used without proof.
+\item \textbf{Upgrade C} (convergence to $S_1$) is not part of the claim.
+\end{enumerate}
+The requirements on step~4 (H2)--(H5) are inputs of the theorem, not open items of step~3.
+
+\paragraph{Superseded version ($\alpha_1=5\cdot10^{-4}$).} An earlier version of this note used $\alpha_1=5\cdot10^{-4}$ (peak $\sqrt\Lambda=8.19\cdot10^{-8}$, $\rho=2.88\cdot10^{-3}$, core energies $(6.7\cdot10^{-7},4.4\cdot10^{-4},0.363)$, minimum margin $1.85$, hand-off windows $E_{1,2,3}\le3\cdot10^{-6}$ and $E_4\le3\cdot10^{-6}$). It is superseded because the step-4 float go/no-go met the outer-window thresholds only from $k\approx1.6$--$2.3\cdot10^4$; the deviation there is $-40(y/k)^3$, so $E_j\sim k^{-5.9}$, and $\alpha_1$ was lowered to $1.5\cdot10^{-4}$ ($1.25\cdot10^{-4}$ also certified, \S3.6). Nothing in the arguments of \S4--5 changed; only constants and the hand-off list. The legacy $\beta$ formula $(0.00244+63.5\alpha)\sqrt\Lambda$ used by the early assembly was not an upper bound and is replaced by the certified sups of \S3.4.
+
+\end{document}

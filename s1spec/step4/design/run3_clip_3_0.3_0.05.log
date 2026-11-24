@@ -1,0 +1,5 @@
+clip_3_0.3_0.05 clip:3:0.3:0.05 L0=20.2164 N0=16384 kmax0=41.31 closure=1.99e-11 min-gap(non-adjacent)=inf area=8.1529
+  t=0.00000000 kmax=41.31 N=16384 ncross=0  wall=0s
+  t=0.10367275 kmax=6.31 N=1024 ncross=0  wall=6s
+ABORT (time/t)
+DONE

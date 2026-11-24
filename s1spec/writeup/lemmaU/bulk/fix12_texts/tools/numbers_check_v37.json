@@ -1,0 +1,1719 @@
+{
+ "args": {
+  "argv": [
+   "tools/check_numbers_v37.py"
+  ],
+  "ledger_current_files": 87,
+  "ledger_current_values": 75174,
+  "ledger_superseded_values": 1978,
+  "texts": {
+   "ei_lemma_v4.tex": "bb29b3a8d43fd7745fd5f616d1d9f4337732d264799c76a16c1da997bda07304",
+   "flux2_lemma_v37.tex": "546f065108ac74e03927a19ec13aa3b3b4906ad6a674f1fc6db5ee8046f6c0b8",
+   "lemmaS_A_v37.tex": "9b31c56ad7abb84867564a7dc77194acca0aae49c39d2d2c408183576722ca34",
+   "numbers_A_v37.tex": "0a8ce1076c8de23821d9afa0b79ebe8ca8e96b729d04ef8c04884a895889de55",
+   "continuation_v37.tex": "c03bbe236967faeb75810f8aae96833fa9c7bfb10aba032f9b2d2b4b9b2c95dd",
+   "lemmaU_v37.tex": "8c9b7246a1302ac209614484b27a41407d8ab5880fbe6cc03a9665af80df6e3e",
+   "main_v3_v37.tex": "85252ebd7b9d7b284eaa5f21dffc43794d6e60fcde6e58ce517d8f784949b2e2",
+   "step3_v37_main.tex": "7774c4d6543eb33c4dfc75dbdddc0a363c1fc586e44e01368ef919f53ec80a21",
+   "ei_constants_v37.tex": "416c35b95a310fe192dab91e05e42f26e8cfb7e4010e42f061b94deb2c12e554",
+   "erratum_v37.tex": "151dafcc95ac34b9fe8d3132952ce06915826f2be54aaf1fd9dd3071f4a38a68"
+  }
+ },
+ "files": {
+  "ei_lemma_v4.tex": [
+   {
+    "line": 114,
+    "num": "0.155167",
+    "status": "WHITELIST",
+    "match": "provenance quote: the L-int value that is BELOW the typed MU1 (EI_SPEC 4.1, GI 0-1); cited as the reason for the correction"
+   },
+   {
+    "line": 114,
+    "num": "0.1552",
+    "status": "WHITELIST",
+    "match": "old typed MU1 of fin12f4, quoted as superseded"
+   }
+  ],
+  "flux2_lemma_v37.tex": [],
+  "lemmaS_A_v37.tex": [
+   {
+    "line": 39,
+    "num": "2.2490776515",
+    "status": "WHITELIST",
+    "match": "step-1 geometry constant (y = x - 2.2490776515), unchanged"
+   },
+   {
+    "line": 89,
+    "num": "0.43902",
+    "status": "WHITELIST",
+    "match": "derived: 0.52 / ramp-M1 margin 1.184464 (key table v36)"
+   },
+   {
+    "line": 89,
+    "num": "0.4391",
+    "status": "WHITELIST",
+    "match": "upper bound of 0.43902 (derived)"
+   },
+   {
+    "line": 89,
+    "num": "0.4330",
+    "status": "WHITELIST",
+    "match": "upper bound of 0.43292 (derived)"
+   },
+   {
+    "line": 89,
+    "num": "0.43902",
+    "status": "WHITELIST",
+    "match": "derived: 0.52 / ramp-M1 margin 1.184464 (key table v36)"
+   },
+   {
+    "line": 89,
+    "num": "0.43292",
+    "status": "WHITELIST",
+    "match": "derived: 0.52 / ramp-z1 margin 1.201149 (key table v36)"
+   },
+   {
+    "line": 89,
+    "num": "7.1221\\cdot10^{-3}",
+    "status": "WHITELIST",
+    "match": "derived: 0.05 / ramp-M0 margin 7.020454 (key table v36)"
+   },
+   {
+    "line": 166,
+    "num": "16.2491",
+    "status": "WHITELIST",
+    "match": "structural (sliver end 16.25 - X0, step-4 f12_sliver)"
+   },
+   {
+    "line": 183,
+    "num": "6.25",
+    "status": "WHITELIST",
+    "match": "structural coefficient of the cubic bound (lemmaU Lemma S), false match"
+   },
+   {
+    "line": 237,
+    "num": "0.00503",
+    "status": "WHITELIST",
+    "match": "v35 log record (asm_design_N2ref.log), marked as record in the text"
+   }
+  ],
+  "numbers_A_v37.tex": [],
+  "continuation_v37.tex": [
+   {
+    "line": 86,
+    "num": "1.539820638",
+    "status": "WHITELIST",
+    "match": "step-1 constant k0 (CLAUDE.md key numbers)"
+   },
+   {
+    "line": 102,
+    "num": "2.6930\\cdot10^{-3}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 102,
+    "num": "9.872\\cdot10^{-10}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 102,
+    "num": "6.8666\\cdot10^{-7}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 125,
+    "num": "15.5878",
+    "status": "WHITELIST",
+    "match": "step-4 v33 certified H4-far margin (M9_H4_far.min_margin), unchanged"
+   },
+   {
+    "line": 127,
+    "num": "1.539820638",
+    "status": "WHITELIST",
+    "match": "step-1 constant k0 (CLAUDE.md key numbers)"
+   }
+  ],
+  "lemmaU_v37.tex": [
+   {
+    "line": 79,
+    "num": "1.875",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 141,
+    "num": "2.271",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 141,
+    "num": "2.384",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 141,
+    "num": "2.502",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 143,
+    "num": "379.69",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 259,
+    "num": "0.4324",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 325,
+    "num": "348.56",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 325,
+    "num": "331.44",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 334,
+    "num": "1.875",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 471,
+    "num": "3.5932",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 471,
+    "num": "3.8198",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 471,
+    "num": "4.1573",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 491,
+    "num": "0.4324",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 518,
+    "num": "3.1363\\cdot10^{-7}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 518,
+    "num": "1.0034\\cdot10^{-6}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 518,
+    "num": "2.4351\\cdot10^{-6}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   }
+  ],
+  "main_v3_v37.tex": [
+   {
+    "line": 111,
+    "num": "4.5978574775",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 111,
+    "num": "4.5978586144",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 111,
+    "num": "6.49\\cdot10^{-5}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 117,
+    "num": "9.872\\cdot10^{-10}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 117,
+    "num": "6.867\\cdot10^{-7}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 132,
+    "num": "2.279\\cdot10^4",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 132,
+    "num": "2.376\\cdot10^4",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 160,
+    "num": "0.4725",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 165,
+    "num": "2.500798",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 165,
+    "num": "2.500813",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 165,
+    "num": "1.539789",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 165,
+    "num": "1.539858",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 166,
+    "num": "196.645",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 166,
+    "num": "196.682",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 166,
+    "num": "106.645",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 166,
+    "num": "106.682",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 167,
+    "num": "0.82859",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 167,
+    "num": "0.83170",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 167,
+    "num": "52.29",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 180,
+    "num": "1.5346198892965",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 180,
+    "num": "1.5346198899299",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 181,
+    "num": "1.5346198894026843",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 181,
+    "num": "1.5346198896815588",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 182,
+    "num": "10.249077650575",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 182,
+    "num": "10.249077651520",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 183,
+    "num": "10.249077651120778",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 183,
+    "num": "10.249077651121361",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 184,
+    "num": "2.500798",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 184,
+    "num": "2.500813",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 185,
+    "num": "2.50080627654",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 185,
+    "num": "2.50080627668",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 186,
+    "num": "2.500806276619695",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 186,
+    "num": "2.500806276620049",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 187,
+    "num": "1.539789",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 187,
+    "num": "1.539858",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 188,
+    "num": "1.53982063762",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 188,
+    "num": "1.53982063822",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 189,
+    "num": "1.539820637871836",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 189,
+    "num": "1.5398206378721015",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 201,
+    "num": "1.00245655773267901818047080",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 201,
+    "num": "1.00245655773267901818045451",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 201,
+    "num": "103.65251688569134",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 205,
+    "num": "8.137\\cdot10^{-24}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 205,
+    "num": "8.89\\cdot10^{-3}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 224,
+    "num": "2.2490776515",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 271,
+    "num": "1.45\\cdot10^{-4}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 271,
+    "num": "0.04339455686",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 271,
+    "num": "0.04339455704",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 271,
+    "num": "0.03933409755",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 271,
+    "num": "0.03933409733",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 283,
+    "num": "1.790819",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 283,
+    "num": "1.768282",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 285,
+    "num": "0.6998896",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 307,
+    "num": "2.693\\cdot10^{-3}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 307,
+    "num": "9.872\\cdot10^{-10}",
+    "status": "RECORD",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 310,
+    "num": "1.6001\\cdot10^{-7}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 310,
+    "num": "9.511\\cdot10^{-8}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 310,
+    "num": "6.134\\cdot10^{-9}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 321,
+    "num": "0.2686",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 321,
+    "num": "0.2686",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 321,
+    "num": "0.2686",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 330,
+    "num": "2.82",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 342,
+    "num": "4.5978574775",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 342,
+    "num": "4.5978586144",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 342,
+    "num": "2.279\\cdot10^4",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 342,
+    "num": "2.376\\cdot10^4",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 347,
+    "num": "4.597850539485830831",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 347,
+    "num": "29.352874545325",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 347,
+    "num": "29.352874545328",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 347,
+    "num": "6.24",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 348,
+    "num": "2.37\\cdot10^4",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 350,
+    "num": "0.015456178888449044",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 362,
+    "num": "1.0034\\cdot10^{-6}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 364,
+    "num": "5.60\\cdot10^{-3}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 366,
+    "num": "0.03029",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 367,
+    "num": "0.009876",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 368,
+    "num": "1.2865\\cdot10^{-5}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 368,
+    "num": "0.1761",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 369,
+    "num": "0.0225",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 369,
+    "num": "1.444\\cdot10^{-3}",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 369,
+    "num": "0.0642",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 396,
+    "num": "29.352874545326006",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 396,
+    "num": "29.352874545327026",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 396,
+    "num": "29.352874545325992",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   },
+   {
+    "line": 396,
+    "num": "29.352874545327012",
+    "status": "WHITELIST",
+    "match": "INHERITED-UNVERIFIED: value carried over from the v33/v34 text (step-1, step-4 or v3.1/v3.2 source), not produced by the v36/fin13v4b/flux chain; not checked by this script"
+   }
+  ],
+  "step3_v37_main.tex": [
+   {
+    "line": 17,
+    "num": "2.2490776515",
+    "status": "WHITELIST",
+    "match": "step-1 geometry constant, unchanged"
+   },
+   {
+    "line": 65,
+    "num": "0.071446",
+    "status": "RECORD",
+    "match": "key_table r3: zone III n_III k=0"
+   },
+   {
+    "line": 65,
+    "num": "6.7955\\cdot10^{-6}",
+    "status": "WHITELIST",
+    "match": "old wrong quote, cited as a text slip next to the corrected 6.7972e-6"
+   }
+  ],
+  "ei_constants_v37.tex": [],
+  "erratum_v37.tex": [
+   {
+    "line": 47,
+    "num": "0.7317",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 62,
+    "num": "6.58\\cdot10^4",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 67,
+    "num": "6.58\\cdot10^4",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 79,
+    "num": "0.00984",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 93,
+    "num": "0.00316",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 103,
+    "num": "2280.85",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 103,
+    "num": "2351.49",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 103,
+    "num": "77720.88",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 103,
+    "num": "2372.05",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 103,
+    "num": "79270.71",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 112,
+    "num": "1.603\\cdot10^{-25}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 112,
+    "num": "1.617\\cdot10^{-25}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 124,
+    "num": "80141.6",
+    "status": "HISTORICAL",
+    "match": "key_table r3: Ghat_22 core (weights_t2)"
+   },
+   {
+    "line": 125,
+    "num": "0.119615",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 143,
+    "num": "8.9538\\cdot10^{-7}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 143,
+    "num": "2.02941\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 143,
+    "num": "0.255138",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 144,
+    "num": "7.0538\\cdot10^{-7}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 144,
+    "num": "1.03941\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 144,
+    "num": "0.0561375",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 145,
+    "num": "1.20538\\cdot10^{-6}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 145,
+    "num": "1.03941\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 145,
+    "num": "0.0561379",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 148,
+    "num": "3.1363\\cdot10^{-7}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 155,
+    "num": "2.455\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": "/home/claude/s1spec/step3nl_v4/runs/P/rate_table_fin13v4_a0.00015.json"
+   },
+   {
+    "line": 155,
+    "num": "0.2716",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 155,
+    "num": "2.802\\cdot10^{-21}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 161,
+    "num": "3.1363\\cdot10^{-7}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 161,
+    "num": "1.0034\\cdot10^{-6}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 161,
+    "num": "2.4351\\cdot10^{-6}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 161,
+    "num": "4.983",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 161,
+    "num": "4.106",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 169,
+    "num": "0.01854",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 180,
+    "num": "3.28048\\cdot10^{-22}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 184,
+    "num": "0.0423470",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 184,
+    "num": "0.0423475",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 189,
+    "num": "107.3",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 191,
+    "num": "0.0423504",
+    "status": "HISTORICAL",
+    "match": "key_table r3: kappa_J (H-J-W)"
+   },
+   {
+    "line": 213,
+    "num": "179.1",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "8.777",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "2.0288",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "0.25558",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "8.954",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "2.0294",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "0.25514",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "1.18766",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "1.03883",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 229,
+    "num": "0.056585",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 230,
+    "num": "0.119615",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 231,
+    "num": "0.00575",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 231,
+    "num": "0.007724",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 231,
+    "num": "0.007137",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 234,
+    "num": "80141.6",
+    "status": "HISTORICAL",
+    "match": "key_table r3: Ghat_22 core (weights_t2)"
+   },
+   {
+    "line": 236,
+    "num": "6.83",
+    "status": "HISTORICAL",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.000125.json"
+   },
+   {
+    "line": 236,
+    "num": "3.26",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 236,
+    "num": "1.789",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 236,
+    "num": "6.151",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 236,
+    "num": "1.823",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 236,
+    "num": "6.236",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 236,
+    "num": "6.456",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 238,
+    "num": "3.370",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 238,
+    "num": "1.603",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 238,
+    "num": "1.617",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 239,
+    "num": "8.890",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 239,
+    "num": "2.0550",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 239,
+    "num": "0.25888",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 240,
+    "num": "0.0423475",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 240,
+    "num": "0.0423504",
+    "status": "HISTORICAL",
+    "match": "key_table r3: kappa_J (H-J-W)"
+   },
+   {
+    "line": 241,
+    "num": "8.623",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 241,
+    "num": "1.11659",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 241,
+    "num": "1.65440",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 247,
+    "num": "4.983",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 247,
+    "num": "4.106",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 251,
+    "num": "1.0439\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": "key_table v35: E_j (A, tight, N2ref) j=1"
+   },
+   {
+    "line": 251,
+    "num": "0.056690",
+    "status": "HISTORICAL",
+    "match": "key_table v35: E_j (A, tight, N2ref) j=2"
+   },
+   {
+    "line": 251,
+    "num": "1.2018\\cdot10^{-6}",
+    "status": "HISTORICAL",
+    "match": "key_table v35: EA (Lemma U fixed point) k=0"
+   },
+   {
+    "line": 251,
+    "num": "0.056694",
+    "status": "HISTORICAL",
+    "match": "key_table v35: EA (Lemma U fixed point) k=2"
+   },
+   {
+    "line": 316,
+    "num": "1.129\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 322,
+    "num": "0.1552",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 322,
+    "num": "0.155167",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 328,
+    "num": "7.74",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 328,
+    "num": "7.74",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 328,
+    "num": "7.74",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 328,
+    "num": "7.73",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 353,
+    "num": "5.307458",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 353,
+    "num": "5.307698",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 353,
+    "num": "5.308562",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 354,
+    "num": "2.693042",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 354,
+    "num": "2.684366",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 354,
+    "num": "2.677666",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 355,
+    "num": "9.871704",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 355,
+    "num": "9.887644",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 355,
+    "num": "9.900007",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 356,
+    "num": "6.866519",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 356,
+    "num": "6.876746",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 356,
+    "num": "6.884239",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "6.027237",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "3.454743",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "6.020438",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "3.452361",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "6.025378",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 357,
+    "num": "3.455292",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "6.236181",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "3.574508",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "6.242096",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "3.579469",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "6.247218",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 358,
+    "num": "3.582508",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 359,
+    "num": "2.19103",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 359,
+    "num": "2.14024",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 359,
+    "num": "2.14041",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 360,
+    "num": "3.33811",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 360,
+    "num": "2.35741",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 360,
+    "num": "2.35488",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 361,
+    "num": "3.034406",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 361,
+    "num": "3.035649",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 361,
+    "num": "3.04299",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 363,
+    "num": "2.860963",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 371,
+    "num": "2.85\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 371,
+    "num": "3.340\\cdot10^{-2}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 371,
+    "num": "2.850049\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 371,
+    "num": "3.340046\\cdot10^{-2}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 388,
+    "num": "1.355\\cdot10^{-4}",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 388,
+    "num": "0.03036965",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 388,
+    "num": "0.00268121",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 393,
+    "num": "4.92",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 402,
+    "num": "3.7516342034570612758",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 402,
+    "num": "1.4634275344469975636",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 406,
+    "num": "12.488",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 451,
+    "num": "3.39666",
+    "status": "HISTORICAL",
+    "match": "key_table v35: flux margin_FLUX0 beta=2 (tight, N2ref)"
+   },
+   {
+    "line": 451,
+    "num": "3.39535",
+    "status": "HISTORICAL",
+    "match": "key_table r3: flux margin_FLUX0 beta=2 (tight, N2ref)"
+   },
+   {
+    "line": 451,
+    "num": "6.01283",
+    "status": "HISTORICAL",
+    "match": "key_table v35: flux margin_FLUX2 beta=2 (tight, N2ref)"
+   },
+   {
+    "line": 451,
+    "num": "6.01070",
+    "status": "HISTORICAL",
+    "match": "key_table r3: flux margin_FLUX2 beta=2 (tight, N2ref)"
+   },
+   {
+    "line": 458,
+    "num": "1.7187",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 458,
+    "num": "1.71860",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 458,
+    "num": "1.96498",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 458,
+    "num": "1.46343",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 459,
+    "num": "3.340",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 460,
+    "num": "8.04",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 460,
+    "num": "4.37",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 460,
+    "num": "7.787",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 460,
+    "num": "4.227",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 461,
+    "num": "1.43716",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 472,
+    "num": "1.5833",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 473,
+    "num": "0.0271016",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 473,
+    "num": "3.034406\\cdot10^{-2}",
+    "status": "HISTORICAL",
+    "match": "/home/claude/s1spec/step3nl_v33/verifier/rate_table_fin12f4_a0.00015.json"
+   },
+   {
+    "line": 476,
+    "num": "4.92",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.59312",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.59312473",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.75163",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.75163420",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "1.3403",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "1.39001",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.40985",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "1.3900118",
+    "status": "HISTORICAL",
+    "match": null
+   },
+   {
+    "line": 479,
+    "num": "3.4098534",
+    "status": "HISTORICAL",
+    "match": null
+   }
+  ]
+ },
+ "totals": {
+  "HISTORICAL": 156,
+  "CURRENT": 1077,
+  "STALE": 0,
+  "RECORD": 8,
+  "WHITELIST": 114,
+  "UNMATCHED": 0,
+  "short": 5719
+ },
+ "verdict": "PASS"
+}

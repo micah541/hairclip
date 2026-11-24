@@ -1,0 +1,186 @@
+## edits_v44.txt -- the asserted replacements of text v44: the check fix25_check_v43/CHECK_v43.md of text v43 (F-2..F-6, Note; F-1 is a
+## records item, see records_errata_add_v44.md) and the LaTeX defects of fix26_latex_v43/LATEX_v43.md (\key, moving-argument titles; the
+## figure fig_curves.pdf is copied by build_v44.py).  Format as edits_v43.txt: @@ FILE <v43 source name>, then @@ REP (old must occur once in
+## the retagged v43 text) / @@ NEW / @@ END.  Old strings are written with the v44 file names (the builder retags the v43 names first).
+## No number is changed; new text has no decimal number.
+## REPQ (not recorded as new text for the number/path checks): two short-title edits whose long title quotes inherited paths
+## (\fn{lemmaU.tex}, \fn{make_fig.py}); the short titles themselves contain no number and no path.
+@@ FILE GS_lemma_v43.tex
+@@ REP
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+@@ NEW
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\providecommand{\key}[1]{\texttt{\detokenize{#1}}}% text v44 (LaTeX compile fix26, defect 1): \key was used but not defined; same definition as lemmaU
+@@ END
+@@ FILE flux2_lemma_v43.tex
+@@ REP
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+@@ NEW
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\providecommand{\key}[1]{\texttt{\detokenize{#1}}}% text v44 (LaTeX compile fix26, defect 1): \key was used but not defined; same definition as lemmaU
+@@ END
+@@ FILE step3_v43_main.tex
+@@ REPQ
+\section{Lemma U (summary; proof in \fn{lemmaU.tex}, revision \fn{fix27_texts_v44/lemmaU_v44.tex})}\label{M:sec:U}
+@@ NEW
+\section[Lemma U (summary)]{Lemma U (summary; proof in \fn{lemmaU.tex}, revision \fn{fix27_texts_v44/lemmaU_v44.tex})}\label{M:sec:U}
+@@ END
+@@ REP
+\textbf{Status (text v43). Step~3 is NOT closed.} \emph{New in v43:}
+@@ NEW
+\textbf{Status (text v44). Step~3 is NOT closed.} \emph{New in v44:} the check \fn{fix25_check_v43/CHECK_v43.md} of text v43 (``OK with fixes; no blocking finding'') is applied: F-1 (records, in \fn{RECORDS_ERRATA_v44.md}), the wording items F-2 to F-6 and its note (the Windows kit runs, item ``Re-pin and kits'' of \S\ref{M:sec:remains}). Text v43 was compiled with MiKTeX (\fn{fix26_latex_v43/LATEX_v43.md}); its three source defects are fixed: \fn{key} is defined in every document that uses it, sectioning and caption titles that contain \fn{fn} have a short title, and \fn{fig_curves.pdf} is placed beside \fn{main_v3_v44.tex}. The macro check now also counts the wrapper macros \fn{fn}, \fn{key}, \fn{pth} as used, per standalone document, and a title check is added (\fn{tools/check_macros_v44.py}, \fn{tools/check_titles_v44.py}). Text v44 is not yet compiled. Wording and records only, no number changed. \emph{Text v43 status.} \emph{New in v43:}
+@@ END
+@@ REP
+test-run in WSL only (\fn{kit3v4_run_wsl5}: 80 PASS, 0 FAIL, 1 WARN; \fn{kit4bv4_run_wsl1}: 159 PASS, 0 FAIL, 1 WARN); no Windows run of either v4 kit yet. \textbf{Open:} the authors' independent Windows runs of both v4 kits.
+@@ NEW
+test-run in WSL (\fn{kit3v4_run_wsl5}: 80 PASS, 0 FAIL, 1 WARN; \fn{kit4bv4_run_wsl1}: 159 PASS, 0 FAIL, 1 WARN). \emph{Windows runs (24 November 2026, text v44):} both v4 kits were run under Windows Python on the authors' Windows~11 machine (run copies, started from the agent's WSL session on that machine). \fn{kit3v4_run_win1/RUN_NOTES.md}: reproduces; 72 PASS, 6 FAIL, 3 WARN, where the 6 FAIL are byte comparisons of text outputs that differ from the reference only by CRLF line endings and the 3 WARN are last-bit float differences in diagnostic fields; the certified outputs equal the reference; two Windows-only kit bugs were fixed in the run copy. \fn{kit4bv4_run_win1/RUN_NOTES.md}: \texttt{TOTAL PASS [159 PASS, 0 FAIL, 1 WARN]}, after four Windows-only fixes in the run copy. \textbf{Open:} a kit v5 that carries these Windows-only fixes (pending; no hash yet) and its runs.
+@@ END
+@@ REP
+\item \textbf{LaTeX compile} of every v43 file (the macro check is static; it does not replace a compile).
+@@ NEW
+\item \textbf{LaTeX compile}: text v43 was compiled with MiKTeX on the authors' Windows machine (\fn{fix26_latex_v43/LATEX_v43.md}): every standalone document compiles once three source defects are worked around, and the assembled step~3 has no error, no undefined reference and no undefined citation. The three defects are fixed in text v44 (status box). \textbf{Open:} the compile of text v44 (the macro and title checks are static; they do not replace a compile).
+@@ END
+@@ REP
+the text-v41 and text-v43 wording changes have not been checked independently. \textbf{Final review}
+@@ NEW
+the text-v43 changes were checked in \fn{fix25_check_v43/CHECK_v43.md} (``OK with fixes; no blocking finding''; applied in text v44); the text-v41 and text-v44 wording changes have not been checked independently. \textbf{Final review}
+@@ END
+@@ FILE ei_lemma_v4c_v43.tex
+@@ REP
+\section{The $E_I$ lemma of verifier \fn{fin13v4c}}\label{EI:sec}
+@@ NEW
+\section[The $E_I$ lemma of verifier fin13v4c]{The $E_I$ lemma of verifier \fn{fin13v4c}}\label{EI:sec}
+@@ END
+@@ REP
+\subsection{The E0 and E2 blocks of \fn{fin13v4c}}\label{EI:sec:E0E2}
+@@ NEW
+\subsection[The E0 and E2 blocks of fin13v4c]{The E0 and E2 blocks of \fn{fin13v4c}}\label{EI:sec:E0E2}
+@@ END
+@@ FILE G1_export_k2_v43.tex
+@@ REP
+\caption{Constants at the setting $4N_2^{\rm ref}$ (\fn{asm_design_N2ref4.json}, \fn{res.tight}), rounded outward to 6 digits \tC.}
+@@ NEW
+\caption[Constants at the setting $4N_2^{\rm ref}$]{Constants at the setting $4N_2^{\rm ref}$ (\fn{asm_design_N2ref4.json}, \fn{res.tight}), rounded outward to 6 digits \tC.}
+@@ END
+@@ FILE main_v3_v43.tex
+@@ REP
+\caption{Enclosures of $S_1$: step-1 supplement
+@@ NEW
+\caption[Enclosures of $S_1$]{Enclosures of $S_1$: step-1 supplement
+@@ END
+@@ REPQ
+\caption{Illustration in floating point (\fn{make_fig.py}), not a certificate.
+@@ NEW
+\caption[Illustration in floating point (not a certificate)]{Illustration in floating point (\fn{make_fig.py}), not a certificate.
+@@ END
+@@ REP
+\textbf{Status (23 November 2026, v43): not compiled; step 3 is NOT closed.} \emph{New in v43:}
+@@ NEW
+\textbf{Status (24 November 2026, v44): step 3 is NOT closed.} \emph{New in v44:} the check \fn{fix25_check_v43/CHECK_v43.md} of text v43 (``OK with fixes; no blocking finding'') is applied (F-1 to F-6 and its note; wording and records only, no number changed). Text v43 was compiled with MiKTeX (\fn{fix26_latex_v43/LATEX_v43.md}); its three source defects are fixed in text v44 (among them: \fn{fig_curves.pdf}, copied from \fn{writeup/main/}, now lies beside this file); text v44 is not yet compiled. Both v4 kits were run on the authors' Windows machine on 24 November 2026 (\S\ref{ss:repro}); a kit v5 with their Windows-only fixes is pending. \emph{v43 text of this box:} \textbf{Status (23 November 2026, v43).} \emph{New in v43:}
+@@ END
+@@ REP
+single-point statement); the authors' Windows runs of the two v4 kits; LaTeX compilation; the step-4 text patch (\fn{STEP4_PATCH_NOTE_v44.md}
+@@ NEW
+single-point statement); kit v5 with the Windows-only fixes of the two Windows kit runs (pending) and its runs; the compile of text v44 (text v43 compiled, \fn{fix26_latex_v43/LATEX_v43.md}); the step-4 text patch (\fn{STEP4_PATCH_NOTE_v44.md}
+@@ END
+@@ REP
+is proved from compiled theorems of M.~Warren's Lean development (\fn{CWFlow/Curve/}, commit pending; \fn{cdf_exists_maximal}; the regularity lemma U-1 and the interface C-1 of the step-3 texts)
+@@ NEW
+is proved from compiled theorems of M.~Warren's Lean development (\fn{CWFlow/Curve/}, compiled per file; full build and commit pending, see the status box at the beginning; \fn{cdf_exists_maximal}) together with the [hand] steps of the regularity lemma U-1 and the interface C-1 of the step-3 texts
+@@ END
+@@ REP
+\item \emph{Kit B and the v4 kits:} not yet run on the authors' machine. Test runs in WSL
+@@ NEW
+\item \emph{Kit B and the v4 kits:} kit B (34 stages) was not run on the authors' machine. For the v4 kits, test runs in WSL
+@@ END
+@@ REP
+6~h~20~min. The authors' Windows runs of both v4 kits are open.
+@@ NEW
+6~h~20~min. \emph{Windows runs (24 November 2026):} both v4 kits were run under Windows Python on the authors' machine (run copies, started from the agent's WSL session on that machine). \fn{kit_step3_v4.zip} reproduces: 72 PASS; 6 FAIL, all byte comparisons of text outputs that differ from the reference only by CRLF line endings; 3 WARN, last-bit float differences in diagnostic fields; the certified outputs equal the reference; two Windows-only kit bugs were fixed in the run copy (\fn{kit3v4_run_win1/RUN_NOTES.md}). \fn{kit_step4b_v4.zip}: \texttt{TOTAL PASS [159 PASS, 0 FAIL, 1 WARN]}, the counts of the WSL run, after four Windows-only fixes in the run copy (\fn{kit4bv4_run_win1/RUN_NOTES.md}). A kit v5 that carries these fixes is pending.
+@@ END
+@@ REP
+\textbf{Status v43 (23 November 2026; v42 of the same day, v39 of 20 November 2026): step 3 is not closed.}
+@@ NEW
+\textbf{Status v44 (24 November 2026; v43 and v42 of 23 November, v39 of 20 November 2026): step 3 is not closed.}
+@@ END
+@@ REP
+(a$'$) the authors' Windows runs of both v4 kits;
+@@ NEW
+(a$'$) kit v5 with the Windows-only fixes of the Windows runs of both v4 kits (done 24 November 2026, \S\ref{ss:repro}) and its runs;
+@@ END
+@@ REP
+(f) LaTeX compilation;
+@@ NEW
+(f) the compile of text v44 (text v43 compiled, \fn{fix26_latex_v43/LATEX_v43.md}; its defects are fixed in text v44);
+@@ END
+@@ REP
+so is the delta check of text v42, \fn{fix23_delta_check/DELTA_CHECK_v42.md}, applied in text v43);
+@@ NEW
+so is the delta check of text v42, \fn{fix23_delta_check/DELTA_CHECK_v42.md}, applied in text v43, and the check of text v43, \fn{fix25_check_v43/CHECK_v43.md}, applied in text v44);
+@@ END
+@@ REP
+\item \textbf{Compilation.} \fn{lemmaU.tex} and this document have not been compiled (no \LaTeX\ on the working machine); balance of braces and environments was checked by script only.
+@@ NEW
+\item \textbf{Compilation.} Text v43 of this document and of the step-3 text set was compiled with MiKTeX on the authors' Windows machine (\fn{fix26_latex_v43/LATEX_v43.md}); the three source defects found there are fixed in text v44, whose compile is pending. (Earlier drafts said that no \LaTeX\ was available on the working machine and that only the balance of braces and environments was checked by script.)
+@@ END
+@@ REP
+pass their WSL test runs (\S\ref{ss:repro}); the authors' independent Windows runs are open.
+@@ NEW
+pass their WSL test runs; on the authors' Windows machine (24 November 2026) both reproduce after Windows-only fixes in the run copies (\S\ref{ss:repro}); a kit v5 with these fixes is pending.
+@@ END
+@@ FILE U1_regularity_v43.tex
+@@ REP
+(re-checked by \fn{tools/check_numbers_v43.py} of this text set)
+@@ NEW
+(re-checked by \fn{tools/check_numbers_v44.py} of this text set)
+@@ END
+@@ REP
+so the compile fails if any other axiom, in particular \fn{sorryAx}, is used anywhere in the import closure;
+@@ NEW
+so the compile fails if any other axiom, in particular \fn{sorryAx}, is used anywhere in the dependencies of these theorems (text v44, check fix25 F-3: \fn{print axioms} covers the dependencies of the named theorem, not every imported declaration);
+@@ END
+@@ REP
+For $X:\mathbb R\supset U\to\mathbb C$ an immersion, $\fn{flowVel}\,J\,X=-k_{ss}N$,
+@@ NEW
+Let $X$ be (a) a $C^\infty$ map $X:\mathbb R\to\mathbb C$ with $X_\theta\ne0$ on all of $\mathbb R$, or (b) the lift (\fn{lift}) of an immersion of \fn{Circle}, read in a chart (text v44, check fix25 F-5: these are the two cases that (V) and \fn{flowVel_chart_eq_lift} cover, and nothing else is used). Then $\fn{flowVel}\,J\,X=-k_{ss}N$,
+@@ END
+@@ REP
+and $\fn{flowVel}(X\circ\varphi)=\fn{flowVel}(X)\circ\varphi$ for every diffeomorphism $\varphi$ (either orientation).
+@@ NEW
+and $\fn{flowVel}(X\circ\varphi)=\fn{flowVel}(X)\circ\varphi$ for every diffeomorphism $\varphi$ of $\mathbb R$ (either orientation).
+@@ END
+@@ FILE C1_identification_v43.tex
+@@ REP
+\item \textbf{Lean} (text v42): the theorems used are compiled (\fn{U1_regularity_v44.tex} \S1.2; review \fn{writeup/lean_bridge/REVIEW_W7.md}).
+@@ NEW
+\item \textbf{Lean} (text v42): the theorems used are compiled (\fn{U1_regularity_v44.tex} \S1.2; review \fn{writeup/lean_bridge/REVIEW_W7.md} for the theorems other than (PC), (MS), (GE); these three, written after review W7, were reviewed in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A: faithful (text v44, check fix25 F-4)).
+@@ END
+@@ FILE lemmaS_A_v43.tex
+@@ REP
+(generated by \fn{fix17_texts_v39/tools/gen_numbers_A_v44.py};
+@@ NEW
+(generated by \fn{fix27_texts_v44/tools/gen_numbers_A_v44.py};
+@@ END
+@@ FILE step4_handoff_v43.tex
+@@ REP
+\section{Kits (test runs in WSL only)}\label{S4H:sec:kits}
+@@ NEW
+\section{Kits (WSL test runs; Windows runs of 24 November 2026)}\label{S4H:sec:kits}
+@@ END
+@@ REP
+\textbf{No Windows run of either v4 kit has been made}; the authors' Windows runs are open.
+@@ NEW
+Text v44: both v4 kits were then run under Windows Python on the authors' Windows~11 machine (24 November 2026; run copies, started from the agent's WSL session on that machine): \fn{kit3v4_run_win1/RUN_NOTES.md} (reproduces: 72 PASS; 6 FAIL, all CRLF-only differences of text outputs; 3 WARN, last-bit float differences in diagnostic fields; certified outputs equal the reference; two Windows-only kit bugs fixed in the run copy) and \fn{kit4bv4_run_win1/RUN_NOTES.md} (\texttt{TOTAL PASS [159 PASS, 0 FAIL, 1 WARN]} after four Windows-only fixes in the run copy). A kit v5 that carries these fixes is pending.
+@@ END
+@@ FILE erratum_v43.tex
+@@ REP
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+@@ NEW
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\providecommand{\key}[1]{\texttt{\detokenize{#1}}}% text v44 (LaTeX compile fix26, defect 1): \key was used but not defined; same definition as lemmaU
+@@ END
+@@ REP
+No number was computed; no certified value changed; no Lean file was built or edited. Parts 1--6 above are verbatim;
+@@ NEW
+No number was computed; no certified value changed; no Lean file was edited. [Text v44, check fix25 F-2:] the three S3 files were recompiled per file (23 November, 23:58, to 24 November, 00:00; sources unchanged, hashes equal to \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}) to make the raw logs cited in S-1, and these logs end with return code 0. Parts 1--6 above are verbatim;
+@@ END

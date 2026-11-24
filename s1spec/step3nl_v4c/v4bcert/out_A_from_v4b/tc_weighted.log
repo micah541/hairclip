@@ -1,0 +1,4 @@
+[77s] (1) X=1 reduction vs nlin_E0.pkl: True
+[102s] (2) Euler check curvature: 0.0
+[102s] (3) drift: euler 0, split True, lin True
+sha256 237d79fd46b6e80543d544f98ddad4d201f6e314ebf04927361b90dee5276ec4

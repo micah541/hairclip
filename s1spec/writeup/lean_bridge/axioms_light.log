@@ -1,0 +1,23 @@
+== scratch_curve/AxLight.lean: exit 1 (16s, peak commit 3947 MB, lowest free RAM 2994 MB, lowest available commit 3243 MB)
+scratch_curve/AxLight.lean:19:25: error: Type mismatch
+'CWFlow.Curve.IsCDF.curv_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.IsCDF.hasDerivAt_energy1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.integral_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.integral_rate_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.curv_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.two_le_length_mul_bendingEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.rate_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.pt_cKap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.pt_cDs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.pt_cSpd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.aNormSq_chart_eq_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.aNormSq_lift_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.contDiff_lift_of_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.deriv_lift_ne_zero_of_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CWFlow.Curve.exists_equiv_fderiv_liftTau' depends on axioms: [propext, Classical.choice, Quot.sound]
+scratch_curve/AxLight.lean:19:25: error: Type mismatch
+  rfl
+has type
+  ?m.7 = ?m.7
+but is expected to have type
+  1 = 2

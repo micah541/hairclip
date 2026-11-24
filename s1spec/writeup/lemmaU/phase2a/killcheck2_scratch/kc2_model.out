@@ -1,0 +1,40 @@
+SELF-CHECK: all new ingredients off -> t1_checkpoint.json rows (weight (4,4,0.3), G22 = WORST, with (2,2,3) placeholder)
+  KS=1: late M1 x2.018883 (ref x2.018883), M0 x3.833739 (ref x3.833739), B2 0.484784; present M1 x2.412304 (ref x2.412304), M0 x1.958465; max rel dev 0.0e+00
+  KS=2: late M1 x1.931587 (ref x1.931587), M0 x3.698784 (ref x3.698784), B2 0.527971; present M1 x2.270347 (ref x2.270347), M0 x1.956084; max rel dev 0.0e+00
+  SELF-CHECK PASSED
+
+== R0 reproduce U_model2_A1 headline (D from tau_1, slope ignored)
+R0 D = D(tau_1) = (1.40e-7, 7.59e-5), slope ignored                KS=1 g 3.5e+05 LATE M1 x2.572 M0(.11) x4.28 B2 0.3315 [launch 0.1623 inflow 0.0877 rampX 0.0642 outer 0.0161] | PRESENT M1 x3.18 M0(.11) x2.09  S_X 1.524 Sig_X 3.004
+R0 D = D(tau_1) = (1.40e-7, 7.59e-5), slope ignored                KS=2 g 3.5e+05 LATE M1 x2.364 M0(.11) x4.22 B2 0.3977 [launch 0.1635 inflow 0.0877 rampX 0.1285 outer 0.0161] | PRESENT M1 x2.80 M0(.11) x2.09  S_X 1.524 Sig_X 3.004
+
+== R1 window-uniform data: X <= S_X*C0 + C1*Sigma_X (C0 = restart value, C1 = slope at H-O placeholders)
+R1 C0 = (2.92e-7, 1.51e-4), C1 = (5.1e-9, 5.9e-9)                  KS=1 g 3.5e+05 LATE M1 x2.389 M0(.11) x4.24 B2 0.3963 [launch 0.1635 inflow 0.0877 rampX 0.1278 outer 0.0161] | PRESENT M1 x2.84 M0(.11) x2.09  S_X 1.524 Sig_X 3.004
+R1 C0 = (2.92e-7, 1.51e-4), C1 = (5.1e-9, 5.9e-9)                  KS=1.33 g 3.5e+05 LATE M1 x2.281 M0(.11) x4.21 B2 0.4395 [launch 0.1643 inflow 0.0877 rampX 0.1700 outer 0.0161]  S_X 1.524 Sig_X 3.004
+R1 C0 = (2.92e-7, 1.51e-4), C1 = (5.1e-9, 5.9e-9)                  KS=2 g 3.5e+05 LATE M1 x2.101 M0(.11) x4.15 B2 0.5272 [launch 0.1659 inflow 0.0877 rampX 0.2556 outer 0.0161] | PRESENT M1 x2.39 M0(.11) x2.08  S_X 1.524 Sig_X 3.004
+R1 C0 = (2.92e-7, 1.51e-4), C1 = (5.1e-9, 5.9e-9)                  KS=4 g 3.5e+05 LATE M1 x1.747 M0(.11) x4.00 B2 0.7891 [launch 0.1708 inflow 0.0877 rampX 0.5111 outer 0.0161]  S_X 1.524 Sig_X 3.004
+
+== R2 R1 + H-O placeholders x10 (outer rates (6.2e-7, 1.31e-6, 9.06e-4) per unit tau)
+   E^A(x10) = ['2.727e-06', '9.799e-05', '0.07711']  C0 = ['2.368e-06', '0.0001555']  C1 = ['5.093e-07', '1.074e-06']
+R2 H-O x10                                                         KS=1 g 3.5e+05 LATE M1 x2.318 M0(.11) x3.29 B2 0.4288 [launch 0.1809 inflow 0.0971 rampX 0.1333 outer 0.0161] | PRESENT M1 x2.78 M0(.11) x2.08  S_X 1.524 Sig_X 3.004
+R2 H-O x10                                                         KS=2 g 3.5e+05 LATE M1 x2.042 M0(.11) x3.20 B2 0.5654 [launch 0.1834 inflow 0.0971 rampX 0.2666 outer 0.0161] | PRESENT M1 x2.34 M0(.11) x2.08  S_X 1.524 Sig_X 3.004
+
+== R3 R1 with E2A at the rule limit 0.1 (E0, E1 as certified)
+R3 E2A = 0.1                                                       KS=1 g 3.5e+05 LATE M1 x2.256 M0(.11) x4.24 B2 0.5053 [launch 0.2337 inflow 0.1259 rampX 0.1278 outer 0.0161]  S_X 1.524 Sig_X 3.004
+R3 E2A = 0.1                                                       KS=2 g 3.5e+05 LATE M1 x2.003 M0(.11) x4.14 B2 0.6365 [launch 0.2361 inflow 0.1259 rampX 0.2556 outer 0.0161]  S_X 1.524 Sig_X 3.004
+
+== R4 R1 with the fallback boxes (K NOT certified for these boxes / g; M1 still measured against 0.52)
+R4 widened (0.15,0.60), U .09, M0z .16                             KS=1 g 4.76e+05 LATE M1 x2.374 M0(.11) x4.23 B2 0.4009 [launch 0.1639 inflow 0.0900 rampX 0.1294 outer 0.0161]  S_X 1.543 Sig_X 3.041
+R4 widened (0.15,0.60), U .09, M0z .16                             KS=2 g 4.76e+05 LATE M1 x2.086 M0(.11) x4.13 B2 0.5336 [launch 0.1663 inflow 0.0900 rampX 0.2587 outer 0.0161]  S_X 1.543 Sig_X 3.041
+R4 widened (0.20,0.60), U .09, M0z .20                             KS=1 g 6.29e+05 LATE M1 x2.356 M0(.11) x4.22 B2 0.4068 [launch 0.1644 inflow 0.0929 rampX 0.1313 outer 0.0161]  S_X 1.565 Sig_X 3.086
+R4 widened (0.20,0.60), U .09, M0z .20                             KS=2 g 6.29e+05 LATE M1 x2.069 M0(.11) x4.12 B2 0.5414 [launch 0.1668 inflow 0.0929 rampX 0.2626 outer 0.0161]  S_X 1.565 Sig_X 3.086
+
+== R5 joint stress: H-O x10, KS = 2, C0 x1.5, E2A = 0.1
+R5 joint                                                           KS=2 g 3.5e+05 LATE M1 x1.810 M0(.11) x3.14 B2 0.7818 [launch 0.2388 inflow 0.1259 rampX 0.3981 outer 0.0161]  S_X 1.524 Sig_X 3.004
+R5b joint, fallback box (0.20,0.60)                                KS=2 g 6.29e+05 LATE M1 x1.781 M0(.11) x3.11 B2 0.8032 [launch 0.2401 inflow 0.1335 rampX 0.4090 outer 0.0161]  S_X 1.565 Sig_X 3.086
+
+== R6 the slope if consumed naively as D + D_slope*T (T from tau_1), late centre launched at tau_rho = tau_1 + T: level-1 datum
+   T = 0: D_1 = 7.592e-05  (x1.00);  D_0 = 1.399e-07 (x1.00)
+   T = 100: D_1 = 7.65e-05  (x1.01);  D_0 = 6.459e-07 (x4.62)
+   T = 1000: D_1 = 8.177e-05  (x1.08);  D_0 = 5.2e-06 (x37.16)
+   T = 10000: D_1 = 0.0001345  (x1.77);  D_0 = 5.074e-05 (x362.62)
+   T = 100000: D_1 = 0.0006614  (x8.71);  D_0 = 0.0005061 (x3617.23)

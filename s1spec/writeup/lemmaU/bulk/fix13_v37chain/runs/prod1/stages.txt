@@ -1,0 +1,18 @@
+nice -n 19 python3 -B n1_chart.py|8.10_s|103204_KB
+nice -n 19 python3 -B run_F10p_ibp.py|114.01_s|87092_KB
+nice -n 19 python3 -B rigor/capture_F2.py|113.83_s|85236_KB
+nice -n 19 python3 -B rigor/weights_exact.py|8.53_s|87832_KB
+nice -n 19 python3 -B rigor/assembly_arb.py|1.57_s|76436_KB
+nice -n 19 python3 -B r3_forcing.py|2.28_s|75520_KB
+nice -n 19 python3 -B r3_symcheck.py|3.40_s|78684_KB
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/run_t2.sh|49.43_s|92760_KB
+nice -n 19 python3 -B u1_ghat.py|1.32_s|77748_KB
+nice -n 19 python3 -B u34_sweeps.py --case primary|44.48_s|75676_KB
+nice -n 19 python3 -B u2_K.py --fresh|47.82_s|79844_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass1.json|0.30_s|73108_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass1.json out/U_cert_for_zone3_v36_pass1.json|0.02_s|16700_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36_pass1.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass1.json|0.09_s|36040_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/out/zone3_interface_pass1.json --out U_cert_v36_pass2.json|0.30_s|73084_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_v36_pass2.json out/U_cert_for_zone3_v36.json|0.02_s|16564_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/U_cert_v36_pass2.json|0.09_s|36352_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t5_zone3/out/zone3_interface.json --out U_cert_v36_pass3.json|0.31_s|73172_KB

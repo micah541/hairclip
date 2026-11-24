@@ -1,0 +1,115 @@
+{
+ "verifier_file": "/home/claude/s1spec/step3nl/verifier/rate_table_fin11_a0.00015.json",
+ "verifier_sha256": "fb83b1004f1aa775e381d3884aa7614cddcb12c63666d9d64eca7a7feab8d868",
+ "Ly1": 2.5e-15,
+ "X_const": 3.741705143933965e-15,
+ "X_slope": 5.361774723363588e-22,
+ "F0": 3.2804800000000003e-22,
+ "tau_march": 5.481316940282388,
+ "Lup_max": 2.8169003367799866e-15,
+ "cells": [
+  {
+   "k": 0,
+   "D": 0.08131694028238674,
+   "L_up": 2.6276250000026283e-15,
+   "excess_over_Ly1": 1.2762500000262832e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 1,
+   "D": 0.6,
+   "L_up": 2.6081405502191374e-15,
+   "excess_over_Ly1": 1.081405502191374e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 2,
+   "D": 0.6,
+   "L_up": 2.6835932947585503e-15,
+   "excess_over_Ly1": 1.835932947585503e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 3,
+   "D": 0.6,
+   "L_up": 2.7303537050898193e-15,
+   "excess_over_Ly1": 2.303537050898193e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 4,
+   "D": 0.6,
+   "L_up": 2.7608550132516757e-15,
+   "excess_over_Ly1": 2.608550132516757e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 5,
+   "D": 0.6,
+   "L_up": 2.7926644157159535e-15,
+   "excess_over_Ly1": 2.9266441571595354e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 6,
+   "D": 0.6,
+   "L_up": 2.7999535715361522e-15,
+   "excess_over_Ly1": 2.999535715361522e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 7,
+   "D": 0.6,
+   "L_up": 2.808051290946802e-15,
+   "excess_over_Ly1": 3.08051290946802e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 8,
+   "D": 0.6,
+   "L_up": 2.808571091879234e-15,
+   "excess_over_Ly1": 3.08571091879234e-16,
+   "W1_with_P_ge_0": false
+  },
+  {
+   "k": 9,
+   "D": 0.6,
+   "L_up": 2.8169003367799866e-15,
+   "excess_over_Ly1": 3.169003367799866e-16,
+   "W1_with_P_ge_0": false
+  }
+ ],
+ "W1_ok": false,
+ "W1_note": "checked with P_k >= 0 (per-cell r1_k, Phi_k not stored); fails at k = 0 already (L_up_0 = Ly_hi_0 > Ly1 by construction of the barrier), so Lemma 4 fallback",
+ "W2_ok": true,
+ "W2_note": "L_F = 2.436e-19 <= L* = 2.8064e-15; tail barrier = verifier tail lemma (closure.tail, rate_s_U = -0.00269 <= -rho), not re-run here",
+ "W3_ok": false,
+ "W3_note": "F0 (degree-0 flux floor, 3.2805e-22 per unit tau) is NOT inside the march rate: unconditional() uses dropL=True (rhs_iv.py:198) and Phi has no constant term (unc.py:17-27); closure.py:182 omits F0*D. Repaired by +F0*tau_march in X_c (kappa_W3 below). Same omission in the tau_a = tau_1 J of v3.1 (relative 5e-7).",
+ "kappa_J_W1": 0.04234704828275205,
+ "kappa_J_W3": 4.80565675395584e-07,
+ "kappa_J": 0.04234752884842744,
+ "worst_cell": 9,
+ "label": "cert",
+ "statement": "int_{tau_a}^{tau_a+T} V_m^2 <= J_m (1 + kappa_J) + s_m T for all windows, m = 0,1,2,4 (J_m, s_m of lemmaS_F10p_M0.52 args)",
+ "args": {
+  "argv": [
+   "rigor/hjw_rep.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "OMP_NUM_THREADS": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl/verifier/rate_table_fin11_a0.00015.json": "fb83b1004f1aa775e381d3884aa7614cddcb12c63666d9d64eca7a7feab8d868",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/base_ibp/lemmaS_F10p_M0.52.json": "09d9c989e1bc43e56fac09032b6cab3fb87998dbf818dbd2151f0a9efaa29a88",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/rigor/hjw_rep.py": "d638ef7b4d28e304e77dd08c557bf0925902a9d8feae97c8c0df6cfdaec3e13f",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/rigor/arlib.py": "43f6cc58ccded5a0e2daf3c47680e8ae2d33095c92326578525d7a4dc2f90e37"
+  },
+  "flint": "0.9.0",
+  "sympy": "1.14.0"
+ }
+}

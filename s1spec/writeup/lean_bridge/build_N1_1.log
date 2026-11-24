@@ -1,0 +1,2 @@
+   waiting: 4958 MB RAM free (need 2500), 7084 MB commit available (need 11040: imports reserve about 9840)
+== CWFlow/Curve/N1.lean: NOT STARTED after 600s: 4915 MB RAM free (need 2500), 7201 MB commit available (need 11040: imports reserve about 9840). Close a browser or enlarge the page file.

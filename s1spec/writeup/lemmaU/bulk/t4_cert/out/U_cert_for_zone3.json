@@ -1,0 +1,43 @@
+{
+ "args": {
+  "EA2": null,
+  "argv": [
+   "assemble_U.py",
+   "--A",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/out/A_interface.json"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert",
+  "env": {
+   "OMP_NUM_THREADS": null,
+   "PYTHONDONTWRITEBYTECODE": null,
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl/verifier/final_alpha_points_5e-8.json": "3db5a3145fa16b4413a7cf36e8aef49f9b1f9d841fce78871f170aa5c1997439",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/out/A_interface.json": "4f86e3cb66c62bb1ee7a52334ede7d88a42d5cfefca8b933745918c200f76f31",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/assemble_U.py": "a3a3a05511ee815ae32026dc5961468757940bf97130a4b2453429415464b145",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u1_ghat.json": "4b86cc91ffe63e0fafd2b23133d8f5382047a1f376ca31294042fe1a141b1616",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u2_K.json": "eddf340e061f3cf59a735a59b2baba58157ef230650f36dfa85e7ca98eb8483a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u34_primary.json": "cdaf0aba0f4271dccca834bf1d1aa53ef33033313af8cd3f549b7e649df88763",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/t4lib.py": "e05cadd6384286353e16af7223d1a476bd6c32395163d7795cbfd8f546a0b2e1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json": "b643987b09dfc99e1957c58a303ae3bc853724f655a971e735d6624e26e5c74e"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "prec": 128,
+  "python": "3.14.4",
+  "setting": "tight",
+  "stressC1": "1",
+  "sympy": "1.14.0"
+ },
+ "label": "cert",
+ "note": "U-fine Bhat (present centres rho in [150, 168.67] lambda_1, conclusion level) in the key zone3.py --ucert reads (supersolution.Bhat). The crude global Bhat is U_cert.json supersolution.Bhat.",
+ "provisional": false,
+ "supersolution": {
+  "Bhat": [
+   4.855580690961528e-06,
+   0.00026257684716081176,
+   0.025779850423852398
+  ]
+ }
+}

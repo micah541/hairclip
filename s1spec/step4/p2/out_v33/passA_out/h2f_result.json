@@ -1,0 +1,119 @@
+{
+ "item": "(H2f) v3.3: G_j on [60, 700] at t_1, uniformly over slab 180, true curve",
+ "label": "certified",
+ "thresholds": [
+  1e-06,
+  5e-06,
+  1e-05
+ ],
+ "rows": [
+  {
+   "j": 0,
+   "threshold": 1e-06,
+   "base": 3.126227843568783e-07,
+   "sqrt_err_at_Ybar": 8.944754806012947e-07,
+   "with_error": 3.1362383487896234e-07,
+   "margin": 3.188533168679392,
+   "margin_base_only": 3.198743182001853,
+   "Ybar_limit": 5.7374497259064436e-08,
+   "Ybar_limit_capped_at_YBOX": 1.7e-12,
+   "ok": true,
+   "stop_trigger_margin_lt_1p2": false
+  },
+  {
+   "j": 1,
+   "threshold": 5e-06,
+   "base": 1.0030697003066951e-06,
+   "sqrt_err_at_Ybar": 1.29345418220751e-07,
+   "with_error": 1.0033288046208032e-06,
+   "margin": 4.9834111977774755,
+   "margin_base_only": 4.98469846957915,
+   "Ybar_limit": 1.7197501560020915e-08,
+   "Ybar_limit_capped_at_YBOX": 1.7e-12,
+   "ok": true,
+   "stop_trigger_margin_lt_1p2": false
+  },
+  {
+   "j": 2,
+   "threshold": 1e-05,
+   "base": 2.430167602220838e-06,
+   "sqrt_err_at_Ybar": 1.555600293619223e-06,
+   "with_error": 2.4350200711041813e-06,
+   "margin": 4.106742329834436,
+   "margin_base_only": 4.114942521191287,
+   "Ybar_limit": 1.1682445626010483e-09,
+   "Ybar_limit_capped_at_YBOX": 1.7e-12,
+   "ok": true,
+   "stop_trigger_margin_lt_1p2": false
+  }
+ ],
+ "all_ok": true,
+ "min_margin": 3.188533168679392,
+ "Ybar": 1.0000000000000004e-12,
+ "YBOX": "1.7e-12",
+ "constants": {
+  "KCH": 1.1568170253535626,
+  "c0": {
+   "0": 0.008904391873348102,
+   "1": 0.07300018118316254,
+   "2": 0.1606944324014173
+  },
+  "c0tip": {
+   "0": 0.30217075081120476,
+   "1": 0.31095853258708,
+   "2": 0.32117271964452704
+  }
+ },
+ "A": {
+  "0": 6578.22098858414,
+  "1": 61636.20229507526,
+  "2": 1123731.5651667356
+ },
+ "B": {
+  "0": 7.60736478057073e-07,
+  "1": 1.7541123356842173e-09,
+  "2": 5.101409245994864e-08
+ },
+ "base_parts": {
+  "G_60_379p5": [
+   4.838152380196491e-08,
+   1.7922934600974793e-07,
+   5.439635028506856e-07
+  ],
+  "G_379p5_700": [
+   2.646272245291115e-07,
+   8.251995819802047e-07,
+   1.89008163159926e-06
+  ]
+ },
+ "info_379p5_700": {
+  "sup_f": 0.12338436394929887,
+  "sup_yfy": 0.12483632855582984,
+  "sup_z": [
+   0.0028662940918155445,
+   0.0048249537128999065,
+   0.006523044549568718,
+   0.006041324332747805
+  ]
+ },
+ "probe_for_comparison": [
+  3.126224097280483e-07,
+  1.0030690031212077e-06,
+  2.4301664752850864e-06
+ ],
+ "ycomp": {
+  "file": "/home/claude/s1spec/step4/p2/out/ycomp_final.json",
+  "note": "ycomp asserts Ybar = 1e-12 >= Y(tau_a)"
+ },
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/h2f_camp.py": "e51d6186664b6ce3134da5dc3753442c0ee01a8729883cde83bdff84e200606e",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/h2f_base.json": "53e73a339edbf3fd13f3a457a00333efdfe1f5ba3a0fb88e83fe740fa23253ad",
+   "/home/claude/s1spec/step4/p2/out_v33/t9_h2f.json": "a069403c733ce788c3eb6d31aa3b0ff8653bf39571cab6486d13985821962abc",
+   "/home/claude/s1spec/step4/p2/t8se/constants/amp_A1_w180.json": "b7f319194090659642c94f987d9bca59b67e3459084e9a54c1a78e049c60d8ac",
+   "/home/claude/s1spec/step4/p2/out/ycomp_final.json": "e33e8e414dfaaa3f9f8ec695dd3f187d760cff3ce2818f084119d7c9e78fadd3"
+  }
+ }
+}

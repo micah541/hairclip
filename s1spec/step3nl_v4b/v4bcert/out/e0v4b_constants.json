@@ -1,0 +1,199 @@
+{
+ "constants": {
+  "ALIN_AB": {
+   "dir": "up",
+   "raw": 35.86873623501742,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 35.86873623501743
+  },
+  "ALIN_BB": {
+   "dir": "up",
+   "raw": 6.21990350849228,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 6.219903508492281
+  },
+  "ALIN_W1B": {
+   "dir": "up",
+   "raw": 7.896699465811253,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 7.8966994658112535
+  },
+  "ALIN_sq": {
+   "dir": "up",
+   "raw": 59.32715308450967,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 59.327153084509675
+  },
+  "AMAX_E0": {
+   "dir": "exact",
+   "raw": 0.00025,
+   "source": "hypothesis of the E0 lemma, asserted in closure.box_assert",
+   "value": 0.00025
+  },
+  "CA0": {
+   "dir": "up",
+   "raw": 0.0007146303533450253,
+   "source": "e0_strip_drift.json CA0",
+   "value": 0.0007146303533450254
+  },
+  "CA1": {
+   "dir": "up",
+   "raw": 32.00000000001085,
+   "source": "e0_strip_drift.json CA1",
+   "value": 32.00000000001086
+  },
+  "CB0": {
+   "dir": "up",
+   "raw": 0.0004237798050213974,
+   "source": "e0_strip_drift.json CB0",
+   "value": 0.00042377980502139747
+  },
+  "CB1": {
+   "dir": "up",
+   "raw": 1.0321853286955687,
+   "source": "e0_strip_drift.json CB1",
+   "value": 1.032185328695569
+  },
+  "CD0": {
+   "dir": "up",
+   "raw": 0.0002473337067921552,
+   "source": "e0_strip_drift.json CD0",
+   "value": 0.00024733370679215526
+  },
+  "CD1": {
+   "dir": "up",
+   "raw": 0.6070460587369407,
+   "source": "e0_strip_drift.json CD1",
+   "value": 0.6070460587369408
+  },
+  "C_DR_CORE": {
+   "dir": "up",
+   "raw": 0.5493079564942096,
+   "source": "e0_strip_drift.json C_DR_CORE",
+   "value": 0.5493079564942097
+  },
+  "GABN": {
+   "dir": "up",
+   "raw": 8.028590463071952,
+   "source": "||(gA,gB)|| operator norm, gram7 (section 5)",
+   "value": 8.028590463071954
+  },
+  "H12AB": {
+   "dir": "up",
+   "raw": 0.0017471626519710742,
+   "source": "n3_123 sum_{j=1,2}|H3j| |(Ea_1j,Ea_2j)| (ibp_consts Ea)",
+   "value": 0.0017471626519710744
+  },
+  "H12B": {
+   "dir": "up",
+   "raw": 0.00807698747732209,
+   "source": "n3_123 sum_{j=1,2}|H3j| Ea_3j",
+   "value": 0.008076987477322092
+  },
+  "HOB": {
+   "dir": "up",
+   "raw": 33.36907824679363,
+   "source": "2||chi h2|| + n3_123 H33 E33/alpha",
+   "value": 33.369078246793634
+  },
+  "IR": {
+   "dir": "up",
+   "raw": 1.838283151750649e-11,
+   "source": "e0_strip_drift.json IR",
+   "value": 1.8382831517506494e-11
+  },
+  "IRW": {
+   "dir": "up",
+   "raw": 2.1271383902499618e-08,
+   "source": "e0_strip_drift.json IRW",
+   "value": 2.127138390249962e-08
+  },
+  "LOOPC": {
+   "dir": "up",
+   "raw": 5.650496737475288,
+   "source": "n3_123 H33 (|(e13,e23)| + AMAX_E0 |(r1,r2)|), bloop.json",
+   "value": 5.650496737475289
+  },
+  "M_STRIP_00": {
+   "dir": "up",
+   "raw": 4.206019717670418e-15,
+   "source": "e0_strip_drift.json M_STRIP_00",
+   "value": 4.2060197176704185e-15
+  },
+  "M_STRIP_01": {
+   "dir": "up",
+   "raw": 1.600640404969454,
+   "source": "e0_strip_drift.json M_STRIP_01",
+   "value": 1.6006404049694543
+  },
+  "M_STRIP_02": {
+   "dir": "up",
+   "raw": 23.45145690441132,
+   "source": "e0_strip_drift.json M_STRIP_02",
+   "value": 23.451456904411323
+  },
+  "M_STRIP_11": {
+   "dir": "up",
+   "raw": 1.1461846940219405,
+   "source": "e0_strip_drift.json M_STRIP_11",
+   "value": 1.1461846940219407
+  },
+  "M_STRIP_12": {
+   "dir": "up",
+   "raw": 16.94349274039269,
+   "source": "e0_strip_drift.json M_STRIP_12",
+   "value": 16.943492740392692
+  },
+  "M_STRIP_22": {
+   "dir": "up",
+   "raw": 3.2104541994631295,
+   "source": "e0_strip_drift.json M_STRIP_22",
+   "value": 3.21045419946313
+  },
+  "N3P": {
+   "dir": "up",
+   "raw": 6.588185403479988,
+   "source": "n3_123 = ||Pi_{f1,f2,f3}^perp chi psi3^|| (lemma G33), this script (2)",
+   "value": 6.588185403479989
+  },
+  "PHX": {
+   "dir": "up",
+   "raw": 1.0830000000000002,
+   "source": "constants_v4.json PHX (Phi1 = phi'(34.25), SOB_NOTES (I2))",
+   "value": 1.0830000000000004
+  },
+  "RA2": {
+   "dir": "up",
+   "raw": 26.90244860095413,
+   "source": "e0_strip_drift.json RA2",
+   "value": 26.902448600954134
+  },
+  "RB2": {
+   "dir": "up",
+   "raw": 5.4997026934448465,
+   "source": "e0_strip_drift.json RB2",
+   "value": 5.499702693444847
+  },
+  "RW": {
+   "dir": "up",
+   "raw": 4.700338185386159e-05,
+   "source": "e0_strip_drift.json RW",
+   "value": 4.70033818538616e-05
+  },
+  "WB": {
+   "dir": "exact",
+   "raw": 0.02,
+   "source": "|w| <= WB on [0,34.25]: hypothesis of e0_strip_drift (alpha_g lower bound), asserted in closure.box_assert",
+   "value": 0.02
+  },
+  "XW_COEF": {
+   "dir": "up",
+   "raw": 3.1263169869973407e-06,
+   "source": "e0_strip_drift.json XW_COEF",
+   "value": 3.126316986997341e-06
+  }
+ },
+ "sources": {
+  "e0_lemma_consts": "/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0_lemma_consts.json"
+ }
+}

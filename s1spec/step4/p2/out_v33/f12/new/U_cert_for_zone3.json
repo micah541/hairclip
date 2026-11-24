@@ -1,0 +1,46 @@
+{
+ "args": {
+  "EA2": null,
+  "argv": [
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/assemble_U.py",
+   "--A",
+   "/home/claude/s1spec/step4/p2/out_v33/f12/new/A_interface.json",
+   "--zone3",
+   "../t5_zone3/out/zone3_interface.json",
+   "--out",
+   "/home/claude/s1spec/step4/p2/out_v33/f12/new/U_cert.json"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert",
+  "env": {
+   "OMP_NUM_THREADS": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "../t5_zone3/out/zone3_interface.json": "45e8d4dcaff2bd75fcea725f80e98625af70a40709fc2cf5d3df78b5becb3ea3",
+   "/home/claude/s1spec/step3nl_v33/verifier/modsups_fin12f4/final_alpha_points_5e-8.json": "d5b14797e932bb01c3ce2c4cd89c56fd994a42647ac6e4c0133fbb808d3cfde6",
+   "/home/claude/s1spec/step4/p2/out_v33/f12/new/A_interface.json": "e827ee3d0ac0e78169dc6ff6a8f41184db29d7977619fb57b0024b2926688116",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/assemble_U.py": "d14baeea1f0f8bdb703ca58aa5b40cd4c4f288beacf182443d05ff54a488cfce",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u1_ghat.json": "5a06d24cae8591f508f9f7499c7d2b4355e06cd5b9d8d2419a9a0108c5638466",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u2_K.json": "10ae3c383f7098284e5ae16f4355db9a2645f64531f62c6565c5824213f73261",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u34_primary.json": "abaf73724b84a0845b549d74a32050e5efafc8f246360ea2d8c388dd0dd70333",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/t4lib.py": "85ddd5f381cdc2c5f237671e17e168f07dd4f0f14989215627038b32f59dfd82"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "prec": 128,
+  "python": "3.14.4",
+  "setting": "tight",
+  "stressC1": "1",
+  "sympy": "1.14.0"
+ },
+ "label": "cert",
+ "note": "f12: U-fine Bhat of f12/new/U_cert.json (as assemble_U writes U_cert_for_zone3.json)",
+ "supersolution": {
+  "Bhat": [
+   4.872209279681717e-06,
+   0.00026265953291734116,
+   0.025841280444559276
+  ]
+ }
+}

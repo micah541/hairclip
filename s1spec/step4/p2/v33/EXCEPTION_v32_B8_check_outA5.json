@@ -1,0 +1,20 @@
+{
+ "item": "Documented exception to p2/out/FINAL_manifest.json (closed v3.2 chain), approved by Micah Warren on Nov 15 2026 (option \"documented exception\")",
+ "path": "../../s1_tight/consistency/check_outA5.json",
+ "abs_path": "/home/claude/s1_tight/consistency/check_outA5.json",
+ "pinned_sha256": "73843eff7ab481cb612c8b434e6f9bb627e8bfb66a3552dcf8927e05022e1c5c",
+ "current_sha256": "549619b793d447df27160ab20fe7df3a88ea90d6a7b46559c1cfc7f37a62e065",
+ "cause": "The first end-to-end WSL test run of kit_step4b (s1spec/kit4b_run_wsl1, Nov 15 12:45:40 PST) ran the tail stage B8 with the manifest cwd ../../s1_tight/consistency resolved outside the kit, i.e. the proof tree script /home/claude/s1_tight/consistency/check_outA5.py on the proof tree inputs, overwriting its output. Kit bug fixed in kit_step4b_v3 (stage cwd asserted inside the kit).",
+ "content_now": {
+  "outA5": "/home/claude/s1spec/step3/outA5.txt",
+  "all_inside": [
+   true,
+   true,
+   true
+  ],
+  "seconds": 8.75284194946289
+ },
+ "original": "not recoverable (no copy exists; the file contains a timing field, so a rerun cannot restore the pinned bytes)",
+ "other_files": "a find -newermt check of /home/claude showed no other proof-tree file modified by the run",
+ "scope": "only this path; the closed manifest and all other pins are unchanged"
+}

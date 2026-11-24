@@ -1,0 +1,14 @@
+X3 shell is [54.75, 57.76] and X2 sigma range inside it                          True
+X3 chart shift e <= 1e-30 (so Y(S) within [54.75 - 1e-30, 57.76 + 1e-30]; y_max = 57.76 + e used below) True
+export statements have the weight y^-4 (28/y) on [ln 28, ln 350] for z_3 (k=1) and z_4 (k=2) True
+level-2 export retained fraction r_2 = 1/1000 (A_interface r2_export)            True
+STOP RULE: C0_2 = 1.1636e+02 < 4e3 (kill 4e4; design: raise lambda_2 above 4e3)  True
+level-2 chart absorption: sigma_min^{-3/2} Bbar_22 sigma_min^{-1/2} < 1e-30      True
+level-3 chart absorption < 1e-30                                                 True
+level-4 chart absorption < 1e-30 (B_44 circular term, sec. 3.4)                  True
+regression: f4b formula on (E, beta = 2, lemmaS_cflux) reproduces the v36 pipeline K0_w at beta = 2 (rel <= 1e-9) True
+X4 Nbar_l^2 (with d, chart) <= 1.05 x old f4b N_l^2 rescaled to the same W(57) (sanity; old has no d/chart) True
+Mbar {0: 0.017210513624707855, 1: 0.002813691505429567, 2: 0.0012627012975050082} Nbar {0: 1.9924875552003486e-11, 1: 3.2574538046865e-12, 2: 1.4618486560460038e-12}
+m3 1.5796e-05 + 2.8099e-07 T ; m4 3.6759e-03 + 8.4621e-06 T ; s2 1.9945e-08 + 1.2632e-03 T
+regression K0w old-formula/pipeline 1.0 Nbar^2 new/old [0.9878253109147633, 0.9676206008800983, 0.5223273727538345]
+X4 done sha e4f700a92db47995e9f839219e4dad9b4034d0b166fd6b74a04a221ddf69c759 (0.2s)

@@ -1,0 +1,4 @@
+start big from snap_main2_7000.npz k=7018.49 N=524288 L=48.040381 cdt=0.01 tol=1e-10 Nmax=1048576
+snap 8000 k=8098.313 N=524288 L=48.04024946 tail=3.04e-11 steps=400 wall=277s
+snap 10000 k=10131.603 N=1048576 L=48.04007774 tail=3.63e-15 steps=950 wall=605s
+DONE

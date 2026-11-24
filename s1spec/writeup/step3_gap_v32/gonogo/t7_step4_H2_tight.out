@@ -1,0 +1,7 @@
+self-check (v3.1 thresholds): recomputed [2.392004545435252e-07, 9.852864439976837e-10, 3.631705598847083e-10] 
+                              camp       [2.392004545435252e-07, 9.852864439976837e-10, 3.631705598847083e-10] 
+  identical: True
+tightened (H2) = (1e-8, 1e-6, 1e-3): Ybar limits (arb lower) ['4.9694450281e-08', '9.7502788732e-11', '2.5667105973e-11']
+  margins vs certified Ybar = 1e-12: ['x4.969e+04', 'x97.5', 'x25.67'] | step-4 binding limit stays item3_E3 1.575680e-11 : True
+shell energies at Ybar = 1e-12 (arb upper): ['8.012896e-11', '4.705797e-10', '1.558756e-06']
+  energy margins tightened: ['x124.8', 'x2125', 'x641.5']  v3.1: ['x2496', 'x2.125e+05', 'x1.283e+05']

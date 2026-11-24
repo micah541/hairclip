@@ -1,0 +1,111 @@
+% step3_v33_main.tex -- assembled step-3 document, v3.3 (fix round 1, review finding B2, last item).
+% Driver: \input's lemmaS_A_v33.tex and continuation_v33.tex; summarises the rest with citations.
+% Not compiled (no LaTeX here); balance checked by check_balance.py on the expanded text, see B12_REPORT.md.
+\def\stepmain{1}
+\documentclass[11pt]{article}
+\input{b12_preamble}
+\input{numbers_A_v33}
+\title{Step 3 of the hair-clip proof, version 3.3: nonlinear trapping near $S_1$\\[2pt]\large setting, hand-off, verifier, repaired Lemma S(A), Lemma U, zone III, bootstrap, continuation, conclusion}
+\author{Working supplement to the notes of W.\,J.~Ogden and M.~Warren (assembled by Claude, Anthropic)}
+\date{14 November 2026 (fix round 1). \emph{Not compiled.} v3.1 and v3.2 files are unchanged; this is a new file.}
+\begin{document}\maketitle
+\begin{center}\fbox{\parbox{0.94\linewidth}{\small\textbf{Status.} This document assembles step~3 v3.3 in one place, as asked by review finding B2 (\fn{bulk/t8_review/REVIEW_v33.md}). It is \emph{not} yet a closed version. \textbf{B0} is resolved (route (b), \fn{fix1/b0/B0_REPORT.md}): (A) is in $f-U$ on $[14,700]$ and the certified profile difference $d$ enters the four interfaces (places marked \tB; v34 values in \fn{numbers_A_v33.tex}). Open: \textbf{G-A1} (an integration-rule correction in the (A) assembly, size $\le\GAoneV$, \S\ref{A:sec:gaps}); the must-fix items M1--M9 of the review (being handled separately); and the literature facts (P1$'$)--(P3$'$). Lemma~U is cited, not reproduced (\fn{bulk/t3_proof/lemmaU.tex}).}}\end{center}
+\tableofcontents
+
+%======================================================================
+\section{Setting}\label{M:sec:set}
+Frame, decomposition, weights and regions are those of v3.2 \S1 (\fn{writeup/step3_proof_v32/step3_proof_v32.tex}): $\gamma(t)=p(t)+\lambda(t)\Gamma(\tau)$, $d\tau=\lambda^{-4}dt$, $\lambda_\tau/\lambda=-(\frac14-a)$; the even modulated decomposition $u=\alpha\hat\psi_3+\alpha^2\hat h_2+w$ over $S_1$ with constraints fixing $(a,b,\beta)$ and $\alpha_\tau=\tilde\lambda\alpha+\beta$; the inner energy $E$, the intermediate energy $E_I$ of $v=\zeta w'$ on $x\in[10.25,60]$, $\Lambda=E+\mu E_I$, $\mu=0.08$. In the far field $y=x-2.2490776515$, $s=\ln y$, and $f$ is the slope of the arc over the $S_1$ ray. New in v3.3:
+\begin{itemize}[leftmargin=*]
+\item the frozen profile $U_1(r)=1.3056\,\alpha(\tau_1)(r/\lambda_1)^p$ and $v=f-U_1$ for all centres of Lemma~U (\fn{lemmaU.tex} Definition ``one frozen profile'');
+\item the shell variable of (A) on $[14,60]$ is fixed by B0 (\S\ref{A:sec:var}); on $(60,700]$ it is $f-U(\alpha(\tau),y)$;
+\item the weights of Lemma~U, $\Psi_\rho=\eta^2\chi^2W(s-s_\rho(\tau))D\phi$, with centres $\rho\in(0,r_\chi\lambda_1]$, $r_\chi=253$, launched at $y=56$ (\fn{lemmaU.tex} \S2.2);
+\item regions: inner ramp of (A) $[14,28]$, core $[28,60]$, segments $(60,350]$, outer annulus $O=[350,700]$; zones I/II $\{y\ge56,\ r<253\lambda_1\}$; zone III $[253,379.5]\lambda_1$; Lemma~O cone members (centres $[300,380]\lambda_1$, $L=50\lambda_1$) and far members (centres $\ge490\lambda_1$, $L=113\lambda_1$).
+\end{itemize}
+
+%======================================================================
+\section{The theorem and the hand-off}\label{M:sec:thm}
+\begin{theorem}[trapping near $S_1$ with a floor, v3.3]\label{M:thm:W}
+Let $\gamma$ be a smooth closed immersed curve evolving by CDF and $t_1$ a time at which the following hold.
+\begin{enumerate}[label=\textup{(H\arabic*)},leftmargin=*]
+\item \emph{Modulation and smallness}: the modulated decomposition exists at $\tau_1$, $|\alpha(\tau_1)|\le\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda(\tau_1)}\le5\cdot10^{-8}$.
+\item \emph{Shell energies, tightened}: on $y\in[14,60]$, $E_j(\tau_1)\le\HtwoV$ ($\omega$-normalised, $\omega=28/y$).
+The variable is $f-U_1$ (B0 route (b)); certified by the step-4 stage \fn{h2u_v33}: $\HtwoCertV$, margins $\HtwoMarV$ \tC\ (Remark~\ref{A:rem:B0}, (I4)).
+\item[\textup{(H2f)}] \emph{Far datum of (A)}: $G_j=\int_{\ln60}^{\ln700}\frac{28}y\bigl(\partial_s^j(f-U_1)\bigr)^2ds\le\HtwofV$, $j=0,1,2$.
+\item[\textup{(H3)}] \emph{Windows}: on every $[y_w,1.5y_w]$, $y_w\in[50,253.125]$, the energies of $v=f-U_1$ satisfy $E_0\le2\cdot10^{-7}$, $E_1,E_2,E_3\le10^{-5}$, and $K_4\le0.06$ on the cone cylinders at $\tau_1$ (as v3.2; Lemma~U uses levels $0$--$2$).
+\item[\textup{(H4)}] \emph{Graph}: the arc is a graph over the $S_1$ ray on $y\in[48,700]$ (v3.2: $[48,350]$; extended for (H2f) and Lemma~G, \S\ref{C:sec:graph}; proposed wording: the step-4 (H2f) stage evaluates $f$ on $x\in[45,725]$, which implies it, but the hand-off list must say so).
+\item[\textup{(H5)}] \emph{Lemma~O data}: hypotheses H1--H7, H9 of Lemma~O for the fixed-$L$ cone family ($L=50\lambda_1$, $X=3$, centres $[300,380]\lambda_1$, $(M,K)=(0.12,0.18)$: slope $\le0.08$, $|h_0''|\le0.03$, $\|h_0'''\|_{L^2}\le0.004$, jets $\le0.12$, $\int(h_0^{(5)})^2\le0.0144$, graph test, time ratio) and for the far family (centres $\ge490\lambda_1$, $(M,K)=(0.15,0.3)$, data as v3.2), arc by arc.
+\item[\textup{(H6)}] \emph{Regularity}: $\gamma(t_1)$ smooth; the forcing norm is determined by $\alpha(\tau_1)$.
+\end{enumerate}
+Then the solution exists on $[t_1,T)$ with $T<\infty$, the modulated decomposition persists, and (W1)--(W5) of \S\ref{C:sec:W} hold.
+\end{theorem}
+\noindent\emph{Step-4 values} \tC\ (\fn{step4/p2/out/FINAL_manifest.json}, 34 stages, and \fn{step4/p2/out_v33/FINAL_manifest_v33.json}, 12 stages, sha256 \fn{8202d2c6...}; table of \fn{bulk/t7_assembly/main_v3.tex}): (H1) $|\alpha|\le1.1739\cdot10^{-4}$ ($\times1.27$), $\sqrt\Lambda\le2.29\cdot10^{-8}$ ($\times2.18$); (H2) for $f-U_1$ $\HtwoCertV$ ($\HtwoMarV$; stage \fn{h2u_v33}, from the $w'$ shells and the $d$ table \fn{b0_dprof}); (H2f) with error $(3.136\cdot10^{-7},1.0034\cdot10^{-6},2.435\cdot10^{-6})$ ($\times3.19,\times4.98,\times4.11$); (H3) $\times15.7$ in $\bar Y$, $K_4$ $\times10.7$; (H5) fixed-$L$ cone slope $\times2.64$, $\sup|h_0''|$ $\times3.04$, H4 $\times1119$, H7 $\times2.30$. Review M9 lists the step-4 items that are labelled certified but are not fully so (cell half-widths, typed $r_c\mapsto x$ map, far H4 only at centres 376 and 602); they are hand-off items, not step-3 inequalities.
+
+%======================================================================
+\section{Components that are unchanged from v3.2}\label{M:sec:unchanged}
+Linear coercivity, the energies and Lyapunov constants, the forcing, and the modulation by integration by parts are v3.2 \S3.1--3.4, unchanged \tC. Lemma~O and Lemma~R are \fn{writeup/lemmaO_v32/lemmaO_v32.tex} and \fn{lemmaR.tex}, used on the v3.3 families (\S\ref{M:sec:zone3}).
+
+\section{The verifier (D1, D6)}\label{M:sec:verifier}
+The inner and intermediate closure is v3.2 \S3.5, rerun for v3.3 with the flux inputs raised $\times4$: \fn{step3nl_v33} (tag \fn{fin12f4}; \fn{V33_VERIFIER.md}), $\fn{FLUX0}=1.64\cdot10^{-20}$, $\fn{FLUX2}=8.0\cdot10^{-20}$; tail certificate identical to \fn{fin11}. Outputs used downstream \tC: peak $\sqrt\Lambda\le\peakV$, $\rho\ge2.6930\cdot10^{-3}$, $\sqrt{L_F}\le9.872\cdot10^{-10}$, $\alpha_F\le6.8666\cdot10^{-7}$; $\bar a=\bar b\le2.19103\cdot10^{-7}$, $\bar\beta\le3.33811\cdot10^{-9}$; $J_{0,1,2,4}$ unchanged against \fn{fin11} (to $10^{-6}$), slopes and $F_0$ $\times4$; $s_{I1}\le\sIoneV$, $s_{I2}\le1.5457\cdot10^{-2}$, $M_1^{\rm ramp}\le\MoneRampV$, $S_{\rm ramp}\le7.48\cdot10^{-4}$. Inputs from (A) (consumed at the hypothesis level, B2$'$): $S^v_0\le0.0153$, $S^v_1\le0.6$ on $[34.25,60]$ \tB\ (interface (I2)), and the flux constants $K_0,K_2$ at $\beta_A\Eh$ \tB\ (interface (I3)). H-J-W in window form (every window, $J_m(1+\kappa_J)$, $\kappa_J\le\kappaJV$; erratum E-V1) is Lemma~\ref{A:lem:HJ}.
+
+%======================================================================
+% ---------------- repaired Lemma S(A) ----------------
+\input{lemmaS_A_v33}
+
+%======================================================================
+\section{Lemma U (summary; proof in \fn{lemmaU.tex})}\label{M:sec:U}
+\fn{bulk/t3_proof/lemmaU.tex} proves, for every centre $\rho\in(0,253\lambda_1]$ and $\tau\ge\tau_\rho$ (Proposition~``U''), $\E^\rho_j(\tau)\le\B_j$, a closed expression in: the launch data (present centres from (H2), (H3); late centres from (A) and the neighbour energies), the inflow and ramp terms converted to (A)'s data (Proposition ``data term'', using Lemma~D in window form, \S\ref{A:sec:int}), the cubic and foot terms, the couplings, the outer ramp $\Delta^R$ of zone III, and the forcing. Its hypotheses (U1)--(U6) are the box, the rate conditions, (A)'s data, the neighbour bound, the zone-III data and the modulation bounds. Further: window Sobolev (Lemma~``window Sobolev'', B3U(b,c) strictly), Lemma~N (H-O1, H-O2$'$ for (A)'s outer annulus), U-fine ($\Bh^{\rm fine}$ for the H6 strip). Certified values \tC\ (\fn{t4_cert/out/U_cert_v34.json}, sha256 \fn{4c3f23bc...}): $\Bh\le\BhV$; \UmarV; loop gain $\le0.0390$; $\Bh^{\rm fine}\le\BhFineV$. Statements of \fn{lemmaU.tex} that need to change are listed in \fn{B12_REPORT.md} (\S4).
+
+\section{Zone III and the cone family (D5a, D5b)}\label{M:sec:zone3}
+\fn{bulk/t5_zone3/Z5_REPORT.md}, \fn{out/zone3_interface.json} (B0 rerun, sha256 \fn{8152c650...}; $\Delta^R$, $n^{\rm III}$ and the boxes identical to v33) \tC: Z1 on $[253,379.5]\lambda_1$: $(b_0,b_1,b_z)=(0.10032,0.41974,0.014291)$, primary box, margins $\times1.495,\times1.238,\times11.19$; Z2 on $[253,700]\lambda_1$ for $\tau-\tau_1\le\tau_{\rm III}=4.0708$: $|f|\le0.22757$, $|rf_r|\le0.54234$; Z3 $n^{\rm III}\le(0.071446,0.32707,3.0445)$; $\Delta^R\le(4.4986\cdot10^{-8},6.7955\cdot10^{-6},0.011480)$, $\Delta^{R,b}\le4.35\cdot10^{-8}$; the ramp is covered by the conclusion regions of the members at $300\lambda_1$ and $380\lambda_1$ (asserted). Cone family with fixed $L=50\lambda_1$: $t^*$ margin $\times2.30$; far family with centres $\ge490\lambda_1$ (conclusion regions from $379.25\lambda_1$). D5b/H6 with U-fine: minimum margin $\times1.860$ (far $K_3$), cone slope $\times2.463$, cone $K_2$ $\times2.54$, cone $K_3$ $\times2.511$, $t^*$ $\times2.302$ (\key{cone_family.H6.at_Bhat_ref}). Zone III depends only on B4, the hand-off and D1, never on B2$'$ or B3U (\key{inputs_used}).
+
+%======================================================================
+\section{The bootstrap}\label{M:sec:boot}
+\noindent$\mathrm{BS}_U(\tau')$: on $[\tau_1,\tau']$,
+\begin{description}[leftmargin=1.2em]
+\item[B1] $|\alpha|$, $\sqrt\Lambda$ below the barrier of the verifier (\fn{fin12f4}).
+\item[B2$'$] core $[28,60]$: $\sup|v_A|\le0.0153$, $|f|\le0.11$, $|yf_y|\le0.52$; $E^A_j\le\beta_A\Eh_j$, $\beta_A=2$ ($E^A$ over $[14,700]$).
+\item[B3U] (a) $\E^\rho_j\le2\Bh_j$ for every launched centre; (b) $|f|\le0.15$, $|yf_y|\le0.52$ on $\{y\ge56,\ r<253\lambda_1\}$; (c) $|f-U_1|\le0.16$ there.
+\item[B4] the a-priori bounds of Lemma~O on the fixed-$L$ cone family and on the far family (centres $\ge490\lambda_1$).
+\item[G] the graph property of Definition~\ref{C:def:G}.
+\end{description}
+\noindent\emph{Order} (no step uses its own conclusion; \fn{lemmaU.tex} \S7.4):
+\begin{center}\small\begin{tabular}{@{}p{0.12\linewidth}p{0.47\linewidth}p{0.35\linewidth}@{}}\toprule
+step & consumes & produces\\\midrule
+D1 verifier & B1; B2$'$ ($S^v_0,S^v_1$; fluxes at $\beta_A\Eh$) & $J_m,s_m$ (H-J-W); $\bar a,\bar b,\bar\beta$; ramp values\\
+D5a & B4; (H3), (H5); horizon from D1 & Z1--Z3, $N_k^2$, $\Delta^R$, $\Delta^{R,b}$\\
+D3$'$ (A) & D1; (H2), (H2f); B2$'$; B3U(b,c) and Z1 on $(60,350]$; Lemma~N ($\beta=2$) on $O$ & $E^A\le\Eh$; $\gamma'$; $C0,C1$; core box strictly (\S\ref{A:sec:int})\\
+U-crude & $\Eh,C0,C1$; D1; (H2), (H3), $\alpha_1$; B2$'$, B3U, Z1; neighbours at $2\Bh$; $\Delta^R$ & $\E^\rho\le\Bh$; B3U(b,c) strictly\\
+U-fine & U-crude & $K_2,K_3$ on $[150,253)\lambda_1$\\
+D5b/H6 & D5a; (H5); U-fine & B4 strictly\\
+D6 & D1 & B1 strictly\\
+G & all boxes above; Lemma~O graph persistence & G strictly (Lemma~\ref{C:lem:G})\\\bottomrule\end{tabular}\end{center}
+\noindent\emph{Closure conditions} (\fn{lemmaU.tex} Proposition ``closure''), certified \tC\ unless marked:
+\begin{enumerate}[label=(K\arabic*),leftmargin=2.6em]
+\item $\mathcal A(2)\le\Eh=\EhV$; core box strictly (margins $\times\MarSzeroV$, $\times\MarMoneV$, $\times\MarMzeroV$, $\hat G_{22}$ $\times\MarGV$, ramp $\times\MarRampMoneV$); fluxes at $\beta_A=2$ $\times\MarFluxZeroV$, $\times\MarFluxTwoV$ \tB\ (and G-A1);
+\item $\mathcal U(2)\le\Bh$ for the late centre and every present $y_c$-cell;
+\item window Sobolev at the centres' bounds; $S_1(2\Bh)\le0.28578\le M_1^z=0.534$;
+\item Z1--Z3; H-J-W; (R2) margin $\times28.231$, (R$<$2) margins $\times4.432,\times6.697$; segment conditions of (A) for both boxes;
+\item D5b, D6 with U-fine (H6 $\ge\times1.860$);
+\item at $\tau_1$: $H_2+H^f_2=\EtauOneV<\Eh$ (thinnest $\times\KsixV$, level 0; (H2) for $f-U_1$ by \fn{h2u_v33}) \tB; B1, B2$'$, B4, G from (H1)--(H5).
+\end{enumerate}
+Under (K1)--(K6) $\mathrm{BS}_U$ holds on $[\tau_1,\tau_{\max})$: implication step, nonempty, closed, open, as proved in \fn{lemmaU.tex} (Proposition ``closure''), with G added by Lemma~\ref{C:lem:G}.
+
+%======================================================================
+% ---------------- continuation and conclusion ----------------
+\input{continuation_v33}
+
+%======================================================================
+\section{What remains, and the B0 slots}\label{M:sec:remains}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Hypotheses of the theorem} \tH: (H1)--(H6) and (H2f) (step 4); the verifier's tail lemma (W2); (P1$'$)--(P3$'$) (literature).
+\item \textbf{B0} (resolved, route (b)): the places marked \tB\ carry $d$ (Remark~\ref{A:rem:B0}); values are the v34 ones. Not part of B0 and still open: the chart identification of the verifier's $w'$ with the ray-graph quantity at levels $\ge1$ (\fn{B0_REPORT.md} \S7).
+\item \textbf{G-A1} (\S\ref{A:sec:gaps}): rerun the (A) assembly with the corrected integration rule, then t4 and zone3.
+\item \textbf{Review items} handled elsewhere: B3 (main\_v3 tail numbers; here (W1) already uses \fn{fin12f4}), M1--M9.
+\item \textbf{Not claimed}: convergence to $S_1$ (upgrade C).
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Chou2003} K.-S. Chou, A blow-up criterion for the curve shortening flow by surface diffusion, Hokkaido Math.\ J.\ 32(1) (2003) 1--19.
+\bibitem{Wheeler2013} G. Wheeler, On the curve diffusion flow of closed plane curves, Ann.\ Mat.\ Pura Appl.\ (4) 192 (2013) 931--950.
+\end{thebibliography}
+\end{document}

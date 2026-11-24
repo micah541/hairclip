@@ -1,0 +1,265 @@
+{
+ "regression_NEW0_vs_fin12f4": {
+  "0.00015": true,
+  "0.00015_n_oracle_rows": 21,
+  "0.00015_env": {
+   "PYTHONHASHSEED": "0",
+   "TAG": "fin12f4",
+   "NEW": "0",
+   "THETA": "0.05",
+   "ADD": "abcd",
+   "FIX": "1",
+   "S0V": "0.0153",
+   "S1V": "0.6",
+   "DELTA": "0.2",
+   "MOD": "ibp",
+   "MODA": "25",
+   "ETA": "0.01",
+   "FLUX0": "1.64e-20",
+   "FLUX2": "8.0e-20",
+   "LY1SQ": "5e-8",
+   "INTEG": null,
+   "COND": null
+  },
+  "0.000125": true,
+  "0.000125_n_oracle_rows": 19,
+  "0.000125_env": {
+   "PYTHONHASHSEED": "0",
+   "TAG": "fin12f4",
+   "NEW": "0",
+   "THETA": "0.05",
+   "ADD": "abcd",
+   "FIX": "1",
+   "S0V": "0.0153",
+   "S1V": "0.6",
+   "DELTA": "0.2",
+   "MOD": "ibp",
+   "MODA": "25",
+   "ETA": "0.01",
+   "FLUX0": "1.64e-20",
+   "FLUX2": "8.0e-20",
+   "LY1SQ": "5e-8",
+   "INTEG": null,
+   "COND": null
+  },
+  "final_alpha_points": true,
+  "tail_cert_log": true
+ },
+ "double_run_P_vs_P_A": {
+  "rate_table_fin13v4_a0.00015.json": true,
+  "rate_table_fin13v4_a0.000125.json": true,
+  "modsups_fin13v4/final_alpha_points_5e-8.json": true,
+  "tail_cert_log.txt": true,
+  "verify_log_fin13v4_a0.00015.txt": true,
+  "verify_log_fin13v4_a0.000125.txt": true
+ },
+ "reviewer_rerun_P_R_vs_P": {
+  "rate_table_fin13v4_a0.00015.json": true,
+  "rate_table_fin13v4_a0.000125.json": true,
+  "modsups_fin13v4/final_alpha_points_5e-8.json": true,
+  "tail_cert_log.txt": true,
+  "verify_log_fin13v4_a0.00015.txt": true,
+  "verify_log_fin13v4_a0.000125.txt": true
+ },
+ "copy_hashes_equal_to_tree": {
+  "verifier/bb.py": true,
+  "verifier/closure.py": true,
+  "verifier/constants.py": true,
+  "verifier/ival.py": true,
+  "verifier/mod_sups.py": true,
+  "verifier/rhs_iv.py": true,
+  "verifier/tail_cert.py": true,
+  "verifier/unc.py": true,
+  "v4cert/out/constants_v4.json": true,
+  "cubic_E0fine_0.001_0.01_0.01.json": true,
+  "agent_int/planB/planB_ramp.json": true
+ },
+ "numbers_0.00015": {
+  "box_max_ratio": {
+   "max_ratio": {
+    "Bb_IR_jet": 0.7473930582881746,
+    "Bc_w1_far_EI": 0.058019496834752465,
+    "Bc_w1_far_S0V": 0.7649999999999999,
+    "Bd_w_16_34": 0.029530725957968663,
+    "Bd_w_34_60": 0.7891312290391067,
+    "U3_strip_S0": 0.029530725957968663,
+    "U3_strip_S1": 0.058019496834752465,
+    "U3_strip_S2": 0.7728438627428719,
+    "Bf_mod_alpha": 0.32,
+    "Bf_mod_A": 5.307698153159246e-05,
+    "Bf_mod_W1": 0.0006681630519371672
+   },
+   "n_checks": 20
+  },
+  "steps": 10,
+  "peak": 5.307698153159244e-08,
+  "peak_old": 5.3074583428339036e-08,
+  "rho": 0.00268436590128651,
+  "rho_old": 0.0026930418598831627,
+  "rate_s_U": -0.0026843659039708758,
+  "a_star": 3.684593143773382e-05,
+  "sqrt_LF": 9.887644284215035e-10,
+  "alpha_F": 6.876745750115004e-07,
+  "delta_tail": 0.2,
+  "delta_tail_old": 0.2,
+  "J": {
+   "V0sq": [
+    6.020437622861214e-12,
+    3.452360997088009e-18,
+    0.9988719068692303,
+    0.9993104051725127
+   ],
+   "V1sq": [
+    8.461143383415395e-12,
+    4.851959813810028e-18,
+    0.9992834540375267,
+    0.9997221330073528
+   ],
+   "V2sq": [
+    1.8725551358304465e-12,
+    1.0737984048351463e-18,
+    1.0009484690114205,
+    1.0013878789120456
+   ],
+   "V4sq": [
+    6.242095952722693e-08,
+    3.5794687956619194e-14,
+    1.0009484702904456,
+    1.001387880191632
+   ]
+  },
+  "first_cell_U": 0.030356493134991898,
+  "first_cell_U_old": 0.03034405538749633,
+  "F0": 1.3121920000000001e-21,
+  "tau_t": 5.481316940282387,
+  "F0_tau_t": 7.192540238503026e-21,
+  "X_const": 3.745257571633616e-15,
+  "F0_tau_t_over_Xc": 1.920439409288949e-06,
+  "tail_Lstar_half": 1.4033591029175651e-15,
+  "Lstar_half_over_F0_tau_t": 195113.13894430772,
+  "strip_over_sqrtLF": null,
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "TAG": "fin13v4",
+   "NEW": "1",
+   "THETA": "0.05",
+   "ADD": "abcd",
+   "FIX": "1",
+   "S0V": "0.0153",
+   "S1V": "0.6",
+   "DELTA": "0.2",
+   "MOD": "ibp",
+   "MODA": "25",
+   "ETA": "0.01",
+   "FLUX0": "1.64e-20",
+   "FLUX2": "8.0e-20",
+   "LY1SQ": "5e-8",
+   "INTEG": null,
+   "COND": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4/verifier/constants.py": "3ea86ef811f55ba5f1e09c7fe8ba7489c5c480423844ef5ac479ae18da099b4d",
+   "/home/claude/s1spec/step3nl_v4/verifier/rhs_iv.py": "95c949849f107eea6ec1088c52e4d8250f5438464dbf1b696c97a065eae2bdd8",
+   "/home/claude/s1spec/step3nl_v4/verifier/closure.py": "bddb936a397e3f0edbb1c258c310dd172fe875d388d7a23d07619a28d4fde42e",
+   "/home/claude/s1spec/step3nl_v4/verifier/unc.py": "a1fe5f7206e91876083aa19fa8acaa035fc1423f2bbdd1fdbcf449b0c1ad8d77",
+   "/home/claude/s1spec/step3nl_v4/verifier/bb.py": "76bc1e24d787f53bf97333af6b894ad67456342114aa001404f05de498d47352",
+   "/home/claude/s1spec/step3nl_v4/verifier/ival.py": "74b65bc2505a30cddd5db0eff1ecc9abca355651bf76743a60d293087a3f9bc9",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+   "/home/claude/s1spec/step3nl_v4/cubic_E0fine_0.001_0.01_0.01.json": "9966342863778614733e7bd29ea24a7ca80b61e78487cb4efbd7c1929c7703a6"
+  }
+ },
+ "numbers_0.000125": {
+  "box_max_ratio": {
+   "max_ratio": {
+    "Bb_IR_jet": 0.7341563446466577,
+    "Bc_w1_far_EI": 0.056991941846503705,
+    "Bc_w1_far_S0V": 0.7649999999999999,
+    "Bd_w_16_34": 0.02900772168491984,
+    "Bd_w_34_60": 0.7891103088681848,
+    "U3_strip_S0": 0.02900772168491984,
+    "U3_strip_S1": 0.056991941846503705,
+    "U3_strip_S2": 0.7591564023265794,
+    "Bf_mod_alpha": 0.26,
+    "Bf_mod_A": 5.2136961019361695e-05,
+    "Bf_mod_W1": 0.0006563295422647719
+   },
+   "n_checks": 18
+  },
+  "steps": 9,
+  "peak": 5.2136961019361674e-08,
+  "peak_old": 5.213518454571229e-08,
+  "rho": 0.0028557154327223675,
+  "rho_old": 0.002860963016953402,
+  "rate_s_U": -0.0028557154355780827,
+  "a_star": 3.5805621790331666e-05,
+  "sqrt_LF": 9.586415012043683e-10,
+  "alpha_F": 6.594713514812134e-07,
+  "delta_tail": 0.2,
+  "delta_tail_old": 0.2,
+  "J": {
+   "V0sq": [
+    5.66793574657571e-12,
+    3.3416597330435856e-18,
+    0.9984933049637487,
+    0.998733101268045
+   ],
+   "V1sq": [
+    7.965736055076175e-12,
+    4.696379883167039e-18,
+    0.9989046961435334,
+    0.9991445912467743
+   ],
+   "V2sq": [
+    1.7629153986256637e-12,
+    1.0393666519436031e-18,
+    1.0005690800276574,
+    1.0008093748462519
+   ],
+   "V4sq": [
+    5.876615787803521e-08,
+    3.464691771873975e-14,
+    1.0005690813061976,
+    1.0008093761250991
+   ]
+  },
+  "first_cell_U": 0.021009966358206233,
+  "first_cell_U_old": 0.021000085033698566,
+  "F0": 1.3121920000000001e-21,
+  "tau_t": 4.881316940282386,
+  "F0_tau_t": 6.405225038503025e-21,
+  "X_const": 3.5259694726821126e-15,
+  "F0_tau_t_over_Xc": 1.8165855059518534e-06,
+  "tail_Lstar_half": 1.3545437271432659e-15,
+  "Lstar_half_over_F0_tau_t": 211474.80673994217,
+  "strip_over_sqrtLF": null,
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "TAG": "fin13v4",
+   "NEW": "1",
+   "THETA": "0.05",
+   "ADD": "abcd",
+   "FIX": "1",
+   "S0V": "0.0153",
+   "S1V": "0.6",
+   "DELTA": "0.2",
+   "MOD": "ibp",
+   "MODA": "25",
+   "ETA": "0.01",
+   "FLUX0": "1.64e-20",
+   "FLUX2": "8.0e-20",
+   "LY1SQ": "5e-8",
+   "INTEG": null,
+   "COND": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4/verifier/constants.py": "3ea86ef811f55ba5f1e09c7fe8ba7489c5c480423844ef5ac479ae18da099b4d",
+   "/home/claude/s1spec/step3nl_v4/verifier/rhs_iv.py": "95c949849f107eea6ec1088c52e4d8250f5438464dbf1b696c97a065eae2bdd8",
+   "/home/claude/s1spec/step3nl_v4/verifier/closure.py": "bddb936a397e3f0edbb1c258c310dd172fe875d388d7a23d07619a28d4fde42e",
+   "/home/claude/s1spec/step3nl_v4/verifier/unc.py": "a1fe5f7206e91876083aa19fa8acaa035fc1423f2bbdd1fdbcf449b0c1ad8d77",
+   "/home/claude/s1spec/step3nl_v4/verifier/bb.py": "76bc1e24d787f53bf97333af6b894ad67456342114aa001404f05de498d47352",
+   "/home/claude/s1spec/step3nl_v4/verifier/ival.py": "74b65bc2505a30cddd5db0eff1ecc9abca355651bf76743a60d293087a3f9bc9",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+   "/home/claude/s1spec/step3nl_v4/cubic_E0fine_0.001_0.01_0.01.json": "9966342863778614733e7bd29ea24a7ca80b61e78487cb4efbd7c1929c7703a6"
+  }
+ }
+}

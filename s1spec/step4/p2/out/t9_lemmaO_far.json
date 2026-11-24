@@ -1,0 +1,74 @@
+{
+ "args": {
+  "argv": [
+   "t8se/constants/amp_A1_w180.json",
+   "out/t9_far_v32.json",
+   "../../writeup/lemmaO_v32/lemmaO_v32_consts.json"
+  ],
+  "slab": 180,
+  "jets": "/home/claude/s1spec/step4/p2/t6c/jets",
+  "t9json": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+  "reading": "arc by arc (H8 not required, not tested)",
+  "family": {
+   "X": "2",
+   "L": 113,
+   "M": "3/20",
+   "K2": "3/10",
+   "K3": "3/10",
+   "needed": 6.134e-09,
+   "source": "far_v32.case"
+  }
+ },
+ "data": {
+  "K0_le_h2": 0.0001796876810044506,
+  "k0": 0.0001762457838723728,
+  "e0": 18.841505787264705,
+  "e1": 0.00023332990488600508,
+  "XK": 148.0,
+  "lam_frame": [
+   0.9999949073622986,
+   0.9999951064487983
+  ],
+  "xc_frame_abs": 0.00010466373908761083
+ },
+ "arc": {
+  "G": 227.125,
+  "Jmin": 0.9966792640431875,
+  "Jmax": 1.0033207630881384,
+  "turn_max": 0.04094709008525646,
+  "xi_dot_min": 0.9958438325674442,
+  "xi_end_min": 226.18103047188077,
+  "XL": 226.0
+ },
+ "first_centre": {
+  "x_needed": 375.12500000000006,
+  "x_arclength_reading": 375.9980851682242,
+  "anchor": {
+   "cell": [
+    12,
+    3
+   ],
+   "x": [
+    4.783554143995301,
+    4.914239445958546
+   ],
+   "r_hi": 2.6698545478284363
+  },
+  "e_loc": 0.000602826265341217,
+  "r_max_before": 373.0120078938376,
+  "r_radius_reading": 375.9980851682242
+ },
+ "C0_sqrt_t1": 0.0009211760000000001,
+ "sup_h0": 0.040711705601138494,
+ "H": 0.0417,
+ "H_minus_C0_sqrt_t1": 0.04077882399999999,
+ "slack_height": 6.711839886151516e-05,
+ "checks": {
+  "graph_monotone": true,
+  "graph_covers_X": true,
+  "height": true,
+  "first_centre_arclength": true,
+  "first_centre_radius": true
+ },
+ "ok": true
+}

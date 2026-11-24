@@ -1,0 +1,5 @@
+179 slabs merged, missing [] -> constants/constants_b1.json
+  j=0: lam_min 0.2401  k_jj max 9.6951e+04  theta_min 1.225  gamma max 1.009e+02
+  j=1: lam_min 0.2488  k_jj max 3.0746e+07  theta_min 1.225  gamma max 5.448e+02
+  j=2: lam_min 0.2485  k_jj max 1.0271e+10  theta_min 1.225  gamma max 1.923e+04
+  j=3: lam_min 0.2456  k_jj max 1.1353e+12  theta_min 0.220  gamma max 7.621e+05

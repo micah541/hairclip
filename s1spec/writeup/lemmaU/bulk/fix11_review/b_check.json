@@ -1,0 +1,293 @@
+{
+ "res": {
+  "J0 up": {
+   "ok": true,
+   "info": 3.610511086773138e-06
+  },
+  "slope0 up": {
+   "ok": true,
+   "info": 2.2586185651203166e-06
+  },
+  "J1 up": {
+   "ok": true,
+   "info": 1.5409741896111317e-06
+  },
+  "slope1 up": {
+   "ok": true,
+   "info": 4.256436841228614e-06
+  },
+  "J2 up": {
+   "ok": true,
+   "info": 4.3579790759590954e-06
+  },
+  "slope2 up": {
+   "ok": true,
+   "info": 8.364623712889025e-05
+  },
+  "J4 up": {
+   "ok": true,
+   "info": 1.3049448309402322e-05
+  },
+  "sJ4 up": {
+   "ok": true,
+   "info": 2.570427864770248e-05
+  },
+  "sqLam up": {
+   "ok": true,
+   "info": 7.1658561746094156e-06
+  },
+  "rho down": {
+   "ok": true,
+   "info": 0.00024872654806669885
+  },
+  "abar == mod_sups": {
+   "ok": true,
+   "info": "2.14041e-07"
+  },
+  "beta == mod_sups": {
+   "ok": true,
+   "info": "2.35488e-09"
+  },
+  "1.5e-4 row dominates the 1.25e-4 row (J, slopes, peak, rho, sup_ab, sup_beta, M1, sI1, sI2, S_ramp)": {
+   "ok": true,
+   "info": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "mod_sups J/peak/rho == rate table": {
+   "ok": true,
+   "info": null
+  },
+  "rate table env FLUX0/FLUX2/S0V/S1V/V4B": {
+   "ok": true,
+   "info": [
+    "1.64e-20",
+    "8.0e-20",
+    "0.0153",
+    "0.6",
+    "1",
+    "fin13v4b",
+    "25",
+    "0.01"
+   ]
+  },
+  "all sha256 pins in args blocks match disk (259 pins, 131 files)": {
+   "ok": true,
+   "info": []
+  },
+  "files_without_args": [
+   "t2_A/base_ibp/lemmaS_B.json",
+   "t2_A/base_ibp/lemmaS_B3.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-05.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_dv05.json",
+   "t2_A/base_ibp/lemmaS_F1.json",
+   "t2_A/base_ibp/lemmaS_F1_scan.json",
+   "t2_A/base_ibp/lemmaS_F4.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_F9_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_L4b.json",
+   "t2_A/base_ibp/lemmaS_F4B_N5b_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_P1_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_P2_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_R5_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_R8_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F5_geom.json",
+   "t2_A/base_ibp/lemmaS_assembled.json",
+   "t2_A/base_ibp/lemmaS_cflux.json",
+   "t2_A/base_ibp/lemmaS_consts.json",
+   "t2_A/base_ibp/lemmaS_nested.json",
+   "t2_A/base_ibp/rigor/assembly_arb.json",
+   "t2_A/base_ibp/rigor/assembly_arb_pre_v33.json",
+   "t2_A/base_ibp/rigor/cap_F10p.json",
+   "t2_A/base_ibp/rigor/cap_F10p_pre_v33.json",
+   "t2_A/base_ibp/rigor/ramp_tables.json",
+   "t2_A/base_ibp/rigor/weights_exact.json",
+   "t2_A/base_ibp/rigor/weights_exact_pre_v33.json"
+  ],
+  "verifier_paths_pinned": [
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py",
+   "/home/claude/s1spec/step3nl/h2fun.py",
+   "/home/claude/s1spec/step3nl/psi3fun.py",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/modsups_fin13v4b/final_alpha_points_5e-8.json",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json",
+   "/home/claude/s1spec/step3nl_v4b/verifier/constants.py"
+  ],
+  "no pinned verifier path outside step3nl_v4b (or verifier-independent step3nl modules)": {
+   "ok": true,
+   "info": [
+    "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py",
+    "/home/claude/s1spec/step3nl/h2fun.py",
+    "/home/claude/s1spec/step3nl/psi3fun.py"
+   ]
+  },
+  "kappa_J certified reproduced": {
+   "ok": true,
+   "info": [
+    0.04243186976456641,
+    0.042431869764566435
+   ]
+  },
+  "kappa_J used - certified >= 1e-9 (1 ulp)": {
+   "ok": true,
+   "info": 1.0000000281023163e-09
+  },
+  "C'/X_const <= 1e-9 pad": {
+   "ok": true,
+   "info": "margin x141.3"
+  },
+  "X_const >= sum of its parts, excess < 1e-9 relative (verifier-side rounding; info)": {
+   "ok": true,
+   "info": 3.748494589844273e-10
+  },
+  "c_dU_mine": "[1.46342753445e-8 +/- 3.01e-20]",
+  "c_dU < 2e-8": {
+   "ok": true,
+   "info": "[1.46342753445e-8 +/- 3.01e-20]"
+  },
+  "verifier LAMT literal == -0.2561532": {
+   "ok": true,
+   "info": null
+  },
+  "r0_mine": "[3.75163420346e-9 +/- 2.94e-21]",
+  "r2_export": {
+   "k": 2,
+   "z": "z_4 = d_s^4 (f - U), s = ln y",
+   "r_2": "1/1000",
+   "amin_c": {
+    "arb": "[0.976232249400864 +/- 3.04e-16]",
+    "double": 0.9762322494008643,
+    "bound": "lo",
+    "label": "cert"
+   },
+   "statement": "int_{tau_a}^{tau_a+T} int_{ln28}^{ln350} y^-4 (28/y) z_4^2 ds dtau <= C0_2 + C1_2*T  (all tau_a >= tau_1, T >= 0)",
+   "C0_ref": {
+    "arb": "[114.782223004176 +/- 2.89e-14]",
+    "double": 114.78222300417603,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_ref": {
+    "arb": "[0.0698142389112015 +/- 4.44e-17]",
+    "double": 0.06981423891120146,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_0": {
+    "arb": "[0.00621885466361745 +/- 2.21e-18]",
+    "double": 0.0062188546636174485,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C0_ref4": {
+    "arb": "[116.378172825656 +/- 8.45e-15]",
+    "double": 116.37817282565601,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_ref4": {
+    "arb": "[0.260600391653950 +/- 4.81e-16]",
+    "double": 0.2606003916539505,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C0_rule": "(EA_2 + D_2)/(r_2 amin_c)",
+   "C1_rule": "(2 F_2^2/gp_2 + coup_2 + o_2 + D_2^slope)/(r_2 amin_c);  C1_2(Nbar) = C1_0 + o_2/(r_2 amin_c)",
+   "window_data": {
+    "EA_2": {
+     "arb": "[0.0567930871912806 +/- 1.52e-17]",
+     "double": 0.056793087191280615,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_2": {
+     "arb": "[0.0552610205633178 +/- 1.83e-17]",
+     "double": 0.05526102056331778,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_window_const": {
+     "arb": "[0.0552106598958736 +/- 1.75e-17]",
+     "double": 0.05521065989587362,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_window_slope": {
+     "arb": "[6.05090378163197e-6 +/- 2.11e-21]",
+     "double": 6.050903781631968e-06,
+     "bound": "up",
+     "label": "cert"
+    },
+    "F2_2": {
+     "arb": "[4.15720760970261e-13 +/- 3.24e-28]",
+     "double": 4.157207609702607e-13,
+     "bound": "up",
+     "label": "cert"
+    },
+    "gp_2": {
+     "arb": "[0.119546641666615 +/- 4.10e-16]",
+     "double": 0.11954664166661458,
+     "bound": "lo",
+     "label": "cert"
+    },
+    "coup_rate_2": {
+     "arb": "[2.01439791872543e-8 +/- 3.05e-23]",
+     "double": 2.0143979187254333e-08,
+     "bound": "up",
+     "label": "cert"
+    },
+    "rho_w": {
+     "arb": "[5.50157726068835e-7 +/- 1.34e-22]",
+     "double": 5.501577260688349e-07,
+     "bound": "up",
+     "label": "cert"
+    }
+   },
+   "retained_core": {
+    "arb": "[0.00100100000000000 +/- 1e-22]",
+    "double": 0.001001,
+    "bound": "lo",
+    "label": "cert"
+   },
+   "Bc_core": "1688999/1000000"
+  }
+ },
+ "fails": [],
+ "args": {
+  "argv": [
+   "b_check.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "prec": 200,
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json": "c2fa7e18ab15178e7828b0a9219c5d183f890dd6702fcd3ffd1c7d9db296c61f",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/modsups_fin13v4b/final_alpha_points_5e-8.json": "3c4b17228dc8aa11f603a42a808a4637432213679738eb078a35fcf720f0ce65",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/hjw_rep.json": "80a7d2081572b55037f44fd42ca4a5eb40485ec19eea8ed30f9461cb90293497",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/out/A_interface.json": "799b087cf192f41df54986feba7a0ec715b407e2b53f0cc89db245d7c7415c4a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t4_cert/out/u34_primary.json": "0967bed548d5abf2c46d4020e8c91f98c6dc256da795bcd6cd9160c19590b01b",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/r3/r3_forcing.json": "f763f73d169aa7cbcd308347254a2f1c2696520f3572306fd5c49696f232cc5a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix11_review/b_check.py": "629f3608aea34181499b7f48ee212fd4984b6685bf21dceeab4fa1d5d5a3e8a9"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+FAIL invalid macro name {'file': 'numbers_A_v39.tex', 'name': 'BPhiC0oneV'}
+FAIL invalid macro name {'file': 'numbers_A_v39.tex', 'name': 'BPhiC0twoV'}
+FAIL invalid macro name {'file': 'numbers_A_v39.tex', 'name': 'BPhiC1oneV'}
+FAIL invalid macro name {'file': 'numbers_A_v39.tex', 'name': 'BPhiC1twoV'}
+FAIL macros step3_v39_main.tex {'undefined_unknown': ['BPhiC', 'BPhiConeoneV', 'BPhiConetwoV', 'BPhiCzerooneV', 'BPhiCzerotwoV', 'EtauOneV', 'GAoneV', 'HtwoV', 'HtwofV']}
+FAIL macros lemmaU_v39.tex {'undefined_project_macros': ['DcTwoV', 'cdUV']}
+FAIL macros main_v3_v39.tex {'undefined_project_macros': ['CprimeV', 'EzeroAoneMarV', 'cdUV', 'tailAlphaMarBV', 'tailAlphaMarV']}
+PASS macros U1_regularity_v39.tex {}
+PASS macros C1_identification_v39.tex {}
+FAIL macros GS_lemma_v39.tex {'undefined_project_macros': ['key']}
+PASS macros G1_export_k2_v39.tex {}
+PASS macros E0_LEMMA_v4c_v39.tex {}
+PASS macros erratum_v39.tex {}
+PASS macros step4_handoff_v39.tex {}
+FAIL macros bootstrap_v39.tex {'undefined_unknown': ['BPhiC', 'BPhiConeoneV', 'BPhiConetwoV', 'BPhiCzerooneV', 'BPhiCzerotwoV']}
+FAIL macros continuation_v39.tex {'undefined_unknown': ['BPhiC']}
+FAIL macros ei_lemma_v4c_v39.tex {'undefined_unknown': ['BPhiC']}
+FAIL macros flux2_lemma_v39.tex {'undefined_project_macros': ['BbIRV', 'BdV', 'CppV', 'CprimeV', 'EtwoTipV', 'FluxCfiveBV', 'FluxCfiveV', 'FluxCombMarV', 'FluxCsixV', 'FluxCthreeBV', 'FluxCthreeV', 'FluxKzeroMarV', 'KtwoPtV', 'KzeroBarV', 'MarSoneV', 'MarSzeroV', 'SppV', 'SprimeV', 'abarV', 'key', 'slackSV'], 'undefined_unknown': ['BPhiConeoneV', 'BPhiConetwoV', 'BPhiCzerooneV', 'BPhiCzerotwoV']}
+FAIL macros lemmaS_A_v39.tex {'undefined_unknown': ['BPhiC', 'EtauOneV', 'GAoneV', 'HtwoV', 'HtwofV']}
+MACROS FAIL

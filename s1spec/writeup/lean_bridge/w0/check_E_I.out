@@ -1,0 +1,9 @@
+PASS E1 v_t = -k V v
+PASS E2 [d_t,d_s]x = k V x_s  (time-indep. dep. through jet)
+PASS E2 [d_t,d_s]kappa = k V kappa_s  (time-indep. dep. through jet)
+PASS E3a T_t = V_s N (x-comp)
+PASS E3b T_t = V_s N (y-comp)
+PASS E3c N_t = -V_s T (x-comp)
+PASS E4 k_t = V_ss + k^2 V
+PASS (I) integrand - RHS is a total s-derivative (Euler operator = 0) []
+PASS (I) explicit: d/ds[-2k_s k_ssss + 2k_ss k_sss - 2k^2 k_s k_ss - k k_s^3/3] = integrand - RHS

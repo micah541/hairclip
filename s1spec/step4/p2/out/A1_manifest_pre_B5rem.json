@@ -1,0 +1,675 @@
+{
+ "note": "A1 hand-off chain (slab-180 good-time window), final outputs in run order; S1TT=10.249077651120778,10.249077651121361, S1PROF=/home/claude/s1_tight/ext_tip/prof_tip.txt, COHERENT=1 for h1/h1dt/clam; win.py uses the envelope chart (no S1TT). check_outA5 (S1 agent) runs first; h1 exact points rerun with the exact u4_cell hull (review B5).",
+ "files": [
+  {
+   "stage": "S1 hull containment (B8)",
+   "path": "/home/claude/s1_tight/consistency/check_outA5.py",
+   "sha256": "dcdf3eec4a7754390bb712020530f4c0bfd66f730846011d75c3e36f844494ba"
+  },
+  {
+   "stage": "S1 hull containment (B8)",
+   "path": "/home/claude/s1_tight/consistency/check_outA5.json",
+   "sha256": "43a4ae8b56ed562fc32e7cd41ce0b4e2afa72018d0fce8ffe836c70de6e38b8a"
+  },
+  {
+   "stage": "S1 hull containment (B8)",
+   "path": "/home/claude/s1_tight/consistency/check_outA5.log",
+   "sha256": "c27e166980514fa5e2db532bb67f72f585524380ced8a78b899dd91917cf7f4b"
+  },
+  {
+   "stage": "se_corr",
+   "path": "p2/t6/residuals.json",
+   "sha256": "e3802841e5ec9182aeb4e7c8c6012b307e579b9582dd35e27ff204ee44011fa7"
+  },
+  {
+   "stage": "se_corr",
+   "path": "p2/out/se_corr.json",
+   "sha256": "04d2aa19246e5a5ba532275e9fb45802b3aff767f1ae3b85d7057aa260b91434"
+  },
+  {
+   "stage": "switch",
+   "path": "p2/out/switch_s2.json",
+   "sha256": "42205d4d6c5aaa36929b823e6c34094bf3667d6bce3c885732414a7eff1d7575"
+  },
+  {
+   "stage": "ycomp (Y0 = 6.21e-13, SLAB0 = 2)",
+   "path": "p2/out/ycomp_fin.json",
+   "sha256": "8c22617153e9e4db49c200dd12eabb8c1ca71fb575dfab3a7a24be3aa8691ce2"
+  },
+  {
+   "stage": "T8 cconst + merge",
+   "path": "p2/t8se/constants/constants_fin.json",
+   "sha256": "da92b61c61dc2acac93a555d1c933c06041afb1cbc3c806e99ece44ae1f0e2c5"
+  },
+  {
+   "stage": "T8 camp (no N3)",
+   "path": "p2/t8se/constants/amp_fin.json",
+   "sha256": "8462f5cb7220ae210f164e42529f4ac963eff50d9a1130e1353488bf81921fb8"
+  },
+  {
+   "stage": "T8 camp --n3 it0",
+   "path": "p2/t8se/constants/amp_fin_n3_it0.json",
+   "sha256": "ea7ffb1cd0b2f2d23274e237687ccbfa93b8357b21d516450e83a23734301c74"
+  },
+  {
+   "stage": "T8 n3far --amp amp_fin_n3_it0",
+   "path": "p2/t8se/constants/n3.json",
+   "sha256": "13ff526ba80fb13d2aeedb20c59ef7b258e4f8406fd9d6c916e35e6fc701c13c"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.9375_coh_s180.json",
+   "sha256": "c96916b324337234fe8edb3d2fdc65cbd9894f263071ce0d8e3bed9e41913f3e"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.8125_coh_s180.json",
+   "sha256": "ef014deb6f75d5e34350fa9b4ac6d1b36166ca6d72655c354686d2b7c50d3bd1"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.6875_coh_s180.json",
+   "sha256": "2b4c8fdc9e30b2431e0e31099f5405bde80d8f599537b4b599d668a14d00649e"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.5625_coh_s180.json",
+   "sha256": "b4fa9ccfda15cf5f66bcabb5fc169487bd757feaceeee58a9e1aaaf96ab7be66"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.4375_coh_s180.json",
+   "sha256": "4d02cbea25fb094cec5f2d9ed3f203376dee10f3e5e94e7e44d2ea83f16817ed"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.3125_coh_s180.json",
+   "sha256": "319b516cf1c032b4c4c2b4f017a0c0e9c2d4c7367266922382a0fbd711f0ea2d"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.1875_coh_s180.json",
+   "sha256": "3d0529f7003d32289f8f6e0bb635a91085aed8a9c06ca8465e9b9a06ca00b081"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p-0.0625_coh_s180.json",
+   "sha256": "e675f52f3171823dab416665a5073e63b118c0330d40a7406334e6af39b358b7"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.0625_coh_s180.json",
+   "sha256": "7ab701694f42c740ca0358816aa844f9a21eeb4e7d046c0941f6597ce681dc80"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.1875_coh_s180.json",
+   "sha256": "0317ee94d732a245c7e31fb2f55701f40a478a921b122d70813e0729b94a3d7f"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.3125_coh_s180.json",
+   "sha256": "394594070a07a66f5720bef36087bb792f56ccf3b45388f229dce455eb2cc98e"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.4375_coh_s180.json",
+   "sha256": "87a74e3589a4f405b8dc3d33b13d2fca432709d5337a1a001d8e7e6296c44535"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.5625_coh_s180.json",
+   "sha256": "e62fa0b74a587d4784de8bb4eadca59b7c39f73e144ee8e77f539da3dd686d6b"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.6875_coh_s180.json",
+   "sha256": "00afdcf1fdb6ed4f6ff2d13c45b8da7c70a7268570ccd94e0eccd61db0c541fc"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.8125_coh_s180.json",
+   "sha256": "bb3c3e72567f1ba655a968b05cdf5f7663a2f8563fdfa4d28fb6cf0ade6416bc"
+  },
+  {
+   "stage": "h1 exact point (Krawczyk)",
+   "path": "p2/out/t9_h1_p0.9375_coh_s180.json",
+   "sha256": "2dd9516d1deb4ba23d63d4ca896c5389eded356efb27ba5bf5742b469c1185e1"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.96875_0.03125.json",
+   "sha256": "5d91a867cca329b28b8de06a377eaaef632d574885e34984f1768456116b5c24"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.90625_0.03125.json",
+   "sha256": "d63432825ca5728a0719eafa5a54ad7d9a43769a59d5a661b209bc7900686b42"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.84375_0.03125.json",
+   "sha256": "e5215b5aab96ae8d0c45dc44bd2455c81736abe286486cb1e04feee916292a8a"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.78125_0.03125.json",
+   "sha256": "dd6c42ac9474f733db295f8c9884c3419c78cf004d2b01ec736476e3186919f0"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.71875_0.03125.json",
+   "sha256": "5ab51a8e9c8f9ec791fcfd2158b4a7657d494126c9f33691390d307eca199465"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.65625_0.03125.json",
+   "sha256": "5b1e5c6eb78b2ef148fdcdfacf9ab56c7cc6d69b4b271362da4394ff328f9919"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.59375_0.03125.json",
+   "sha256": "9147029703e785a5154e0fb00e02f1733712cdc81285ba7c107cbed751563973"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.53125_0.03125.json",
+   "sha256": "02a24f786bf9b73c0e8ff5c1636e7129a0e780519d12e7cdaaad9fc95f5a096b"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.46875_0.03125.json",
+   "sha256": "69c98646d6eef5600668b09f75a78051a637d2e9aed68b43f2b4ab02d99f3a5a"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.40625_0.03125.json",
+   "sha256": "8da7e5e15d02ce0fd8c99ddfebd922ab13d8e7ed9be9d913b80730b00289a635"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.34375_0.03125.json",
+   "sha256": "7e01621766c930600b4e907541abbf013e734e1ffac318af2030c890af38d641"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.28125_0.03125.json",
+   "sha256": "5249c95fcc0d5db8f72ca174f439344edf1e8ef8e20fd3fe9c245f4f8a20a4b4"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.21875_0.03125.json",
+   "sha256": "be5ef8c36572c628655775fe4a327b64df1c383ceed009f2696c379ba342a098"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.15625_0.03125.json",
+   "sha256": "b5737314ea6c98f4a2e0911708cbe0e3ef7624133ce1f86cc66259c5c164b183"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.09375_0.03125.json",
+   "sha256": "e0bb9c88c7baae8ddf29f5ebd97ebaafd7cb2b579668b4f7027c15239e76c1da"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_-0.03125_0.03125.json",
+   "sha256": "6565e6f89eaafad3d618c563e973263bd7035a8d2b927652a63afa4d93d03d32"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.03125_0.03125.json",
+   "sha256": "52c1dabf97095fc251de0689daed1a69c8470f5adf5a60ec43b3400bf7288555"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.09375_0.03125.json",
+   "sha256": "409f59d517044698ddbdbd752fbdfba3594ba8332a9cb69ca1979647eaca32d3"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.15625_0.03125.json",
+   "sha256": "4c7f9bacd7ed987c76fe3d55a99b164436fd7fa6bed23f96bdbe0cd88c7d1b69"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.21875_0.03125.json",
+   "sha256": "b72a4d3c9536ad617c31f8c5c94805df7beb83c44a5440a8a95ff5acc14e3ff4"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.28125_0.03125.json",
+   "sha256": "465fc9a1b54a33c43ca46659979f5ffd0fb869b7e094ba791b68e8a4867df319"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.34375_0.03125.json",
+   "sha256": "2c4e62afe5d4cd6ca36da2935efa1706da301927590454ef18c4dd0c11ffe8f9"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.40625_0.03125.json",
+   "sha256": "4082cf44de096af7f1a8ee647cabb92e8ffa9ab0ec845281d86171ed095582f8"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.46875_0.03125.json",
+   "sha256": "1421c47d0eb5777e05b440d11c39f1bbc2c4c704b6306e8c66d4bdd845899116"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.53125_0.03125.json",
+   "sha256": "1a02bfc7fe2e27ae07a3a48edc9ffdbbfe81563531371373b054df22dd158469"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.59375_0.03125.json",
+   "sha256": "8a65d31286aba1f5cb602ca46b61aa68df146945fa49aa2b6ea388d226348e3b"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.65625_0.03125.json",
+   "sha256": "ccaba82bcccd2e09222b46a1a28f9cb48ec44129bc5c2b05cbc1732802521699"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.71875_0.03125.json",
+   "sha256": "ca0c06bb56de27942913f6a5a083fb9e64edd76c3213af4ff6a1e939a87a412d"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.78125_0.03125.json",
+   "sha256": "6730b1279c2d069e77aa8c8cb953373a0071cf26ea2b9d992410794a8ae61676"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.84375_0.03125.json",
+   "sha256": "851f1633634621615a32b1513449b1b2551293bb057db42657168f6750432675"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.90625_0.03125.json",
+   "sha256": "cc84b7aa13b36c68f59ef0a3aa896fd68fae1fb5a81847b4a3e167c65b2d707a"
+  },
+  {
+   "stage": "h1dt derivative ball",
+   "path": "p2/out/h1slab/dt_0.96875_0.03125.json",
+   "sha256": "cd2a7264f941f2b8b743868b120c5ac17c33039aeaafe12a4d28a2146b7ba44e"
+  },
+  {
+   "stage": "H1 slab summary",
+   "path": "p2/out/h1slab/summary.json",
+   "sha256": "5813699c98e56dcf1cb3b2bd0737b871022e630d7e731383d4dbc37f1f5c3ad2"
+  },
+  {
+   "stage": "clam (error transfer)",
+   "path": "p2/out/t9_h1_clam_s180.json",
+   "sha256": "eceefebf0d4bba9b30d151e7c9d95bc26ece7559b1731da2a54144f644726142"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_0.json",
+   "sha256": "a0c522a2b8a0067eaddb5345682f37a685240b6f717c504ab5ef413574883a13"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_1.json",
+   "sha256": "c203fb0e3b68b5904a9743f89e5372033763752034689fcd924db63dffcb2ebc"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_2.json",
+   "sha256": "a746036133b380f0174aa953fdfb3b48eee852d793651c9eb07f0f61620b8837"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_3.json",
+   "sha256": "48504b7e06bf9eb4a2f6d895fcaef9922b50a17418e0d08e98123f318550fd9f"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_4.json",
+   "sha256": "c76f8a77f7dc09bb2df293c2776cceae134507c52bab453c98c09b33a7a809da"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_5.json",
+   "sha256": "b26391d91450be4ce122b774d806defa71da71c8b1f02dcd68856991ae4903ce"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_6.json",
+   "sha256": "556a3b87b904e0bc394208a3560d5d0e7a4b28f86ab77dccfeca1268d056b36c"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_7.json",
+   "sha256": "ce4669aa2f29922c048b72c0c100808a7c4590e8dd6374276179754f93826af2"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_8.json",
+   "sha256": "882b74f6eab7fd6ff7512d1e98d7a14432815d8cac66e32709017fe3ab47b4b0"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_9.json",
+   "sha256": "7ea64f50951c873213af37cae7e408a61f7e7e63b446404ac5a521aea76744fa"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_10.json",
+   "sha256": "9d51a834928af1a508631749860ade614e2a7044740a5bcc00559ed32cc8f801"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_11.json",
+   "sha256": "88c77a8b5b5e0b05ce0e0c267c8b0cd6bb0d973369b4e8e59f8ad3d8588658e2"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_12.json",
+   "sha256": "ec36414327004c1d09bdc5282670e1a2b5e5b5afd6327cb041864c6c9c724ac3"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_13.json",
+   "sha256": "cca327ed636ac8b761eb2ded82766374bba107a45ed414775fb0b22b7a3068f1"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_14.json",
+   "sha256": "209abec8d40a0de213671980b9fd836b19a99bf35436a435d4d8e18c31a3602b"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_15.json",
+   "sha256": "b07b1f7bbf66a62cdf37c29063fd3c3740c246d36de51f05970db0d803502815"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_16.json",
+   "sha256": "a2f0311fb4ab1eccea2b14cfa92f9cae799b48f0216f1d4fecb9a56d2de90daa"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_17.json",
+   "sha256": "39cab8529e9ad5e446fdb17076ad584cb86ba8515927fc1ee6580da7107bcda5"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_18.json",
+   "sha256": "79284c09a926580794311cd89aa0d6a4fd581ca3fc51a0bafb335e35625c16c0"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_19.json",
+   "sha256": "7fbe4f8c9273cdf2fc23dd80925c956b1245dd6bc957d68988eaa4ea7d478b01"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_20.json",
+   "sha256": "9c9feef403e037aa992f0d799646355baa0a23c4cb72806d9ed2f4280eaad116"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_21.json",
+   "sha256": "ee5500ce9dcc6d8ed740fdae88d8f25e88cf0744ab8a604003d684094bb319cb"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_22.json",
+   "sha256": "00724537725bb40be3dc723813f0cdfd37aab662b59bbb15feaf7f302a2b2b64"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_23.json",
+   "sha256": "9e41d5693557eb285f649f84a4c7f18c48146ead2492edc3c050c4a90cef54a8"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_24.json",
+   "sha256": "61cfca441b70fa75bdad0957358c2b5fd810ade8ac27cb106393b7f09c351aea"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_25.json",
+   "sha256": "f23621ba8df58de29c649adc33efa0c7302fb93c7f2234048f5d30836a8dd015"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_26.json",
+   "sha256": "a34b4fee1e5e65ddc4e164abba544c2903a73215278cb5abf4f2bbdf7c8969d0"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_27.json",
+   "sha256": "fd1d8837f013d828bf1e0486cbfeaba3f1954eb9dda925ed65edf5e5df31feac"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_28.json",
+   "sha256": "79a939db6f623d770084043bfa2fc4a02851e7e21e5cf42c38a6d236210ec350"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_29.json",
+   "sha256": "182b90635bfbfb7afa38dc137aca12cb2b3225f03a5aa281899035cb408c09e7"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_30.json",
+   "sha256": "baf9999689117e3c2ff239c2beb5087e88210bf54379608f101326107c51fe43"
+  },
+  {
+   "stage": "win_slab inputs",
+   "path": "p2/out/h1slab/ift_31.json",
+   "sha256": "b0fe7c54999b0d41a9684835319df9543e6aef767be6895aee9e69ec17aa7ef9"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_0.json",
+   "sha256": "a9209a9c0ef0f4f559995a00c3cb9ca4498e548f79663aa494851cd6b7bc9266"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_1.json",
+   "sha256": "e4ed642449aa8ac6a2a383da6980e98e40e2409f92cec1ad93ebc364bfaa8af0"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_2.json",
+   "sha256": "e2da199842bb686e6a4c370ea3ead0e8f2d15e466cbbf7fd195fd1f68103c93f"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_3.json",
+   "sha256": "16bb570a0f339f396b6586c6a90d5618950a6706fd10eee973823e2765125ee8"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_4.json",
+   "sha256": "dd7cab3d6c889b1365f49ce1240dbb2d97f65502b64fb76fe6c1e251730504c7"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_5.json",
+   "sha256": "740308689ad3152c4c724454b2ee644946f9c6657b8273e4b17c901e2a4278f0"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_6.json",
+   "sha256": "27db71f50d1e2228e6cb2c843bcdac40415fc9828799b1acc2e1b7bcfd08dd75"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_7.json",
+   "sha256": "93f9a13d96840b0a64c67320284b0201daf2536e5ca3e982e1c518e355d1c161"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_8.json",
+   "sha256": "dc7d2eea3f55ba46ac29cc3eb91ebdd997c68fcf2b425627892587f03759f754"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_9.json",
+   "sha256": "94b8ac79bc1034959923175cfdfba0252d026b22b2aa2194d1f1aa0f888e608d"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_10.json",
+   "sha256": "2a8912ba3500a6780a52abd898b3658316db0e5844ca1fc2abfd59a43d97193e"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_11.json",
+   "sha256": "ec6b409c73ef8ec472010b4ac47c2af497de2b58f2f0bc29ec87cd5ef2936982"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_12.json",
+   "sha256": "708941ac6402feeb11e3caff4f8a504abb07326cc9ef0164f43d8159098625a5"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_13.json",
+   "sha256": "824930d41b07af66e8fe133062a6bb90e4ee6e8cdbcd4636fb660756786a5f1e"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_14.json",
+   "sha256": "bae9c069376349fe5b4a672943606ff43e3f04dad8ee8b9e4b94bdb007393ded"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_15.json",
+   "sha256": "65dd7fb7f6a1a3b1df4b509a17ddbe4d8066c2c2fb307b622f13d957e2050246"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_16.json",
+   "sha256": "a719c2707ce60efa830c3e88f681c8bd3160cce247d18898a7e998930489b164"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_17.json",
+   "sha256": "c9ca876d42888fb3b251893d1e564ff15c51d66fb6acf0d5721da796656c69e1"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_18.json",
+   "sha256": "15ca17010776ea942150e0dceea3b49fc57981695644bddbd00a25619ad5e62e"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_19.json",
+   "sha256": "0e2e9088b8206b6ac423b246393361b28fa3243e898a030ca3f61c425ed21569"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_20.json",
+   "sha256": "20338adea9ab720b6eba3739981aeeddc55b7c57e8f925bc149ff91164cf308d"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_21.json",
+   "sha256": "7042cb0e57e862b26a5facdbc6b2e6a6ed1bec23666aee44b283af5fd818b39c"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_22.json",
+   "sha256": "bf4b454d9d455221deb1c447afbb55e3b8bb05e0f26c3562885f79fdae5887a9"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_23.json",
+   "sha256": "cfb26b66fb7fdc657bf05f9ddd0341a6989a5215c04983026065ff8363fb5ca6"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_24.json",
+   "sha256": "097b09815f885f6a92e7a238be286b19ee91b19c9e01d54cc14fb0a1dfa44469"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_25.json",
+   "sha256": "8e36f731581e5e9f19ae6ae4cbd983fdf0f4b7a00adcb37521bac992d622327f"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_26.json",
+   "sha256": "fcfaa88cd45c5b5358825f6262f64bc10514b4c3386d7adbba947a1ab7102ebd"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_27.json",
+   "sha256": "b301edbf650f1d47ca278b938c4dcbd4f29d41e50a2ad179718ee739d24d1b3b"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_28.json",
+   "sha256": "4c0e152808d806429f128b790710de1576b4fe88f08773185361e93544d76a5c"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_29.json",
+   "sha256": "5a010b21079e5dffe563d1d5ea5ad3f2049d331194f03b33d6d1d5a4c86e92a1"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_30.json",
+   "sha256": "0e72582feca74a0d468772e1fa2450a9bbb847de73542c5bfbd24525b53e4072"
+  },
+  {
+   "stage": "win.py ball",
+   "path": "p2/out/h1slab/win_31.json",
+   "sha256": "930263083266480483f319919dd193338902a61c5dbf2a8f76529dde301a34d1"
+  },
+  {
+   "stage": "windows/shells summary",
+   "path": "p2/out/h1slab/win_summary.json",
+   "sha256": "f3a48403bd4aaed575672978ee0e87336abca21cdbef3f54f4bd3aa7cc24f7df"
+  },
+  {
+   "stage": "camp --n3 n3.json --window 180-180 (T9WIN)",
+   "path": "p2/t8se/constants/amp_A1_w180.json",
+   "sha256": "ab777b504a019e5ab7075a7f0228f4638a63d749f9d45304f83f242ce14e5d97"
+  },
+  {
+   "stage": "n3boxes",
+   "path": "p2/out/n3boxes_A1.log",
+   "sha256": "8434303f17e22afa7e5533253c4b51079719152e74632fad8c977ca6f4796bbc"
+  },
+  {
+   "stage": "t9.py (cone, KCH)",
+   "path": "p2/out/t9_cone_kch.json",
+   "sha256": "a5d89af5a88eeeeb75dda7bcdc7575915980c3c8338faac05b3211d09646b644"
+  },
+  {
+   "stage": "t9_far.py",
+   "path": "p2/out/t9_far.json",
+   "sha256": "9d99d6d66456f67345aa333dc5ff72a5441104f18802fd1aab6a919b9e7529e0"
+  },
+  {
+   "stage": "h4loc (T8 script) on amp_A1_w180",
+   "path": "p2/out/h4loc_A1_w180.json",
+   "sha256": "1d91f8b1a1b8ae6ff6e85387937ec1d2b92901c769cf8cf816e461c9b03f531e"
+  },
+  {
+   "stage": "t1clock",
+   "path": "p2/out/t1clock.json",
+   "sha256": "97398faf1fbb811002b4332ec51171975816008052b341892ff9f5122dea4c07"
+  },
+  {
+   "stage": "Lemma O H1/H8 (t9_lemmaO.py, LO_NS=48)",
+   "path": "p2/out/t9_lemmaO.json",
+   "sha256": "ad744ca22c51949bb396cbf985a43abad3c40b55c64b5bcc6b19e1384c742398"
+  },
+  {
+   "stage": "Lemma O H6 (t9_h6.py)",
+   "path": "p2/out/t9_h6.json",
+   "sha256": "8e3da7ce005707e8043122e7966c5c1c94f8154dc35917bf0e59cbaee9430ff9"
+  }
+ ]
+}

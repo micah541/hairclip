@@ -1,0 +1,23 @@
+PASS bootstrap_v40.tex {'refs_missing': ['C:def:G', 'C:lem:G', 'C:prop:global', 'EI:sec:hyp', 'F:prop:abs', 'F:rem:boot', 'M:thm:W']}
+PASS ei_lemma_v4c_v40.tex {'refs_missing': ['BS:def']}
+PASS E0_LEMMA_v4c_v40.tex {}
+PASS flux2_lemma_v40.tex {'refs_missing': ['BS:def', 'BS:prop:close']}
+PASS lemmaS_A_v40.tex {'refs_missing': ['C:lem:bd', 'C:lem:id', 'C:rem:chart']}
+PASS numbers_A_v40.tex {}
+PASS continuation_v40.tex {'refs_missing': ['BS:def', 'BS:prop:close']}
+PASS lemmaU_v40.tex {'refs_missing': ['BS:def', 'BS:prop:close', 'BS:sec:order']}
+PASS main_v3_v40.tex {}
+PASS erratum_v40.tex {}
+PASS step3_v40_main.tex {'refs_missing': ['A:lem:HJ', 'A:rem:B0', 'A:sec:int', 'A:sec:status', 'A:sec:var', 'BS:prop:close', 'BS:sec', 'BS:sec:close', 'C:lem:G', 'C:lem:GS', 'C:sec:W', 'C:sec:graph', 'EI:lem', 'EI:sec', 'EI:sec:open', 'F:prop:abs', 'F:rem:boot', 'F:sec:top']}
+PASS b12_preamble_v40.tex {}
+PASS chart_lemma_body_v40.tex {}
+PASS ei_constants_v40.tex {}
+PASS C1_identification_v40.tex {}
+PASS GS_lemma_v40.tex {}
+PASS U1_regularity_v40.tex {}
+PASS G1_export_k2_v40.tex {}
+PASS step4_handoff_v40.tex {}
+PASS step3_v40_main.tex [expanded] {}
+PASS control_chars {}
+PASS cross_document {'labels_in_set': 223}
+PASS new_text_paths 44 checked; not found: []

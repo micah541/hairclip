@@ -1,0 +1,37 @@
+S-1 compile logs on disk: True
+wrote bootstrap_v43.tex (1 replacements)
+wrote flux2_lemma_v43.tex (0 replacements)
+wrote lemmaU_v43.tex (1 replacements)
+wrote U1_regularity_v43.tex (12 replacements)
+wrote continuation_v43.tex (3 replacements)
+wrote GS_lemma_v43.tex (0 replacements)
+wrote step3_v43_main.tex (6 replacements)
+wrote main_v3_v43.tex (8 replacements)
+wrote step4_handoff_v43.tex (0 replacements)
+wrote lemmaS_A_v43.tex (0 replacements)
+wrote G1_export_k2_v43.tex (0 replacements)
+wrote C1_identification_v43.tex (4 replacements)
+wrote E0_LEMMA_v4c_v43.tex (0 replacements)
+wrote b12_preamble_v43.tex (1 replacements)
+wrote chart_lemma_body_v43.tex (0 replacements)
+wrote ei_lemma_v4c_v43.tex (0 replacements)
+wrote STEP4_PATCH_NOTE_v43.md (0 replacements)
+wrote erratum_v43.tex (6 replacements)
+built 20 files, 41 edits
+  edits in bootstrap_v42.tex: 1
+  edits in flux2_lemma_v42.tex: 0
+  edits in lemmaU_v42.tex: 1
+  edits in U1_regularity_v42.tex: 12
+  edits in continuation_v42.tex: 3
+  edits in GS_lemma_v42.tex: 0
+  edits in step3_v42_main.tex: 6
+  edits in main_v3_v42.tex: 8
+  edits in step4_handoff_v42.tex: 0
+  edits in lemmaS_A_v42.tex: 0
+  edits in G1_export_k2_v42.tex: 0
+  edits in C1_identification_v42.tex: 4
+  edits in E0_LEMMA_v4c_v42.tex: 0
+  edits in b12_preamble_v42.tex: 1
+  edits in chart_lemma_body_v42.tex: 0
+  edits in ei_lemma_v4c_v42.tex: 0
+  edits in erratum_v42.tex: 5

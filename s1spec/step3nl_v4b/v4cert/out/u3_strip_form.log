@@ -1,0 +1,53 @@
+{
+ "beta": {
+  "const_coef_S0_S3": [
+   1.6158750485500848e-09,
+   1.3703088528715896e-09,
+   8.131605533689137e-10,
+   1.977836984896118e-10
+  ],
+  "alpha_coef_S0": 4.5385996899682516e-08
+ },
+ "ab": {
+  "const_coef_S0_S3": [
+   8.782323333487766e-09,
+   7.439626663258615e-09,
+   4.415412906897853e-09,
+   1.079452044972413e-09
+  ],
+  "alpha_coef_S0": 2.439586858119067e-07
+ },
+ "a": {
+  "const_coef_S0_S3": [
+   4.131356280016532e-09,
+   3.5000287541899853e-09,
+   2.0772407797545105e-09,
+   5.076250942430124e-10
+  ],
+  "alpha_coef_S0": 1.148637519539874e-07
+ },
+ "b": {
+  "const_coef_S0_S3": [
+   7.74990957505258e-09,
+   6.564894790361215e-09,
+   3.896272819160001e-09,
+   9.526455170155883e-10
+  ],
+  "alpha_coef_S0": 2.1522583225562274e-07
+ },
+ "STRIP_BETA": 8.039642303460082e-11,
+ "STRIP_AB": 4.36775885830452e-10,
+ "STRIP_BETA_without_feedback": 7.667534826659505e-11,
+ "STRIP_AB_without_feedback": 4.059139988834605e-10,
+ "fin12f4_typed": {
+  "STRIP_BETA": 1.06e-09,
+  "STRIP_AB": 5.52e-09
+ },
+ "hypotheses": {
+  "S0_S1_S2_le": 0.02,
+  "S3_le_for_constants": 0.02,
+  "alpha_le": 0.0005,
+  "note": "S3 <= 0.02 is needed only for the constants STRIP_BETA/STRIP_AB (alpha-equation, mod_sups); the E_I/E0 state form uses S3 <= supv2"
+ }
+}
+sha256 c722d0be332b1be6edb02a4c375be3055f0d7fc28509e0e09497ba963961dd5a

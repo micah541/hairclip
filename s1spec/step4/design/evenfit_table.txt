@@ -1,0 +1,4 @@
+snap_clip_48_0.4_0.05_800.npz      k=  802.9 alpha=-2.290e-03 a*k=-1.839 EVEN r2=5.478e-07 r2/|a|^3=   45.6  ||odd part||=2.29e-06
+snap_clip_36_0.4_0.05_800.npz      k=  806.1 alpha=-2.754e-03 a*k=-2.220 EVEN r2=9.306e-07 r2/|a|^3=   44.5  ||odd part||=4.13e-08
+snap_clip_24_0.4_0.05_0.85_1600.npz k= 1613.0 alpha=-1.774e-03 a*k=-2.862 EVEN r2=2.608e-07 r2/|a|^3=   46.7  ||odd part||=2.12e-06
+snap_clip_24_0.4_0.05_0.85_800.npz k=  806.3 alpha=-3.609e-03 a*k=-2.910 EVEN r2=2.043e-06 r2/|a|^3=   43.5  ||odd part||=1.06e-06

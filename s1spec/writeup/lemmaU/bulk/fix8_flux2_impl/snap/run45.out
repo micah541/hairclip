@@ -1,0 +1,34 @@
+== flux2_forms.py 2026-11-20T08:19:07-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.39 	Maximum resident set size (kbytes): 76384 
+== flux2_coef.py 2026-11-20T08:19:08-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.54 	Maximum resident set size (kbytes): 90732 
+== chart4_shell.py 2026-11-20T08:19:10-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:20.21 	Maximum resident set size (kbytes): 134756 
+== inputs_manifest.py 2026-11-20T08:22:30-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.28 	Maximum resident set size (kbytes): 67396 
+== flux2_data.py 2026-11-20T08:22:30-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27 	Maximum resident set size (kbytes): 69652 
+== flux2_assemble.py 2026-11-20T08:22:31-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.41 	Maximum resident set size (kbytes): 83780 
+== flux2_sanity.py 2026-11-20T08:22:31-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.05 	Maximum resident set size (kbytes): 72688 
+== gen_texts.py 2026-11-20T08:22:39-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27 	Maximum resident set size (kbytes): 67584 
+done run4 2026-11-20T08:22:39-08:00
+== flux2_forms.py 2026-11-20T08:22:39-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.40 	Maximum resident set size (kbytes): 76380 
+== flux2_coef.py 2026-11-20T08:22:41-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.48 	Maximum resident set size (kbytes): 90824 
+== chart4_shell.py 2026-11-20T08:22:42-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:19.42 	Maximum resident set size (kbytes): 134540 
+== inputs_manifest.py 2026-11-20T08:26:02-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.28 	Maximum resident set size (kbytes): 67348 
+== flux2_data.py 2026-11-20T08:26:02-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27 	Maximum resident set size (kbytes): 69496 
+== flux2_assemble.py 2026-11-20T08:26:02-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.40 	Maximum resident set size (kbytes): 83608 
+== flux2_sanity.py 2026-11-20T08:26:03-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.07 	Maximum resident set size (kbytes): 72588 
+== gen_texts.py 2026-11-20T08:26:11-08:00
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27 	Maximum resident set size (kbytes): 67432 
+done run5 2026-11-20T08:26:11-08:00

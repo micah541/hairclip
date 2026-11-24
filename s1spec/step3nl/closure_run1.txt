@@ -1,0 +1,30 @@
+eps = 1e-05, alpha1 = 0.001, ||w~||_1 = 1e-06, CFAR = 300.0
+  E=1e-14 alpha=1.0e-03: max 1/2 E' = +1.215e-14  (rate +1.2147; worst B/A~0.3, D4/B~5.6) [alin +0.188 mod +0.268 cub +2.13e-04 E2 +0.005 lin -0.026]
+  E=1e-14 alpha=2.5e-04: max 1/2 E' = +1.222e-15  (rate +0.1222; worst B/A~0.3, D4/B~5.6) [alin +0.047 mod +0.067 cub +2.13e-04 E2 +0.005 lin -0.026]
+  E=1e-14 alpha=0.0e+00: max 1/2 E' = -2.137e-16  (rate -0.0214; worst B/A~0.3, D4/B~5.6) [alin +0.000 mod +0.000 cub +2.13e-04 E2 +0.005 lin -0.026]
+  E=1e-12 alpha=1.0e-03: max 1/2 E' = +5.143e-13  (rate +0.5143; worst B/A~0.3, D4/B~5.6) [alin +0.188 mod +0.268 cub +2.13e-03 E2 +0.005 lin -0.026]
+  E=1e-12 alpha=2.5e-04: max 1/2 E' = +9.745e-14  (rate +0.0974; worst B/A~0.3, D4/B~5.6) [alin +0.047 mod +0.067 cub +2.13e-03 E2 +0.005 lin -0.026]
+  E=1e-12 alpha=0.0e+00: max 1/2 E' = -1.945e-14  (rate -0.0195; worst B/A~0.3, D4/B~5.6) [alin +0.000 mod +0.000 cub +2.13e-03 E2 +0.005 lin -0.026]
+  E=1e-10 alpha=1.0e-03: max 1/2 E' = +4.633e-11  (rate +0.4633; worst B/A~0.3, D4/B~5.6) [alin +0.188 mod +0.268 cub +2.13e-02 E2 +0.005 lin -0.026]
+  E=1e-10 alpha=2.5e-04: max 1/2 E' = +1.140e-11  (rate +0.1140; worst B/A~0.3, D4/B~5.6) [alin +0.047 mod +0.067 cub +2.13e-02 E2 +0.005 lin -0.026]
+  E=1e-10 alpha=0.0e+00: max 1/2 E' = -2.546e-14  (rate -0.0003; worst B/A~0.3, D4/B~5.6) [alin +0.000 mod +0.000 cub +2.13e-02 E2 +0.005 lin -0.026]
+  E=1e-09 alpha=1.0e-03: max 1/2 E' = +5.042e-10  (rate +0.5042; worst B/A~0.3, D4/B~5.6) [alin +0.188 mod +0.268 cub +6.76e-02 E2 +0.005 lin -0.026]
+  E=1e-09 alpha=2.5e-04: max 1/2 E' = +1.601e-10  (rate +0.1601; worst B/A~0.3, D4/B~5.6) [alin +0.047 mod +0.067 cub +6.76e-02 E2 +0.005 lin -0.026]
+  E=1e-09 alpha=0.0e+00: max 1/2 E' = +4.605e-11  (rate +0.0460; worst B/A~0.3, D4/B~5.6) [alin +0.000 mod +0.000 cub +6.76e-02 E2 +0.005 lin -0.026]
+  E=1e-08 alpha=1.0e-03: max 1/2 E' = +2.496e-04  (rate +24955.1903; worst B/A~709.4, D4/B~1) [alin +551.806 mod +0.044 cub +3.37e+04 E2 +14.123 lin -9269.095]
+  E=1e-08 alpha=2.5e-04: max 1/2 E' = +2.454e-04  (rate +24541.3024; worst B/A~709.4, D4/B~1) [alin +137.951 mod +0.011 cub +3.37e+04 E2 +14.123 lin -9269.095]
+  E=1e-08 alpha=0.0e+00: max 1/2 E' = +2.440e-04  (rate +24403.3399; worst B/A~709.4, D4/B~1) [alin +0.000 mod +0.000 cub +3.37e+04 E2 +14.123 lin -9269.095]
+  tau=  0.0  alpha=+1.000e-03  sqrt(E)=1.000e-06
+  tau=  1.7  alpha=+6.547e-04  sqrt(E)=5.364e-07
+  tau=  6.7  alpha=+1.819e-04  sqrt(E)=6.634e-07
+  tau= 11.7  alpha=+5.056e-05  sqrt(E)=7.023e-07
+  tau= 16.7  alpha=+1.405e-05  sqrt(E)=6.625e-07
+  tau= 21.7  alpha=+3.909e-06  sqrt(E)=6.043e-07
+  tau= 26.7  alpha=+1.089e-06  sqrt(E)=5.459e-07
+  tau= 31.7  alpha=+3.058e-07  sqrt(E)=4.918e-07
+  tau= 36.7  alpha=+8.775e-08  sqrt(E)=4.427e-07
+  tau= 41.7  alpha=+2.689e-08  sqrt(E)=3.983e-07
+  tau= 46.7  alpha=+9.722e-09  sqrt(E)=3.584e-07
+  tau= 51.7  alpha=+4.727e-09  sqrt(E)=3.224e-07
+  tau= 56.7  alpha=+3.136e-09  sqrt(E)=2.900e-07
+  max sqrt(E) over the run: 1.0000449989875455e-06  final: 2.701153507403165e-07

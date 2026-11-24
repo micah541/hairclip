@@ -1,0 +1,117 @@
+   input manifest: [('sha256 differs', 'kit_guard.py')]
+   syntax: ok
+   {'python': '3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.26100-SP0', 'python_flint': '0.9.0', 'numpy': '2.5.3', 'sympy': '1.14.0', 'mpmath': '1.3.0'}
+[verifier] tail_cert: tail_cert.py   (cwd kit_out\verifier)
+   -> ok  0s   log: kit_out\logs\verifier_tail_cert.log
+[verifier] closure_1.5e-4: closure.py 1.5e-4  (cwd kit_out\verifier)
+   -> ok  730s   log: kit_out\logs\verifier_closure_1.5e-4.log
+[verifier] closure_1.25e-4: closure.py 1.25e-4  (cwd kit_out\verifier)
+   -> ok  643s   log: kit_out\logs\verifier_closure_1.25e-4.log
+[verifier] mod_sups: mod_sups.py fin13v4c kit_out\verifier\modsups_fin13v4c  (cwd kit_out\verifier)
+   -> ok  0s   log: kit_out\logs\verifier_mod_sups.log
+[cert] strip_cubic_v4c: strip_cubic_v4c.py   (cwd step3nl_v4c\v4bcert)
+   -> ok  7s   log: kit_out\logs\cert_strip_cubic_v4c.log
+[cert] e0_A2_budget_v4c: e0_A2_budget_v4c.py   (cwd step3nl_v4c\v4bcert)
+   -> ok  1s   log: kit_out\logs\cert_e0_A2_budget_v4c.log
+[n1] n1_chart: n1_chart.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\n1)
+   -> ok  10s   log: kit_out\logs\n1_n1_chart.log
+[lemmaSA] base_F10p: run_F10p_ibp.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A\base_ibp)
+   -> ok  114s   log: kit_out\logs\lemmaSA_base_F10p.log
+[lemmaSA] base_capture_F2: capture_F2.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A\base_ibp)
+   -> ok  114s   log: kit_out\logs\lemmaSA_base_capture_F2.log
+[lemmaSA] base_weights_exact: weights_exact.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A\base_ibp)
+   -> ok  11s   log: kit_out\logs\lemmaSA_base_weights_exact.log
+[lemmaSA] base_assembly_arb: assembly_arb.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A\base_ibp)
+   -> ok  4s   log: kit_out\logs\lemmaSA_base_assembly_arb.log
+[lemmaSA] r3_forcing: r3_forcing.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\r3)
+   -> ok  3s   log: kit_out\logs\lemmaSA_r3_forcing.log
+[lemmaSA] r3_symcheck: r3_symcheck.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\r3)
+   -> ok  5s   log: kit_out\logs\lemmaSA_r3_symcheck.log
+[lemmaSA] hjw: hjw_rep.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_hjw.log
+[lemmaSA] ic_design: ic_rep.py --h2f 1e-6,5e-6,1e-5 --name design  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_ic_design.log
+[lemmaSA] ic_lo: ic_rep.py --h2f 8e-7,5e-6,1e-5 --name lo  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_ic_lo.log
+[lemmaSA] ic_hi: ic_rep.py --h2f 1.2e-6,5e-6,1e-5 --name hi  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_ic_hi.log
+[lemmaSA] ic_probe: ic_rep.py --h2f 3.5e-7,1.1e-6,2.7e-6 --name probe  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_ic_probe.log
+[lemmaSA] a3_signs: a3_signs.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  9s   log: kit_out\logs\lemmaSA_a3_signs.log
+[lemmaSA] weights_t2: weights_t2.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  5s   log: kit_out\logs\lemmaSA_weights_t2.log
+[lemmaSA] weights_t2_fb: weights_t2.py --seg-box 20/100 60/100 --tag fb  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  5s   log: kit_out\logs\lemmaSA_weights_t2_fb.log
+[lemmaSA] ramp_rep: ramp_rep.py --N 1200  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  8s   log: kit_out\logs\lemmaSA_ramp_rep.log
+[lemmaSA] ramp_rep_pm3ibp: ramp_rep.py --N 1200 --pm3-ibp --out out/ramp_rep_pm3ibp.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  8s   log: kit_out\logs\lemmaSA_ramp_rep_pm3ibp.log
+[lemmaSA] outer_L2: outer_L2.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  9s   log: kit_out\logs\lemmaSA_outer_L2.log
+[lemmaSA] asm_design_N2ref: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_design.json --h3key design --N2 0.1 0.2 5.0 --out out/asm_design_N2ref.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_design_N2ref.log
+[lemmaSA] asm_design_N2ref4: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_design.json --h3key design --N2 0.4 0.8 20.0 --out out/asm_design_N2ref4.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_design_N2ref4.log
+[lemmaSA] asm_design_N20: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_design.json --h3key design --N2 0 0 0 --out out/asm_design_N20.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_design_N20.log
+[lemmaSA] asm_lo_N2ref: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_lo.json --h3key lo --N2 0.1 0.2 5.0 --out out/asm_lo_N2ref.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  4s   log: kit_out\logs\lemmaSA_asm_lo_N2ref.log
+[lemmaSA] asm_hi_N2ref: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_hi.json --h3key hi --N2 0.1 0.2 5.0 --out out/asm_hi_N2ref.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_hi_N2ref.log
+[lemmaSA] asm_probe_N2ref: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_probe.json --h3key probe --N2 0.1 0.2 5.0 --out out/asm_probe_N2ref.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_probe_N2ref.log
+[lemmaSA] asm_design_pm3ibp: assembly_rep.py --hjw out/hjw_rep.json --dprof step4\p2\out_v33\b0_dprof.json --chart writeup\lemmaU\bulk\fix13_v37chain\n1\out\n1_chart_fin13v4c.json --ic out/ic_design.json --h3key design --N2 0.1 0.2 5.0 --ramp out/ramp_rep_pm3ibp.json --out out/asm_design_pm3ibp.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  3s   log: kit_out\logs\lemmaSA_asm_design_pm3ibp.log
+[lemmaSA] export_t2: export_t2.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t2_A)
+   -> ok  1s   log: kit_out\logs\lemmaSA_export_t2.log
+[lemmaU] u1_ghat: u1_ghat.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  2s   log: kit_out\logs\lemmaU_u1_ghat.log
+[lemmaU] u34_primary: u34_sweeps.py --case primary  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  52s   log: kit_out\logs\lemmaU_u34_primary.log
+[lemmaU] u2_K: u2_K.py --fresh  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  59s   log: kit_out\logs\lemmaU_u2_K.log
+[lemmaU] assemble_pass1: assemble_U.py --A writeup\lemmaU\bulk\fix13_v37chain\t2_A\out\A_interface.json --zone3 writeup\lemmaU\bulk\t5_zone3\out\zone3_interface.json --out U_cert_v36_pass1.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  1s   log: kit_out\logs\lemmaU_assemble_pass1.log
+[lemmaU] for_zone3_pass1: make_ucert_for_zone3.py out/U_cert_v36_pass1.json out/U_cert_for_zone3_v36_pass1.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  0s   log: kit_out\logs\lemmaU_for_zone3_pass1.log
+[lemmaU] zone3_pass1: zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36_pass1.json --ucert_full writeup\lemmaU\bulk\fix13_v37chain\t4_cert\out\U_cert_v36_pass1.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t5_zone3)
+   -> ok  0s   log: kit_out\logs\lemmaU_zone3_pass1.log
+[lemmaU] assemble_pass2: assemble_U.py --A writeup\lemmaU\bulk\fix13_v37chain\t2_A\out\A_interface.json --zone3 writeup\lemmaU\bulk\fix13_v37chain\t5_zone3\out\zone3_interface_pass1.json --out U_cert_v36_pass2.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  1s   log: kit_out\logs\lemmaU_assemble_pass2.log
+[lemmaU] for_zone3: make_ucert_for_zone3.py out/U_cert_v36_pass2.json out/U_cert_for_zone3_v36.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  0s   log: kit_out\logs\lemmaU_for_zone3.log
+[lemmaU] zone3: zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_v36.json --ucert_full writeup\lemmaU\bulk\fix13_v37chain\t4_cert\out\U_cert_v36_pass2.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t5_zone3)
+   -> ok  0s   log: kit_out\logs\lemmaU_zone3.log
+[lemmaU] assemble_pass3: assemble_U.py --A writeup\lemmaU\bulk\fix13_v37chain\t2_A\out\A_interface.json --zone3 writeup\lemmaU\bulk\fix13_v37chain\t5_zone3\out\zone3_interface.json --out U_cert_v36_pass3.json  (cwd writeup\lemmaU\bulk\fix13_v37chain\t4_cert)
+   -> ok  1s   log: kit_out\logs\lemmaU_assemble_pass3.log
+[lemmaU] v36cfg_record: v36cfg.py   (cwd writeup\lemmaU\bulk\fix13_v37chain)
+   -> ok  0s   log: kit_out\logs\lemmaU_v36cfg_record.log
+   snapshot of this run's chain -> writeup\lemmaU\bulk\fix13_v37chain\runs\prod2
+[flux] flux2_forms: flux2_forms.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\flux\code)
+   -> ok  2s   log: kit_out\logs\flux_flux2_forms.log
+[flux] flux2_coef: flux2_coef.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\flux\code)
+   -> ok  3s   log: kit_out\logs\flux_flux2_coef.log
+[flux] chart4_shell: chart4_shell.py   (cwd writeup\lemmaU\bulk\fix13_v37chain\flux\code)
+   -> FAILED (rc=1)  2s   log: kit_out\logs\flux_chart4_shell.log
+   flux: stopping
+   G1_check needs parts lemmaU and flux first
+[proofs] U1_sym: U1_sym_v38.py   (cwd step4\p2\v38)
+   -> ok  9s   log: kit_out\logs\proofs_U1_sym.log
+[proofs] GS_boot_v4c: GS_boot_v4c_v38.py   (cwd step4\p2\v38)
+   -> ok  4s   log: kit_out\logs\proofs_GS_boot_v4c.log
+[ibp] symbolic: ibp_sym.py   (cwd kit_out\ibp)
+   -> ok  18s   log: kit_out\logs\ibp_symbolic.log
+[ibp] run_5e-4: ibp_run.py 5e-4 0.02 8  (cwd kit_out\ibp)
+   -> ok  338s   log: kit_out\logs\ibp_run_5e-4.log
+[ibp] final_5e-4: ibp_final.py run_0.0005_0.02_n8.json final_5e-4.json  (cwd kit_out\ibp)
+   -> ok  30s   log: kit_out\logs\ibp_final_5e-4.log
+[lemmaO] crosscheck_v2: lemmaO_v3_interval.py   (cwd kit_out\lemmaO)
+   -> ok  0s   log: kit_out\logs\lemmaO_crosscheck_v2.log
+[lemmaO] consts_v3: lemmaO_v3_interval.py run  (cwd kit_out\lemmaO)
+   -> ok  49s   log: kit_out\logs\lemmaO_consts_v3.log
+[lemmaO] far_margin2: lemmaO_far_margin2.py   (cwd kit_out\lemmaO)
+   -> ok  1s   log: kit_out\logs\lemmaO_far_margin2.log
+
+finished in 2308s; failed steps: ['smoke', 'flux/chart4_shell', 'proofs/G1_needs_chain']
+next:  python check.py   (writes kit_out/check_report.txt; paste its text back)

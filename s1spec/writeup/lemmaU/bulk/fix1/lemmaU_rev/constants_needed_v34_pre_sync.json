@@ -1,0 +1,1923 @@
+{
+ "files": {
+  "A": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/fix1/b0/t2_A_v34/out/A_interface.json",
+   "sha256": "34832f434b7abd7e2dde14be0ee217d99d64236d07983f03863b4239a3ac4226"
+  },
+  "A4": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/fix1/b0/t2_A_v34/out/asm_design_N2ref4.json",
+   "sha256": "6ad175c172a65a2ae507e493748808056553d4202c26d7b53db418a6bf3b5cf8"
+  },
+  "U": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/U_cert_v34.json",
+   "sha256": "271430d7ffc0306fdb8b7d4942d1e98262f02ff1abde6706fd46334eb99b2507"
+  },
+  "U1": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t4_cert/out/u1_ghat.json",
+   "sha256": "5a06d24cae8591f508f9f7499c7d2b4355e06cd5b9d8d2419a9a0108c5638466"
+  },
+  "Z": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json",
+   "sha256": "a381b1f22248a3adc62fc085086e170d75d1388dd086ea6fc1aff9de7ec704c0"
+  },
+  "R": {
+   "path": "/home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/ramp_U.json",
+   "sha256": "55317ce5a31e8e3c3b3c4b86e85ef9569bb6d5e99190b68b0f21e4cba1a0c0de"
+  },
+  "S4": {
+   "path": "/home/claude/s1spec/step4/p2/out_v33/FINAL_manifest_v33.json",
+   "sha256": "8202d2c6c4962cae23a8051a3830d2908b601417b3c9c95041b95485884a1d86"
+  }
+ },
+ "constants": [
+  {
+   "symbol": "kappa_J",
+   "file": "A",
+   "key": "HJW.kappa_J",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma HJ, Lemma D (D2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "E^{A,0}",
+   "file": "A",
+   "key": "res.tight.EA0",
+   "producer_task": "2 (t2_A_v34, G-A1)",
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "A^0 (R-sup)",
+   "file": "A",
+   "key": "res.tight.A0_Rsup",
+   "producer_task": "2 (t2_A_v34, G-A1)",
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "F_g = F/gamma'",
+   "file": "A",
+   "key": "res.tight.Fg",
+   "producer_task": "2 (t2_A_v34, G-A1)",
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "A rule (R-sup)",
+   "file": "A",
+   "key": "res.tight.EA_of_N2",
+   "producer_task": "2 (t2_A_v34, G-A1)",
+   "used_in": "closure A_j(beta)",
+   "label": "cert"
+  },
+  {
+   "symbol": "E_ref4",
+   "file": "A",
+   "key": "res.tight.EA_ref4",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "domination of Ehat by the 4 N2_ref run (K1, M6)",
+   "label": "cert"
+  },
+  {
+   "symbol": "N2_ref",
+   "file": "A",
+   "key": "N2_ref",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma N, M6",
+   "label": "est"
+  },
+  {
+   "symbol": "kappa^o_{jk}",
+   "file": "A",
+   "key": "res.tight.kappa_o",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D, closure",
+   "label": "cert"
+  },
+  {
+   "symbol": "gamma'",
+   "file": "A",
+   "key": "res.tight.gp",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "D^src",
+   "file": "A",
+   "key": "res.tight.Dsrc",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D (D2), C0",
+   "label": "cert"
+  },
+  {
+   "symbol": "D^s (window slope)",
+   "file": "A",
+   "key": "res.tight.B0.D_window_slope",
+   "producer_task": "2 (t2_A_v34, B0)",
+   "used_in": "Lemma D (D2), C1",
+   "label": "cert"
+  },
+  {
+   "symbol": "sup_core |D^k d|",
+   "file": "A",
+   "key": "res.tight.B0.sup_core / res.tight.B0",
+   "producer_task": "2 (t2_A_v34, B0)",
+   "used_in": "B2', profile difference",
+   "label": "cert"
+  },
+  {
+   "symbol": "rho_J",
+   "file": "A",
+   "key": "res.tight.rhoJ",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "r_k",
+   "file": "A",
+   "key": "res.tight.r_export",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "a_c",
+   "file": "A",
+   "key": "res.tight.amin_c",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "F_k^2",
+   "file": "A",
+   "key": "res.tight.F2",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "coup_k",
+   "file": "A",
+   "key": "res.tight.coup",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C1^0",
+   "file": "A",
+   "key": "res.tight.C1_0",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C0 rule",
+   "file": "A",
+   "key": "res.tight.C0_rule",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "C1 rule",
+   "file": "A",
+   "key": "res.tight.C1_rule",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "E^A(tau_1)",
+   "file": "A",
+   "key": "res.tight.IC / res.tight.IC.E_tau1",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "K6",
+   "label": "cert"
+  },
+  {
+   "symbol": "flux margins at N2_ref (comparison only)",
+   "file": "A",
+   "key": "res.tight.core.flux_margin.2",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "beta_A paragraph (est outer data)",
+   "label": "cert at est N2_ref"
+  },
+  {
+   "symbol": "Nbar rule",
+   "file": "A",
+   "key": "lemmaN",
+   "producer_task": "2",
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "segments",
+   "file": "A",
+   "key": "segments",
+   "producer_task": "2",
+   "used_in": "K4",
+   "label": "cert"
+  },
+  {
+   "symbol": "A key prefix",
+   "file": "A",
+   "key": "res.tight",
+   "producer_task": "2",
+   "used_in": "source list",
+   "label": "cert"
+  },
+  {
+   "symbol": "flux margins beta_A=2 (dominating)",
+   "file": "A4",
+   "key": "res.tight.flux.beta.2.margin_FLUX0 / res.tight.flux.beta.2.margin_FLUX2",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "beta_A paragraph, K1, table",
+   "label": "cert"
+  },
+  {
+   "symbol": "core margins (dominating)",
+   "file": "A4",
+   "key": "res.tight.margins / res.tight.margins.S0v_vs_0.0153",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "K1, B2', table",
+   "label": "cert"
+  },
+  {
+   "symbol": "S^v_0, S^v_1 (dominating)",
+   "file": "A4",
+   "key": "res.tight.S0 / res.tight.S1",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "B2', (A) core |z1| (M5), K1",
+   "label": "cert"
+  },
+  {
+   "symbol": "D^c (window constant)",
+   "file": "A4",
+   "key": "res.tight.info.0.D_window_const / res.tight.info.1.D_window_const",
+   "producer_task": "2 (t2_A_v34)",
+   "used_in": "Lemma D (D2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "abar,bbar,betabar",
+   "file": "U",
+   "key": "inputs.abar / inputs.betabar",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "setting",
+   "label": "cert"
+  },
+  {
+   "symbol": "c_dU",
+   "file": "U",
+   "key": "launch.c_dU",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Lemma dU",
+   "label": "cert"
+  },
+  {
+   "symbol": "w_min",
+   "file": "U",
+   "key": "launch.wmin",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "weight, launch, Lemma W",
+   "label": "cert"
+  },
+  {
+   "symbol": "C_A^D",
+   "file": "U",
+   "key": "launch.CA_D",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "q^D",
+   "file": "U",
+   "key": "launch.qD",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^in",
+   "file": "U",
+   "key": "launch.Delta_in",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "launch (b)",
+   "label": "cert"
+  },
+  {
+   "symbol": "c_2,c_3",
+   "file": "U",
+   "key": "launch.c2 / launch.c3 / launch.c23_cells / launch",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "launch (a)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Phi_j",
+   "file": "U",
+   "key": "launch.Phi / margins.present_rows / margins.present_rows.0.Ubar",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 9, covering",
+   "label": "cert"
+  },
+  {
+   "symbol": "Gamma_m(Theta phi)",
+   "file": "U",
+   "key": "Gamma",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Lemma T remark",
+   "label": "cert"
+  },
+  {
+   "symbol": "kappa~, kappa2~",
+   "file": "U",
+   "key": "kappa / kappa2",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Lemma T remark",
+   "label": "cert"
+  },
+  {
+   "symbol": "Ghat_{jk}",
+   "file": "U",
+   "key": "Ghat",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 1",
+   "label": "cert"
+  },
+  {
+   "symbol": "g",
+   "file": "U",
+   "key": "g",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "weight",
+   "label": "cert"
+  },
+  {
+   "symbol": "D(56), D(28)",
+   "file": "U",
+   "key": "D56 / D28",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "table",
+   "label": "cert"
+  },
+  {
+   "symbol": "theta(28)",
+   "file": "U",
+   "key": "theta28",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "(U2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "rate margin (R2)",
+   "file": "U",
+   "key": "rate_margin",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "(U2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "(R<2) margins",
+   "file": "U",
+   "key": "R_lt2_margin",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "(U2)",
+   "label": "cert"
+  },
+  {
+   "symbol": "K_{jk}",
+   "file": "U",
+   "key": "K",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 3",
+   "label": "cert"
+  },
+  {
+   "symbol": "footw",
+   "file": "U",
+   "key": "footw",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "c33",
+   "file": "U",
+   "key": "c33",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "c223",
+   "file": "U",
+   "key": "c223",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "C_eta",
+   "file": "U",
+   "key": "C_eta",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "L_max",
+   "file": "U",
+   "key": "L_max",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "R",
+   "file": "U",
+   "key": "R_ratio",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 4",
+   "label": "cert"
+  },
+  {
+   "symbol": "sweeps",
+   "file": "U",
+   "key": "sweeps / sweeps.per_yc",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Def. sweeps",
+   "label": "cert"
+  },
+  {
+   "symbol": "D_k (late)",
+   "file": "U",
+   "key": "data_terms_late",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Prop. Xterm",
+   "label": "cert"
+  },
+  {
+   "symbol": "C0, C1",
+   "file": "U",
+   "key": "supersolution.C0 / supersolution.C1",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Lemma D",
+   "label": "cert"
+  },
+  {
+   "symbol": "Ehat",
+   "file": "U",
+   "key": "supersolution.EA",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "K1",
+   "label": "cert"
+  },
+  {
+   "symbol": "Bhat",
+   "file": "U",
+   "key": "supersolution.Bhat",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "K2",
+   "label": "cert"
+  },
+  {
+   "symbol": "Nbar^2",
+   "file": "U",
+   "key": "supersolution.N2 / supersolution.N2_over_4N2ref / supersolution.N2_le_4N2ref",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Lemma N, M6",
+   "label": "cert"
+  },
+  {
+   "symbol": "K1,K2,K3",
+   "file": "U",
+   "key": "supersolution.K1_ok / supersolution.K2_ok / supersolution.K3_ok / supersolution.K1_note / supersolution.slack_K2 / supersolution.beta_A",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "closure",
+   "label": "cert"
+  },
+  {
+   "symbol": "M1z checks",
+   "file": "U",
+   "key": "supersolution.M1z_hyp_check",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "(U1), sec. M1z",
+   "label": "cert"
+  },
+  {
+   "symbol": "box",
+   "file": "U",
+   "key": "box",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "sec. zones",
+   "label": "cert"
+  },
+  {
+   "symbol": "window margins",
+   "file": "U",
+   "key": "margins",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "K3",
+   "label": "cert"
+  },
+  {
+   "symbol": "loop gain",
+   "file": "U",
+   "key": "loop_gain",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Def. loop gain",
+   "label": "cert"
+  },
+  {
+   "symbol": "U-fine Bhat",
+   "file": "U",
+   "key": "ufine / ufine.Bhat",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Prop. U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "S33+foot share",
+   "file": "U",
+   "key": "S33_foot_over_Bhat2",
+   "producer_task": "4 (t4_cert, M14)",
+   "used_in": "Step 5",
+   "label": "cert"
+  },
+  {
+   "symbol": "Gamma_1(Theta) enclosure",
+   "file": "U1",
+   "key": "weight.Theta.Gamma",
+   "producer_task": "4 (u1_ghat, M4)",
+   "used_in": "Lemma T (iii)",
+   "label": "cert"
+  },
+  {
+   "symbol": "phi effect",
+   "file": "U1",
+   "key": "phi_effect_rel",
+   "producer_task": "4 (u1_ghat)",
+   "used_in": "Lemma T remark",
+   "label": "cert"
+  },
+  {
+   "symbol": "M1z core check",
+   "file": "U1",
+   "key": "M1z_core_check",
+   "producer_task": "4 (u1_ghat)",
+   "used_in": "sec. M1z",
+   "label": "cert"
+  },
+  {
+   "symbol": "outer-foot Y adds",
+   "file": "U1",
+   "key": "t5_Yadd",
+   "producer_task": "4 (u1_ghat)",
+   "used_in": "Step 1",
+   "label": "cert"
+  },
+  {
+   "symbol": "level-2 budget slack",
+   "file": "U1",
+   "key": "cases.primary.budget_slack",
+   "producer_task": "4 (u1_ghat)",
+   "used_in": "Step 1 reserve (M5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "primary Y_next",
+   "file": "U1",
+   "key": "cases.primary.Y_next",
+   "producer_task": "4 (u1_ghat)",
+   "used_in": "Step 8 (M1)",
+   "label": "cert"
+  },
+  {
+   "symbol": "b0,b1,bz (Z1)",
+   "file": "Z",
+   "key": "box_III_380",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Z2 box",
+   "file": "Z",
+   "key": "box_III_700",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "n_III",
+   "file": "Z",
+   "key": "n_III / n_III_pieces",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Lemma N, hyp. (H5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "tau_III",
+   "file": "Z",
+   "key": "tau_III",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Lemma N",
+   "label": "cert"
+  },
+  {
+   "symbol": "N_k^2 outer ramp",
+   "file": "Z",
+   "key": "DeltaR_detail.N_sq",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "pieces / members",
+   "file": "Z",
+   "key": "DeltaR_detail.pieces",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^R parts",
+   "file": "Z",
+   "key": "DeltaR_detail.parts",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^{R,b} coefficient",
+   "file": "Z",
+   "key": "DeltaR_detail.DeltaR_b_coefficient",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Lemma T (iv)",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^R",
+   "file": "Z",
+   "key": "DeltaR",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Delta^{R,b}",
+   "file": "Z",
+   "key": "DeltaR_b",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Lemma T (iv)",
+   "label": "cert"
+  },
+  {
+   "symbol": "covering",
+   "file": "Z",
+   "key": "acceptance.covering_asserts / acceptance",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8, U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "U-fine K2, K3",
+   "file": "Z",
+   "key": "ufine / ufine.K2_at_Bhat_ref / ufine.K3_strip_at_Bhat_ref",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Prop. U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "H6 margins",
+   "file": "Z",
+   "key": "cone_family.H6 / cone_family.H6.at_Bhat_ref",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Prop. U-fine",
+   "label": "cert"
+  },
+  {
+   "symbol": "hand-off list",
+   "file": "Z",
+   "key": "handoff_thresholds",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "hyp. (H3), (H2f)",
+   "label": "cert"
+  },
+  {
+   "symbol": "step-4 reruns",
+   "file": "Z",
+   "key": "step4_reruns",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "hyp. (H5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "inputs_used",
+   "file": "Z",
+   "key": "inputs_used",
+   "producer_task": "5 (t5_zone3, M14)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "K^o_{jk}",
+   "file": "R",
+   "key": "K",
+   "producer_task": "5 (ramp_U, M1)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "Y_next used / contract Y",
+   "file": "R",
+   "key": "Y_next_primary_used / Y_next_global",
+   "producer_task": "5 (ramp_U, M1)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "C_xi",
+   "file": "R",
+   "key": "CXI",
+   "producer_task": "5 (ramp_U)",
+   "used_in": "Step 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "footw_out, W33",
+   "file": "R",
+   "key": "foot_out",
+   "producer_task": "5 (ramp_U)",
+   "used_in": "Steps 1, 8",
+   "label": "cert"
+  },
+  {
+   "symbol": "u1 pin",
+   "file": "R",
+   "key": "u1_ghat_sha",
+   "producer_task": "5 (ramp_U)",
+   "used_in": "gaps (O3)",
+   "label": "cert"
+  },
+  {
+   "symbol": "(H2) for f - U_1",
+   "file": "S4",
+   "key": "results.H2_tightened_fU1",
+   "producer_task": "6 (step4 v33, B0)",
+   "used_in": "Remark C5, K6, hyp.",
+   "label": "cert"
+  },
+  {
+   "symbol": "(H2f)",
+   "file": "S4",
+   "key": "results.H2f",
+   "producer_task": "6 (step4 v33)",
+   "used_in": "K6, hyp.",
+   "label": "cert"
+  },
+  {
+   "symbol": "M9 rows (in progress at writing; agree to quoted digits)",
+   "file": "S4",
+   "key": "results.M9_H2f / results.M9_H2_tightened_fU1 / results.M9_H4_far",
+   "producer_task": "6 (step4 v33, M9)",
+   "used_in": "gaps (O7)",
+   "label": "cert (pending re-pin)"
+  },
+  {
+   "symbol": "fixed-L cone data",
+   "file": "S4",
+   "key": "results.cone_fixedL / results.H4_fixedL / results.H1_fixedL / results.H7_fixedL",
+   "producer_task": "6 (step4 v33)",
+   "used_in": "K6, hyp. (H5)",
+   "label": "cert"
+  },
+  {
+   "symbol": "H2 (tightened, variable f - U_1)",
+   "value": "(1e-8,1e-6,1e-3)",
+   "producer_task": 6,
+   "used_in": "launch (a), K6",
+   "label": "hyp (certified in S4 h2u_v33)"
+  },
+  {
+   "symbol": "H3",
+   "value": "(2e-7,1e-5,1e-5)",
+   "producer_task": 6,
+   "used_in": "launch (a)",
+   "label": "hyp"
+  },
+  {
+   "symbol": "H2f",
+   "value": "(1e-6,5e-6,1e-5)",
+   "producer_task": 6,
+   "used_in": "K6 (datum of (A))",
+   "label": "hyp (certified in S4 h2f)"
+  },
+  {
+   "symbol": "alpha_1",
+   "value": "1.5e-4",
+   "producer_task": 6,
+   "used_in": "Lemma dU, d",
+   "label": "hyp"
+  },
+  {
+   "symbol": "H4 range",
+   "value": "graph over the S1 ray on y in [48, 700]",
+   "producer_task": 6,
+   "used_in": "G at tau_1",
+   "label": "hyp"
+  },
+  {
+   "symbol": "fixed-L cylinder data (H5, H1, H4, H7)",
+   "value": "zone3 step4_reruns",
+   "producer_task": 6,
+   "used_in": "B4 at tau_1",
+   "label": "hyp (certified in S4)"
+  },
+  {
+   "symbol": "c'_j",
+   "value": "(0.0520,0.1446,0.4324)",
+   "source": "step3_proof_v32.tex Prop. B' l.245",
+   "used_in": "Step 9",
+   "label": "paper"
+  },
+  {
+   "symbol": "(W2) verifier tail lemma",
+   "value": "tail_cert PASS, closure tail=True (fin12f4)",
+   "source": "step3nl_v33/V33_VERIFIER.md l.6-7",
+   "used_in": "Lemma HJ",
+   "label": "cert (verifier)"
+  }
+ ],
+ "numbers": [
+  [
+   "1.2021e-6",
+   "U",
+   "supersolution.EA.0",
+   "up"
+  ],
+  [
+   "1.0440e-4",
+   "U",
+   "supersolution.EA.1",
+   "up"
+  ],
+  [
+   "0.056686",
+   "U",
+   "supersolution.EA.2",
+   "up"
+  ],
+  [
+   "4.8735e-6",
+   "U",
+   "supersolution.Bhat.0",
+   "up"
+  ],
+  [
+   "5.5927e-4",
+   "U",
+   "supersolution.Bhat.1",
+   "up"
+  ],
+  [
+   "0.36670",
+   "U",
+   "supersolution.Bhat.2",
+   "up"
+  ],
+  [
+   "1.1345e-6",
+   "U",
+   "supersolution.C0.0",
+   "up"
+  ],
+  [
+   "1.6621e-4",
+   "U",
+   "supersolution.C0.1",
+   "up"
+  ],
+  [
+   "1.5554e-9",
+   "U",
+   "supersolution.C1.0",
+   "up"
+  ],
+  [
+   "5.4307e-8",
+   "U",
+   "supersolution.C1.1",
+   "up"
+  ],
+  [
+   "0.071472",
+   "U",
+   "supersolution.N2.0",
+   "up"
+  ],
+  [
+   "0.33012",
+   "U",
+   "supersolution.N2.1",
+   "up"
+  ],
+  [
+   "5.0403",
+   "U",
+   "supersolution.N2.2",
+   "up"
+  ],
+  [
+   "0.18",
+   "U",
+   "supersolution.N2_over_4N2ref.0",
+   "up"
+  ],
+  [
+   "0.42",
+   "U",
+   "supersolution.N2_over_4N2ref.1",
+   "up"
+  ],
+  [
+   "0.26",
+   "U",
+   "supersolution.N2_over_4N2ref.2",
+   "up"
+  ],
+  [
+   "0.28583",
+   "U",
+   "supersolution.M1z_hyp_check.zones_I_II.S1_2Bhat",
+   "up"
+  ],
+  [
+   "0.50786",
+   "U",
+   "supersolution.M1z_hyp_check.zone_III.b1_plus_pU1",
+   "up"
+  ],
+  [
+   "2.353",
+   "U",
+   "margins.late_M1",
+   "lo"
+  ],
+  [
+   "4.892",
+   "U",
+   "margins.late_M0",
+   "lo"
+  ],
+  [
+   "12.99",
+   "U",
+   "margins.late_M0z",
+   "lo"
+  ],
+  [
+   "2.770",
+   "U",
+   "margins.present_M1_min.value",
+   "lo"
+  ],
+  [
+   "2.225",
+   "U",
+   "margins.present_M0_min.value",
+   "lo"
+  ],
+  [
+   "14.37",
+   "U",
+   "margins.present_M0z_min.value",
+   "lo"
+  ],
+  [
+   "1.23e-7",
+   "U",
+   "loop_gain.0.total",
+   "up"
+  ],
+  [
+   "0.037169",
+   "U",
+   "loop_gain.1.total",
+   "up"
+  ],
+  [
+   "0.039035",
+   "U",
+   "loop_gain.2.total",
+   "up"
+  ],
+  [
+   "0.037018",
+   "U",
+   "loop_gain.2.neighbour",
+   "up"
+  ],
+  [
+   "0.0020172",
+   "U",
+   "loop_gain.2.through_A",
+   "up"
+  ],
+  [
+   "4.8723e-6",
+   "U",
+   "ufine.Bhat.0",
+   "up"
+  ],
+  [
+   "2.6266e-4",
+   "U",
+   "ufine.Bhat.1",
+   "up"
+  ],
+  [
+   "0.025840",
+   "U",
+   "ufine.Bhat.2",
+   "up"
+  ],
+  [
+   "1.7187e-8",
+   "U",
+   "launch.c_dU",
+   "up"
+  ],
+  [
+   "0.73492",
+   "U",
+   "launch.wmin",
+   "lo"
+  ],
+  [
+   "2.2429",
+   "U",
+   "launch.CA_D",
+   "up"
+  ],
+  [
+   "0.018509",
+   "U",
+   "launch.qD",
+   "up"
+  ],
+  [
+   "3.131e-12",
+   "U",
+   "launch.Delta_in.0",
+   "up"
+  ],
+  [
+   "3.287e-12",
+   "U",
+   "launch.Delta_in.1",
+   "up"
+  ],
+  [
+   "3.451e-12",
+   "U",
+   "launch.Delta_in.2",
+   "up"
+  ],
+  [
+   "6.434e-9",
+   "U",
+   "launch.Phi.0",
+   "up"
+  ],
+  [
+   "1.4217e-8",
+   "U",
+   "launch.Phi.1",
+   "up"
+  ],
+  [
+   "3.8404e-8",
+   "U",
+   "launch.Phi.2",
+   "up"
+  ],
+  [
+   "4.0000358",
+   "U",
+   "Gamma.0",
+   "up"
+  ],
+  [
+   "16.000322",
+   "U",
+   "Gamma.1",
+   "up"
+  ],
+  [
+   "64.00218",
+   "U",
+   "Gamma.2",
+   "up"
+  ],
+  [
+   "8.0000358",
+   "U",
+   "kappa",
+   "up"
+  ],
+  [
+   "64.00061",
+   "U",
+   "kappa2",
+   "up"
+  ],
+  [
+   "51322.6",
+   "U",
+   "Ghat.0.0",
+   "up"
+  ],
+  [
+   "33962.9",
+   "U",
+   "Ghat.1.1",
+   "up"
+  ],
+  [
+   "348341.1",
+   "U",
+   "Ghat.2.2",
+   "up"
+  ],
+  [
+   "4.938",
+   "U",
+   "Ghat.1.0",
+   "up"
+  ],
+  [
+   "27.984",
+   "U",
+   "Ghat.2.0",
+   "up"
+  ],
+  [
+   "458.53",
+   "U",
+   "Ghat.2.1",
+   "up"
+  ],
+  [
+   "8034.21",
+   "U",
+   "K.0.0",
+   "up"
+  ],
+  [
+   "724.89",
+   "U",
+   "K.0.1",
+   "up"
+  ],
+  [
+   "0.08152",
+   "U",
+   "K.1.0",
+   "up"
+  ],
+  [
+   "6336.94",
+   "U",
+   "K.1.1",
+   "up"
+  ],
+  [
+   "545.59",
+   "U",
+   "K.1.2",
+   "up"
+  ],
+  [
+   "0.58700",
+   "U",
+   "K.1.3",
+   "up"
+  ],
+  [
+   "0.87186",
+   "U",
+   "K.2.0",
+   "up"
+  ],
+  [
+   "528.62",
+   "U",
+   "K.2.1",
+   "up"
+  ],
+  [
+   "23425.98",
+   "U",
+   "K.2.2",
+   "up"
+  ],
+  [
+   "555.62",
+   "U",
+   "K.2.3",
+   "up"
+  ],
+  [
+   "2.6361",
+   "U",
+   "footw.1",
+   "up"
+  ],
+  [
+   "2663.3",
+   "U",
+   "footw.2",
+   "up"
+  ],
+  [
+   "108.02",
+   "U",
+   "c33",
+   "up"
+  ],
+  [
+   "7.3284",
+   "U",
+   "c223",
+   "up"
+  ],
+  [
+   "13.376",
+   "U",
+   "C_eta",
+   "up"
+  ],
+  [
+   "3.5352",
+   "U",
+   "L_max",
+   "up"
+  ],
+  [
+   "11.593",
+   "U",
+   "R_ratio",
+   "up"
+  ],
+  [
+   "5.0892",
+   "U",
+   "sweeps.Sigma_in.cover_sup",
+   "up"
+  ],
+  [
+   "0.30846",
+   "U",
+   "sweeps.Sigma_E.cover_sup",
+   "up"
+  ],
+  [
+   "1.5243",
+   "U",
+   "sweeps.S_X.cover_sup",
+   "up"
+  ],
+  [
+   "3.0081",
+   "U",
+   "sweeps.Sigma_X.cover_sup",
+   "up"
+  ],
+  [
+   "4.3350e-3",
+   "U",
+   "sweeps.Sigma_rs.2.cover_sup",
+   "up"
+  ],
+  [
+   "1.7339e-6",
+   "U",
+   "data_terms_late.D.0",
+   "up"
+  ],
+  [
+   "2.5351e-4",
+   "U",
+   "data_terms_late.D.1",
+   "up"
+  ],
+  [
+   "2.7e-3",
+   "U",
+   "data_terms_late.slope_share_C1SigmaX_over_Dk.0",
+   "up"
+  ],
+  [
+   "6.5e-4",
+   "U",
+   "data_terms_late.slope_share_C1SigmaX_over_Dk.1",
+   "up"
+  ],
+  [
+   "28.231",
+   "U",
+   "rate_margin",
+   "lo"
+  ],
+  [
+   "4.432",
+   "U",
+   "R_lt2_margin.0",
+   "lo"
+  ],
+  [
+   "6.697",
+   "U",
+   "R_lt2_margin.1",
+   "lo"
+  ],
+  [
+   "0.37011",
+   "U",
+   "theta28",
+   "up"
+  ],
+  [
+   "1.0368",
+   "U",
+   "D56",
+   "up"
+  ],
+  [
+   "1.5876",
+   "U",
+   "D28",
+   "up"
+  ],
+  [
+   "1.69e-3",
+   "U",
+   "S33_foot_over_Bhat2",
+   "up"
+  ],
+  [
+   "0.042351",
+   "A",
+   "HJW.kappa_J",
+   "up"
+  ],
+  [
+   "0.24292",
+   "A",
+   "res.tight.gp.0",
+   "lo"
+  ],
+  [
+   "0.24106",
+   "A",
+   "res.tight.gp.1",
+   "lo"
+  ],
+  [
+   "0.11961",
+   "A",
+   "res.tight.gp.2",
+   "lo"
+  ],
+  [
+   "0.97623",
+   "A",
+   "res.tight.amin_c",
+   "lo"
+  ],
+  [
+   "5.4995e-7",
+   "A",
+   "res.tight.rhoJ",
+   "up"
+  ],
+  [
+   "1.2416e-5",
+   "A",
+   "res.tight.kappa_o.2.2",
+   "up"
+  ],
+  [
+   "1.8122e-7",
+   "A",
+   "res.tight.Dsrc.0",
+   "up"
+  ],
+  [
+   "9.8267e-5",
+   "A",
+   "res.tight.Dsrc.1",
+   "up"
+  ],
+  [
+   "9.1216e-10",
+   "A",
+   "res.tight.B0.D_window_slope.0",
+   "up"
+  ],
+  [
+   "5.1442e-8",
+   "A",
+   "res.tight.B0.D_window_slope.1",
+   "up"
+  ],
+  [
+   "5.6506e-13",
+   "A",
+   "res.tight.F2.0",
+   "up"
+  ],
+  [
+   "5.9320e-13",
+   "A",
+   "res.tight.F2.1",
+   "up"
+  ],
+  [
+   "1.1571e-12",
+   "A",
+   "res.tight.coup.1",
+   "up"
+  ],
+  [
+   "7.5191e-10",
+   "A",
+   "res.tight.C1_0.0",
+   "up"
+  ],
+  [
+   "4.2195e-8",
+   "A",
+   "res.tight.C1_0.1",
+   "up"
+  ],
+  [
+   "4.25e-5",
+   "A",
+   "res.tight.B0.sup_core.0",
+   "up"
+  ],
+  [
+   "3.395",
+   "A",
+   "res.tight.core.flux_margin.2.FLUX0_over_K0",
+   "lo"
+  ],
+  [
+   "6.010",
+   "A",
+   "res.tight.core.flux_margin.2.FLUX2_over_K2",
+   "lo"
+  ],
+  [
+   "3.363",
+   "A4",
+   "res.tight.flux.beta.2.margin_FLUX0",
+   "lo"
+  ],
+  [
+   "5.953",
+   "A4",
+   "res.tight.flux.beta.2.margin_FLUX2",
+   "lo"
+  ],
+  [
+   "7.1881e-3",
+   "A4",
+   "res.tight.S0",
+   "up"
+  ],
+  [
+   "0.10429",
+   "A4",
+   "res.tight.S1",
+   "up"
+  ],
+  [
+   "2.116",
+   "A4",
+   "res.tight.margins.S0v_vs_0.0153",
+   "lo"
+  ],
+  [
+   "5.748",
+   "A4",
+   "res.tight.margins.S1v_vs_0.6",
+   "lo"
+  ],
+  [
+   "4.409",
+   "A4",
+   "res.tight.margins.M1core",
+   "lo"
+  ],
+  [
+   "5.449",
+   "A4",
+   "res.tight.margins.M0core",
+   "lo"
+  ],
+  [
+   "1.917",
+   "A4",
+   "res.tight.margins.Ghat22",
+   "lo"
+  ],
+  [
+   "1.184",
+   "A4",
+   "res.tight.margins.ramp M1",
+   "lo"
+  ],
+  [
+   "1.7747e-7",
+   "A4",
+   "res.tight.info.0.D_window_const",
+   "up"
+  ],
+  [
+   "9.8053e-5",
+   "A4",
+   "res.tight.info.1.D_window_const",
+   "up"
+  ],
+  [
+   "4.4986e-8",
+   "Z",
+   "DeltaR.0",
+   "up"
+  ],
+  [
+   "6.7972e-6",
+   "Z",
+   "DeltaR.1",
+   "up"
+  ],
+  [
+   "0.011480",
+   "Z",
+   "DeltaR.2",
+   "up"
+  ],
+  [
+   "2.66e-12",
+   "Z",
+   "DeltaR_b.0",
+   "up"
+  ],
+  [
+   "3.26e-9",
+   "Z",
+   "DeltaR_b.1",
+   "up"
+  ],
+  [
+   "4.35e-8",
+   "Z",
+   "DeltaR_b.2",
+   "up"
+  ],
+  [
+   "8.28e-5",
+   "Z",
+   "DeltaR_detail.N_sq.0",
+   "up"
+  ],
+  [
+   "0.10149",
+   "Z",
+   "DeltaR_detail.N_sq.1",
+   "up"
+  ],
+  [
+   "1.3567",
+   "Z",
+   "DeltaR_detail.N_sq.2",
+   "up"
+  ],
+  [
+   "25350",
+   "Z",
+   "DeltaR_detail.N_sq.3",
+   "up"
+  ],
+  [
+   "0.011298",
+   "Z",
+   "DeltaR_detail.parts.2.pairs.3",
+   "up"
+  ],
+  [
+   "1.6e-4",
+   "Z",
+   "DeltaR_detail.parts.2.L4_foot",
+   "up"
+  ],
+  [
+   "9.3e-6",
+   "Z",
+   "DeltaR_detail.parts.2.cubic",
+   "up"
+  ],
+  [
+   "3.7e-7",
+   "Z",
+   "DeltaR_detail.parts.2.S33_foot",
+   "up"
+  ],
+  [
+   "0.071445",
+   "Z",
+   "n_III.0",
+   "up"
+  ],
+  [
+   "0.32707",
+   "Z",
+   "n_III.1",
+   "up"
+  ],
+  [
+   "3.0445",
+   "Z",
+   "n_III.2",
+   "up"
+  ],
+  [
+   "4.0708",
+   "Z",
+   "tau_III",
+   "up"
+  ],
+  [
+   "0.10032",
+   "Z",
+   "box_III_380.b0",
+   "up"
+  ],
+  [
+   "0.41974",
+   "Z",
+   "box_III_380.b1",
+   "up"
+  ],
+  [
+   "0.014291",
+   "Z",
+   "box_III_380.bz",
+   "up"
+  ],
+  [
+   "1.495",
+   "Z",
+   "box_III_380.margins.b0",
+   "lo"
+  ],
+  [
+   "1.238",
+   "Z",
+   "box_III_380.margins.b1",
+   "lo"
+  ],
+  [
+   "11.19",
+   "Z",
+   "box_III_380.margins.bz",
+   "lo"
+  ],
+  [
+   "0.22757",
+   "Z",
+   "box_III_700.b0",
+   "up"
+  ],
+  [
+   "0.54234",
+   "Z",
+   "box_III_700.b1",
+   "up"
+  ],
+  [
+   "0.046955",
+   "Z",
+   "ufine.K2_at_Bhat_ref",
+   "up"
+  ],
+  [
+   "0.054139",
+   "Z",
+   "ufine.K3_strip_at_Bhat_ref",
+   "up"
+  ],
+  [
+   "1.860",
+   "Z",
+   "cone_family.H6.at_Bhat_ref.min_margin",
+   "lo"
+  ],
+  [
+   "2.46",
+   "Z",
+   "cone_family.H6.at_Bhat_ref.cone.slope.margin",
+   "lo"
+  ],
+  [
+   "2.54",
+   "Z",
+   "cone_family.H6.at_Bhat_ref.cone.K2.margin",
+   "lo"
+  ],
+  [
+   "2.51",
+   "Z",
+   "cone_family.H6.at_Bhat_ref.cone.K3.margin",
+   "lo"
+  ],
+  [
+   "2.30",
+   "Z",
+   "acceptance.tstar_margin",
+   "lo"
+  ],
+  [
+   "0.0044",
+   "U1",
+   "t5_Yadd.level1.2",
+   "up"
+  ],
+  [
+   "0.1081",
+   "U1",
+   "t5_Yadd.level2.2",
+   "up"
+  ],
+  [
+   "0.374",
+   "U1",
+   "t5_Yadd.level2.3",
+   "up"
+  ],
+  [
+   "4.00000000000000000000054",
+   "U1",
+   "weight.Theta.Gamma.0",
+   "up"
+  ],
+  [
+   "13436.03",
+   "R",
+   "K.0.0",
+   "up"
+  ],
+  [
+   "10526.19",
+   "R",
+   "K.1.1",
+   "up"
+  ],
+  [
+   "39482.30",
+   "R",
+   "K.2.2",
+   "up"
+  ],
+  [
+   "457.092",
+   "U1",
+   "cases.primary.Y_next.0",
+   "up"
+  ],
+  [
+   "356.940",
+   "U1",
+   "cases.primary.Y_next.1",
+   "up"
+  ],
+  [
+   "1320.220",
+   "U1",
+   "cases.primary.Y_next.2",
+   "up"
+  ],
+  [
+   "3.658e-10",
+   "S4",
+   "results.H2_tightened_fU1.rows.0.bound",
+   "up"
+  ],
+  [
+   "27.3",
+   "S4",
+   "results.H2_tightened_fU1.rows.0.margin",
+   "lo"
+  ],
+  [
+   "1.777e-9",
+   "S4",
+   "results.H2_tightened_fU1.rows.1.bound",
+   "up"
+  ],
+  [
+   "562",
+   "S4",
+   "results.H2_tightened_fU1.rows.1.margin",
+   "lo"
+  ],
+  [
+   "1.665e-6",
+   "S4",
+   "results.H2_tightened_fU1.rows.2.bound",
+   "up"
+  ],
+  [
+   "600",
+   "S4",
+   "results.H2_tightened_fU1.rows.2.margin",
+   "lo"
+  ],
+  [
+   "3.1363e-7",
+   "S4",
+   "results.H2f.rows.0.with_error",
+   "up"
+  ],
+  [
+   "3.188",
+   "S4",
+   "results.H2f.rows.0.margin",
+   "lo"
+  ],
+  [
+   "1.0034e-6",
+   "S4",
+   "results.H2f.rows.1.with_error",
+   "up"
+  ],
+  [
+   "4.983",
+   "S4",
+   "results.H2f.rows.1.margin",
+   "lo"
+  ],
+  [
+   "2.4351e-6",
+   "S4",
+   "results.H2f.rows.2.with_error",
+   "up"
+  ],
+  [
+   "4.106",
+   "S4",
+   "results.H2f.rows.2.margin",
+   "lo"
+  ],
+  [
+   "2.641",
+   "S4",
+   "results.cone_fixedL.checks.slope.margin",
+   "lo"
+  ],
+  [
+   "3.037",
+   "S4",
+   "results.cone_fixedL.checks.K2.margin",
+   "lo"
+  ],
+  [
+   "27.38",
+   "S4",
+   "results.cone_fixedL.checks.N3.margin",
+   "lo"
+  ],
+  [
+   "1119",
+   "S4",
+   "results.H4_fixedL.margin",
+   "lo"
+  ],
+  [
+   "2.302",
+   "S4",
+   "results.H7_fixedL.margin_tstar_over_ratio",
+   "lo"
+  ]
+ ],
+ "note": "keys are full paths from the file root (A, A4 keys start with res.tight. where they live there); array indices as path components; 'numbers' lists every quoted bound checked by check_keys_v34.py with its outward direction (up: quoted >= certified upper end; lo: quoted <= certified lower end). Labels as in lemmaU_v34.tex."
+}

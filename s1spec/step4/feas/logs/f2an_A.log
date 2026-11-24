@@ -1,0 +1,30 @@
+/home/claude/s1spec/step4/feas/f2an.py:36: ComplexWarning: Casting complex values to real discards the imaginary part
+  dxc_lam=float((p['xc'] - b['xc']) / b['lam'].real), alpha_b=float(b['alpha']), kmax_p=float(p['kmax']), kmax_b=float(b['kmax']),
+p10_tip_1 obs k=10: |dw|_rho/d=1.125e-01 |dw|_W/d=1.806e-02 dalpha/d=+1.739e-01 xe=5.0
+p10_tip_1 obs k=30: |dw|_rho/d=1.027e+02 |dw|_W/d=2.058e+01 dalpha/d=-5.131e+01 xe=9.9
+p10_tip_1 obs k=100: |dw|_rho/d=1.141e-02 |dw|_W/d=9.249e-03 dalpha/d=-6.223e-03 xe=25.7
+p10_tip_1 obs k=400: |dw|_rho/d=3.324e-04 |dw|_W/d=2.510e-04 dalpha/d=+1.848e-04 xe=27.7
+p10_tip_1 obs k=1600: |dw|_rho/d=1.018e-04 |dw|_W/d=6.282e-05 dalpha/d=+2.017e-04 xe=27.7
+p10_tip_2 obs k=10: |dw|_rho/d=1.125e-01 |dw|_W/d=1.801e-02 dalpha/d=+1.735e-01 xe=5.0
+p10_tip_2 obs k=30: |dw|_rho/d=3.381e-01 |dw|_W/d=6.730e-02 dalpha/d=+1.725e-01 xe=9.9
+p10_tip_2 obs k=100: |dw|_rho/d=2.061e-03 |dw|_W/d=2.303e-03 dalpha/d=-4.763e-03 xe=25.7
+p10_tip_2 obs k=400: |dw|_rho/d=1.632e-04 |dw|_W/d=9.198e-05 dalpha/d=-3.404e-04 xe=27.7
+p10_tip_2 obs k=1600: |dw|_rho/d=3.831e-05 |dw|_W/d=2.488e-05 dalpha/d=+5.734e-07 xe=27.7
+p30_tip_1 obs k=30: |dw|_rho/d=2.004e-01 |dw|_W/d=8.137e-02 dalpha/d=+4.011e-02 xe=9.9
+p30_tip_1 obs k=100: |dw|_rho/d=3.181e-03 |dw|_W/d=9.180e-03 dalpha/d=+1.662e-03 xe=25.7
+p30_tip_1 obs k=400: |dw|_rho/d=5.770e-04 |dw|_W/d=2.553e-04 dalpha/d=+3.116e-03 xe=27.7
+p30_tip_1 obs k=1600: |dw|_rho/d=2.362e-05 |dw|_W/d=1.612e-05 dalpha/d=+1.451e-04 xe=27.7
+p30_tip_2 obs k=30: |dw|_rho/d=2.004e-01 |dw|_W/d=8.087e-02 dalpha/d=+3.958e-02 xe=9.9
+p30_tip_2 obs k=100: |dw|_rho/d=3.204e-03 |dw|_W/d=9.133e-03 dalpha/d=+1.638e-03 xe=25.7
+p30_tip_2 obs k=400: |dw|_rho/d=3.365e-04 |dw|_W/d=2.951e-04 dalpha/d=+9.783e-04 xe=27.7
+p30_tip_2 obs k=1600: |dw|_rho/d=2.229e-05 |dw|_W/d=2.244e-05 dalpha/d=-1.053e-04 xe=27.7
+p100_tip_1 obs k=100: |dw|_rho/d=2.715e-01 |dw|_W/d=1.303e-01 dalpha/d=+1.109e-02 xe=25.7
+p100_tip_1 obs k=400: |dw|_rho/d=1.551e-03 |dw|_W/d=7.730e-03 dalpha/d=+1.116e-02 xe=27.7
+p100_tip_1 obs k=1600: |dw|_rho/d=8.812e-05 |dw|_W/d=2.831e-04 dalpha/d=+2.269e-03 xe=27.7
+p100_tip_2 obs k=100: |dw|_rho/d=2.715e-01 |dw|_W/d=1.305e-01 dalpha/d=+1.131e-02 xe=25.7
+p100_tip_2 obs k=400: |dw|_rho/d=1.495e-03 |dw|_W/d=7.653e-03 dalpha/d=+1.111e-02 xe=27.7
+p100_tip_2 obs k=1600: |dw|_rho/d=9.006e-05 |dw|_W/d=2.830e-04 dalpha/d=+2.246e-03 xe=27.7
+p400_tip_1 obs k=400: |dw|_rho/d=2.897e-01 |dw|_W/d=1.560e-01 dalpha/d=+2.348e-02 xe=27.7
+p400_tip_1 obs k=1600: |dw|_rho/d=1.609e-03 |dw|_W/d=7.811e-03 dalpha/d=+1.487e-02 xe=27.7
+p400_tip_2 obs k=400: |dw|_rho/d=2.897e-01 |dw|_W/d=1.560e-01 dalpha/d=+2.341e-02 xe=27.7
+p400_tip_2 obs k=1600: |dw|_rho/d=1.605e-03 |dw|_W/d=7.824e-03 dalpha/d=+1.507e-02 xe=27.7

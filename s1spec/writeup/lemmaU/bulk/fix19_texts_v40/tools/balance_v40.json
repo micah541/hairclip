@@ -1,0 +1,260 @@
+{
+ "bootstrap_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "C:def:G",
+   "C:lem:G",
+   "C:prop:global",
+   "EI:sec:hyp",
+   "F:prop:abs",
+   "F:rem:boot",
+   "M:thm:W"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "ei_lemma_v4c_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "BS:def"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "E0_LEMMA_v4c_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "flux2_lemma_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "BS:def",
+   "BS:prop:close"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "lemmaS_A_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "C:lem:bd",
+   "C:lem:id",
+   "C:rem:chart"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "numbers_A_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "continuation_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "BS:def",
+   "BS:prop:close"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "lemmaU_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "BS:def",
+   "BS:prop:close",
+   "BS:sec:order"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "main_v3_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "erratum_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "step3_v40_main.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [
+   "A:lem:HJ",
+   "A:rem:B0",
+   "A:sec:int",
+   "A:sec:status",
+   "A:sec:var",
+   "BS:prop:close",
+   "BS:sec",
+   "BS:sec:close",
+   "C:lem:G",
+   "C:lem:GS",
+   "C:sec:W",
+   "C:sec:graph",
+   "EI:lem",
+   "EI:sec",
+   "EI:sec:open",
+   "F:prop:abs",
+   "F:rem:boot",
+   "F:sec:top"
+  ],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "b12_preamble_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "chart_lemma_body_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "ei_constants_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "C1_identification_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "GS_lemma_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "U1_regularity_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "G1_export_k2_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "step4_handoff_v40.tex": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "step3_v40_main.tex [expanded]": {
+  "brace_final": 0,
+  "brace_min": 0,
+  "env_unclosed": [],
+  "env_mismatch": [],
+  "dollar_even": true,
+  "refs_missing": [],
+  "duplicate_labels": [],
+  "ok": true
+ },
+ "control_chars": {
+  "per_file": {},
+  "ok": true
+ },
+ "cross_document": {
+  "labels_in_set": 223,
+  "unresolved_anywhere": {},
+  "missing_inputs": [],
+  "ok": true
+ },
+ "new_text_paths": {
+  "checked": 44,
+  "not_found": [],
+  "ok": true
+ }
+}

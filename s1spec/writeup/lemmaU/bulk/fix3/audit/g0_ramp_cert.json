@@ -1,0 +1,198 @@
+{
+ "D2v": {
+  "sup_abs_psi1sq_minus_psi2": 1.6954376780660843,
+  "two_psi1": 2.609742651694186,
+  "verifier_1_7": true,
+  "verifier_2_61": true
+ },
+ "args": {
+  "argv": [
+   "g0_ramp_cert.py"
+  ],
+  "env": {
+   "OMP_NUM_THREADS": null
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl_v33/agent_coup/coupling_constants.json": "b46b0d6cd19bb624104c94cbcf9a1ea85923071334108a10864a973f7f16ae0a",
+   "/home/claude/s1spec/step3nl_v33/agent_int/planB/planB_ramp.json": "c8fc5bce02b14cf494ee1bd0d477de4a6b2ff6bbd3ae62834031c3b341b106eb",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/audit/g0_ramp_cert.py": "b2506e2280051c1b27c0efeccab20ee18d93f57d7b37fbabc67eb73535d8bb00"
+  },
+  "prec": 200,
+  "profile_bounds_sigma8": {
+   "kb": 0.00016679872306437195,
+   "pb": 0.0010591058738373457,
+   "qs": 2.114789770000566e-07
+  },
+  "runtime_s": 1.1
+ },
+ "inner_ramp": {
+  "binom_zeta_k_sqrtWrho": {
+   "1": 0.442904038413879,
+   "2": 0.5267039707069947,
+   "3": 0.42415123397662396,
+   "4": 0.4250504477486595
+  },
+  "d001_ramp_bound": 7.727254848352916e-05,
+  "level2_mod_commutator_W1_coef_per_ab": 1.2709403948581017,
+  "quasilinear_commutator_coefs_D4_W3_B_W1": [
+   3.4224323781887325e-05,
+   4.0699758112923564e-05,
+   3.277524679180739e-05,
+   3.284473133160407e-05
+  ],
+  "quasilinear_rel_to_CF": [
+   7.741308251953703e-05,
+   7.739067905100507e-05,
+   7.739137377050152e-05,
+   7.728172078024486e-05
+  ],
+  "sqrt": 0.6557918450770068,
+  "sup_W_over_rho": 0.4300629440695048,
+  "sup_q_zeta1_W_over_rho": 0.4336239859284815,
+  "sup_q_zeta1_sqrtWrho": 1.2661079093345324,
+  "sup_zeta1_sqrtWrho": 0.110726009603015,
+  "term_a_factor_0_66_covered": true,
+  "verifier_CAB25_per_ab": 2.5
+ },
+ "kappa_IBP": {
+  "covered": true,
+  "inner": 0.5339669045082015,
+  "middle_sup_psi1": 1.282739631948379,
+  "outer": 1.5883238300436806,
+  "verifier_value": 1.67
+ },
+ "kill_check": {
+  "AF_reserve_rel": -5.410749435255769e-07,
+  "BF_reserve_rel": 2.1485381109595196e-06,
+  "CF_reserve_rel": {
+   "c0": -4.0543957872265977e-05,
+   "c1": -6.530186721433358e-05,
+   "c2": 9.826716112025389e-07,
+   "c3": -9.654488762998277e-05
+  },
+  "abar": 2.19103e-07,
+  "mod_commutator_W1_coef": 2.7846685333459463e-07,
+  "mod_rel_CF3": 6.552161254931639e-07
+ },
+ "rounding_reserve": {
+  "IA": {
+   "covered": false,
+   "raw_certified_upper": 9.599705423877498e-12,
+   "relative": -5.650045765476412e-07,
+   "typed_in_verifier": "9.5997e-12",
+   "typed_minus_raw": -5.4238774980000006e-18
+  },
+  "Phi_34_25": {
+   "covered": true,
+   "raw_certified_upper": 9854657.569177367,
+   "relative": 4.305661798509553e-06,
+   "typed_in_verifier": "9.8547e6",
+   "typed_minus_raw": 42.430822633000005
+  },
+  "a_f": {
+   "covered": false,
+   "raw_certified_upper": 0.06955503763448806,
+   "relative": -5.410749435255769e-07,
+   "typed_in_verifier": "6.9555e-2",
+   "typed_minus_raw": -3.7634488060000004e-08
+  },
+  "b_f": {
+   "covered": true,
+   "raw_certified_upper": 0.03935891543587018,
+   "relative": 2.1485381109595196e-06,
+   "typed_in_verifier": "3.9359e-2",
+   "typed_minus_raw": 8.456412982000002e-08
+  },
+  "c0": {
+   "covered": false,
+   "raw_certified_upper": 0.42501723188074436,
+   "relative": -4.0543957872265977e-05,
+   "typed_in_verifier": "0.4250",
+   "typed_minus_raw": -1.7231880744360003e-05
+  },
+  "c1": {
+   "covered": false,
+   "raw_certified_upper": 0.4235276571468286,
+   "relative": -6.530186721433358e-05,
+   "typed_in_verifier": "0.4235",
+   "typed_minus_raw": -2.7657146828600005e-05
+  },
+  "c2": {
+   "covered": true,
+   "raw_certified_upper": 0.5258994832135075,
+   "relative": 9.826716112025389e-07,
+   "typed_in_verifier": "0.5259",
+   "typed_minus_raw": 5.167864925000002e-07
+  },
+  "c3": {
+   "covered": false,
+   "raw_certified_upper": 0.44214268661599576,
+   "relative": -9.654488762998277e-05,
+   "typed_in_verifier": "0.4421",
+   "typed_minus_raw": -4.2686615995760006e-05
+  },
+  "d0": {
+   "covered": true,
+   "raw_certified_upper": 0.04562685417117213,
+   "relative": 3.196118393850113e-06,
+   "typed_in_verifier": "4.5627e-2",
+   "typed_minus_raw": 1.4582882787000002e-07
+  },
+  "d1": {
+   "covered": false,
+   "raw_certified_upper": 0.02364817888631596,
+   "relative": -7.564485909040241e-06,
+   "typed_in_verifier": "2.3648e-2",
+   "typed_minus_raw": -1.7888631596000002e-07
+  },
+  "d2": {
+   "covered": false,
+   "raw_certified_upper": 0.015418374795665034,
+   "relative": -2.430837685560582e-05,
+   "typed_in_verifier": "1.5418e-2",
+   "typed_minus_raw": -3.7479566503400005e-07
+  },
+  "d3": {
+   "covered": true,
+   "raw_certified_upper": 0.006840873217036655,
+   "relative": 1.8533154952975452e-05,
+   "typed_in_verifier": "6.841e-3",
+   "typed_minus_raw": 1.2678296334500002e-07
+  },
+  "sA": {
+   "covered": false,
+   "raw_certified_upper": 0.0001337202808774133,
+   "relative": -2.100484769079206e-06,
+   "typed_in_verifier": "1.3372e-4",
+   "typed_minus_raw": -2.8087741330000005e-10
+  },
+  "sB": {
+   "covered": false,
+   "raw_certified_upper": 3.5955166253940984e-05,
+   "relative": -4.623923577763382e-06,
+   "typed_in_verifier": "3.5955e-5",
+   "typed_minus_raw": -1.6625394098400001e-10
+  }
+ },
+ "transport": {
+  "hardy_V2_le_c_V3": 15.34754602378014,
+  "inf_psi_prime": 0.13031399266704363,
+  "level0_a_coef_inf": 1.045689089241281,
+  "level0_a_coef_sup": 37.17876153381715,
+  "level0_b_coef": 0.6527692603696752,
+  "level0_covered": true,
+  "level0_euclid": 37.18449161808893,
+  "level0_verifier": 39.16,
+  "level2_a_coef_sup": 39.178761887134016,
+  "level2_b_coef": 0.6529360590927396,
+  "level2_deficit_V2sq": 0.02420228237405238,
+  "level2_deficit_as_V2V3_coef": 0.37144564261629176,
+  "level2_euclid": 39.18420228237406,
+  "level2_verifier_V2sq": 39.16,
+  "q_minus_sigma_ball": 2.114789770000566e-07,
+  "qprime_dev": 1.7665750734604504e-07,
+  "sup_psi_prime": 1.304871325847093,
+  "verifier_V2V3_coef_per_ab": 8.190224570673713
+ }
+}

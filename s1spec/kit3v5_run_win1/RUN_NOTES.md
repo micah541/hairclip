@@ -1,0 +1,3 @@
+# kit_step3_v5 — Windows run 1 (Nov 24 2026)
+Zip kit_step3_v5.zip (f0ea2874...), extracted unmodified into C:\Users\micahw\kitruns\kit3v5_win1\kit_step3_v5; Python 3.13.7 venv of kit3v4_win2 (flint 0.9.0, numpy 2.5.3; no `resource` shim). run_all.py at below-normal priority, 2530 s, failed steps: none.
+**check.py: 78 PASS, 0 FAIL, 3 WARN, 0 SKIP.** The 3 WARN are last-bit float noise (rel. 1.7e-16, 5.7e-16), the same as the v4 Windows run. No run-copy patch was needed. (v4 Windows: 72 PASS / 6 FAIL CRLF / 3 WARN; WSL v5: 80/0/1 — the PASS count differs by platform-dependent exact-equality items turning into WARN.)

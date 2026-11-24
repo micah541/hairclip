@@ -1,0 +1,22 @@
+I1         verified
+I2         verified
+phi_prime  verified
+I3         verified
+I4(z2>0)   verified
+I4(z2<0)   verified
+I5(k=1)    verified
+I5(k=2)    verified
+I5(k=3)    verified
+I6a        verified
+I6b        verified
+I6c        verified
+I7a        verified
+I7b        verified
+I7c        verified
+I8(m=1)    verified
+I8D(k=1)   verified
+I8(m=2)    verified
+I8D(k=2)   verified
+I8(m=3)    verified
+I8D(k=3)   verified
+all general-weight identities verified (I1-I8)

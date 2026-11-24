@@ -1,0 +1,422 @@
+{
+ "args": {
+  "argv": [
+   "apply_sync_v3.py"
+  ],
+  "env": {
+   "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/step4_proof_v2/step4_proof_v2.tex": "a972c349e75265731527ff54942bfb03a15414f9c4030094b826874e13b6006c",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix27_texts_v44/main_v3_v44.tex": "e2f657709d571ca6712f0f3fc44bd6424f2e8d290844e33c51d295b624afb1d8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix27_texts_v44/step3_v44_main.tex": "acf59ffb1ce196bbc98d09b923a93a1dcd05596d0b5555d02dca7072b8eca433",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix27_texts_v44/step4_handoff_v44.tex": "3c498a8690461409b084e4f52f12218f4cd7ac3b6bd59879cdb344092431b42f",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix27_texts_v44/C1_identification_v44.tex": "208e64c13f83fde0faa3a5fcae7439086971c4433b1e8110fc5a7e9ea26e69d9",
+   "/home/claude/s1spec/step4/STEP4_RESULT.md": "a05943bf9c7c8c88de6c5dda9dc8e9c1fb785528b1cda61617ab3753d4999f79",
+   "/home/claude/s1spec/step4/p2/out/FINAL_manifest.json": "e01cb4da71ba825318b5395f053595d6e980e84c1ac286b9d72ff1e4376a8c94",
+   "/home/claude/s1spec/step4/p2/out/FINAL_manifest_cleanup_pass2.json": "cd37f42214d975612798277497f10f6b17aa2b6061d3bb2aac20a4ecc1f4257e",
+   "/home/claude/s1spec/step4/p2/out_v33/FINAL_manifest_v33.json": "8bc47e83e370fec3e856e9eb61cf0863ec0738320806b294cb2d74772db983ec",
+   "/home/claude/s1spec/step4/p2/out_v38/FINAL_manifest_v38.json": "be909bbf42543ab017bb9c81ba58227c80fc4f010cc1b50a66a515b848f90418",
+   "/home/claude/s1spec/step4/p2/out_v38/REPIN_REPORT.md": "ba53dba3fe43b3ce28aa10010b2e0e5a55e7856707876bbbdab96a0a35ffb802",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/C1_ke.json": "082d81f02e91ca5c2d471de3f4eb7644b068165a78dd24c30872c2b716314909",
+   "/home/claude/s1spec/step4/p2/v33/EXCEPTION_v32_B8_check_outA5.json": "45091246362622c47f15bec1223787e127b795a9c8faf501f38936d90cd5406f",
+   "/home/claude/s1spec/writeup/lean_bridge/full_build_Curve_All_3130aef.log": "6f448b6425218b3957a853eb6c741eac9a4ee8675a59883fcf8d6d7eb0739b92",
+   "/home/claude/s1spec/kit4bv4_run_wsl1/RUN_NOTES.md": "4cad3f0a98d6927d921e7c55be552966ead5068d1672dda89ad1045b4b36bf1f",
+   "/home/claude/s1spec/kit3v4_run_wsl5/RUN_NOTES.md": "f11af00b98815f42d38696e140816a1a5eb9fdcc7cb5d9482e2eb070c0ce4035",
+   "/home/claude/s1spec/kit3v4_run_win1/RUN_NOTES.md": "750ac61cd567600f4f284281ca12e5a61aeb277eb5a104e5f42d87bd7b528d6f",
+   "/home/claude/s1spec/kit4bv4_run_win1/RUN_NOTES.md": "399eae19494f38e0ca9d1778d99f64fb6d361f1e5c5b2387c7cb4b627bbd28bc",
+   "/home/claude/s1spec/kit3v5_run_win1/RUN_NOTES.md": "821ae773527eb88410b9a109386fd1c15d9457bcf2424ab9a425d874a040ea0f",
+   "/home/claude/s1spec/kit_step4a_v3.zip": "5eecc2e1888bd4abe7632d104a614b4a7b4f4b6db8e23a83ba180b654b53db82"
+  }
+ },
+ "edits": [
+  {
+   "id": "D1 date",
+   "base_line_v2": 57,
+   "source": "task",
+   "old_sha256": "1bf069b5629a068e69759868a4139d2e0721aec409966e86925b00489c037bfd",
+   "new_sha256": "540da478b3ac26618ce2665edac23798adc9b77acb69f9df452fb2ac525246fb"
+  },
+  {
+   "id": "S1 status box: version, manifests",
+   "base_line_v2": 61,
+   "source": "manifests on disk; REPIN_REPORT.md; step4_handoff_v44.tex sec. 1",
+   "old_sha256": "849a8742943949429f8110a7dccbdf870c94b960e124bd51fd8365bbc2dbf474",
+   "new_sha256": "6be50a2815ef2b46d9fa23417f5c45c66e7bb314040e5be10144a46ea14225af"
+  },
+  {
+   "id": "S2 status box: current status + history label",
+   "base_line_v2": 63,
+   "source": "main_v3_v44.tex Remark rem:hist, s:open; step3_v44_main.tex status box",
+   "old_sha256": "c03533d04cfe9ff910e85c1f89f5ffb3caeced7be7ff20709cdcfd6ef64f0a73",
+   "new_sha256": "3dc1ff4be0a947ae4b359eea35b5e38f725ce79aaf04a1b9dd346a6c1e2cc4e1"
+  },
+  {
+   "id": "S2b status box: main theorem (past tense)",
+   "base_line_v2": 63,
+   "source": "history",
+   "old_sha256": "1f364b98f6eb2fc94b7850a8358288429cb1600e873b0d55d4bfa0bbb504e98f",
+   "new_sha256": "3cc69de7f7ffe7923199139be03d773e7d097a72579df1dcb7827a333bef9126"
+  },
+  {
+   "id": "S2c status box: fix being evaluated",
+   "base_line_v2": 63,
+   "source": "main_v3_v44.tex ss:gap",
+   "old_sha256": "c9628660dcdcc8ab9f675c83155e8c1db016cfa6d10f7c8debaff55b8a087038",
+   "new_sha256": "3c4646c2434998b54e23ca3eaeaaaedba4dc4ab8d11df2801a2f5592f1230620"
+  },
+  {
+   "id": "S3 status box: Open list",
+   "base_line_v2": 65,
+   "source": "RUN_NOTES.md of the kit runs; STEP4_RESULT.md O6(c)",
+   "old_sha256": "8210e7d6c59c49f38e594c3a283a6b7d6632cfa8f54502fc8cfc034a199bb1c3",
+   "new_sha256": "ca9113da3e8f8f8dc96dd1db1e6ddca9483552def7415f610e1ec813813783c8"
+  },
+  {
+   "id": "S4 abstract: v3.3 items",
+   "base_line_v2": 70,
+   "source": "step4_handoff_v44.tex",
+   "old_sha256": "2a4cb030fe470d2c7fe466d6b1bf41501f231609cdd9c84ad58f0793865cfd0f",
+   "new_sha256": "51977f27ec82e2e9867ad109620d7eba95855a7175907de2fb3d444e616c3561"
+  },
+  {
+   "id": "S5 tag legend: [A] includes written hand proofs",
+   "base_line_v2": 72,
+   "source": "C1_identification_v44.tex (proof of C-1 is [hand])",
+   "old_sha256": "f80ce1718f030a1f051555918fc22d28577fe83770060cee098228096bff8a9d",
+   "new_sha256": "5719ed035459f8ea6db4dc8b5e176794f4e9eb0801c3a36c572cb9ead5f5b06f"
+  },
+  {
+   "id": "S6 conventions: v3.3 named explicitly",
+   "base_line_v2": 84,
+   "source": "task",
+   "old_sha256": "204f6b64b218c93e775e005cdc711279e7704339f7ab4c1a7149ef48c5bca666",
+   "new_sha256": "82e8038f8e1520b3d645498e95bff8fd6c14fcb7a33f254fdc9763552286f135"
+  },
+  {
+   "id": "S7 chain table: H6 row",
+   "base_line_v2": 101,
+   "source": "main_v3_v44.tex (Theorem H6 v3.3: smallest factor x1.86); manifest_v38 stage 9 (x1.86087)",
+   "old_sha256": "7e602ead20e2056a7a94c2b4007feec0a5f6abd6678101cffaabe5679bf6b654",
+   "new_sha256": "f86a9c1dc01fcdecd76595326144f69d913cce61918951c0aa16e4bb3e9dd4c7"
+  },
+  {
+   "id": "S8 'Under v3.1 alone' paragraph",
+   "base_line_v2": 136,
+   "source": "step4_handoff_v44.tex",
+   "old_sha256": "c6a8c78ed70a6a61895e0588dba0ae9bb52933b27739ab74e30efecfb3661207",
+   "new_sha256": "de1565903db86f6d49aae2a839a76453600e6bb20f36070b1d22aa233726cc8d"
+  },
+  {
+   "id": "S9 status item (c): strip statement",
+   "base_line_v2": 142,
+   "source": "main_v3_v44.tex",
+   "old_sha256": "dfb3a04abac3a081e9aec3ae6f07737aac99ba04a3e6bf8e0e42e606f8c8560f",
+   "new_sha256": "f6f0d5c0bf9346642da071f665dce47d2c420299fb754f5f7d9af511f870a252"
+  },
+  {
+   "id": "S10 'Consequently the main theorem holds once ...'",
+   "base_line_v2": 144,
+   "source": "O1, O2 of this document; CLAUDE.md status",
+   "old_sha256": "393b59de0edface4a2232d3fdc955992aed95dc37e7b16c91b8454997e171a4c",
+   "new_sha256": "397624ec4d6c3ff18e7808f37acc55d8f5e63b831d3294f7df5dcca272550124"
+  },
+  {
+   "id": "S11 hand-off table: (H6) row",
+   "base_line_v2": 157,
+   "source": "C1_identification_v44.tex Thm C1:thm (iv), proof tagged [hand]; out_v38/iface/C1_ke.json sup_ke 0.0017428478",
+   "old_sha256": "de6a325c15dd25fc5953d71a8cc381baf7191928b222dda0471b7fe453615bbc",
+   "new_sha256": "bc83a6f483b586c26482d44ece7b7af90988039ac69706ef4e89b34e74399b08"
+  },
+  {
+   "id": "S12 margins table: v3.2 step-3 side header",
+   "base_line_v2": 193,
+   "source": "history",
+   "old_sha256": "e03f72a60394c93e3fad758f9e2dd2c64d317db87d1d1a5630644de8c8210d30",
+   "new_sha256": "1c9bc531602177e34e7598f0a57b8901f4e38d973119d01c74d33fa1355ab0af"
+  },
+  {
+   "id": "S13 rotation-mode norm (follow-up O6(c))",
+   "base_line_v2": 651,
+   "source": "STEP4_RESULT.md O6(c) follow-up; out/h1slab/h1_p*.log max rot_mode_norm 17.62543, C_rad 1.72069e-12",
+   "old_sha256": "523d96bc61e833931665844ce9fa5adda125ce2f03f5b558a68f7b642865f36f",
+   "new_sha256": "7fb716b2986b818288d252b544535790b786249d8f1c398948907e776c38cbbb"
+  },
+  {
+   "id": "S14 (H6) regularity: literal \\n (fatal under -halt-on-error)",
+   "base_line_v2": 679,
+   "source": "LATEX_v2.md",
+   "old_sha256": "479e69b9a5b7ad47418b202bbbf4f438b789bf448e331a8144f6fca2b23c4ab4",
+   "new_sha256": "df25820f6e02f81122074d07354bb2fd27d12f2ac6b3cb816aa1e91161606717"
+  },
+  {
+   "id": "S15 Lemma O hypotheses: H6 'conditional on Lemma R'",
+   "base_line_v2": 687,
+   "source": "O2 of this document",
+   "old_sha256": "3725f666742d6de0e22851da708d158ef81067d469ee8bb6a24c4c7e1ba1c7fd",
+   "new_sha256": "7a75d8e86d952c6aa91905d82e2ff16be4d5d29438d22d96e9a4e1c4b709a492"
+  },
+  {
+   "id": "S16 Lemma O table: H6 row",
+   "base_line_v2": 698,
+   "source": "main_v3_v44.tex",
+   "old_sha256": "64072ac81c6d266a0ad01548c9ce76fd31d9c1799027c5df9c69207c8a06c314",
+   "new_sha256": "edee1d3c77153a03458ff095529f6123f560eb5389690f26bece6ba7cdd9a2ce"
+  },
+  {
+   "id": "S17 far H1: stage number",
+   "base_line_v2": 728,
+   "source": "FINAL_manifest.json stage index 30 (28 in the 31-stage cleanup manifest)",
+   "old_sha256": "f85d525ebbc3ffe7b9b05a271b0f3f5b4a8113e05ac77e74cbd916126c5d53a9",
+   "new_sha256": "a33e829016e7dad585c376036cb338d89065132c6da5b1e47fb362137d20dd1b"
+  },
+  {
+   "id": "S18 axis crossing: stage number",
+   "base_line_v2": 733,
+   "source": "FINAL_manifest.json stage index 31",
+   "old_sha256": "f7b87a60b6c3d9d0a9508eb0fb178fd4ba881f59d933a431cf58a292e58a7f88",
+   "new_sha256": "7028d367dfe99267a929cc33cbf5897e7b2abe1d8fd7546b2992574375afd0b6"
+  },
+  {
+   "id": "S19 v32status title + note",
+   "base_line_v2": 772,
+   "source": "main_v3_v44.tex",
+   "old_sha256": "9fdbbc7df605cb4f0fe81750a1ce07e65b56ca1385e6132c111ac05dfc1098ae",
+   "new_sha256": "5c9eff49dcd674fca8c5a7357b9b17ddfae795f5d18481a390c6e1dd59d18995"
+  },
+  {
+   "id": "S20 v32status: Consequence",
+   "base_line_v2": 779,
+   "source": "main_v3_v44.tex Remark rem:hist",
+   "old_sha256": "2667ab95d7dfdee7364292678648c07840d020aaf00f5975567b666d4fa626d0",
+   "new_sha256": "27d7f767b52541df437cd91e1482667551a1587ad315f41749bc142d2415be88"
+  },
+  {
+   "id": "S21 v32status: other caveats",
+   "base_line_v2": 783,
+   "source": "history",
+   "old_sha256": "a8b01b4e5097281b0e113a7a3166f340ad108f1cd787b364cf37903e48bb9a2b",
+   "new_sha256": "3bf1798dc119072d135e7f983e29e470bc2a9e04823cb2eef5a5a3843f95e1b9"
+  },
+  {
+   "id": "S22 main theorem section: new status subsection",
+   "base_line_v2": 785,
+   "source": "main_v3_v44.tex (Main Theorem, s:open, s:step4); step3_v44_main.tex (What remains); step4_handoff_v44.tex; manifest_v38 results; lean build log; task list of author items",
+   "old_sha256": "b305092603bfcad1cfbe0569408acf5c07c00dda3ed44cc2d43b72724365f45f",
+   "new_sha256": "5195bd6d1f7ed87c7570467e1c449dbfeaa3778110991512600b993b6868c844"
+  },
+  {
+   "id": "S23 main theorem name",
+   "base_line_v2": 788,
+   "source": "history",
+   "old_sha256": "3a9b892b2685d0b9dbabc84794271430f040e018080b04d5ba41eb57d38877b6",
+   "new_sha256": "281545ffededaec02cbdc6ce3f46f4164ceff26d383ca8ef27c8752b2d3259ec"
+  },
+  {
+   "id": "S24 open item O2",
+   "base_line_v2": 807,
+   "source": "main_v3_v44.tex",
+   "old_sha256": "e23ccceb3b336c050e69bb78466613f6a923e2bfcee0256e9ff9611c9f4ef892",
+   "new_sha256": "754f25500dbeed30ea168ad476084378a2e9b6fa53ce2035b74f77dfe6a1677c"
+  },
+  {
+   "id": "S25 O2: main theorem conditional (past)",
+   "base_line_v2": 807,
+   "source": "history",
+   "old_sha256": "af13ea3b6312634501013fc5ec2bb681c32efbee9d5f97fc4714e2111187d9cd",
+   "new_sha256": "fe7fed08dd4cf1f36481cf16f23b90e22fa45e3e1f188b6996f2fa54aa044155"
+  },
+  {
+   "id": "S26 O2: fix being evaluated",
+   "base_line_v2": 807,
+   "source": "main_v3_v44.tex",
+   "old_sha256": "f110d93f0544021ce90e0dc502740c7c5aa0e366fe3fb16b1aceafa7a99b0917",
+   "new_sha256": "b2a6dc555726faf4d53f9c7a8bf05ef7cf1495ef1195993a637aeeaf7db3c12e"
+  },
+  {
+   "id": "S27 O1: stage number",
+   "base_line_v2": 806,
+   "source": "FINAL_manifest.json",
+   "old_sha256": "1a9754d07f63da8eeb63e5537c531ae923c72edcb0a57c8f05221f6093c6c87f",
+   "new_sha256": "98d00095ccef1db97aa23889d982fa92942f67faafe2b723fd68c794d07bf555"
+  },
+  {
+   "id": "S28 O4 header + WSL step-3 kit run",
+   "base_line_v2": 809,
+   "source": "task",
+   "old_sha256": "fd868935f754d15a3b7f0dfd2bdb487202545b246e436b2b41205f1cd826fd4c",
+   "new_sha256": "6cab0a6c083733c8962ec9cf7817e27c074c0bc780f75eea9f7b293f9c3982a1"
+  },
+  {
+   "id": "S29 O4: WSL runs",
+   "base_line_v2": 809,
+   "source": "kit4bv4_run_wsl1/RUN_NOTES.md; kit3v4_run_wsl5/RUN_NOTES.md; step4_handoff_v44.tex sec. Kits",
+   "old_sha256": "a5af976313b56717294b1ed027de0760a727fe25450087fae495fb9176699291",
+   "new_sha256": "27111e9e5ed22100136ef1fa128e9f37d4caec952b839c578106ef8650b4363a"
+  },
+  {
+   "id": "S30 O4: kit4b v5 run dir",
+   "base_line_v2": 809,
+   "source": "directory listing of the Windows kitruns folder",
+   "old_sha256": "6ada242bcbfb8cbce3f94e969eae6644bb5d31baf649c41d09e0402d01bb2c94",
+   "new_sha256": "99d8a130c7d1fa2494eec9a25ad0d09d758cd937da44680392a5dcd77918cd73"
+  },
+  {
+   "id": "S31 O6 header",
+   "base_line_v2": 811,
+   "source": "STEP4_RESULT.md O6(c) follow-up",
+   "old_sha256": "92dfae79b5cc425b7a7a4592c1ad91085da115c7e69f1a9cc9bf30f4f8cce27b",
+   "new_sha256": "6e4a5b6062889fba49151c34282310e647bd7a788a7aee5689d1512feb2a9b09"
+  },
+  {
+   "id": "S32 O6 (d): stage numbers",
+   "base_line_v2": 811,
+   "source": "FINAL_manifest.json; FINAL_manifest_cleanup_pass2.json",
+   "old_sha256": "4addbe89166699cb29ebf0930a11a6ddaa8fe52a50eab18c049ea9db8cc87e47",
+   "new_sha256": "ab83dc5c6dec861ef3d65e9adc8254f25f0969b4041e33ed0b7c57ca25465f69"
+  },
+  {
+   "id": "S33 O6 (c): closed",
+   "base_line_v2": 811,
+   "source": "STEP4_RESULT.md O6(c) follow-up; FINAL_manifest.json",
+   "old_sha256": "447a4a3de8d215264bee109ca97c357a7acfb708dfd0e09e8bc3c55aa562d6fa",
+   "new_sha256": "83f5b0de96513458369976f894267b1e96596b2ca37da47af2762b9cac518d07"
+  },
+  {
+   "id": "S34 AI statement facts",
+   "base_line_v2": 819,
+   "source": "RUN_NOTES.md of the Windows runs",
+   "old_sha256": "5c4b8cb8510201a7312dbacfec9620c47b45562bf35cdd89fca8841ba9c3c136",
+   "new_sha256": "b26733da75613335311b270467fa61a7408b777acb52b3ad5f06b904a7a58aeb"
+  },
+  {
+   "id": "S35 typed allowances",
+   "base_line_v2": 829,
+   "source": "STEP4_RESULT.md O6(c) follow-up",
+   "old_sha256": "a20c1aa2ffd34d4afe99591dbba7d2c8e1212e46d09d59aa2cb0f33afbab1078",
+   "new_sha256": "fbc3d6e9bddef53413944b7c312b90ddb4960485beda99422a5df51bbb1fd422"
+  },
+  {
+   "id": "S36 manifest appendix: scripts/upstream",
+   "base_line_v2": 845,
+   "source": "FINAL_manifest.json checks.hashes_verified_at_end; FINAL_manifest_cleanup_pass2.json",
+   "old_sha256": "ecd7a75d918cab49afd2457ef6872f964efcc45fad1600126bcb7109eb6f29e2",
+   "new_sha256": "e1b89078b3201cf4c94c96f3e1fa8d63c0d9ddd7e5b1f5add734f919f9cff9c3"
+  },
+  {
+   "id": "S37 manifest appendix: stage list",
+   "base_line_v2": 848,
+   "source": "FINAL_manifest.json stages",
+   "old_sha256": "023795bff836b948670a501658597f48db290e1f29ab5808050bfdb79e3f7cfe",
+   "new_sha256": "70dc8786773843317b31a6850fafde4bd65c38222b8c7c520fce418e8cc6db73"
+  },
+  {
+   "id": "S38 manifest appendix: stage list end",
+   "base_line_v2": 848,
+   "source": "FINAL_manifest.json stages",
+   "old_sha256": "76394134b760b50ccc7052b383c105f1ab03d4855970c0ae017da4504fc1d837",
+   "new_sha256": "c52c53e24ab96472175763c4d02db92033fc31131dee3105204b54291553b94b"
+  },
+  {
+   "id": "S39 manifest appendix: upstream",
+   "base_line_v2": 849,
+   "source": "FINAL_manifest.json upstream (97); STEP4_RESULT.md",
+   "old_sha256": "8b61642f78ce1478e317444dc657a3d2b1c0db339fb55d668ca9de342017f9d3",
+   "new_sha256": "81a2dc9929d674035a9ce11017a34e12e468e72a3efff0ab20d997089278e273"
+  },
+  {
+   "id": "S40 manifest appendix: h1rot rerun and v33/v38 manifests",
+   "base_line_v2": 851,
+   "source": "FINAL_manifest.json checks.h1rot_second_pass; REPIN_REPORT.md; EXCEPTION_v32_B8_check_outA5.json",
+   "old_sha256": "6c8a67bf04da0b15b57d7b8a6d2bc5a53994e666cfb3fb41d203ff39193ff815",
+   "new_sha256": "ab27a7947454574b29c04ccfecde5f4dd4cb31df969d5c7d2465030a1f68a7cd"
+  },
+  {
+   "id": "S41 hash table caption",
+   "base_line_v2": 855,
+   "source": "sha256 of the files; FINAL_manifest.json pins; FINAL_manifest_cleanup_pass2.json",
+   "old_sha256": "2df4326f585fc8380bcad62657ae26d3629c7e30bba41779f65d43289392bcfe",
+   "new_sha256": "df5a171b5553fb070fa740c91aa20a378a1f551518a1a102bfd9332632706abc"
+  },
+  {
+   "id": "S42 hash: FINAL_manifest.json",
+   "base_line_v2": 858,
+   "source": "sha256 on disk",
+   "old_sha256": "489f0d212e6cc6124d6b984110298fa51fbf5bbd991b8a54d97f41728fc14ba8",
+   "new_sha256": "388c5844b6588edc4cfd36211de92170b2fc49291d23a5a77afede79d837b986"
+  },
+  {
+   "id": "S43 hash: h1slab/summary.json",
+   "base_line_v2": 858,
+   "source": "manifest pin = disk",
+   "old_sha256": "6afe6aa71e585e3e9cf0a53739bee2de06d04949c3571e222b6bbb94da7a43e1",
+   "new_sha256": "5e1f3004bc1926cf58577533a694434b4db2db04ba93e7aa0ff494c2fe09d2bd"
+  },
+  {
+   "id": "S44 hash: final_tail.py",
+   "base_line_v2": 859,
+   "source": "manifest script_sha256 = disk",
+   "old_sha256": "1089379f80253203a2c7e7b71d266c82f145920fe677d1ebc71b216cb18d6ea0",
+   "new_sha256": "e3763bc95e54a1a64685f9db1842a9955eb37cdc5af6a2dc53265f3031469981"
+  },
+  {
+   "id": "S45 hash: t9_h1_clam_s180.json",
+   "base_line_v2": 860,
+   "source": "manifest pin = disk",
+   "old_sha256": "e01ba133512a3b22a5c06ad0c1bb29f2953771cc7cb7df8ee442a81b2815bb46",
+   "new_sha256": "bdb15388c3cfd1ecb48277e6c61bb342cf1facea39b3525af71c8e67dcea1f32"
+  },
+  {
+   "id": "S46 hash: check_outA5.json (pin)",
+   "base_line_v2": 872,
+   "source": "manifest pin (disk 549619b793d447df by the B8 exception)",
+   "old_sha256": "db3fb22403b748ed3262cb3cccae4b3b15622f0178cf185f28087d32ccc690bc",
+   "new_sha256": "40d5b2b29c6768c9cc788ef40e08335e724ce08bc9975c199a3f716b263895ae"
+  },
+  {
+   "id": "S47 hash table: v33/v38 manifests",
+   "base_line_v2": 873,
+   "source": "sha256 on disk",
+   "old_sha256": "4e1a58d676427e047c59243ace01274576c3d4cf509521d6c48b58bc50f4d505",
+   "new_sha256": "35444d68eab3030e0d80772c5ff8f2d63dd59c5897156e11275dcf7e538098a4"
+  },
+  {
+   "id": "S48 step-3 kit paragraph",
+   "base_line_v2": 876,
+   "source": "O4",
+   "old_sha256": "e56773b2f1be2a5a61c83be8555e97546a4a3dda4f0baf7544fbf7e1a17d170c",
+   "new_sha256": "b87a31dcebcbdd43fde4a0ba022caf45dc43a038e9bbf559ef26f808a9ef6203"
+  },
+  {
+   "id": "S49 kit A v3",
+   "base_line_v2": 882,
+   "source": "kit_step4a_v3.zip README.md (v3 changes)",
+   "old_sha256": "4f77b24f0db187028582ed520b9033c7f6af60db3a72c3028dae49257d403227",
+   "new_sha256": "0bb3bab710c751bfa203526e10bbbe3c2bf5c97aefc8d9964d76ef87daedab50"
+  },
+  {
+   "id": "S50 commands: closed tail + v38",
+   "base_line_v2": 890,
+   "source": "final_tail_v38.py usage line; EXCEPTION_v32_B8_check_outA5.json",
+   "old_sha256": "c7a6311f85f189866dee4382d5c9717dc2d50e4dc4cc28891b0f332680e0d810",
+   "new_sha256": "34f65f64c137ce534c1f76039594425f91d38f1ce42bfdb128b8fe5b1958ef88"
+  },
+  {
+   "id": "S51 commands: upstream comment",
+   "base_line_v2": 891,
+   "source": "FINAL_manifest.json",
+   "old_sha256": "cdd327377a4367136d7eb6523fc8b3756708dd0afa5e99ebe94364999a2b64b1",
+   "new_sha256": "134f1f1ec094eda0bfd84a0db8964d8fc9c967574ba02e7634ae54cb3ddc9c11"
+  },
+  {
+   "id": "S52 notes on sources",
+   "base_line_v2": 904,
+   "source": "STEP4_RESULT.md (no mention of v33/v38)",
+   "old_sha256": "d6aa900ea6288b9151fcdc01d222cf81e6e4e916bde35bc72f650bfc326e988a",
+   "new_sha256": "6e02adebd7939e131437d13a11afc543500d75acb2b1459359cc10a9554158e5"
+  }
+ ],
+ "output": {
+  "/home/claude/s1spec/writeup/step4_proof_v3/step4_proof_v3.tex": "e86830902f06279da3d540154d77046aabcfb8442bf979f4c166b52ba1a7202a"
+ }
+}

@@ -1,0 +1,23 @@
+alpha1=0.0005 Ly1=1.225000e-13 sqrt=3.500000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8975e-04 sqrtLy<=3.5225e-07 rate<=+0.07888 (lb +0.07838) cell 138.93s
+  k=   7 tau=  3.198 D=0.600 alpha<=2.2233e-04 sqrtLy<=4.0575e-07 rate<=+0.02430 (lb +0.02380) cell 85.03s
+  k=   8 tau=  3.798 D=0.600 alpha<=1.9119e-04 sqrtLy<=4.1052e-07 rate<=+0.01949 (lb +0.01899) cell 89.7s
+  k=   9 tau=  4.398 D=0.600 alpha<=1.6450e-04 sqrtLy<=4.1423e-07 rate<=+0.01499 (lb +0.01449) cell 98.97s
+  k=  10 tau=  4.998 D=0.600 alpha<=1.4162e-04 sqrtLy<=4.1691e-07 rate<=+0.01075 (lb +0.01025) cell 89.34s
+  tail anchor: a*=1.4162e-04 L*=1.7381e-13  rate_s bound U=+0.00693
+  k=  11 tau=  5.598 D=0.600 alpha<=1.2200e-04 sqrtLy<=4.1892e-07 rate<=+0.00803 (lb +0.00753) cell 53.0s
+  tail anchor: a*=1.2200e-04 L*=1.7550e-13  rate_s bound U=+0.00438
+  k=  12 tau=  6.198 D=0.600 alpha<=1.0518e-04 sqrtLy<=4.2028e-07 rate<=+0.00541 (lb +0.00491) cell 37.62s
+  tail anchor: a*=1.0518e-04 L*=1.7664e-13  rate_s bound U=+0.00226
+  k=  13 tau=  6.798 D=0.600 alpha<=9.0755e-05 sqrtLy<=4.2101e-07 rate<=+0.00286 (lb +0.00236) cell 13.67s
+  tail anchor: a*=9.0755e-05 L*=1.7725e-13  rate_s bound U=+0.00048
+  k=  14 tau=  7.398 D=0.600 alpha<=7.8387e-05 sqrtLy<=4.2142e-07 rate<=+0.00162 (lb +0.00112) cell 13.82s
+  tail anchor: a*=7.8387e-05 L*=1.7759e-13  rate_s bound U=-0.00103
+  k=  15 tau=  7.998 D=0.600 alpha<=6.7780e-05 sqrtLy<=4.2120e-07 rate<=-0.00084 (lb -0.00134) cell 14.29s
+  tail anchor: a*=6.7780e-05 L*=1.7741e-13  rate_s bound U=-0.00231
+  tail: rho=0.00231 alpha-condition OK (margin 3.865e+01); floor sqrt(L_F)=4.941e-324, alpha_F<= 4.941e-324
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 5.9415e-03   (sup|w'| alone: 5.9415e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: sI1<=9.2247e-03, far_w1<=9.2247e-03, far_w<=4.6952e-03, sr1<=5.9415e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]
+  theta=0.3: max step rate_theta=+0.0792
+  theta=0.3: tail anchor rate_s_theta = +0.06135
+RESULT alpha1=0.0005: rigorous max sqrt(Ly) <= 4.2194e-07   (float code: see baseline)  tail=True  runtime 2483.6 s

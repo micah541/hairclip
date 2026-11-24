@@ -1,0 +1,4 @@
+eta cache: 200 cells, max eta = 0.1162  (46s)
+round 1: 839 segments certified, 496 to refine (174s)
+round 2: 1063 segments certified, 544 to refine (239s)
+round 3: 1155 segments certified, 904 to refine (317s)

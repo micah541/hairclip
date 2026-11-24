@@ -1,0 +1,136 @@
+{
+ "args": {
+  "argv": [
+   "tools/check_macros_v43.py",
+   "../fix22_texts_v42",
+   "v42",
+   "tools/macro_check_on_v42.json"
+  ],
+  "dir": "../fix22_texts_v42/",
+  "tag": "v42"
+ },
+ "docs": {
+  "C1_identification_v42.tex": {
+   "defined": 9,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 99
+  },
+  "E0_LEMMA_v4c_v42.tex": {
+   "defined": 2,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 60
+  },
+  "G1_export_k2_v42.tex": {
+   "defined": 9,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 87
+  },
+  "GS_lemma_v42.tex": {
+   "defined": 6,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 91
+  },
+  "U1_regularity_v42.tex": {
+   "defined": 9,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 110
+  },
+  "bootstrap_v42.tex": {
+   "defined": 154,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 234
+  },
+  "continuation_v42.tex": {
+   "defined": 154,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 247
+  },
+  "ei_lemma_v4c_v42.tex": {
+   "defined": 155,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 251
+  },
+  "erratum_v42.tex": {
+   "defined": 12,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 103
+  },
+  "flux2_lemma_v42.tex": {
+   "defined": 138,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 234
+  },
+  "lemmaS_A_v42.tex": {
+   "defined": 154,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 277
+  },
+  "lemmaU_v42.tex": {
+   "defined": 143,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 260
+  },
+  "main_v3_v42.tex": {
+   "defined": 137,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 264
+  },
+  "step3_v42_main.tex": {
+   "defined": 160,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 315
+  },
+  "step4_handoff_v42.tex": {
+   "defined": 7,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 54
+  }
+ },
+ "invalid_names": [],
+ "ok": true
+}

@@ -1,0 +1,234 @@
+% ======================================================================
+% preamble.tex -- shared preamble of the main paper and the supplement.
+% Owner: coordinator.  Drafters add macros by request only (see DRAFTER_GUIDE.md).
+%
+% USE.  This file contains NO \documentclass.  The two master files are
+%   paper_v1/main.tex        \documentclass[11pt]{amsart} \input{preamble} ...
+%   paper_v1/supplement.tex  \documentclass[11pt]{amsart}
+%                            \newif\ifsupplement \supplementtrue
+%                            \input{preamble} ...
+% (the main paper does nothing special: \ifsupplement defaults to false).
+% Compile from paper_v1/ so that \input{numbers/numbers_paper.tex} is found.
+% ======================================================================
+
+% ---- which document are we in ----------------------------------------
+\ifdefined\ifsupplement\else\newif\ifsupplement\fi
+
+% ---- packages ---------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,array,longtable,tabularx,multirow}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+% xr-hyper must come before hyperref
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=green!35!black,urlcolor=blue!50!black]{hyperref}
+
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+
+% ---- numbering --------------------------------------------------------
+% Main paper: sections 1,2,...; theorems 2.3 (by section); equations (2.3).
+% Supplement: the Parts A..K are the \section's, numbered by letter, so
+% theorems are A.1, E.4, ... (do not confuse "Theorem A" of the paper, which
+% has no dot, with "Theorem A.1" of Part A).
+\ifsupplement
+  \renewcommand{\thesection}{\Alph{section}}
+\fi
+\numberwithin{equation}{section}
+
+% ---- theorem environments (numbered by section, one shared counter) ----
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}[theorem]{Main Theorem}
+% Theorems A, B, C, D of the paper: own counter, lettered, no section prefix
+\newtheorem{thmlet}{Theorem}
+\renewcommand{\thethmlet}{\Alph{thmlet}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% A list of hypotheses labelled (H1),(H2),... : \begin{hyplist}{H} ... \end{hyplist}
+% (also {O}, {L}, {B}, {K}, {W} for the families of section 5.3 of OUTLINE.md).
+\newenvironment{hyplist}[1]%
+  {\begin{enumerate}[label=\textup{(#1\arabic*)},leftmargin=3em,itemsep=2pt]}%
+  {\end{enumerate}}
+
+% ---- trust classes (OUTLINE 4.1, 5.1.3) -------------------------------
+% Supplement: explicit tags.  Main paper: certified is the default and
+% unmarked; every non-certified number is marked "(floating point)".
+\ifsupplement
+  \newcommand{\tcert}{\textup{[cert]}}   % arb/outward-rounded, pinned script and key
+  \newcommand{\test}{\textup{[est]}}     % floating point or estimate; never in a theorem
+  \newcommand{\thand}{\textup{[hand]}}   % proved by hand in the text
+  \newcommand{\tlit}{\textup{[lit]}}     % cited from the literature
+\else
+  \newcommand{\tcert}{}
+  \newcommand{\test}{\unskip\ \textup{(floating point)}}
+  \newcommand{\thand}{}
+  \newcommand{\tlit}{}
+\fi
+
+% ---- gaps: visible, counted, an error in a final build -----------------
+% Usage: \GAP{one sentence saying what is missing}   (and an entry in ISSUES.md)
+\newcounter{gapcount}
+\newif\iffinalpaper   % \finalpapertrue makes every \GAP a hard error
+\newcommand{\GAP}[1]{\stepcounter{gapcount}\typeout{GAP-MARKER \thegapcount}%
+  \iffinalpaper\PackageError{paper}{\string\GAP\space used in a final build}{Remove all gaps.}\fi
+  {\color{red}\sffamily\bfseries[GAP~\thegapcount:\ }{\color{red}\sffamily #1}{\color{red}\sffamily\bfseries]}}
+\AtEndDocument{\typeout{GAP-MARKER total: \thegapcount}}
+
+% ---- file names and JSON keys (supplement only) -------------------------
+% No internal path appears in the main paper; a use there is a warning.
+\newcommand{\fn}[1]{%
+  \ifsupplement\else\PackageWarning{paper}{\string\fn\space used in the main paper}\fi
+  \texttt{\detokenize{#1}}}
+\newcommand{\key}[1]{\texttt{\detokenize{#1}}}
+
+% ---- cross references between main paper and supplement ----------------
+% Labels carry a unit prefix (section 5.3 of OUTLINE.md and DRAFTER_GUIDE.md):
+%   main paper:  intro: obj: s3: s4: s5: s6: s7: s8: s9:   (kind: thm- lem- eq- tab- fig- ...)
+%   supplement:  pA: pB: ... pK:
+% so all labels are globally unique and the prefixes below are only a second guard.
+% \Xref{label}  : reference to the OTHER document (hyperlinked via xr-hyper)
+% \Lref{label}  : reference in the SAME document (plain \ref)
+\ifsupplement
+  \externaldocument[M-]{main}[main.pdf]
+  \newcommand{\Xref}[1]{\ref{M-#1}}
+\else
+  \externaldocument[S-]{supplement}[supplement.pdf]
+  \newcommand{\Xref}[1]{\ref{S-#1}}
+\fi
+\newcommand{\Lref}[1]{\ref{#1}}
+% \Supp{pE}{lem-chart} -> "Lemma E.3" style text is produced by the drafter:
+%   "Lemma~\Xref{pE:lem-chart} of the supplement".  \SuppPart{E} gives "Part E".
+\newcommand{\SuppPart}[1]{Part~#1 of the supplement}
+
+% ---- numbers (generated by unit U0; macros only, no literal certified numbers) ----
+\IfFileExists{numbers/numbers_paper.tex}%
+  {\input{numbers/numbers_paper.tex}}%
+  {\PackageWarning{paper}{numbers/numbers_paper.tex not found (unit U0 not finished)}}
+
+% ======================================================================
+% NOTATION MACROS (OUTLINE 5.2 and notation.md).  One macro per symbol
+% whose spelling is fixed by the notation table.  Plain letters (a, b, f, ...)
+% have no macro.
+% ======================================================================
+% basic
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+% flow and curves
+\newcommand{\arclen}{\mathfrak{s}}                 % arclength of the flow curve
+\newcommand{\kss}{\kappa_{\mathfrak{ss}}}          % kappa_{ss} in the flow equation
+\newcommand{\Area}{\operatorname{Area}}
+\newcommand{\Len}{\mathcal L}                      % length of a curve
+\newcommand{\spp}{\operatorname{sp}}                 % sup quantities sp^v_0, sp^v_1, sp^f_1 (were S^v_0, S^v_1, S^f_1)
+\newcommand{\rot}{\operatorname{rot}}              % turning number
+\newcommand{\Tsing}{T_*}                           % singular time
+\newcommand{\Tmax}{T_{\max}}                       % maximal time of existence
+\newcommand{\pstar}{p_*}                           % image point of the singularity
+\newcommand{\Gz}{\Gamma_0}                         % initial curve
+\newcommand{\vth}{\vartheta}                       % parameter of Gamma_0
+\newcommand{\dclk}{\delta_t}                       % clock defect of step 4
+\newcommand{\fall}{\varpi}                         % Fourier rates varpi_n = n^4-n^2
+% rescaling
+\newcommand{\lamone}{\lambda_1}
+\newcommand{\rate}{\varsigma}                      % 1/4 - a
+\newcommand{\xia}{\xi_a}                           % (1-4\bar a)^{-1}
+% shrinker and step 1
+\newcommand{\Sone}{S_1}
+\newcommand{\Gsh}{\Gamma_{\!*}}                    % profile curve of S_1
+\newcommand{\cSet}{\mathcal S}                     % certified set of shrinkers
+\newcommand{\sigtip}{\sigma_{\rm tip}}
+\newcommand{\Xo}{X_0}                              % 2.2490776515
+\newcommand{\Dtip}{D}
+\newcommand{\ktip}{k_0}
+\newcommand{\shootM}{M}                            % shooting function
+\newcommand{\Ypar}{\mathcal Y}                     % step-1 parallelepiped
+\newcommand{\axis}{\Sigma}                         % symmetry axis of S_1
+\newcommand{\sigc}{\sigma_{\rm c}}
+\newcommand{\sigrev}{\sigma^{\rm rev}}
+% linear theory
+\newcommand{\Hrho}{\mathcal H_\rho}
+\newcommand{\muslow}{\mu_3}
+\newcommand{\rre}{\mathfrak r_{\rm re}}
+\newcommand{\rim}{\mathfrak r_{\rm im}}
+\newcommand{\Evev}{\mathrm{Ev}_{\rm even}}
+\newcommand{\Evod}{\mathrm{Ev}_{\rm odd}}
+\newcommand{\gvec}{\mathbf g}                      % translation vector in step 2
+\newcommand{\cons}[1]{\mathfrak f_{#1}}            % constraint functions
+\newcommand{\phirho}{\varphi_\rho}
+% energies
+\newcommand{\Lam}{\Lambda}
+\newcommand{\En}{E}
+\newcommand{\EnI}{E_I}
+\newcommand{\muI}{\mu_I}                           % 0.08
+\newcommand{\epsE}{\varepsilon_E}                  % 1e-5
+\newcommand{\epsI}{\varepsilon_I}                  % 3e-5
+\newcommand{\wn}[1]{\mathsf w_{#1}}                % ||w~^{(j)}||_rho
+\newcommand{\vI}{v_I}                              % zeta w'
+\newcommand{\muerr}{\mu_{\rm err}}                 % step-4 error-energy weight 0.036
+% far field
+\newcommand{\pU}{p_U}                              % 1.0246
+\newcommand{\Uone}{U_1}
+\newcommand{\sm}{\operatorname{sm}}                % smoothstep t^3(10-15t+6t^2)
+\newcommand{\rc}{r_c}                              % centre radius (Lemma U)
+\newcommand{\rchi}{r_\chi}                         % 253
+\newcommand{\Iw}{I_w}                              % hand-off windows [y_w,1.5y_w]
+\newcommand{\qa}{\mathfrak q_1}                    % quasilinear coefficients of the slope equation
+\newcommand{\qb}{\mathfrak q_2}
+% cylinders (Lemma O)
+\newcommand{\cyl}{\ell}                            % cylinder length unit
+\newcommand{\MO}{M_O}
+\newcommand{\KO}{K_O}
+\newcommand{\Hcyl}{H_{\rm cyl}}
+\newcommand{\XiO}{\Xi_O}
+\newcommand{\fO}{f_O}
+% step 4
+\newcommand{\Ybar}{\bar Y}
+\newcommand{\Lt}{\widetilde L}                     % linearisation about the step-4 base
+\newcommand{\Trans}{\Pi}                           % transport integral
+\newcommand{\resid}{\mathrm{res}}
+\newcommand{\Resid}[1]{\mathrm{Res}_{#1}}
+\newcommand{\boxtip}{\Box_{\rm tip}}
+\newcommand{\boxfar}{\Box_{\rm far}}
+\newcommand{\Eenv}{\mathcal E_{\rm env}}
+\newcommand{\betab}{\beta_{\rm base}}
+\newcommand{\tauI}{\tau^{\rm I}}                   % Phase I clock
+% names of families of conditions: \Hh{3} = (H3), \Oh{4} = (O4), ...
+\newcommand{\Hh}[1]{\textup{(H#1)}}
+\newcommand{\Oh}[1]{\textup{(O#1)}}
+\newcommand{\Lh}[1]{\textup{(L#1)}}
+\newcommand{\Bh}[1]{\textup{(B#1)}}
+\newcommand{\Kh}[1]{\textup{(K#1)}}
+\newcommand{\Wh}[1]{\textup{(W#1)}}
+\newcommand{\PhaseI}{Phase~I}
+\newcommand{\PhaseII}{Phase~II}
+% margin: threshold/bound (always)
+\newcommand{\mgn}[1]{{\times}#1}
+
+% ---- figures: placeholder macro so that drafts compile before F1-F7 exist ----
+\newcommand{\figplaceholder}[1]{\fbox{\parbox{0.8\linewidth}{\centering\small[figure #1 to be supplied]}}}

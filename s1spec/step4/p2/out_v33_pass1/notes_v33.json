@@ -1,0 +1,33 @@
+{
+ "far_family": {
+  "v33": "L = 113, X = 2, centres >= 490 (L = 113, X = 2, centres >= 490 (subset of the v3.2 family, centres >= 376))",
+  "v32": "centres >= 376",
+  "subset": true,
+  "cylinder_base_min_r": 264,
+  "t9_far_region": "x >= 150",
+  "far_covers_from": 379.2546802430183,
+  "pinned": {
+   "t9_far_v32": "/home/claude/s1spec/step4/p2/out/t9_far_v32.json",
+   "h4loc_v32": "/home/claude/s1spec/step4/p2/t8se/constants/h4loc_v32.json",
+   "t9_lemmaO_far": "/home/claude/s1spec/step4/p2/out/t9_lemmaO_far.json"
+  },
+  "t9_lemmaO_far_ok": true,
+  "rerun": false
+ },
+ "h6": {
+  "t9_h6_v32": "superseded by task 5 H6 (zone3_interface.json cone_family.H6)",
+  "task5_at": "at_Bhat_ref",
+  "task5_min_margin_at_Bhat_ref": 1.8608671374173327
+ },
+ "unchanged": "(H3) windows, alpha_1, sqrt(Lambda), (H5) far data, H4 far, far Lemma O H1: v3.2 values, FINAL_manifest.json",
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/notes_v33.py": "3dac926420c76b00dcb3adb4bee6b723a098e18424e399d24634e7d0214be569",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json": "9611888cf57e7c5caceb648355dc3a36285b5c7529fc1168b2b83ed847e50fe8",
+   "/home/claude/s1spec/step4/p2/out/t9_lemmaO_far.json": "8915a8a49a3f1b3ae259be0ff897c70a69fa6fad4c188dfd159f0739bcbea279",
+   "/home/claude/s1spec/step4/p2/out/t9_far_v32.json": "e0c9c533517ddb3a4051a871079902f6e74f02a02f7fa50e9c75a9f64f1445a2"
+  }
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "set": "v32",
+ "ball": 14,
+ "tc_ball": [
+  -0.125,
+  -0.0625
+ ],
+ "label": "certified (arb, outward; M9 cells)",
+ "windows_max": [
+  3.226290681756676e-08,
+  1.1741382560113154e-07,
+  3.5088643666592685e-07,
+  9.157502277304647e-07
+ ],
+ "windows_at": [
+  253.0,
+  253.0,
+  253.0,
+  253.0
+ ],
+ "n_windows": 407,
+ "shells": [
+  7.488852044057534e-11,
+  1.2422331468023702e-10,
+  2.768278200524359e-10
+ ],
+ "G_60_700": [
+  2.906573424945196e-07,
+  9.377401716981059e-07,
+  2.295040136779822e-06,
+  3.8102667268730766e-06
+ ],
+ "G_60_379p5": [
+  4.479115710341498e-08,
+  1.6630939098003872e-07,
+  5.060637425392223e-07,
+  1.4048272665412112e-06
+ ],
+ "G_379p5_700": [
+  2.4622277715215587e-07,
+  7.726909047632547e-07,
+  1.7925901909376633e-06,
+  2.413921513431984e-06
+ ],
+ "coverage": {
+  "windows": {
+   "cells": 1371,
+   "first_yhi": 43.22521355231786,
+   "last_ylo": 720.3508849609551,
+   "min_cos_phi": 0.9922824766057996
+  },
+  "shells": {
+   "cells": 110,
+   "first_yhi": 11.291352308225932,
+   "last_ylo": 61.45333637929425,
+   "min_cos_phi": 0.9999468636520975
+  },
+  "h2f": {
+   "cells": 1371,
+   "first_yhi": 43.22521355231786,
+   "last_ylo": 720.3508849609551,
+   "min_cos_phi": 0.9922824766057996
+  }
+ },
+ "ncells": [
+  1371,
+  110
+ ],
+ "max_rel_rad_hh": 0.0014779064961020878,
+ "alpha": [
+  -0.00011543054988694595,
+  -0.0001152909901029944
+ ],
+ "args": {
+  "argv": [
+   "v32",
+   "14"
+  ],
+  "env": {
+   "T9TC": "-0.09375,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out/h1slab/ift_14.json"
+  },
+  "xmax": 730.0,
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/out/h1slab/ift_14.json": "209abec8d40a0de213671980b9fd836b19a99bf35436a435d4d8e18c31a3602b",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

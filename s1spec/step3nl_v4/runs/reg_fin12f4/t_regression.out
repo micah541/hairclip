@@ -1,0 +1,12 @@
+{
+ "rate_table_a0.00015_equal": true,
+ "first_cell_U": 0.03034405538749633,
+ "first_cell_U_spec": 0.03034405538749633,
+ "tail_anchor_U": -0.0026930418625762047,
+ "tail_anchor_U_spec": -0.0026930418625762047,
+ "rate_table_a0.000125_equal": true,
+ "final_alpha_points_equal": true,
+ "tail_cert_log_equal": true,
+ "spec_cells_equal": true,
+ "PASS": true
+}

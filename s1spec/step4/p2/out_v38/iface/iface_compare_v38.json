@@ -1,0 +1,283 @@
+{
+ "item": "interface (C-1, GS) and proof (G1, U-1) certificates for the step-4 v38 manifest: reruns vs references",
+ "label": "comparison (the certificates are [cert], arb / exact sympy)",
+ "rows": {
+  "C1_ke": {
+   "rerun": "/home/claude/s1spec/step4/p2/out_v38/iface/C1_ke.json",
+   "rerun_sha256": "082d81f02e91ca5c2d471de3f4eb7644b068165a78dd24c30872c2b716314909",
+   "refs": {
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/C1_ke.json": {
+     "sha256": "e2c30e5054d4c06c1db20d4167d07ee682f3cc95d27417e0e5c5e8eb61523693",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 180,
+     "ref_pins_not_matching_disk": []
+    },
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/C1_ke.json": {
+     "sha256": "c219a98727ee3a238d6a36f5c1d281622ec39e0d02f90cb5b4d9176f8a14d6c5",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 180,
+     "ref_pins_not_matching_disk": []
+    }
+   }
+  },
+  "GS_tau1": {
+   "rerun": "/home/claude/s1spec/step4/p2/out_v38/iface/GS_tau1.json",
+   "rerun_sha256": "f506dae0279d2d67980aafed5adb0f2a9a6b034f434e8f62c4fbf219cd8aba80",
+   "refs": {
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_tau1.json": {
+     "sha256": "f4c51e1e00ff802b78a7ee2069aa76043f10859a2c625af7e92b3f3f10749f25",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 7,
+     "ref_pins_not_matching_disk": []
+    },
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/GS_tau1.json": {
+     "sha256": "5811c9700f715ab6136c0293579b86ce40a50d4772477d9df5c430fb9bb556c1",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 7,
+     "ref_pins_not_matching_disk": []
+    }
+   }
+  },
+  "GS_boot_v4c": {
+   "rerun": "/home/claude/s1spec/step4/p2/out_v38/iface/GS_boot_v4c.json",
+   "rerun_sha256": "b606fb5d283e7bfda1afa8c291754927297cfe8944f7495fd92c8d4b81cd5402",
+   "refs": {
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.json": {
+     "sha256": "dbe1ed42dd2ca220595935b635c16ceb084c20135d8ee73da317597f1b4dd351",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 12,
+     "ref_pins_not_matching_disk": []
+    }
+   }
+  },
+  "G1_check": {
+   "rerun": "/home/claude/s1spec/step4/p2/out_v38/iface/G1_check.json",
+   "rerun_sha256": "38217e1bbe9ec3ab8f3986c463ab273878295dd65e81e65b3ea4942b6ad94820",
+   "refs": {
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs/G1_check.json": {
+     "sha256": "a91f45ebd3adad24373e89ea9ee308d3fa9824f911f71e2ac9fdc5c3b113af9c",
+     "equal_apart_from_args": false,
+     "ref_input_pins": 7,
+     "ref_pins_not_matching_disk": []
+    }
+   },
+   "v36_to_v37_changed_values": {
+    "C1 coup_2 == sum_{k<2} Ghat_2k 28^-4 E_k (recomputed from weights_t2 Ghat and A4 E_0, E_1)": {
+     "v36": {
+      "coup": "[2.01686956263e-8 +/- 3.57e-20]",
+      "coup_re": "[2.01686956263e-8 +/- 3.57e-20]"
+     },
+     "v37": {
+      "coup": "[2.01657330806e-8 +/- 4.15e-20]",
+      "coup_re": "[2.01657330806e-8 +/- 4.15e-20]"
+     }
+    },
+    "C1 gamma'_2 > 0": {
+     "v36": {
+      "gp2": "[0.119546641667 +/- 3.86e-13]"
+     },
+     "v37": {
+      "gp2": "[0.119546641669 +/- 3.29e-13]"
+     }
+    },
+    "C1 recomputed C0_2 overlaps recorded and is not above it": {
+     "v36": {
+      "C0": "[116.378172826 +/- 3.45e-10]",
+      "C0_rec": "[116.378172826 +/- 3.45e-10]"
+     },
+     "v37": {
+      "C0": "[116.359231420 +/- 4.42e-10]",
+      "C0_rec": "[116.359231420 +/- 4.42e-10]"
+     }
+    },
+    "C1 recomputed C1_2 overlaps recorded and is not above it": {
+     "v36": {
+      "C1": "[0.260600391654 +/- 4.96e-14]",
+      "C1_rec": "[0.260600391654 +/- 4.96e-14]"
+     },
+     "v37": {
+      "C1": "[0.260599875437 +/- 4.41e-14]",
+      "C1_rec": "[0.260599875437 +/- 4.41e-14]"
+     }
+    },
+    "C2 U_cert EA_2 <= A4 E_2 (so E^A_2(tau_a) <= Ehat_2 <= the E_2 used in C0)": {
+     "v36": {
+      "E2_A4": "[0.0583511048754 +/- 3.50e-14]",
+      "EA2_U": "[0.0567975799081 +/- 2.79e-14]"
+     },
+     "v37": {
+      "E2_A4": "[0.0583418591543 +/- 4.52e-14]",
+      "EA2_U": "[0.0567883023445 +/- 6.07e-15]"
+     }
+    },
+    "C3 flux2_data used C0_2, C1_2 equal to A4 upper ends": {
+     "v36": {
+      "C0_flux": "[116.378172826 +/- 3.45e-10]",
+      "C1_flux": "[0.260600391654 +/- 4.96e-14]"
+     },
+     "v37": {
+      "C0_flux": "[116.359231420 +/- 4.42e-10]",
+      "C1_flux": "[0.260599875437 +/- 4.41e-14]"
+     }
+    },
+    "C4 A_interface C0_ref, C1_ref (bound up) dominate A1 export (design N2_ref)": {
+     "v36": {
+      "C0": "[114.782223004 +/- 1.77e-10]",
+      "C1": "[0.0698142389112 +/- 1.47e-15]"
+     },
+     "v37": {
+      "C0": "[114.763281596 +/- 1.21e-10]",
+      "C1": "[0.0698137226942 +/- 6.47e-15]"
+     }
+    },
+    "S2 D_2 == inflow + ramp + top + cls + extra (balls overlap)": {
+     "v36": {
+      "D": "[0.0552610205633 +/- 1.78e-14]",
+      "parts": "[0.0552610205633 +/- 1.78e-14]"
+     },
+     "v37": {
+      "D": "[0.0552517750738 +/- 1.14e-14]",
+      "parts": "[0.0552517750738 +/- 1.14e-14]"
+     }
+    },
+    "S2 D_2^c <= D_2": {
+     "v36": {
+      "D": "[0.0552610205633 +/- 1.78e-14]",
+      "Dc": "[0.0552106598959 +/- 2.64e-14]"
+     },
+     "v37": {
+      "D": "[0.0552517750738 +/- 1.14e-14]",
+      "Dc": "[0.0552014185248 +/- 1.83e-14]"
+     }
+    }
+   },
+   "checks_v37": 35
+  },
+  "U1_sym": {
+   "rerun": "/home/claude/s1spec/step4/p2/out_v38/iface/U1_sym.json",
+   "rerun_sha256": "c3e7efb80a694145f87a12991c51fa1fe9706e98700a5ec72c7fbecbea9ffbf5",
+   "refs": {
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs/U1_sym.json": {
+     "sha256": "2b73a28bdb8a901a2645a405a6cc0dc3ffa716206fa212b2b5f2198e6942a16a",
+     "equal_apart_from_args": true,
+     "ref_input_pins": 1,
+     "ref_pins_not_matching_disk": []
+    }
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "C1_ke: rerun ok / all_pass is true",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "C1_ke: every input pin of the rerun matches the disk (180 pins)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "C1_ke: rerun equals the primary reference fix15_review/c/C1_ke.json apart from args",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "GS_tau1: rerun ok / all_pass is true",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "GS_tau1: every input pin of the rerun matches the disk (7 pins)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "GS_tau1: rerun equals the primary reference fix15_review/c/GS_tau1.json apart from args",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "GS_boot_v4c: rerun ok / all_pass is true",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "GS_boot_v4c: every input pin of the rerun matches the disk (12 pins)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "GS_boot_v4c: rerun equals the primary reference fix15_review/c/GS_boot_v4c.json apart from args",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "G1_check: rerun ok / all_pass is true",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "G1_check: every input pin of the rerun matches the disk (7 pins)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "G1_check on chain v37: all checks pass (values are v37, differ from the v36 reference by design)",
+   "ok": true,
+   "detail": {
+    "n_changed": 9
+   }
+  },
+  {
+   "check": "G1_check: the rerun reads chain v37 runs/prod2 and flux v37 flux2_data.json only",
+   "ok": true,
+   "detail": [
+    "/home/claude/s1spec/step4/p2/v38/G1_check_v38.py",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_data.json",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/A_interface.json",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/asm_design_N2ref.json",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/asm_design_N2ref4.json",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t2_A/weights_t2.json",
+    "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/runs/prod2/t4_cert/U_cert_v36_pass3.json"
+   ]
+  },
+  {
+   "check": "U1_sym: rerun ok / all_pass is true",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "U1_sym: every input pin of the rerun matches the disk (1 pins)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "U1_sym: rerun equals the primary reference fix10_proofs/U1_sym.json apart from args",
+   "ok": true,
+   "detail": null
+  }
+ ],
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "iface_compare_v38.py"
+  ],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v38/iface_compare_v38.py": "cffc7cf9c6519cb74fa3d8260ed1e1b48e92954979400287c411cfad5d2db3f5",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/C1_ke.json": "082d81f02e91ca5c2d471de3f4eb7644b068165a78dd24c30872c2b716314909",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/GS_tau1.json": "f506dae0279d2d67980aafed5adb0f2a9a6b034f434e8f62c4fbf219cd8aba80",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/GS_boot_v4c.json": "b606fb5d283e7bfda1afa8c291754927297cfe8944f7495fd92c8d4b81cd5402",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/G1_check.json": "38217e1bbe9ec3ab8f3986c463ab273878295dd65e81e65b3ea4942b6ad94820",
+   "/home/claude/s1spec/step4/p2/out_v38/iface/U1_sym.json": "c3e7efb80a694145f87a12991c51fa1fe9706e98700a5ec72c7fbecbea9ffbf5",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/C1_ke.json": "e2c30e5054d4c06c1db20d4167d07ee682f3cc95d27417e0e5c5e8eb61523693",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/C1_ke.json": "c219a98727ee3a238d6a36f5c1d281622ec39e0d02f90cb5b4d9176f8a14d6c5",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_tau1.json": "f4c51e1e00ff802b78a7ee2069aa76043f10859a2c625af7e92b3f3f10749f25",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix14_interface/GS_tau1.json": "5811c9700f715ab6136c0293579b86ce40a50d4772477d9df5c430fb9bb556c1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/c/GS_boot_v4c.json": "dbe1ed42dd2ca220595935b635c16ceb084c20135d8ee73da317597f1b4dd351",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs/G1_check.json": "a91f45ebd3adad24373e89ea9ee308d3fa9824f911f71e2ac9fdc5c3b113af9c",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix10_proofs/U1_sym.json": "2b73a28bdb8a901a2645a405a6cc0dc3ffa716206fa212b2b5f2198e6942a16a"
+  }
+ }
+}

@@ -1,0 +1,165 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\lab}[1]{\textup{\textsc{[#1]}}}
+
+\title{Steps 3 and 4: what remains for embedded blow-up, and the linear energy estimate}
+\author{Third supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 5, 2026. Draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+Steps 1 and 2 of the program are complete: the shrinker $S_1$ exists (first supplement), and its linearization $L$ has no spectrum with $\re\lambda>-\frac18$ in $L^2(\rho)$ besides the four symmetry eigenvalues (second supplement). This note does three things. (1) It records a short rigorous reduction: by Wheeler's convergence theorem for global curve diffusion flows, the hairpin flow is singular as soon as it can be shown never to become embedded again. (2) It identifies, numerically and with converged digits, the right linear estimate for the nonlinear argument. The plain weighted energy is \emph{not} dissipative on the complement of the two symmetry modes ($+0.0666$), but it is on the complement of the three leading modes ($-0.0820$), and more so of four ($-0.2210$). It gives the triangular decomposition that turns this into exponential decay for the modulated linear flow, and an exact inertia criterion that reduces the rigorous verification to validated ODE computations of the same kind as in step 2. (3) It lays out the nonlinear, outer-region and step-4 work that remains, with the efficiency trade-off that governs step 4. Labels: \lab{proved}, \lab{numerical}, \lab{plan}.
+\end{abstract}
+\maketitle
+
+
+
+\section{Reduction: what has to be shown}
+
+\begin{proposition}\label{prop:wheeler}\lab{proved}
+Let $\gamma:S^1\times[0,T_{\max})\to\R^2$ be the maximal smooth curve diffusion flow of a closed curve of turning number $1$. If $T_{\max}=\infty$, then $\gamma(t)$ is convex, hence embedded, for all large $t$. Consequently, if $\gamma(t)$ is non-embedded for every $t\in[t_1,T_{\max})$, then $T_{\max}<\infty$.
+\end{proposition}
+\begin{proof}
+By Wheeler \cite[Thm.~1.1]{Wh22}, a global flow with smooth data of winding number $\omega$ converges smoothly and exponentially fast to a round $\omega$-circle, with no smallness assumption. For $\omega=1$ the limit is an embedded circle. A curve $C^2$-close to a round circle has positive curvature and turning number $1$, so it is convex and embedded.
+\end{proof}
+
+For the hairpin, after $t\approx0.016$ the curve has exactly two transverse double points: $c_2$, the base of the pocket curl $X$, and $c_1$. The lens $\Lambda$ is the bigon between them (notes, \S3). Going once around the curve one meets $c_1,\ [\text{side of }\Lambda],\ c_2,\ [X],\ c_2,\ [\text{side of }\Lambda],\ c_1,\ [\text{outer loop}]$. So the only two arcs joining $c_1$ to $c_2$ are the two sides of $\Lambda$. A transverse double point can only disappear by merging with another one at a tangency. So, barring new double points (and degenerate events), $c_1$ and $c_2$ can disappear only when $\Lambda$ collapses. By Proposition~\ref{prop:wheeler} and Theorem~6.4 of the notes, the analytic content of ``the hairpin becomes singular'' is therefore:
+\begin{quote}
+\emph{the pocket area $|X(t)|$ reaches $0$ (forcing $\sup k^2\ge\pi/|X|\to\infty$) before the lens can collapse.}
+\end{quote}
+In the numerics $|X|\to0$ while $|\Lambda|\to0.026$. No sign structure is available: $\frac{d}{dt}|X|$ and $\frac{d}{dt}(|\Lambda|-|X|)$ are the $k_s$-jumps at $c_2$ and $c_1$ (notes, Lemma~2.4). The isoperimetric obstruction of Chou ($L^2<4\pi\omega|A|$) can never apply for $\omega=1$, by Banchoff--Pohl. So the race has to be decided quantitatively, and the mechanism that forces $|X|\to0$ is the stability of $S_1$.
+
+\begin{remark}[a window estimate]\lab{proved}
+If $|[k_s]_{c_1}|\le C_1$ on $[t_1,t_1+\Delta]$ and $(|\Lambda|-|X|)(t_1)>C_1\Delta$, then $|\Lambda|>|X|\ge0$ throughout the window. So once the pocket is small, the lens cannot collapse within a time controlled by the regularity of the curve near $c_1$, which lies in the outer region of the blow-up analysis. In rescaled units the lens is enormous at hand-off ($c_1$ is at rescaled distance $\approx0.16\,(T-t)^{-1/4}$).
+\end{remark}
+
+\section{The endgame theorem to be proved (step 3)}
+
+Write $\gamma(t)=x(\tau)+\lambda(\tau)\Gamma(\tau)$ with $dt/d\tau=\lambda^4$, $\lambda_\tau/\lambda=-\frac14+a(\tau)$, $x_\tau=\lambda\,b(\tau)e_1$ (in the symmetric class $x$ moves along the axis). Then
+\[
+\ip{\Gamma_\tau}{\nu}=-k_{ss}+(\tfrac14-a)\ip{\Gamma}{\nu}-b\ip{e_1}{\nu}.
+\]
+On the inner region, write $\Gamma=S_1+w\nu$. Then $w_\tau=Lw-a\,\psi_1-b\,\psi_2+N(w;a,b)$ with $\psi_1=p$ (eigenvalue $1$) and $\psi_2=\ip{e_1}{\nu}$ (eigenvalue $\frac14$), both even. The parameters $a,b$ are fixed by $w\perp\psi_1,\psi_2$ in $H=L^2_{\rm even}(\rho)$.
+
+\begin{theorem}[target]\label{thm:target}\lab{plan}
+There are explicit $\delta_0,R_0,K_0$ such that the following holds. Let $\gamma_1$ be a smooth closed curve, symmetric about the $x$-axis. Suppose that for some $\lambda_1>0$ and $x_1$ on the axis: \emph{(inner)} $\lambda_1^{-1}(\gamma_1-x_1)\cap B_{R_0}$ is a normal graph $w_1$ over $S_1$ with $\|w_1\|_{X}\le\delta_0$, where $X$ is a weighted $H^2$-type norm; and \emph{(outer)} outside $B(x_1,\frac12\lambda_1R_0)$ the curve satisfies the localized curvature bounds of \S4 with constant $K_0$. Then the flow from $\gamma_1$ becomes singular at some $T$ with $|T-\lambda_1^4|\le C\delta_0\lambda_1^4$, at a point $x_T$ on the axis, and $(T-t)^{-1/4}(\gamma(t)-x_T)\to S_1$ in $C^\infty_{\rm loc}$. In particular $\max|k|\,(T-t)^{1/4}\to k_0=1.5398\ldots$, and the pocket collapses with $|X|\sim A_X(S_1)\,(T-t)^{1/2}$.
+\end{theorem}
+
+\section{The linear estimate}\label{sec:linear}
+
+\begin{lemma}[generation]\label{lem:gen}\lab{proved, modulo standard ODE asymptotics}
+Let $\bar L$ be the closure in $H=L^2(\rho)$ of $L$ on $C_c^\infty(\R)$. Then $\bar L=L_{\max}$, the maximal operator, and $\bar L$ is m-sectorial. Its numerical range lies in $\{\re z\le\Lambda_0\}\cap\{\re(e^{\pm i\theta_0}z)\le\Lambda_{\theta_0}\}$ with the step-2 constants $\Lambda_0=1.7909$, $\theta_0=0.48$, $\Lambda_{\theta_0}=1.7683$. In particular $\bar L$ generates an analytic semigroup with $\|e^{\tau\bar L}\|\le e^{\Lambda_0\tau}$, and $\|(z-\bar L)^{-1}\|\le\mathrm{dist}(z,W)^{-1}$ off that region.
+\end{lemma}
+\begin{proof}
+Fix real $\lambda>\Lambda_0$. By the certificate, $\|(\bar L-\lambda)u\|\ge(\lambda-\Lambda_0)\|u\|$, so $\mathrm{ran}(\bar L-\lambda)$ is closed. Its orthogonal complement is $\ker(\bar L^*-\lambda)$, and $\bar L^*=L^\dagger_{\max}$ (weak solutions of ODEs are classical). At $+\infty$, $L^\dagger v=\lambda v$ has exactly two solutions in $L^2(\rho)$. They are $v=w/\rho$ with $w$ one of the two oscillatory-decaying Airy branches of the unweighted transpose, so $\rho|v^{(j)}|^2=O(x^ce^{(\beta-a)x^{4/3}})$ with $a=\frac34 4^{-1/3}>\beta$. The polynomial branch $x^{4\lambda-2}$ and the growing branch fail to be in $L^2(\rho)$. The same holds at $-\infty$ by symmetry. Hence a $v\in\ker(L^\dagger_{\max}-\lambda)$ lies in $D(L_{\max})$, and all boundary terms of the Lagrange identity and of the certificate's null forms vanish at $\pm\infty$. This gives $\lambda\|v\|^2=\re\ip{v}{Lv}=\re\ip{Lv}{v}\le\Lambda_0\|v\|^2$, so $v=0$ and $\bar L-\lambda$ is onto. Likewise, $L^2(\rho)$ solutions of $Lu=\lambda u$ are combinations of the polynomial branch $x^{1-4\lambda}$ and the decaying Airy branch, with $\rho|u^{(j)}|^2$ decaying. The certificate again forces $u=0$, so $L_{\max}-\lambda$ is injective and $L_{\max}=\bar L$. The numerical range of $\bar L$ lies in the closure of that on the core $C_c^\infty$, which step 2 confines as stated. Kato, Thm.~IX.1.24, gives the semigroup.
+\end{proof}
+\begin{remark}[compact resolvent]\lab{sketch}
+For $u$ supported in $\{x\ge R\}$, $R$ large, one integration by parts of the $\mathcal A|u'|^2$ term below gives
+$\re\ip{Lu}{u}_\rho\le-\frac12\int\rho|u''|^2-\int\rho\,\mu|u|^2$ with $\mu=-(\frac12\mathcal A^2+\frac12(\rho\mathcal A)''/\rho+V)\sim(0.0478-0.0247-0.0123)x^{4/3}=0.0108\,x^{4/3}$ for $\beta=\frac14$. The approach is slow: numerically $-\mu/x^{4/3}=+0.012,\,-0.0008,\,-0.0064,\,-0.0099$ at $x=10,20,40,160$. So this crude bound needs $R\gtrsim25$, or a better integration by parts. Combined with the step-2 certificate by a fourth-order IMS localization, this gives $\int\rho\,\mu|u|^2\lesssim\|u\|^2+\|\bar Lu\|^2$. That is tightness of the graph-norm unit ball, hence a compact resolvent, and so the spectrum of $\bar L$ consists of the Evans zeros. Writing out the IMS error terms is routine but has not been done.
+\end{remark}
+
+Let $\psi_1,\psi_2,\psi_3,\psi_4$ be the even eigenfunctions for $\lambda=1,\frac14,-0.2563,-0.6993$. For $m\ge2$ let $\Pi_m$ be the $H$-orthogonal projection onto their span, and set
+\[
+\omega_m=\sup\Big\{\frac{\re\ip{Lv}{v}_\rho}{\|v\|_\rho^2}:\ v\ \text{even},\ v\perp\psi_1,\dots,\psi_m\Big\}.
+\]
+Let $\omega_m^{\rm spec}$ be the same quantity with the adjoint eigenfunctions, that is, $L$ restricted to its spectral complement. Here $\omega_0$ is the numerical abscissa, certified $\le1.7908$ in step 2.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+$\beta$ & $\omega_0$ & $\omega_2$ & $\omega_3$ & $\omega_4$ & $\omega_2^{\rm spec}$ & $\omega_3^{\rm spec}$ & $\omega_4^{\rm spec}$\\
+\midrule
+0.15 & 1.652 & $+0.128$ & $+0.033$ & $-0.050$ & $+0.125$ & $+0.007$ & $-0.096$\\
+0.20 & 1.689 & $+0.084$ & $-0.042$ & $-0.156$ & $+0.098$ & $-0.056$ & $-0.186$\\
+0.25 & 1.729 & $+0.0666$ & $-0.0820$ & $-0.2210$ & $+0.116$ & $-0.085$ & $-0.240$\\
+0.30 & 1.773 & $+0.078$ & $-0.079$ & $-0.230$ & $+0.240$ & $-0.036$ & $-0.241$\\
+\bottomrule
+\end{tabular}
+\caption{\lab{numerical} Compressed numerical abscissae of $L$ in $L^2_{\rm even}(e^{-\beta(1+x^2)^{2/3}})$. Finite differences on $[-X,X]$. For $\beta=\frac14$ the values agree to four digits for $(X,h)=(30,0.05),(30,0.04),(30,0.03),(40,0.04)$, and the eigenvalues come out as $1.0011,\ 0.2497,\ -0.2562,\ -0.6993$ at $h=0.03$ (\texttt{step3/compress*.py}, \texttt{conv.py}).}
+\label{tab:omega}
+\end{table}
+
+So the modulated linear flow is not a contraction in the plain weighted norm ($\omega_2>0$ for every $\beta$ tried), although its spectrum lies in $\re\lambda\le-0.2563$. Removing one further mode cures this, with a margin that does not depend sensitively on $\beta$.
+
+\begin{lemma}[triangular structure]\label{lem:tri}\lab{proved}
+Let $m\ge3$, $\varphi_j=(I-\Pi_2)\psi_j$ for $3\le j\le m$, and $P=I-\Pi_m$. The modulated linear flow $w_\tau=(I-\Pi_2)Lw$ preserves $\{\psi_1,\psi_2\}^\perp=\mathrm{span}\{\varphi_j\}\oplus\{\psi_1,\dots,\psi_m\}^\perp$. Writing $w=\sum_j c_j\varphi_j+v$, it reads
+\[
+v_\tau=PLv,\qquad c_\tau=\mathrm{diag}(\lambda_3,\dots,\lambda_m)\,c+Bv,
+\]
+with $B$ bounded on $H$: $Bv$ is given by pairings $\ip{v}{L^\dagger g_j}_\rho$ with fixed smooth $g_j$.
+\end{lemma}
+\begin{proof}
+$(I-\Pi_2)L\varphi_j=\lambda_j(I-\Pi_2)\psi_j-(I-\Pi_2)L\Pi_2\psi_j=\lambda_j\varphi_j$, because $L$ maps $\mathrm{span}\{\psi_1,\psi_2\}$ into itself and $(I-\Pi_2)$ annihilates it. For $v\perp\psi_1,\dots,\psi_m$, split $(I-\Pi_2)Lv$ along $\mathrm{span}\{\varphi_j\}\oplus\mathrm{ran}\,P$. Since $\mathrm{ran}\,\Pi_2\subset\mathrm{ran}\,\Pi_m$, $P(I-\Pi_2)=P$.
+\end{proof}
+
+\begin{corollary}\label{cor:decay}
+If $\omega_m<0$, then for every $0<\omega<\min(-\omega_m,\,0.2563)$ there are explicit $\eps,C>0$ such that $E=\|v\|_\rho^2+\eps|c|^2$ satisfies $E_\tau\le-2\omega E$. Hence $\|e^{\tau(I-\Pi_2)L}w\|_\rho\le Ce^{-\omega\tau}\|w\|_\rho$ on $\{\psi_1,\psi_2\}^\perp$. With $m=4$ and the values of Table~\ref{tab:omega}, any $\omega<0.22$ is admissible (numerically).
+\end{corollary}
+This is the form the nonlinear argument needs: a Lyapunov functional rather than a semigroup bound, because the equation is quasilinear (\S4).
+
+\subsection*{Rigorous verification of $\omega_m<0$}
+The constraint $v\perp\psi_j$ is nonlocal, so the pointwise certificates of step 2 cannot see it directly. The following exact criterion reduces it to validated ODE computations.
+
+\begin{lemma}[constrained inertia]\label{lem:inertia}\lab{proved; standard}
+Let $A$ be self-adjoint on a Hilbert space, invertible, with finitely many negative eigenvalues $n(A)$ and the rest of its spectrum positive. Let $f_1,\dots,f_m\in D(A)$ be independent, $F c=\sum c_jf_j$, and $G=F^*A^{-1}F\in\C^{m\times m}$, assumed nonsingular. Then the form of $A$ restricted to $\{f_j\}^\perp$ has exactly $n(A)-n(G)$ negative directions, where $n(G)$ is the number of negative eigenvalues of $G$.
+\end{lemma}
+\begin{proof}
+Haynsworth's inertia additivity for $M=\begin{psmallmatrix}A&F\\F^*&0\end{psmallmatrix}$ gives $\mathrm{In}(M)=\mathrm{In}(A)+\mathrm{In}(-G)$. Restricting first to $\{f_j\}^\perp$ gives $\mathrm{In}(M)=\mathrm{In}(A|_{f^\perp})+(m,m,0)$. Compare negative indices; for the infinite-dimensional version see Maddocks \cite{Ma88}.
+\end{proof}
+Apply this with $A=-H_{\rm sym}-\omega$, where $H_{\rm sym}$ is the self-adjoint (fourth-order, divergence-form) operator of the form $\re\ip{Lu}{u}_\rho$:
+\[
+\re\ip{Lu}{u}_\rho=\int\rho\big(-|u''|^2+\mathcal A|u'|^2+V|u|^2\big),\qquad \mathcal A=2(\varphi'^2-\varphi'')+k^2,
+\]
+with $V$ explicit in $\varphi$ and the profile. Numerically \lab{numerical}, for $\beta=\frac14$, $H_{\rm sym}$ (even class) has top eigenvalues $1.7288,\ 0.2204,\ 0.0188,\ -0.2388,\ -0.4995$. So $n(A)=3$ for $0<\omega<0.2388$, and
+\[
+\omega_m\le-\omega\iff n(G)=3,\qquad G=\big[\ip{A^{-1}\psi_i}{\psi_j}_\rho\big]_{i,j\le m}.
+\]
+Rigorous ingredients \lab{plan}: (i) a validated count of the eigenvalues of $H_{\rm sym}$ above $-\omega$, by an Evans-function winding exactly as in step 2. This needs a new conical-end analysis, because $H_{\rm sym}$ has balanced WKB asymptotics, all terms of order $x^{4/3}$. (ii) Validated solutions of $A\chi_j=\psi_j$ and the Gram entries. (iii) Enclosures of $\psi_3,\psi_4$ via shooting, using approximate eigenfunctions with a residual term in Lemma~\ref{lem:tri} if convenient.
+
+A tail-free alternative splits the line at $x=R$. One certifies the far piece pointwise and does (i)--(ii) on the compact interval $[0,R]$. With the naive local representative above, the far piece with a free end at $R$ has \emph{edge modes}: top values $+1.01,+1.28,+1.58,+1.89$ for $R=6,8,10,12$ (\texttt{step3/split.py}). So the split must use an SDP-optimized representative, chosen with the null forms of step 2, and a Robin-type interface form at $R$.
+
+\section{Nonlinear and outer parts}\lab{plan}
+
+\emph{Quasilinear structure.} For a normal graph over $S_1$, with $\ell^2=(1-kw)^2+w'^2$,
+\[
+w_\tau=-\ell^{-4}w''''+F(\sigma,w,w',w'',w''')-a\psi_1-b\psi_2+(a,b)\cdot O(w),
+\]
+with $F$ smooth and at least quadratic in the jet. The fourth-order term loses four derivatives, so semigroup (Duhamel) arguments are borderline. The natural route is an energy method: $E$ from Corollary~\ref{cor:decay}, plus weighted $H^2$-level energies whose top-order dissipation $-\int\rho|w''''|^2$ absorbs the nonlinear top-order terms once $\|w\|_{C^2(B_R)}$ is small. The modulation ODEs give $|a|+|b|\lesssim E^{1/2}+E$.
+
+\emph{Outer region.} The weight $e^{-\frac14(1+x^2)^{2/3}}$ gives no pointwise control at large $|x|$. Beyond rescaled radius $R(\tau)$ one works in original variables. Localized energy ($\eps$-regularity) estimates for fourth-order curve flows, of Dziuk--Kuwert--Sch\"atzle type \cite{DKS}, keep the curve smooth up to $T$ away from $x_T$. In the intermediate annulus the profile is close to its tangent cone, two rays at $\pm106.67^\circ$, and inner and outer variables are matched through the polynomial branches $\sigma^{1-4\lambda}$ of the ray operator $-\partial^4-\frac\sigma4\partial+\frac14$. This is the analytically hardest part of the program and is not computer-assisted. The surface-diffusion pinch-off analysis cited in the notes as [W2] should be the closest model; I could not access it.
+
+\section{Step 4, and why the size of $\delta_0$ matters most}\lab{plan}
+
+The approach to $S_1$ is governed by $\lambda_3=-0.2563$: the rescaled distance decays like $e^{-0.256\tau}=((T-t)/T)^{0.256}$. The notes' finding that scale-invariant quantities have corrections linear in $1/k_{\max}$ is consistent with this, since $0.256\approx\frac14$. A hand-off at distance $\delta_0$ (constant of order one) therefore needs $T-t_1\approx T\delta_0^{3.9}$, that is, $\max|k|\approx15$, $140$, $1300$ at hand-off for $\delta_0=10^{-1},10^{-2},10^{-3}$. A generous basin in Theorem~\ref{thm:target} is the single biggest efficiency factor for step 4.
+
+Three routes for step 4:
+\begin{enumerate}
+\item Validated time-stepping (CAPD style) of the hairpin. The data are multi-scale: slot $0.1$, arms $12$, initial curvature $-20$, $T\approx1.03$. This is expensive.
+\item \emph{A posteriori validation} of a high-accuracy numerical solution through a perturbation (energy) estimate. The error amplification is $\lesssim\exp\int\omega_{\rm num}\,dt$, with $\omega_{\rm num}$ the numerical abscissa of the linearization along the computed flow. In the self-similar phase this is $\approx(T/(T-t))^{1.73}$, about $6\cdot10^6$ for a hand-off at $\max|k|\approx15$, which spectral residuals of $10^{-12}$ can absorb. The perturbation estimate is the same energy inequality as in step 3, written about a moving background. So steps 3 and 4 share their main lemma. \emph{This is the route I recommend.}
+\item A different embedded initial curve, designed to enter the basin with less scale disparity. The hairpin family needs long arms (threshold between $10$ and $12$ widths at slot $0.1$), which suggests the lens needs a sustained driver.
+\end{enumerate}
+
+\section{Assessment}
+Steps 1--2 are proved. Lemma~\ref{lem:gen} settles generation. Remaining caveats: compact resolvent (Remark above, sketch), and order of Evans zero equals algebraic multiplicity (standard). Step 3 linear has clean numerics and an exact verification scheme (Lemma~\ref{lem:inertia}) of the same size as step 2. Step 3 nonlinear plus outer, and step 4 by route~(2), remain. This is paper-length analysis and is not routine, mainly because there is no maximum principle in the outer region. Suggested next computations, in order: the rigorous count and Gram matrix for $m=4$; then a numerical estimate of the outer-region constants and of $\delta_0$; then the a posteriori estimate along the notes' spectral solution.
+
+\begin{thebibliography}{9}
+\bibitem{Wh22} G.~Wheeler, \emph{Convergence for global curve diffusion flows}, Math. Eng. \textbf{4} (2022), no.~1, 1--13; doi:10.3934/mine.2022001.
+\bibitem{Ma88} J.~H.~Maddocks, \emph{Restricted quadratic forms and their application to bifurcation and stability in constrained variational principles}, SIAM J. Math. Anal. \textbf{16} (1985), 47--68; see also E.~V.~Haynsworth, Linear Algebra Appl. \textbf{1} (1968), 73--81.
+\bibitem{DKS} G.~Dziuk, E.~Kuwert, R.~Sch\"atzle, \emph{Evolution of elastic curves in $\R^n$: existence and computation}, SIAM J. Math. Anal. \textbf{33} (2002), 1228--1245.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,105 @@
+# The L⁴ identity and the cubic terms for a general weight (Lemma U)
+
+Status: derivation on paper (this note) plus a sympy check of every identity used (`l4_identity_check.py`: identities I1–I8 verified for an *arbitrary* weight). The numbers in §4 are **float estimates** (`t8_L4_cost.py`, `t8_L4_cost.out`/`.json`). The one exception is the power-weight foot weights, which are certified (`lemmaS_A_rerun/rigor/weights_exact`).
+
+## 1. Setting and notation
+
+- s = ln y, and z_k = ∂_s^k v (= (y∂_y)^k v), so z_{k+1} = z_k′.
+- Energy weight Θ(s) > 0 (C³). Dissipation weight Ξ = εΘ with ε = e^{−4s}. On a cutoff ramp, the weights are Θη² and Ξη², with 0 ≤ η ≤ 1 and |η′| ≤ η′_max.
+- N_k = ‖z_k‖_Ξ = (∫Ξ z_k² ds)^{1/2}. In the time-integrated (variation-of-constants) bounds, the same with ∬ ds dτ. X = ‖z₂²‖_Ξ = (∫Ξ z₂⁴)^{1/2}.
+- Box: |z₁| ≤ M₁ on supp Ξ. The crude box gives M₁ = 0.52, as in v3.1's core; the bootstrap closes it with S₁ + 1.05U ≤ 0.52, so |z₁| ≤ S₁ ≤ M₁.
+- Constants of the weight:
+  - L = Ξ′/Ξ, the log-derivative;
+  - κ̃ = sup|L|;
+  - κ̃₂ = sup(Ξ″/Ξ)₊ = sup(L² + L′)₊;
+  - Γ_m = sup|Θ^{(m)}/Θ|.
+
+  For the power weight of Lemma S(A) (Θ = ω = e^{−γs}): L ≡ −κ with κ = γ + 4, Ξ″/Ξ = κ², and Γ_m = γ^m.
+
+## 2. Lemma (general-weight L⁴ bounds)
+
+Assume κ̃ < ∞ and that the boundary terms of the integrations by parts vanish. This holds because Ξ is cut off: η_in at the inner ramp and χ_out at Lemma R's outer ramp.
+
+**(a) L⁴ bound.** X ≤ M₁ (3N₃ + κ̃ N₂).
+
+**(b) Class {2,3,3}.** ∫Ξ|z₂|z₃² ≤ ½ X (κ̃N₃ + N₄) ≤ ½ M₁ (3N₃ + κ̃N₂)(κ̃N₃ + N₄).
+
+**(c) On a cutoff ramp,** with Ξ → Ξη² and the cutoff-free ramp datum F₂ = ∫_ramp Ξ z₂² (space–time ∬ in the time-integrated form):
+
+  X_η ≤ M₁ (3N₃ + κ̃N₂ + 2η′_max F₂^{1/2}),
+
+  ∫Ξη²|z₂|z₃² ≤ ½ X_η (κ̃N₃ + N₄) + ⅓ ∫(Ξηη′)′ |z₂|³,  with |(Ξηη′)′| ≤ C_η^Ξ Ξ and C_η^Ξ = sup_ramp |L ηη′ + η′² + ηη″|.
+
+**(d) Interpolation.** N_{k+1}² ≤ N_k N_{k+2} + ½ κ̃₂ N_k².
+
+**Proofs.** All are integrations of exact pointwise identities, followed by Cauchy–Schwarz.
+
+- **(a).** Integrate (I1): Ξ z₂⁴ = (Ξ z₁ z₂³)′ − 3Ξ z₁ z₂² z₃ − Ξ′ z₁ z₂³. This gives
+  X² = −3∫Ξ z₁z₂²z₃ − ∫Ξ′ z₁z₂³.
+  - |first term| ≤ 3M₁ (∫Ξz₂⁴)^{1/2}(∫Ξz₃²)^{1/2} = 3M₁ X N₃.
+  - |second term| ≤ κ̃ M₁ ∫Ξ|z₂|³ ≤ κ̃ M₁ X N₂.
+
+  Divide by X.
+- **(b).** Put φ = ½ z₂|z₂|. It is C¹ with φ′ = |z₂| z₃ and |φ| = ½ z₂².
+  - By (I2), ∫Ξ|z₂|z₃² = ∫Ξ z₃ φ′ = −∫(Ξ′ z₃ + Ξ z₄) φ.
+  - This is at most ½(κ̃ ∫Ξ z₂²|z₃| + ∫Ξ z₂²|z₄|) ≤ ½ X (κ̃N₃ + N₄).
+  - Then apply (a).
+- **(c).** By (I3), (Ξη²)′ = Ξ′η² + 2Ξηη′. Two extra terms arise.
+  - In (a), the extra term satisfies |2∫Ξηη′ z₁z₂³| ≤ 2M₁ (∫Ξη²z₂⁴)^{1/2} (∫Ξη′²z₂²)^{1/2} ≤ 2M₁ η′_max X_η F₂^{1/2}.
+  - In (b), the extra term is −∫2Ξηη′ z₃φ. By (I4) it equals ⅓∫(Ξηη′)′|z₂|³ exactly, using z₃φ = ⅙(|z₂|³)′ (checked on both signs of z₂). Expand (Ξηη′)′ = Ξ(Lηη′ + η′² + ηη″).
+- **(d).** Integrate (I5): Ξ z_{k+1}² = (Ξ z_k z_{k+1} − ½Ξ′z_k²)′ − Ξ z_k z_{k+2} + ½ Ξ″ z_k².
+
+None of the steps uses the form of Θ: the identities are exact for every weight (sympy, `l4_identity_check.py`). So the general-weight L⁴ identity cannot "fail"; only its constants change.
+
+## 3. What changes against the power-weight tables
+
+| ingredient | power weight (Lemma S(A)) | general weight (Lemma U) |
+|---|---|---|
+| divergence-form tables (weight derivatives, m ≤ 3 occur) | \|coef\|·γ^m | \|coef\|·Γ_m ≤ \|coef\|·Γ_eff^m, with Γ_eff = max_m Γ_m^{1/m}. The tables already store \|coef\|, so no further loss of cancellations. |
+| L⁴ class `('L4', r, w)`: w·X·N_r | w M₁ (3N₃ + κN₂) N_r | the same with κ → κ̃ (linear) |
+| class {2,3,3} (`s33='ibp'`) | ½ w M₁ (3N₃+κN₂)(κN₃+N₄) | κ → κ̃ (quadratic in κ̃) |
+| interpolation in Ĝ_jj = Y_j + Y_{j+1}(Y_{j+1}/(4B_c) + κ²/2) | κ² | κ̃₂ |
+| exact ramp foot term (C_η, (A): 15.84 certified) | C_η with L = −κ | C_η^Ξ: L ranges over its values on the ramp |
+| cutoff-free ramp data | J₂^free (verifier) | (A)'s energies E^A on the inner ramp [28,56] (inside (A)'s core, η_A = 1); Lemma R on the outer ramp |
+
+No new class of terms appears and no new data are needed. In `lemmaS_L4terms.l4_extra_YC`, κ enters as `kap`. In `ghat_from_YC`, κ² enters as `kap**2`, so pass √κ̃₂ there.
+
+## 4. The constants for the Lemma-U weight
+
+The weight is Θ = W(σ) D(s), with
+- σ = s − ln(ρ/λ(τ)),
+- W = 1/(e^{−μ(σ+a)} + 1 + e^{ν(σ−ln1.5−a)}),
+- D = 1 + g e^{−4s} (the damping factor),
+- θ = g e^{−4s}/D, and θ_a = θ(ln 28) = g/(28⁴ + g).
+
+Exact formulas (sympy, I6–I8):
+- L = −4 + W′/W − 4θ, θ′ = −4θ(1−θ), and Ξ″/Ξ = L² + L′.
+- W′/W = μp − νq ∈ (−ν, μ), where p, q are the normalised weights of e^{−μ(σ+a)} and e^{ν(σ−ln1.5−a)}.
+- (ln W)″ = −[p(1−p)μ² + q(1−q)ν² + 2pqμν] ≤ 0, so W is log-concave.
+- Θ^{(m)}/Θ = Σ_k C(m,k)(W^{(k)}/W)(−4)^{m−k}θ for m − k ≥ 1, plus the k = m term W^{(m)}/W.
+
+**Bounds without using the geometry:**
+- κ̃ ≤ max(4 + ν + 4θ_a, μ − 4).
+- |Θ^{(m)}/Θ| ≤ (1−θ_a)Γ_W^m + θ_a(Γ_W + 4)^m.
+
+At θ_a ≈ 0.39 the second bound would give Γ_eff ≈ 6.5. That is too pessimistic, because the damping factor is large only near y = 28, where W is on its inner tail.
+
+**With the geometry:**
+- The support starts at y = 28 (the foot of the inner ramp).
+- ρ/λ(τ) ≥ 56 for the crude family (from launch on) and ≥ 150 for the fine family.
+- On the inner tail with μ = 4, the factor e^{4σ}(1 + g y^{−4}) ∝ y⁴ + g, so the y^{−4} of the damping factor is cancelled: Θ^{(m)}/Θ = 4^m y⁴/(y⁴+g) ≤ 4^m, and L ∈ (−4, 0).
+- On the outer tail, θ ≤ g/(84⁴e^{4a} + g) ≈ 4·10^{−3}.
+
+Hence (t8, grid plus the exact σ → ±∞ limits; damping g fixed by the rate criterion g = Ĝ₂₂/(1 − Ĝ₂₂/28⁴), i.e. θ_a = Ĝ₂₂/28⁴, iterated to a fixed point):
+
+RESULTS_TABLE
+
+## 5. Cost of the general-weight L⁴ terms
+
+COST_TEXT
+
+## 6. What remains for the full proof (not done here)
+
+- arb enclosures of Γ_m, κ̃, κ̃₂ and C_η^Ξ over the geometry (σ, s). The float values above are suprema approached only at σ → ±∞ or on grids.
+- The ramp versions (c) in space–time form, with F₂ and J_G taken from (A): E^A on [28,56] and (A)'s level-1 dissipation. These follow (A)'s certified ramp code (`lemmaS_F2.py` foot/S33 blocks) with κ → κ̃ and C_η → C_η^Ξ.
+- The class weights in arb with Γ_eff (as `rigor/weights_exact.py` does for γ).

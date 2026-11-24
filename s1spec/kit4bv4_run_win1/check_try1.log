@@ -1,0 +1,381 @@
+======================================================================================================================
+KIT 4B check: certified inequalities of STEP4_RESULT, recomputed  (strict comparisons, no tolerance)
+======================================================================================================================
+PASS   T1: slabs in the polished store
+         yours: 181   | ours: 181
+PASS   T1: max polish residual |E| (Newton stop 1e-26)
+         yours: 9.941e-27   | ours: 9.7e-27   | < 1e-26 (WARN only: the stop test also accepts dz < 1e-37)
+PASS   T1: sampled residual norms R2,R1,Rs,RIs,RF0-RF4 below the T5 targets
+         yours: R2 2.5e-15, R1 6.9e-15, Rs 7.4e-14, RIs 5.7e-18, RF0 3.4e-11, RF1 8.4e-11, RF2 5.9e-10, RF3 9.6e-09, RF4 2.6e-07   | ours: R2 2.5e-15, R1 6.9e-15, Rs 7.4e-14, RF3 9.6e-9, RF4 2.6e-7   | strict < targets
+INFO   T1: polish residuals / norms bit-identical to the reference (slabs compared)
+         yours: 0/181
+PASS   T6: all slabs below the T5 targets (R2, Rs, R1, RIs, RF0-RF4)
+         yours: R2 3.08e-15, R1 7.42e-15, Rs 7.62e-14, RIs 1.23e-17, RF0_opt4n 8.24e-09, RF3_opt4n 8.59e-09, RF4_opt4n 2.08e-07   | ours: R2 3.1e-15, R1 7.4e-15, RF3 8.6e-9, RF4 2.1e-7   | slabs [0, 180]; failures none
+PASS   (SE): |a2| of the bump correction
+         yours: 1.572e-14   | ours: 1.57e-14   | margin x1.02   | <= 1.6e-14
+INFO   (SE): max |a1|, |h|, |h'|
+         yours: 6.51e-18, 1.43e-14, 9.04e-13   | ours: 6.5e-18, 1.4e-14, 9.0e-13
+PASS   T7: 26 certificates, all certified
+         yours: 26, all_certified=True   | ours: 26
+PASS   T7: closure constant rho_c (min over certificates) >= 0.0471
+         yours: 0.04711   | ours: 0.04713   | margin x1   | >= 0.0471
+PASS   T7: min c_I >= omega_eff = 0.045 (closure requirement)
+         yours: 0.05284   | ours: 0.05284   | margin x1.17   | >= 0.045
+PASS   T7: lambda < 2 mu1 (T8 certified lambda_max < 2 min mu1)
+         yours: 0.2527   | ours: 0.252   | margin x1.19   | < 0.3
+INFO   T7: margin 2 mu1/lambda_max - 1
+         yours: 0.187   | ours: 0.190
+PASS   T7: per-slab lambda<2mu1 margins all positive
+         yours: 0.1872   | ours: 0.19   | margin xnan   | > 0
+PASS   switch (A): Y(tau_a) <= typed Y0 = 6.21e-13 (Ybar = 1e-12)
+         yours: 6.203e-13   | ours: 6.203e-13   | margin x1   | <= 6.21e-13
+PASS   switch: F_0(tau_a) <= typed F0[0] used by camp
+         yours: 3.744e-23   | ours: 3.744e-23   | margin x1.07   | <= 4e-23
+PASS   switch: F_1(tau_a) <= typed F0[1] used by camp
+         yours: 2.447e-22   | ours: 2.447e-22   | margin x1.23   | <= 3e-22
+PASS   switch: F_2(tau_a) <= typed F0[2] used by camp
+         yours: 4.714e-19   | ours: 4.714e-19   | margin x1.06   | <= 5e-19
+PASS   switch: F_3(tau_a) <= typed F0[3] used by camp
+         yours: 3.181e-15   | ours: 3.181e-15   | margin x1.07   | <= 3.4e-15
+PASS   (Y): comparison level on the direct residuals <= 3.22e-14
+         yours: 3.214e-14   | ours: 3.214e-14   | margin x1   | <= 3.22e-14
+PASS   (Y): Ybar = 1e-12 majorant Yc >= typed Y0 = 6.21e-13
+         yours: 1e-12   | ours: 1e-12   | margin x1.61   | >= 6.21e-13
+PASS   (F) item 3 E3 (window, binding): Ybar limit >= 1e-12
+         yours: 1.576e-11   | ours: 1.576e-11   | margin x15.8   | >= 1e-12
+PASS   (F) item 3 E2: Ybar limit >= 1e-12
+         yours: 1.81e-09   | ours: 1.81e-09   | margin x1.81e+03   | >= 1e-12
+PASS   (F) item 3 E1: Ybar limit >= 1e-12
+         yours: 3.827e-08   | ours: 3.827e-08   | margin x3.83e+04   | >= 1e-12
+PASS   (F) item 3 E0: Ybar limit >= 1e-12
+         yours: 3.319e-08   | ours: 3.319e-08   | margin x3.32e+04   | >= 1e-12
+PASS   (F) item 4 (K4 at the good time): Ybar limit >= 1e-12
+         yours: 2.891e-11   | ours: 2.891e-11   | margin x28.9   | >= 1e-12
+PASS   (F) item 2 E0 (shells, own bound): Ybar limit >= 1e-12
+         yours: 2.392e-07   | ours: 2.392e-07   | margin x2.39e+05   | >= 1e-12
+PASS   (F) item 2 E1: Ybar limit >= 1e-12
+         yours: 9.853e-10   | ours: 9.853e-10   | margin x985   | >= 1e-12
+PASS   (F) item 2 E2: Ybar limit >= 1e-12
+         yours: 3.632e-10   | ours: 3.632e-10   | margin x363   | >= 1e-12
+PASS   (F) Ymax (min over items) >= the 1.7e-12 box level of N3
+         yours: 1.576e-11   | ours: 1.576e-11   | margin x9.27   | >= 1.7e-12
+PASS   (F) D2(tau*) at Ybar = 1e-12 <= 9.40e-12 (A1 window = slab 180)
+         yours: 9.396e-12   | ours: 9.396e-12   | margin x1   | <= 9.409e-12
+PASS   boxes: far core |e'| at Y = 1.7e-12 <= b0 = 1.5e-3
+         yours: 0.0002375   | ours: 0.0002375   | margin x6.32   | <= 0.0015
+PASS   boxes: far core x|e''| <= b1 = 3e-4
+         yours: 0.0001071   | ours: 0.0001071   | margin x2.8   | <= 0.0003
+PASS   boxes: far core x^2|e'''| <= b2 = 1e-2
+         yours: 0.008335   | ours: 0.008335   | margin x1.2   | <= 0.01
+PASS   boxes: sqrt(F0) ratio <= fac = 1.7
+         yours: 1   | ours: 1   | margin x1.7   | <= 1.7
+PASS   boxes: tip |e|, |e'| (T7 Lemma 4b) at Y = 1.7e-12 <= 1e-5
+         yours: 2.78e-08   | ours: 2.78e-08   | margin x360   | <= 1e-05
+PASS   (H1) sqrt(Lambda) over slab 180 incl. C_Lambda Ybar <= 5e-8
+         yours: 2.284e-08   | ours: 2.284e-08   | margin x2.19   | <= 5e-08
+PASS   (H1) |alpha| over slab 180 + C_alpha Ybar <= 1.5e-4
+         yours: 0.0001174   | ours: 0.0001174   | margin x1.28   | <= 0.00015
+PASS   (H1) Ybar limit of H1 >= 1e-12
+         yours: 1.125e-09   | ours: 1.125e-09   | margin x1.13e+03   | >= 1e-12
+PASS   (H1) Theta half-width over the 16 points <= 1e-10
+         yours: 5.018e-11   | ours: 5.018e-11   | margin x1.99   | <= 1e-10
+PASS   (H3) window energy E0 (base, slab 180) <= threshold
+         yours: 3.474e-08   | ours: 3.474e-08   | margin x5.76   | <= 2e-07
+PASS   (H3) window energy E1 (base, slab 180) <= threshold
+         yours: 1.261e-07   | ours: 1.261e-07   | margin x79.3   | <= 1e-05
+PASS   (H3) window energy E2 (base, slab 180) <= threshold
+         yours: 3.754e-07   | ours: 3.754e-07   | margin x26.6   | <= 1e-05
+PASS   (H3) window energy E3 (base, slab 180) <= threshold
+         yours: 9.706e-07   | ours: 9.706e-07   | margin x10.3   | <= 1e-05
+PASS   (H2) shell energy E0 on y in [14, 60] (base) <= threshold
+         yours: 8.01e-11   | ours: 8.01e-11   | margin x2.5e+03   | <= 2e-07
+PASS   (H2) shell energy E1 on y in [14, 60] (base) <= threshold
+         yours: 1.335e-10   | ours: 1.335e-10   | margin x7.49e+05   | <= 0.0001
+PASS   (H2) shell energy E2 on y in [14, 60] (base) <= threshold
+         yours: 2.936e-10   | ours: 2.936e-10   | margin x6.81e+08   | <= 0.2
+PASS   (H3) K4 on y in [50, 350] (r_c = 200) <= 0.06
+         yours: 0.00559   | ours: 0.00559   | margin x10.7   | <= 0.06
+PASS   (H4) graph over the ray: |theta - Theta| <= 0.079
+         yours: 0.07788   | ours: 0.07788   | margin x1.01   | <= 0.079
+PASS   KCH (chart factor, computed) <= 1.188
+         yours: 1.188   | ours: 1.188   | margin x1   | <= 1.188
+PASS   (H5) cone K2 <= 0.12 (r_c in [200, 380], base + error at Ybar)
+         yours: 0.01883   | ours: 0.01883   | margin x6.37   | <= 0.12
+PASS   (H5) cone K3 <= 0.12 (r_c in [200, 380], base + error at Ybar)
+         yours: 0.0004776   | ours: 0.0004776   | margin x251   | <= 0.12
+PASS   (H5) cone K4 <= 0.12 (r_c in [200, 380], base + error at Ybar)
+         yours: 0.0123   | ours: 0.0123   | margin x9.76   | <= 0.12
+PASS   (H5) cone N3 <= 0.14
+         yours: 0.00117   | ours: 0.00117   | margin x120   | <= 0.14
+PASS   (H5) far cylinders x >= 150: |h''|
+         yours: 0.0001797   | ours: 0.0001797   | margin x49   | <= 0.0088
+PASS   (H5) far cylinders x >= 150: |h'''|
+         yours: 2.594e-08   | ours: 2.594e-08   | margin x2.7e+03   | <= 7e-05
+PASS   (H5) far cylinders x >= 150: |h''''|
+         yours: 6.964e-09   | ours: 6.964e-09   | margin x89   | <= 6.2e-07
+PASS   (H5) far cylinders x >= 150: slope
+         yours: 0.04153   | ours: 0.04153   | margin x5.06   | <= 0.21
+PASS   (H5) far cylinders x >= 150: ||h'''||_L2
+         yours: 5.516e-07   | ours: 5.516e-07   | margin x1.51e+03   | <= 0.0008325
+PASS   (H5) Lemma O H4: worst cylinder of the final window, int (h0^(5))^2 / M^2 <= 1
+         yours: 0.2392   | ours: 0.2392   | margin x4.18   | <= 1
+PASS   v3.2: cone_slope data <= threshold
+         yours: 0.05724   | ours: 0.05724   | margin x1.4   | <= 0.08
+PASS   v3.2: cone_h2 data <= threshold
+         yours: 0.01883   | ours: 0.01883   | margin x1.59   | <= 0.03
+PASS   v3.2: cone_N3 data <= threshold
+         yours: 0.00117   | ours: 0.00117   | margin x3.42   | <= 0.004
+PASS   v3.2: far h2 (physical) <= threshold
+         yours: 0.0001797   | ours: 0.0001797   | margin x1.96   | <= 0.000353
+PASS   v3.2: far h3 (physical) <= threshold
+         yours: 2.594e-08   | ours: 2.594e-08   | margin x451   | <= 1.17e-05
+PASS   v3.2: far h4 (physical) <= threshold
+         yours: 6.964e-09   | ours: 6.964e-09   | margin x14.8   | <= 1.03e-07
+PASS   v3.2: far slope (physical) <= threshold
+         yours: 0.04153   | ours: 0.04153   | margin x1.93   | <= 0.08
+PASS   v3.2: far L2 (physical) <= threshold
+         yours: 5.516e-07   | ours: 5.516e-07   | margin x6.02   | <= 3.32e-06
+PASS   v3.2: closure margin slope_cone >= 1
+         yours: 1.848   | ours: 1.848   | margin x1.85   | >= 1
+PASS   v3.2: closure margin slope_far >= 1
+         yours: 2.856   | ours: 2.856   | margin x2.86   | >= 1
+PASS   v3.2: closure margin cone_K2 >= 1
+         yours: 1.688   | ours: 1.688   | margin x1.69   | >= 1
+PASS   v3.2: closure margin cone_K3 >= 1
+         yours: 1.926   | ours: 1.926   | margin x1.93   | >= 1
+PASS   v3.2: closure margin far_K2 >= 1
+         yours: 2.286   | ours: 2.286   | margin x2.29   | >= 1
+PASS   v3.2: closure margin far_K3 >= 1
+         yours: 2.391   | ours: 2.391   | margin x2.39   | >= 1
+PASS   v3.2: Lemma O t* margin, cone >= 1
+         yours: 2.302   | ours: 2.302   | margin x2.3   | >= 1
+PASS   v3.2: Lemma O t* margin, far (0.15, 0.3) >= 1
+         yours: 15.51   | ours: 15.51   | margin x15.5   | >= 1
+PASS   v3.2: Lemma O H4 far at M = 0.15 (centre 376) <= 1
+         yours: 0.176   | ours: 0.176   | margin x5.68   | <= 1
+PASS   v3.2: Lemma O H1 cone sup|h0| <= 0.19
+         yours: 0.1872   | ours: 0.1872   | margin x1.01   | <= 0.19
+PASS   v3.2: Lemma O H1 far family (arc by arc): sup|h0| <= H
+         yours: 0.04071   | ours: 0.04071   | margin x1.02   | <= 0.0417
+PASS   v3.2: Lemma O H1 far family: all internal checks hold (1 = yes)
+         yours: 1   | ours: 1   | margin x1   | >= 1
+INFO   t1 (good-time enclosure, theorem 4: [4.5978574775, 4.5978586144])
+         yours: [4.598, 4.598]   | ours: [4.597857477538968, 4.597858614388128]
+INFO   Lemma O H6 (v3.1, step 3 as specified) fails: min closure margin of t9_h6.json
+         yours: None   | ours: None
+INFO   Lemma O H1 (v3.1, informational): number of failing far cylinders
+         yours: 133   | ours: 133
+INFO   far H1 / axis crossing / other stages added by later cleanups
+         yours: [t9_axis_crossing.json, t9_axis_crossing_final.log]   | ours: ['t9_axis_crossing.json', 't9_axis_crossing_final.log']
+INFO   outputs vs proof tree: byte-identical / timing-fields-only / provenance-only / different / missing
+         yours: 0 / 0 / 0 / 498 / 0   | ours: of 498 reference files
+INFO   outputs that differ from the proof tree (numbers, not only bookkeeping)
+         yours: 498: ../../s1_tight/consistency/check_outA5.json, p2/out/h1slab/dt_-0.03125_0.03125.json, p2/out/h1slab/dt_-0.09375_0.03125.json, p2/out/h1slab/dt_-0.15625_0.03125.json, p2/out/h1slab/dt_-0.21875_0.03125.json, p2/out/h1slab/dt_-0.28125_0.03125.json, p2/out/h1slab/dt_-0.34375_0.03125.json, p2/out/h1slab/dt_-0.40625_0.03125.json, p2/out/h1slab/dt_-0.46875_0.03125.json, p2/out/h1slab/dt_-0.53125_0.03125.json, p2/out/h1slab/dt_-0.59375_0.03125.json, p2/out/h1slab/dt_-0.65625_0.03125.json ...   | a difference is not a failure by itself: every claim above is recomputed on this run's own outputs
+PASS   tail round 1 (T7 without nonlinear closure) and round 2 (republished T7) give the same n3_b1 (args dropped)
+         yours: True   | sha256 of the whole files equal: False
+PASS   v3.3: the manifest has the 21 stages of the proof tree, same names and order
+         yours: 21   | ours: 21
+PASS   v3.3: every result item ok (driver all_items_ok)
+         yours: True   | ours: True
+PASS   v3.3: no input read in two versions during the chain
+         yours: []
+INFO   v3.3: v3.2 files read by the v3.3 stages that differ (bytes) from the proof tree's
+         yours: 83 of 85   | expected: the v3.2 chain is regenerated, numerically equal not byte-equal (README)
+PASS   v3.3 (H2f) j=0: with-error value <= 1e-06
+         yours: 3.136e-07   | ours: 3.136e-07   | margin x3.19   | <= 1e-06
+PASS   v3.3 (H2f) j=0 [margin vs addendum x3.188]
+         yours: x3.189   | ours: x3.188   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H2f) j=1: with-error value <= 5e-06
+         yours: 1.003e-06   | ours: 1.003e-06   | margin x4.98   | <= 5e-06
+PASS   v3.3 (H2f) j=1 [margin vs addendum x4.983]
+         yours: x4.983   | ours: x4.983   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H2f) j=2: with-error value <= 1e-05
+         yours: 2.435e-06   | ours: 2.435e-06   | margin x4.11   | <= 1e-05
+PASS   v3.3 (H2f) j=2 [margin vs addendum x4.106]
+         yours: x4.107   | ours: x4.106   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), w' j=0: with-error value <= 1e-08
+         yours: 8.013e-11   | ours: 8.013e-11   | margin x125   | <= 1e-08
+PASS   v3.3 tightened (H2) w' j=0 [margin vs addendum x124.78]
+         yours: x124.8   | ours: x124.78   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), w' j=1: with-error value <= 1e-06
+         yours: 4.706e-10   | ours: 4.706e-10   | margin x2.12e+03   | <= 1e-06
+PASS   v3.3 tightened (H2) w' j=1 [margin vs addendum x2124.9]
+         yours: x2125   | ours: x2124.9   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), w' j=2: with-error value <= 0.001
+         yours: 1.559e-06   | ours: 1.559e-06   | margin x642   | <= 0.001
+PASS   v3.3 tightened (H2) w' j=2 [margin vs addendum x641.5]
+         yours: x641.5   | ours: x641.5   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), f - U_1 (B0) j=0: bound <= 1e-08
+         yours: 3.657e-10   | ours: 3.657e-10   | margin x27.3   | <= 1e-08
+PASS   v3.3 tightened (H2) f-U_1 j=0 [margin vs addendum x27.34]
+         yours: x27.34   | ours: x27.34   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), f - U_1 (B0) j=1: bound <= 1e-06
+         yours: 1.777e-09   | ours: 1.777e-09   | margin x563   | <= 1e-06
+PASS   v3.3 tightened (H2) f-U_1 j=1 [margin vs addendum x562.8]
+         yours: x562.8   | ours: x562.8   | WARN only: the inequality itself is the claim above
+PASS   v3.3 tightened (H2), f - U_1 (B0) j=2: bound <= 0.001
+         yours: 1.664e-06   | ours: 1.664e-06   | margin x601   | <= 0.001
+PASS   v3.3 tightened (H2) f-U_1 j=2 [margin vs addendum x600.9]
+         yours: x601   | ours: x600.9   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H3) window j=0: with-error value <= 2e-07
+         yours: 3.509e-08   | ours: 3.509e-08   | margin x5.7   | <= 2e-07
+PASS   v3.3 (H3) window j=0 [margin vs addendum x5.7]
+         yours: x5.7   | ours: x5.7   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H3) window j=1: with-error value <= 1e-05
+         yours: 1.262e-07   | ours: 1.262e-07   | margin x79.3   | <= 1e-05
+PASS   v3.3 (H3) window j=1 [margin vs addendum x79.26]
+         yours: x79.27   | ours: x79.26   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H3) window j=2: with-error value <= 1e-05
+         yours: 3.772e-07   | ours: 3.772e-07   | margin x26.5   | <= 1e-05
+PASS   v3.3 (H3) window j=2 [margin vs addendum x26.5]
+         yours: x26.51   | ours: x26.5   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H3) window j=3: with-error value <= 1e-05
+         yours: 1.282e-06   | ours: 1.282e-06   | margin x7.8   | <= 1e-05
+PASS   v3.3 (H3) window j=3 [margin vs addendum x7.799]
+         yours: x7.8   | ours: x7.799   | WARN only: the inequality itself is the claim above
+PASS   v3.3 (H2) v3.2 shell j=0 on the arb base: with-error value <= 2e-07
+         yours: 8.013e-11   | ours: 8.013e-11   | margin x2.5e+03   | <= 2e-07
+PASS   v3.3 (H2) v3.2 shell j=1 on the arb base: with-error value <= 0.0001
+         yours: 4.706e-10   | ours: 4.706e-10   | margin x2.12e+05   | <= 0.0001
+PASS   v3.3 (H2) v3.2 shell j=2 on the arb base: with-error value <= 0.2
+         yours: 1.559e-06   | ours: 1.559e-06   | margin x1.28e+05   | <= 0.2
+PASS   v3.3 (H3) Ybar limit, binding (E_3) >= 1e-12
+         yours: 1.576e-11   | ours: 1.576e-11   | margin x15.8   | >= 1e-12
+PASS   v3.3 (H3) Ybar limit, binding (E_3): margin >= 15.75 (addendum x15.75)
+         yours: 15.76   | ours: 15.76   | margin x1   | >= 15.75
+PASS   v3.3 far-family Lemma O H4 at every centre >= 490: min margin >= 15.58 (addendum x15.58)
+         yours: 15.59   | ours: 15.59   | margin x1   | >= 15.58
+PASS   v3.3 fixed-L cone slope datum (H5) <= 0.08
+         yours: 0.03029   | ours: 0.03029   | margin x2.64   | <= 0.08
+PASS   v3.3 fixed-L cone slope datum (H5) [margin vs addendum x2.64]
+         yours: x2.641   | ours: x2.64   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone sup|h_0''| = K2 (H5) <= 0.03
+         yours: 0.009876   | ours: 0.009876   | margin x3.04   | <= 0.03
+PASS   v3.3 fixed-L cone sup|h_0''| = K2 (H5) [margin vs addendum x3.03]
+         yours: x3.038   | ours: x3.03   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone ||h_0'''||_L2 = N3 (H5) <= 0.004
+         yours: 0.0001461   | ours: 0.0001461   | margin x27.4   | <= 0.004
+PASS   v3.3 fixed-L cone ||h_0'''||_L2 = N3 (H5) [margin vs addendum x27.3]
+         yours: x27.38   | ours: x27.3   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone H3 jet K3 <= 0.12
+         yours: 5.964e-05   | ours: 5.964e-05   | margin x2.01e+03   | <= 0.12
+PASS   v3.3 fixed-L cone H3 jet K3 [margin vs addendum x2012]
+         yours: x2012   | ours: x2012   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone H3 jet K4 <= 0.12
+         yours: 0.0008363   | ours: 0.0008363   | margin x143   | <= 0.12
+PASS   v3.3 fixed-L cone H3 jet K4 [margin vs addendum x143]
+         yours: x143.5   | ours: x143   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone Lemma O H4: int (h_0^(5))^2 <= 0.0144
+         yours: 1.286e-05   | ours: 1.286e-05   | margin x1.12e+03   | <= 0.0144
+PASS   v3.3 fixed-L cone H4 [margin vs addendum x1119]
+         yours: x1119   | ours: x1119   | WARN only: the inequality itself is the claim above
+PASS   v3.3 fixed-L cone Lemma O H1 (graph): sup|h_0| <= H - C_0 sqrt(t_1)
+         yours: 0   | margin xnan   | >= 0
+PASS   v3.3 Lemma O H1 with the certified centre-to-arclength map (M9)
+         yours: True   | ours: True
+PASS   v3.3 fixed-L cone H7: ratio <= needed
+         yours: 1.6e-07   | ours: 1.6e-07   | margin x1   | <= 1.6e-07
+PASS   v3.3 fixed-L cone H7 t* [margin vs addendum x2.3]
+         yours: x2.302   | ours: x2.3   | WARN only: the inequality itself is the claim above
+PASS   v3.3 N1 chart: |e| (ramp) < 2^-19
+         yours: 4.388e-10   | ours: 4.388e-10   | margin x4.35e+03   | < 1.907e-06
+PASS   v3.3 N1 chart: sup|chi^add_0| on the ramp <= 2e-7
+         yours: 2.086e-08   | ours: 2.086e-08   | margin x9.59   | <= 2e-07
+PASS   v3.3 f12_sliver: all checks pass and no quoted number fails
+         yours: 326 checks; failing quoted numbers: []   | ours: 326 checks
+PASS   v3.3 f12 ramp M1 (A) >= 1.1847 (quoted x1.1847)
+         yours: 1.185   | ours: 1.185   | margin x1   | >= 1.185
+PASS   v3.3 f12 K6 >= 1.189
+         yours: 1.19   | ours: 1.19   | margin x1   | >= 1.189
+PASS   v3.3 f12 H6 min margin >= 1.860
+         yours: 1.861   | ours: 1.861   | margin x1   | >= 1.86
+PASS   v3.3 f12 flux FLUX0/K0 (beta 2, 4 N2_ref) >= 3.365
+         yours: 3.365   | ours: 3.365   | margin x1   | >= 3.365
+PASS   v3.3 f12 flux FLUX2/K2 (beta 2, 4 N2_ref) >= 5.955
+         yours: 5.956   | ours: 5.956   | margin x1   | >= 5.955
+PASS   v3.3 f12 M1' = 28 sI2' <= 0.4328 (what (A) reads)
+         yours: 0.4328   | ours: 0.4328   | margin x1   | <= 0.4328
+INFO   v3.3 outputs vs proof tree: byte-identical / equal with args+timing dropped / numbers differ / structure differs / missing
+         yours: 0 / 54 / 119 / 0 / 0   | ours: of 173 reference files
+INFO   v3.3 outputs with differing numbers: largest relative difference
+         yours: 1.00e+00   | p2/out_v33/h3_arb.json
+FAIL   v38 chain: p2/out_v38/FINAL_manifest_v38.json
+         yours: missing   | run_all stage v38 did not finish
+----------------------------------------------------------------------------------------------------------------------
+Rule: every PASS/FAIL line is an inequality evaluated exactly on the recomputed double (no tolerance); "ours" are the proof tree's values.
+
+======================================== SUMMARY (paste this) ========================================
+TOTAL FAIL   [137 PASS, 1 FAIL, 0 WARN]
+env: Python 3.13.7 | Windows-11-10.0.26100-SP0 | flint 0.9.0 numpy 2.5.4 | jobs 4
+outputs vs proof tree: byte-identical / timing-fields-only / provenance-only / different / missing: 0 / 0 / 0 / 498 / 0  of 498 reference files
+FAIL: v38 chain: p2/out_v38/FINAL_manifest_v38.json: yours missing run_all stage v38 did not finish
+  T7: closure constant rho_c (min over certificates) >= 0.0471: yours 0.04711 (ours 0.04713) margin x1
+  switch (A): Y(tau_a) <= typed Y0 = 6.21e-13 (Ybar = 1e-12): yours 6.203e-13 (ours 6.203e-13) margin x1
+  (Y): comparison level on the direct residuals <= 3.22e-14: yours 3.214e-14 (ours 3.214e-14) margin x1
+  (F) item 3 E3 (window, binding): Ybar limit >= 1e-12: yours 1.576e-11 (ours 1.576e-11) margin x15.8
+  (F) item 4 (K4 at the good time): Ybar limit >= 1e-12: yours 2.891e-11 (ours 2.891e-11) margin x28.9
+  (F) Ymax (min over items) >= the 1.7e-12 box level of N3: yours 1.576e-11 (ours 1.576e-11) margin x9.27
+  boxes: far core x^2|e'''| <= b2 = 1e-2: yours 0.008335 (ours 0.008335) margin x1.2
+  boxes: sqrt(F0) ratio <= fac = 1.7: yours 1 (ours 1) margin x1.7
+  (H1) sqrt(Lambda) over slab 180 incl. C_Lambda Ybar <= 5e-8: yours 2.284e-08 (ours 2.284e-08) margin x2.19
+  (H1) |alpha| over slab 180 + C_alpha Ybar <= 1.5e-4: yours 0.0001174 (ours 0.0001174) margin x1.28
+  (H3) window energy E3 (base, slab 180) <= threshold: yours 9.706e-07 (ours 9.706e-07) margin x10.3
+  KCH (chart factor, computed) <= 1.188: yours 1.188 (ours 1.188) margin x1
+  (H5) cone K4 <= 0.12 (r_c in [200, 380], base + error at Ybar): yours 0.0123 (ours 0.0123) margin x9.76
+  (H5) Lemma O H4: worst cylinder of the final window, int (h0^(5))^2 / M^2 <= 1: yours 0.2392 (ours 0.2392) margin x4.18
+  v3.2: closure margin cone_K2 >= 1: yours 1.688 (ours 1.688) margin x1.69
+  v3.3 (H2f) j=0: with-error value <= 1e-06: yours 3.136e-07 (ours 3.136e-07) margin x3.19
+  v3.3 (H2f) j=0 [margin vs addendum x3.188]: yours x3.189 (ours x3.188) margin 
+  v3.3 (H2f) j=1: with-error value <= 5e-06: yours 1.003e-06 (ours 1.003e-06) margin x4.98
+  v3.3 (H2f) j=1 [margin vs addendum x4.983]: yours x4.983 (ours x4.983) margin 
+  v3.3 (H2f) j=2: with-error value <= 1e-05: yours 2.435e-06 (ours 2.435e-06) margin x4.11
+  v3.3 (H2f) j=2 [margin vs addendum x4.106]: yours x4.107 (ours x4.106) margin 
+  v3.3 tightened (H2), w' j=0: with-error value <= 1e-08: yours 8.013e-11 (ours 8.013e-11) margin x125
+  v3.3 tightened (H2) w' j=0 [margin vs addendum x124.78]: yours x124.8 (ours x124.78) margin 
+  v3.3 tightened (H2), w' j=1: with-error value <= 1e-06: yours 4.706e-10 (ours 4.706e-10) margin x2.12e+03
+  v3.3 tightened (H2) w' j=1 [margin vs addendum x2124.9]: yours x2125 (ours x2124.9) margin 
+  v3.3 tightened (H2), w' j=2: with-error value <= 0.001: yours 1.559e-06 (ours 1.559e-06) margin x642
+  v3.3 tightened (H2) w' j=2 [margin vs addendum x641.5]: yours x641.5 (ours x641.5) margin 
+  v3.3 tightened (H2), f - U_1 (B0) j=0: bound <= 1e-08: yours 3.657e-10 (ours 3.657e-10) margin x27.3
+  v3.3 tightened (H2) f-U_1 j=0 [margin vs addendum x27.34]: yours x27.34 (ours x27.34) margin 
+  v3.3 tightened (H2), f - U_1 (B0) j=1: bound <= 1e-06: yours 1.777e-09 (ours 1.777e-09) margin x563
+  v3.3 tightened (H2) f-U_1 j=1 [margin vs addendum x562.8]: yours x562.8 (ours x562.8) margin 
+  v3.3 tightened (H2), f - U_1 (B0) j=2: bound <= 0.001: yours 1.664e-06 (ours 1.664e-06) margin x601
+  v3.3 tightened (H2) f-U_1 j=2 [margin vs addendum x600.9]: yours x601 (ours x600.9) margin 
+  v3.3 (H3) window j=0: with-error value <= 2e-07: yours 3.509e-08 (ours 3.509e-08) margin x5.7
+  v3.3 (H3) window j=0 [margin vs addendum x5.7]: yours x5.7 (ours x5.7) margin 
+  v3.3 (H3) window j=1: with-error value <= 1e-05: yours 1.262e-07 (ours 1.262e-07) margin x79.3
+  v3.3 (H3) window j=1 [margin vs addendum x79.26]: yours x79.27 (ours x79.26) margin 
+  v3.3 (H3) window j=2: with-error value <= 1e-05: yours 3.772e-07 (ours 3.772e-07) margin x26.5
+  v3.3 (H3) window j=2 [margin vs addendum x26.5]: yours x26.51 (ours x26.5) margin 
+  v3.3 (H3) window j=3: with-error value <= 1e-05: yours 1.282e-06 (ours 1.282e-06) margin x7.8
+  v3.3 (H3) window j=3 [margin vs addendum x7.799]: yours x7.8 (ours x7.799) margin 
+  v3.3 (H3) Ybar limit, binding (E_3) >= 1e-12: yours 1.576e-11 (ours 1.576e-11) margin x15.8
+  v3.3 (H3) Ybar limit, binding (E_3): margin >= 15.75 (addendum x15.75): yours 15.76 (ours 15.76) margin x1
+  v3.3 far-family Lemma O H4 at every centre >= 490: min margin >= 15.58 (addendum x15.58): yours 15.59 (ours 15.59) margin x1
+  v3.3 fixed-L cone slope datum (H5) <= 0.08: yours 0.03029 (ours 0.03029) margin x2.64
+  v3.3 fixed-L cone slope datum (H5) [margin vs addendum x2.64]: yours x2.641 (ours x2.64) margin 
+  v3.3 fixed-L cone sup|h_0''| = K2 (H5) <= 0.03: yours 0.009876 (ours 0.009876) margin x3.04
+  v3.3 fixed-L cone sup|h_0''| = K2 (H5) [margin vs addendum x3.03]: yours x3.038 (ours x3.03) margin 
+  v3.3 fixed-L cone ||h_0'''||_L2 = N3 (H5) <= 0.004: yours 0.0001461 (ours 0.0001461) margin x27.4
+  v3.3 fixed-L cone ||h_0'''||_L2 = N3 (H5) [margin vs addendum x27.3]: yours x27.38 (ours x27.3) margin 
+  v3.3 fixed-L cone H3 jet K3 <= 0.12: yours 5.964e-05 (ours 5.964e-05) margin x2.01e+03
+  v3.3 fixed-L cone H3 jet K3 [margin vs addendum x2012]: yours x2012 (ours x2012) margin 
+  v3.3 fixed-L cone H3 jet K4 <= 0.12: yours 0.0008363 (ours 0.0008363) margin x143
+  v3.3 fixed-L cone H3 jet K4 [margin vs addendum x143]: yours x143.5 (ours x143) margin 
+  v3.3 fixed-L cone Lemma O H4: int (h_0^(5))^2 <= 0.0144: yours 1.286e-05 (ours 1.286e-05) margin x1.12e+03
+  v3.3 fixed-L cone H4 [margin vs addendum x1119]: yours x1119 (ours x1119) margin 
+  v3.3 fixed-L cone Lemma O H1 (graph): sup|h_0| <= H - C_0 sqrt(t_1): yours 0 (ours ) margin xnan
+  v3.3 fixed-L cone H7: ratio <= needed: yours 1.6e-07 (ours 1.6e-07) margin x1
+  v3.3 fixed-L cone H7 t* [margin vs addendum x2.3]: yours x2.302 (ours x2.3) margin 
+  v3.3 N1 chart: |e| (ramp) < 2^-19: yours 4.388e-10 (ours 4.388e-10) margin x4.35e+03
+  v3.3 N1 chart: sup|chi^add_0| on the ramp <= 2e-7: yours 2.086e-08 (ours 2.086e-08) margin x9.59
+  v3.3 f12_sliver: all checks pass and no quoted number fails: yours 326 checks; failing quoted numbers: [] (ours 326 checks) margin 
+  v3.3 f12 ramp M1 (A) >= 1.1847 (quoted x1.1847): yours 1.185 (ours 1.185) margin x1
+  v3.3 f12 K6 >= 1.189: yours 1.19 (ours 1.19) margin x1
+  v3.3 f12 H6 min margin >= 1.860: yours 1.861 (ours 1.861) margin x1
+  v3.3 f12 flux FLUX0/K0 (beta 2, 4 N2_ref) >= 3.365: yours 3.365 (ours 3.365) margin x1
+  v3.3 f12 flux FLUX2/K2 (beta 2, 4 N2_ref) >= 5.955: yours 5.956 (ours 5.956) margin x1
+  v3.3 f12 M1' = 28 sI2' <= 0.4328 (what (A) reads): yours 0.4328 (ours 0.4328) margin x1
+  v38 chain: p2/out_v38/FINAL_manifest_v38.json: yours missing (ours ) margin 
+=======================================================================================================

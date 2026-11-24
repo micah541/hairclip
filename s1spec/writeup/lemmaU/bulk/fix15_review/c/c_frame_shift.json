@@ -1,0 +1,20 @@
+{
+ "C_rows": [
+  9.652030323096211,
+  5.175115022296672,
+  0.8668225635698378
+ ],
+ "C_alpha_stored": 0.7206097506505007,
+ "Ybar_box": 1.7e-12,
+ "shift_at_Ybar_box": [
+  1.6408451577390048e-11,
+  8.797695548812995e-12,
+  1.4735983596035016e-12
+ ],
+ "widening_used": 1e-09,
+ "covered": [
+  true,
+  true
+ ],
+ "note": "M read from 5-digit ball strings (wide); row 2 must reproduce C_alpha within the string rounding"
+}

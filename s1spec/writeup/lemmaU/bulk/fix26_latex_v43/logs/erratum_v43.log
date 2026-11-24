@@ -1,0 +1,914 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.26)  24 NOV 2026 06:46
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\providecommand{\key}[1]{\texttt{\detokenize{#1}}}\input{erratum_v43}
+(erratum_v43.tex
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen149
+))
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count283
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count284
+\leftroot@=\count285
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count286
+\DOTSCASE@=\count287
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count288
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count289
+\dotsspace@=\muskip17
+\c@parentequation=\count290
+\dspbrk@lvl=\count291
+\tag@help=\toks18
+\row@=\count292
+\column@=\count293
+\maxfields@=\count294
+\andhelp@=\toks19
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks20
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count295
+\Gm@cntv=\count296
+\c@Gm@tempcnt=\count297
+\Gm@bindingoffset=\dimen158
+\Gm@wd@mp=\dimen159
+\Gm@odd@mp=\dimen160
+\Gm@even@mp=\dimen161
+\Gm@layoutwidth=\dimen162
+\Gm@layoutheight=\dimen163
+\Gm@layouthoffset=\dimen164
+\Gm@layoutvoffset=\dimen165
+\Gm@dimlist=\toks23
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen178
+) (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count302
+\LTcapwidth=\dimen179
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count303
+\LT@rows=\count304
+\c@LT@tables=\count305
+\c@LT@chunks=\count306
+\LT@p@ftn=\toks24
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen180
+\ar@mcellbox=\box60
+\extrarowheight=\dimen181
+\NC@list=\toks25
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box61
+)
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
+ftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count307
+) (erratum_v43.aux)
+\openout1 = `erratum_v43.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
+* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=484.20988pt
+* \textheight=664.88487pt
+* \oddsidemargin=-7.22743pt
+* \evensidemargin=-7.22743pt
+* \topmargin=-44.22743pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+
+
+(C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 28.
+
+Overfull \hbox (21.27202pt too wide) in paragraph at lines 30--31
+\OT1/cmr/bx/n/10 v38 (Novem-ber 20, 2026; \OT1/cmtt/m/n/10 writeup/lemmaU/bulk/
+fix16_texts_v38/\OT1/cmr/bx/n/10 , built by \OT1/cmtt/m/n/10 tools/build_erratu
+m_v38.py\OT1/cmr/bx/n/10 ).
+ []
+
+
+Overfull \hbox (76.43115pt too wide) in paragraph at lines 32--33
+\OT1/cmr/bx/n/10 v37 (Novem-ber 20, 2026; \OT1/cmtt/m/n/10 writeup/lemmaU/bulk/
+fix12_texts/\OT1/cmr/bx/n/10 ). \OT1/cmr/m/n/10 The ear-lier er-ra-tum (\OT1/cm
+tt/m/n/10 t7_assembly/erratum/erratum.tex\OT1/cmr/m/n/10 ,
+ []
+
+[1
+
+{C:/Users/micahw/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (24.79265pt too wide) in paragraph at lines 83--86
+\OT1/cmtt/m/n/10 step3_proof.tex:211\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 :290 \OT
+1/cmr/m/n/10 rest on it. \OT1/cmr/m/it/10 Ef-fect \OT1/cmr/m/n/10 [cert] (\OT1/
+cmtt/m/n/10 phase2a/A_repair/out/ramp_rep.json\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/1
+0 assembly_rep.json\OT1/cmr/m/n/10 ): 
+ []
+
+
+Overfull \hbox (44.74973pt too wide) in paragraph at lines 91--93
+\OT1/cmr/m/n/10 The proof as writ-ten is in-com-plete. The claim holds with cor
+-rected con-stants (\TS1/cmr/m/n/10 §\OT1/cmr/m/n/10 E). \OT1/cmr/m/it/10 Re-pa
+ir: \OT1/cmtt/m/n/10 t2_A_v33/rigor/ramp_rep.py\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (1.58986pt too wide) in paragraph at lines 95--99
+\OT1/cmtt/m/n/10 :30--35\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 :50 \OT1/cmr/m/n/10 
+(\OT1/cmtt/m/n/10 expand_ab\OT1/cmr/m/n/10 , full re-duc-tion); \OT1/cmtt/m/n/1
+0 lemmaS_F2.py:24--30\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 :49\OT1/cmr/m/n/10 , \O
+T1/cmtt/m/n/10 :56\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 :138 \OT1/cmr/m/it/10 (cit
+. corr.) \OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 ramp_arb.py:78,
+ []
+
+
+Overfull \hbox (73.0681pt too wide) in paragraph at lines 95--99
+\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3)$ and $(1\OML/cmm/m/it/1
+0 ; \OT1/cmr/m/n/10 3)$ at level 2 cre-ates $\OML/cmm/m/it/10 z[]$ \OT1/cmr/m/n
+/10 and $\OML/cmm/m/it/10 z[]$ \OT1/cmr/m/n/10 against non-vanishing weights. \
+OT1/cmr/m/it/10 Ef-fect \OT1/cmr/m/n/10 [cert] (\OT1/cmtt/m/n/10 phase2a/A_repa
+ir/out/ramp_rep.json\OT1/cmr/m/n/10 ): 
+ []
+
+
+Overfull \hbox (46.59073pt too wide) in paragraph at lines 109--111
+\OT1/cmr/m/it/10 Closed code: \OT1/cmtt/m/n/10 lemmaS/rigor/weights_exact.py:81
+--83\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 :88\OT1/cmr/m/n/10 . \OT1/cmr/m/it/10 Ef
+-fect \OT1/cmr/m/n/10 [cert] (\OT1/cmtt/m/n/10 phase2a/A_repair/out/weights_rep
+.json\OT1/cmr/m/n/10 ): 
+ []
+
+[2]
+Overfull \hbox (121.84856pt too wide) in paragraph at lines 125--128
+\OT1/cmr/m/n/10 [220\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 350]$ ($\OML/cmm/m/it/10
+ U \OMS/cmsy/m/n/10 ^^T \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 079$
+). \OT1/cmr/m/it/10 Ef-fect \OT1/cmr/m/n/10 [cert]: the seg-ment check $\OML/cm
+m/m/it/10 "\OT1/cmr/m/n/10 (220)[](\OML/cmm/m/it/10 U \OT1/cmr/m/n/10 = 0\OML/c
+mm/m/it/10 :\OT1/cmr/m/n/10 08) \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 "\OT1/cmr
+/m/n/10 (28)[]$ holds (\OT1/cmtt/m/n/10 phase2a/A_repair/out/weights_rep.json\O
+T1/cmr/m/n/10 ;
+ []
+
+
+Overfull \hbox (14.84973pt too wide) in paragraph at lines 130--132
+\OT1/cmtt/m/n/10 ramp()\OT1/cmr/m/n/10 ); \OT1/cmtt/m/n/10 ramp_arb.py:29\OT1/c
+mr/m/n/10 , \OT1/cmtt/m/n/10 :57\OT1/cmr/m/n/10 . The bound-ary terms at 28 are
+ dropped. \OT1/cmr/m/it/10 Ef-fect \OT1/cmr/m/n/10 [cert] (\OT1/cmtt/m/n/10 t2_
+A/out/weights_t2.json\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (31.00214pt too wide) in paragraph at lines 148--149
+\OT1/cmr/m/n/10 By (O3), $[] \OMS/cmsy/m/n/10 ^^T [] \OT1/cmr/m/n/10 2$ [pa-per
+]. The cer-ti-fied affine ex-port eval-u-ated at $[] = ([] 2\OML/cmm/m/it/10 ; 
+[] \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 2)$ (\OT1/cmtt/m/n/10
+ erratum/o3_outer_check.py
+ []
+
+[3]
+Overfull \hbox (25.65355pt too wide) in paragraph at lines 170--171
+[]\OT1/cmr/m/n/10 Step 4 cer-ti-fies $\OML/cmm/m/it/10 G \OT1/cmr/m/n/10 = (3\O
+ML/cmm/m/it/10 :\OT1/cmr/m/n/10 1363 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]\
+OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0034 \OMS/
+cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cm
+m/m/it/10 :\OT1/cmr/m/n/10 4351 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[])$ aga
+inst $(10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 5 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m
+/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10[])$, i.e. $\OMS/cmsy/m/n/10 ^^B
+\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 188\OML/cmm/m/it/10 =\OT1/cm
+r/m/n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 983\OML/cmm/m/it/10 =\OT1/cmr/m/n/1
+0 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 106$
+ []
+
+
+Overfull \hbox (20.82355pt too wide) in paragraph at lines 175--177
+\OT1/cmr/m/it/10 Closed code: \OT1/cmr/m/n/10 the re-duc-tion $\OML/cmm/m/it/10
+ z[]z[] \OMS/cmsy/m/n/10 ! []\OML/cmm/m/it/10 c[]z[]$ \OT1/cmr/m/n/10 drops the
+ bound-ary term at $\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 = 28$ (\OT1/cmtt/m/n/10 
+ramp_arb.py:32\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 lemmaS_F2.py:27\OT1/cmr/m/n/10
+ ).
+ []
+
+
+Overfull \hbox (38.98294pt too wide) in paragraph at lines 175--177
+\OT1/cmr/m/n/10 Since $(\OML/cmm/m/it/10 ^^Q[]\OT1/cmr/m/n/10 )[](1) \OMS/cmsy/
+m/n/10 6\OT1/cmr/m/n/10 = 0$, the $\OML/cmm/m/it/10 m \OT1/cmr/m/n/10 = 3$ mono
+-mial leaves a point term (lo-ca-tion [pa-per]). \OT1/cmr/m/it/10 Ef-fect \OT1/
+cmr/m/n/10 [cert] (\OT1/cmtt/m/n/10 t2_A/out/a3_signs.json\OT1/cmr/m/n/10 ):
+ []
+
+[4]
+Overfull \hbox (8.13226pt too wide) in paragraph at lines 208--209
+\OT1/cmr/bx/n/10 D1. \OT1/cmtt/m/n/10 step4/p2/t9_lemmaO.py:63 \OT1/cmr/m/n/10 
+com-putes \OT1/cmtt/m/n/10 ends \OT1/cmr/m/n/10 and never tests $\OMS/cmsy/m/n/
+10 j\OML/cmm/m/it/10 ^^X\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > XL$ \OT1/cmr/m/n/
+10 (doc-string \OT1/cmtt/m/n/10 :6\OT1/cmr/m/n/10 ). \OT1/cmtt/m/n/10 step4_pro
+of.tex:715
+ []
+
+[5]
+Underfull \hbox (badness 4752) in paragraph at lines 238--238
+[]|$\OT1/cmr/m/n/7 8\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 777e[]$, $2\OML/cmm/m/it/7 
+:\OT1/cmr/m/n/7 0288e[]$, $0\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 25558$ ((O3):
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+[]|$\OT1/cmr/m/n/7 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 18766e[]$, $1\OML/cmm/m/it/
+7 :\OT1/cmr/m/n/7 03883e[]$,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]|$\OT1/cmr/m/n/7 (3\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 15e[]\OML/cmm/m/it/7 ; \OT
+1/cmr/m/n/7 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 83e[]\OML/cmm/m/it/7 ; \OT1/cmr/m/
+n/7 0\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 250)$,
+ []
+
+
+Overfull \hbox (47.62074pt too wide) in paragraph at lines 258--259
+\OT1/cmtt/m/n/10 fix2/n12/t2\_A\_v35/out/A\_interface.json \OT1/cmr/m/n/10 (\OT
+1/cmtt/m/n/10 78fe2f8e...\OT1/cmr/m/n/10 ) at $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m
+/n/10 and \OT1/cmtt/m/n/10 asm\_design\_N2ref4.json \OT1/cmr/m/n/10 (\OT1/cmtt/
+m/n/10 46bae149...\OT1/cmr/m/n/10 )
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 290--290
+[]|\OT1/cmr/m/n/9 FLX1,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+[]|\OT1/cmtt/m/n/9 fix8_flux2_impl/texts/erratum_flux2.tex \OT1/cmr/m/n/9 (E-F1
+..E-F5) and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
+[]|\OT1/cmr/m/n/9 fixed in fin13v4b (lemma
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 302--303
+\OT1/cmtt/m/n/9 V4B/e0_lemma/E0_LEMMA_v4b.tex\OT1/cmr/m/n/9 ; partly
+ []
+
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+[]|\OT1/cmr/m/n/9 constant
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+\OT1/cmr/m/n/9 (\OT1/cmtt/m/n/9 V33/verifier/constants.py
+ []
+
+
+Overfull \hbox (4.42284pt too wide) in alignment at lines 316--317
+ [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 3646) in paragraph at lines 326--326
+[]|$\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 :\OT1/cmr/m/n/9 93250 \OMS/cmsy/m/n/9 ^^A \
+OT1/cmr/m/n/9 10[]$, $2\OML/cmm/m/it/9 :\OT1/cmr/m/n/9 769321 \OMS/cmsy/m/n/9 ^
+^A \OT1/cmr/m/n/9 10[]$;
+ []
+
+
+Overfull \hbox (4.42284pt too wide) in alignment at lines 317--328
+ [] [] [] [] 
+ []
+
+[9]
+Overfull \hbox (1.48311pt too wide) in paragraph at lines 353--354
+\OT1/cmr/m/n/10 counted it with $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = 1$; (ii) 
+the lemma omit-ted the Neu-mann feed-back on the strip sources (\OT1/cmtt/m/n/1
+0 ibp_final.py:75-81\OT1/cmr/m/n/10 ).
+ []
+
+
+Overfull \hbox (47.98708pt too wide) in paragraph at lines 353--354
+\OT1/cmr/m/n/10 Ef-fect: STRIP[]BETA $1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 06 \OM
+S/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 8\OML
+/cmm/m/it/10 :\OT1/cmr/m/n/10 04 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]$, ST
+RIP[]AB $5\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 52 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/
+n/10 10[] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 :\OT1/cmr/m/n/10
+ 37 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 10[]$ (\OT1/cmtt/m/n/10 V33/verifier/c
+onstants.py:76-77\OT1/cmr/m/n/10 ),
+ []
+
+
+Overfull \hbox (65.37184pt too wide) in paragraph at lines 355--356
+ \OT1/cmr/bx/n/10 F1n. U-1 reg-u-lar-ity lemma[] \OT1/cmr/m/n/10 for the en-erg
+y iden-ti-ties: not writ-ten in fin13v4/v4b; now \OT1/cmtt/m/n/10 fix10_proofs/
+U1_regularity.tex\OT1/cmr/m/n/10 ,
+ []
+
+[10] [11]
+Overfull \hbox (1.05237pt too wide) in paragraph at lines 397--398
+\OT1/cmr/m/it/10 What was wrong \OT1/cmr/m/n/10 (E2A; \OT1/cmtt/m/n/10 V4/verif
+ier/rhs_iv.py:243-251\OT1/cmr/m/n/10 , byte-identical in fin12f4): \OT1/cmr/bx/
+n/10 E2-1 \OT1/cmtt/m/n/10 modE2 AA $\OT1/cmr/m/n/10 = 43\OML/cmm/m/it/10 :\OT1
+/cmr/m/n/10 33\OML/cmm/m/it/10 A[]$
+ []
+
+
+Overfull \hbox (4.18567pt too wide) in paragraph at lines 399--400
+[]\OT1/cmr/m/it/10 Fix (fin13v4b): \OT1/cmr/m/n/10 RM+NS terms $\OMS/cmsy/m/n/1
+0 ^^B\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 (E2A \TS1/cmr/m/n/10 §\OT1/cmr/m/n/1
+0 5 F2; modE2 stays $43\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 33 \OMS/cmsy/m/n/10 ^^
+U \OT1/cmr/m/n/10 43\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3271$); \OT1/cmr/bx/n/10 
+R143 $\OT1/cmr/m/n/10 = 14\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 343002687670673$
+ []
+
+
+Overfull \hbox (82.17099pt too wide) in paragraph at lines 407--413
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7187 \OMS/cmsy/m/n/10 ^^A \O
+T1/cmr/m/n/10 10[]$), \OT1/cmtt/m/n/10 lemmaS_A_v33.tex \OT1/cmr/m/n/10 step 6,
+ \OT1/cmtt/m/n/10 numbers_A_v33.tex\OT1/cmr/m/n/10 ; closed text \OT1/cmtt/m/n/
+10 writeup/step3_proof_v32/step3_proof_v32.tex:235
+ []
+
+[12]
+Overfull \hbox (65.27975pt too wide) in paragraph at lines 424--425
+ \OT1/cmr/bx/n/10 F7c. Level-2 mod-u-la-tion bound had no ramp term[] \OT1/cmr/
+m/n/10 (ROUTE \TS1/cmr/m/n/10 §\OT1/cmr/m/n/10 4; FLX1 \TS1/cmr/m/n/10 §\OT1/cm
+r/m/n/10 4 item 4; \OT1/cmtt/m/n/10 V33/verifier/rhs_iv.py:178-180\OT1/cmr/m/n/
+10 ).
+ []
+
+
+Overfull \hbox (31.79259pt too wide) in paragraph at lines 426--428
+ \OT1/cmr/bx/n/10 F7e. The hy-poth-e-sis must be the com-bined (I3$[]$)[] \OT1/
+cmr/m/n/10 (FREV \TS1/cmr/m/n/10 §\OT1/cmr/m/n/10 7 T4). \OT1/cmtt/m/n/10 K2pt_
+vs_FLUX2_record $\OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 737514777
+695357$
+ []
+
+[13]
+Overfull \hbox (4.46024pt too wide) in paragraph at lines 438--439
+\OT1/cmr/m/n/10 over S1 on $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 x\OMS/cmsy/m/n/1
+0 j ^^T \OT1/cmr/m/n/10 60$ at $\OML/cmm/m/it/10 ^^\[]$\OT1/cmr/m/n/10 ); im-pl
+icit in step 4's cer-ti-fi-ca-tion of $^^C(\OML/cmm/m/it/10 ^^\[]\OT1/cmr/m/n/1
+0 )$; \OT1/cmtt/m/n/10 fix1/b12_text/continuation_v33.tex
+ []
+
+
+Overfull \hbox (0.27403pt too wide) in paragraph at lines 440--441
+[]\OT1/cmtt/m/n/10 E0_LEMMA_v4b.tex \OT1/cmr/m/n/10 ``E2 cou-plings'' prints $\
+OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 013113
+6$; raw DAB $= 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 013113620982$ (E2A; ``$0\OML/
+cmm/m/it/10 :\OT1/cmr/m/n/10 0131137$''
+ []
+
+
+Overfull \hbox (50.22197pt too wide) in paragraph at lines 452--453
+[]\OT1/cmr/bx/n/10 Step 4/kits/manifests: \OT1/cmr/m/n/10 not re-pinned (stages
+ 8, 9, 18, 19, 20; a new fi-nal[]tail driver read-ing \OT1/cmtt/m/n/10 EXCEPTIO
+N_v32_*.json\OT1/cmr/m/n/10 ;
+ []
+
+[14]
+Overfull \hbox (4.42285pt too wide) in alignment at lines 458--459
+ [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 6493) in paragraph at lines 460--460
+[]|\OT1/cmr/m/n/7 FLUX0/K0 at $\OML/cmm/m/it/7 ^^L \OT1/cmr/m/n/7 = 2$ (tight,
+ []
+
+
+Underfull \hbox (badness 4156) in paragraph at lines 460--460
+\OT1/cmr/m/n/7 (v35/R3 columns $3\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 39666\OML/cmm/
+m/it/7 =\OT1/cmr/m/n/7 3\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 39535$,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\OT1/cmtt/m/n/7 flux2_cert.json\OT1/cmr/m/n/7 : $[] \OMS/cmsy/m/n/7 ^^T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\OT1/cmr/m/n/7 3\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 4098535e[]$, $\OML/cmm/m/it/7 K
+[] \OMS/cmsy/m/n/7 ^^T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\OT1/cmr/m/n/7 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 3900119e[]$, com-bined
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 460--461
+\OT1/cmr/m/n/7 a sep-a-rate FLUX2/K2 line is
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 460--461
+\OT1/cmr/m/n/7 mean-ing-less for the new $\OML/cmm/m/it/7 K[]$
+ []
+
+
+Underfull \hbox (badness 3989) in paragraph at lines 462--462
+[]|\OT1/cmr/m/n/7 flux line $\OMS/cmsy/m/n/7 ^^B\OT1/cmr/m/n/7 1\OML/cmm/m/it/7
+ :\OT1/cmr/m/n/7 1245$; \TS1/cmr/m/n/7 §\OT1/cmr/m/n/7 E v3.3 flux
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+[]|\OT1/cmr/m/n/7 (A) chain v35 (A[]interface
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+[]|\OT1/cmtt/m/n/7 fix2/n12/t2_A_v35/\OT1/cmr/m/n/7 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+[]|\OT1/cmr/m/n/7 v36 (799b087c...,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+\OT1/cmr/m/n/7 U[]cert[]v36[]pass2 d512596a...,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+[]|$\OML/cmm/m/it/7 c[]$ $\OT1/cmr/m/n/7 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 7187e
+[]$ / $1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 71860e[]$ /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+[]|\OT1/cmr/m/n/7 lemmaU[]v34, v35,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
+[]|$\OML/cmm/m/it/7 W\OT1/cmr/m/n/7 (57) = 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 437
+16e[]$ (``$\OMS/cmsy/m/n/7 ^^T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
+\OT1/cmr/m/n/7 1\OML/cmm/m/it/7 :\OT1/cmr/m/n/7 44e[]$'' in AU-DIT, FLX1,
+ []
+
+
+Overfull \hbox (4.42285pt too wide) in alignment at lines 459--472
+ [] [] [] [] 
+ []
+
+[15]
+Overfull \hbox (2.96349pt too wide) in paragraph at lines 488--489
+[]\OT1/cmr/bx/n/10 Printed val-ues be-low cer-ti-fied bounds (dis-play). \OT1/c
+mr/m/n/10 V36R $\OML/cmm/m/it/10 F[] \OT1/cmr/m/n/10 = 3\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 59312e[]$ (ball $3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 59312473 [] e[]$
+);
+ []
+
+
+Overfull \hbox (1.973pt too wide) in paragraph at lines 488--489
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 340304797627754e[]$); FREV/w
+ork or-der $\OML/cmm/m/it/10 K[]$ $\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/
+m/n/10 39001e[]$, $[]$ $3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 40985e[]$ (JSON up $
+1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3900118e[]$,
+ []
+
+
+Overfull \hbox (41.23148pt too wide) in paragraph at lines 509--510
+\OT1/cmr/m/n/10 Sources of this part: \OT1/cmtt/m/n/10 fix11_review/REVIEW_v4b_
+v36_proofs.md \OT1/cmr/m/n/10 (FREV11), \OT1/cmtt/m/n/10 fix15_review/REVIEW_v4
+c_interface.md
+ []
+
+
+Overfull \hbox (110.92522pt too wide) in paragraph at lines 509--510
+\OT1/cmr/m/n/10 (FREV15), \OT1/cmtt/m/n/10 step3nl_v4c/V4C_REPORT.md \OT1/cmr/m
+/n/10 (V4CR), \OT1/cmtt/m/n/10 fix13_v37chain/V37_REPORT.md \OT1/cmr/m/n/10 (V3
+7R), \OT1/cmtt/m/n/10 fix14_interface/INTERFACE_REPORT.md
+ []
+
+[16]
+Overfull \hbox (63.49031pt too wide) in paragraph at lines 516--517
+[]\OT1/cmr/bx/n/10 Fix. \OT1/cmr/m/n/10 Ver-i-fier fin13v4c: term H8 with cer-t
+i-fied co-ef-fi-cients C3S[]abc (\OT1/cmtt/m/n/10 step3nl_v4c/v4bcert/out/strip
+_cubic_v4c.json\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (28.59479pt too wide) in paragraph at lines 528--529
+[]\OT1/cmr/m/n/10 The box |w|, |w'| $\OMS/cmsy/m/n/10 ^^T$ \OT1/cmr/m/n/10 0.01
+ on [16.25, 31.25], |al-pha| $\OMS/cmsy/m/n/10 ^^T$ \OT1/cmr/m/n/10 1e-3 be-hin
+d \OT1/cmtt/m/n/10 cubic_E0fine_0.001_0.01_0.01.json
+ []
+
+
+Overfull \hbox (58.53415pt too wide) in paragraph at lines 534--535
+[]\OT1/cmr/m/n/10 The ra-tio lhs/rhs[]whole[]tail is x1554.45 (al-pha[]1 = 1.5e
+-4) and x1512.16 (1.25e-4), from \OT1/cmtt/m/n/10 rate_table_fin13v4c_a*.json
+ []
+
+[17]
+Overfull \hbox (19.42789pt too wide) in paragraph at lines 552--553
+[]\OT1/cmr/m/n/10 Fixed in \OT1/cmtt/m/n/10 bootstrap_v38.tex \OT1/cmr/m/n/10 (
+Def-i-ni-tion BS, or-der ta-ble, Propo-si-tion BS:prop:close), \OT1/cmtt/m/n/10
+ U1_regularity_v38.tex
+ []
+
+
+Overfull \hbox (8.20534pt too wide) in paragraph at lines 552--553
+\OT1/cmr/m/n/10 (X[]S = 60, O through GS-circ, B1 form), \OT1/cmtt/m/n/10 lemma
+U_v38.tex\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 continuation_v38.tex\OT1/cmr/m/n/10
+ , \OT1/cmtt/m/n/10 flux2_lemma_v38.tex\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (39.66573pt too wide) in paragraph at lines 571--572
+[]\OT1/cmr/m/n/10 KAP[]OR: AU-DIT 1.5883 and V4R 1.58832 are dis-play round-ing
+s be-low the cer-ti-fied 1.5883238 (\OT1/cmtt/m/n/10 constants_v4.json
+ []
+
+[18]
+Overfull \hbox (31.84357pt too wide) in paragraph at lines 592--593
+[]\OT1/cmr/m/n/10 I.4 (TC2): both 1.2709 (AU-DIT) and 1.27089 (V4R) are out-war
+d round-ings of 1.2708883534 (\OT1/cmtt/m/n/10 constants_v4.json\OT1/cmr/m/n/10
+ ,
+ []
+
+
+Overfull \hbox (152.72824pt too wide) in paragraph at lines 599--600
+[]\OT1/cmr/m/n/10 LEMMAU[]MAIN[]v37[]NOTES C3 (D^c[]2 only in V36R): the key ex
+-ists, \OT1/cmtt/m/n/10 A_interface.json \OT1/cmr/m/n/10 res.tight.r2[]export.w
+indow[]data.D[]window[]const,
+ []
+
+[19]
+Overfull \hbox (10.7959pt too wide) in paragraph at lines 609--610
+\OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 e0_A2_budget_v4c.json\OT1/cmr/m/n/10 , \OT
+1/cmtt/m/n/10 fix13_v37chain/runs/prod2\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 fix13
+_v37chain/flux/out\OT1/cmr/m/n/10 ; add \OT1/cmtt/m/n/10 C1_ke.json\OT1/cmr/m/n
+/10 ,
+ []
+
+
+Overfull \hbox (80.7304pt too wide) in paragraph at lines 624--625
+\OT1/cmr/m/n/10 sha256 \OT1/cmtt/m/n/10 be909bbf42543ab017bb9c81ba58227c80fc4f0
+10cc1b50a66a515b848f90418\OT1/cmr/m/n/10 ), driver \OT1/cmtt/m/n/10 step4/p2/v3
+8/final_tail_v38.py\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (119.23105pt too wide) in paragraph at lines 624--625
+\OT1/cmr/m/n/10 the B8 file \OT1/cmtt/m/n/10 s1_tight/consistency/check_outA5.j
+son \OT1/cmr/m/n/10 of the closed v3.2 man-i-fest, \OT1/cmtt/m/n/10 step4/p2/v3
+3/EXCEPTION_v32_B8_check_outA5.json\OT1/cmr/m/n/10 ;
+ []
+
+
+Overfull \hbox (140.51805pt too wide) in paragraph at lines 624--625
+\OT1/cmr/m/n/10 pinned, \OT1/cmtt/m/n/10 step4/p2/v38/EXCEPTION_v4c_PA_reg_e2v4
+b.json\OT1/cmr/m/n/10 ; (iii) the known F34 dif-fer-ence of \OT1/cmtt/m/n/10 fi
+x1/lemmaU_rev/constants_needed_v34.json
+ []
+
+[20]
+Overfull \hbox (20.70479pt too wide) in paragraph at lines 630--631
+\OT1/cmtt/m/n/10 runs/reg_fin13v4c \OT1/cmr/m/n/10 in \OT1/cmtt/m/n/10 step3_v3
+8_main.tex \OT1/cmr/m/n/10 (``What re-mains'', Records), the re-view ref-er-enc
+e of \OT1/cmtt/m/n/10 GS_lemma_v38.tex
+ []
+
+
+Overfull \hbox (79.88908pt too wide) in paragraph at lines 630--631
+\OT1/cmr/m/n/10 printed the sha256 of the first ver-sions \OT1/cmtt/m/n/10 fix1
+0_proofs/G1_export_k2.tex \OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 4004a774...\OT1/cmr
+/m/n/10 ) and \OT1/cmtt/m/n/10 fix10_proofs/U1_regularity.tex
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 641.
+
+Overfull \hbox (74.60938pt too wide) in paragraph at lines 641--641
+[]\OT1/cmr/bx/n/14.4 P. Text v40: the fixes of the fi-nal re-view \OT1/cmtt/m/n
+/14.4 fix18_final_review/FINAL_REVIEW_v39.md 
+ []
+
+[21]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 644
+.
+ (C:\Users\micahw\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Overfull \hbox (26.78027pt too wide) in paragraph at lines 646--647
+\OT1/cmr/m/n/10 num-bers file (the last one was a fur-ther in-stance found by t
+he new check). The build runs \OT1/cmtt/m/n/10 tools/check_macros_v40.py
+ []
+
+[22]
+Overfull \hbox (99.62263pt too wide) in paragraph at lines 658--658
+[]\OT1/cmr/bx/n/14.4 Q. Text v41: word-ing items of the delta check \OT1/cmtt/m
+/n/14.4 fix20_delta_check/DELTA_CHECK_v40.md 
+ []
+
+
+Overfull \hbox (19.78908pt too wide) in paragraph at lines 665--666
+\OT1/cmr/m/n/10 Step 2 of the Open step (\OT1/cmtt/m/n/10 bootstrap_v41.tex\OT1
+/cmr/m/n/10 ) and the march part of Propo-si-tion F:prop:abs (\OT1/cmtt/m/n/10 
+flux2_lemma_v41.tex\OT1/cmr/m/n/10 )
+ []
+
+
+Overfull \hbox (18.14195pt too wide) in paragraph at lines 669--670
+\OT1/cmr/m/n/10 bound is de-rived strictly bet-ter: B1(a,b) are ex-cepted, be-i
+ng re-derived by first touch. The ti-tle of \OT1/cmtt/m/n/10 lemmaS_A_v41.tex
+ []
+
+[23]
+Overfull \hbox (50.03883pt too wide) in paragraph at lines 678--679
+\OT1/cmr/m/n/10 com-mit-ted yet: the texts cite ``com-mit pend-ing'' with the S
+HA256 sums of \OT1/cmtt/m/n/10 writeup/lean_bridge/snap_final/SHA256SUMS
+ []
+
+
+Overfull \hbox (24.06383pt too wide) in paragraph at lines 682--683
+\OT1/cmtt/m/n/10 lift_injective \OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 Curve/Periodi
+c2Circle.lean\OT1/cmr/m/n/10 ), \OT1/cmtt/m/n/10 CWFlow.Curve.cdf_maximal_shift
+ \OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 isFlow_glue_endpoint
+ []
+
+[24]
+Overfull \hbox (21.27756pt too wide) in paragraph at lines 686--687
+\OT1/cmtt/m/n/10 kit_step3_v4.zip \OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 kit_step
+4b_v4.zip\OT1/cmr/m/n/10 ; La-TeX com-pi-la-tion; the step-4 text patch (\OT1/c
+mtt/m/n/10 STEP4_PATCH_NOTE_v42.md\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (180.59366pt too wide) in paragraph at lines 686--687
+\OT1/cmr/m/n/10 needs the au-thors' go); a fi-nal re-view. [Text v43:] the text
+-v42 changes were checked in \OT1/cmtt/m/n/10 writeup/lemmaU/bulk/fix23_delta_c
+heck/DELTA_CHECK_v42.md
+ []
+
+
+Overfull \hbox (67.23154pt too wide) in paragraph at lines 689--690
+\OT1/cmr/m/n/10 v42 (ver-dict ``OK with fixes; no block-ing find-ing''). Its Pa
+rt A re-viewed the S3 the-o-rems \OT1/cmtt/m/n/10 exists_isLagImmersion_of_peri
+odic\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (6.98108pt too wide) in paragraph at lines 689--690
+\OT1/cmtt/m/n/10 lift_injective\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 cdf_maximal_s
+hift \OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 isFlow_glue_endpoint \OT1/cmr/m/n/10 
+(snap-shot \OT1/cmtt/m/n/10 writeup/lean_bridge/snap_s3/\OT1/cmr/m/n/10 )
+ []
+
+
+Overfull \hbox (1.64775pt too wide) in paragraph at lines 691--692
+\OT1/cmtt/m/n/10 All.lean \OT1/cmr/m/n/10 (the raw logs \OT1/cmtt/m/n/10 writeu
+p/lean_bridge/raw_Periodic2Circle.log\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 raw_Max
+Shift.log\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 raw_All.log\OT1/cmr/m/n/10 ),
+ []
+
+
+Overfull \hbox (3.37138pt too wide) in paragraph at lines 693--694
+\OT1/cmr/m/n/10 W-1: the sta-tus boxes of \OT1/cmtt/m/n/10 step3_v43_main.tex \
+OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 main_v3_v43.tex\OT1/cmr/m/n/10 , the (P1$[]
+$) item of \OT1/cmtt/m/n/10 continuation_v43.tex\OT1/cmr/m/n/10 ,
+ []
+
+[25] [26] (erratum_v43.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2659 strings out of 467867
+ 38811 string characters out of 5417850
+ 467567 words of memory out of 5000000
+ 31527 multiletter control sequences out of 15000+600000
+ 643105 words of font info for 99 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 61i,9n,68p,1606b,248s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tct
+i1000.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\tcrm0700.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\tcrm0900.pk> <C:\Users\micahw\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1000.pk><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/micahw/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/micahw/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/micahw/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/m
+icahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi12.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi5.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/micahw/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/micahw/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/micahw/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/micah
+w/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
+ers/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr17.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr5.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr6.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/micahw/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/micahw/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/micahw/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/micahw/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
+s/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy9.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/micahw/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/micahw/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/micahw/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/mi
+cahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:
+/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/e
+ufm10.pfb><C:/Users/micahw/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/symbols/msam10.pfb>
+Output written on erratum_v43.pdf (26 pages, 582621 bytes).
+PDF statistics:
+ 272 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

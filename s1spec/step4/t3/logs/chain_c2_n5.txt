@@ -1,0 +1,52 @@
+p2_t2.0: t=2.0 L=70.440562; dropped cosine part max 2.1e-10; dropped sine modes > 360: max 2.6e-23
+relaxed datum: own ETDRK4 over tau_r = 2.181e-05 (dt ~ 3.45e-01), 16000 steps, 73s
+preliminary arb base slab 1: polish ['7.0e-09', '5.4e-23', '5.8e-32']  (2.9s)
+preliminary arb base slab 2: polish ['5.3e-09', '5.0e-22', '1.0e-31']  (3.1s)
+parallelepiped block: Ma = 31 slow modes (lam_n h <= 8.0); initial generators slaved by a float propagator over the last preliminary slab
+--- slab 1/5  (theta_max = 22.514, tau = 7.7844e-06)
+h=7.784e-06 (dt~1.230e-01)  M=360 Ma=31 Nc=1440 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 4.68e-16, sum n^3 sup|r_n| = 1.73e-07, induced sum n^3 r_n/max(lam_n,1/h) = 9.52e-18; defect*w |.|_3 = 3.60e-16
+  polish |F| = ['1.8e-09', '2.3e-23', '7.7e-32']  u(0)-xbar = 2.5e-28  cond(P_a(h)) = 1.9e+03
+  rho radii max: 1.000e-20 -> 1.003e-20 (|diag B|w 1.003e-20, |B|w 1.003e-20, absorbed 2.72e-26, intra-slab 2.22e-23);  sv(P_a(h)) ['1.7', '1.02', '1.01', '0.00087']
+  parallelepiped hull sum_n n^j|G||w|: j=1 1.058e-20 -> 2.121e-20; j=3 3.326e-19 -> 4.712e-18;  box |.|_1 out 3.95e-23
+  box |.|_3: 3.206e-19 -> 4.343e-18  (Zend block 2.30e-21, rest 4.34e-18); tail T: 1.00e-20 -> 2.12e-34
+  slab-wide sup |e|_j (j=0..3): ['1.78e-20', '1.23e-19', '2.41e-18', '6.98e-17'];  int <u_aa^2> = 1.302040290893485e-02 +/- 1.1e-22
+  time 31.5s  {base: 2.8, resid: 2.3, coef: 0.4, Pfloat: 1.7, defect: 21.4, apriori: 2.7, lohner: 0.2}  sub-intervals [(6, 0, 0), (6, 0, 0), (14, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0)]
+--- slab 2/5  (theta_max = 22.118, tau = 1.6141e-05)
+h=8.357e-06 (dt~1.320e-01)  M=360 Ma=31 Nc=1440 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 1.92e-16, sum n^3 sup|r_n| = 6.99e-08, induced sum n^3 r_n/max(lam_n,1/h) = 3.86e-18; defect*w |.|_3 = 1.65e-16
+  polish |F| = ['2.2e-09', '3.0e-22', '3.6e-32']  u(0)-xbar = 4.5e-32  cond(P_a(h)) = 3.3e+03
+  rho radii max: 1.003e-20 -> 1.003e-20 (|diag B|w 1.003e-20, |B|w 1.003e-20, absorbed 1.28e-26, intra-slab 4.45e-24);  sv(P_a(h)) ['1.7', '1.02', '1.01', '0.000509']
+  parallelepiped hull sum_n n^j|G||w|: j=1 2.121e-20 -> 3.342e-20; j=3 4.712e-18 -> 9.020e-18;  box |.|_1 out 1.29e-23
+  box |.|_3: 4.343e-18 -> 1.549e-18  (Zend block 5.47e-22, rest 1.55e-18); tail T: 2.12e-34 -> 3.12e-35
+  slab-wide sup |e|_j (j=0..3): ['2.03e-20', '1.64e-19', '3.26e-18', '8.50e-17'];  int <u_aa^2> = 1.327812579413054e-02 +/- 1.5e-22
+  time 31.7s  {base: 2.8, resid: 1.7, coef: 0.3, Pfloat: 1.7, defect: 21.3, apriori: 3.5, lohner: 0.3}  sub-intervals [(3, 0, 0), (5, 0, 0), (14, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0)]
+--- slab 3/5  (theta_max = 21.664, tau = 2.5221e-05)
+h=9.080e-06 (dt~1.434e-01)  M=360 Ma=31 Nc=1440 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 6.82e-17, sum n^3 sup|r_n| = 2.44e-08, induced sum n^3 r_n/max(lam_n,1/h) = 1.45e-18; defect*w |.|_3 = 2.57e-16
+  polish |F| = ['2.9e-09', '2.8e-22', '4.7e-32']  u(0)-xbar = 4.1e-34  cond(P_a(h)) = 6.5e+03
+  rho radii max: 1.003e-20 -> 9.990e-21 (|diag B|w 9.981e-21, |B|w 9.990e-21, absorbed 6.45e-26, intra-slab 1.98e-23);  sv(P_a(h)) ['1.7', '1.02', '1.01', '0.000264']
+  parallelepiped hull sum_n n^j|G||w|: j=1 3.342e-20 -> 5.017e-20; j=3 9.020e-18 -> 1.418e-17;  box |.|_1 out 8.12e-24
+  box |.|_3: 1.549e-18 -> 4.428e-19  (Zend block 2.07e-21, rest 4.40e-19); tail T: 3.12e-35 -> 3.20e-36
+  slab-wide sup |e|_j (j=0..3): ['2.26e-20', '1.95e-19', '3.80e-18', '9.37e-17'];  int <u_aa^2> = 1.356698756037316e-02 +/- 1.9e-22
+  time 30.6s  {base: 2.7, resid: 2.3, coef: 0.3, Pfloat: 1.9, defect: 20.5, apriori: 2.7, lohner: 0.2}  sub-intervals [(3, 0, 0), (9, 0, 0), (21, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0), (16, 0, 0)]
+   eta cap exceeded (max eta/cap 1.68e+00): redo
+--- slab 4/5  (theta_max = 21.122, tau = 3.5269e-05)
+h=1.005e-05 (dt~1.587e-01)  M=360 Ma=31 Nc=1440 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 1.89e-17, sum n^3 sup|r_n| = 6.61e-09, induced sum n^3 r_n/max(lam_n,1/h) = 8.65e-19; defect*w |.|_3 = 2.38e-15
+  polish |F| = ['2.2e-09', '1.2e-22', '7.0e-32']  u(0)-xbar = 6.2e-34  cond(P_a(h)) = 1.5e+04
+  rho radii max: 9.990e-21 -> 9.912e-21 (|diag B|w 9.897e-21, |B|w 9.909e-21, absorbed 3.10e-25, intra-slab 1.68e-22);  sv(P_a(h)) ['1.7', '1.02', '1.01', '0.00011']
+  parallelepiped hull sum_n n^j|G||w|: j=1 5.017e-20 -> 7.246e-20; j=3 1.418e-17 -> 2.029e-17;  box |.|_1 out 1.91e-23
+  box |.|_3: 4.428e-19 -> 1.143e-19  (Zend block 8.95e-21, rest 1.02e-19); tail T: 3.20e-36 -> 1.79e-37
+  slab-wide sup |e|_j (j=0..3): ['2.88e-20', '3.14e-19', '6.76e-18', '1.76e-16'];  int <u_aa^2> = 1.390160331145095e-02 +/- 2.9e-22
+  time 30.9s  {base: 2.5, resid: 1.9, coef: 0.3, Pfloat: 1.8, defect: 21.3, apriori: 2.9, lohner: 0.2}  sub-intervals [(4, 0, 0), (10, 0, 0), (21, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0)]
+   eta cap exceeded (max eta/cap 2.07e+01): redo
+--- slab 5/5  (theta_max = 20.469, tau = 4.6663e-05)
+h=1.139e-05 (dt~1.800e-01)  M=360 Ma=31 Nc=1440 K=16 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 1.37e-17, sum n^3 sup|r_n| = 1.22e-09, induced sum n^3 r_n/max(lam_n,1/h) = 2.40e-18; defect*w |.|_3 = 1.14e-13
+  polish |F| = ['2.2e-09', '4.0e-24', '7.4e-32']  u(0)-xbar = 4.3e-33  cond(P_a(h)) = 5.2e+04
+  rho radii max: 9.912e-21 -> 9.823e-21 (|diag B|w 9.794e-21, |B|w 9.809e-21, absorbed 1.46e-24, intra-slab 2.05e-21);  sv(P_a(h)) ['1.7', '1.02', '1.01', '3.29e-05']
+  parallelepiped hull sum_n n^j|G||w|: j=1 7.246e-20 -> 1.110e-19; j=3 2.029e-17 -> 2.919e-17;  box |.|_1 out 6.77e-23
+  box |.|_3: 1.143e-19 -> 1.183e-19  (Zend block 3.99e-20, rest 7.31e-20); tail T: 1.79e-37 -> 4.24e-39
+  slab-wide sup |e|_j (j=0..3): ['6.43e-20', '1.15e-18', '2.99e-17', '8.62e-16'];  int <u_aa^2> = 1.429410708351443e-02 +/- 8.0e-22
+  time 32.9s  {base: 3.4, resid: 2.0, coef: 0.4, Pfloat: 1.8, defect: 21.6, apriori: 3.3, lohner: 0.3}  sub-intervals [(6, 0, 0), (9, 0, 0), (21, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0), (17, 0, 0)]

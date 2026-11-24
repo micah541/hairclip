@@ -1,0 +1,75 @@
+{
+ "alpha_max": 0.001,
+ "pad_c4": 0,
+ "regions": [
+  {
+   "name": "tip",
+   "xlo": 0.0,
+   "xhi": 12.0,
+   "eta0": 0.0001,
+   "eta1": 0.0001,
+   "nboxes": 1126
+  },
+  {
+   "name": "far",
+   "xlo": 12.0,
+   "xhi": 34.25,
+   "eta0": 0.0001,
+   "eta1": 0.0001,
+   "nboxes": 1113
+  }
+ ],
+ "sup": {
+  "tip": {
+   "(3, 0, 0)": 3.05191171169281,
+   "(2, 0, 0)": 4.744938969612122,
+   "(1, 1, 0)": 0.13630014099180698,
+   "(1, 0, 0)": 0.04132955434033647,
+   "(0, 1, 0)": 0.011993922918918543,
+   "(0, 0, 1)": 0.006857384993054438,
+   "A0": 0.44374873246040086,
+   "A1": 0.4971144518385201,
+   "sup|kU0|": 0.0016983306195470504,
+   "sup|U1|": 0.013622338476125151
+  },
+  "far": {
+   "(3, 0, 0)": 3.057969056069851,
+   "(2, 0, 0)": 0.013661621371284127,
+   "(1, 1, 0)": 0.46401538886129856,
+   "(1, 0, 0)": 2.906200305119455e-05,
+   "(0, 1, 0)": 0.0006910035635883105,
+   "(0, 0, 1)": 0.00427405143273063,
+   "A0": 1.256856130282813e-06,
+   "A1": 1.0343639431198426e-05,
+   "sup|kU0|": 1.054335747596724e-06,
+   "sup|U1|": 0.04610500595299527
+  }
+ },
+ "label": "cert (arb interval sups over hull boxes; inputs taken as certified)",
+ "args": {
+  "argv": [
+   "e2_nlin_regions.py",
+   "1e-3",
+   "0",
+   "nl_repro_a1e-3_eta1e-4.json",
+   "tip:0:12:1e-4:1e-4",
+   "far:12:34.25:1e-4:1e-4"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl/graph_struct.pkl": "646b444445b82eb435b094ba7e283a5e619c6cb3bbfa67f495070f9a18f4195d",
+   "/home/claude/s1_tight/prof/prof_tight.txt": "c55625ae0b1356a367270cd2d3a208cbb5eed9dae61b5187b2987a708fa07c77",
+   "/home/claude/s1spec/step3nl_v4/agent_int/c4switch/c4switch_S1.json": "28b01ab70f7c27a9275b18c10428eb87cf67ad129f0d499cd663719ff802d340",
+   "/home/claude/s1spec/step3nl/h2res.py": "1fb142954865eab8852b6c72fe63cf124cc87df2ec9808a426e84adb4123fa02",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/psi3md2_14.json": "f0b3348aace69762cb63dee523ac520aacae7246c66aa0571b7e6073340ef2a5",
+   "/home/claude/s1spec/step3nl/h2md_14.json": "d810075bb58ad65645a07139eaa929ee870c6164f4bc921db357e451683728db",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/e2_audit/e2_nlin_regions.py": "1b0e2a7c71414a9c2ba3ba2d5d1d013240694fd5a2c15b362c4bbaa6674e2b32"
+  }
+ },
+ "secs": 2.9
+}

@@ -1,0 +1,30 @@
+{
+ "C1_sym": true,
+ "C3_sym_boundary_at_0": true,
+ "C3_total_derivative_form": true,
+ "C4_num": {
+  "C5_ratio": 0.38291008603268906,
+  "sym_FDg_vs_DfG": 4.3555462647777214e-13,
+  "sym_FDg_vs_f2g2": 4.3099601478295246e-13
+ },
+ "C4_ok": true,
+ "C5_ok": true,
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "e2_identity_check.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/e2_identity_check.py": "d59ca321d7e5703253cbd43c6fcdb07feaa01910e4ddaa487079b0f4468aa045",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/v4bcommon.py": "b75fd5d82dcd12ff273dc884bef6ccb6b62877dcd0c3720a280b4f200d17321f"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ }
+}

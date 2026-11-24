@@ -1,0 +1,543 @@
+{
+ "res": {
+  "J0 up": {
+   "ok": true,
+   "info": 1.3448370327531806e-05
+  },
+  "slope0 up": {
+   "ok": true,
+   "info": 1.7296934169153337e-05
+  },
+  "J1 up": {
+   "ok": true,
+   "info": 7.2285048309362105e-06
+  },
+  "slope1 up": {
+   "ok": true,
+   "info": 1.5954804445150206e-05
+  },
+  "J2 up": {
+   "ok": true,
+   "info": 3.4849337336494745e-06
+  },
+  "slope2 up": {
+   "ok": true,
+   "info": 2.2128346793820554e-05
+  },
+  "J4 up": {
+   "ok": true,
+   "info": 1.2184083712321882e-05
+  },
+  "sJ4 up": {
+   "ok": true,
+   "info": 2.0023722166727637e-05
+  },
+  "sqLam up": {
+   "ok": true,
+   "info": 2.61372883513799e-07
+  },
+  "rho down": {
+   "ok": true,
+   "info": 8.388610681819297e-05
+  },
+  "abar == mod_sups": {
+   "ok": true,
+   "info": "2.14039e-07"
+  },
+  "beta == mod_sups": {
+   "ok": true,
+   "info": "2.35488e-09"
+  },
+  "1.5e-4 row dominates the 1.25e-4 row (J, slopes, peak, rho, sup_ab, sup_beta, M1, sI1, sI2, S_ramp)": {
+   "ok": true,
+   "info": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "mod_sups J/peak/rho == rate table": {
+   "ok": true,
+   "info": null
+  },
+  "rate table env FLUX0/FLUX2/S0V/S1V/V4B": {
+   "ok": true,
+   "info": [
+    "1.64e-20",
+    "8.0e-20",
+    "0.0153",
+    "0.6",
+    "1",
+    "fin13v4c",
+    "25",
+    "0.01"
+   ]
+  },
+  "all sha256 pins in args blocks match disk (259 pins, 131 files)": {
+   "ok": true,
+   "info": []
+  },
+  "files_without_args": [
+   "t2_A/base_ibp/lemmaS_B.json",
+   "t2_A/base_ibp/lemmaS_B3.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-05.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_dv05.json",
+   "t2_A/base_ibp/lemmaS_F1.json",
+   "t2_A/base_ibp/lemmaS_F1_scan.json",
+   "t2_A/base_ibp/lemmaS_F4.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_F9_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_L4b.json",
+   "t2_A/base_ibp/lemmaS_F4B_N5b_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_P1_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_P2_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_R5_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_R8_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F5_geom.json",
+   "t2_A/base_ibp/lemmaS_assembled.json",
+   "t2_A/base_ibp/lemmaS_cflux.json",
+   "t2_A/base_ibp/lemmaS_consts.json",
+   "t2_A/base_ibp/lemmaS_nested.json",
+   "t2_A/base_ibp/rigor/assembly_arb.json",
+   "t2_A/base_ibp/rigor/assembly_arb_pre_v33.json",
+   "t2_A/base_ibp/rigor/cap_F10p.json",
+   "t2_A/base_ibp/rigor/cap_F10p_pre_v33.json",
+   "t2_A/base_ibp/rigor/ramp_tables.json",
+   "t2_A/base_ibp/rigor/weights_exact.json",
+   "t2_A/base_ibp/rigor/weights_exact_pre_v33.json"
+  ],
+  "verifier_paths_pinned": [
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py",
+   "/home/claude/s1spec/step3nl/h2fun.py",
+   "/home/claude/s1spec/step3nl/psi3fun.py",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json",
+   "/home/claude/s1spec/step3nl_v4c/verifier/constants.py"
+  ],
+  "no pinned verifier path outside step3nl_v4b (or verifier-independent step3nl modules)": {
+   "ok": true,
+   "info": [
+    "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py",
+    "/home/claude/s1spec/step3nl/h2fun.py",
+    "/home/claude/s1spec/step3nl/psi3fun.py"
+   ]
+  },
+  "kappa_J certified reproduced": {
+   "ok": true,
+   "info": [
+    0.04242965327210912,
+    0.04242965327210913
+   ]
+  },
+  "kappa_J used - certified >= 1e-9 (1 ulp)": {
+   "ok": true,
+   "info": 1.000000010145651e-09
+  },
+  "C'/X_const <= 1e-9 pad": {
+   "ok": true,
+   "info": "margin x141.3"
+  },
+  "X_const >= sum of its parts, excess < 1e-9 relative (verifier-side rounding; info)": {
+   "ok": true,
+   "info": 3.749005159021563e-10
+  },
+  "c_dU_mine": "[1.46342737776e-8 +/- 3.16e-20]",
+  "c_dU < 2e-8": {
+   "ok": true,
+   "info": "[1.46342737776e-8 +/- 3.16e-20]"
+  },
+  "verifier LAMT literal == -0.2561532": {
+   "ok": true,
+   "info": null
+  },
+  "r0_mine": "[3.75163377348e-9 +/- 3.65e-21]",
+  "r2_export": {
+   "k": 2,
+   "z": "z_4 = d_s^4 (f - U), s = ln y",
+   "r_2": "1/1000",
+   "amin_c": {
+    "arb": "[0.976232249400864 +/- 3.04e-16]",
+    "double": 0.9762322494008643,
+    "bound": "lo",
+    "label": "cert"
+   },
+   "statement": "int_{tau_a}^{tau_a+T} int_{ln28}^{ln350} y^-4 (28/y) z_4^2 ds dtau <= C0_2 + C1_2*T  (all tau_a >= tau_1, T >= 0)",
+   "C0_ref": {
+    "arb": "[114.763281596121 +/- 1.24e-13]",
+    "double": 114.76328159612088,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_ref": {
+    "arb": "[0.0698137226942065 +/- 4.19e-17]",
+    "double": 0.06981372269420646,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_0": {
+    "arb": "[0.00621833844662229 +/- 4.67e-18]",
+    "double": 0.006218338446622295,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C0_ref4": {
+    "arb": "[116.359231420442 +/- 8.49e-14]",
+    "double": 116.35923142044192,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C1_ref4": {
+    "arb": "[0.260599875436956 +/- 5.03e-17]",
+    "double": 0.26059987543695595,
+    "bound": "up",
+    "label": "cert"
+   },
+   "C0_rule": "(EA_2 + D_2)/(r_2 amin_c)",
+   "C1_rule": "(2 F_2^2/gp_2 + coup_2 + o_2 + D_2^slope)/(r_2 amin_c);  C1_2(Nbar) = C1_0 + o_2/(r_2 amin_c)",
+   "window_data": {
+    "EA_2": {
+     "arb": "[0.0567838414674173 +/- 3.99e-17]",
+     "double": 0.056783841467417266,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_2": {
+     "arb": "[0.0552517750737886 +/- 3.55e-17]",
+     "double": 0.05525177507378864,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_window_const": {
+     "arb": "[0.0552014185248182 +/- 5.00e-17]",
+     "double": 0.05520141852481825,
+     "bound": "up",
+     "label": "cert"
+    },
+    "D_window_slope": {
+     "arb": "[6.05040279650139e-6 +/- 1.65e-21]",
+     "double": 6.050402796501392e-06,
+     "bound": "up",
+     "label": "cert"
+    },
+    "F2_2": {
+     "arb": "[4.15720668273544e-13 +/- 4.91e-28]",
+     "double": 4.157206682735435e-13,
+     "bound": "up",
+     "label": "cert"
+    },
+    "gp_2": {
+     "arb": "[0.119546641669329 +/- 1.24e-16]",
+     "double": 0.11954664166932887,
+     "bound": "lo",
+     "label": "cert"
+    },
+    "coup_rate_2": {
+     "arb": "[2.01410166411762e-8 +/- 2.34e-24]",
+     "double": 2.0141016641176204e-08,
+     "bound": "up",
+     "label": "cert"
+    },
+    "rho_w": {
+     "arb": "[5.50093391781117e-7 +/- 4.35e-22]",
+     "double": 5.500933917811175e-07,
+     "bound": "up",
+     "label": "cert"
+    }
+   },
+   "retained_core": {
+    "arb": "[0.00100100000000000 +/- 1e-22]",
+    "double": 0.001001,
+    "bound": "lo",
+    "label": "cert"
+   },
+   "Bc_core": "1688999/1000000"
+  },
+  "prod1 == prod2 for every JSON (bytes)": {
+   "ok": true,
+   "info": []
+  },
+  "in-place outputs == runs/prod2": {
+   "ok": true,
+   "info": []
+  },
+  "json_identical_to_v36_prod2": [
+   "t5_zone3/ramp_U.json",
+   "base_ibp/rigor/weights_exact.json"
+  ],
+  "data_files_older_than_prod2_start": [
+   "t2_A/base_v31H2/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_F10b_M0.45.json",
+   "t2_A/base_v31H2/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_F10b_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_R4_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_R5_M0.55.json",
+   "t2_A/base_v31H2/lemmaS_N5_M0.3.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json",
+   "t2_A/base_v31H2/lemmaS_R4_M0.6.json",
+   "t2_A/base_v31H2/cflux_forms.pkl",
+   "t2_A/base_v31H2/lemmaS_L4.json",
+   "t2_A/base_v31H2/lemmaS_F4B_N5b_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_P2_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_F1_scan.json",
+   "t2_A/base_v31H2/lemmaS_F10_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_1e-05.json",
+   "t2_A/base_v31H2/lemmaS_N1_M0.65.json",
+   "t2_A/base_v31H2/lemmaS_N1_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_Q5o_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_v31H2/lemmaS_T0.6.json",
+   "t2_A/base_v31H2/lemmaS_L4b.json",
+   "t2_A/base_v31H2/lemmaS_Q5o_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_S33_M0.55.json",
+   "t2_A/base_v31H2/lemmaS_S33b_M0.65.json",
+   "t2_A/base_v31H2/lemmaS_S33r30_M0.55.json",
+   "t2_A/base_v31H2/lemmaS_diag.json",
+   "t2_A/base_v31H2/lemmaS_P2_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_B.json",
+   "t2_A/base_v31H2/prop1_forms3.pkl",
+   "t2_A/base_v31H2/lemmaS_S33r30_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_F4B_L4b.json",
+   "t2_A/base_v31H2/lemmaS_F4B_R5_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_F10b_M0.4.json",
+   "t2_A/base_v31H2/lemmaS_F4B_F9_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_P2_M0.75.json",
+   "t2_A/base_v31H2/lemmaS_N5_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_F10p_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_T0.5.json",
+   "t2_A/base_v31H2/lemmaS_N1b_M0.575.json",
+   "t2_A/base_v31H2/lemmaS_F5_geom.json",
+   "t2_A/base_v31H2/lemmaS_mh0.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_3e-06.json",
+   "t2_A/base_v31H2/lemmaS_N1_M0.4.json",
+   "t2_A/base_v31H2/lemmaS_cflux.json",
+   "t2_A/base_v31H2/lemmaS_F4B_P1_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_BR14.4_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_Q5p_M0.4.json",
+   "t2_A/base_v31H2/lemmaS_F4.json",
+   "t2_A/base_v31H2/lemmaS_N5_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_R8_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_S33_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_N5_M0.4.json",
+   "t2_A/base_v31H2/lemmaS_R4_M0.55.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_3e-06_dv05.json",
+   "t2_A/base_v31H2/lemmaS_T0.75.json",
+   "t2_A/base_v31H2/lemmaS_BR0_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json",
+   "t2_A/base_v31H2/lemmaS_F1.json",
+   "t2_A/base_v31H2/lemmaS_N5_M0.65.json",
+   "t2_A/base_v31H2/lemmaS_R5_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_P2_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_N1_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_N1_M0.55.json",
+   "t2_A/base_v31H2/lemmaS_Q5o_M0.4.json",
+   "t2_A/base_v31H2/lemmaS_R5_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_P3_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_assembled.json",
+   "t2_A/base_v31H2/lemmaS_mh3.json",
+   "t2_A/base_v31H2/lemmaS_F2.json",
+   "t2_A/base_v31H2/lemmaS_BR7.2_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_F4B_P2_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_N5b_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_F9_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_P1000_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_P1_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_consts.json",
+   "t2_A/base_v31H2/lemmaS_F4B_R8_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_S33r30_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_P10000_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_P1_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_S33r300_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_nested.json",
+   "t2_A/base_v31H2/lemmaS_S33_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_Q5p_M0.5.json",
+   "t2_A/base_v31H2/lemmaS_Q5p_M0.6.json",
+   "t2_A/base_v31H2/lemmaS_B3.json",
+   "t2_A/base_v31H2/lemmaS_F10a_M0.52.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_3e-05.json",
+   "t2_A/base_v31H2/lemmaS_P1_M0.75.json",
+   "t2_A/base_v31H2/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_v31H2/lemmaS_mh10.json",
+   "t2_A/base_v31H2/prop1_forms.pkl",
+   "t2_A/base_v31H2/ref/lemmaS_F10p_M0.52.json",
+   "t2_A/base_v31H2/ref/assembly_arb.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_F10_M0.52.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_F10p_M0.52.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_consts.json",
+   "t2_A/base_v31H2/v3.0_backup/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_v31H2/v3.0_backup/rigor/cap_F10p.json",
+   "t2_A/base_v31H2/v3.0_backup/rigor/weights_exact.json",
+   "t2_A/base_v31H2/v3.0_backup/rigor/ramp_tables.json",
+   "t2_A/base_v31H2/v3.0_backup/rigor/assembly_arb.json",
+   "t2_A/base_v31H2/rigor/cap_F10p.json",
+   "t2_A/base_v31H2/rigor/tables_exact.pkl",
+   "t2_A/base_v31H2/rigor/weights_exact.json",
+   "t2_A/base_v31H2/rigor/ramp_tables.json",
+   "t2_A/base_v31H2/rigor/assembly_arb.json",
+   "t2_A/base_v31H2/rigor/lemmaS_rigcap_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F10b_M0.45.json",
+   "t2_A/base_ibp/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F10b_M0.52.json",
+   "t2_A/base_ibp/lemmaS_R4_M0.5.json",
+   "t2_A/base_ibp/lemmaS_R5_M0.55.json",
+   "t2_A/base_ibp/lemmaS_N5_M0.3.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_R4_M0.6.json",
+   "t2_A/base_ibp/cflux_forms.pkl",
+   "t2_A/base_ibp/lemmaS_L4.json",
+   "t2_A/base_ibp/lemmaS_F4B_N5b_M0.52.json",
+   "t2_A/base_ibp/lemmaS_P2_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F1_scan.json",
+   "t2_A/base_ibp/lemmaS_F10_M0.52.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05.json",
+   "t2_A/base_ibp/lemmaS_N1_M0.65.json",
+   "t2_A/base_ibp/lemmaS_N1_M0.5.json",
+   "t2_A/base_ibp/lemmaS_Q5o_M0.6.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_T0.6.json",
+   "t2_A/base_ibp/lemmaS_L4b.json",
+   "t2_A/base_ibp/lemmaS_Q5o_M0.5.json",
+   "t2_A/base_ibp/lemmaS_S33_M0.55.json",
+   "t2_A/base_ibp/lemmaS_S33b_M0.65.json",
+   "t2_A/base_ibp/lemmaS_S33r30_M0.55.json",
+   "t2_A/base_ibp/lemmaS_diag.json",
+   "t2_A/base_ibp/lemmaS_P2_M0.5.json",
+   "t2_A/base_ibp/lemmaS_B.json",
+   "t2_A/base_ibp/prop1_forms3.pkl",
+   "t2_A/base_ibp/lemmaS_S33r30_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_L4b.json",
+   "t2_A/base_ibp/lemmaS_F4B_R5_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F10b_M0.4.json",
+   "t2_A/base_ibp/lemmaS_F4B_F9_M0.52.json",
+   "t2_A/base_ibp/lemmaS_P2_M0.75.json",
+   "t2_A/base_ibp/lemmaS_N5_M0.6.json",
+   "t2_A/base_ibp/lemmaS_T0.5.json",
+   "t2_A/base_ibp/lemmaS_N1b_M0.575.json",
+   "t2_A/base_ibp/lemmaS_F5_geom.json",
+   "t2_A/base_ibp/lemmaS_mh0.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06.json",
+   "t2_A/base_ibp/lemmaS_N1_M0.4.json",
+   "t2_A/base_ibp/lemmaS_cflux.json",
+   "t2_A/base_ibp/lemmaS_F4B_P1_M0.6.json",
+   "t2_A/base_ibp/lemmaS_BR14.4_M0.6.json",
+   "t2_A/base_ibp/lemmaS_Q5p_M0.4.json",
+   "t2_A/base_ibp/lemmaS_F4.json",
+   "t2_A/base_ibp/lemmaS_N5_M0.5.json",
+   "t2_A/base_ibp/lemmaS_R8_M0.52.json",
+   "t2_A/base_ibp/lemmaS_S33_M0.5.json",
+   "t2_A/base_ibp/lemmaS_N5_M0.4.json",
+   "t2_A/base_ibp/lemmaS_R4_M0.55.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_dv05.json",
+   "t2_A/base_ibp/lemmaS_T0.75.json",
+   "t2_A/base_ibp/lemmaS_BR0_M0.6.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-06_a0.000125_dv0.1.json",
+   "t2_A/base_ibp/lemmaS_F1.json",
+   "t2_A/base_ibp/lemmaS_N5_M0.65.json",
+   "t2_A/base_ibp/lemmaS_F10p_M0.52_pre_v33.json",
+   "t2_A/base_ibp/lemmaS_R5_M0.6.json",
+   "t2_A/base_ibp/lemmaS_P2_M0.52.json",
+   "t2_A/base_ibp/lemmaS_N1_M0.6.json",
+   "t2_A/base_ibp/lemmaS_N1_M0.55.json",
+   "t2_A/base_ibp/lemmaS_Q5o_M0.4.json",
+   "t2_A/base_ibp/lemmaS_R5_M0.5.json",
+   "t2_A/base_ibp/lemmaS_P3_M0.52.json",
+   "t2_A/base_ibp/lemmaS_assembled.json",
+   "t2_A/base_ibp/lemmaS_mh3.json",
+   "t2_A/base_ibp/lemmaS_F2.json",
+   "t2_A/base_ibp/lemmaS_BR7.2_M0.6.json",
+   "t2_A/base_ibp/lemmaS_F4B_P2_M0.6.json",
+   "t2_A/base_ibp/lemmaS_N5b_M0.52.json",
+   "t2_A/base_ibp/lemmaS_F9_M0.52.json",
+   "t2_A/base_ibp/lemmaS_P1000_M0.52.json",
+   "t2_A/base_ibp/lemmaS_P1_M0.6.json",
+   "t2_A/base_ibp/lemmaS_consts.json",
+   "t2_A/base_ibp/lemmaS_F4B_R8_M0.52.json",
+   "t2_A/base_ibp/lemmaS_S33r30_M0.5.json",
+   "t2_A/base_ibp/lemmaS_P10000_M0.52.json",
+   "t2_A/base_ibp/lemmaS_P1_M0.5.json",
+   "t2_A/base_ibp/lemmaS_S33r300_M0.6.json",
+   "t2_A/base_ibp/lemmaS_nested.json",
+   "t2_A/base_ibp/lemmaS_S33_M0.6.json",
+   "t2_A/base_ibp/lemmaS_Q5p_M0.5.json",
+   "t2_A/base_ibp/lemmaS_Q5p_M0.6.json",
+   "t2_A/base_ibp/lemmaS_B3.json",
+   "t2_A/base_ibp/lemmaS_F10a_M0.52.json",
+   "t2_A/base_ibp/lemmaS_Bbox_3e-05.json",
+   "t2_A/base_ibp/lemmaS_P1_M0.75.json",
+   "t2_A/base_ibp/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_ibp/lemmaS_mh10.json",
+   "t2_A/base_ibp/prop1_forms.pkl",
+   "t2_A/base_ibp/ref/lemmaS_F10p_M0.52.json",
+   "t2_A/base_ibp/ref/assembly_arb.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_F4B_F10_M0.52.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_F4B_F10p_M0.52.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_F10_M0.52.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_Bbox_1e-05_a0.000125_dv0.15.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_F10p_M0.52.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_consts.json",
+   "t2_A/base_ibp/v3.0_backup/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+   "t2_A/base_ibp/v3.0_backup/rigor/cap_F10p.json",
+   "t2_A/base_ibp/v3.0_backup/rigor/weights_exact.json",
+   "t2_A/base_ibp/v3.0_backup/rigor/ramp_tables.json",
+   "t2_A/base_ibp/v3.0_backup/rigor/assembly_arb.json",
+   "t2_A/base_ibp/rigor/tables_exact.pkl",
+   "t2_A/base_ibp/rigor/cap_F10p_pre_v33.json",
+   "t2_A/base_ibp/rigor/weights_exact_pre_v33.json",
+   "t2_A/base_ibp/rigor/ramp_tables.json",
+   "t2_A/base_ibp/rigor/assembly_arb_pre_v33.json",
+   "t2_A/prov/zone3_provisional.json",
+   "t2_A/ref_phase2a/outer_rep.json",
+   "t2_A/ref_phase2a/weights_rep.json",
+   "t2_A/ref_phase2a/ramp_rep.json",
+   "t2_A/ref_phase2a/assembly_rep.json",
+   "t2_A/ref_phase2a/rerun_copy/outer_rep.json",
+   "t2_A/ref_phase2a/rerun_copy/weights_rep.json",
+   "t2_A/ref_phase2a/rerun_copy/export_for_U.json",
+   "t2_A/ref_phase2a/rerun_copy/assembly_rep.json",
+   "t5_zone3/out/ramp_U.json",
+   "n1/out/n1_chart_fin13v4b.json",
+   "n1/regtest/n1_chart_fin12f4.json"
+  ],
+  "prod2_mentions_of_v4b_or_fix6": []
+ },
+ "fails": [],
+ "args": {
+  "argv": [
+   "b_check.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "PYTHONDONTWRITEBYTECODE": null
+  },
+  "prec": 200,
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.000125.json": "6aaeff628dfaf5b2f056030a7feb5deafb2d878ccf89a0e8b8cefaade14a031e",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/modsups_fin13v4c/final_alpha_points_5e-8.json": "88d568f336dc6f251ea3a664d710d425307cee9ba514067febeece5cf92b60d9",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/hjw_rep.json": "b8c122a523b782faaf3ecc3217fdbe2afac64b06c8b80234fc5cf3f283969a8d",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t2_A/out/A_interface.json": "c48791b2eb78ff7bd7d87944651d726f41029f91cb629a945e97e6fafa967b42",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/out/u34_primary.json": "a97046dc9eba82140aeb4cd4e33ceffcd10057671e241eeb006f9282158bc98f",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/r3/r3_forcing.json": "2ceae90c803e6291a0807d96d6633669976dc1f126e27de568733442da168948",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix15_review/b/b_check.py": "3ae5e7cea1c18b145946c3b452903b345076fc124f6ededf1fc74f4723ca8fbc"
+  }
+ }
+}

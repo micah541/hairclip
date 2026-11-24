@@ -1,0 +1,603 @@
+{
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "flux2_coef.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code",
+  "env": {
+   "F2_NCELL": null,
+   "F2_VTAG": "fin13v4c",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/lin/lintail2.py": "a7231c8d678097b3d88f9e17daa97b69945c48fa6534679de15c388c2f755b1d",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.000125.json": "6aaeff628dfaf5b2f056030a7feb5deafb2d878ccf89a0e8b8cefaade14a031e",
+   "/home/claude/s1spec/step3nl_v4c/runs/P/rate_table_fin13v4c_a0.00015.json": "0f2abffba2a98a406ff81b070dfdf8274b501d73722db9d9361494a5449649bd",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out/c2_t3d.json": "3051e721189ad17e9905a55e9bcd761c7d7cb0c14e58667d51117e8782b470aa",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+   "/home/claude/s1spec/writeup/lemmaS/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/f2common.py": "4d813dc2c0af0dbf57717734d8ede9d147e0b170ff1d84518fa6980587f73242",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/flux2_coef.py": "dfb8c3b316891fb0f7fcca9868e9920dc112094b321edbdb7041fc338d717058",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_forms.json": "921b1fdc0027739dd0a39f907f2d7ef6948363f1df9213da0a8de0f77cad4f8b",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/out/flux2_forms.pkl": "83c2a91dd65476f8f25ebe3fa29328465759e9c64b42bd4d7ef950cf872c09af",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix3/flux/flux_cert.json": "1e4a262ef1b9dfcde084c76381af3596d4fb98d094476cc6fb99e773e9f85a91"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "C_eff > 13 on OR (drift sign used once, inside the one-sided diagonal)": true,
+  "OR sup A0      = 4.067165e-44 <= ZB value 1.461279e-22 (constants_v4.json)": true,
+  "OR sup A1      = 1.479193e-09 <= ZB value 2.452662e-09 (constants_v4.json)": true,
+  "OR sup B0      = 9.840615e-44 <= ZB value 2.984594e-22 (constants_v4.json)": true,
+  "OR sup B1      = 3.527974e-11 <= ZB value 1.142415e-10 (constants_v4.json)": true,
+  "OR sup DQ0     = 2.095545e-42 <= ZB value 6.253380e-21 (constants_v4.json)": true,
+  "OR sup DQ1     = 5.131567e-42 <= ZB value 1.299068e-20 (constants_v4.json)": true,
+  "OR sup EA0     = 4.012039e-44 <= ZB value 1.049209e-22 (constants_v4.json)": true,
+  "OR sup EA1     = 9.745776e-44 <= ZB value 2.164828e-22 (constants_v4.json)": true,
+  "OR sup c       = 3.365476e-03 <= ZB value 3.365476e-03 (constants_v4.json)": true,
+  "OR sup c_a     = 6.164050e-05 <= ZB value 6.164050e-05 (constants_v4.json)": true,
+  "OR sup c_b     = 1.651210e-01 <= ZB value 1.651210e-01 (constants_v4.json)": true,
+  "OR sup d010    = 1.535865e-04 <= ZB value 1.535865e-04 (constants_v4.json)": true,
+  "OR sup d010_a  = 1.507668e-06 <= ZB value 1.507668e-06 (constants_v4.json)": true,
+  "OR sup d010_b  = 3.789984e-03 <= ZB value 3.789984e-03 (constants_v4.json)": true,
+  "OR sup d100    = 1.366436e-06 <= ZB value 1.366436e-06 (constants_v4.json)": true,
+  "OR sup d100_a  = 4.033257e-09 <= ZB value 6.571239e-09 (constants_v4.json)": true,
+  "OR sup d100_b  = 3.304085e-06 <= ZB value 4.203762e-06 (constants_v4.json)": true,
+  "OR sup d110    = 4.114236e-01 <= ZB value 4.114236e-01 (constants_v4.json)": true,
+  "OR sup d110_a  = 3.789984e-03 <= ZB value 3.789984e-03 (constants_v4.json)": true,
+  "OR sup d110_b  = 1.015251e+01 <= ZB value 1.015251e+01 (constants_v4.json)": true,
+  "OR sup d200    = 3.410814e-03 <= ZB value 3.410814e-03 (constants_v4.json)": true,
+  "OR sup d200_a  = 3.044100e-06 <= ZB value 3.833564e-06 (constants_v4.json)": true,
+  "OR sup d200_b  = 2.514820e-03 <= ZB value 2.514820e-03 (constants_v4.json)": true,
+  "OR sup d300    = 3.045601e+00 <= ZB value 3.045601e+00 (constants_v4.json)": true,
+  "OR sup d300_a  = 8.382734e-04 <= ZB value 8.382734e-04 (constants_v4.json)": true,
+  "OR sup d300_b  = 2.245545e+00 <= ZB value 2.245545e+00 (constants_v4.json)": true,
+  "OR sup kU      = 3.825032e-44 <= ZB value 1.951648e-22 (constants_v4.json)": true,
+  "S7^(8) == 0 (mean-value form exact with nZ = 8)": true,
+  "W ratio r0 == 1 (coefficients c_ab/W are evaluated directly)": true,
+  "W(57) <= 1.6e-18": true,
+  "W(57) method check: same quintic definition, finer sums: W57 <= the F1 value": true,
+  "W(57) regression: mirror of the F1-era psi_lower reproduces lemmaS_cflux W57_upper bitwise": true,
+  "W(57): acb.integral enclosure of psi(57) lies inside the Riemann lower/upper sums": true,
+  "W(57): acb.integral enclosure radius < 1e-30": true,
+  "frak a_4 = sup |zeta| (coefficient of g'''') <= 1.001 (exactly <= 1)": true,
+  "profile: kU < 1e-30 on OR (so 1/(1 - kU) <= 1 + 2e-30)": true,
+  "rate tables: env (FLUX0, FLUX2, S0V, S1V) = (1.64e-20, 8.0e-20, 0.0153, 0.6) at both alpha points": true,
+  "regression: j = 1, j' = 0, abar = 0 reproduces F1 level-0 Gamma (rel <= 1e-12)": true,
+  "regression: kappa^(0) reproduces F1 (8.4244, 4.1592, 2.2596) (rel <= 1e-12)": true,
+  "z_0 <= 1.001 (cell enclosure; exactly 0 <= zeta <= 1 since S7 is monotone on [0, 1])": true,
+  "z_1 >= 35/48 and z_4 >= 280/27 (exact maxima; mean-value form encloses them)": true
+ },
+ "nb_psi": 8000,
+ "ncell": 3000,
+ "prec": 200,
+ "res": {
+  "ABAR_HYP": {
+   "label": "hyp",
+   "note": "typed modulation level; >= 2.19103e-7 (v36 zone3 assert) and 2.14041e-7 (v36cfg)",
+   "value": "1e-6"
+  },
+  "C1_OR": {
+   "arb": "[0.0018711854758540139975 +/- 7.05e-24]",
+   "label": "cert",
+   "note": "sup_OR |j'| = sup |c'| <= c_a + c_b s1",
+   "up": 0.0018711854758540142
+  },
+  "CBAR_OR": {
+   "arb": "[0.0033654761100478944660 +/- 3.75e-23]",
+   "label": "cert",
+   "up": 0.003365476110047895
+  },
+  "Gamma0": {
+   "0,0": {
+    "arb": "[1.1054232124602418885 +/- 2.18e-20]",
+    "label": "cert",
+    "note": "one-sided",
+    "up": 1.105423212460242
+   },
+   "1,0": {
+    "arb": "[6.2195206023148150720 +/- 2.04e-20]",
+    "label": "cert",
+    "note": "sup |c_ab|/W",
+    "up": 6.219520602314816
+   },
+   "2,0": {
+    "arb": "[4.8187750788680245861 +/- 4.29e-20]",
+    "label": "cert",
+    "note": "sup |c_ab|/W",
+    "up": 4.8187750788680255
+   },
+   "2,1": {
+    "arb": "[1.8416241515116116290 +/- 3.82e-20]",
+    "label": "cert",
+    "note": "sup |c_ab|/W",
+    "up": 1.8416241515116119
+   }
+  },
+  "K0nl_coef": {
+   "N0": {
+    "arb": "[1.4791934101199281898e-9 +/- 2.65e-29]",
+    "label": "cert",
+    "up": 1.4791934101199284e-09
+   },
+   "N1": {
+    "arb": "[0.00040451448952316584939 +/- 4.31e-24]",
+    "label": "cert",
+    "up": 0.0004045144895231659
+   },
+   "N2": {
+    "arb": "[0.0046623386810813547928 +/- 3.51e-23]",
+    "label": "cert",
+    "up": 0.004662338681081356
+   },
+   "note": "K0nl = (N_1 + KAP2 N_0) (coef.N2 N_2 + coef.N1 N_1 + coef.N0 N_0 + coef.w wbar omega_W)",
+   "w": {
+    "arb": "[4.0671653366627666504e-44 +/- 2.45e-64]",
+    "label": "cert",
+    "up": 4.067165336662767e-44
+   }
+  },
+  "K0w_coef": {
+   "arb": "[9.7457763314092790889e-50 +/- 5.68e-71]",
+   "label": "cert",
+   "note": "K0w = N_0 wbar omega_W * this",
+   "up": 9.74577633140928e-50
+  },
+  "KAP2": {
+   "arb": "[1.7428849959072723053 +/- 4.01e-20]",
+   "label": "cert",
+   "note": "sup_OR |2 zeta zeta' - psi' zeta^2|",
+   "up": 1.7428849959072725
+  },
+  "W57": {
+   "arb": "[1.3403047976277538104e-18 +/- 4.61e-38]",
+   "label": "cert",
+   "note": "W(57) = exp(-psi(57)), verifier psi (S7 blend, W = (1+x^2)^-2 on x <= 30.25)",
+   "up": 1.340304797627754e-18
+  },
+  "W57_lower": {
+   "arb": "[1.3403047976277534253e-18 +/- 4.00e-38]",
+   "dn": 1.3403047976277532e-18,
+   "label": "cert"
+  },
+  "W57_quintic_def": {
+   "arb": "[1.3521971761375276881e-18 +/- 3.30e-38]",
+   "label": "cert",
+   "note": "F1-era quintic-blend definition with this code (finer sums); regression only",
+   "up": 1.3521971761375279e-18
+  },
+  "W57_ratio_S7_over_F1typed": 0.9326045972807873,
+  "W57_upper_typed_old": 1.4371629751083212e-18,
+  "X0lin": {
+   "arb": "[12.053323846286085141 +/- 4.09e-19]",
+   "label": "cert",
+   "note": "sup_OR (jbar |zeta''''| + |C_eff zeta'|)",
+   "up": 12.053323846286087
+  },
+  "X2_pt_coef": {
+   "N0": {
+    "arb": "[12.056962292456455899 +/- 4.41e-19]",
+    "label": "cert",
+    "note": "frak X_pt = sum coef * (N_2, N_1, N_0, wbar omega_W)",
+    "up": 12.056962292456458
+   },
+   "N1": {
+    "arb": "[7.8087076201952312360 +/- 1.79e-20]",
+    "label": "cert",
+    "note": "frak X_pt = sum coef * (N_2, N_1, N_0, wbar omega_W)",
+    "up": 7.808707620195232
+   },
+   "N2": {
+    "arb": "[5.0323202551975345642 +/- 1.77e-20]",
+    "label": "cert",
+    "note": "frak X_pt = sum coef * (N_2, N_1, N_0, wbar omega_W)",
+    "up": 5.0323202551975355
+   },
+   "w": {
+    "arb": "[9.8406244061486096558e-44 +/- 4.00e-64]",
+    "label": "cert",
+    "note": "frak X_pt = sum coef * (N_2, N_1, N_0, wbar omega_W)",
+    "up": 9.840624406148612e-44
+   }
+  },
+  "amgm_weights_level0": {
+   "1,0": "3/4",
+   "2,0": "3/4",
+   "2,1": "1/2"
+  },
+  "coef_OR": {
+   "A0": {
+    "arb": "[4.0671653366627666504e-44 +/- 2.45e-64]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 4.067165336662767e-44
+   },
+   "A1": {
+    "arb": "[1.4791934101199281898e-9 +/- 2.65e-29]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 1.4791934101199284e-09
+   },
+   "B0": {
+    "arb": "[9.8406146603722758695e-44 +/- 2.82e-64]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 9.840614660372278e-44
+   },
+   "B1": {
+    "arb": "[3.5279742939976084949e-11 +/- 4.75e-31]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 3.527974293997609e-11
+   },
+   "DQ0": {
+    "arb": "[2.0955454855658360412e-42 +/- 7.45e-63]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 2.0955454855658364e-42
+   },
+   "DQ1": {
+    "arb": "[5.1315668701824986118e-42 +/- 3.17e-62]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 5.131566870182499e-42
+   },
+   "EA0": {
+    "arb": "[4.0120388378592095589e-44 +/- 4.18e-64]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 4.01203883785921e-44
+   },
+   "EA1": {
+    "arb": "[9.7457763314092790889e-44 +/- 5.68e-65]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 9.745776331409281e-44
+   },
+   "c": {
+    "arb": "[0.0033654761100478944660 +/- 3.75e-23]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.003365476110047895
+   },
+   "c_a": {
+    "arb": "[6.1640497165171864074e-5 +/- 4.35e-25]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 6.164049716517188e-05
+   },
+   "c_b": {
+    "arb": "[0.16512097930535679646 +/- 2.69e-21]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.16512097930535682
+   },
+   "d010": {
+    "arb": "[0.00015358652467512007170 +/- 1.39e-24]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.0001535865246751201
+   },
+   "d010_a": {
+    "arb": "[1.5076683759218671782e-6 +/- 3.16e-26]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 1.5076683759218674e-06
+   },
+   "d010_b": {
+    "arb": "[0.0037899841663602282585 +/- 1.45e-23]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.0037899841663602287
+   },
+   "d100": {
+    "arb": "[1.3664356561804429163e-6 +/- 1.49e-26]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 1.3664356561804431e-06
+   },
+   "d100_a": {
+    "arb": "[4.0332565690026650375e-9 +/- 2.22e-29]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 4.033256569002666e-09
+   },
+   "d100_b": {
+    "arb": "[3.3040852436272424996e-6 +/- 8.27e-27]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 3.304085243627243e-06
+   },
+   "d110": {
+    "arb": "[0.41142363427206884996 +/- 3.20e-22]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.4114236342720689
+   },
+   "d110_a": {
+    "arb": "[0.0037899841627222494514 +/- 6.21e-24]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.00378998416272225
+   },
+   "d110_b": {
+    "arb": "[10.152512157801542259 +/- 4.61e-19]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 10.152512157801544
+   },
+   "d200": {
+    "arb": "[0.0034108144063793597103 +/- 3.07e-23]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.00341081440637936
+   },
+   "d200_a": {
+    "arb": "[3.0441001683811927536e-6 +/- 4.79e-26]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 3.044100168381193e-06
+   },
+   "d200_b": {
+    "arb": "[0.0025148201748379514844 +/- 3.68e-23]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.002514820174837952
+   },
+   "d300": {
+    "arb": "[3.0456006526947030366 +/- 1.60e-20]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 3.0456006526947035
+   },
+   "d300_a": {
+    "arb": "[0.00083827339221898022371 +/- 4.05e-24]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 0.0008382733922189803
+   },
+   "d300_b": {
+    "arb": "[2.2455452159047135652 +/- 1.97e-20]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 2.245545215904714
+   },
+   "kU": {
+    "arb": "[3.8250316384528918415e-44 +/- 4.78e-64]",
+    "label": "cert",
+    "note": "c2_t3d.json tables/0.00025/ZB/sub/[57,60], raw +1 ulp",
+    "up": 3.8250316384528923e-44
+   }
+  },
+  "d110": {
+   "arb": "[0.41142363427206884996 +/- 3.20e-22]",
+   "label": "cert",
+   "up": 0.4114236342720689
+  },
+  "frak_a": {
+   "0": {
+    "arb": "[10.397440046528533486 +/- 2.55e-20]",
+    "label": "cert",
+    "note": "sup_OR |coefficient of g^(0) in D2v|",
+    "up": 10.397440046528535
+   },
+   "1": {
+    "arb": "[10.418087179432003353 +/- 1.44e-20]",
+    "label": "cert",
+    "note": "sup_OR |coefficient of g^(1) in D2v|",
+    "up": 10.418087179432005
+   },
+   "2": {
+    "arb": "[8.9734137429335998348 +/- 2.79e-20]",
+    "label": "cert",
+    "note": "sup_OR |coefficient of g^(2) in D2v|",
+    "up": 8.973413742933602
+   },
+   "3": {
+    "arb": "[4.4331727548796182603 +/- 4.15e-21]",
+    "label": "cert",
+    "note": "sup_OR |coefficient of g^(3) in D2v|",
+    "up": 4.433172754879619
+   }
+  },
+  "inf_Ceff": {
+   "arb": "[13.688 +/- 3.38e-4]",
+   "dn": 13.68766249801725,
+   "label": "cert",
+   "note": "C_eff >= this on OR (diagnostic: drift sign)"
+  },
+  "inf_psi1": {
+   "arb": "[1.2827 +/- 2.47e-5]",
+   "dn": 1.2826871164143083,
+   "label": "cert"
+  },
+  "jbar": {
+   "arb": "[1.0033654761100481156 +/- 4.33e-20]",
+   "label": "cert",
+   "up": 1.0033654761100483
+  },
+  "kappa0": [
+   {
+    "arb": "[8.4642869999154708438 +/- 2.74e-21]",
+    "label": "cert",
+    "note": "kappa^(0)_0",
+    "up": 8.464286999915473
+   },
+   {
+    "arb": "[4.1739443773796685022 +/- 1.49e-20]",
+    "label": "cert",
+    "note": "kappa^(0)_1",
+    "up": 4.173944377379669
+   },
+   {
+    "arb": "[2.2674466924534124601 +/- 1.10e-20]",
+    "label": "cert",
+    "note": "kappa^(0)_2",
+    "up": 2.267446692453413
+   }
+  ],
+  "kappa0_vs_F1": [
+   1.0047357481429768,
+   1.0035452645882237,
+   1.0035079705925285
+  ],
+  "omega_W": {
+   "arb": "[1.0222130470101137682e-9 +/- 3.14e-29]",
+   "label": "cert",
+   "up": 1.022213047010114e-09
+  },
+  "omega_W2": {
+   "arb": "[1.0449195134777007341e-18 +/- 2.51e-38]",
+   "label": "cert",
+   "note": "int_OR W <= W(57)/inf psi'",
+   "up": 1.044919513477701e-18
+  },
+  "profile": {
+   "STIP": "[-2.2491 +/- 8.11e-5]",
+   "kb": {
+    "arb": "[+/- 3.70e-44]",
+    "label": "cert",
+    "up": 3.694262210773664e-44
+   },
+   "mb": {
+    "arb": "[+/- 8.84e-44]",
+    "label": "cert",
+    "up": 8.836997592272369e-44
+   },
+   "pb": {
+    "arb": "[+/- 8.46e-43]",
+    "label": "cert",
+    "up": 8.455547759152655e-43
+   },
+   "qs": {
+    "arb": "[+/- 1.96e-86]",
+    "label": "cert",
+    "note": "|q - sigma|",
+    "up": 1.9596020627509958e-86
+   },
+   "sigma_max": {
+    "arb": "[57.750981000000322751 +/- 4.76e-19]",
+    "label": "cert",
+    "up": 57.75098100000033
+   },
+   "sigma_min": {
+    "arb": "[54.750872999999671720 +/- 2.94e-19]",
+    "dn": 54.750872999999665,
+    "label": "cert"
+   }
+  },
+  "regression_F1": {
+   "Gamma": {
+    "0,0": {
+     "F1": 1.0921058178805976,
+     "new": 1.0921058178805978,
+     "rel": 2.220446049250313e-16
+    },
+    "1,0": {
+     "F1": 6.1966717822265585,
+     "new": 6.196671782226559,
+     "rel": 2.220446049250313e-16
+    },
+    "2,0": {
+     "F1": 4.801756298319201,
+     "new": 4.8017562983192015,
+     "rel": 2.220446049250313e-16
+    },
+    "2,1": {
+     "F1": 1.835446998409795,
+     "new": 1.8354469984097952,
+     "rel": 2.220446049250313e-16
+    }
+   },
+   "bitwise_equal": 0,
+   "kappa0": [
+    {
+     "F1": 8.424391204911105,
+     "new": 8.424391204911107
+    },
+    {
+     "F1": 4.159198916744755,
+     "new": 4.1591989167447565
+    },
+    {
+     "F1": 2.2595203614721493,
+     "new": 2.2595203614721497
+    }
+   ]
+  },
+  "s0": {
+   "arb": "[0.015300000000000001099 +/- 1.21e-22]",
+   "label": "cert",
+   "note": "sup_OR |g| <= S0V (box B-e)",
+   "up": 0.015300000000000003
+  },
+  "s1": {
+   "arb": "[0.010958904109589042916 +/- 1.62e-22]",
+   "label": "cert",
+   "note": "sup_OR |g'| <= S1V/54.75 (box B-e; 54.75 <= inf y on OR)",
+   "up": 0.010958904109589045
+  },
+  "sup_abs_psi2": {
+   "arb": "[1.6953799860057756632 +/- 1.60e-20]",
+   "label": "cert",
+   "up": 1.6953799860057759
+  },
+  "sup_c0p": {
+   "arb": "[+/- 2.66e-85]",
+   "label": "cert",
+   "note": "sup_OR |c0'|, c0' = -(5/2) m p + k^2 q",
+   "up": 2.656202138433803e-85
+  },
+  "sup_k2": {
+   "arb": "[1.3647573299728297343e-87 +/- 3.67e-107]",
+   "label": "cert",
+   "up": 1.36475732997283e-87
+  },
+  "sup_psi1": {
+   "arb": "[1.3048495929688215256 +/- 2.63e-20]",
+   "label": "cert",
+   "up": 1.3048495929688217
+  },
+  "wbar": "0.5",
+  "x3": {
+   "arb": "[2.9311635416560428702 +/- 1.30e-20]",
+   "label": "cert",
+   "note": "x_3 = 4 z_1 jbar + d010 + d110 s1",
+   "up": 2.9311635416560433
+  },
+  "z": {
+   "0": {
+    "arb": "[1.0000155568525046501 +/- 9.39e-21]",
+    "label": "cert",
+    "up": 1.0000155568525049
+   },
+   "1": {
+    "arb": "[0.72917129217977627587 +/- 4.23e-21]",
+    "label": "cert",
+    "up": 0.7291712921797764
+   },
+   "2": {
+    "arb": "[0.83481540058736281029 +/- 1.84e-21]",
+    "label": "cert",
+    "up": 0.8348154005873629
+   },
+   "3": {
+    "arb": "[1.9444604407423344838 +/- 4.35e-20]",
+    "label": "cert",
+    "up": 1.9444604407423347
+   },
+   "4": {
+    "arb": "[10.370379017353492657 +/- 3.62e-19]",
+    "label": "cert",
+    "up": 10.370379017353494
+   }
+  }
+ },
+ "stage": "X2 flux2_coef"
+}

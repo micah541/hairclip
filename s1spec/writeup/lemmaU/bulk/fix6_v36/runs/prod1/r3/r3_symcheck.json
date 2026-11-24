@@ -1,0 +1,26 @@
+{
+ "1_yform_vs_sform": "0",
+ "2_level_0": "0",
+ "2_level_1": "0",
+ "2_level_2": "0",
+ "2_level_3": "0",
+ "3_noneps": "0",
+ "all_zero": true,
+ "args": {
+  "argv": [
+   "r3_symcheck.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/r3",
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/r3/r3_forcing.py": "a44b817e52ca41b4c04bb5ccae31e7045f1da144c6c62e86bda5d624514b0895",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/r3/r3_symcheck.py": "44218da9383b6310bae7cc526b9ca7907fdf78d6fead14b3a7f49a5c4fc9b509"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ }
+}

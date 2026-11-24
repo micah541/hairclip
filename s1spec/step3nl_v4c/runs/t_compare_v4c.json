@@ -1,0 +1,292 @@
+{
+ "regression_vs_fin13v4b": {
+  "rate_table_a0.00015": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.00015": {
+   "equal": true
+  },
+  "rate_table_a0.000125": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.000125": {
+   "equal": true
+  },
+  "final_alpha_points": {
+   "equal": true,
+   "diffs": []
+  },
+  "tail_cert_log": {
+   "equal": true
+  }
+ },
+ "double_run_fin13v4c": {
+  "rate_table_a0.00015": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.00015": {
+   "equal": true
+  },
+  "rate_table_a0.000125": {
+   "equal": true,
+   "diffs": []
+  },
+  "verify_log_a0.000125": {
+   "equal": true
+  },
+  "final_alpha_points": {
+   "equal": true,
+   "diffs": []
+  },
+  "tail_cert_log": {
+   "equal": true
+  }
+ },
+ "double_run_cert_chain": {
+  "e0_A2_budget_v4c.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e0_A2_budget_v4c.log": {
+   "equal_wo_timing": true
+  },
+  "e0_identities.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e0_identities.log": {
+   "equal_wo_timing": false
+  },
+  "e0_lemma_consts.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e0_lemma_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e0_strip_drift.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e0_strip_drift.log": {
+   "equal_wo_timing": true
+  },
+  "e0v4b_constants.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_consts.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e2_identity_check.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "e2_identity_check.log": {
+   "equal_wo_timing": true
+  },
+  "e2_nlin_regions.log": {
+   "equal_wo_timing": true
+  },
+  "e2_v4b_constants.log": {
+   "equal_wo_timing": true
+  },
+  "e2v4b_constants.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "nl_regions_a2.5e-4.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "r2_strip_ibp.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "r2_strip_ibp.log": {
+   "equal_wo_timing": true
+  },
+  "strip_cubic_v4c.json": {
+   "equal": true,
+   "byte_identical": true,
+   "diffs": []
+  },
+  "strip_cubic_v4c.log": {
+   "equal_wo_timing": true
+  },
+  "tc_weighted.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "tc_weighted.log": {
+   "equal_wo_timing": false
+  },
+  "tc_weighted.pkl": {
+   "byte_identical": true
+  }
+ },
+ "cert_chain_vs_fin13v4b": {
+  "e0_identities.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e0_identities.log": {
+   "equal_wo_timing": false
+  },
+  "e0_lemma_consts.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e0_lemma_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e0_strip_drift.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e0_strip_drift.log": {
+   "equal_wo_timing": false
+  },
+  "e0v4b_constants.json": {
+   "equal": false,
+   "byte_identical": false,
+   "diffs": [
+    "/sources/e0_lemma_consts: '/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0_lemma_consts.json' != '/home/claude/s1spec/step3nl_v4b/v4bcert/out/e0_lemma_consts.json'"
+   ]
+  },
+  "e2_consts.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e2_consts.log": {
+   "equal_wo_timing": true
+  },
+  "e2_identity_check.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "e2_identity_check.log": {
+   "equal_wo_timing": false
+  },
+  "e2_nlin_regions.log": {
+   "equal_wo_timing": true
+  },
+  "e2_v4b_constants.log": {
+   "equal_wo_timing": false
+  },
+  "e2v4b_constants.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "nl_regions_a2.5e-4.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "r2_strip_ibp.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "r2_strip_ibp.log": {
+   "equal_wo_timing": false
+  },
+  "tc_weighted.json": {
+   "equal": true,
+   "byte_identical": false,
+   "diffs": []
+  },
+  "tc_weighted.log": {
+   "equal_wo_timing": false
+  },
+  "tc_weighted.pkl": {
+   "byte_identical": true
+  }
+ },
+ "production_checks": {
+  "0.00015": {
+   "tail_ok": true,
+   "box_max_ratio": {
+    "Bb_IR_jet": 0.7475057733935293,
+    "Bc_w1_far_EI": 0.058028246813931206,
+    "Bc_w1_far_S0V": 0.7649999999999999,
+    "Bd_w_16_34": 0.02953517951670946,
+    "Bd_w_34_60": 0.7891314071814564,
+    "U3_strip_S0": 0.02953517951670946,
+    "U3_strip_S1": 0.058028246813931206,
+    "U3_strip_S2": 0.7729604161098664,
+    "Bf_mod_alpha": 0.32,
+    "Bf_mod_A": 5.308498612502412e-05,
+    "Bf_mod_W1": 0.0006682638182848848,
+    "E0_alpha": 0.64,
+    "E0_w_all34": 0.02953517951670946,
+    "E2_alpha": 0.64,
+    "E2_tip_jet": 0.32447853055939596,
+    "CF_w_16_31": 0.05907035903341892,
+    "CF_w1_16_31": 0.11605649362786241,
+    "CF_alpha": 0.16
+   },
+   "box_all_le_1": true,
+   "new_asserts_present": true,
+   "env_V4C": "1"
+  },
+  "0.000125": {
+   "tail_ok": true,
+   "box_max_ratio": {
+    "Bb_IR_jet": 0.7342298468594688,
+    "Bc_w1_far_EI": 0.05699764776169283,
+    "Bc_w1_far_S0V": 0.7649999999999999,
+    "Bd_w_16_34": 0.029010625877940843,
+    "Bd_w_34_60": 0.7891104250359056,
+    "U3_strip_S0": 0.029010625877940843,
+    "U3_strip_S1": 0.05699764776169283,
+    "U3_strip_S2": 0.759232407493391,
+    "Bf_mod_alpha": 0.26,
+    "Bf_mod_A": 5.214218086392492e-05,
+    "Bf_mod_W1": 0.0006563952526193053,
+    "E0_alpha": 0.52,
+    "E0_w_all34": 0.029010625877940843,
+    "E2_alpha": 0.52,
+    "E2_tip_jet": 0.31871569462298555,
+    "CF_w_16_31": 0.058021251755881686,
+    "CF_w1_16_31": 0.11399529552338566,
+    "CF_alpha": 0.13
+   },
+   "box_all_le_1": true,
+   "new_asserts_present": true,
+   "env_V4C": "1"
+  },
+  "tail_cert_log": "ADD=['a', 'b', 'c', 'd'] QUAD=True RAMP=table  (degrees: (lo=valuation, hi=top degree))\nmode radial: H=(0, 2)  L=(0, 1)  NEG=(0, 2)\n   required condition for mode radial: OK\nmode s     : H=(2, 5.0)  L=(0, 1)  NEG=(2, 2)\n   required condition for mode s: OK\nmode joint : H=(2.0, 5.0)  L=(0, 6)  NEG=(2, 2)\n   joint, floors=False (tot_s): H=(2.0, 5.0) L=(2, 6)\n   required condition for mode joint: OK\nSplit (version W): homogeneous part (floors=False, degrees >= 2 jointly in (alpha,x)) -> mode joint above, i.e. the scale-invariant tail lemma;\n  floor part = degree<2 terms (absolute strip, flux K0/K2, c0w V0, Phi_F-type constants): they sit in L only (checked: mode s, hi(L)<=2, and L-only in the lines above),\n  and enter the tail through the separate floor / L^1_loc argument (TAIL_LEMMA.tex), not through the scale-invariance condition.\nTAIL_CERT PASS: ALL STRUCTURAL CONDITIONS HOLD\n"
+ },
+ "verdict": {
+  "regression_vs_fin13v4b": true,
+  "double_run_fin13v4c": true,
+  "double_run_cert_chain": false,
+  "cert_chain_vs_fin13v4b": false,
+  "production_checks": true
+ }
+}

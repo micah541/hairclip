@@ -1,0 +1,707 @@
+% erratum_v44.tex -- text v44: erratum_v43.tex (fix24_texts_v43, unchanged) with Parts 1-7 verbatim, Part 8 (section S) with one correction marked [Text v44, check fix25 F-2:], \key defined (LaTeX compile fix26, defect 1), plus Part 9 (section T, text v44).  Built by fix27_texts_v44/tools/build_v44.py.  Text v44 not yet compiled.
+% erratum_v43.tex -- text v43: erratum_v42.tex (fix22_texts_v42, unchanged) with Parts 1-6 verbatim, Part 7 (section R) with four corrections marked [text v43], plus Part 8 (section S, text v43).  Built by fix24_texts_v43/tools/build_v43.py.  Not compiled.
+% erratum_v42.tex -- text v42: erratum_v41.tex (fix21_texts_v41, unchanged) verbatim as Parts 1-6, plus Part 7 (section R, text v42).  Built by fix22_texts_v42/tools/build_v42.py.  Not compiled.
+% erratum_v41.tex -- text v41: erratum_v40.tex (fix19_texts_v40, unchanged) verbatim as Parts 1-5, plus Part 6 (section Q, text v41).  Built by fix21_texts_v41/tools/build_v41.py.  Not compiled.
+% erratum_v40.tex -- text v40: erratum_v39.tex (fix17_texts_v39, unchanged) verbatim as Parts 1-4, plus Part 5 (section P, text v40).  Built by fix19_texts_v40/tools/build_v40.py.  Not compiled.
+%% erratum_v39.tex -- text v39: erratum_v38.tex (fix16_texts_v38, unchanged) verbatim as Parts 1-3, plus Part 4 (section O, text v39).  Built by fix17_texts_v39/tools/build_v39.py.  Not compiled.
+\documentclass[10pt]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,longtable,array}
+\geometry{margin=0.9in}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\providecommand{\key}[1]{\texttt{\detokenize{#1}}}% text v44 (LaTeX compile fix26, defect 1): \key was used but not defined; same definition as lemmaU
+\newcommand{\cert}{\textup{[cert]}}
+\newcommand{\est}{\textup{[est]}}
+\newcommand{\rev}{\textup{[rev]}}
+\newcommand{\paper}{\textup{[paper]}}
+\newcommand{\cc}{\emph{(cit.\ corr.)}}
+\newcommand{\Ghat}{\hat G}
+% v37 additions (\read is a TeX primitive, so the [read] label is \rdlab)
+\newcommand{\hand}{\textup{[hand]}}
+\newcommand{\rdlab}{\textup{[read]}}
+\newcommand{\sym}{\textup{[sym]}}
+\newcommand{\probe}{\textup{[probe]}}
+\newcommand{\flc}{\textup{[float of cert]}}
+\begin{document}
+\title{Erratum v44 to step~3 v3.1/v3.2/v3.3, the step-3 verifiers (fin11, fin12f4, fin13v4, fin13v4b) and step~4}
+\author{Bulk task 7a (Lemma U programme)}
+\date{v44, November 24, 2026 (first version November 13, 2026)}
+\maketitle
+
+\noindent\textbf{v39 (November 20, 2026; \fn{writeup/lemmaU/bulk/fix17_texts_v39/}, built by \fn{tools/build_v39.py}).} Parts~1--3 are \fn{fix16_texts_v38/erratum_v38.tex} verbatim; Part~4 (section O, at the end) is new: the records of the step-4 re-pin v38, the step-4 wording, and corrections of text v38.
+
+\noindent\textbf{v38 (November 20, 2026; \fn{writeup/lemmaU/bulk/fix16_texts_v38/}, built by \fn{tools/build_erratum_v38.py}).} Parts~1 and~2 are \fn{fix12_texts/erratum_v37.tex} verbatim; Part~3 (sections K--N, at the end) is new and governs where it settles or supersedes sections G, I, J of Part~2.
+
+\noindent\textbf{v37 (November 20, 2026; \fn{writeup/lemmaU/bulk/fix12_texts/}).} The earlier erratum (\fn{t7_assembly/erratum/erratum.tex}, November 13--14) is kept verbatim as Part~1 (sections A--E; its relative paths are as stated there); the new material is Part~2, sections F--J, at the end.
+
+
+\noindent\textbf{Scope.} No closed file was edited. Closed files covered:
+\begin{itemize}
+\item v3.1 step~3: \fn{writeup/step3_proof/step3_proof.tex}, \fn{writeup/lemmaS/lemmaS.tex}, and the scripts \fn{writeup/lemmaS/*.py}, \fn{writeup/lemmaS/rigor/*.py};
+\item v3.2: \fn{step3_proof_v32.tex}, \fn{amend_v32.tex}, \fn{lemmaS_v32/};
+\item the verifier \fn{step3nl/verifier/} (fin11);
+\item step~4: \fn{step4_proof.tex}, \fn{step4/p2/t9_lemmaO.py}, \fn{FINAL_manifest.json}.
+\end{itemize}
+The go/no-go and gap notes are listed for information. Paths are relative to \fn{/home/claude/s1spec/} unless they start with \fn{lemmaU/}, \fn{t2_A}, or \fn{step3_gap_v32/}, which are under \fn{writeup/}.
+
+\noindent\textbf{Labels.} \cert: arb with outward rounding, computed by a project script whose output is cited. \est: float model or estimate. \rev: a reviewer's scratch estimate. \paper: a hand argument. Every file:line was re-read for this erratum. Where a source report's citation was wrong, the corrected line is given and marked \cc.
+
+\begin{center}\small
+\begin{tabular}{p{0.32\linewidth}p{0.12\linewidth}p{0.46\linewidth}}\toprule
+group & items & effect certified?\\\midrule
+A.\ Lemma S(A) & 10 & yes, except A5 (the $I_3$ consumer was not identified) and the (B)-window part of A7 (not re-audited)\\
+B.\ Verifier & 2 & yes\\
+C.\ Go/no-go and gap notes & 2 & no (\est); superseded by certified Phase-1 values\\
+D.\ Step 4 & 1 & far family: yes (script); cone family: \paper{} on certified output\\\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Correction to the plain status wording.} ``v3.1/v3.2 holds with corrected constants under (F1) and (O)'' is true only if the hand-off list is extended by (H2f) (item A9). With the closed hand-off list alone, the repaired Lemma S(A) fails its flux input at the bootstrap level $2\hat E$, by the factor $0.7317$ \est{} (from certified components: hand arithmetic from a probe JSON, not a script output; review M8).
+
+\section*{A.\quad Lemma S(A) (v3.1; v3.2 inherits it unchanged)}
+v3.2 states that Lemma S(A) is unchanged (\fn{step3_proof_v32.tex:211}, \fn{amend_v32.tex:19}, \fn{:74}), so every item in this group applies to v3.2 too.
+
+Repaired chains:
+\begin{itemize}
+\item phase 2a: \fn{lemmaU/phase2a/A_repair/};
+\item task 2 (fin11): \fn{lemmaU/bulk/t2_A/};
+\item \textbf{v3.3} (fin12f4): \fn{lemmaU/bulk/t2_A_v33/}.
+\end{itemize}
+The v3.3 text is \fn{lemmaU/bulk/t3_proof/lemmaU.tex} together with \fn{t1_statements/STATEMENTS_r2.tex}.
+
+\subsection*{A1.\quad Core class $\{2,3,3\}$ certified with an assumed $\sup|z_2|\le3$}
+\textit{Closed code:} \fn{lemmaS/rigor/weights_exact.py:24} (\fn{M2STAR = 3}), \fn{:172}, \fn{:246} (\fn{s33='assumed'}). The certified run is \fn{lemmaS_F10p_M0.52.json}.
+\textit{Closed tex:} \fn{lemmaS.tex:19}, \fn{:349} (``closed by the $L^4$ identity and (one) integration by parts''). \fn{lemmaS.tex:89} calls $M_2^*=3$ superseded. The quotes are $\gamma'_2=0.143$ (\fn{lemmaS.tex:11}, \fn{step3_proof.tex:211}, \fn{:300}) and $\Ghat_{22}=6.58\cdot10^4$ ($\times2.33$; \fn{lemmaS.tex:27}, \fn{step3_proof.tex:224}).
+\textit{Effect} \cert{} (\fn{step3_gap_v32/gonogo/lemmaS_A_ibp_v31H2/rigor/assembly_arb.json}):
+\begin{itemize}
+\item $E_2=0.24704515$ (v3.1: $0.24704507$);
+\item $\gamma'_2$: $0.14306\to0.12355$;
+\item core $\Ghat_{22}$: $6.58\cdot10^4\to77720.9$ (margin $\times2.338\to\times1.977$);
+\item all box margins unchanged.
+\end{itemize}
+The claim holds; only quotes change.
+\textit{Repair:} \fn{s33 = ibp} in all repaired chains.
+
+\subsection*{A2.\quad Top pair $(j{+}1,j{+}1)$ on the ramp $[14,28]$ zeroed}
+\textit{Closed code:} \fn{lemmaS/lemmaS_F2.py:81} (\fn{out[j + 1] = {m: 0.0 ...}}); \fn{lemmaS/rigor/ramp_arb.py:72} (tables for $k\le j$ only) \cc{} (\fn{ramp_arb.py:105} does not exist; the file has 80 lines); \fn{assembly_arb.py:111}.
+\textit{Closed tex:} \fn{lemmaS.tex:209} (``no Young step, only $J_k$, $k\le j$''). The page-1 statement (\fn{lemmaS.tex:11}) and \fn{step3_proof.tex:211}, \fn{:290} rest on it.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/ramp_rep.json}, \fn{assembly_rep.json}):
+\begin{itemize}
+\item level 0: $+4.96\cdot10^{-8}$; level 1: $+1.04\cdot10^{-5}$ (direct data route);
+\item level 2: $+0.00984$, by integration by parts and Young against the ramp dissipation, $\delta=0.3178\,a_{\min}$ (slack $0.3200\,a_{\min}$);
+\item the direct route would cost $3.03$ at level 2.
+\end{itemize}
+The proof as written is incomplete. The claim holds with corrected constants (\S E).
+\textit{Repair:} \fn{t2_A_v33/rigor/ramp_rep.py}, Lemma~P.
+
+\subsection*{A3.\quad Cutoff$\times$jet classes on the ramp, including the jets created by integration by parts}
+\textit{Closed code:} \fn{lemmaS/rigor/ramp_arb.py:45} (the jet-free \fn{Abr[(i, r + u)]} for every Leibniz derivative); \fn{:30--35}, \fn{:50} (\fn{expand_ab}, full reduction); \fn{lemmaS_F2.py:24--30}, \fn{:49}, \fn{:56}, \fn{:138} \cc{} (\fn{ramp_arb.py:78, 82--83} do not exist).
+\textit{Closed tex:} \fn{lemmaS.tex:20} (H-L4r).
+\textit{Wrong:} the jets are omitted. The full reduction of $(0,3)$ and $(1,3)$ at level 2 creates $z_5$ and $z_4$ against non-vanishing weights.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/ramp_rep.json}):
+\begin{itemize}
+\item level 2: $+0.01176$ in total, made of
+  $(2,2,2)$ $0.00777$ ($\Phi=3.18\cdot10^{-5}$, sup weight 245, of which 190 from the derived jets),
+  $(2,3)$ $0.00316$, $(2,2,3)$ $7.1\cdot10^{-4}$, $(2,2)$ $1.05\cdot10^{-4}$, $(2,4)$ $1.9\cdot10^{-5}$;
+\item level 1: $4.6\cdot10^{-7}$; level 0: $1.9\cdot10^{-13}$.
+\end{itemize}
+The earlier ``$\lesssim1.5\cdot10^{-3}$'' \rev{} was low by about $\times8$.
+\textit{Repair:} one integration by parts only, with asserted class handlers (\fn{t2_A_v33/rigor/ramp_rep.py}).
+
+\subsection*{A4.\quad Profile jets $U_j$ ($j\ge2$) dropped}
+\textit{Closed code:} \fn{lemmaS/rigor/weights_exact.py:81--83}, \fn{:88}.
+\textit{Effect} \cert{} (\fn{phase2a/A_repair/out/weights_rep.json}):
+\begin{itemize}
+\item core $\Ghat_{jj}$: $2280.85/2351.49/77720.88\to2281.53/2372.05/79270.71$ ($\times1.936$);
+\item ramp $\Ghat_{22}$: $235592\to239176$;
+\item $\gamma'_2$: $-0.0025$.
+\end{itemize}
+The claim holds.
+
+\subsection*{A5.\quad $I_3$ assumes $2a_{\min}$ of level-1 dissipation}
+\textit{Closed code:} \fn{lemmaS/rigor/assembly_arb.py:175}. v3.1's core budget slack is $0.3/0.2\,a_{\min}$ at levels 0/1 (\fn{weights_exact.out:2--3}), so $I_3$ is low by a factor 10 \cc{} (CHECKPOINT quotes 0 at level 2; the file shows 0.4).
+\textit{Closed tex:} \fn{lemmaS.tex:11} ($I_3\le1.84\cdot10^{-21}+1.39\cdot10^{-27}(T-\tau_1)$), \fn{:21}, \fn{step3_proof.tex:221}.
+\textit{Effect} \cert: $3.370\cdot10^{-21}+1.603\cdot10^{-25}(T-\tau_1)$ at the v3.1 (H2) with (H2f) (\fn{t2_A/out/A_interface.json}); slope $1.617\cdot10^{-25}$ at the v3.3 setting.
+\textit{Not certified:} the consumer was not identified. No verifier input $I_3$ exists, and \fn{step3_proof.tex:200} lists only $K_0,K_2$. \fn{lemmaS.tex:27} claims $\ge10^3$ room; CHECKPOINT gives $\times10^3$ \rev.
+
+\subsection*{A6.\quad $UQ=1/20$ beyond its range}
+\textit{Closed code:} \fn{weights_exact.py:24}, used in \fn{window()} (\fn{:277--287}; $U(380)=0.086$) and in the core on $[220,350]$ ($U\le0.079$).
+\textit{Effect} \cert: the segment check $\varepsilon(220)\Ghat(U=0.08)\le\varepsilon(28)\Ghat_{\rm core}$ holds (\fn{phase2a/A_repair/out/weights_rep.json}; with the B3U boxes, \fn{t2_A/out/weights_t2.json}); window margins are unchanged.
+The claim holds; it was unproved in v3.1.
+
+\subsection*{A7.\quad Per-region convention at $y=28$}
+\textit{Closed code:} \fn{weights_exact.py:246}, \fn{:254} (separate $L^4$/S33 constants and separate $YC[j{+}1]$ in \fn{core()} and \fn{ramp()}); \fn{ramp_arb.py:29}, \fn{:57}. The boundary terms at 28 are dropped.
+\textit{Effect} \cert{} (\fn{t2_A/out/weights_t2.json}, \fn{A_interface.json}). The repair sets the ramp box equal to the core box $(0.11,0.52)$ (the verifier certifies $|yf_y|\le0.4396$), uses one $C^{1,1}$ $\tilde Y$ on $[14,700]$, and localises $L^4$/S33. Results:
+\begin{itemize}
+\item core $\Ghat_{22}=80141.6$ ($\times1.917$);
+\item $\gamma'=(0.242926,0.241064,0.119615)$;
+\item \textbf{ramp $M_1$ margin $\times2.05\to\times1.185$} (this replaces \fn{lemmaS.tex:9}, \fn{:17}; a design choice, to be checked in the task-8 review).
+\end{itemize}
+\textit{Not certified:} the (B) windows (\fn{weights_exact.py:277}) use the same convention and were not re-audited. They belong to Lemma S(B), which v3.1/v3.2 already take through (F).
+
+\subsection*{A8.\quad Outer cutoff never treated: new Hypothesis (O)}
+\textit{Closed code:} \fn{assembly_arb.py:102--104} (Rout $=350$; no outer term); the \fn{lemmaS_F1.py} docstring.
+\textit{Closed tex:} \fn{step3_proof.tex:81}, \fn{:272}; \fn{step3_proof_v32.tex:261}; \fn{amend_v32.tex:19}, \fn{:74} (``fixed rescaled $y\in[14,60]$'').
+\textit{Effect:} a new hypothesis (O) (\fn{t1_statements/HYPOTHESIS_O_r2.md}):
+\begin{itemize}
+\item (O1) $|f|\le0.11$, $|yf_y|\le0.52$ on $(60,350]$;
+\item (O2) $|f|\le\tfrac12$, $|yf_y|\le1$ on $[350,700]$;
+\item (O3) $|z_k|\le1$ on $[350,700]$, $k\le3$.
+\end{itemize}
+By (O3), $\bar N_k^2\le\ln2$ \paper. The certified affine export evaluated at $\bar N^2=(\ln2,\ln2,\ln2)$ (\fn{erratum/o3_outer_check.py} $\to$ \fn{o3_outer_check.json}, reruns byte-identical) gives \cert:
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+setting (verifier) & $\hat E$ at (O3) & FLUX0$/(2K_0)$ & FLUX2$/(2K_2)$\\\midrule
+v3.1 (H2)+(H2f) design (fin11) & $(8.9538\cdot10^{-7},\,2.02941\cdot10^{-4},\,0.255138)$ & $\mathbf{\times1.1245}$ & $\times1.6036$\\
+tightened (H2)+(H2f) design (fin11) & $(7.0538\cdot10^{-7},\,1.03941\cdot10^{-4},\,0.0561375)$ & $\times1.4598$ & $\times2.4468$\\
+v3.3 (fin12f4) & $(1.20538\cdot10^{-6},\,1.03941\cdot10^{-4},\,0.0561379)$ & $\times3.4546$ & $\times6.1153$\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Scope of $\times1.1245$ (review M8).} It certifies the flux line only (FLUX0$/(2K_0)$), computed with the A5 ramp box ($0.52$, not the closed $0.9$), the $C^{1,1}$ $\tilde Y$, and (H2f) at the design values $(5\cdot10^{-7},5\cdot10^{-6},10^{-5})$. It is not a certificate of the whole repaired Lemma~S(A) at the closed settings; the closed-version claim is ``flux line certified under (F1) + (O) + (H2f), with the ramp box of A5''. Step~4's (H2f)$_0$ is $3.1363\cdot10^{-7}$, margin $\times1.59$ against $5\cdot10^{-7}$ (\fn{M9\_H2f} of \fn{FINAL\_manifest\_v33.json}), so the design value dominates it; no script asserts $G_0\le5\cdot10^{-7}$ itself. $S_0^v$, $M_1$ and $\hat G_{22}$ were not recomputed at (O3); they move by less than 1\% \est.
+\textit{Repair:} Lemma U (zone III, Lemma N) supplies the outer data in v3.3.
+
+\subsection*{A9.\quad The datum of (A) covers $[14,60]$ only}
+\textit{Closed tex:} \fn{lemmaS.tex:25} (hand-off (2) ``on $[14,60]$''); \fn{step3_proof.tex:265}; \fn{step3_proof_v32.tex:301} (``(H2) gives $E_j(\tau_1)\le(2\cdot10^{-7},10^{-4},0.2)<2\hat E$'').
+\textit{Effect} \cert{} (\fn{t2_A/probe/asm_0_h3_v32.json}, setting v31). With the honest datum from (H2) and the (H3) windows, and nothing beyond $379.5$:
+\begin{itemize}
+\item $\hat E=(1.393\cdot10^{-6},2.455\cdot10^{-4},0.2716)$ and $K_0=2.802\cdot10^{-21}$;
+\item at $2\hat E$ (\fn{step3_proof.tex:261}, B2): $5.60\cdot10^{-21}>\mathrm{FLUX0}=4.1\cdot10^{-21}$, i.e.\ $\times0.7317$ \est{} (from certified components: hand arithmetic from the probe JSON, not a script output).
+\end{itemize}
+\textbf{The closed claim fails at the closed hand-off thresholds.}
+\textit{Repair:} the new hand-off condition (H2f), $\int_{60}^{700}\frac{28}{y}z_j^2\,\frac{dy}{y}\le H2f_j$.
+\begin{itemize}
+\item Step~4 certifies $G=(3.1363\cdot10^{-7},1.0034\cdot10^{-6},2.4351\cdot10^{-6})$ against $(10^{-6},5\cdot10^{-6},10^{-5})$, i.e.\ $\times3.188/4.983/4.106$ \cert{} (arb row of review M9, stage \fn{h2f\_camp\_arb}, \fn{step4/p2/out\_v33/h2f\_result\_arb.json}, in \fn{FINAL\_manifest\_v33.json} (21 stages, \fn{8bc47e83...}), not in the closed manifest).
+\item With (H2f) at the design values $(5\cdot10^{-7},5\cdot10^{-6},10^{-5})$, which dominate step~4's values, the repaired (A) closes at the v3.1 (H2) with fin11 and the factor 2: FLUX0$/(2K_0)=\times1.146$ (outer data at the reference values \est) and $\times1.1245$ at (O3) \cert{} (flux line only, see A8).
+\end{itemize}
+
+\subsection*{A10.\quad Point terms of the $C^2$ cutoffs, levels 0--2}
+\textit{Closed code:} the reduction $z_az_{a+1}\to\frac12c'z_a^2$ drops the boundary term at $y=28$ (\fn{ramp_arb.py:32}, \fn{lemmaS_F2.py:27}). Since $(\eta^2)^{(3)}(1)\ne0$, the $m=3$ monomial leaves a point term (location \paper).
+\textit{Effect} \cert{} (\fn{t2_A/out/a3_signs.json}): $g_c(28)=5.862\cdot10^{-4}$; $dE=(+6.41\cdot10^{-9},+3.00\cdot10^{-6},+9.7\cdot10^{-9})$; at level 2, Lemma~P(i) gives $-g_cz_2^2\le0$. The claim holds.
+
+\paragraph{Also flagged.} The (B)-exit check $S_{0,B}(y_E=50)\le S0V=0.0153$ (\fn{lemmaS_F4B.py:44--52}) fails with the repaired constants at the v3.1 (H2): $0.01854$ \cert. No consumer was found: the verifier's $S_0^v$ is the core sup on $[34.25,60]$ (\fn{step3_proof.tex:200}, \fn{:282}), at $\times1.981$. To be confirmed in review.
+
+\section*{B.\quad Verifier (fin11)}
+\subsection*{B1.\quad E-V1: flux floor $F_0$ missing on the march cells}
+\textit{Closed code:}
+\begin{itemize}
+\item \fn{closure.py:182} (march sum without $F_0D_k$; its docstring \fn{:170} has $+2F_0$); \fn{:175};
+\item \fn{rhs_iv.py:172}, \fn{:191} (\fn{L = L * cc(0.0)}) \cc{} (\fn{rhs_iv.py:198} is inside \fn{circ()});
+\item \fn{unc.py:16--27} (no constant term);
+\item $F_0$ enters only the tail slope, \fn{closure.py:197}.
+\end{itemize}
+\textit{Effect} \cert{} (\fn{t2_A/out/hjw_rep.json}): $F_0=3.28048\cdot10^{-22}$; the relative size is $F_0\tau_{\rm march}/X_c=4.81\cdot10^{-7}$ on every $J_m$. No quoted digit changes. It is absorbed in $\kappa_J$ (B2).
+
+\subsection*{B2.\quad H-J used window-uniformly}
+\textit{Closed tex:} \fn{lemmaS.tex:256} (layer-cake form), which needs $J_m(T)\le J_m+s_mT$ on every window.
+\textit{Effect} \cert: (W1) fails at every cell with $P_k\ge0$ and (W2) holds, so $\kappa_J=0.0423470+4.8\cdot10^{-7}=0.0423475$ (limit 0.13). All repaired numbers use $J_m(1+\kappa_J)$.
+
+\paragraph{v3.3 rerun (fin12f4).} \fn{step3nl_v33/} (\fn{V33_VERIFIER.md}), FLUX0 $=1.64\cdot10^{-20}$, FLUX2 $=8.0\cdot10^{-20}$ \cert:
+\begin{itemize}
+\item tail\_cert identical; $J_{0..4}$ unchanged to $10^{-6}$;
+\item slopes and $F_0$ $\times4$; $a^*/\alpha_F$: $107.3\to53.7$.
+\end{itemize}
+The E-V1 code is unchanged in the copy: $\kappa_J=0.0423504$ (\fn{t2_A_v33/out/hjw_rep.json}).
+
+\section*{C.\quad Go/no-go and gap notes (informational)}
+\textbf{C1.} \fn{step3_gap_v32/feas_P.py:11}, \fn{:20--22} apply $\gamma=-\mu$ to $|$coef$|$ tables (\fn{lemmaS_prop1_bounds.py:49}); YC at \fn{:36} \cc. Its $\Ghat=(21,302,2.7\cdot10^3)$ is wrong; the honest values are about $(4.9\cdot10^4,2.3\cdot10^4,7.8\cdot10^4)$ \est. The $K_{j,j+1}$ are unaffected, and $B_2$ moves by $\le2\%$ \rev. It is superseded by Phase~1 (certified $\Ghat_{22}\le2.77\cdot10^5$ and the $K$ table).
+
+\textbf{C2.} \fn{gap_v32.tex:23} quotes $\varepsilon(28)\Ghat_{22}=0.0044$; corrected, about $7.8\cdot10^4/28^4\approx0.13$ \est. The gap statement (\fn{:11}) is unaffected.
+
+\section*{D.\quad Step 4}
+\textbf{D1.} \fn{step4/p2/t9_lemmaO.py:63} computes \fn{ends} and never tests $|\xi|>XL$ (docstring \fn{:6}). \fn{step4_proof.tex:715} says the arc ``leaves $[-XL,XL]$ at both ends''.
+
+\textit{Far family (v3.2): not affected.} \fn{t9_lemmaO_far.py} checks $\xi(\pm G)\ge226.18>226$ explicitly, \fn{ok = true} \cert{} (\fn{p2/out/t9_lemmaO_far.json}, pinned).
+
+\textit{Cone family (v3.2, 18 cylinders, $L=r/4$): holds} \paper{} on certified output.
+\begin{itemize}
+\item The cells are consecutive closed $s$-intervals (\fn{t9_lemmaO.py:36--39}), so the first non-arc cell shares the arc's boundary point $P$.
+\item If $|\xi(P)|\le XL$, the arc cell enters \fn{hmax} (\fn{:67}), so $|\eta(P)|<HL$, and the neighbour has distance 0 to the box. That contradicts H8 (\fn{:70--76}).
+\item All 18 cone rows pass H8 (minimum $0.1360\,L\ge0.1\,L$) \cert{} (\fn{p2/out/t9_lemmaO_v32.json}, sha256 \fn{07ea3d75...}, pinned).
+\item Together with $\cos(\theta-\theta_c)>0$ (\fn{:62}), $[-X,X]$ is covered once.
+\item Preconditions: the arc start is $\ge28.75$; no mirror cells occur (the arc ends are $\le705\ll\tilde\ell$).
+\end{itemize}
+No script checks this implication. \fn{step4_proof.tex:715} should say ``follows from H8''.
+
+\textit{v3.3:} the fixed-$L$ family asserts the end test on a $1.3\,XL$ arc: $\xi\le-179.1$ and $\ge170.0$ against $XL=150$ \cert{} (\fn{step4/p2/out_v33/t9_lemmaO_v33.json}). The v3.2 $r/4$ family is superseded and is not a v3.3 input.
+
+\section*{E.\quad Status}
+\textbf{v3.1/v3.2 step 3:} Lemma S(A) holds with corrected constants under three conditions:
+\begin{enumerate}
+\item (F1);
+\item \textbf{(O)};
+\item the hand-off list \textbf{extended by (H2f)}. (H2f) is certified by step~4 in \fn{FINAL_manifest_v33.json}; without it, the factor is $\times0.7317$ \est{} (from certified components; hand arithmetic from a probe).
+\end{enumerate}
+The binding margin of the flux line at the closed settings (A5 ramp box, (H2f) at $5\cdot10^{-7}$) is FLUX0$/(2K_0)=\times1.1245$ \cert{} (flux line only; $S_0^v$, $M_1$, $\hat G_{22}$ at (O3) are under 1\% \est). Still open for the closed versions: the A7 ramp-box design (review), the (B)-window convention (A7) and the $I_3$ consumer (A5).
+
+\textbf{v3.3 (Lemma U):} it removes (F1) and (O), subject to the task-8 independent review.
+
+{\scriptsize
+\begin{longtable}{p{0.17\linewidth}p{0.2\linewidth}p{0.3\linewidth}p{0.22\linewidth}}\toprule
+quantity & v3.1 quote & repaired, v3.1 setting & v3.3 setting\\\midrule\endhead
+$\hat E$ & $3.12\mathrm{e}{-7}$, $1.81\mathrm{e}{-4}$, $0.248$ & $8.777\mathrm{e}{-7}$, $2.0288\mathrm{e}{-4}$, $0.25558$ ((O3): $8.954\mathrm{e}{-7}$, $2.0294\mathrm{e}{-4}$, $0.25514$) & $1.18766\mathrm{e}{-6}$, $1.03883\mathrm{e}{-4}$, $0.056585$\\
+$\gamma'$ & $0.246,0.246,0.143$ & $0.242926,0.241064,0.119615$ & same\\
+$S_0^v$ (vs 0.0153) & $0.00575$ ($\times2.66$) & $0.007724$ ($\times1.981$) & $0.007137$ ($\times2.144$)\\
+$S_1^v$ & $0.171$ & $0.1773$ & $0.1034$\\
+core $M_0$/$M_1$ & $\times5.86/\times2.82$ & $\times5.309/\times2.723$ & $\times5.464/\times4.443$\\
+core $\Ghat_{22}$ & $6.58\mathrm{e}4$ ($\times2.33$) & $80141.6$ ($\times1.917$) & same\\
+ramp $M_1$ box & $0.9$ ($\times2.05$) & $0.52$ ($\times1.185$) & same\\
+$K_0,K_2$ & $6.83\mathrm{e}{-22}$, $3.26\mathrm{e}{-21}$ & $1.789\mathrm{e}{-21}$, $6.151\mathrm{e}{-21}$ ((O3): $1.823\mathrm{e}{-21}$, $6.236\mathrm{e}{-21}$) & $2.339\mathrm{e}{-21}$, $6.456\mathrm{e}{-21}$\\
+flux at $2\hat E$ & $\times3.0,\times3.0$ & $\times1.146,\times1.626$ ((O3): $\times1.1245,\times1.6036$) & $\times3.505,\times6.196$\\
+$I_3$ & $1.84\mathrm{e}{-21}+1.39\mathrm{e}{-27}T$ & $3.370\mathrm{e}{-21}+1.603\mathrm{e}{-25}T$ & slope $1.617\mathrm{e}{-25}$\\
+$E_B$, $\gamma'_B$ & $(3.15\mathrm{e}{-7},1.83\mathrm{e}{-4},0.250)$, $0.2394$ & $(8.890\mathrm{e}{-7},2.0550\mathrm{e}{-4},0.25888)$, $0.23718$ & v3.1 only\\
+$\kappa_J$ & --- & $0.0423475$ & $0.0423504$\\
+$C_0$ export & --- & $8.623\mathrm{e}{-7}$, $2.4663\mathrm{e}{-4}$ & $1.11659\mathrm{e}{-6}$, $1.65440\mathrm{e}{-4}$\\\bottomrule
+\end{longtable}}
+v3.3 only \cert:
+\begin{itemize}
+\item Lemma U (\fn{t4\_cert/out/U\_cert\_v35.json}, \fn{960809fd...}; v3.3 final): late $M_1\times2.353$, $M_0\times4.892$; present $M_1\times2.770$, $M_0\times2.225$; loop gain $\le0.03904$;
+\item zone III: H6 $\times1.860$ (\fn{zone3\_interface.json}, \fn{45e8d4dc...});
+\item step~4 v33 (arb rows, review M9): (H2f) $\times3.188/4.983/4.106$; tightened (H2) of $w'$ $\times124.7/2124/641$; tightened (H2) in the variable $f-U_1$ (B0) $\times27.34/562.8/600.9$; fixed-$L$ cone slope $\times2.64$, H7 $\times2.30$, H4 $\times1119$; far-family Lemma~O H4 at every centre of hand-off radius $\ge490$: minimum $\times15.58$.
+\end{itemize}
+\noindent\textbf{v3.3 final (B0, M14, N1; Nov 14).} The v3.3 column above comes from \fn{t2\_A\_v33} (before B0, M3, G-A1 and N1). \textbf{Open item (O3-v35), explicit and not blocking:} its (O3) entries have not been recomputed on the new chain, the table above supplies no numbers for them and no source exists [TODO: source for (O3) values on t2\_A\_v35; \fn{o3\_outer\_check.py} would need a \fn{t2\_A\_v35} entry in its TREES list]; they are not used by v3.3, where Lemma~N derives the outer data instead of assuming (O3). Final values from \fn{fix2/n12/t2\_A\_v35/out/A\_interface.json} (\fn{78fe2f8e...}) at $N_2^{\rm ref}$ and \fn{asm\_design\_N2ref4.json} (\fn{46bae149...}) at $4N_2^{\rm ref}$, all \cert\ (bounds rounded up, margins down):
+\begin{itemize}
+\item $\hat E$ at $N_2^{\rm ref}$ $\le(1.2016\cdot10^{-6},1.0439\cdot10^{-4},0.056690)$; the Lemma~U supersolution $\hat E\le(1.2018\cdot10^{-6},1.0441\cdot10^{-4},0.056694)$;
+\item at $N_2^{\rm ref}$: $S_0^v$ against $0.0153$ $\times2.122$ (the verifier input is $S_0^v+\sup_{\rm core}|d|$), core $M_0$ $\times5.455$, core $M_1$ $\times4.435$, $\hat G_{22}$ $\times1.917$, ramp $M_1$ $\times1.184$, flux at $\beta_A=2$ $\times3.396/\times6.012$;
+\item at $4N_2^{\rm ref}$: $S_0^v$ $\times2.116$, core $M_0$ $\times5.450$, core $M_1$ $\times4.409$, $\hat G_{22}$ $\times1.917$, ramp $M_1$ $\times1.184$, flux $\times3.365/\times5.955$;
+\item B0: B2$'$ reads $\sup|v_A|+\sup_{\rm core}|d|\le0.0153$ (margin $\times2.116$ for the derived value), and (A) carries the profile difference $d$ at the datum, the ramp J conversion, the fluxes and S0V/S1V (\fn{B0\_REPORT.md});
+\item N1: v3.1 identified the verifier's $S_1$-chart variable $w'$ with the ray-graph quantity without proof, and v3.3 (B0) covered it only by a typed level-0 allowance $2\cdot10^{-7}$; the identification is now an exact lemma with certified bounds (\fn{fix2/n12/chart\_lemma.tex}, merged into \fn{lemmaS\_A\_v33.tex}; step-4 stage \fn{n1\_chart}); every margin moved by at most $0.06\%$;
+\item G-A1 (integration rule R-sup) is applied: $\hat E$ rose by $(6.7\cdot10^{-9},6.5\cdot10^{-8},3.0\cdot10^{-6})$ \est{} (measured in M14).
+\end{itemize}
+
+\clearpage
+\part*{Part 2 (v37, November 20, 2026): sections F--J}
+
+\noindent Written for fix round 12 (\fn{fix12_texts/}). Nothing closed or existing was edited; this file and \fn{ERRATUM_v37.md} are new. Everything before this part is the November 13--14 erratum, kept verbatim.
+
+\noindent\textbf{Paths in Part 2.} Relative to \fn{/home/claude/s1spec/writeup/lemmaU/bulk/} unless absolute. \fn{V33/} $=$ \fn{/home/claude/s1spec/step3nl_v33/} (tag fin12f4); \fn{V4/} $=$ \fn{/home/claude/s1spec/step3nl_v4/} (tag fin13v4); \fn{V4B/} $=$ \fn{/home/claude/s1spec/step3nl_v4b/} (tag fin13v4b; production run \fn{V4B/runs/P}).
+
+\noindent\textbf{Labels in Part 2.} As in Part 1, plus \hand: hand derivation, not machine-checked; \rdlab: verified by reading the cited file:line, or a certified input taken as given; \sym: exact sympy identity; \probe: interval branch-and-bound evaluation of an inequality whose new constants are \est{} (so the result is \est{} as a statement about the true inequality); \flc: a float quotient of certified values. Every number in Part 2 is copied from the named report or JSON. Where a report prints a ball midpoint or rounds a bound down, the outward value is given here (digits from the JSON) and the fact is noted.
+
+\noindent\textbf{Source reports (short names).}
+{\small
+\begin{longtable}{p{0.12\linewidth}p{0.8\linewidth}}\toprule
+short & file\\\midrule\endhead
+AUDIT & \fn{fix3/audit/AUDIT_RAMP.md} (G0, Opus, Nov 16)\\
+GI & \fn{fix5/g0_indep/G0_INDEP.md} (independent check of G0, Fable, Nov 19)\\
+SPEC & \fn{fix5/ei_spec/EI_SPEC.md} (E$_I$ derivation; \S7 old-to-new code table; \S11 SF/U items)\\
+V4R & \fn{V4B/V4_REPORT.md} (fin13v4)\\
+REV4 & \fn{fix5/v4_review/V4_REVIEW.md} (review of fin13v4; R-1..R-10)\\
+E0A, E2A & \fn{fix5/e0_audit/E0_AUDIT.md}, \fn{fix5/e2_audit/E2_AUDIT.md}\\
+V4BR & \fn{V4B/V4B_REPORT.md} (fin13v4b)\\
+R3R & \fn{fix4_r3/R3_REPORT.md} (tag v36pre, on fin12f4)\\
+V36R & \fn{fix6_v36/V36_REPORT.md} and \fn{fix6_v36/r3/r3_forcing.json} (tag v36, on fin13v4b)\\
+FLX1, ROUTE & \fn{fix3/flux/FLUX_REPORT.md} (flux lemma v1), \fn{fix3/ROUTE_DECISION.md}\\
+EF & \fn{fix8_flux2_impl/texts/erratum_flux2.tex} (E-F1..E-F5) and \fn{fix8_flux2_impl/out/flux2_cert.json}\\
+FREV & \fn{fix9_review/FLUX2_REVIEW.md}\\
+PRF & \fn{fix10_proofs/PROOFS_REPORT.md}\\\bottomrule
+\end{longtable}}
+
+\section*{F.\quad Defects found Nov 16--20, 2026 (fix rounds 3--10)}
+{\small
+\begin{longtable}{p{0.06\linewidth}p{0.5\linewidth}p{0.36\linewidth}}\toprule
+item & subject & status\\\midrule\endhead
+F1 & E$_I$ inequality of the tip-zone verifier (fin12f4) is not an upper bound (G0) & coded terms fixed in fin13v4, then fin13v4b; written E$_I$ lemma \fn{ei_lemma_v4.tex} \textbf{open}\\
+F2 & KREG$[12,16.25]$ typed below its certificate & fixed in fin13v4\\
+F3 & E0 energy block & fixed in fin13v4b (lemma \fn{V4B/e0_lemma/E0_LEMMA_v4b.tex}; partly \hand/\rdlab)\\
+F4 & E2 energy block & fixed in fin13v4b (Cauchy--Schwarz forms \hand)\\
+F5 & strip hypothesis $\sup|w'''|\le0.02$; tail $\alpha$-condition (REV4 R-2, R-3) & fixed in fin13v4b; one text conflict (F5c)\\
+F6 & R3: forcing constant $r_0$ of Lemma S(A) assumed $\tilde\lambda=-p/4$; $c_{\delta U}$ & fixed in v36; texts not edited\\
+F7 & outer-ramp flux lemma; form of hypothesis (I3) & flux lemma v2 certified; text items \textbf{open}\\
+F8 & V36\_REPORT rounds two design-setting quotes down & record only\\
+F9 & text defects in the v3.3 texts (and one closed v3.2 line) & \textbf{open}\\\bottomrule
+\end{longtable}}
+
+\subsection*{F1.\quad G0: the coded E$_I$ inequality of fin12f4 is not an upper bound}
+\textit{What was wrong.} The E$_I$ inequality (levels 0 and 2; \fn{V33/verifier/rhs_iv.py}, \fn{constants.py}, \fn{unc.py}, \fn{closure.py}) has no written derivation, and the code is not an upper bound for $\frac12\frac{d}{d\tau}(V_0^2+\varepsilon_IV_2^2)$. AUDIT: KILL (process verdict). GI: FIX-AND-RERUN; 18 terms absent (11) or under-covered (7), 17 typed constants rounded the wrong way, ASSEMBLY.md and code disagree in at least 7 places \rdlab. SPEC wrote the derivation and the old-to-new code table (\S7); implemented as fin13v4 (V4R), extended as fin13v4b (V4BR). Rows below are SPEC \S7 rows marked corrected/new/deleted; all fixed in fin13v4 (\fn{V4/verifier/rhs_iv.py}, NEW branch) unless stated; fin13v4b inherits them.
+
+\paragraph{F1a. Typed constants below their certified values} (AUDIT \S4, GI \S1.3; SPEC rows 2, 15, 35, 39) \cert{} (exact decimal comparison):
+{\small
+\begin{longtable}{p{0.27\linewidth}p{0.2\linewidth}p{0.3\linewidth}p{0.14\linewidth}}\toprule
+constant (\fn{V33/verifier/constants.py} line) & typed & certified raw & rel.\\\midrule\endhead
+AF (23) & $6.9555\cdot10^{-2}$ & $0.069555037634$ & $-5.4\cdot10^{-7}$\\
+CF0 $=c_3$ (24) & $0.4421$ & $0.442142686616$ & $-9.65\cdot10^{-5}$\\
+CF2 $=c_1$ (24) & $0.4235$ & $0.423527657147$ & $-6.53\cdot10^{-5}$\\
+CF3 $=c_0$ (24) & $0.4250$ & $0.425017231881$ & $-4.05\cdot10^{-5}$\\
+DS1, DS2 (25) & $1.5418\cdot10^{-2}$, $2.3648\cdot10^{-2}$ & $1.54183748\cdot10^{-2}$, $2.36481789\cdot10^{-2}$ & $-2.4\cdot10^{-5}$, $-7.6\cdot10^{-6}$\\
+SB, SA, IA (22) & $3.5955\cdot10^{-5}$, $1.3372\cdot10^{-4}$, $9.5997\cdot10^{-12}$ & $3.59551663\cdot10^{-5}$, $1.33720281\cdot10^{-4}$, $9.59970542\cdot10^{-12}$ & $-4.6\cdot10^{-6}$, $-2.1\cdot10^{-6}$, $-5.7\cdot10^{-7}$\\
+TQ $d_{010},d_{110},d_{300}$ (28) & $1.67\cdot10^{-3}$, $1.086$, $3.314$ & $1.67114\cdot10^{-3}$, $1.086422$, $3.3140088$ & $-6.8\cdot10^{-4}$, $-3.9\cdot10^{-4}$, $-2.7\cdot10^{-6}$\\
+TQ $d_{100}$ (28) & $1.1\cdot10^{-4}$ & $1.129\cdot10^{-4}$ (ramp region only) & $-2.6\cdot10^{-2}$\\
+FN[0], FN[1] (30); C3 (16) & $7.93\cdot10^{-7}$, $2.769\cdot10^{-6}$; $12.104$ & $7.93250\cdot10^{-7}$, $2.769321\cdot10^{-6}$; $12.104385$ & $-3.2\cdot10^{-4}$, $-1.2\cdot10^{-4}$; $-3.2\cdot10^{-5}$\\
+FNW[0] (31) & $1.09\cdot10^{-7}$ & $1.092\cdot10^{-7}$ & $-1.8\cdot10^{-3}$\\\bottomrule
+\end{longtable}}
+\noindent The $\pm1$ ulp on typed literals makes the double contain the decimal, not the certified value (AUDIT \S4, \fn{rhs_iv.py:14-16}). The TQ sups were computed for $\alpha\le10^{-3}$, so the true sups on the run are smaller (GI \S1.3). \textit{Fix:} \fn{V4/v4cert/out/constants_v4.json} (stage C5), 269 entries (raw, value, dir, source, key) with an assert that every value is outward; far TQ replaced by the zone$\times$level tables of stage C2 at $\alpha$-level $2.5\cdot10^{-4}$ (e.g.\ CBAR $3.365\cdot10^{-3}$ against typed $2.27\cdot10^{-2}$) \cert. \textbf{Fixed in fin13v4.}
+
+\paragraph{F1b. MU1 provenance} (SPEC row 40; GI 0-1). \fn{constants.py:19} MU1 $=0.1552$ exceeds the L-int certificate it cites ($0.155167$) and is valid only through \fn{agent_int/v2/v2_T4_P2_0.25.json} ($0.15552$) \rdlab. fin13v4 reads the certified $0.1555226$ from that file, rounded down. \textbf{Fixed in fin13v4.}
+
+\paragraph{F1c. (N1) top-order cross terms of $1-J^{-4}$} (AUDIT (N1); GI 0-3, 2-3; SPEC rows 3, 16). Level 0: \fn{rhs_iv.py:147} has $d_{001}V_2^2$ only; needed in addition $\sup|c'-2\psi'c|V_1V_2+\sup|\psi''c+\psi'c'-\psi'^2c|V_0V_2$ \hand{} (identity machine-checked, GI \fn{check_identity.py}); ASSEMBLY.md:78 lists ``$0.025V_1V_2$'', the code nothing. Level 2: \fn{:178} has $d_{001}V_4^2$ where the pairing gives $d_{001}V_4\|D2v\|$. Size at the typed box $d_{001}=0.0227$: $0.239$ (level 0) and $0.110$ (level 2) of the E$_I$ dissipation \cert{} (ratio of \hand{} coefficients, GI \S2.1); $0.030/0.011$ at the boxes reached (\est{} input). AUDIT: 10--20\% \est{} (Conflict 1). \textit{Fix:} SPEC \S4.3 (top order kept globally as $(cv''')'$, $c=1-J^{-4}$). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1d. (N2) $\beta$-, $\psi_1$-, $\psi_2$-couplings absent} (AUDIT (N2); GI 0-10, 0-11, 2-12; SPEC row 33). ASSEMBLY.md:80 lists them; \fn{rhs_iv.py} has no $\beta$ \rdlab. Cross term $\kappa/2$ up to 17\% of $\rho$ in rate units at $\alpha=1.5\cdot10^{-4}$; effect on the top eigenvalue $1.5\cdot10^{-6}$ \cert; degree-0 forcing part $2.73\cdot10^{-11}$ doubles the coded I0 forcing $2.84\cdot10^{-11}$ \cert{} (GI \S2.1). \textit{Fix:} SPEC \S4.9 T11, both levels, strip part of $\beta$ in state form. \textbf{Fixed in fin13v4.}
+
+\paragraph{F1e. Inner ramp $[10.25,16.25]$.} Level-0 quadratic/cubic monomials $d_{200}w''^2$, $d_{110}w''w'''$, $d_{300}w''^3$ not in term (a) (AUDIT 0.5b; GI 0-6; SPEC row 12). Term (a) $W_3,B,W_1$ coefficients low by $3.0\times,2.7\times,2.1\times$ if the top order is done globally \hand{} (GI 0-5); D4 entry replaced by $V_0\,$RQ (row 10); commutator $cK_4+c'K_3$ added (row 24). The chord (secant) table in $S$ (\fn{constants.py:39-48}) replaced by the row $\eta=10^{-3}$ plus an assert (row 36; GI 0-7: the secant holds there with 0.01\% to spare, still not a proof). Level 2: quasilinear commutator $(7.74,7.74,7.74,7.73)\cdot10^{-5}$ of CF \cert{} (AUDIT); nonlinear block not derivable as the code was organised (GI 2-10, radial degree 2.25), reformulated in SPEC \S4.3--4.6; modulation commutator $\le1.2709|(a,b)|W_1\|D2v\|$ \cert{} (AUDIT 2.6b), coded as TC2 $=1.27089$ (row 32; V4R C1; Conflict 4). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1f. Level-2 far block} (AUDIT 2.5b, 2.5c; GI 2-4..2-9; SPEC rows 19--23): \fn{rhs_iv.py:179} $2d_{200}\,$supv1$\,V_3\to2d_{200}s_ZV_2$ (index); $d_{300}\,$supv1$^2V_2\to3d_{300}s_Z^2V_2$ (factor 3); $d_{110}\,$supv1$(3V_3+1.31V_2)\to d_{110}s_G(3V_3+\mathrm{PSI1}\,V_2)$ (global sup); the else-branch $d_{110}\,$supv2$\,V_2$ (GN $=0$) deleted (not valid beyond 34.25); rows $d^a$, $d^b$, $E_{1c}$, $E_{0c}$ new; $Dd_{001}$ and $c'$ terms (GI 2-4). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1g. Modulation constants.} \fn{c62} ($62\,A_m V_2V_3$, \fn{rhs_iv.py:180}) \textbf{deleted} (row 26): no derivation; it silently covered the deficit of the level-2 $a$-transport constant, certified need $39.1842$ against the coded $39.16$ (AUDIT 2.6a). Now T2 $=39.18420$, Q2B $2.10\cdot10^{-4}$ (V4R C1; row 25). \fn{rhs_iv.py:144} \fn{am_phi * FnW(al)} $\to$ PHIAB$\cdot$Fn$(\alpha)$ (row 38; GI 0-14: FnW $7.3\times$ too small at small $\alpha$, $66\times$ in the $\alpha^3$ term; \fn{mod_sups.py:25} already used Fn). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1h. Forcing.} Level 2 coded as $1\cdot|\alpha|^3\|D2v\|$ (\fn{rhs_iv.py:181}), not an upper bound for $|\alpha|<1.64\cdot10^{-4}$, i.e.\ on the whole run (needed/coded $1.20$, $19.9$, $5.7\cdot10^4$ at $\alpha=1.5\cdot10^{-4},3.68\cdot10^{-5},6.9\cdot10^{-7}$ \cert, GI 2-11); replaced by FNW2$(\alpha)\,$DV (row 28). Level 0: FNW from the $C^3$ profiles, valid only as a sum; retyped with the $C^4$ triple (row 9). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1i. Small omitted terms} (rows 4, 13, 30, 31, 34): G\aa rding $e$-terms at level 2 ($|e_1|\le5.66\cdot10^{-6}$, $|e_0|\le5.11\cdot10^{-6}$); $c_0'w$ at level 2; range of $S_{\rm all}$ in the $c_0'w$ term, plus C0Hb ($1.9\cdot10^{-42}$ \cert, V4R C4); $A_0w$; the $O(k)$ terms T12 (constants \est, SPEC U-5; $|\cos|,|\sin|\le1$). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1j. SF-3: \fn{unc.lk()} not a majorant of $L$} (SPEC \S11; row 37). \fn{V33/verifier/unc.py:19-28} omits CABQ$\cdot$Amc$\cdot\alpha\cdot V_0$ (\fn{rhs_iv.py:151}) and CAB03$\cdot$Amc$\cdot\alpha\cdot D2v$ (\fn{:182}); size tiny \est, but the $J$ constants feed (A). \textit{Fix:} \fn{unc.lk_v4} linearises the same \fn{L_list} that \fn{rhs_pn} sums. \textbf{Fixed in fin13v4.}
+
+\paragraph{F1k. SF-4 / U-4: box hypotheses logged, not asserted.} Now asserted in \fn{closure.box_assert} at every step and at the tail anchor: B-b, B-c, B-d (incl.\ $|w(34.25)|+25.75\,S0V\le0.5$), strip $S_0..S_2\le0.02$, the modulation box. B-e ($S0V$, $S1V$ from (A)) remains an input. Worst ratios in fin13v4b: $0.789$, $0.773$, $0.765$, $0.747$ (V4BR). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1l. SF-1: E0 had no term for the strip part of $\beta$.} Fix: $+7.52\cdot$BTs$\cdot A$ in E0, BTs in state form (V4R). \textbf{Fixed in fin13v4.}
+
+\paragraph{F1m. U-3: strip part of the modulation bounds as a linear form} (\fn{V4/v4cert/u3_strip_form.py}, \cert/\rdlab). Two corrections: (i) \fn{linear_alpha_S0} multiplies $|\alpha|S_0$ (\fn{ibp_run.py}), so the old STRIP\_BETA counted it with $\alpha=1$; (ii) the lemma omitted the Neumann feedback on the strip sources (\fn{ibp_final.py:75-81}). Effect: STRIP\_BETA $1.06\cdot10^{-9}\to8.04\cdot10^{-11}$, STRIP\_AB $5.52\cdot10^{-9}\to4.37\cdot10^{-10}$ (\fn{V33/verifier/constants.py:76-77}), used in the $\alpha$-equation and \fn{mod_sups}; $\sup|\beta|$ falls 29\%. The fallback (constant kept, $F_0\times7.4$) was not needed. \textbf{Fixed in fin13v4} (further change in F5a).
+
+\paragraph{F1n. U-1 regularity lemma} for the energy identities: not written in fin13v4/v4b; now \fn{fix10_proofs/U1_regularity.tex}, proved \hand{} given (H6) smoothness at $t_1$, the Lean theorems (read, not compiled; $n=1$ not elaborated) and the DKS smooth-extension step (PRF). \textbf{Open} (review; inputs).
+
+\paragraph{Effect on the verifier outputs} ($\alpha_1=1.5\cdot10^{-4}$, $\sqrt{\Lambda_1}=5\cdot10^{-8}$). \cert; stored doubles as printed in V4R/V4BR (7 digits; not outward-rounded by the reports; the consumers round them, V36R \S3):
+{\scriptsize
+\begin{longtable}{p{0.22\linewidth}p{0.22\linewidth}p{0.22\linewidth}p{0.22\linewidth}}\toprule
+quantity & fin12f4 & fin13v4 & fin13v4b\\\midrule\endhead
+steps to the tail & 10 & 10 & 10\\
+peak $\sqrt\Lambda$ & $5.307458\mathrm{e}{-8}$ & $5.307698\mathrm{e}{-8}$ & $5.308562\mathrm{e}{-8}$\\
+tail $\rho$ & $2.693042\mathrm{e}{-3}$ & $2.684366\mathrm{e}{-3}$ & $2.677666\mathrm{e}{-3}$\\
+$\sqrt{L_F}$ & $9.871704\mathrm{e}{-10}$ & $9.887644\mathrm{e}{-10}$ & $9.900007\mathrm{e}{-10}$\\
+$\alpha_F$ & $6.866519\mathrm{e}{-7}$ & $6.876746\mathrm{e}{-7}$ & $6.884239\mathrm{e}{-7}$\\
+$J_0$ const / slope & $6.027237\mathrm{e}{-12}$ / $3.454743\mathrm{e}{-18}$ & $6.020438\mathrm{e}{-12}$ / $3.452361\mathrm{e}{-18}$ & $6.025378\mathrm{e}{-12}$ / $3.455292\mathrm{e}{-18}$\\
+$J_4$ const / slope & $6.236181\mathrm{e}{-8}$ / $3.574508\mathrm{e}{-14}$ & $6.242096\mathrm{e}{-8}$ / $3.579469\mathrm{e}{-14}$ & $6.247218\mathrm{e}{-8}$ / $3.582508\mathrm{e}{-14}$\\
+$\sup|(a,b)|$ (6 digits up) & $2.19103\mathrm{e}{-7}$ & $2.14024\mathrm{e}{-7}$ & $2.14041\mathrm{e}{-7}$\\
+$\sup|\beta|$ (6 digits up) & $3.33811\mathrm{e}{-9}$ & $2.35741\mathrm{e}{-9}$ & $2.35488\mathrm{e}{-9}$\\
+first cell rate $U$ & $+3.034406\mathrm{e}{-2}$ & $+3.035649\mathrm{e}{-2}$ & $+3.04299\mathrm{e}{-2}$\\\bottomrule
+\end{longtable}}
+\noindent At $\alpha_1=1.25\cdot10^{-4}$: $\rho$ $2.860963\mathrm{e}{-3}\to2.855715\mathrm{e}{-3}\to2.849387\mathrm{e}{-3}$. Regressions with the new terms off reproduce the previous tag bit for bit; double runs byte-identical apart from timing; tail\_cert PASS (V4R, V4BR). \textbf{Status:} coded terms in fin13v4b; written E$_I$ lemma \fn{ei_lemma_v4.tex} missing; no independent review of the v4b delta (FREV \S7 items 5, 6).
+
+\subsection*{F2.\quad KREG$[12,16.25]$ typed below its certificate}
+\fn{V33/verifier/constants.py:17}, \fn{KREG["12<x<=16.25"] = 3.0208e4}; the raw certified value is $30208.006$ (V4R, C5 row). Relative $-2\cdot10^{-7}$ \est{} (from the two printed values); KREG enters $S_{\rm ramp}$ (\fn{closure.py:35}). Fix: fin13v4 uses the arb value $1/\rho(16.25)$. \textbf{Fixed in fin13v4.} Source: V4R.
+
+\subsection*{F3.\quad E0 energy block (fin12f4 / fin13v4)}
+\textit{What was wrong} (E0A \S0--\S3; \fn{V4/verifier/}): E0-1/E0-2: PI3 $=0.01607$ (\fn{constants.py:14}) and f572 $=5.72$ (\fn{rhs_iv.py:40}) are valid numbers with a wrong derivation (ASSEMBLY.md:49; $n_3=7.52$ is not $\|\chi\hat\psi_3\|$, certified $7.6970$ \cert; $\beta_{12}$ dropped). \textbf{E0-3:} $\beta_{\rm Lin}$ missing (\fn{rhs_iv.py:221}, MODA $=25$); need Qfull $6.194+n_{3,123}m_{\rm new}=29.527$ \cert. E0-4: second-order pieces $+1.48\,\alpha A^2$ \cert. E0-5: nonlinear drift absent ($0.549$ \est). E0-6: $\Phi_1=1.083$ missing in the strip term (\fn{rhs_iv.py:237}; $+4.8\cdot10^{-8}A^2$ \cert). \textbf{E0-7:} ALIN sq $59.3<59.32715$, BB $6.2<6.21990$ (\fn{constants.py:16}); first cell $+8.4\cdot10^{-6}$, anchor $+1.9\cdot10^{-6}$ \cert{} probe. E0-8: alin covers $x\le31.25$ only. E0-9: MOD\_ALPHA $6.19<6.194179$ (dead). E0-10: other 7.52 literals valid as bounds of $n_{3,123}$ only. E0-11: $H_{31},H_{32}$ parts of $\beta_E$ (negligible).
+
+\textit{The V4 probe value.} V4R (``What remains unjustified'' item 1) set PI3, f572 to $0.01835$, $5.937$ and found the tail anchor rate $-2.684\cdot10^{-3}\to\mathbf{-2.85\cdot10^{-4}}$, first cell $+3.340\cdot10^{-2}$ \probe{} (\fn{V4/probe_E0/e0probe.json}), ``above the $-0.002$ the tail lemma needs''. Resolution: E0A reproduces it exactly ($-2.850049\cdot10^{-4}$, $+3.340046\cdot10^{-2}$) but the premise is wrong: with $\tilde w\perp f_1,f_2,f_3$ only the projected norm enters, $n_{3,123}\le6.5882$ \cert{} (S1), and the rank-one symmetrisation S2 halves the $\beta_3$ term; Pi3 needed $0.010385$ \cert+\rdlab, forcing $5.334$ against $5.72$. $-0.002$ is the design threshold $\rho_{\min}$ of \fn{closure.py:153}, not a lemma requirement. Fix F-B was implemented in fin13v4b with PI3, MODA, f572 \textbf{kept} and justified by \fn{V4B/e0_lemma/E0_LEMMA_v4b.tex}.
+
+\textit{Fix and numbers (fin13v4b; V4BR ``E0 part'')} \cert{} given reads unless stated:
+\begin{itemize}
+\item $A^2$ budget: Pi3$_{\rm true}$ (S1+S2) $=0.0103854$, slack $5.685\cdot10^{-3}$; need at $\alpha\le2.5\cdot10^{-4}$: $38.541$ = Qfull $6.194$ + $n_{3,123}m_{\rm new}$ $29.527$ + E0-4 pieces $2.27$ + drift $\mathbf{0.549308}$ \cert{} (\fn{e0_strip_drift.py}; was $0.549$ \est); excess $3.385\cdot10^{-3}$, \textbf{margin $\times1.679$} ($\times2.786$ at $\alpha\le1.6\cdot10^{-4}$); lemma stated for $\alpha\le$ AMAX\_E0 $=2.5\cdot10^{-4}$, asserted.
+\item Forcing budget $5.3439\le5.72$ ($\times1.070$) \cert.
+\item $n_{3,123}=6.588186$ \cert{} at \fn{rhs_iv.py:184}; \fn{qb752} stays $7.52\ge n_{3,123}$.
+\item Strip $\alpha$-linear form (E0-8) \cert, in state form; W1B now the raw core maximum $7.8967$; divergence form $T_c^{\rho\chi^2}$ \sym.
+\item ALIN from raw JSON, rounded up: sq $59.327153$, AB $35.868736$, W1B $7.896699$, BB $6.219904$. $\Phi_1$ in the strip commutator term.
+\item New terms coded with certified constants: H3 ($(a,b)$ $w$-parts; CA1 $32.0$, CB1 $1.032$), H2 (cubic drift, CD1 $0.607$), H4 (QAB$\,Q$ and strip parts of $(a,b)$; GABN $8.03$, LOOPC $5.65$), H5 ($\alpha^2$ remainders; RA2 $26.9$, RB2 $5.50$), H6 ($\beta$ beyond its lead, HOB $33.37$), H7 ($H_{31}/H_{32}$ part of $\beta_E$). Printed as in V4BR; outward values in \fn{V4B/v4bcert/out/e0v4b_constants.json}.
+\item \textbf{New hypothesis} $|w|\le0.02$ on $[0,34.25]$, asserted (worst ratio $0.030$).
+\item $\beta$ decomposition and the Cauchy--Schwarz forms of H3--H7 stay \hand; float check of the $\beta$ decomposition not done.
+\item Effect of the E0 part alone: $-0.6\%$ of $\rho$, $+0.18\%$ of $J_0$.
+\end{itemize}
+\textbf{Fixed in fin13v4b.} E0\_LEMMA\_v4b.tex not compiled. Sources: E0A, V4R item 1, V4BR.
+
+\subsection*{F4.\quad E2 energy block (fin12f4 / fin13v4)}
+\textit{What was wrong} (E2A; \fn{V4/verifier/rhs_iv.py:243-251}, byte-identical in fin12f4): \textbf{E2-1} \fn{modE2 AA} $=43.33A^2$ bounds only the $(a,b)$-lead coupling ($43.3271$ \rdlab); missing: the $\beta$ coupling, $(a,b)$ beyond the $2\times2$ lead ($0.0131A$; $622.4\alpha A$; $51.34Q$; $3.84\,$Fn; strip) and the $A_1(u),B_1(u)$ couplings; added $A\,D_q$ coefficient $0.1131$ at the anchor, $0.3380$ at $\alpha=1.6\cdot10^{-4}$, $0.5025$ at $2.5\cdot10^{-4}$ \cert. \textbf{E2-2} forcing factor needed $\mathbf{13.984}$ at $\alpha\le2.5\cdot10^{-4}$ \cert, coded 1 (\fn{rhs_iv.py:106}). \textbf{E2-3} \fn{rhs_iv.py:43} r143 $=14.34<14.343002687670673$; $5.2\cdot10^{-10}$ on the rate \cert. \textbf{E2-4} 8 of nd1..nd8, nf1..nf7 typed below their own certificate (e.g.\ nd4 $0.54<0.543880$, nd8 $3.05<3.052044$). \textbf{E2-5/6} jet box ($|w|,|w'|\le10^{-4}$, $\alpha\le10^{-3}$) asserted nowhere and false in the worst case ($1.355\cdot10^{-4}$ on $[0,12]$ \cert); at $\alpha$-level $10^{-3}$ four constants fail (up to $\times1.45$). \textbf{E2-7} strip part of $\chi N(w)$; needs SRW $=4.4292\cdot10^{-3}$ \cert. Audit probe: first cell $+0.03035649\to+0.03036965$, anchor $-0.00268437\to-0.00268121$.
+
+\textit{Fix (fin13v4b):} RM+NS terms $\times D_q$ (E2A \S5 F2; modE2 stays $43.33\ge43.3271$); \textbf{R143 $=14.343002687670673$} rounded up; FE2 $=1+\beta_F(n_3+2\alpha\|h_2\|)+\Phi_{ab}(N_{F12}+u_0')$ multiplies the three E2 entries of \fn{L_list} (about $13.98$ at $\alpha=2.5\cdot10^{-4}$; E2A: $13.984$); assertions E2\_alpha $\le2.5\cdot10^{-4}$ (ratio $0.64$) and \textbf{tip-jet hypothesis} $\sup(|w|,|w'|)\le10^{-4}$ on $[0,8]$ with $K=$ KREG$[4,8]$ (ratio $0.324$); nd, nf recertified at the asserted boxes and rounded up (e.g.\ nd4 $0.54\to0.205$). Effect: $+0.37\%$ of $\rho$, $-0.10\%$ of $J$. LAMT unchanged (verifier value $2.2458\cdot10^{-8}$ less negative, the safe direction; E2A \S6). \textbf{Fixed in fin13v4b.} Sources: E2A, V4BR.
+
+\subsection*{F5.\quad Strip hypothesis on $w'''$ and the tail $\alpha$-condition (REV4 R-2, R-3)}
+\paragraph{F5a. R-2.} The hypothesis $\sup|w'''|\le0.02$ on $\sigma\in[29,32]$ (SPEC SF-2) was used in STRIP\_BETA, STRIP\_AB (\fn{V4/verifier/closure.py:22, 157}, \fn{mod_sups.py:24-25}) and is not implied by $\Lambda$; REV4: S3 share $4.92\%$ of STRIP\_BETA \cert. Fix (\fn{V4B/v4bcert/r2_strip_ibp.py}, \cert): one integration by parts of the $4\chi'w'''$ commutator term; the S3 coefficient is 0. \textbf{STRIP\_BETA $8.040\cdot10^{-11}\to7.787\cdot10^{-11}$, STRIP\_AB $4.368\cdot10^{-10}\to4.227\cdot10^{-10}$}; only $S_0,S_1,S_2\le0.02$ needed (asserted). \textbf{Fixed in fin13v4b.}
+\paragraph{F5b. R-3.} The tail $\alpha$-condition was checked at the anchor only (\fn{V4/verifier/closure.py:156-158}) while STRIP\_BETA$/\sqrt l$ grows as $l$ falls. Fix: whole-tail check in \fn{closure.tail}; \textbf{margins $177.08$ and $175.10$} ($\alpha_1=1.5\cdot10^{-4}$, $1.25\cdot10^{-4}$); cross-check \fn{V4B/verifier/t_tail_alpha.py}: $177.11/175.13$ [num-arb]. \textbf{Fixed in fin13v4b.}
+\paragraph{F5c. Text conflict (not resolved here).} \fn{V4B/e0_lemma/E0_LEMMA_v4b.tex}, last paragraph (``Not covered here'', lines 99--101), still lists ``the strip hypothesis $\sup|w'''|\le0.02$ in STRIP\_BETA/STRIP\_AB (V4\_REVIEW R-2)'' as not covered; V4BR says R-2 removed it, and the same file's hypothesis list (lines 28--29) names only $S_0,S_1,S_2\le0.02$. \textbf{Open (text).}
+
+\subsection*{F6.\quad R3: honest forcing constant of Lemma S(A); $c_{\delta U}$ of Lemma U}
+\textit{What was wrong.} The forcing constant of (A) and the $\delta U$ lemma assumed $\tilde\lambda=-p/4$, i.e.\ $\alpha_\tau=-\frac p4\alpha+\beta$. With $\tilde\lambda=-0.2561532224577463$, $p=1.0246$: $DL=\max(|\tilde\lambda+p/4|,|\mathrm{LAMT}+p/4|)=3.2224577463\cdot10^{-6}$ (exact) (R3R \S2).
+\textit{Where.} \fn{t2_A_v35/rigor/assembly_rep.py} (E$_j$ forcing, export C1, \fn{f4b_honest}), \fn{base_ibp/rigor/assembly_arb.py} (\fn{window_loop}, \fn{f4b}), with $r_0=1.4(\bar\beta+1.02\alpha_1\bar a)$; \fn{t4_cert/u34_sweeps.py} ($c_{\delta U}$ with $\bar\beta$); texts \fn{fix1/lemmaU_rev/lemmaU_v34.tex:55-57} (Lemma dU: hypothesis $\alpha_\tau=-\frac p4\alpha+\beta$, value $\le1.7187\cdot10^{-8}$), \fn{lemmaS_A_v33.tex} step 6, \fn{numbers_A_v33.tex}; closed text \fn{writeup/step3_proof_v32/step3_proof_v32.tex:235} (R3R: ``P32:235-236''), the identity $\frac{d}{d\tau}[\alpha\lambda^{-p}]=(\beta-pa\alpha)\lambda^{-p}$ ($\tilde\lambda=-p/4$); not edited.
+\textit{Fix.} $r_0'=c_U(\bar\beta+DL\,\alpha_1)+c_Up\alpha_1(\bar a+\bar b/14)$; $F_j\le r_0'p^j\sqrt{I_{\rm int}}+\sqrt{F^\varepsilon_j{}^2}$ (cellwise, no series); $c_{\delta U}=c_U(\bar\beta+DL\,\alpha_1+p\bar a\alpha_1)/(p(\frac14-\bar a))$ under $\alpha_\tau=\tilde\lambda\alpha+\beta$.
+\textit{Effect on fin12f4 (v36pre)} \cert: $r_0'=5.03643\cdot10^{-9}$ (old $4.72029\cdot10^{-9}$, $\times1.066975$); $F_j$ $\times1.06961$, $\times1.07464$, $\times1.08923$; $\hat E_j$ up by at most $\times1.000394$; $\mathbf{c_{\delta U}}$ $\mathbf{1.71860\cdot10^{-8}\to1.96498\cdot10^{-8}}$ ($\times1.14336$); room against the typed $2\cdot10^{-8}$: $\times1.16373\to\times1.01782$ \flc{} ($c_{\delta U}<2\cdot10^{-8}$ asserted in arb). No margin fails (largest loss $\times0.99944$).
+\textit{Effect in v36} (\fn{fix6_v36/r3/r3_forcing.json}) \cert, outward digits from the JSON balls: $r_0^{\rm new}\le3.7516343\cdot10^{-9}$ (ball $[3.7516342034570612758\mathrm{e}{-9}\pm1.85\mathrm{e}{-29}]$; old $3.3426796\cdot10^{-9}$, ratio $1.122343351$); $F_j^2$ ($j=0,1,2$) $\le3.5931248\cdot10^{-13}$, $3.8197758\cdot10^{-13}$, $4.1572077\cdot10^{-13}$; $\mathbf{c_{\delta U}\le1.4634276\cdot10^{-8}}$ (ball $[1.4634275344469975636\mathrm{e}{-8}\pm3.00\mathrm{e}{-28}]$), $\bar\beta'=2.83824866194500\cdot10^{-9}$; $2\cdot10^{-8}/c_{\delta U}=\times1.36665$ \flc. (V36R prints $F_0^2=3.59312\cdot10^{-13}$ and the work order quotes $r_0^{\rm new}=3.75163\cdot10^{-9}$: truncated midpoints; Conflict 12.)
+\textit{Status.} Fixed in v36 (double run byte-identical). Texts not edited (Lemma dU hypothesis and value, v36 value $1.46343\cdot10^{-8}$; step 6; numbers\_A). \textbf{Text open.} Sources: R3R \S2--\S3, \S5, \S7; V36R \S3--\S4.
+
+\subsection*{F7.\quad Outer-ramp flux lemma ($[57,60]$); hypothesis (I3)}
+\paragraph{F7a. Flux lemma v1 (fix round 3) not closed at level 2} (FLX1). Level 0: $K_0\le3.9038\cdot10^{-21}$ at $\beta_A=2$ against FLUX0 $=1.64\cdot10^{-20}$ ($\times4.201$) \cert. Level 2, pointwise part: $P_2\le5.8864\cdot10^{-20}$ against FLUX2 $=8.0\cdot10^{-20}$ ($\times1.359$; was quoted $\times5.956$) \cert. Not bounded: T3 ($g'''^2$; $12.488\,N_3^2$, $N_3$ time-integrated only) and O4 ($\zeta''''(57^+)=-280/27$; needs $z_4$). No time-integrated consumer in the verifier \rdlab. Route (ROUTE): time-integrated absorption lemma plus a level-2 export $r_2=1/1000$ from (A).
+\paragraph{F7b. Defects of the v3.1 / v1 flux block} (EF):
+\begin{itemize}
+\item[(E-F1)] \emph{Cutoff shape.} v3.1 used a quintic cutoff; the verifier's is the septic $S_7((60-x)/3)$, $C^3$, $\zeta^{(4)}(57^+)=-280/27$. v2 tables use $S_7$ (\fn{flux2_coef.py}).
+\item[(E-F2)] \emph{Jet box.} v3.1: quasilinear coefficients with an a-priori jet box (M2--M5); v2: commutator of $L_1$ with $j=J^{-4}$ inside it, $j\in[1-\bar c,1+\bar c]$, $|j'|\le\bar c_1$, no jet box.
+\item[(E-F3)] \emph{Drift double use.} v1 used the drift sign in its one-sided diagonal and again to absorb the outer-ramp transport term (ROUTE \S4); v2 uses it once, with the transport inside the ball $C_{\rm eff}\in C\pm\bar a(|Q_u|+|C_u|)$.
+\item[(E-F4)] \emph{Trace route.} The endpoint route through $g^{(3)}(57)$ does not close $K_2^{\rm OR}$ (residue $\frac52g''(g^{(3)})^2$); v2 uses (A)'s level-2 export as a space-time $L^2$ bound of $g^{(4)}$ on $[57,60]$.
+\item[(E-F5)] \emph{$W(57)$.} $1.43716\cdot10^{-18}$ (\fn{lemmaS_cflux.json}) belongs to the quintic blend; for $S_7$, $W(57)\le1.3404\cdot10^{-18}$ (FREV: $\le1.340304797627754\cdot10^{-18}$ \cert). The (A)-chain flux block (records only, also in v36) still uses the old value.
+\end{itemize}
+\paragraph{F7c. Level-2 modulation bound had no ramp term} (ROUTE \S4; FLX1 \S4 item 4; \fn{V33/verifier/rhs_iv.py:178-180}). Inner ramp: fixed in fin13v4 (F1e). Outer ramp: inside flux lemma v2 (E-F3).
+\paragraph{F7d. Flux lemma v2} (\fn{fix8_flux2_impl/out/flux2_cert.json}) \cert, outward digits from the JSON: $\bar K_0\le3.4098535\cdot10^{-21}$; $K_2^{\rm pt}\le1.3900119\cdot10^{-19}$; combined margin $(\mathrm{FLUX0}+\varepsilon_I\mathrm{FLUX2})/(\bar K_0+\varepsilon_IK_2^{\rm pt})\ge\times4.8044192$; $K_0$ vs FLUX0 $\ge\times4.8095908$; slack $s\ge1.0390701\cdot10^{-21}$; $C'\le2.6523207\cdot10^{-26}$; $S'\le1.0551032\cdot10^{-28}$; conditions C0--C7, C9 pass; C8 (U-1) open. FREV reproduces these; $\bar K_0$ is conservative by $\times3.4$ (direct pair form $1.00289\cdot10^{-21}$, combined margin $\times16.29$).
+\paragraph{F7e. The hypothesis must be the combined (I3$'$)} (FREV \S7 T4). \fn{K2pt_vs_FLUX2_record} $=1.737514777695357$ (FREV: $1.74$): $K_2^{\rm pt}$ alone exceeds FLUX2, so \textbf{any sentence ``$K_2\le$ FLUX2'' is false for the new $K^{\rm OR}$}. The E$_I$ lemma must assume $\mu(K_0+\varepsilon_IK_2)\le\mu(\mathrm{FLUX0}+\varepsilon_I\mathrm{FLUX2})$, pointwise plus the time-integrated part through the absorption lemma ($C'$ channel). The verifier consumes only the sum $F_0=\mu(\mathrm{FLUX0}+\varepsilon_I\mathrm{FLUX2})$ (\fn{closure.py:144}; ROUTE \S2.1), so the coded runs are unaffected.
+\textbf{Status:} v2 certified, reviewed ``sound modulo listed items''. Open: U-1 review, text items T1--T4, the written E$_I$ lemma with (I3$'$), pinning of \fn{fix8_flux2_impl/out/*}. Sources: FLX1, ROUTE, EF, FREV \S5--\S7.
+
+\subsection*{F8.\quad V36\_REPORT rounds two design-setting quotes down}
+\fn{fix6_v36/V36_REPORT.md} \S6 (and its verdict line ``$C0_2=114.78$, $C1_2=0.0698$'') quotes $C0_2=114.782$, $C1_2=0.0698142$; certified $114.78222\ldots$ and $0.069814238\ldots$ (PRF item 7). No effect: nothing consumes the design setting; A\_interface's \fn{C0_ref}/\fn{C1_ref} are correct upper bounds; flux lemma v2 uses the $4N_2^{\rm ref}$ values $C0_2\le116.3782$, $C1_2\le0.2606004$ \cert{} (PRF). Record only; quote $114.7823$, $0.06981424$ in any text.
+
+\subsection*{F9.\quad Text defects in the v3.3 texts (and one closed line)}
+None was edited; all \textbf{open} in the v3.3 texts. (Other agents were writing v37 texts in \fn{fix12_texts/} at the same time, e.g.\ \fn{lemmaS_A_v37.tex}, \fn{lemmaU_v37.tex}, \fn{continuation_v37.tex}; this erratum did not read them, so whether they fix these items is not checked here.)
+\begin{enumerate}
+\item \fn{fix1/b12_text/lemmaS_A_v33.tex:106} ``$r_2=0$''; \fn{:302} ``Level 2 exports nothing ($r_2=0$)''; \fn{:199} core $B_c=(\frac{11}{20},\frac9{20},\frac{169}{100})$, retained $(1.25,1.25,0)$. v36: $B_c^{(2)}=1688999/10^6$, retained $0.001001\ge r_2=1/1000$ \cert{} (V36R \S6; PRF item 6).
+\item \fn{fix1/lemmaU_rev/lemmaU_v34.tex:150, 190}: Lemma D stated for $k\in\{0,1\}$ ($r_k=1.249$); holds verbatim for $k=2$ with $r_2=1/1000$; proof \fn{fix10_proofs/G1_export_k2.tex} \hand+\cert{} (PRF item 6).
+\item \fn{lemmaU_v34.tex:55-57}, \fn{:478}: Lemma dU hypothesis and value (F6).
+\item \textbf{(GS) missing} from the hand-off list and the continuation bootstrap ((GS): the tip arc is a normal graph over S1 on $|x|\le60$ at $\tau_1$); implicit in step~4's certification of $\Lambda(\tau_1)$; \fn{fix1/b12_text/continuation_v33.tex} should add it next to (G) (PRF item 4).
+\item \fn{V4B/e0_lemma/E0_LEMMA_v4b.tex:99-101}: stale sentence (F5c).
+\item \fn{E0_LEMMA_v4b.tex} ``E2 couplings'' prints $d_{ab}=0.0131136$; raw DAB $=0.013113620982$ (E2A; ``$0.0131137$'' in its \S1): display rounded down in the last digit \rdlab; the code reads the JSON.
+\item Flux lemma v2 text: \fn{flux2_lemma_v2.tex:182} ``Status. Design. Open\ldots''; \fn{:70} ``To be asserted in sympy''; \fn{:3} placeholders (FREV T1); march first-touch argument only as a docstring (T2); the bootstrap set must list (B$\Phi$), $\bar a=10^{-6}$, boxes B-a..B-e (T3); combined (I3$'$) (T4).
+\item Closed: \fn{writeup/step3_proof_v32/step3_proof_v32.tex:235}, identity with $\tilde\lambda=-p/4$ (F6). Not edited; this erratum is the correction.
+\end{enumerate}
+
+\section*{G.\quad Status (v37, November 20, 2026)}
+\textbf{Step 3 is not closed.} Nothing in Part 2 is called closed.
+\begin{itemize}
+\item \textbf{v3.1/v3.2:} as in \S E. In addition the fin12f4 certificate is invalid as written (F1--F4); fin12f4 is a copy of fin11 with changed flux inputs (\S B), so the same presumably holds for fin11 [not re-checked here]. Every closed-version statement resting on them (including \S E's $\times1.1245$ flux line and the fin12f4-based v3.3 column) is a record, not a certificate.
+\item \textbf{Verifier:} fin13v4b (\fn{V4B/runs/P}) closes at $\alpha_1=1.5\cdot10^{-4}$ and $1.25\cdot10^{-4}$ \cert{} (V4BR). Conditional on: the written E$_I$ lemma (missing), U-1 (\hand, not reviewed), the \rdlab{} inputs and \hand{} steps of V4BR ``Open'', (I3$'$), B-e.
+\item \textbf{(A) chain, Lemma U, zone III:} v36 closes; thinnest margins ramp $M_1$ $\times1.18446$, ramp $z_1$ $\times1.20115$, zone III $b_1$ $\times1.2389$, H6 far K3 $\times1.8609$, $\hat G_{22}$ $\times1.9164$; $c_{\delta U}$ $\times1.367$ under $2\cdot10^{-8}$ (V36R). No independent review on record.
+\item \textbf{Flux lemma v2:} combined margin $\times4.8044$ \cert; reviewed sound modulo listed items. \textbf{G1:} proved \hand+\cert{} (PRF), not reviewed.
+\item \textbf{Step~4/kits/manifests:} not re-pinned (stages 8, 9, 18, 19, 20; a new final\_tail driver reading \fn{EXCEPTION_v32_*.json}; a new manifest; both kits). The closed FINAL\_manifest is unaffected.
+\item \textbf{Texts:} F9, \fn{ei_lemma_v4.tex}, main\_v3, numbers\_A\_v33, continuation\_v33, index; LaTeX compile of every text.
+\end{itemize}
+
+\section*{H.\quad Superseded records}
+{\scriptsize
+\begin{longtable}{p{0.27\linewidth}p{0.15\linewidth}p{0.25\linewidth}p{0.24\linewidth}}\toprule
+record & where & superseded by & why\\\midrule\endhead
+FLUX0/K0 at $\beta=2$ (tight, $N_2^{\rm ref}$) $3.40048$; FLUX2/K2 $6.01860$ (v35/R3 columns $3.39666/3.39535$, $6.01283/6.01070$) & V36R \S4 & \fn{flux2_cert.json}: $\bar K_0\le3.4098535\mathrm{e}{-21}$, $K_2^{\rm pt}\le1.3900119\mathrm{e}{-19}$, combined $\ge\times4.8044$ & old flux block (old $\kappa$, old $W(57)$); a separate FLUX2/K2 line is meaningless for the new $K^{\rm OR}$ (F7e)\\
+$K_0\le3.9038\mathrm{e}{-21}$ ($\times4.201$), $P_2\le5.8864\mathrm{e}{-20}$ ($\times1.359$) & FLX1 & flux lemma v2 & v1 not closed at level 2; E-F3\\
+flux line $\times1.1245$; \S E v3.3 flux columns & \S A8, \S E & v36 + flux lemma v2 & old flux block; fin11/fin12f4 $J$'s\\
+fin12f4 rate tables, modsups, tail logs & \fn{step3nl_v33/} & fin13v4b, \fn{V4B/runs/P} & F1, F3, F4\\
+fin13v4 outputs & \fn{step3nl_v4/} & fin13v4b & F3, F4, F5\\
+(A) chain v35 (A\_interface 78fe2f8e\ldots, U\_cert\_v35 960809fd\ldots, zone3 45e8d4dc\ldots) & \fn{fix2/n12/t2_A_v35/}, \fn{t4_cert/}, \fn{t5_zone3/} & v36 (799b087c\ldots, U\_cert\_v36\_pass2 d512596a\ldots, d6813ddb\ldots) & fin12f4; $r_0$ with $\tilde\lambda=-p/4$ (F6)\\
+v36pre (R3 on fin12f4) & \fn{fix4_r3/} & v36 & consumes fin12f4\\
+$c_{\delta U}$ $1.7187\mathrm{e}{-8}$ / $1.71860\mathrm{e}{-8}$ / $1.96498\mathrm{e}{-8}$ & lemmaU\_v34, v35, R3R & $1.46343\mathrm{e}{-8}$ (v36) & R3, fin13v4b\\
+V4 probe $-2.85\mathrm{e}{-4}$ / $+3.340\mathrm{e}{-2}$ & V4R item 1 & E0A, fin13v4b & premise wrong (F3)\\
+STRIP\_BETA $1.06\mathrm{e}{-9}$ / $8.04\mathrm{e}{-11}$; STRIP\_AB $5.52\mathrm{e}{-9}$ / $4.37\mathrm{e}{-10}$ & fin12f4 / fin13v4 & $7.787\mathrm{e}{-11}$ / $4.227\mathrm{e}{-10}$ & F1m, F5a\\
+$W(57)=1.43716\mathrm{e}{-18}$ (``$\le1.44\mathrm{e}{-18}$'' in AUDIT, FLX1, ROUTE) & \fn{lemmaS_cflux.json} & $\le1.3404\mathrm{e}{-18}$ & E-F5\\
+$C0_2=114.782$, $C1_2=0.0698142$ & V36R \S6 & $114.78222\ldots$, $0.069814238\ldots$ (unused); $116.3782$, $0.2606004$ (used) & F8\\\bottomrule
+\end{longtable}}
+
+\section*{I.\quad Conflicts between reports}
+Listed, not resolved, unless a later report resolves it (then named).
+\begin{enumerate}
+\item \textbf{Size of (N1).} AUDIT 10--20\% \est; GI $0.239/0.110$ at the typed box, $0.030/0.011$ at the boxes reached (GI \S4.1). Pre-fix sizes; fin13v4 codes the term.
+\item \textbf{Verdict on G0.} AUDIT KILL; GI FIX-AND-RERUN (GI \S4.2 item 1). Resolved in practice by fin13v4/v4b closing \cert.
+\item \textbf{Inner-ramp monomials.} AUDIT ``$\sim100\times$'' \est; GI ``about $50\times$'' \est; different assumed $\sup|w''|$.
+\item \textbf{Level-2 transport commutator constant.} AUDIT $1.2709$ (text: $1.271$); V4R TC2 $=1.27089$. Differ in the 5th digit; the reports do not show which is the outward bound (V4R asserts every C5 value outward).
+\item \textbf{$\sup(|\zeta'|+\psi'\zeta)$ on $[57,60]$.} AUDIT $1.5883$; V4R KAP OR $1.58832$; GI and \fn{check_kappa_outer.py} $1.5833$ \cert{} while calling $1.5883$ ``right''. Both cannot be upper bounds of the same sup; probably a digit slip in GI, not checked here. No consequence ($1.67$ covers both).
+\item \textbf{``First march cell'' of fin12f4.} GI: $U=+0.0271016$; SPEC/V4R: $U=+3.034406\cdot10^{-2}$. Probably different cells; not reconciled by any report.
+\item \textbf{E0 constants proposed by V4.} V4R: ``right values $0.01835$, $5.937$''; E0A: neither documented nor correct (Pi3 $0.010385$, forcing $5.334$). Resolved by E0A and V4BR.
+\item \textbf{E0 budget.} E0A: need $38.30$ ($37.204$ \cert{} $+1.1$ \est), $\times2.67$ at $\alpha\le1.6\cdot10^{-4}$, ``$\times1.61$ at $2.5\cdot10^{-4}$'', forcing $5.334$. V4BR: need $38.541$ at $\alpha\le2.5\cdot10^{-4}$, margin $\times1.679$ ($\times2.786$ at $1.6\cdot10^{-4}$), forcing $5.3439$. V4BR is later and certified. E0A's ``$\times1.61$'' does not follow from its slack $5.685\cdot10^{-3}$ and need $38.30$ (about $\times1.71$ \est, my arithmetic); unexplained.
+\item \textbf{R-2 cost.} REV4: S3 term $4.92\%$ of STRIP\_BETA; V4BR: STRIP\_BETA falls $3.1\%$ after the IBP (which adds a $w''$ coefficient). Not reconciled in the reports.
+\item \textbf{E0\_LEMMA\_v4b.tex vs V4BR} on the $w'''$ hypothesis (F5c). Open.
+\item \textbf{G1 status.} V36R \S6 and FREV \S7: not done/open; PRF (later): proved. Time order; proof not reviewed.
+\item \textbf{Printed values below certified bounds (display).} V36R $F_0^2=3.59312\mathrm{e}{-13}$ (ball $3.59312473\ldots\mathrm{e}{-13}$); work order $r_0^{\rm new}=3.75163\mathrm{e}{-9}$ (ball $3.75163420\ldots\mathrm{e}{-9}$); FREV \S5 ``$W(57)=1.3403\mathrm{e}{-18}$'' (certified $\le1.340304797627754\mathrm{e}{-18}$); FREV/work order $K_2^{\rm pt}$ $1.39001\mathrm{e}{-19}$, $\bar K_0$ $3.40985\mathrm{e}{-21}$ (JSON up $1.3900118\mathrm{e}{-19}$, $3.4098534\mathrm{e}{-21}$); $d_{ab}$ $0.0131136$; F8. No script consumes them; outward values are quoted here.
+\item \textbf{ROUTE trace route vs implementation.} ROUTE \S1 item 3 chose the trace of $g'''(57)$; EF E-F4: does not close; v2 uses a space-time $L^2$ bound of $g^{(4)}$. FREV \S5 accepts the departure.
+\item \textbf{P2 margin.} FLX1 treats $P_2\le$ FLUX2 ($\times1.359$) as the level-2 requirement; ROUTE \S2.1: only the combined condition matters ($\times4.2$); FREV T4 makes it hypothesis (I3$'$).
+\item \textbf{$W(57)$.} AUDIT, FLX1, ROUTE: $\le1.44\cdot10^{-18}$; EF/FREV: that value belongs to a blend never used; true $\le1.3404\cdot10^{-18}$. The old figure is still an upper bound.
+\end{enumerate}
+
+\section*{J.\quad Open items (November 20, 2026)}
+\textit{From V4BR ``Open'':} (1) \rdlab{} inputs of the E0/E2 lemmas (gram7/gram8, pair\_f3, bloop.json, final\_5e-4.json, lyap\_consts2, mod\_forms Q2 $43.3271$, garding\_cert, coupling constants, profile hulls); (2) \hand{} steps ($\beta$ decomposition, Cauchy--Schwarz forms of H3--H7 and RM/NS, the float check not done); (3) not audited: $\theta$-certificate ($1/32$, $1/9$), \fn{cubic_E0fine} and ADD\_STRIP\_CUBIC $=2.6\cdot10^{-3}$, the Q2 Gram, the G\aa rding identity, the level-2 commutator constants DS; (4) (I3$'$) not written as a hypothesis, U-1 (\hand), B-e, \fn{ei_lemma_v4.tex}, legacy typed constants MOD\_E2, t22/t12, qb752, LAMT (valid per the audits); (5) E0\_LEMMA\_v4b.tex not compiled; (6) step~4, kits, manifests not re-pinned (the (A) chain is, as v36).
+
+\textit{From FREV \S7:} (7) U-1 and G1 written (PRF) but not reviewed; (8) T1--T4; $\Lambda\le L+2C'$; tail floor quotes with $(1+2C'/L_F)^{1/2}$; (9) \fn{fix8_flux2_impl/out/*} in no manifest or kit; (10) no review of the v4b delta; (11) no review of v36; (12) texts (lemmaS\_A\_v33 step 6, numbers\_A\_v33, lemmaU\_v34 Lemma dU, continuation\_v33, main\_v3, this erratum, index); (13) step~4 re-pin, new driver, new manifest, kits, independent Windows runs; (14) author items (P1$'$) uniqueness reference, (P2$'$) (proved \hand{} in U1\_regularity.tex per PRF), (P3$'$), Lemma O arc by arc, the single-point statement; (15) LaTeX compile; final independent review.
+
+\textit{From PRF ``Gaps and findings'':} (16) (H6) smoothness at $t_1$ is step~4's [A] item (\fn{step4_proof.tex} l.672); (17) Lean build not run, $n=1$ not elaborated, gluing and closure of \fn{IsFlow} written mathematics only; (18) DKS (D1) is a step inside the proof of Thm~3.1; (19) (GS) (F9 item 4); (20) read, not re-derived: graph equation, modulation matrix $=G+E$ and $\nu\le0.0466$, $C^4$ matching of $\hat\psi_3,\hat h_2$; (21) $F_{\max}$ from the verifier's peak $\sqrt\Lambda$, inside $\Lambda\le L+2C'$ via check C7, not redone in PRF.
+
+\textit{Also open from Part 1:} (O3-v35) (\S E); A7 (B)-window convention and A5 $I_3$ consumer for the closed versions.
+
+\paragraph{Files (v37).} \fn{fix12_texts/erratum_v37.tex} (this file) and \fn{fix12_texts/ERRATUM_v37.md} (same entries and numbers); brace and environment balance checked by script; not compiled.
+
+
+
+\part*{Part 3 (v38, November 20, 2026): sections K-N}
+
+Sources of this part: \fn{fix11_review/REVIEW_v4b_v36_proofs.md} (FREV11), \fn{fix15_review/REVIEW_v4c_interface.md} (FREV15), \fn{step3nl_v4c/V4C_REPORT.md} (V4CR), \fn{fix13_v37chain/V37_REPORT.md} (V37R), \fn{fix14_interface/INTERFACE_REPORT.md} (IFR), and the number check of this text set (\fn{fix16_texts_v38/tools/numbers_check_v38.json}, NC38). Nothing closed was edited; texts v37 and earlier are unchanged.
+
+\section*{K. Defects and items found Nov 20, 2026 (fix rounds 11-15) and by the v38 number check}
+
+\subsection*{K1. ADD\_STRIP\_CUBIC was underived (FREV11 D-3, blocking at the time)}
+\begin{itemize}
+\item \textbf{Defect.} The strip part of the cubic E-block term was coded as \fn{ADD_STRIP_CUBIC} = 2.6e-3 times the far-region cubic term; this scaling was not derived and is not a bound.
+\item \textbf{Fix.} Verifier fin13v4c: term H8 with certified coefficients C3S\_abc (\fn{step3nl_v4c/v4bcert/out/strip_cubic_v4c.json}, arb, keys asserted) [cert]. FREV15 recomputed the coefficients independently: coded/recomputed 2.8 to 17, all covering [cert].
+\item \textbf{Effect.} Favourable: tail rho 2.677666e-3 $\to$ 2.679225e-3, J x0.99984 (V4CR) [cert].
+\end{itemize}
+
+\subsection*{K2. E0 A\^{}2 budget omitted two pieces (FREV11 A-1)}
+\begin{itemize}
+\item The (a,b) lead mismatch, 0.179383 per alpha A\^{}2, and the third-order loop piece, 2.641e-3 at alpha\_E, were missing.
+\item Certified with them (\fn{v4bcert/out/e0_A2_budget_v4c.json}): need 38.7232, margin x1.65694 at |alpha| $\le$ 2.5e-4 (x2.747 at 1.6e-4). V4BR and text v37 printed x1.679 (without A-1). The verifier constants are unchanged [cert].
+\end{itemize}
+
+\subsection*{K3. The cubic\_E0fine box was not asserted (FREV11 D-2a)}
+\begin{itemize}
+\item The box |w|, |w'| $\le$ 0.01 on [16.25, 31.25], |alpha| $\le$ 1e-3 behind \fn{cubic_E0fine_0.001_0.01_0.01.json} was a hypothesis of the coded constants but not asserted. fin13v4c asserts it at every march step and at the tail anchor; worst ratios 0.0591, 0.116, 0.16 [cert, read].
+\end{itemize}
+
+\subsection*{K4. The whole-tail alpha-condition "margin" was a difference (FREV11 A-2; texts)}
+\begin{itemize}
+\item v37 texts printed "margins x177.07 and x175.09" (\fn{main_v3_v37.tex}, \fn{lemmaU_v37.tex} Lemma H-J-W and Table, and the macro \fn{\tailAlphaMarV} in \fn{continuation_v37.tex} (W1) and \fn{step3_v37_main.tex}). These numbers are lhs - rhs, not lhs/rhs.
+\item The ratio lhs/rhs\_whole\_tail is x1554.45 (alpha\_1 = 1.5e-4) and x1512.16 (1.25e-4), from \fn{rate_table_fin13v4c_a*.json} key \fn{tail.alpha_condition_whole_tail}, rounded down; with the factor 1 + 2C'/L\_F it is condition C5 of the flux lemma (same values). In v38 \fn{\tailAlphaMarV} is the ratio; the difference is \fn{\tailAlphaDiffV}.
+\end{itemize}
+
+\subsection*{K5. Step 4's two [A] sentences and the identification of the step-4 solution (FREV11 C-1)}
+\begin{itemize}
+\item Step 4 asserted smoothness for t > 0 "by parabolic regularity" and continuation "by the literature fact (P1)" (\fn{step4_proof.tex} l.130, 336, 370, 672; [A]); no text identified the validated object (P1 Galerkin solution, P2 normal graph) with a smooth flow.
+\item Closed by \fn{C1_identification.tex} (fix 14) and, for the a-priori form of Theorem P2, by Lemma (P2-a) with proof in \fn{fix16_texts_v38/C1_identification_v38.tex} (FREV15 C1-1) [hand]. Inherits: Lean read, not built; DKS not re-read; P2's analytic steps [D]; Remark C1:rem:C1 (regularity in tau at slab ends, flagged).
+\end{itemize}
+
+\subsection*{K6. The v37 strictness sketch for (GS) is invalid (IFR; FREV15 part C)}
+\begin{itemize}
+\item \fn{fix12_texts/continuation_v37.tex} Lemma C:lem:GS: the global-sup argument fails (|u| is about 1.1 near x = 60, so sup|k| sup|u| > 1/2); trajectory values and asserted boxes were mixed; [8, 10.25] had no w' bound; X\_S = 60 1/4 against boxes ending at 60; openness and closedness were attributed to the wrong lemmas; "at tau\_1, implicit in step 4" is not a proof.
+\item Replaced by \fn{fix14_interface/GS_lemma.tex} (GS-1 at tau\_1 [cert] \fn{GS_tau1.json}; GS-2 strictness [cert] \fn{GS_boot.json}, rerun on fin13v4c as \fn{fix15_review/c/GS_boot_v4c.json}; GS-3, GS-4 [hand]), in text v38 \fn{GS_lemma_v38.tex}, \fn{continuation_v38.tex}.
+\end{itemize}
+
+\subsection*{K7. One bootstrap set (FREV15 D-1, D-2, D-5)}
+\begin{itemize}
+\item The bootstrap existed in two versions (\fn{lemmaU_v37.tex} BS\_U without BF and GS; \fn{step3_v37_main.tex} with them by reference only); U-1 posed (GS) on |x| $\le$ 60 1/4, which no bootstrap member improves; B1 was stated as sqrt(Lambda) $\le$ sqrt(Lambda\_bar) instead of Lambda $\le$ L + 2C'.
+\item Fixed in \fn{bootstrap_v38.tex} (Definition BS, order table, Proposition BS:prop:close), \fn{U1_regularity_v38.tex} (X\_S = 60, O through GS-circ, B1 form), \fn{lemmaU_v38.tex}, \fn{continuation_v38.tex}, \fn{flux2_lemma_v38.tex}.
+\end{itemize}
+
+\subsection*{K8. Level-2 Garding step and regularity (FREV15 D-4; FREV11 C-6)}
+\begin{itemize}
+\item \fn{ei_lemma_v4.tex} item (i), level 2, uses six derivatives of v while U-1 gives v'''' bounded with jumps. The inequality holds by continuity on H\^{}4 with vanishing boundary values and density of smooth functions; the sentence and a list of the integrations by parts with their regularity are in \fn{ei_lemma_v4c.tex} [hand].
+\end{itemize}
+
+\subsection*{K9. Records (FREV15 A-1r, A-2r, A-3r, B-v37-1, B-v37-3)}
+\begin{itemize}
+\item See \fn{fix16_texts_v38/RECORDS_ERRATA_v38.md}: the "same sha256" statement of V4CR / V37R is false for \fn{runs/P_A} and \fn{runs/reg_fin13v4b} (pin 37386e13... of an \fn{e2v4b_constants.json} that no longer exists); the third cert pass has no driver record; \fn{SHA256SUMS_v4c} and \fn{SHA256SUMS_v37} are stale; V37R rounds C0\_2, C1\_2 down.
+\end{itemize}
+
+\subsection*{K10. Text slips found by the v38 number check (NC38)}
+\begin{enumerate}
+\item \fn{lemmaS_A_v33.tex} .. \fn{lemmaS_A_v37.tex} (ramp box line): "|y f\_y| $\le$ ... $\le$ 0.4390", below the asserted value 0.43902 = 0.52/x1.184464. v38: 0.4391.
+\item \fn{continuation_v33.tex} .. \fn{continuation_v37.tex} (Lemma G): "the verifier's ramp value $\le$ 7.12e-3", below the asserted 7.1221e-3 = 0.05/x7.020454. v38: 7.13e-3.
+\item \fn{step3_v37_main.tex} (K3): "S\_1(2 Bhat) $\le$ 0.28578", below the certified 0.285945 (v36) and 0.285924 (v37) (\fn{U_cert_v36_pass2.json} key \fn{supersolution.M1z_hyp_check.zones_I_II.S1_2Bhat}); the conclusion "$\le$ M\_1\^{}z = 0.534" is unaffected. v38: 0.28593.
+\item The v37 number checker (\fn{fix12_texts/tools/check_numbers_v37.py}) never saw a number written directly after a control word (\fn{\le116.3782}, \fn{\times4.804}, ...) because of its look-behind \fn{(?<![\w.])}, and it treated every line that mentions v35, v36, v37, fin13v4b or fix8 as a record. Its "1077 match" therefore excluded every number written directly after \fn{\le}, \fn{\ge}, \fn{\times} and similar. The v38 checker removes control words first and uses a narrower record filter; the v36 literals it then found in the v37 texts (e.g. C0\_2 116.3782, C1\_2 0.2606004, abar 2.14041e-7, Ehat\_2 0.056798, D\_2 0.0552611, kappa\_J 0.042432, K0bar 3.4099e-21, C' 2.6524e-26) are replaced in v38 by the v37 values, each with its JSON key (\fn{tools/numsub_v38.json}). These were valid but superseded bounds (v36 data), not wrong bounds, except items 1-3.
+\item KAP\_OR: AUDIT 1.5883 and V4R 1.58832 are display roundings below the certified 1.5883238 (\fn{constants_v4.json} key kappa/KAP\_OR); GI's 1.5833 is a digit slip; the texts use 1.5884 (up). No consequence.
+\end{enumerate}
+
+\subsection*{K11. Other text items (FREV15)}
+\begin{itemize}
+\item GS-1: the citation "true-curve shift $\le$ 3.3e-11 (step4\_proof)" is found nowhere; the computed bound is $\le$ 1.65e-11 [cert, \fn{fix15_review/c/c_frame_shift.json}], covered x60 by the 1e-9 widening.
+\item C1-2: Y4's inputs are typed, so the drift formula is [hand] + [sym]. C1-3: Lemma kP2 mixed x and y; conclusion right. A-6: \fn{E0_LEMMA_v4c.tex} quoted fin13v4b R-3 ratios. GS-3: GS-2 uses the B2' input S0V. GS-5: closure.py lines are l.145, l.164 in v4c. All corrected in the v38 copies.
+\item FREV11 B5 (claims\_failing are v3.1 record claims) and B7 ("[hyp]" strings in zone3.py:256, u1\_ghat.py:96) are stated in \fn{lemmaU_v38.tex}; B1-B4 and C-7 are chain-side code items and stay open.
+\end{itemize}
+
+\section*{L. Status (v38, November 20, 2026)}
+\textbf{Step 3 is not closed.} Nothing here is called closed.
+\begin{itemize}
+\item \textbf{Reviewed, sound modulo listed items, no blocking mathematical item:} fin13v4c and its fin13v4b delta; (A) chains v36 and v37; flux lemma v2 and its v37 reassembly; U-1, G1; C-1 and (GS); the coherence of the bootstrap (FREV11, FREV15, FLUX2\_REVIEW).
+\item \textbf{Texts:} v38 set in \fn{fix16_texts_v38/} (\fn{TEXTS_REPORT_v38.md}): one bootstrap set, (P2-a) written, numbers generated from or keyed to the v37 / fin13v4c JSON. Not compiled; not yet reviewed as a set.
+\item \textbf{Open:} step-4 re-pin and kits (the authors' go); the records items K9; the Lean build and an n = 1 instance; a re-reading of DKS for (D1) and the uniform bounds used in C-1; the [read] and not-audited verifier inputs (DS0-DS3, K\_rho, K\_W, W monotone on [31.25, 34.25], the tail monotonicity statement of VERIFIER.md, the D-1a pins); chain-side B1-B4 and C-7; G1\_check rerun on the v37 data; GS\_boot\_v4c as a pinned stage (with GS-2, GS-6); the regularity of the base in tau at slab ends (C1:rem:C1); LaTeX compile; the final independent review.
+\end{itemize}
+
+\section*{M. Conflicts: what the reports now settle}
+Settled (the resolution is named):
+\begin{enumerate}
+\item I.4 (TC2): both 1.2709 (AUDIT) and 1.27089 (V4R) are outward roundings of 1.2708883534 (\fn{constants_v4.json}, transport/TC2). Settled.
+\item I.5 (KAP\_OR): settled for the texts (K10.5); GI's 1.5833 stays a digit slip in a record.
+\item I.8 (E0 budget): superseded by K2 (need 38.7232, x1.65694).
+\item I.10 and TEXTS\_REPORT v37 item 3.1 (E0\_LEMMA\_v4b w''' note): settled by \fn{E0_LEMMA_v4c.tex} (FREV11 A-3: "Removed since fin13v4b").
+\item I.11 (G1 status): reviewed, FREV11 part C (sound modulo items).
+\item I.12 and TEXTS\_REPORT 3.2, 3.4 (display roundings): v38 prints up-rounded v37 values (C0\_2 $\le$ 116.3593, C1\_2 $\le$ 0.2605999 at 4 N2\_ref; 114.764, 0.0698138 at N2\_ref; K2pt $\le$ 1.3900e-19; C' $\le$ 2.6519e-26; D\_2 $\le$ 0.0552518). New display items, same kind: V37R C0\_2/C1\_2 (B-v37-3); FREV15 "5.3902e-4 / 0.040935" (up: 5.3903e-4 / 0.040936); V4CR "x1.65695" (down: x1.65694); E0\_LEMMA\_v4c d\_ab 0.0131136 (raw 0.013113620982; v38 copy 0.0131137).
+\item TEXTS\_REPORT 3.3 (Delta\^{}R\_1): v37 6.79715e-6 as v35/v36; 6.7972e-6 kept.
+\item LEMMAU\_MAIN\_v37\_NOTES C3 (D\^{}c\_2 only in V36R): the key exists, \fn{A_interface.json} res.tight.r2\_export.window\_data.D\_window\_const, v37 $\le$ 0.0552015; used in v38.
+\item Notes C4 (kappa\_J pad): the v37 key \fn{kappa_J} includes the pad, 0.0424297; text 0.042430.
+\item Notes C6 (n1\_chart): v38 cites \fn{fix13_v37chain/n1/out/n1_chart_fin13v4c.json} (459fa058...), the file chain v37 consumes; "moves every margin by at most 0.06\%" is a v35 measurement, marked [est].
+\item Notes T5 (k = 2 range and weight): \fn{G1_export_k2_v38.tex} states them (weight y\^{}-4 (28/y) on [ln 28, ln 350]); consistent with lemmaU. Settled.
+\end{enumerate}
+
+Remaining (records or process; no consequence for a quoted bound): I.1, I.3 (pre-fix sizes, [est]); I.2 (process verdict); I.6 (first march cell of fin12f4); I.9 (R-2 cost figures); I.13-I.15 (resolved by FREV in substance); Notes C5 (old "complete/unconditional" sentences in main\_v3, covered by the status box), C7 and T1 (\fn{n35_asserts.py}, \fn{check_keys_v34.py}, \fn{constants_needed_v34.json} not regenerated for v36/v37), T2 (two v33-era quotes in Lemma D inputs not recomputed), T4 (main\_v3 source for 0.2686, x4.9, x5.3; erratum (O3) column).
+
+\section*{N. Open items (v38)}
+\begin{enumerate}
+\item Step-4 re-pin (stages 8, 9, 18, 19, 20 on \fn{step3nl_v4c/runs/P}, \fn{v4bcert/out} incl. \fn{strip_cubic_v4c.json} and \fn{e0_A2_budget_v4c.json}, \fn{fix13_v37chain/runs/prod2}, \fn{fix13_v37chain/flux/out}; add \fn{C1_ke.json}, \fn{GS_tau1.json}, \fn{GS_boot_v4c.json}), a new final\_tail driver reading \fn{EXCEPTION_v32_*.json}, a new manifest; kits; Windows runs. Needs the authors' go.
+\item Records (K9, \fn{RECORDS_ERRATA_v38.md}).
+\item Lean: \fn{lake build} at d72b744 and an n = 1 instantiation file.
+\item DKS pp. 1234-35 re-read (D1 and the uniform bounds on d\_s\^{}m kappa used in C-1).
+\item (P3'), Lemma O arc by arc, the single-point statement (author items).
+\item Verifier inputs [read] / not audited (L above); chain-side B1-B4, C-7; G1\_check on v37 data.
+\item LaTeX compile of every v38 file; final independent review of the v38 text set.
+\end{enumerate}
+
+\paragraph{Files (v38).} \fn{fix16_texts_v38/erratum_v38.tex} (this file) and \fn{fix16_texts_v38/ERRATUM_v38.md} (same entries); balance checked by script; not compiled.
+\bigskip\hrule\bigskip
+\noindent\textbf{Part 4 (text v39, November 20, 2026).} Records of the step-4 re-pin v38, the step-4 wording, and corrections of text v38.
+
+\section*{O. Text v39}
+\subsection*{O1. Records of the step-4 re-pin (supersede the ``re-pin pending'' sentences of K, L, N)}
+The re-pin is done: \fn{step4/p2/out_v38/FINAL_manifest_v38.json} (29 stages, 629 paths and 55 scripts pinned, sha256 \fn{be909bbf42543ab017bb9c81ba58227c80fc4f010cc1b50a66a515b848f90418}), driver \fn{step4/p2/v38/final_tail_v38.py}, report \fn{step4/p2/out_v38/REPIN_REPORT.md}. Every text of the v39 set cites it; the details (carried, re-pinned and new stages; the closed manifests) are in \fn{step4_handoff_v39.tex} \S1. Exceptions, each with its record: (i) the B8 file \fn{s1_tight/consistency/check_outA5.json} of the closed v3.2 manifest, \fn{step4/p2/v33/EXCEPTION_v32_B8_check_outA5.json}; (ii) the stale pin of \fn{e2v4b_constants.json} in \fn{step3nl_v4c/runs/P_A} and \fn{runs/reg_fin13v4b}, which are not pinned, \fn{step4/p2/v38/EXCEPTION_v4c_PA_reg_e2v4b.json}; (iii) the known F34 difference of \fn{fix1/lemmaU_rev/constants_needed_v34.json} against manifest\_v33 (a circular pin, \fn{fix2/F34_REPORT.md} l.6). \textit{Correction:} the earlier statement ``manifest\_v33 still verifies (673 pins)'' was not true for that one path.
+\subsection*{O2. Kits}
+kits \fn{kit_step3_v4.zip} (sha256 \fn{0f899eb2...}) and \fn{kit_step4b_v4.zip} (sha256 \fn{ab47b541...}), test-run in WSL only (\fn{kit3v4_run_wsl5}: 80 PASS, 0 FAIL, 1 WARN; \fn{kit4bv4_run_wsl1}: 159 PASS, 0 FAIL, 1 WARN); no Windows run of either v4 kit yet. Both test runs used the WSL installation that holds the proof tree; they are not independent reproductions.
+\subsection*{O3. Step-4 wording}
+\fn{step4_handoff_v39.tex} (new): (H6) by Theorem C-1 (the two step-4 sentences marked [A], ``smooth for $t>0$ by parabolic regularity'' and ``continuation uses the literature fact (P1)'', are no longer used); (GS) added to the hand-off list (GS-1, stage 23); (H4) on $y\in[48,700]$ as a wording item. \fn{STEP4_PATCH_NOTE_v39.md}: the corresponding edits of the closed \fn{step4_proof.tex}, old text quoted verbatim; not applied.
+\subsection*{O4. Corrections of text v38 (retag damage of the v38 builder)}
+The v38 builder replaced the words ``text v37'' by ``text v38'' everywhere, also inside sentences that report what text v37 printed. Text v39 restores ``text v37'' in: \fn{continuation} ($7.12\cdot10^{-3}$; the withdrawn GS sketch; the difference $177.07$), \fn{U1_regularity} (``had $\sqrt\Lambda\le\sqrt{\Lambda_{\rm bar}}$''), \fn{ei_lemma_v4c} ($\times1.679$; ``Audited since''), \fn{main_v3} (the differences $177.07$, $175.09$), \fn{step3_main} ($0.28578$). The same rule turned \fn{runs/reg_fin13v4b} into \fn{runs/reg_fin13v4c} in \fn{step3_v38_main.tex} (``What remains'', Records), the review reference of \fn{GS_lemma_v38.tex} \S``Review'' into its own successor file (it reviews \fn{fix12_texts/continuation_v37.tex} l.41), and the date line of \fn{lemmaU_v38.tex} into a self-reference. Further v38 slips of the same origin, restored in v39: \fn{lemmaU_v38.tex} printed the sha256 of the first versions \fn{fix10_proofs/G1_export_k2.tex} (\fn{4004a774...}) and \fn{fix10_proofs/U1_regularity.tex} (\fn{827a5f51...}) next to the paths of the v38 copies; the header comment of \fn{ei_lemma_v4c.tex} contained a NUL-delimited builder placeholder instead of the sentence ``the E\_I functions are unchanged from \fn{fin13v4b} ... only term H8 was added'' (a comment, never typeset). All are restored. None of them changes a number or an argument.
+\subsection*{O5. Display roundings}
+\fn{C1_identification}: $\sup|\tilde\kappa e|$ was printed ``$=1.7428\cdot10^{-3}$'' (a truncation of $0.00174285$); text v39 prints $\le1.7429\cdot10^{-3}$. The (GS) strict-improvement bounds are printed $5.3903\cdot10^{-4}$, $0.040936$ (outward); the 5-digit truncations $5.3902\cdot10^{-4}$, $0.040935$ that appear in status notes are not upper bounds.
+\subsection*{O6. The stale lemmaU\_v34 quote}
+No text of the v38 or v39 set prints $0.1475$ (checked by script); \fn{lemmaU_v39.tex} prints $\sqrt2\cdot0.10434\le0.1476$. The stale quote ``$\sqrt2 S_1^v\le0.1475$'' remains only in the superseded \fn{fix1/lemmaU_rev/lemmaU_v34.tex} (unchanged); stage 20 of manifest\_v38 checks the v37 quote $0.1476$ instead (REPIN\_REPORT, ``Stage 20'').
+\subsection*{O7. Chart lemma body}
+\fn{chart_lemma_body_v39.tex} names the verifier \fn{fin13v4c} and the stage-19 output of manifest\_v38; the printed bounds are unchanged and hold for both the \fn{fin12f4} and the \fn{fin13v4c} computation (number check v39).
+\subsection*{O8. Status (v39)}
+Step~3 is \emph{not} closed. Open: the Lean build at commit \fn{d72b744} and the $n=1$ instance; a re-reading of DKS for (D1) and the uniform bounds used in C-1; the authors' confirmations ((P3$'$), Lemma~O arc by arc, the single-point statement); the authors' Windows runs of the two v4 kits; LaTeX compilation; the final independent review of the v39 text set; the records items of \fn{RECORDS_ERRATA_v39.md}.
+
+\part*{Part 5 (v40, November 21, 2026): section P}
+\section*{P. Text v40: the fixes of the final review \fn{fix18_final_review/FINAL_REVIEW_v39.md}}
+The final review of text v39 (Fable, Nov 20--21) found the set \emph{closes with fixes, none blocking}, modulo the external and author items. Text v40 (\fn{writeup/lemmaU/bulk/fix19_texts_v40/}, built by \fn{tools/build_v40.py} from \fn{fix17_texts_v39/}, which is unchanged) applies its findings. No number was computed; no certified value changed.
+\subsection*{P1. F-1: the closure proof}
+In \fn{bootstrap_v39.tex} the members B1(a) ($\alpha$-barrier) and B1(b) ($\Lambda\le L+2C'$, $\le\ell+2C'$) were listed as ``improved strictly''; the implication step returns them in the same form ($Y=\Lambda-Z\le L$ gives $\Lambda\le L+2C'$ again, since $Z$ can reach $2C'$; the tail bound $a^*\lambda$ has no cushion), so the Open step's ``continuity and the gaps'' did not extend them past $\tau^*$. Text v40 (reviewer's option (i), no computation): B1(a,b) are re-derived on $[\tau_1,\tau^*+\delta]$ by first touch (Proposition F:prop:abs; \fn{TAIL_LEMMA.tex}, ``Tail contraction (first touch)''), whose inputs are the other members, which hold there by continuity and their gaps; the table rows, the order table, the implication step, the flux lemma's (F6) and Remark F:rem:boot, and the rows/sentences D6 of \fn{lemmaU_v40.tex} are corrected; Theorem U-1 is stated under (GS) and (G) only (not B1(b)); $\mathfrak B_{\rm mod}$ is used only by (P2$'$)(c). The mathematics of the argument is unchanged.
+\subsection*{P2. F-2: undefined macros}
+Eight macros were used and never defined in text v39: \verb|\HtwoV|, \verb|\HtwofV|, \verb|\EtauOneV|, \verb|\GAoneV| (dropped from the generated numbers files since v37) and the four (F1) constants, which the v39 generator emitted with digits in their names (\verb|\BPhiC0oneV| etc.). So the thresholds of (H2), (H2f), the (K6) datum and the four (F1) constants had no printed value. Text v40: \fn{numbers_A_v40.tex} defines \verb|\HtwoV|, \verb|\HtwofV| from \fn{A_interface.json} \key{res.tight.IC} (exact thresholds), \verb|\EtauOneV| as their exact sum (asserted inside the certified balls \key{res.tight.IC.E_tau1}), \verb|\GAoneV| as the record [est] value of \fn{numbers_A_v33.tex}, and \verb|\BPhiCzerooneV|, \verb|\BPhiConeoneV|, \verb|\BPhiCzerotwoV|, \verb|\BPhiConetwoV| from \fn{flux2_data.json} \key{res.export} (rounded up, as before). \fn{lemmaU_v40.tex}, \fn{main_v3_v40.tex} and the standalone preamble of \fn{flux2_lemma_v40.tex} now \verb|\input| the numbers file (the last one was a further instance found by the new check). The build runs \fn{tools/check_macros_v40.py} (used $\subset$ defined per document, and valid macro names); it fails on text v39 and passes on text v40.
+\subsection*{P3. F-3, F-4, F-5}
+F-3: (H6) of Theorem M:thm:W now states that $\gamma(t_1)$ is symmetric about the $x$-axis (source: Theorem C-1, and \fn{step4_handoff_v40.tex} item (3)); also in the hand-off table of \fn{main_v3_v40.tex}. F-4: $T_{\max}$ is the length of the maximal interval everywhere; \fn{continuation_v39.tex} used it as an absolute time (``$[t_1,T_{\max})$'', ``$T_{\max}=t_1+\int\lambda^4$''), and \fn{GS_lemma_v39.tex} wrote ``$t(\tau_b)<T_{\max}$''. F-5: the blow-up criterion is the statement of DKS Theorem~3.1 (recorded verbatim in \fn{P1_CONFIRMATION.md}); the step (D1) inside its proof is kept as a remark (and is still used by C-1); author item: confirm that DKS's ``maximal solution'' means maximal among smooth solutions.
+\subsection*{P4. F-6, F-7}
+F-6: $n^{\rm III}$ level 0 is printed $0.071444$ in \fn{step3_v40_main.tex} as in \fn{lemmaU_v40.tex} (certified $0.0714437\ldots$; $0.071446$ of text v39 was also a valid bound). F-7: the (H4) range $y\in[14,700]$ is certified by the coverage assertion (e) of \fn{win_arb.py}, stage 12 of manifest\_v38; texts v39 called it ``implied'' and ``wording only''.
+\subsection*{P5. Records R-1 to R-3}
+R-1: manifest\_v38 has 992 pin entries on 646 distinct files (629 stage paths and 55 scripts, 38 of the scripts also stage paths); text v39 printed ``629 paths and 55 scripts''. R-2: the verifier code and \fn{cubic_E0fine} are pinned only transitively, \fn{tail_cert.py}, \fn{mod_sups.py}, \fn{integ.py} not at all (records item, \fn{RECORDS_ERRATA_v40.md}). R-3: four items missing from the open records list are added there (fix15 A-4, fix11 C-8, fix11 D-6a, the fix9 \S8 remark on \fn{closure.py}:130).
+\subsection*{P6. Closed by the review, carried into the texts}
+A-7 (monotonicity of $W$ on $[31.25,34.25]$) and the box part of GS-4 (boxes beyond the tail anchor) were closed by the reviewer [hand]; \fn{bootstrap_v40.tex} Remark (2) and the open list of \fn{step3_v40_main.tex} say so. Remark C1:rem:C1 was closed by the reviewer and is not edited.
+\subsection*{P7. Status (v40)}
+Step~3 is \emph{not} closed. Open: the Lean build at commit \fn{d72b744} and the $n=1$ instance; DKS (statement of Theorem~3.1 and ``maximal solution''; (D1) and the uniform bounds used by C-1); the authors' confirmations ((P3$'$), Lemma~O arc by arc, the single-point statement); the authors' Windows runs of the two v4 kits; LaTeX compilation; step-4 text (a new version applying \fn{STEP4_PATCH_NOTE_v40.md}); an independent check of the v40 changes; the unaudited items DS0--DS3, the [read] inputs of the E0/E2 lemmas, the D-1a pins, the \fn{tail_cert} degree table, M6, and the records items of \fn{RECORDS_ERRATA_v40.md}.
+\part*{Part 6 (v41, November 21, 2026): section Q}
+\section*{Q. Text v41: wording items of the delta check \fn{fix20_delta_check/DELTA_CHECK_v40.md}}
+The independent check of the text-v40 changes (Fable, Nov 21) found every fix F-1 to F-7, R-1 to R-3 applied, no mathematical error introduced and the F-1 continuation argument correct and non-circular; it listed five wording remarks W-1 to W-5 and one retag slip. Text v41 (\fn{writeup/lemmaU/bulk/fix21_texts_v41/}, built by \fn{tools/build_v41.py} from \fn{fix19_texts_v40/}, which is unchanged) applies exactly these. No number was computed; no certified value changed; the mathematics is unchanged.
+\subsection*{Q1. W-1: order inside the closure proof}
+In \fn{bootstrap_v41.tex} the Closed step now first obtains GS and G at $\tau^*$, then applies Theorem U-1 on $[\tau_1,\tau^*]$, then passes the other members to $\tau^*$; the functions $Q$ are called continuous wherever GS and G hold (text v40: ``continuous on $[\tau_1,\tau_{\rm mod})$'', although $Q$ is defined only where GS and G hold). Step~1 of the Open step now states its order: GS and G, then U-1 on $[\tau_1,\tau^*+\delta]$, then the other members.
+\subsection*{Q2. W-2: Theorem U-1 (c), (d)}
+In \fn{U1_regularity_v41.tex}, (c) and (d) now say that (F:eq:star) and the level-$j$ inequality (D1) hold at every $\tau$ \emph{wherever the hypotheses of their lemmas hold} (B1(c), BF, B2$'$, resp.\ those of Lemma S(A)); U-1 only upgrades ``a.e.'' to ``every''. Text v40 read as if (GS) and (G) alone gave these inequalities.
+\subsection*{Q3. W-3: the $\alpha$-barrier on a march step}
+Step~2 of the Open step (\fn{bootstrap_v41.tex}) and the march part of Proposition F:prop:abs (\fn{flux2_lemma_v41.tex}) now say that on a march step the $\alpha$-barrier is the per-cell fixed point of \fn{closure.py}:113--120, 134 and needs only $\Lambda\le\mathrm{Ly}^{hi}_k$, which holds up to and just beyond a first touch of $Y=L$ by (C2); text v40 cited only the tail comparison of \fn{TAIL_LEMMA.tex} and said ``up to the first touch''.
+\subsection*{Q4. W-4: the $\alpha$-level of the flux data}
+In Lemma F:lem:data of \fn{flux2_lemma_v41.tex}, ``$|\alpha|\le\alpha_1$'' is replaced by the box level the certified code uses ($|\alpha|\le2.5\cdot10^{-4}$, box (B-a)), so that (F:eq:star) visibly does not depend on B1(a).
+\subsection*{Q5. W-5 and the retag slip}
+\fn{lemmaU_v41.tex} (implication step) and \fn{main_v3_v41.tex} (bootstrap paragraph) no longer say that every bound is derived strictly better: B1(a,b) are excepted, being re-derived by first touch. The title of \fn{lemmaS_A_v41.tex} named text v39 and its date line read ``text v40; text v40: chain v37''; both are corrected.
+\subsection*{Q6. Status (v41)}
+Step~3 is \emph{not} closed. The open items of section P7 are unchanged, except that the independent check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}); the text-v41 changes are wording only and have not been re-checked independently.
+\part*{Part 7 (v42, November 23, 2026): section R}
+\section*{R. Text v42: the Lean theorems replace DKS}
+Source: the independent review of the Lean bridge \fn{writeup/lean_bridge/REVIEW_W7.md} (verdict ``sound; no blocking finding'') and its section~3 (twelve text changes). Text v42 (\fn{writeup/lemmaU/bulk/fix22_texts_v42/}, built by \fn{tools/build_v42.py} from \fn{fix21_texts_v41/}, which is unchanged) applies them. No number was computed; no certified value changed. Parts 1--6 above are kept verbatim; where they describe the Lean theorems as ``read from source, not compiled'', the $n=1$ instance as ``not elaborated'', or DKS (D1), (D2), the C-4 completion and the author item A-2 as inputs or open items (sections F, J, K, L, N, O and P), read them subject to this section.
+\subsection*{R1. What replaces DKS}
+(P1$'$) of step~3 now rests on compiled theorems of Micah Warren's Lean development \fn{CWFlow}, directory \fn{CWFlow/Curve/}: \fn{CWFlow.Curve.cdf_exists_maximal} (T1: the maximal flow from an immersion of \fn{Circle}, every flow from the same datum is a restriction of it, and if $T_{\max}<\infty$ then \fn{bendingEnergy} of the lift, i.e.\ $\int k^2ds$, is unbounded), \fn{cdf_extends_of_bounded_energy} (T2: the extension form, an \fn{IsFlow} on a closed interval beyond $T$), \fn{aNormSq_eq_curv_sq} (T3), \fn{IsFlow.lift_isCDF} (T4), \fn{IsCDF.curv_sq_le} (T5), and the port in \fn{Curve/N1.lean} (\fn{cdf_exists}, \fn{cdf_unique}, \fn{cdf_unique_up_to_reparam}, \fn{cdf_symmetric}, \fn{IsFlow.shift_gen}; \fn{flowVel_eq_neg_kss} in \fn{Curve/N1Basic.lean}). Statements as in \fn{U1_regularity_v42.tex} \S1.2. DKS 2002 and Chou 2003 remain as attribution only. The author item A-2 (DKS's ``maximal solution'') and the re-reading of DKS for (D1) and for the uniform bounds of C-1 disappear.
+\subsection*{R2. Status of the Lean results}
+Compiled per file with \fn{lean} against the repository's existing build outputs; axiom checks give \fn{[propext, Classical.choice, Quot.sound]}. A full \fn{lake build CWFlow.Curve.All} is pending. \fn{CWFlow/Curve/} is not committed yet: the texts cite ``commit pending'' with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} [text v43: and of \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}, see S2]. Commit \fn{d72b744} of \fn{HSLflow-Whitney}, cited by texts v38--v41, does not contain these files and is no longer cited.
+\subsection*{R3. Corrections of statements in text v41}
+(a) \fn{U1_regularity_v41.tex} \S1.2 called $M$ ``the unit sphere of \fn{EuclideanSpace R (Fin 2)}''; Lean uses Mathlib's \fn{Circle} (unit complex numbers) modelled on \fn{EuclideanSpace R (Fin 1)}, parametrised by $\theta\mapsto e^{i\theta}$. (b) [Rewritten in text v43, see S1; delta check fix23 S-3.] Text v41 stated the gluing lemma of U-1 in the endpoint form with a hand proof; at text v41 that form was not a Lean theorem. Text v42 keeps the endpoint form and proves it by \fn{isFlow_glue_endpoint} (R4); the overlap form \fn{rst_glue} is cited only as (Gl); the maximal flow no longer needs gluing. (c) U-1 Lemmas ``$n=1$'', ``maximal smooth solution'', ``symmetry'' and ``blow-up criterion'' are now \textup{[Lean]}; their text-v41 hand proofs are replaced.
+\subsection*{R4. The hand bridges S3a, S3b of review W7: now Lean}
+Review W7 found two steps that were not Lean theorems: S3a, a smooth $2\pi$-periodic curve with nonvanishing derivative gives an \fn{IsLagImmersion} on \fn{Circle} (used for $\Gamma_0$ in C-1 Lemma ``maximal flow''); S3b, C-1 Theorem (v) (the maximal flow from $\gamma(t_1)$ is the shifted maximal flow from $\Gamma_0$) and the endpoint gluing lemma of U-1. Both were formalized on Nov 23 after the review: \fn{CWFlow.Curve.exists_isLagImmersion_of_periodic} and \fn{lift_injective} (\fn{Curve/Periodic2Circle.lean}), \fn{CWFlow.Curve.cdf_maximal_shift} and \fn{isFlow_glue_endpoint} (\fn{Curve/MaxShift.lean}); compiled per file, axiom checks \fn{[propext, Classical.choice, Quot.sound]}; snapshot \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}. Review W7 predates these theorems; [text v43:] they were reviewed in \fn{writeup/lemmaU/bulk/fix23_delta_check/DELTA_CHECK_v42.md} Part~A (statements faithful, not vacuous, no ENNReal or interval-endpoint problem). A first draft of text v42 marked the two steps [hand]; they are now cited as [Lean] through one macro per file, \fn{LeanSthree}, which keeps their provenance visible.
+\subsection*{R5. v41 leftovers}
+The title of \fn{step3_v41_main.tex} said ``text v39''; the v42 title says text v42. Its open list still listed the independent check of the text-v40 changes; that check is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}: OK).
+\subsection*{R6. Status (v42)}
+Step~3 is \emph{not} closed. Open: a full \fn{lake build CWFlow.Curve.All}; the commit of \fn{CWFlow/Curve/} and its citation;  the author items (P3$'$), Lemma~O arc by arc, the single-point statement; the authors' Windows runs of \fn{kit_step3_v4.zip} and \fn{kit_step4b_v4.zip}; LaTeX compilation; the step-4 text patch (\fn{STEP4_PATCH_NOTE_v42.md}, needs the authors' go); a final review. [Text v43:] the text-v42 changes were checked in \fn{writeup/lemmaU/bulk/fix23_delta_check/DELTA_CHECK_v42.md} (``OK with fixes; no blocking finding'') and its findings are applied in text v43 (section S); the text-v41 and text-v43 wording changes have not been checked independently.
+\part*{Part 8 (v43, November 23, 2026): section S}
+\section*{S. Text v43: the delta check of text v42}
+Source: the read-only delta check \fn{writeup/lemmaU/bulk/fix23_delta_check/DELTA_CHECK_v42.md} of text v42 (verdict ``OK with fixes; no blocking finding''). Its Part~A reviewed the S3 theorems \fn{exists_isLagImmersion_of_periodic}, \fn{lift_injective}, \fn{cdf_maximal_shift} and \fn{isFlow_glue_endpoint} (snapshot \fn{writeup/lean_bridge/snap_s3/}) against what C-1 and U-1 need: faithful, not vacuous. Text v43 (\fn{writeup/lemmaU/bulk/fix24_texts_v43/}, built by \fn{tools/build_v43.py} from \fn{fix22_texts_v42/}, which is unchanged) applies its four should-fix items and nine wording items. No number was computed; no certified value changed; no Lean file was edited. [Text v44, check fix25 F-2:] the three S3 files were recompiled per file (23 November, 23:58, to 24 November, 00:00; sources unchanged, hashes equal to \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}) to make the raw logs cited in S-1, and these logs end with return code 0. Parts 1--6 above are verbatim; Part~7 (section R) is verbatim except for the four places marked ``[text v43]'' or ``[Rewritten in text v43]'' (R2, R3(b), R4, R6).
+\subsection*{S1. Should-fix items}
+S-1 (records): U-1 \S1.2 now names the compile records of the S3 files \fn{Periodic2Circle.lean}, \fn{MaxShift.lean}, \fn{All.lean} (the raw logs \fn{writeup/lean_bridge/raw_Periodic2Circle.log}, \fn{raw_MaxShift.log}, \fn{raw_All.log}), and says that the log of the full \fn{lake build CWFlow.Curve.All} is to be kept (records item L-2). Until that build the status stays ``compiled per file''. S-2: the gaps item ``Lean'' of U-1 no longer says that \fn{All.lean} was never compiled (it was compiled after the S3 additions, as \S1.2 of U-1 says), and its list of compiled theorems includes (PC), (MS), (GE). S-3: R3(b) above said that text v42 states the gluing lemma ``as \fn{rst_glue} (gluing with an overlap)''; that was a leftover of the first draft of text v42, which states it in the endpoint form, proved by \fn{isFlow_glue_endpoint}. R3(b) is rewritten. S-4: \fn{lemmaU_v43.tex} \S``Standing facts'' stated (P1) as ``if the maximal time is finite then $\int\kappa^2ds\to\infty$''; (T1) gives $\sup_{t<T_{\max}}\int\kappa^2ds=\infty$, not a limit. The text now states the sup form, as continuation (P1$'$) and U-1 do; no argument used the limit.
+\subsection*{S2. Wording items}
+W-1: the status boxes of \fn{step3_v43_main.tex} and \fn{main_v3_v43.tex}, the (P1$'$) item of \fn{continuation_v43.tex}, C-1 (I4) and its label line, the U-1 source line and R4, R6 above now say that review W7 covers the theorems of \fn{snap_final} only and that the S3 theorems were reviewed in the delta check fix23, Part~A; R6 no longer lists an independent check of the S3 theorems as open. W-2: the axiom checks for (T4), (T5) are in \fn{Criterion.lean}. W-3: (MS), last clause, states the range $t\in[0,T_{\max}-t_1)$. W-4: U-1 Lemma ``gluing'' states the existential $\Psi$ of (GE), and the step to the piecewise map is marked [hand]; the identification $T_{\max}=T_*-t_1$ in C-1 Theorem (v) is written out and marked [hand] on top of (MS). W-5: \fn{main_v3_v43.tex} no longer calls (P1) a literature fact in the step-3 caveats. W-6: the 13 November status box of \fn{main_v3_v43.tex} is marked superseded. W-7: the \fn{CWFlow} bibliography entries (continuation, step3\_main), the labels of C-1, \fn{b12_preamble_v43.tex}, the status box of \fn{main_v3_v43.tex} and R2 above name both \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS} (the S3 files and the current \fn{All.lean}). W-8: the C-1 row of the order table of \fn{bootstrap_v43.tex} says ``compiled per file, full build and commit pending''. W-9: (PC) names the regular periodic curve $c(\theta)=e^{i\theta}$ that inhabits the hypothesis of (T1); the unused macro \fn{tD} is removed from U-1.
+\subsection*{S3. Status (v43)}
+Step~3 is \emph{not} closed. Open: a full \fn{lake build CWFlow.Curve.All} and its log; the commit of \fn{CWFlow/Curve/} and its citation; the author items (P3$'$), Lemma~O arc by arc, the single-point statement; the authors' Windows runs of \fn{kit_step3_v4.zip} and \fn{kit_step4b_v4.zip}; LaTeX compilation; the step-4 text patch (\fn{STEP4_PATCH_NOTE_v43.md}, needs the authors' go); a final review. The text-v43 changes have not been checked independently.
+\part*{Part 9 (v44, November 24, 2026): section T}
+\section*{T. Text v44: the check of text v43 and its LaTeX compile}
+Sources: the read-only check \fn{writeup/lemmaU/bulk/fix25_check_v43/CHECK_v43.md} of text v43 (verdict ``OK with fixes''; no blocking finding; one should-fix item on records, five wording items, one note) and the LaTeX compile of text v43, \fn{writeup/lemmaU/bulk/fix26_latex_v43/LATEX_v43.md} (MiKTeX on the authors' Windows machine, in a scratch copy; all standalone documents compile once three source defects are worked around; the assembled step~3 has no error, no undefined reference, no undefined citation). Text v44 (\fn{writeup/lemmaU/bulk/fix27_texts_v44/}, built by \fn{tools/build_v44.py} from \fn{fix24_texts_v43/}, which is unchanged) applies both. No number was computed; no certified value changed; no Lean file was built or edited; nothing in the proof tree was run. Parts 1--7 above are verbatim; Part~8 (section S) is verbatim except for one sentence marked ``[Text v44, check fix25 F-2:]''.
+\subsection*{T1. The check of text v43}
+F-1 (records): \fn{TEXTS_REPORT_v43.md} \S1 (S-1) and \fn{TEXTS_LOG_v43.md} describe the first build of text v43, made before the raw logs of the S3 files existed. The final build of text v43 (24 November, 00:00; \fn{fix24_texts_v43/tools/build_v43.log}: ``S-1 compile logs on disk: True'') cites the three logs, and its numbers check reports two NEW-M38 rows, both the U-1 section number matched by value coincidence, not one. Both files belong to the closed text v43 and are not edited; the correction is recorded in \fn{RECORDS_ERRATA_v44.md}. F-2: section S above said that no Lean file was built; the three S3 files were recompiled per file to make the logs of S-1 (sources unchanged); corrected in place, marked. F-3: U-1 \S1.2 now says that the axiom checks cover the dependencies of the named theorems, not the whole import closure. F-4: the item ``Lean'' of the gaps list of C-1 now names the review of (PC), (MS), (GE) in \fn{fix23_delta_check/DELTA_CHECK_v42.md} Part~A. F-5: the U-1 lemma ``the Lean velocity is CDF'' is stated for the two cases that the Lean theorems cover: a $C^\infty$ map $\mathbb R\to\mathbb C$ with nonvanishing derivative on all of $\mathbb R$, and the lift of an immersion of \fn{Circle} read in a chart. F-6: \fn{main_v3_v44.tex}, step-3 caveat (b): (P1) rests on theorems compiled per file (full build and commit pending, status box) together with the [hand] steps of U-1 and C-1. Note: the Windows runs of both v4 kits (24 November 2026) are recorded in the open lists, in \fn{main_v3_v44.tex} \S``Independent reproduction'' and in \fn{step4_handoff_v44.tex}: \fn{kit3v4_run_win1/RUN_NOTES.md} (reproduces; the FAIL rows are CRLF-only differences of text outputs, the WARN rows last-bit float differences in diagnostic fields; two Windows-only kit bugs fixed in the run copy) and \fn{kit4bv4_run_win1/RUN_NOTES.md} (TOTAL PASS with 159 PASS, 0 FAIL, 1 WARN after four Windows-only fixes in the run copy). A kit v5 with these fixes is pending; no hash is cited for it.
+\subsection*{T2. The LaTeX defects of text v43}
+(1) \fn{key} was used but not defined in \fn{GS_lemma}, \fn{erratum} and \fn{flux2_lemma} (fatal); each now defines it with \fn{providecommand} and the body of \fn{lemmaU}'s definition. The macro check of texts v40--v43 missed it because it removed every \fn{key} argument together with the macro name before collecting the used names; \fn{tools/check_macros_v44.py} counts the wrapper macros \fn{fn}, \fn{key}, \fn{pth} as used, per standalone document, and fails on text v43. (2) The section title of the Lemma~U summary in \fn{step3_v44_main.tex} contained \fn{fn} with an underscore in its argument, which breaks when the table of contents is read back; it has a short title now. All sectioning and caption titles of the set were audited (\fn{tools/check_titles_v44.py}): the two titles of \fn{ei_lemma_v4c_v44.tex}, the caption of \fn{G1_export_k2_v44.tex} and the two captions of \fn{main_v3_v44.tex} that contain \fn{fn} also got short titles (they had compiled; starred titles take no short title and write nothing to the contents). (3) \fn{main_v3_v44.tex} needs \fn{fig_curves.pdf}; a copy of \fn{writeup/main/fig_curves.pdf} lies beside it in \fn{fix27_texts_v44/}. Also fixed: the provenance of \fn{numbers_A_v44.tex} in \fn{lemmaS_A_v44.tex} named a generator under \fn{fix17_texts_v39/} with a later version tag (a retag artefact of earlier builders); it now names \fn{fix27_texts_v44/tools/gen_numbers_A_v44.py}.
+\subsection*{T3. Status (v44)}
+Step~3 is \emph{not} closed. Done since section S: the LaTeX compile of text v43 (its defects fixed here); the Windows runs of both v4 kits. Open: the compile of text v44; kit v5 with the Windows-only fixes, and its runs; a full \fn{lake build CWFlow.Curve.All} and its log; the commit of \fn{CWFlow/Curve/} and its citation; the author items (P3$'$), Lemma~O arc by arc, the single-point statement; the step-4 text patch (\fn{STEP4_PATCH_NOTE_v44.md}, needs the authors' go); a final review. The text-v44 changes have not been checked independently.
+\end{document}

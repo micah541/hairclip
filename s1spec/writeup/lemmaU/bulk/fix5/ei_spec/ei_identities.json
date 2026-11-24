@@ -1,0 +1,27 @@
+{
+ "args": {
+  "argv": [
+   "ei_identities.py"
+  ],
+  "script_sha256": "a7605aed1aface044d2a1b2031c35545c5ccd30665dccac73b8b30a7e9efbac3",
+  "sympy": "1.14.0"
+ },
+ "residuals": {
+  "I1_level0_top": "0",
+  "I2_quasilinear_commutator": "0",
+  "I3_D2v": "0",
+  "I4_level2_pairing_Ev": "0",
+  "I4_level2_pairing_Ef": "0",
+  "I5_transport0": "0",
+  "I6_transport2": "0",
+  "I7_b0": "0",
+  "I7_b2": "0",
+  "I8_GN": "0",
+  "I9_L1": "0",
+  "I10_EN": "0",
+  "I10_Ev": "0",
+  "I11_A1_split": "0"
+ },
+ "all_zero": true,
+ "runtime_s": 1.6
+}

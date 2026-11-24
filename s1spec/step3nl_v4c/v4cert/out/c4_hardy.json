@@ -1,0 +1,66 @@
+{
+ "0.00025": {
+  "HA0": 1.9380922389010375e-09,
+  "HB0": 3.1422354990732557e-09,
+  "HEA1": 1.3028030344604403e-09,
+  "hA0": 1.2148151381215209e-11,
+  "hB0": 1.957989276820313e-11,
+  "hEA1": 7.981335732627134e-12
+ },
+ "0.001": {
+  "HA0": 3.216684503897898e-09,
+  "HB0": 5.27535273445399e-09,
+  "HEA1": 5.231469002286678e-09,
+  "hA0": 2.0038309259515757e-11,
+  "hB0": 3.267312522023391e-11,
+  "hEA1": 3.2046734884130974e-11
+ },
+ "C0Hb": 1.9000017287466433e-42,
+ "PHI34_typed": 9854700.0,
+ "PHI34_typed_covers": false,
+ "Phi_34_25_upper": 9872279.858084597,
+ "args": {
+  "Phi_step": 0.015625,
+  "argv": [
+   "c4_hardy.py"
+  ],
+  "env": {
+   "ADD": null,
+   "DELTA": null,
+   "ETA": null,
+   "FIX": null,
+   "FLUX0": null,
+   "FLUX2": null,
+   "LY1SQ": null,
+   "MOD": null,
+   "MODA": null,
+   "NEW": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": "0",
+   "S0V": null,
+   "S1V": null,
+   "TAG": null,
+   "THETA": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1_tight/bracket2.json": "c7793f237994a16aa827a0e14ce89f7472bcf2f8e5aaea73f363c0ef25778429",
+   "/home/claude/s1spec/step3/gen_hs3.py": "f786c266e47221ea5e040e0c0b357ac3b082eee927ef3125017d89196402913a",
+   "/home/claude/s1spec/step3/hs_uforms.pkl": "226db25a9f4a858098a3aeb647920f66ba1f013821e75d21b4f5af65b6258823",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/h2md_14.json": "d810075bb58ad65645a07139eaa929ee870c6164f4bc921db357e451683728db",
+   "/home/claude/s1spec/step3nl/h2res.py": "1fb142954865eab8852b6c72fe63cf124cc87df2ec9808a426e84adb4123fa02",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/psi3md2_14.json": "f0b3348aace69762cb63dee523ac520aacae7246c66aa0571b7e6073340ef2a5",
+   "/home/claude/s1spec/step3nl/q2_derivs.pkl": "f9dd27d690049910e2a7320e3e9c3e761d063cac2d2eccd40b5efb65a8845dfc",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v2/int_common.py": "04e55015547b3151979c648438eeed584818eca14fcd03aa43e494ea97f99e06",
+   "/home/claude/s1spec/step3nl_v4/v4cert/c4_hardy.py": "4b30ac157ca42bed5ea1aabca8a65c112dfd1a9639691081ca7f520c3f355b8b",
+   "/home/claude/s1spec/step3nl_v4/v4cert/out/c2_t3d_boxes.json": "963a9005034eb3616120091d1198191f883a72080a3da134a4a87e562387c7ec"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "description": "Stage C4 (fin13v4): Hardy-type weighted integrals on Z1 = [16.25, 57] (EI_SPEC 4.5, 4.7, 4.9 T12).\nOn Z1, g = v, so |w(x)| <= |w(16.25)| + Phi(x)^{1/2} V0 with Phi(x) = int_16.25^x 1/W  (Cauchy-Schwarz).  Hence for a box-sup function f(x):\n   ||1_Z1 f w||_W <= h_f |w(16.25)| + H_f V0,   h_f = (int_Z1 W f^2)^{1/2},  H_f = (int_Z1 W f^2 Phi)^{1/2}.\nf in {A0, B0, EA1} per alpha-level (per-box sups from stage C2, out/c2_t3d_boxes.json, zones ZA and ZB, boxes with x_lo < 57),\nand C0Hb = (int_34.25^57 W c0'^2 (Phi - Phi(34.25)))^{1/2} (c0' = -(5/2) m p + k^2 q, profile bounds per box).\nW = exp(-psi) of the P=2 / R=60 design (agent_int/v2/int_common.W_up, psi increasing => W(x) <= W(x_lo) on a box);\nPhi(x) <= Phi_up(x) := sum over the cover of [16.25, x] of len * 1/W_lo(x_hi) (1/W increasing).   Also Phi(34.25) vs the typed PHI34.\nOutput out/c4_hardy.json.  Run: PYTHONHASHSEED=0 nice -n 19 python3 c4_hardy.py",
+ "runtime_s": 1.2
+}

@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\title{Lemma O, final form for Plan B: certified thresholds and hand-off hypotheses}\author{}\date{}
+\begin{document}\maketitle
+\noindent Files: \texttt{lemmaO\_v3\_interval.py} (python-flint \texttt{arb}, 200 bits), output \texttt{lemmaO\_v3\_consts.json}. Formulas: those of \texttt{lemmaO\_v2.tex} (constants $\Lambda_1,C_*,C_1,C_2,C_3$ on the cylinder $[-X,X]$, thresholds $t_j^*$) with one change.
+
+\section{What changed}
+\textbf{(a) Sharper $\kappa$.} Hypothesis (A) at $t=0$ gives $\|h_0'''\|_{L^2(-X,X)}\le K_3$, so $\|g_{xxx}\|_{L^2}\le\kappa:=K_3+\min\{\sqrt{2X}\,M,\,K_3\}$ (v2 used $K_3+\sqrt{2X}M$). Every other formula is unchanged; $\kappa$ enters monotonically, so the proof is unchanged.
+\textbf{(b) Certification.} All constants are computed in ball arithmetic from exact rational inputs; the closed-form sups ($r=(16/17)^3$, $A_1,B_0,B_1,C_1',\dots,C_4'$, $S_1=15/8$, $S_2=10/\sqrt3$) are proved in v1 Lemma 1. The only non-closed-form step, $C_*=2\max_{u\ge0}f(u)$ with $f=-a_{\min}u^8+\sum_{k\le6}r_ku^k$, $r_k\ge0$, is bounded rigorously: (i) tail: if $\sum_kr_kU^{k-8}<a_{\min}$ then $f<0$ on $[U,\infty)$ (each $u^{k-8}$ decreases); (ii) on $[0,U]$ branch-and-bound with ball enclosures of $f$ on subintervals (relative tolerance $10^{-6}$); the returned value is the maximum of the leaf upper bounds. Each of $C_1,C_2$ is the minimum of two valid upper bounds. Pitfalls avoided: every radicand is a ball of a quantity that is a sum/product of positive exact data (no \texttt{ball**n} on balls straddling $0$, no \texttt{abs}); powers $1/2,1/4,3/2$ are \texttt{sqrt} compositions. $t_j^*$ are reported as \emph{lower} bounds (upper bounds on $C_j$ in the denominator). The script reproduces the double-precision v2 values to $10^{-6}$ relative (self-check in \texttt{\_\_main\_\_}).
+\textbf{(c) Meaning of $\rho\le54,\ 67$.} The lemma is scale invariant, so $\rho$ does not enter; I used only $(X,M,K_2,K_3)$ and the time ratio. Please confirm $M=0.12$ is also the right value for $X=2.4$ (the sweep in the JSON gives $t^*$ for $M\in[0.08,0.3]$).
+
+\section{Slack convention}
+$K_2=K_3=(1+f)M$, $f=\frac12$. Closure of the continuity argument needs, for $t\le t_1$: $C_2\sqrt t\le fM$ (pointwise $h_{xx}$), $C_1\sqrt t\le \frac14-\sup|h_{0,x}|$ (slope), and for the $L^2$ bound on the \emph{whole} cylinder (the lemma controls $g_{xxx}$ on $[-1,1]$ only; cover $[-X,X]$ by $\lceil X\rceil$ intervals $[c-1,c+1]$): $\|h_{0,xxx}\|_{L^2(-X,X)}+\sqrt{\lceil X\rceil C_3t}\le K_3$. The tabulated $t^*=\min(t_1^*,t_2^*,t_3^*)$ uses the pointwise/density slack $t_j^*=(fM/C_j)^2$, $t_3^*=2(fM)^2/C_3$; the global $L^2$ requirement is listed separately below (it is a \emph{hypothesis on $h_0$}, not a time restriction).
+
+\section{Near the S1 cone (certified)}
+\begin{center}\small\begin{tabular}{lcc}\toprule
+ & $X=3$ & $X=2.4$\\\midrule
+$M$, $K_2=K_3$ & $0.12,\ 0.18$ & $0.12,\ 0.18$\\
+$w$ (cutoff width) & $0.317$ & $0.194$\\
+$\kappa$ & $0.36$ & $0.36$\\
+$C_1\le$, $C_2\le$, $C_3\le$ & $18.15,\ 98.63,\ 4452$ & $26.09,\ 171.6,\ 1.261\cdot10^4$\\
+$t_1^*\ge$ (slope) & $1.093\cdot10^{-5}$ & $5.29\cdot10^{-6}$\\
+$t_2^*\ge$ ($h_{xx}$, binding) & $3.701\cdot10^{-7}$ & $1.223\cdot10^{-7}$\\
+$t_3^*\ge$ ($g_{xxx}$ density) & $1.617\cdot10^{-6}$ & $5.71\cdot10^{-7}$\\
+\textbf{certified} $t^*\ge$ & $\mathbf{3.70\cdot10^{-7}}$ & $\mathbf{1.223\cdot10^{-7}}$\\
+needed (revised) & $1.6\cdot10^{-7}$ & $5\cdot10^{-8}$\\
+\textbf{margin} (factor) & $\mathbf{2.31}$ & $\mathbf{2.44}$\\
+at the needed time: $C_0\sqrt t$, $C_1\sqrt t$ & $0.0021,\ 0.0063$ & $0.0015,\ 0.0059$\\
+ $C_2\sqrt t$ vs slack $0.06$ & $0.035$ & $0.039$\\
+ $\sqrt{\lceil X\rceil C_3t}$ (global $L^2$ term) & $0.0401$ & $0.0435$\\
+slope: $\tfrac14-M-C_1\sqrt t\ \ge$ & $0.1237$ & $0.1241$\\\bottomrule
+\end{tabular}\end{center}
+Sweep ($K=1.5M$, certified $t^*$): $X=3$: $3.93,3.82,3.68,3.44,3.03,2.36\cdot10^{-7}$ for $M=0.08,0.1,0.12,0.15,0.2,0.3$; $X=2.4$: $1.25,1.24,1.22,1.17,1.07,0.88\cdot10^{-7}$.
+
+\section{Far-curve regime}
+The slack-$\frac12M$ certificate at $K,M\le10$ is \textbf{not} available at time ratio $10^{-9}$: certified $t^*\ge1.2\cdot10^{-10}$ ($M=6.67,K=10$, $X=2$; $1.3\cdot10^{-10}$ at $X=2.4$), i.e.\ short by a factor $8.3$ (resp.\ $7.6$); $M=5,K=10$ ($f=1$): $3.0\cdot10^{-10}$, short by $3.4$; $M=10,K=15$: $1.8\cdot10^{-11}$, short by $56$. What \emph{is} certified at $10^{-9}$ (script, each re-certified at the stated rational $M$):
+\begin{center}\small\begin{tabular}{lccc}\toprule
+cylinder, $f=\frac12$ & $M\le$ & $K_2=K_3=1.5M$ & certified $t^*\ge$\\\midrule
+$X=2$ ($w=0.19$) & $3.69$ & $5.535$ & $1.0011\cdot10^{-9}$\\
+$X=2.4$ ($w=0.20$) & $4.10$ & $6.15$ & $1.0019\cdot10^{-9}$\\\bottomrule
+\end{tabular}\end{center}
+Monotonicity: all of $\Lambda_1,C_*,C_1,C_2,C_3$ are nondecreasing in $K_2,K_3,M$ (nonnegative coefficients, $\kappa$ increasing), so with $K$ fixed at the level above the certificate holds for every $M'\le M_{\max}$ (slack $K-M'\ge fM_{\max}$) at the same $w$. Deviations at $t=10^{-9}$ ($X=2$): $C_0\sqrt t\le0.033$, $C_1\sqrt t\le0.14$, $C_2\sqrt t\le1.84$ (slack $1.845$), $\sqrt{\lceil X\rceil C_3t}\le3.41$ so the global $L^2$ condition is $\|h_{0,xxx}\|_{L^2(-2,2)}\le2.12$ ($X=2.4$: $\le1.39$). Using $f=1$ leaves essentially no room for the global $L^2$ term ($0.005$ at $X=2$, negative at $X=2.4$), so $f=\frac12$ is the usable choice.
+
+\section{Hypotheses the step-4 hand-off must check (per cylinder, rescaled so the cylinder is $[-X,X]$)}
+\begin{enumerate}
+\item[H1] \textbf{Graph.} After translating to the center and rotating so the tangent is horizontal (for the bent cone: the local tangent frame), $\gamma\cap([-X,X]\times[-H,H])$ is the graph of $h_0$ over $[-X,X]$ with $\sup|h_0|\le H-C_0\sqrt{t_1}$ ($C_0\sqrt{t_1}\le0.0021$ cone, $\le0.05$ far).
+\item[H2] \textbf{Slope.} $\sup_{[-X,X]}|h_{0,x}|\le\frac14-C_1\sqrt{t_1}$; cone: $|h_{0,x}|\le M=0.12$ suffices (margin $0.124$); far: $|h_{0,x}|\le\frac14-0.14=0.11$ ($X=2$, $M\le3.69$) --- this is a separate check, since $M$ also bounds $j=1$ only formally.
+\item[H3] \textbf{Curvature jets.} $|h_0^{(j)}|\le M$ on $[-X,X]$, $j=2,3,4$ (and $j=1$ as in H2), with $M\le0.12$ (cone) resp.\ $M\le M_{\max}$ of \S4 (far).
+\item[H4] \textbf{Fifth derivative.} $\int_{-X}^X(h_0^{(5)})^2\le M^2$ (``good-time'' selection).
+\item[H5] \textbf{Third derivative in $L^2$.} $\|h_{0,xxx}\|_{L^2(-X,X)}\le K_3-\sqrt{\lceil X\rceil C_3t_1}$: cone $X=3$: $\le0.14$ (rms $\le0.057$); $X=2.4$: $\le0.1365$ (rms $\le0.062$); far $X=2$: $\le2.12$. Note the pointwise bound $|h_{0,xxx}|\le M$ alone gives only $\sqrt{2X}M$ ($0.29$ at $X=3$), \emph{not} enough; this must be checked on the data.
+\item[H6] \textbf{A priori bounds close.} $K_2=K_3=1.5M$ are assumed on $[0,t_1]$ in \emph{every} cylinder of the family; they are recovered ($|h_{xx}|\le M+C_2\sqrt t<K_2$, etc.) at every center $c$ simultaneously, which needs the lemma at all centers in $c+[-X,X]$. So the family of centers must contain a neighbourhood of width $X$ around each center used, or the a priori bounds on the end strips must come from the intermediate-region estimate (overlap $\ge X$ rescaled units; the intermediate energy up to $y=260$ vs.\ Lemma O beyond $y\approx200$ gives this if the units match --- to be confirmed at hand-off).
+\item[H7] \textbf{Time.} $t_1\le$ needed ratio (cone: $1.6\cdot10^{-7}=50^{-4}$ at $X=3$ for $y_O=200$, half-width $0.75r$, i.e.\ $L=50\lambda_1$, $t_1=1$; $5\cdot10^{-8}$ at $X=2.4$; far: $L=113\lambda_1$, ratio $6.13\cdot10^{-9}$ with $M=1$, $K=1.5$, certified $t^*\ge1.231\cdot10^{-8}$, margin $2.008$), measured in the \emph{same} unit as $X$ (time ratio $=t/L^4$ for cylinder length unit $L$).
+\item[H8] \textbf{Other arms.} Distance (in cylinder units) from the other arm to the graph at time $0$ $\ge C_0\sqrt{t_1}+C_0'\sqrt{t_1}$, where $C_0'$ is the displacement bound of the cylinder centered on the other arm; $\ge0.1$ suffices in every case above ($C_0\sqrt{t_1}\le0.05$).
+\item[H9] \textbf{Regularity.} $h$ smooth on $[-X,X]\times[0,t_1]$ (graph over the whole interval persists).
+\end{enumerate}
+\section{Revision (step-3 assembly)}
+\textbf{Time ratio.} The ratio is $t_1/L^4$, $t_1=1$ ($\lambda_1^4$), $L=$ half-width$/X$. Cone, $y_O=200$, half-width $0.75r$, $X=3$: $L=50$, ratio $1.6\cdot10^{-7}$, margin $2.31$ ($1.2\cdot10^{-7}$ above corresponded to half-width $161\lambda_1$ and is withdrawn). \textbf{Far cylinders (margin $\ge2$).} $X=2$, $L=113\lambda_1$, $M=1$, $K_2=K_3=1.5$, $w=0.19$: certified $t^*\ge1.231\cdot10^{-8}$ against $6.13\cdot10^{-9}$ (margin $2.008$); $C_0\sqrt t\le0.0089$, $C_1\sqrt t\le0.037$, $C_2\sqrt t\le0.353$, $K_3-\sqrt{2C_3t}\ge1.008$; slope $\le0.21$. Physical requirement ($\lambda_1$ units): $|h_{xx}|\le8.8\cdot10^{-3}$, $|h_{xxx}|\le7.0\cdot10^{-5}$, $|h_{xxxx}|\le6.2\cdot10^{-7}$. Alternatives ($f=\frac12$, $X=2$): $M=2$, $L\ge148$; $M=3$, $L\ge185$. \textbf{$K_3$ hand-off.} Cone: $|h_0^{(j)}|\le0.12$, $\|h_0'''\|_{L^2(-3,3)}\le0.14$, a priori $K=0.18$; Lemma S, (B) windows with the bent-cone profile (all energies are of the deviation $v=f-U$; $K$'s include the $U$-part): $E_{1,2,3}\le3\cdot10^{-6}$ on windows $y\in[50,253]$ and $E_4\le3\cdot10^{-6}$ at $\tau_1$ give $K_2\le0.044$, $K_3\le0.014$, $K_4\le0.041$ in cylinder units $L=50$ (margins $2.7,8.4,2.9$ against $M=0.12$; a priori $K=0.18$ has $\ge4.1$). The previous levels $(10^{-4},3\cdot10^{-4},5\cdot10^{-4})$ and $3\cdot10^{-5}$ are withdrawn ($3\cdot10^{-5}$ gives $K_4=0.127>M$). Data: \texttt{lemmaO\_v3\_consts.json}, key \texttt{far\_margin2}.
+\end{document}

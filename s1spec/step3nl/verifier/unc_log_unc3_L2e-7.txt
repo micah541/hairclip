@@ -1,0 +1,2 @@
+  V1 march part: delta=0.2 max r1=+0.1152  sum Phi*D=1.006e-14  total/theta = 2.8597e-13
+  V1 tail: no delta in grid gives r1*<=0

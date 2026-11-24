@@ -1,0 +1,13 @@
+mu=4 nu=4 a=[0,3/10] yL=56 theta_a=1/10: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2978, unresolved 0
+mu=4 nu=4 a=[0,3/10] yL=56 theta_a=2/5: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2981, unresolved 0
+mu=4 nu=4 a=[0,3/10] yL=56 theta_a=3/5: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2986, unresolved 0
+mu=4 nu=4 a=[0,3/10] yL=150 theta_a=1/10: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2977, unresolved 0
+mu=4 nu=4 a=[0,3/10] yL=150 theta_a=2/5: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2978, unresolved 0
+mu=4 nu=4 a=[0,3/10] yL=150 theta_a=3/5: Gamma_m <= 4, 16, 64; kappa~ <= 8; kappa2~ <= 64  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 8.0, 'kap2': 64.0}); leaves 2978, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=56 theta_a=1/10: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=56 theta_a=2/5: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=56 theta_a=3/5: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=150 theta_a=1/10: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=150 theta_a=2/5: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+mu=4 nu=2 a=[1/2,1/2] yL=150 theta_a=3/5: Gamma_m <= 4, 16, 64; kappa~ <= 6; kappa2~ <= 36.0000000009  (limits {'G1': 4.0, 'G2': 16.0, 'G3': 64.0, 'kap': 6.0, 'kap2': 36.0}); leaves 2880, unresolved 0
+wrote /home/claude/s1spec/writeup/lemmaU/phase1/ghat/weight_consts.json in 2.4 s

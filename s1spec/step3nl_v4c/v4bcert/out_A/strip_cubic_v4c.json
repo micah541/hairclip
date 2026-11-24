@@ -1,0 +1,179 @@
+{
+ "args": {
+  "argv": [
+   "strip_cubic_v4c.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1_tight/bracket2.json": "c7793f237994a16aa827a0e14ce89f7472bcf2f8e5aaea73f363c0ef25778429",
+   "/home/claude/s1_tight/prof/prof_tight.txt": "c55625ae0b1356a367270cd2d3a208cbb5eed9dae61b5187b2987a708fa07c77",
+   "/home/claude/s1spec/step3/gen_hs3.py": "f786c266e47221ea5e040e0c0b357ac3b082eee927ef3125017d89196402913a",
+   "/home/claude/s1spec/step3/hs_uforms.pkl": "226db25a9f4a858098a3aeb647920f66ba1f013821e75d21b4f5af65b6258823",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/h2md_14.json": "d810075bb58ad65645a07139eaa929ee870c6164f4bc921db357e451683728db",
+   "/home/claude/s1spec/step3nl/h2res.py": "1fb142954865eab8852b6c72fe63cf124cc87df2ec9808a426e84adb4123fa02",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/psi3md2_14.json": "f0b3348aace69762cb63dee523ac520aacae7246c66aa0571b7e6073340ef2a5",
+   "/home/claude/s1spec/step3nl/q2_derivs.pkl": "f9dd27d690049910e2a7320e3e9c3e761d063cac2d2eccd40b5efb65a8845dfc",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0v4b_constants.json": "c209638bc8ed34655076562d275142d0c84cf09195fcfbe680171cba3323297f",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/tc_weighted.pkl": "da22cb16c2de16736d6ecacedba9bfc84bb0a4922bd2c0aad97e99dbf64f4ecd",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/strip_cubic_v4c.py": "bd677c01b392c3273ed3009a294e804dac618e25c465e83f81ffdd6bb61ed0df",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/v4bcommon.py": "c426baf38db609679433630048f7a21ee518d6192f5b552d1b23a123c5e7c06e",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix11_review/d_cubic_strip.json": "6a71e36d2c2ba3974885ccbe64f8bc85ee3bbe06c6093a13df98044f7200ca42"
+  },
+  "python": "3.14.4",
+  "runtime_s": 5.2,
+  "sympy": "1.14.0"
+ },
+ "box": {
+  "alpha_max": 0.00025,
+  "cells": 600,
+  "strip_sigma": [
+   29,
+   32
+  ],
+  "strip_x": [
+   31.25,
+   34.25
+  ],
+  "w_jets_strip": 0.02
+ },
+ "constants": {
+  "C3S_012": {
+   "dir": "up",
+   "raw": "0.56702722213231027126312255859375000000000000000000000000000",
+   "raw_upper": 0.5670272221323103,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^0 |w'|^1 |w''|^2",
+   "value": 0.5670272221323104
+  },
+  "C3S_021": {
+   "dir": "up",
+   "raw": "2.5719365135300904512405395507812500000000000000000000000000",
+   "raw_upper": 2.5719365135300905,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^0 |w'|^2 |w''|^1",
+   "value": 2.571936513530091
+  },
+  "C3S_030": {
+   "dir": "up",
+   "raw": "0.76567317545413970947265625000000000000000000000000000000000",
+   "raw_upper": 0.7656731754541397,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^0 |w'|^3 |w''|^0",
+   "value": 0.7656731754541398
+  },
+  "C3S_102": {
+   "dir": "up",
+   "raw": "[0.28318462753668427630252661509936263256054239526374183277824 +/- 2.97e-60]",
+   "raw_upper": 0.2831846275366843,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^1 |w'|^0 |w''|^2",
+   "value": 0.28318462753668433
+  },
+  "C3S_111": {
+   "dir": "up",
+   "raw": "[3.5418295115232467805032566793986089268580526442584122115420 +/- 8.67e-60]",
+   "raw_upper": 3.5418295115232468,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^1 |w'|^1 |w''|^1",
+   "value": 3.541829511523247
+  },
+  "C3S_120": {
+   "dir": "up",
+   "raw": "[1.0679657794535160104665548893842426005005950958789973093133 +/- 3.70e-59]",
+   "raw_upper": 1.067965779453516,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^1 |w'|^2 |w''|^0",
+   "value": 1.0679657794535162
+  },
+  "C3S_201": {
+   "dir": "up",
+   "raw": "[2.4452547864494529987881761415338701109181575609270698123155e-17 +/- 4.91e-76]",
+   "raw_upper": 2.445254786449453e-17,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^2 |w'|^0 |w''|^1",
+   "value": 2.4452547864494533e-17
+  },
+  "C3S_210": {
+   "dir": "up",
+   "raw": "[5.5865803613495533453628188488503388224441443814901529470465e-18 +/- 4.89e-77]",
+   "raw_upper": 5.586580361349553e-18,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^2 |w'|^1 |w''|^0",
+   "value": 5.586580361349554e-18
+  },
+  "C3S_300": {
+   "dir": "up",
+   "raw": "[4.0182658268143589577032996329461519402536708794716769620890e-37 +/- 1.42e-96]",
+   "raw_upper": 4.018265826814359e-37,
+   "source": "strip_cubic_v4c: sum over (l,i,j) of sup_strip (1/2) mult |d^2 C_l/dU_i dU_j|, monomial |w|^3 |w'|^0 |w''|^0",
+   "value": 4.01826582681436e-37
+  }
+ },
+ "review": "fix11_review/REVIEW_v4b_v36_proofs.md section 4.3 (D-3); review values in fix11_review/d_cubic_strip.json",
+ "review_comparison": {
+  "C3S_012": {
+   "here": 0.5670272221323104,
+   "rel": -9.992007221626409e-16,
+   "review": 0.5670272221323109
+  },
+  "C3S_021": {
+   "here": 2.571936513530091,
+   "rel": -8.881784197001252e-16,
+   "review": 2.571936513530093
+  },
+  "C3S_030": {
+   "here": 0.7656731754541398,
+   "rel": -9.992007221626409e-16,
+   "review": 0.7656731754541406
+  },
+  "C3S_102": {
+   "here": 0.28318462753668433,
+   "rel": -9.992007221626409e-16,
+   "review": 0.2831846275366846
+  },
+  "C3S_111": {
+   "here": 3.541829511523247,
+   "rel": -9.992007221626409e-16,
+   "review": 3.5418295115232508
+  },
+  "C3S_120": {
+   "here": 1.0679657794535162,
+   "rel": -7.771561172376096e-16,
+   "review": 1.0679657794535171
+  },
+  "C3S_201": {
+   "here": 2.4452547864494533e-17,
+   "rel": -9.992007221626409e-16,
+   "review": 2.4452547864494558e-17
+  },
+  "C3S_210": {
+   "here": 5.586580361349554e-18,
+   "rel": -9.992007221626409e-16,
+   "review": 5.5865803613495595e-18
+  },
+  "C3S_300": {
+   "here": 4.01826582681436e-37,
+   "rel": -7.771561172376096e-16,
+   "review": 4.018265826814363e-37
+  }
+ },
+ "strip_integrals_crosscheck": {
+  "IR": {
+   "covered": true,
+   "here": 1.8382831517506488e-11,
+   "verifier": 1.8382831517506494e-11
+  },
+  "IRW": {
+   "covered": true,
+   "here": 2.1271383902499615e-08,
+   "verifier": 2.127138390249962e-08
+  },
+  "RW": {
+   "covered": true,
+   "here": 4.7003381853861584e-05,
+   "verifier": 4.70033818538616e-05
+  }
+ },
+ "term_H8": "RW [(C3S_030 sI1 + C3S_120 S0s) V0^2 + (C3S_021 sI1 + C3S_111 S0s) V0 V1 + (C3S_012 sI1 + C3S_102 S0s) V1^2] + IRW S0s^2 (C3S_201 V1 + C3S_210 V0) + C3S_300 IR S0s^3 (state form, sup on the lowest-order factor; on the strip w' = v: V0 = ||v||_W, V1 = ||v'||_W; S0s = sup|w|, sI1 = sup|w'| on [16.25,34.25])"
+}

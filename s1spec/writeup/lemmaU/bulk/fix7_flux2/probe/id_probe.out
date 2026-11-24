@@ -1,0 +1,5 @@
+residue: (g'g'')' g'''' + (5/2) g'' g'''^2 is a total derivative: True ; with 0: False ; with 2: False
+level-0 hand reduction: True
+D2v coefficients: True
+j-commutator: True
+D4 conv: True  D3 conv: True

@@ -1,0 +1,63 @@
+{
+ "args": {
+  "argv": [
+   "e0_A2_budget_v4c.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/agent_mod/bloop/bloop.json": "ece9bd1eb8a795eab48ae3b66e183095813a85df67376fa32f4968ed93520a29",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/e0_A2_budget_v4c.py": "c91cda33bd605d9482a0b5c8f02c98e9b5e9ca3c2d0caab06cb24e27dc4b55c8",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0_lemma_consts.json": "34bb7ce730b3702bf0339c778b16eef78a5972759d7d9bb8a0bee593b238a708",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0v4b_constants.json": "c209638bc8ed34655076562d275142d0c84cf09195fcfbe680171cba3323297f",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e2v4b_constants.json": "7d6ada650e1845f890640f96455b136311ffc5eb747d5a4bcb5b9a63f834bd88",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/v4bcommon.py": "c426baf38db609679433630048f7a21ee518d6192f5b552d1b23a123c5e7c06e",
+   "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+  },
+  "python": "3.14.4",
+  "runtime_s": 0.0,
+  "sympy": "1.14.0"
+ },
+ "cases": {
+  "1.6e-4": {
+   "excess": 0.002069381780923706,
+   "extra": {
+    "lead_mismatch_ab": 0.17938241630591706,
+    "loop_third_order": 0.0010815691986615023
+   },
+   "margin": 2.7470235530712337,
+   "margin_v4b_form": 2.785895357906559,
+   "need_total": 37.93363613077316,
+   "need_v4b": 37.75317214526858,
+   "ok": true,
+   "slack": 0.005684640492493916
+  },
+  "2.5e-4": {
+   "excess": 0.00343079034445028,
+   "extra": {
+    "lead_mismatch_ab": 0.17938241630591706,
+    "loop_third_order": 0.002640549801419683
+   },
+   "margin": 1.6569477938777322,
+   "margin_v4b_form": 1.6792208512054805,
+   "need_total": 38.72316137780112,
+   "need_v4b": 38.54113841169378,
+   "ok": true,
+   "slack": 0.005684640492493916
+  }
+ },
+ "criterion": "Pi3_T3 + (need - 25) alpha <= 0.01607 at alpha = AMAX_E0 = 2.5e-4 (need nondecreasing in alpha); PI3, MODA unchanged",
+ "inputs_widening": "floats from JSON widened one ulp (upper up, slack lower)",
+ "review_expected": {
+  "extra": {
+   "lead_mismatch_dab": 0.17938241628366314,
+   "loop_r_times_MAB": 0.0026405498006482025
+  },
+  "margin_2p5e4": 1.6569484534524035,
+  "need_2p5e4": 38.723161368864396
+ }
+}

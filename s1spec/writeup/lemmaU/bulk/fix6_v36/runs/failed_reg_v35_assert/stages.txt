@@ -1,0 +1,6 @@
+nice -n 19 python3 -B run_F10p_ibp.py|115.43_s|86960_KB
+nice -n 19 python3 -B rigor/capture_F2.py|112.45_s|85420_KB
+nice -n 19 python3 -B rigor/weights_exact.py|8.58_s|88156_KB
+nice -n 19 python3 -B rigor/assembly_arb.py|0.55_s|74672_KB
+Command exited with non-zero status 1
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/run_t2.sh|10.78_s|87340_KB

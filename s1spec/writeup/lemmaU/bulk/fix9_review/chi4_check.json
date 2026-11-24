@@ -1,0 +1,31 @@
+{
+ "B422_first_order_in_sin_delta_at_k=0_e=0": "10*Sn*s**4",
+ "B_422 = (1/2) d^2 chi_4/db2^2 is NOT identically zero (the quadratic term exists)": true,
+ "B_422, B_42, B_43, B_44, A_4 depend on (sigma, e, delta, k..k'''', u, b, b_1) only": true,
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "chi4_check.py"
+  ],
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "sympy": "1.14.0"
+ },
+ "chi_0 (k<=3): affine in (b2, b3), no b4": true,
+ "chi_0 == 0 on a ray": true,
+ "chi_1 (k<=3): affine in (b2, b3), no b4": true,
+ "chi_1 == 0 on a ray": true,
+ "chi_2 (k<=3): affine in (b2, b3), no b4": true,
+ "chi_2 == 0 on a ray": true,
+ "chi_3 (k<=3): affine in (b2, b3), no b4": true,
+ "chi_3 == 0 on a ray": true,
+ "chi_4 == 0 on a ray": true,
+ "chi_4 free of b5, b6 (u^(6), u^(7)) and of k^(5)": true,
+ "d^2 chi_4 / db2 db3 == 0": true,
+ "d^2 chi_4 / db2 db4 == 0": true,
+ "d^2 chi_4 / db3 db3 == 0": true,
+ "d^2 chi_4 / db3 db4 == 0": true,
+ "d^2 chi_4 / db4 db4 == 0": true,
+ "d^3 chi_4 / db2^3 == 0": true
+}

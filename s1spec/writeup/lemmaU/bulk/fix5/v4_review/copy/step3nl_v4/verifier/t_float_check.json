@@ -1,0 +1,32 @@
+{
+ "all_enclosed": true,
+ "args": {
+  "argv": [
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/v4_review/copy/step3nl_v4/verifier/t_float_check.py"
+  ],
+  "env": {
+   "ADD": "abcd",
+   "FIX": "1",
+   "FLUX0": "1.64e-20",
+   "FLUX2": "8.0e-20",
+   "MOD": "ibp",
+   "NEW": "1",
+   "PYTHONHASHSEED": "0",
+   "S0V": "0.0153",
+   "S1V": "0.6"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/v4_review/copy/step3nl_v4/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/v4_review/copy/step3nl_v4/verifier/constants.py": "3ea86ef811f55ba5f1e09c7fe8ba7489c5c480423844ef5ac479ae18da099b4d",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/v4_review/copy/step3nl_v4/verifier/rhs_iv.py": "95c949849f107eea6ec1088c52e4d8250f5438464dbf1b696c97a065eae2bdd8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix5/v4_review/copy/step3nl_v4/verifier/t_float_check.py": "b8420b6a6b48aebd05a469f089f08b11478e9178e6cf67f32592b690ce8f1ac7"
+  }
+ },
+ "max_rel_width": {
+  "I0": 8.333332703324284e-15,
+  "I2": 1.2841066150963348e-14,
+  "L": 7.221550626876421e-15,
+  "R0add": 4.277082983603622e-15
+ },
+ "n_points": 400
+}

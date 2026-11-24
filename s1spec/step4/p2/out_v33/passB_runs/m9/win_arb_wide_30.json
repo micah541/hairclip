@@ -1,0 +1,95 @@
+{
+ "set": "wide",
+ "ball": 30,
+ "tc_ball": [
+  0.875,
+  0.9375
+ ],
+ "label": "certified (arb, outward; M9 cells)",
+ "windows_max": [
+  2.990669781807424e-08,
+  1.0919889966944544e-07,
+  3.2774791044156955e-07,
+  8.645140671543485e-07
+ ],
+ "windows_at": [
+  253.0,
+  253.0,
+  253.0,
+  253.0
+ ],
+ "n_windows": 407,
+ "shells": [
+  7.113437809793163e-11,
+  1.1655420821514435e-10,
+  2.616349486035301e-10
+ ],
+ "G_60_700": [
+  2.7195100456328425e-07,
+  8.828553205304968e-07,
+  2.185317670480229e-06,
+  3.7243107064832134e-06
+ ],
+ "G_60_379p5": [
+  4.174898170756899e-08,
+  1.554339236621936e-07,
+  4.7436283453360315e-07,
+  1.3268029186910554e-06
+ ],
+ "G_379p5_700": [
+  2.3053451040295304e-07,
+  7.286008385784694e-07,
+  1.7143567880376913e-06,
+  2.4056085135380135e-06
+ ],
+ "coverage": {
+  "windows": {
+   "cells": 1373,
+   "first_yhi": 43.16679010536783,
+   "last_ylo": 720.4005484620834,
+   "min_cos_phi": 0.9925652546309668
+  },
+  "shells": {
+   "cells": 111,
+   "first_yhi": 11.291360603237235,
+   "last_ylo": 61.55040617072181,
+   "min_cos_phi": 0.9999487108254793
+  },
+  "h2f": {
+   "cells": 1373,
+   "first_yhi": 43.16679010536783,
+   "last_ylo": 720.4005484620834,
+   "min_cos_phi": 0.9925652546309668
+  }
+ },
+ "ncells": [
+  1373,
+  111
+ ],
+ "max_rel_rad_hh": 0.0014617304718269578,
+ "alpha": [
+  -0.00011323408100936482,
+  -0.00011309717425920592
+ ],
+ "args": {
+  "argv": [
+   "wide",
+   "30"
+  ],
+  "env": {
+   "T9TC": "0.90625,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out_v33/h2f/ift_30.json"
+  },
+  "xmax": 730.0,
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/out_v33/h2f/ift_30.json": "db8e2367dc09e3f68076473afff94d54c2efea1bf8e937243e3b5edbb22953fd",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

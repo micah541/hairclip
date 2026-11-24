@@ -1,0 +1,42 @@
+eta cache: 202 cells, max eta = 0.1162, max Lip = 0.2718 (0s)
+initial segments: 4387
+  round 1: 200/4387 (83s)
+  round 1: 400/4387 (169s)
+  round 1: 600/4387 (257s)
+  round 1: 800/4387 (345s)
+  round 1: 1000/4387 (436s)
+  round 1: 1200/4387 (529s)
+  round 1: 1400/4387 (621s)
+  round 1: 1600/4387 (708s)
+  round 1: 1800/4387 (803s)
+  round 1: 2000/4387 (896s)
+  round 1: 2200/4387 (989s)
+  round 1: 2400/4387 (1082s)
+  round 1: 2600/4387 (1173s)
+  round 1: 2800/4387 (1266s)
+  round 1: 3000/4387 (1357s)
+  round 1: 3200/4387 (1450s)
+  round 1: 3400/4387 (1542s)
+  round 1: 3600/4387 (1632s)
+  round 1: 3800/4387 (1721s)
+  round 1: 4000/4387 (1812s)
+  round 1: 4200/4387 (1897s)
+round 1: 3716 segments certified, 1342 to refine (1977s)
+  round 2: 200/1342 (2066s)
+  round 2: 400/1342 (2154s)
+  round 2: 600/1342 (2241s)
+  round 2: 800/1342 (2331s)
+  round 2: 1000/1342 (2425s)
+  round 2: 1200/1342 (2521s)
+round 2: 5058 segments certified, 0 to refine (2589s)
+Traceback (most recent call last):
+  File "/home/claude/s1spec/cap/contour.py", line 258, in <module>
+    main()
+    ~~~~^^
+  File "/home/claude/s1spec/cap/contour.py", line 210, in main
+    report[cls] = winding_from(done, cls)
+                  ~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/claude/s1spec/cap/contour.py", line 240, in winding_from
+    assert I is not None, f"empty intersection at {r1['lb']}"
+           ^^^^^^^^^^^^^
+AssertionError: empty intersection at (1.6489303492216352+0.6868681888393857j)

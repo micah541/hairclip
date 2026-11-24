@@ -1,0 +1,8 @@
+win E0: base arb 3.474466e-08 (float 3.474454e-08, rel +3.38e-06); with error 3.5086e-08 vs 2e-07: x5.700 (float x5.700); Ybar limit 3.31887e-08 (x33188.71)
+win E1: base arb 1.260863e-07 (float 1.260860e-07, rel +2.48e-06); with error 1.2615e-07 vs 1e-05: x79.270 (float x79.270); Ybar limit 3.82684e-08 (x38268.40)
+win E2: base arb 3.753835e-07 (float 3.753828e-07, rel +2.02e-06); with error 3.7723e-07 vs 1e-05: x26.509 (float x26.509); Ybar limit 1.81038e-09 (x1810.38)
+win E3: base arb 9.706184e-07 (float 9.706168e-07, rel +1.66e-06); with error 1.2821e-06 vs 1e-05: x7.800 (float x7.800); Ybar limit 1.57568e-11 (x15.76)
+shell E0: base arb 8.010214e-11 (float 8.009616e-11, rel +7.46e-05); with error 8.0135e-11 vs 2e-07: x2495.790 (float x2495.976); Ybar limit 2.39200e-07 (x239200.27)
+shell E1: base arb 1.335326e-10 (float 1.335237e-10, rel +6.70e-05); with error 4.7060e-10 vs 1e-04: x212496.271 (float x212503.858); Ybar limit 9.85286e-10 (x985.29)
+shell E2: base arb 2.935820e-10 (float 2.935690e-10, rel +4.44e-05); with error 1.5588e-06 vs 2e-01: x128307.376 (float x128307.454); Ybar limit 3.63171e-10 (x363.17)
+binding Ybar limit: arb 1.575679e-11, float 1.575680e-11; fidelity vs pinned camp lim: max rel 2.22e-16

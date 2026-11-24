@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newcommand{\Ly}{\Lambda}
+\newcommand{\tot}{\mathrm{tot}}
+\begin{document}
+\title{Tail lemma, scaling classes and leaf certificates for the rigorous closure verifier}
+\author{verifier/ (\texttt{rhs\_iv.py}, \texttt{bb.py}, \texttt{closure.py}, \texttt{tail\_cert.py})}
+\date{}
+\maketitle
+
+\section{Setting}
+The verifier bounds the Lyapunov derivative $\tot(\alpha,x)$ of the comparison system, $x=(A,B,D_4,V_0,V_2,V_4)\in[0,\infty)^6$, $\alpha\ge0$,
+$\Ly=\mathrm{Lyap}(x)$ and writes
+\[
+ \tot \;=\; H+L-\mathrm{NEG},\qquad \mathrm{NEG}=\sum_k n_k x_k^2 \ (n_k>0),
+\]
+where $H$ (resp.\ $L$) collects the summands of the right-hand side (\texttt{rhs\_iv.rhs\_pn}) that have $x$-degree $\ge 2$ (resp.\ $<2$);
+$H,L$ are built \emph{only} from $+,\ \cdot,\ \sqrt{\cdot},\ \max$ applied to nonnegative quantities and nonnegative constants (no subtraction),
+so $H,L$ are nondecreasing in $\alpha$ and in every ``interpolation bound'' $W_1,W_3,V_1,V_3$, $\sup$-bounds, $S_{\rm ramp}$, $S_{\rm all}$ (monotonicity check).
+The shape parametrisation is $A=s\,c_w c_t$, $B=s\,c_w s_t/\sqrt\varepsilon$, $V_0=s\,s_w c_I/\sqrt\mu$, $V_2=s\,s_w s_I/\sqrt{\mu\varepsilon_I}$,
+$D_4=s\,q\,c_u/\sqrt\varepsilon$, $V_4=s\,q\,s_u/\sqrt{\mu\varepsilon_I}$, $s=\sqrt{\Ly}$, $(c_\bullet,s_\bullet)=((1-t^2)/(1+t^2),2t/(1+t^2))$, $q\in[0,\infty)$.
+Hence $\mathrm{NEG}\ge \tfrac12\bigl(\varepsilon D_4^2+\mu\varepsilon_I V_4^2\bigr)=\tfrac12 s^2q^2$.
+
+\section{Scaling classes}
+For $f:(0,\infty)^m\to[0,\infty)$ and a weight assignment $w\in\{0,1\}^m$ let $f_\lambda(y)=f(\lambda^{w}\!\cdot y)$, $\lambda\in(0,1]$.
+\begin{definition} $f\in G_\nu$ if $f_\lambda\le\lambda^{\nu}f$ for all $\lambda\in(0,1]$; $f\in F_p$ if $f_\lambda\ge\lambda^{p}f$ for all $\lambda\in(0,1]$.
+\end{definition}
+\begin{lemma}[closure]\label{lem:closure}
+Constants lie in $G_0\cap F_0$; a variable of weight $1$ lies in $G_1\cap F_1$ (weight $0$: $G_0\cap F_0$). If $f\in G_{\nu},g\in G_{\nu'}$ (resp.\ $F_p,F_{p'}$) then
+$f+g\in G_{\min(\nu,\nu')}$, $fg\in G_{\nu+\nu'}$, $\sqrt f\in G_{\nu/2}$, $\max(f,g)\in G_{\min(\nu,\nu')}$ (resp.\ $F_{\max(p,p')}$, $F_{p+p'}$, $F_{p/2}$, $F_{\max(p,p')}$).
+A function that is nondecreasing in a variable of weight $0$ (e.g.\ a step coefficient $c(\mathrm{lev}(\alpha))$) lies in $G_0$ when that variable is scaled \emph{downwards}.
+\end{lemma}
+\begin{proof} For $\lambda\le1$: $\lambda^{\nu}f+\lambda^{\nu'}g\le\lambda^{\min}(f+g)$; $f_\lambda g_\lambda\le\lambda^{\nu+\nu'}fg$; $\sqrt{f_\lambda}\le\lambda^{\nu/2}\sqrt f$;
+$\max(f_\lambda,g_\lambda)\le\max(\lambda^\nu f,\lambda^{\nu'}g)\le\lambda^{\min}\max(f,g)$. For $F_p$ the inequalities reverse and $\lambda^{p}\ge\lambda^{\max(p,p')}$ for $\lambda\le1$. Monotone coefficients: $c(\lambda\alpha)\le c(\alpha)=\lambda^0c(\alpha)$.
+\end{proof}
+\paragraph{Machine certification (no sampling).} \texttt{tail\_cert.py} runs the verbatim code \texttt{rhs\_pn} on objects carrying $(\nu,p)$ with the rules of Lemma~\ref{lem:closure}. Output (\texttt{tail\_cert\_log.txt}; ADD=abcd, QUAD=1):
+\begin{center}\begin{tabular}{llll}\toprule
+weights & $H$ $(\nu,p)$ & $L$ $(\nu,p)$ & $\mathrm{NEG}$ \\ \midrule
+radial ($D_4,V_4$ only) & $(0,2)$ & $(0,1)$ & $(0,2)$\\
+$x$ scaled, $\alpha$ fixed ($s$) & $(2,5)$ & $(1,1)$ & $(2,2)$\\
+$(\alpha,x)$ jointly & $(2,5)$ & $(2,4)$ & $(2,2)$\\ \bottomrule\end{tabular}\end{center}
+(With the old constant terms (b),(c) switched on, the joint-mode valuation of $L$ is $0$ and the check \emph{fails}; this is the reason the floor $\sqrt{L_F}>0$ existed. With the state-dependent forms it holds and the floor is $0$.)
+
+\section{Consequences}
+\begin{lemma}[$s$-monotone split]\label{lem:s} For fixed $\alpha$ and fixed normalised shape $\hat x$, $s\mapsto H(s\hat x)/s^2$ is nondecreasing and $s\mapsto L(s\hat x)/s^2$ is nonincreasing. Hence for $\Ly\in[s_{lo}^2,s_{hi}^2]$:
+\[\tot/\Ly\ \le\ H(s_{hi}\hat x)/s_{hi}^2-\mathrm{NEG}(\hat x)+L(s_{lo}\hat x)/s_{lo}^2 .\]
+\end{lemma}
+\begin{proof} Rows ``$s$'' of the table: $H\in G_2$ gives $H(s'\hat x)\le (s'/s)^2H(s\hat x)$ for $s'\le s$; $L\in F_2$ ($p=1\le2$) gives $L(s'\hat x)\ge(s'/s)^{2}L(s\hat x)$. $\mathrm{NEG}/s^2$ is $s$-free.
+\end{proof}
+\begin{lemma}[radial tail]\label{lem:radial} Fix $s$, $\alpha$ and all angles; write $\mathrm{POS}(q)=(H+L)/s^2$ along the ray $q\mapsto(D_4,V_4)$. If $q_1>0$ and $\mathrm{POS}(q_1)\le q_1^2/2$, then $\tot(q)/s^2\le\tot(q_1)/s^2$ for all $q\ge q_1$.
+\end{lemma}
+\begin{proof} Row ``radial'': $H+L\in F_2$ for the weights $(D_4,V_4)\mapsto\lambda$, i.e.\ $h(q):=\mathrm{POS}(q)/q^2$ is nonincreasing (take $\lambda=q_1/q$). Then $h(q)-\tfrac12\le h(q_1)-\tfrac12\le0$, and
+$\tot(q)/s^2=q^2(h(q)-\tfrac12)-\mathrm{NEG}_{\rm other}\le q_1^2(h(q_1)-\tfrac12)-\mathrm{NEG}_{\rm other}$ since both factors move to more negative values ($q\ge q_1$). Here $\mathrm{NEG}=\frac12 q^2s^2+\mathrm{NEG}_{\rm other}$ and $\mathrm{NEG}_{\rm other}$ does not depend on $q$.
+\end{proof}
+\emph{Numerical inequality, certified in interval arithmetic:} for every branch-and-bound cell, \texttt{bb.find\_qstar} finds $q^*$ with $\mathrm{POS}(q^*)\le q^{*2}/2$, evaluated with outward-rounded intervals for all shapes, all $\alpha\in[0,a]$, and $s$ in the cell (using Lemma~\ref{lem:s} for the $s$-range: the upper bound used is $H(s_{hi})/s_{hi}^2+L(s_{lo})/s_{lo}^2\ge\mathrm{POS}$ at every $s$ of the cell); \texttt{bb.qcut} lowers the cut box by box with the same test. The recorded $q^*$ per cell is in \texttt{rate\_table*.json} (\texttt{qstar}); the search then covers $q\in[0,q^*]$ only. (Earlier versions of this verifier also tested the claim at random points; that test is no longer needed.)
+
+\begin{lemma}[joint scaling]\label{lem:joint} If all summands of $H$ and $L$ have valuation $\ge2$ for the weights $(\alpha,x)$ (row ``joint''), then for $\lambda\in(0,1]$
+\[\tot(\lambda\alpha,\lambda x)\le\lambda^2\,\tot(\alpha,x).\]
+\end{lemma}
+\begin{proof} $H(\lambda\cdot)+L(\lambda\cdot)\le\lambda^2(H+L)$ and $\mathrm{NEG}(\lambda x)=\lambda^2\mathrm{NEG}(x)$.\end{proof}
+
+\section{Tail contraction (first touch)}
+\emph{Normalisation.} $\tot=\tfrac12\,d\Ly/d\tau$ (the right-hand sides are those of $\tfrac12\frac{d}{d\tau}$ of the energies), i.e.\ $\Ly'=2\tot$. Below, $\ell'=-\rho\ell$ is used although $\Ly'\le2\tot\le-2\rho\Ly$ would allow $e^{-2\rho\tau}$ (conservative by a factor $2$ in the rate).
+
+Comparison system: $\alpha'\le\tilde\lambda\alpha+\beta(\alpha,\Ly)$, $\tilde\lambda=-0.2561532$, $\beta=(\beta_0+\beta_1\alpha)\sqrt\Ly+\beta_FF_n(\alpha)$ (nondecreasing in both arguments), $\Ly'=2\tot$.
+\begin{lemma}\label{lem:tail} Let $a^*>0$, $L^*>0$, and let $U^*=\sup\{\tot(\alpha,x)/\Ly:\ \alpha\le a^*,\ \Ly(x)=L^*\}$ (branch-and-bound upper bound, no floors) satisfy $U^*\le-\rho<0$. Put $\kappa=a^*/\sqrt{L^*}$ and assume
+$(|\tilde\lambda|-\rho/2)\kappa\ge\beta_0+\beta_1\kappa\sqrt{L^*}+\beta_FF_n(a^*)/\sqrt{L^*}$. Let $\ell(\tau)=L^*e^{-\rho\tau}$. If $\Ly(0)\le L^*$ and $\alpha(0)\le a^*$ ($=\kappa\sqrt{\ell(0)}$), then for all $\tau\ge0$: $\Ly(\tau)\le\ell(\tau)$ and $\alpha(\tau)\le\kappa\sqrt{\ell(\tau)}$.
+\end{lemma}
+\begin{proof} Both inequalities hold at $\tau=0$ and strengthened by a factor $(1+\eta)$, $\eta\downarrow0$ (strict version); let $\tau_0$ be the first time one becomes an equality. 
+\emph{Case $\Ly=\ell$ (with $\alpha\le\kappa\sqrt\ell$).} Put $\lambda=\sqrt{\ell/L^*}\le1$, $\alpha=\lambda\alpha'$ with $\alpha'\le a^*$, $x=\lambda x'$ with $\Ly(x')=L^*$. Since $\tot$ is nondecreasing in $\alpha$ (monotonicity) and by Lemma~\ref{lem:joint}, $\Ly'=2\tot(\alpha,x)\le2\lambda^2\tot(\alpha',x')\le2\lambda^2U^*L^*\le-2\rho\ell\le-\rho\ell=\ell'$.
+\emph{Case $\alpha=\kappa\sqrt\ell$ (with $\Ly\le\ell$).} $\alpha'\le\tilde\lambda\alpha+\beta(\alpha,\ell)$ because $\beta$ is nondecreasing in $\Ly$; with $\alpha\le a^*$ one has $\beta_1\alpha\sqrt\ell\le\beta_1\kappa\sqrt{L^*}\sqrt\ell$ and $F_n(\alpha)\le F_n(a^*)\alpha/a^*$ ($F_n(\alpha)/\alpha$ nondecreasing), so $\beta\le\sqrt\ell\,[\beta_0+\beta_1\kappa\sqrt{L^*}+\beta_FF_n(a^*)/\sqrt{L^*}]\le(|\tilde\lambda|-\rho/2)\kappa\sqrt\ell$, whence $\alpha'\le-(\rho/2)\kappa\sqrt\ell=(\kappa\sqrt\ell)'$. A first touch is therefore impossible.\end{proof}
+The hypothesis on $\beta$ is checked in 120-bit \texttt{arb} balls (\texttt{closure.tail}, line ``alpha-condition OK''); $U^*$ is the certified branch-and-bound value of the anchor cell.
+\paragraph{Floor (absolute forcing, term (c), F4).} Let $F_0\ge0$ be the sum of the degree-$0$ summands of $L$ (constants) and $\mathrm{tot}_s$ the right-hand side without them; Lemma~\ref{lem:joint} applies to $\mathrm{tot}_s$ (row ``joint'', floors off). If $\sup\tot_s/\Ly\le-\rho$ at the anchor, then at a touch $\Ly=\ell\ge L_F$: $\Ly'\le2(-\rho\ell+F_0)\le-\rho\ell$ as soon as $\rho\ell\ge2F_0$, i.e.\ $L_F=2F_0/\rho$. With the barrier $\ell=\max(L_F,L^*e^{-\rho\tau})$ and $\alpha_b=\kappa\sqrt\ell$ the proof of Lemma~\ref{lem:tail} is unchanged (at $\ell=L_F$ the barrier is flat and the same inequality gives $\Ly'\le0$). Thus $\Ly\to\le L_F$, not $0$.
+
+\begin{lemma}[$L^1_{\rm loc}$ forcing]\label{lem:l1} Let the degree-$0$ forcing be a function $\varphi(\tau)\ge0$ with $\int_t^{t+1}\varphi\le\bar\varphi$ for all $t\ge\tau_t$ (no pointwise bound), i.e.\ $\tot\le\tot_s+\varphi$. Put $\hat\rho=2\rho$, $Z(\tau)=2\int_{\tau_t}^\tau e^{-\hat\rho(\tau-\sigma)}\varphi(\sigma)\,d\sigma$, so $0\le Z\le Z_{\max}:=2\bar\varphi/(1-e^{-\hat\rho})$ and $Z'=2\varphi-\hat\rho Z$. Let the anchor cell be $\Ly\in[L^*,(1+\eta)L^*]$ with certified $\sup\tot_s/\Ly\le-\rho$ there, and let $\ell(\tau)=\max(L_F,L^*e^{-\rho(\tau-\tau_t)})$ with $L_F\ge Z_{\max}/\eta$, $\alpha_b=\kappa\sqrt{(1+\eta)\ell}$ ($\kappa$ as in Lemma~\ref{lem:tail} with $\rho$ and $\beta$ evaluated at $(1+\eta)\ell$). If $\Ly(\tau_t)\le L^*$, $\alpha(\tau_t)\le a^*$, then $\Ly\le\ell+Z\le(1+\eta)\ell$ and $\alpha\le\alpha_b$ for all $\tau\ge\tau_t$; in particular $\limsup\Ly\le L_F+Z_{\max}\approx\bar\varphi/\rho\,(1+1/\eta)$.
+\end{lemma}
+\begin{proof} $Y:=\Ly-Z$ satisfies $Y'\le2\tot_s+\hat\rho Z$ (the $\varphi$ terms cancel). First touch of $Y\le\ell$ (strict version): $\Ly=\ell+Z\in[\ell,(1+\eta)\ell]$ (as $Z\le\eta L_F\le\eta\ell$), $\alpha\le\alpha_b$; by monotonicity in $\alpha$ and Lemma~\ref{lem:joint} with $\lambda=\sqrt{\ell/L^*}$ the state $(\alpha,x)/\lambda$ lies in the anchor cell, so $\tot_s\le-\rho\Ly\le-\rho(\ell+Z)$ and $Y'\le-2\rho(\ell+Z)+2\rho Z=-2\rho\ell\le\ell'$ (on the flat part $\ell'=0$ one uses $Y'\le-2\rho\ell<0$ instead). For $\alpha$ the first-touch computation of Lemma~\ref{lem:tail} applies with $\Ly\le(1+\eta)\ell$ ($\beta$ nondecreasing in $\Ly$). \end{proof}
+For constant forcing $\varphi\equiv F_0$ one has $Z_{\max}\approx F_0/\rho$ and the floor is $\approx F_0/\rho$ (twice better than $L_F=2F_0/\rho$ above, which is what \texttt{closure.tail} implements). Data used here: $F_0=\mu(6.1\!\cdot\!10^{-18}+\varepsilon_I\,1.55\!\cdot\!10^{-17})$ from \texttt{lemmaS\_cflux.json} (placeholder until Lemma S).
+
+\paragraph{Data of the two production cases ($\alpha_1=10^{-3}$).}
+\begin{center}\begin{tabular}{lcccc}\toprule
+$\sqrt{\Lambda_1}$ & $a^*$ & $L^*$ & $\rho$ & $\kappa$ \\ \midrule
+$3.5\cdot10^{-7}$ & $7.626\cdot10^{-5}$ & $0.4069\cdot10^{-12}$ & $0.00204$ & $119.6$ \\ $2.5\cdot10^{-7}$ & $6.706\cdot10^{-5}$ & $0.2442\cdot10^{-12}$ & $0.00303$ & $135.7$ \\ \bottomrule\end{tabular}\end{center}
+
+\section{Unconditional time integrals (V1)}
+The barrier gives only upper bounds $\Ly\le L(\tau)$, $\alpha\le a(\tau)$. Rate bounds on a cell $\Ly\in[L_{dn},L_{up}]$ therefore cannot be applied to the true trajectory (it may leave the cell from below; Lemma~\ref{lem:s} gives no control of $L/\Ly$ for small $\Ly$). V1 avoids any lower bound:
+write $\mathrm{NEGV}=\mu\mu_1V_0^2+(\mu/2+\mu\varepsilon_I\mu_2)V_2^2+\tfrac12\mu\varepsilon_IV_4^2$, $N=\mathrm{NEG}-\theta\,\mathrm{NEGV}$, so $\tot=H+L-N-\theta\mathrm{NEGV}$. For $\delta\in(0,1)$:
+\begin{enumerate}
+\item $H-(1-\delta)N\le r_1s^2$ for \emph{all} $s\le s_{up}$, $\alpha\le a$, where $r_1$ is the branch-and-bound supremum of $(H-(1-\delta)N)/s^2$ at $s=s_{up}$ ($L$ dropped, radial test with factor $(1-\delta)(1-\theta)$): by Lemma~\ref{lem:s}, $H/s^2$ is nondecreasing in $s$ and $N/s^2$ is $s$-free.
+\item $L\le\sum_k\ell_k(\alpha)x_k$ (AM--GM for $W_3,V_1,V_3$ with free parameters $\kappa$; $L$ has degree exactly $1$ by the row ``$s$''), $N=\sum n_kx_k^2$, hence $L-\delta N\le\sum_k\ell_k^2/(4\delta n_k)=:\Phi(\alpha)$ for every $x$ (no lower bound on $\Ly$), and $\Phi$ is nondecreasing in $\alpha$ and $\Phi(\alpha)\le\Phi(a)(\alpha/a)^2$.
+\end{enumerate}
+Hence $\tot\le r_1\Ly+\Phi(\alpha)+F_0-\theta\mathrm{NEGV}$ along the true trajectory using only $\Ly\le L_{up}$, $\alpha\le a$, and with $r_1^+$ in place of $r_1$,
+\[\theta\!\int\!\mathrm{NEGV}\le\tfrac12\Ly(\tau_1)+\sum_k\bigl(r_{1,k}^+L_{up,k}+\Phi(a_k)\bigr)D_k+\tfrac12L^*+\frac{\Phi(a^*)}{\rho}+\Bigl(\frac{\Phi(a^*)L_F}{L^*}+F_0\Bigr)(T-\tau_t),\]
+where the tail part uses an anchor with $r_1^*\le0$ (largest $\delta_t$ in a grid for which it holds), $\alpha\le\kappa\sqrt\ell$, $\int\ell\le L^*/\rho+L_F(T-\tau_t)$. Dividing by $\mu\mu_1$, $\mu/2+\mu\varepsilon_I\mu_2$, $\mu\varepsilon_I/2$ gives $\int V_0^2,\int V_2^2,\int V_4^2$; $V_1^2=V_0V_2+C_{1W}V_0^2$ and Cauchy--Schwarz gives $\int V_1^2$. The slope in $T$ is the floor forcing $F_0$ only.
+\texttt{sanity\_unc.py} samples the three inequalities as an independent check of the coding of $\ell_k$ (not part of the proof).
+
+\section{Branch-and-bound leaf certificate}
+\paragraph{Claim.} For every cell (alpha-box $[0,a]$, $\Ly$-box $[L_{lo},L_{hi}]$) the returned $U$ satisfies $U\ge\sup\tot/\Ly$ over all shapes $(w,t,t_I,u)\in[0,1]^4$, $q\in[0,\infty)$, $\alpha\in[0,a]$, $\Ly$ in the box, \emph{whatever the values of $\mathrm{tol},\mathrm{rtol}$, $\mathrm{minw}$}.
+\begin{proof} The shape box is covered by the root $[0,1]^4\times[0,q^*]$ and $q>q^*$ (Lemma~\ref{lem:radial}, with the per-box cut \texttt{qcut}). Boxes are processed as follows. (i) If the interval bound $ub$ (natural extension and the mean-value form $ub_2=\min(ub,\text{mvf})$, both outward-rounded upper bounds) satisfies $ub\le lb$, the box is dropped; its supremum is $\le ub\le lb\le U$ since the output is $U=\max(\text{leaf bounds},lb)$. (Here $lb$ is only a number $\ge$ the dropped $ub$'s; the proof does not need $lb$ to be a valid lower bound of anything, but it is: it is the lower end of a point evaluation.) (ii) A box accepted as a leaf (tolerance or minimal width) contributes its own $ub_2$, which bounds the supremum on that box. (iii) Otherwise it is bisected. Every box is thus dropped, accepted with its upper bound counted into $U$, or split; the loop ends only when the stack is empty. $\square$
+\end{proof}
+The tolerances only influence the \emph{tightness}: a leaf accepted by tolerance has $ub_2\le lb+\max(\mathrm{tol},\mathrm{rtol}|lb|)$ with $lb\le\sup$ (a certified point value), so $\sup\le U\le\sup+\max(\mathrm{tol},\mathrm{rtol}|lb|)$ unless a leaf was accepted by the minimal-width rule (counted as \texttt{nminw}; for these it is only $U\ge\sup$). \texttt{leaf\_audit.py} reports \texttt{nminw}$=0$ for the production cells.
+
+\section{Which conditions hold for which part (version W)}
+Write $\mathrm{tot}=H+L-\mathrm{NEG}$. The scale-invariant tail lemma and the $s$-monotonicity used in the B\&B cells are applied to the \emph{homogeneous} part $\mathrm{tot}_s$ (floors off: only terms of joint degree $\ge2$ in $(\alpha,x)$). The conditions $\mathrm{lo}(H)\ge2$, $\mathrm{lo}(L)\ge2$ (joint mode), $\mathrm{lo}(H)\ge2$, $\mathrm{hi}(L)\le2$ ($s$ mode) and $\mathrm{hi}(H),\mathrm{hi}(L)\le2$ (radial mode) are certified by \texttt{tail\_cert.py} on this part. The absolute terms of degree $<2$ (modulation strip terms, flux constants $K_0,K_2$, $c_0^w V_0$, and the $\Phi_F$-type constants multiplying $\alpha V_0$, $\alpha D_2v$) are \emph{not} scale invariant. They are collected in $L$ (x-degree $\le1$, so $L/s^2$ is nonincreasing and the cell bound uses $s_{\rm lo}$) and enter the tail only through the floor / $L^1_{\rm loc}$ argument: the forcing $F_0$ gives the floor $L_F$ and the $f_1\sqrt{L}$ term is absent for absolute fluxes. Terms of x-degree one with a constant factor must be in $L$, never in $H$; an earlier version of the code had $\alpha\,(\Phi_F+\mathrm{strip})V_0$ in $H$, which \texttt{tail\_cert.py} detected (valuation 1) and which is fixed.
+
+\section{Rounding}
+All floating-point operations are IEEE binary64 round-to-nearest; each result is widened by one \texttt{nextafter} step outward (\texttt{ival.fd, fu}); constants computed from several decimals are formed in 200-bit \texttt{arb} from decimal strings, then converted outward. See \texttt{VERIFIER.md}, ``Final pass''.
+\end{document}

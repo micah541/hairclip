@@ -1,0 +1,21 @@
+Kbar0 3.409772e-21 (lin 3.409463e-21, nl 3.089e-25, w 9.925e-70); K2pt 1.389954e-19; C'' 1.1050e-20 S'' 4.3959e-23; C' 2.6519e-26 S' 1.0550e-28; s 1.039077e-21; combined margin x4.8045
+C0     PASS  margin x0.7919 s/F0 (s = F0 - mu Kbar0 - mu eps_I K2pt > 0)
+C1     PASS  margin x9.849e+06 S' <= s
+alpha 0.000125: L_F lower bound 2F0/|rate_s_U| <= sqrt_LF^2 (consistency)        True
+C2[0.000125] PASS  margin x4.998e+07 min over steps of (Ly_hi - max L)/2C'
+C3[0.000125] PASS  margin x2236 min over steps with U>0 of pad L/(U 2C')
+C4[0.000125] PASS  margin x1.736e+05 2C' <= ETA L_F
+C5[0.000125] PASS  margin x1512 lhs >= rhs_whole_tail (1 + 2C'/L_F)
+alpha 0.00015: L_F lower bound 2F0/|rate_s_U| <= sqrt_LF^2 (consistency)         True
+C2[0.00015] PASS  margin x5.344e+07 min over steps of (Ly_hi - max L)/2C'
+C3[0.00015] PASS  margin x1548 min over steps with U>0 of pad L/(U 2C')
+C4[0.00015] PASS  margin x1.847e+05 2C' <= ETA L_F
+C5[0.00015] PASS  margin x1554 lhs >= rhs_whole_tail (1 + 2C'/L_F)
+hjw X_const equals the rate-table unc.X_const                                    True
+hjw kappa_J reserve > 0.99 x pad (pad applied; double rounding only)             True
+C6     PASS  margin x141.3 C' <= (kappa_J - kappa_J_cert) X_const (pad 1/1000000000; reserve 1.0000e-09)
+C7.mod[1.25e-4] PASS  margin x3.156e+08 mod_sups tail row: 6-digit reserve >= 2C'/L*
+C7.mod[1.5e-4] PASS  margin x2.499e+08 mod_sups tail row: 6-digit reserve >= 2C'/L*
+C7.tail[0.000125] PASS  margin x5.114e+07 L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)
+C7.tail[0.00015] PASS  margin x1.973e+08 L* + 2C' <= Ly_hi of the last march step (far sups, sqrtL_max cover the tail)
+VERDICT PASS failing [] stop [] sha 1a06ef08cfbc1b033072e95623a7e59b763e933fe74d573c59a4623d657d52f4 (0.3s)

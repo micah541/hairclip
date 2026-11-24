@@ -1,0 +1,205 @@
+Kit 4B  |  2026-11-24 00:03:30  |  Python 3.13.7  |  Windows-11-10.0.26100-SP0  |  jobs 4
+[00:03:31] [1/40] inputs: start   (ETA for the whole remainder ~9h19m)
+   1351 input files checked, 0 problems
+[00:03:33] [1/40] inputs: ok (0m02s)
+[00:03:33] [2/40] t1_seed: start   (ETA for the whole remainder ~2h44m)
+[00:03:40] [2/40] t1_seed: ok (0m07s)
+[00:03:40] [3/40] t1_float: start   (ETA for the whole remainder ~2h44m)
+[00:06:40]   t1_float: running 3m00s  ===== 2026-11-24 00:03:40  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run3.py P11v2 2.31e4 seed_p1_95.pkl  (cwd step4\t1
+[00:09:41]   t1_float: running 6m00s  ===== 2026-11-24 00:03:40  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run3.py P11v2 2.31e4 seed_p1_95.pkl  (cwd step4\t1
+[00:12:41]   t1_float: running 9m00s  ===== 2026-11-24 00:03:40  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run3.py P11v2 2.31e4 seed_p1_95.pkl  (cwd step4\t1
+[00:13:08] [3/40] t1_float: ok (9m28s)
+[00:13:08] [4/40] t1_polish: start   (ETA for the whole remainder ~5h53m)
+[00:16:08]   t1_polish: running 3m00s  slab 24 of 181 polished
+[00:19:08]   t1_polish: running 6m00s  slab 48 of 181 polished
+[00:22:09]   t1_polish: running 9m01s  slab 71 of 181 polished
+[00:25:09]   t1_polish: running 12m01s  slab 93 of 181 polished
+[00:28:09]   t1_polish: running 15m01s  slab 113 of 181 polished
+[00:31:09]   t1_polish: running 18m01s  slab 133 of 181 polished
+[00:34:09]   t1_polish: running 21m01s  slab 151 of 181 polished
+[00:37:09]   t1_polish: running 24m01s  slab 170 of 181 polished
+[00:39:00] [4/40] t1_polish: ok (25m52s)
+[00:39:00] [5/40] t1_se: start   (ETA for the whole remainder ~3h24m)
+[00:39:24] [5/40] t1_se: ok (0m24s)
+[00:39:24] [6/40] t6: start   (ETA for the whole remainder ~2h59m)
+[00:42:24]   t6: running 3m00s  ===== 2026-11-24 00:39:24  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe -u run.py --slabs 0-180 --out out_v2 --jobs 4 --po
+[00:45:24]   t6: running 6m00s  ===== 2026-11-24 00:39:24  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe -u run.py --slabs 0-180 --out out_v2 --jobs 4 --po
+[00:48:25]   t6: running 9m00s  ===== 2026-11-24 00:39:24  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe -u run.py --slabs 0-180 --out out_v2 --jobs 4 --po
+[00:51:25]   t6: running 12m01s  ===== 2026-11-24 00:39:24  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe -u run.py --slabs 0-180 --out out_v2 --jobs 4 --po
+[00:53:25] [6/40] t6: ok (14m00s)
+[00:53:25] [7/40] rhoend: start   (ETA for the whole remainder ~3h16m)
+[00:56:15] [7/40] rhoend: ok (2m50s)
+[00:56:15] [8/40] se_corr: start   (ETA for the whole remainder ~3h05m)
+[00:56:21] [8/40] se_corr: ok (0m06s)
+[00:56:21] [9/40] t6c: start   (ETA for the whole remainder ~3h02m)
+[00:59:21]   t6c: running 3m00s  21 of 179 slabs
+[01:02:21]   t6c: running 6m00s  43 of 179 slabs
+[01:05:21]   t6c: running 9m01s  65 of 179 slabs
+[01:08:21]   t6c: running 12m01s  87 of 179 slabs
+[01:11:21]   t6c: running 15m01s  107 of 179 slabs
+[01:14:22]   t6c: running 18m01s  127 of 179 slabs
+[01:17:22]   t6c: running 21m01s  147 of 179 slabs
+[01:20:22]   t6c: running 24m01s  167 of 179 slabs
+[01:22:29] [9/40] t6c: ok (26m08s)
+[01:22:29] [10/40] t7_a: start   (ETA for the whole remainder ~3h33m)
+[01:25:29]   t7_a: running 3m00s     exit 0 (70s)
+[01:28:29]   t7_a: running 6m00s     exit 0 (70s)
+[01:31:29]   t7_a: running 9m00s     exit 0 (70s)
+[01:34:29]   t7_a: running 12m01s     exit 0 (70s)
+[01:37:30]   t7_a: running 15m01s     exit 0 (70s)
+[01:40:30]   t7_a: running 18m01s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:43:30]   t7_a: running 21m01s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:46:30]   t7_a: running 24m01s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:49:30]   t7_a: running 27m01s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:52:30]   t7_a: running 30m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:55:31]   t7_a: running 33m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[01:58:31]   t7_a: running 36m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[02:01:31]   t7_a: running 39m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[02:04:31]   t7_a: running 42m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[02:07:31]   t7_a: running 45m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script c2r3.py --slabs 0-180 --jobs 4 --out C:\Users\micahw
+[02:10:31]   t7_a: running 48m02s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:13:31]   t7_a: running 51m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:16:32]   t7_a: running 54m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:19:32]   t7_a: running 57m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:22:32]   t7_a: running 1h00m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:25:32]   t7_a: running 1h03m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:28:32]   t7_a: running 1h06m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:31:32]   t7_a: running 1h09m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:34:32]   t7_a: running 1h12m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:37:33]   t7_a: running 1h15m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:40:33]   t7_a: running 1h18m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:43:33]   t7_a: running 1h21m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script farg7.py --slabs 0-180 --jobs 4 --out C:\Users\micah
+[02:46:33]   t7_a: running 1h24m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[02:49:33]   t7_a: running 1h27m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[02:52:33]   t7_a: running 1h30m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[02:55:34]   t7_a: running 1h33m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[02:58:34]   t7_a: running 1h36m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:01:34]   t7_a: running 1h39m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:04:34]   t7_a: running 1h42m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:07:34]   t7_a: running 1h45m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:10:34]   t7_a: running 1h48m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:13:34]   t7_a: running 1h51m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:16:35]   t7_a: running 1h54m  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:19:35]   t7_a: running 1h57m  cert  5 (k_c     39.9): rho_c = 0.06335 certified=True (relaxed float 0.06367); om 0.0660 Cg0 0.0822
+[03:22:31] [10/40] t7_a: ok (2h00m)
+[03:22:31] [11/40] t7_b: start   (ETA for the whole remainder ~3h20m)
+[03:25:34]   t7_b: running 3m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:28:34]   t7_b: running 6m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:31:34]   t7_b: running 9m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:34:34]   t7_b: running 12m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:37:35]   t7_b: running 15m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:40:35]   t7_b: running 18m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:43:35]   t7_b: running 21m03s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:46:35]   t7_b: running 24m04s  >> C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe run_batch.py --script nl7.py --slabs 0-180 --jobs 4 --out C:\Users\micahw\
+[03:49:10] [11/40] t7_b: ok (26m38s)
+[03:49:10] [12/40] h1pts: start   (ETA for the whole remainder ~2h47m)
+[03:52:10]   h1pts: running 3m00s  4/16 units done
+[03:55:10]   h1pts: running 6m00s  8/16 units done
+[03:57:38] [12/40] h1pts: ok (8m28s)
+[03:57:38] [13/40] h1dt: start   (ETA for the whole remainder ~2h14m)
+[04:00:38]   h1dt: running 3m00s  4/32 units done
+[04:03:38]   h1dt: running 6m00s  8/32 units done
+[04:06:38]   h1dt: running 9m00s  12/32 units done
+[04:09:39]   h1dt: running 12m00s  16/32 units done
+[04:12:39]   h1dt: running 15m00s  22/32 units done
+[04:15:39]   h1dt: running 18m01s  28/32 units done
+[04:17:47] [13/40] h1dt: ok (20m09s)
+[04:17:47] [14/40] winslab: start   (ETA for the whole remainder ~1h28m)
+[04:19:24] [14/40] winslab: ok (1m37s)
+[04:19:24] [15/40] tail1: start   (ETA for the whole remainder ~1h25m)
+[04:22:27]   tail1: running 3m03s  ===== 2026-11-24 04:21:07  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe h1_points.py  (cwd step4\p2\t9h)
+[04:25:27]   tail1: running 6m03s  ===== 2026-11-24 04:21:07  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe h1_points.py  (cwd step4\p2\t9h)
+[04:28:27]   tail1: running 9m03s  ===== 2026-11-24 04:21:07  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe h1_points.py  (cwd step4\p2\t9h)
+   tail: round 1 skips camp --n3 n3_b1 --window 180-180 (T9WIN) [A] (run in tail2)
+   tail: round 1 skips n3boxes [A] (run in tail2)
+   tail: round 1 skips t9.py (cone jets, KCH, c0, c0tip, shells, frame) [A] (run in tail2)
+[04:30:57] [15/40] tail1: ok (11m32s)
+[04:30:57] [16/40] t7_nl: start   (ETA for the whole remainder ~1h12m)
+[04:33:57]   t7_nl: running 3m00s  cert  6 (k_c     44.7): rho_c = 0.05727 certified=True (relaxed float 0.05756); om 0.0599 Cg0 0.0825
+[04:34:57] [16/40] t7_nl: ok (4m00s)
+[04:34:57] [17/40] tail2: start   (ETA for the whole remainder ~1h11m)
+   tail: bootstrap pass without T9JSON
+[04:38:00]   tail2: running 3m03s  ===== 2026-11-24 04:37:40  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe n3far.py --slabs 2-180 --amp constants/amp_b1_n3_i
+   tail: pass 1: t9_cone_kch.json 9407e0d1e13c (unchanged)
+   tail: pass 2: t9_cone_kch.json 9407e0d1e13c (unchanged)
+[04:41:00]   tail2: running 6m04s  ===== 2026-11-24 04:40:40  C:\Users\micahw\kitruns\kit4bv4_win1\kitenv\Scripts\python.exe t9_lemmaO.py t8se/constants/amp_A1_w180.json 180  
+   n3_b1 of round 1 (T7 without the nonlinear closure) equals round 2 (republished T7), args dropped
+[04:42:15] [17/40] tail2: ok (7m18s)
+[04:42:15] [18/40] b8: start   (ETA for the whole remainder ~55m00s)
+[04:42:26] [18/40] b8: ok (0m11s)
+[04:42:26] [19/40] v33_00_h2f_ift: start   (ETA for the whole remainder ~54m40s)
+[04:42:27] [19/40] v33_00_h2f_ift: ok (0m01s)
+[04:42:27] [20/40] v33_01_h2f_balls: start   (ETA for the whole remainder ~54m26s)
+[04:45:27]   v33_01_h2f_balls: running 3m00s  from stage 1: stages 0-0 reused (69 paths verified)
+[04:47:33] [20/40] v33_01_h2f_balls: ok (5m06s)
+[04:47:33] [21/40] v33_02_t9_h2f: start   (ETA for the whole remainder ~45m50s)
+[04:47:43] [21/40] v33_02_t9_h2f: ok (0m10s)
+[04:47:43] [22/40] v33_03_h2f_camp: start   (ETA for the whole remainder ~45m17s)
+[04:47:43] [22/40] v33_03_h2f_camp: ok (0m00s)
+[04:47:43] [23/40] v33_04_h2t: start   (ETA for the whole remainder ~45m03s)
+[04:47:43] [23/40] v33_04_h2t: ok (0m00s)
+[04:47:43] [24/40] v33_05_cone: start   (ETA for the whole remainder ~44m49s)
+[04:47:46] [24/40] v33_05_cone: ok (0m03s)
+[04:47:46] [25/40] v33_06_h4loc: start   (ETA for the whole remainder ~44m15s)
+[04:47:48] [25/40] v33_06_h4loc: ok (0m02s)
+[04:47:48] [26/40] v33_07_lemmaO_h1: start   (ETA for the whole remainder ~43m40s)
+[04:48:09] [26/40] v33_07_lemmaO_h1: ok (0m21s)
+[04:48:09] [27/40] v33_08_ratio: start   (ETA for the whole remainder ~42m01s)
+[04:48:10] [27/40] v33_08_ratio: ok (0m00s)
+[04:48:10] [28/40] v33_09_notes: start   (ETA for the whole remainder ~41m47s)
+[04:48:10] [28/40] v33_09_notes: ok (0m00s)
+[04:48:10] [29/40] v33_10_b0_dprof: start   (ETA for the whole remainder ~41m33s)
+[04:48:14] [29/40] v33_10_b0_dprof: ok (0m04s)
+[04:48:14] [30/40] v33_11_h2u: start   (ETA for the whole remainder ~41m00s)
+[04:48:15] [30/40] v33_11_h2u: ok (0m00s)
+[04:48:15] [31/40] v33_12_m9_balls: start   (ETA for the whole remainder ~40m46s)
+[04:51:15]   v33_12_m9_balls: running 3m00s  from stage 12: stages 0-11 reused (161 paths verified)
+[04:54:15]   v33_12_m9_balls: running 6m00s  from stage 12: stages 0-11 reused (161 paths verified)
+[04:57:15]   v33_12_m9_balls: running 9m00s  from stage 12: stages 0-11 reused (161 paths verified)
+[04:57:41] [31/40] v33_12_m9_balls: ok (9m26s)
+[04:57:41] [32/40] v33_13_h3_arb: start   (ETA for the whole remainder ~24m24s)
+[04:57:41] [32/40] v33_13_h3_arb: ok (0m01s)
+[04:57:41] [33/40] v33_14_h2t_arb: start   (ETA for the whole remainder ~24m06s)
+[04:57:42] [33/40] v33_14_h2t_arb: ok (0m00s)
+[04:57:42] [34/40] v33_15_h2u_arb: start   (ETA for the whole remainder ~23m47s)
+[04:57:42] [34/40] v33_15_h2u_arb: ok (0m01s)
+[04:57:42] [35/40] v33_16_h2f_camp_arb: start   (ETA for the whole remainder ~23m28s)
+[04:57:43] [35/40] v33_16_h2f_camp_arb: ok (0m01s)
+[04:57:43] [36/40] v33_17_lemmaO_arb: start   (ETA for the whole remainder ~23m09s)
+[04:58:05] [36/40] v33_17_lemmaO_arb: ok (0m22s)
+[04:58:05] [37/40] v33_18_h4far: start   (ETA for the whole remainder ~21m38s)
+[04:58:07] [37/40] v33_18_h4far: ok (0m02s)
+[04:58:07] [38/40] v33_19_n1_chart: start   (ETA for the whole remainder ~21m07s)
+[04:58:18] [38/40] v33_19_n1_chart: ok (0m11s)
+[04:58:18] [39/40] v33_20_f12_sliver: start   (ETA for the whole remainder ~20m37s)
+[04:59:09] [39/40] v33_20_f12_sliver: ok (0m52s)
+[04:59:09] [40/40] v38: start   (ETA for the whole remainder ~19m08s)
+[05:02:10]   v38: running 3m00s  [20] f12_sliver: F1 sliver G_i, F2 sliver sup|w''|, on fin13v4c (strip cubic, rate-table pins) and chain v37 (f12_sliver_v38.py): rc 0 (74s)
+[05:04:53] [40/40] v38: FAILED after 5m44s.  Last log lines (kit_out\logs\v38.log):
+[8] fixed-L cone: H7 time ratio on fin13v4c (ratio_v38.py): rc 0 (0s)
+[9] covering notes on the v37 zone3_interface: far family subset, t9_h6_v32 superseded (notes_v38.py): rc 0 (0s)
+[10] carried from v33 stage 10: B0: profile difference d = (f - U) - w' on [14, 60] (b0_dprof.py) (37 in, 2 out, hashes equal)
+[11] carried from v33 stage 11: B0: tightened (H2) for f - U_1 on [14, 60] (h2u_v33.py) (3 in, 2 out, hashes equal)
+[12] carried from v33 stage 12: M9: arb window/shell/(H2f) base sums, 32 t_c balls x 2 ball sets (m9_balls.py -> win_arb.py) (138 in, 66 out, hashes equal)
+[13] carried from v33 stage 13: M9: (H3) windows and v3.2 (H2) shells on the arb bases (h3_arb.py) (5 in, 2 out, hashes equal)
+[14] carried from v33 stage 14: M9: tightened (H2) shells on the arb bases (h2t_v33_arb.py) (4 in, 2 out, hashes equal)
+[15] carried from v33 stage 15: M9: tightened (H2) for f - U_1 on the arb bases (h2u_v33_arb.py) (3 in, 2 out, hashes equal)
+[16] carried from v33 stage 16: M9: (H2f) on the arb bases (h2f_camp_arb.py) (5 in, 2 out, hashes equal)
+[17] carried from v33 stage 17: M9: Lemma O H1 with the certified centre map (t9_lemmaO_v33_arb.py, LO_NS=48) (6 in, 2 out, hashes equal)
+[18] M9: far-family H4, every centre at radius >= 490 to the far end, zone3 v37 (h4far_v38.py): rc 0 (2s)
+[19] N1: chart terms, S1 chart vs ray graph, on (A)'s ramp and core, verifier fin13v4c (n1_chart_v38.py): rc 0 (10s)
+[20] f12_sliver: F1 sliver G_i, F2 sliver sup|w''|, on fin13v4c (strip cubic, rate-table pins) and chain v37 (f12_sliver_v38.py): rc 0 (74s)
+[21] flux v37: reproduction (F2_OUT/F2_TX scratch) and pin of fix13_v37chain/flux/out, texts (flux_v38.py): rc 1 (256s)
+Traceback (most recent call last):
+  File "C:\Users\micahw\kitruns\kit4bv4_win1\kit_guard.py", line 128, in <module>
+    runpy.run_path(target, run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\micahw\kitruns\kit4bv4_win1\step4\p2\v38\final_tail_v38.py", line 243, in <module>
+    assert r.returncode == 0, (S['stage'], open(S['log']).read()[-3000:])
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ('flux v37: reproduction (F2_OUT/F2_TX scratch) and pin of fix13_v37chain/flux/out, texts (flux_v38.py)', 'on": "equal apart from args", "flux2_sanity.json": "equal apart from args", "gen_texts.json": "DIFFERS", "\nFAIL rerun reproduces every flux/texts file byte for byte {"BPhi_continuation_v36.tex": "DIFFERS", "absorption_lemma_v2.tex": "DIFFERS", "erratum_flux2.tex": "DIFFERS", "flux2_lemma_v2.tex": "DIFFERS", "lemmaD_k2_sketch.tex": "DIFFERS", "numbers_flux2.json": "DIFFERS"}\nPASS inputs.json: the only non-args difference is the V37_LOG.md pin (B-v37-1); rerun pins the current file {"report": "C:/Users/micahw/kitruns/kit4bv4_win1/writeup/lemmaU/bulk/fix13_v37chain/V37_LOG.md", "pinned_in_reference": "303647c23c0c3e84c4c6dfa4b8e8e44a3c4a7a314e114f5878e7c341afac467b", "pinned_in_rerun": "c36c72c9c1417cad7591f686559a109c8b5f966c9803cf7a21cf7adc2ef0a701", "disk": "c36c72c9c1417cad\nPASS flux2_cert verdict PASS, no failing condition, every scripted condition passes (C8 = U-1: by hand, pass_ null as recorded) {"C0": [0.7918632847171745, true], "C1": [9848865.177846909, true], "C2[0.000125]": [49979053.9981488, true], "C2[0.00015]": [53439130.228678234, true], "C3[0.000125]": [2236.361389288864, true], "C3[0.00015]": [1547.6068276237302, true], "C4[0.000125]": [173562.32712323128, true], "C4[0.00015]": [1\nPASS combined pointwise margin (FLUX0 + eps_I FLUX2)/(K0bar + eps_I K2pt) > 1 [cert] {"lower": 4.804534359260718}\nPASS fix13_v37chain trees unchanged by this stage (every file hash, no new file) []\nstage times (s): {\'flux2_forms.py\': 2.5, \'flux2_coef.py\': 2.7, \'chart4_shell.py\': 235.6, \'inputs_manifest.py\': 1.0, \'flux2_data.py\': 1.0, \'flux2_assemble.py\': 1.2, \'flux2_sanity.py\': 9.9, \'gen_texts.py\': 1.0}\nall ok: False (6/8)\nTraceback (most recent call last):\n  File "C:\\Users\\micahw\\kitruns\\kit4bv4_win1\\kit_guard.py", line 128, in <module>\n    runpy.run_path(target, run_name=\'__main__\')\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<frozen runpy>", line 287, in run_path\n  File "<frozen runpy>", line 98, in _run_module_code\n  File "<frozen runpy>", line 88, in _run_code\n  File "C:\\Users\\micahw\\kitruns\\kit4bv4_win1\\step4\\p2\\v38\\flux_v38.py", line 120, in <module>\n    assert out[\'all_ok\'], [c for c in CHK if not c[\'ok\']]\n           ~~~^^^^^^^^^^\nAssertionError: [{\'check\': \'rerun reproduces every pinned flux/out file (JSON apart from args; pkl byte for byte)\', \'ok\': False, \'detail\': {\'chart4_shell.json\': \'equal apart from args\', \'flux2_cert.json\': \'equal apart from args\', \'flux2_coef.json\': \'equal apart from args\', \'flux2_data.json\': \'equal apart from args\', \'flux2_forms.json\': \'equal apart from args\', \'flux2_sanity.json\': \'equal apart from args\', \'gen_texts.json\': \'DIFFERS\', \'inputs.json\': \'equal apart from args\', \'flux2_forms.pkl\': \'byte-identical\'}}, {\'check\': \'rerun reproduces every flux/texts file byte for byte\', \'ok\': False, \'detail\': {\'BPhi_continuation_v36.tex\': \'DIFFERS\', \'absorption_lemma_v2.tex\': \'DIFFERS\', \'erratum_flux2.tex\': \'DIFFERS\', \'flux2_lemma_v2.tex\': \'DIFFERS\', \'lemmaD_k2_sketch.tex\': \'DIFFERS\', \'numbers_flux2.json\': \'DIFFERS\'}}]\n')
+
+Running  python run_all.py  again retries from this stage; if it fails again paste the log tail.

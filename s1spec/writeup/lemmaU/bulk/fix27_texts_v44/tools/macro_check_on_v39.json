@@ -1,0 +1,217 @@
+{
+ "args": {
+  "argv": [
+   "tools/check_macros_v44.py",
+   "../fix17_texts_v39",
+   "v39",
+   "tools/macro_check_on_v39.json"
+  ],
+  "dir": "../fix17_texts_v39/",
+  "tag": "v39"
+ },
+ "docs": {
+  "C1_identification_v39.tex": {
+   "defined": 7,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 98
+  },
+  "E0_LEMMA_v4c_v39.tex": {
+   "defined": 2,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 61
+  },
+  "G1_export_k2_v39.tex": {
+   "defined": 9,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 89
+  },
+  "GS_lemma_v39.tex": {
+   "defined": 6,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [
+    "key"
+   ],
+   "undefined_unknown": [],
+   "used": 94
+  },
+  "U1_regularity_v39.tex": {
+   "defined": 8,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 111
+  },
+  "bootstrap_v39.tex": {
+   "defined": 149,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [],
+   "undefined_unknown": [
+    "BPhiC",
+    "BPhiConeoneV",
+    "BPhiConetwoV",
+    "BPhiCzerooneV",
+    "BPhiCzerotwoV"
+   ],
+   "used": 232
+  },
+  "continuation_v39.tex": {
+   "defined": 149,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [],
+   "undefined_unknown": [
+    "BPhiC"
+   ],
+   "used": 237
+  },
+  "ei_lemma_v4c_v39.tex": {
+   "defined": 150,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [],
+   "undefined_unknown": [
+    "BPhiC"
+   ],
+   "used": 245
+  },
+  "erratum_v39.tex": {
+   "defined": 12,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 98
+  },
+  "flux2_lemma_v39.tex": {
+   "defined": 12,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [
+    "BbIRV",
+    "BdV",
+    "CppV",
+    "CprimeV",
+    "EtwoTipV",
+    "FluxCfiveBV",
+    "FluxCfiveV",
+    "FluxCombMarV",
+    "FluxCsixV",
+    "FluxCthreeBV",
+    "FluxCthreeV",
+    "FluxKzeroMarV",
+    "KtwoPtV",
+    "KzeroBarV",
+    "MarSoneV",
+    "MarSzeroV",
+    "SppV",
+    "SprimeV",
+    "abarV",
+    "key",
+    "slackSV"
+   ],
+   "undefined_unknown": [
+    "BPhiConeoneV",
+    "BPhiConetwoV",
+    "BPhiCzerooneV",
+    "BPhiCzerotwoV"
+   ],
+   "used": 134
+  },
+  "lemmaS_A_v39.tex": {
+   "defined": 149,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [],
+   "undefined_unknown": [
+    "BPhiC",
+    "EtauOneV",
+    "GAoneV",
+    "HtwoV",
+    "HtwofV"
+   ],
+   "used": 275
+  },
+  "lemmaU_v39.tex": {
+   "defined": 16,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [
+    "DcTwoV",
+    "cdUV"
+   ],
+   "undefined_unknown": [],
+   "used": 135
+  },
+  "main_v3_v39.tex": {
+   "defined": 10,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [
+    "CprimeV",
+    "EzeroAoneMarV",
+    "cdUV",
+    "tailAlphaMarBV",
+    "tailAlphaMarV"
+   ],
+   "undefined_unknown": [],
+   "used": 143
+  },
+  "step3_v39_main.tex": {
+   "defined": 155,
+   "missing_inputs": [],
+   "ok": false,
+   "undefined_project_macros": [],
+   "undefined_unknown": [
+    "BPhiC",
+    "BPhiConeoneV",
+    "BPhiConetwoV",
+    "BPhiCzerooneV",
+    "BPhiCzerotwoV",
+    "EtauOneV",
+    "GAoneV",
+    "HtwoV",
+    "HtwofV"
+   ],
+   "used": 316
+  },
+  "step4_handoff_v39.tex": {
+   "defined": 6,
+   "missing_inputs": [],
+   "ok": true,
+   "undefined_project_macros": [],
+   "undefined_unknown": [],
+   "used": 52
+  }
+ },
+ "invalid_names": [
+  {
+   "file": "numbers_A_v39.tex",
+   "name": "BPhiC0oneV"
+  },
+  {
+   "file": "numbers_A_v39.tex",
+   "name": "BPhiC0twoV"
+  },
+  {
+   "file": "numbers_A_v39.tex",
+   "name": "BPhiC1oneV"
+  },
+  {
+   "file": "numbers_A_v39.tex",
+   "name": "BPhiC1twoV"
+  }
+ ],
+ "ok": false
+}

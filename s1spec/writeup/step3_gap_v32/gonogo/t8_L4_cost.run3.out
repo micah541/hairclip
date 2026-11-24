@@ -1,0 +1,29 @@
+core_YC reproduces F.constants YC (gam = 4, crude box)
+power weight, Lemma S(A) core (gamma=1, kappa=5): Ghat_jj no L4 ['2278', '1360', '1.906e+04'], with L4 ['2281', '2351', '7.772e+04'], L4 factor (22) x4.08
+previous T2 v1 (Gamma=4, kappa=5): Ghat_jj no L4 ['4.052e+04', '1.751e+04', '6.702e+04'], with L4 ['4.054e+04', '2.198e+04', '1.786e+05'], L4 factor (22) x2.67
+previous shortcut (Gamma=4, kappa=nu+4=8): Ghat_jj no L4 ['4.93e+04', '2.303e+04', '7.845e+04'], with L4 ['4.932e+04', '2.856e+04', '2.398e+05'], L4 factor (22) x3.06
+previous shortcut (Gamma=4, kappa=nu+4=6): Ghat_jj no L4 ['4.3e+04', '1.907e+04', '7.024e+04'], with L4 ['4.301e+04', '2.384e+04', '1.965e+05'], L4 factor (22) x2.80
+Traceback (most recent call last):
+  File "/home/claude/s1spec/writeup/step3_gap_v32/gonogo/t8_L4_cost.py", line 112, in <module>
+    json.dump(out, open(os.path.join(HERE, 't8_L4_cost.json'), 'w'), indent=1)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/json/__init__.py", line 181, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "/usr/local/lib/python3.13/json/encoder.py", line 435, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/local/lib/python3.13/json/encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "/usr/local/lib/python3.13/json/encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "/usr/local/lib/python3.13/json/encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "/usr/local/lib/python3.13/json/encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "/usr/local/lib/python3.13/json/encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "/usr/local/lib/python3.13/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type Float is not JSON serializable
+exit=1

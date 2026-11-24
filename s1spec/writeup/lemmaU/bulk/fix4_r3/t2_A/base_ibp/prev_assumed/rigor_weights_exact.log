@@ -1,0 +1,15 @@
+table coefficients: max rel diff exact vs float 0.0
+core level 0 {0: (2280.846079, '-7.780e-16')} budget slack/amin 0.3
+core level 1 {0: (0.589738, '-3.543e-16'), 1: (2351.492496, '-2.149e-16')} budget slack/amin 0.2
+core level 2 {0: (2.985356, '-4.039e-16'), 1: (113.471692, '-3.123e-16'), 2: (65729.721725, '-1.727e-15')} budget slack/amin 0.4
+ramp level 0 {'Ghat0': (2286.6382, '-5.028e-16')} footw 0.0 W33 0.0 budget slack/amin 0.34
+ramp level 1 {'Ghat0': (0.743, '-6.558e-16'), 'Ghat1': (3849.635, '-2.983e-16')} footw 1.5707250797145307 W33 0.0 budget slack/amin 0.26
+ramp level 2 {'Ghat0': (4.4709, '-7.911e-16'), 'Ghat1': (243.8867, '-1.802e-16'), 'Ghat2': (235592.1974, '-4.271e-16')} footw 2862.4867820255 W33 2.8288724168669432 budget slack/amin 0.32
+ramp: max relative excess (exact arb upper / double - 1): Abr 8.708e-61, Ghat/YC 7.750e-17
+C_eta arb upper 15.83531251642853 (double run 15.83531249835125)
+window 50 box 0.166333872865379 0.167150566508648 Ghat_jj exact-arb-upper vs run: ['2186.2/2186.2 (-1.2e-15)', '1157.63/1157.63 (7.5e-16)', '16676.2/16676.2 (3.9e-15)', '431241/431241 (4.6e-15)']
+window 75 box 0.174746414039851 0.175983734741843 Ghat_jj exact-arb-upper vs run: ['2202.04/2202.04 (-3.6e-15)', '1204.8/1204.8 (-2.8e-15)', '18102.6/18102.6 (-2.5e-15)', '472892/472892 (-3.7e-15)']
+window 225/2 box 0.187491721215104 0.189366307275859 Ghat_jj exact-arb-upper vs run: ['2227.41/2227.41 (-2.7e-15)', '1285.24/1285.24 (-2.1e-15)', '20534.3/20534.3 (-2.6e-15)', '543905/543905 (-3.9e-15)']
+window 675/4 box 0.206801327150169 0.209641393507677 Ghat_jj exact-arb-upper vs run: ['2268.98/2268.98 (-1.0e-15)', '1430.46/1430.46 (5.1e-16)', '24918/24918 (1.6e-15)', '671811/671811 (2.4e-15)']
+window 2025/8 box 0.2360560854891 0.240358889763554 Ghat_jj exact-arb-upper vs run: ['2339.02/2339.02 (-3.0e-15)', '1715.26/1715.26 (-1.6e-15)', '33467.2/33467.2 (-6.5e-16)', '920364/920364 (-6.5e-16)']
+WORST relative deviation of the exact arb upper value above the double used: 4.567e-15

@@ -1,0 +1,16 @@
+M 3762 tail 9.961888890846922e-13 even part max 7.329577700001181e-11 const dev 8.15703060652595e-11
+  newton 0 m -1.0024565460359376 C(m) [-2.335870034916530e-8 +/- 5.48e-24] C' -1.9970367254947832 leaves 512 30 s
+  newton 1 m -1.002456557732618 C(m) [2.0172021e-16 +/- 7.17e-24] C' -1.9970367254947832 leaves 512 41 s
+  newton 2 m -1.002456557732618 C(m) [2.0172021e-16 +/- 7.17e-24] C' -1.9970367254947832 leaves 512 53 s
+  newton 3 m -1.002456557732618 C(m) [2.0172021e-16 +/- 7.17e-24] C' -1.9970367254947832 leaves 512 63 s
+  arb newton 0 C [2.0172021e-16 +/- 7.17e-24]
+  arb newton 1 C [+/- 4.07e-24]
+  arb newton 2 C [+/- 4.07e-24]
+Krawczyk: m -1.002456557732618 rho 8.137112675004505e-24 C(m) [+/- 4.07e-24] |1-C'(X)/c'|<= 3.006448484004869e-12 K(X) in int X: True
+ round 0 arcs 512 turning/precision violations 47 intersecting arcs 0 min positive sep 0.0066366671500505126 10 s
+ round 1 arcs 559 turning/precision violations 77 intersecting arcs 0 min positive sep 0.03500773582211281 12 s
+ round 2 arcs 636 turning/precision violations 65 intersecting arcs 0 min positive sep 0.017880295453559625 15 s
+ round 3 arcs 701 turning/precision violations 0 intersecting arcs 0 min positive sep 0.008893586826161481 19 s
+arcs 701 zones q0 49 q1 656 middle y<0: True max arc turning 0.049968607258051634 max adjacent-pair turning 0.09596300250988321 (<pi)
+X(pi) [-0.8227219779094960839404 +/- 4.23e-23] + [+/- 3.29e-22]j | min |y| slot plateau (cert lower bd) 0.02482198692526955 float 0.024822317953574438
+wrote gamma0_final.json: b_2 halfwidth 8.137112675004505e-24

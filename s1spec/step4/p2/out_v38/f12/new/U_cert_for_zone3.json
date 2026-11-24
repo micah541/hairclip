@@ -1,0 +1,28 @@
+{
+ "args": {
+  "argv": [
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/make_ucert_for_zone3.py",
+   "/home/claude/s1spec/step4/p2/out_v38/f12/new/U_cert.json",
+   "/home/claude/s1spec/step4/p2/out_v38/f12/new/U_cert_for_zone3.json"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/out_v38/f12/new/U_cert.json": "6a8d983a57b8208f9baeac1a453cb4810a64c8a33eccf430d8d18801fc7ec9c1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/t4_cert/make_ucert_for_zone3.py": "1e0a25c3dc05f0c254e62eb895b9a5a8b7e9ad64ff3753b438cd5aa9f3e020cd"
+  },
+  "python": "3.14.4"
+ },
+ "label": "cert",
+ "note": "U-fine Bhat (ufine.Bhat of U_cert.json), stored under supersolution.Bhat for zone3.py --ucert",
+ "provisional": false,
+ "supersolution": {
+  "Bhat": [
+   4.87214012709022e-06,
+   0.00026266256963851793,
+   0.025847156225495854
+  ]
+ }
+}

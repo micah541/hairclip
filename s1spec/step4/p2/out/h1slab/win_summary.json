@@ -1,0 +1,53 @@
+{
+ "windows_max": [
+  3.474454280265319e-08,
+  1.2608596300817327e-07,
+  3.7538277997416347e-07,
+  9.706167796578438e-07
+ ],
+ "shells": [
+  8.009616491689672e-11,
+  1.3352366190249986e-10,
+  2.9356901302010335e-10
+ ],
+ "balls": [
+  "h1slab/win_0.json",
+  "h1slab/win_1.json",
+  "h1slab/win_2.json",
+  "h1slab/win_3.json",
+  "h1slab/win_4.json",
+  "h1slab/win_5.json",
+  "h1slab/win_6.json",
+  "h1slab/win_7.json",
+  "h1slab/win_8.json",
+  "h1slab/win_9.json",
+  "h1slab/win_10.json",
+  "h1slab/win_11.json",
+  "h1slab/win_12.json",
+  "h1slab/win_13.json",
+  "h1slab/win_14.json",
+  "h1slab/win_15.json",
+  "h1slab/win_16.json",
+  "h1slab/win_17.json",
+  "h1slab/win_18.json",
+  "h1slab/win_19.json",
+  "h1slab/win_20.json",
+  "h1slab/win_21.json",
+  "h1slab/win_22.json",
+  "h1slab/win_23.json",
+  "h1slab/win_24.json",
+  "h1slab/win_25.json",
+  "h1slab/win_26.json",
+  "h1slab/win_27.json",
+  "h1slab/win_28.json",
+  "h1slab/win_29.json",
+  "h1slab/win_30.json",
+  "h1slab/win_31.json"
+ ],
+ "args": {
+  "balls": 32,
+  "radius": 0.03125,
+  "slab": 180,
+  "env_note": "win.py per ball with T9TC, T9IFT, WINOUT (h1slab/win_cmds.txt); envelope S1 chart (no S1TT)"
+ }
+}

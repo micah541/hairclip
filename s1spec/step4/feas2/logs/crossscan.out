@@ -1,0 +1,4 @@
+EVENT {'t_lo': np.float64(0.0028125), 't_hi': np.float64(0.003125), 'n_before': 0, 'n_after': 2, 'kmax': np.float64(3.2053859968026654)}
+EVENT {'t_lo': np.float64(0.015625), 't_hi': np.float64(0.0159375), 'n_before': 2, 'n_after': 4, 'kmax': np.float64(3.386263983186142)}
+EVENT {'t_lo': np.float64(2.642500000000002), 't_hi': np.float64(2.642812500000002), 'n_before': 4, 'n_after': 2, 'kmax': np.float64(2.1180859528980265)}
+final (np.float64(4.5985), 2, np.float64(11.117305092740642))

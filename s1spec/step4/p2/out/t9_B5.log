@@ -1,0 +1,12 @@
+cone (r_c 200-380, base + error at Ybar): K2 <= 1.883e-02, K3 <= 4.899e-04, K4 <= 1.436e-02, N3 <= 1.200e-03, slope <= 0.0572  (H5: 0.12, 0.12, 0.12, 0.14);  H3 K4 (r_c = 200): 6.522e-03 (<= 0.06)
+Traceback (most recent call last):
+  File "/home/claude/s1spec/step4/p2/t9.py", line 114, in <module>
+    vE = fE[j](yT8, ratio, phi, c['k0'], c['k1'], c['k2']); dE[j] = max(dE.get(j, 0.0), U(absb(vE)))
+                                                                                          ~~~~^^^^
+  File "/home/claude/s1spec/step4/p2/t9.py", line 32, in absb
+    def absb(a): return arb(U(abs(a)))
+                            ~^^^^^^^^
+  File "/home/claude/s1spec/step4/p2/t9.py", line 30, in <lambda>
+    U = lambda v: math.nextafter(float(v.upper()), math.inf)
+                                       ^^^^^^^
+AttributeError: 'Abs' object has no attribute 'upper'

@@ -1,0 +1,359 @@
+{
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "chart4_shell.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/lin/lintail2.py": "a7231c8d678097b3d88f9e17daa97b69945c48fa6534679de15c388c2f755b1d",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/n1/out/n1_chart_fin13v4b.json": "7f64040f9c7902ef17341b57402d1017bba58458fb3ccaf564a694741750aa3a",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/chart4_shell.py": "2ccfe541a69c0e6d26784d918af8933b4322bc3044e5d731305d603b4356a6da",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "4b3c477e10eb1637e51bd87ea96d3c177d7b3ab865f54395d39a84f3aa5c7ccb"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "chart4 coefficients small: max(Abar_4, Bbar_4i, Q4) <= 1e-30": true,
+  "chi_0 == 0 for a ray (d_i = 0, e = 0)": true,
+  "chi_0: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only": true,
+  "chi_0: B_02 == 0 (n1_chart lemma (e))": true,
+  "chi_0: B_03 == 0 (n1_chart lemma (e))": true,
+  "chi_0: d^2/db2 db2 == 0": true,
+  "chi_0: d^2/db2 db3 == 0": true,
+  "chi_0: d^2/db3 db3 == 0": true,
+  "chi_0: no b2^2 term": true,
+  "chi_0: no b_4": true,
+  "chi_0: no b_5 (u^(6))": true,
+  "chi_0: no k'''' (d_5)": true,
+  "chi_0: no unresolved function/derivative": true,
+  "chi_1 == 0 for a ray (d_i = 0, e = 0)": true,
+  "chi_1: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only": true,
+  "chi_1: B_12 == 0 (n1_chart lemma (e))": true,
+  "chi_1: B_13 == 0 (n1_chart lemma (e))": true,
+  "chi_1: d^2/db2 db2 == 0": true,
+  "chi_1: d^2/db2 db3 == 0": true,
+  "chi_1: d^2/db3 db3 == 0": true,
+  "chi_1: no b2^2 term": true,
+  "chi_1: no b_4": true,
+  "chi_1: no b_5 (u^(6))": true,
+  "chi_1: no k'''' (d_5)": true,
+  "chi_1: no unresolved function/derivative": true,
+  "chi_2 == 0 for a ray (d_i = 0, e = 0)": true,
+  "chi_2: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only": true,
+  "chi_2: B_23 == 0 (n1_chart lemma (e))": true,
+  "chi_2: d^2/db2 db2 == 0": true,
+  "chi_2: d^2/db2 db3 == 0": true,
+  "chi_2: d^2/db3 db3 == 0": true,
+  "chi_2: no b2^2 term": true,
+  "chi_2: no b_4": true,
+  "chi_2: no b_5 (u^(6))": true,
+  "chi_2: no k'''' (d_5)": true,
+  "chi_2: no unresolved function/derivative": true,
+  "chi_3 == 0 for a ray (d_i = 0, e = 0)": true,
+  "chi_3: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only": true,
+  "chi_3: d^2/db2 db2 == 0": true,
+  "chi_3: d^2/db2 db3 == 0": true,
+  "chi_3: d^2/db3 db3 == 0": true,
+  "chi_3: no b2^2 term": true,
+  "chi_3: no b_4": true,
+  "chi_3: no b_5 (u^(6))": true,
+  "chi_3: no k'''' (d_5)": true,
+  "chi_3: no unresolved function/derivative": true,
+  "chi_4 == 0 for a ray (d_i = 0, e = 0)": true,
+  "chi_4: A, B, Q depend on (sigma, e, d_0..d_5, u, b, b_1) only": true,
+  "chi_4: d^2/db2 db3 == 0": true,
+  "chi_4: d^2/db2 db4 == 0": true,
+  "chi_4: d^2/db3 db3 == 0": true,
+  "chi_4: d^2/db3 db4 == 0": true,
+  "chi_4: d^2/db4 db4 == 0": true,
+  "chi_4: d^3/db2^3 == 0 (degree <= 2 in b2)": true,
+  "chi_4: no b_5 (u^(6))": true,
+  "chi_4: no unresolved function/derivative": true,
+  "regression: Abar_k (k <= 3, chart part incl. U-shift) on S <= n1_chart core sup_add_k": true,
+  "regression: chart e on S <= n1_chart core e": true,
+  "shell [54.75, 57.76] contains S = [57 + STIP, 60 + STIP]": true
+ },
+ "prec": 128,
+ "res": {
+  "Abar": [
+   {
+    "arb": "[1.6849117486140949451e-44 +/- 3.32e-64]",
+    "label": "cert",
+    "note": "sup_S |A_0| + p^0 sup |U(sigma) - U(Y)|",
+    "up": 1.6849117486140952e-44
+   },
+   {
+    "arb": "[2.2597214457346084714e-42 +/- 1.02e-62]",
+    "label": "cert",
+    "note": "sup_S |A_1| + p^1 sup |U(sigma) - U(Y)|",
+    "up": 2.2597214457346088e-42
+   },
+   {
+    "arb": "[3.0229871578335252291e-40 +/- 1.08e-61]",
+    "label": "cert",
+    "note": "sup_S |A_2| + p^2 sup |U(sigma) - U(Y)|",
+    "up": 3.0229871578335256e-40
+   },
+   {
+    "arb": "[4.0756862749800147962e-38 +/- 1.33e-58]",
+    "label": "cert",
+    "note": "sup_S |A_3| + p^3 sup |U(sigma) - U(Y)|",
+    "up": 4.0756862749800153e-38
+   },
+   {
+    "arb": "[5.5455241192251261517e-36 +/- 7.93e-57]",
+    "label": "cert",
+    "note": "sup_S |A_4| + p^4 sup |U(sigma) - U(Y)|",
+    "up": 5.545524119225127e-36
+   }
+  ],
+  "B422": {
+   "arb": "[1.3968402262540756779e-36 +/- 1.60e-56]",
+   "label": "cert",
+   "note": "sup_S |B_422| (coefficient of b_2^2 in chi_4)",
+   "up": 1.3968402262540758e-36
+  },
+  "Bbar": {
+   "22": {
+    "arb": "[3.5403886029506214448e-40 +/- 4.04e-60]",
+    "label": "cert",
+    "note": "sup_S |B_22| (coefficient of b_2 in chi_2)",
+    "up": 3.540388602950622e-40
+   },
+   "32": {
+    "arb": "[9.6148237058857518620e-38 +/- 4.44e-58]",
+    "label": "cert",
+    "note": "sup_S |B_32| (coefficient of b_2 in chi_3)",
+    "up": 9.614823705885754e-38
+   },
+   "33": {
+    "arb": "[2.5860062167992525637e-38 +/- 1.59e-58]",
+    "label": "cert",
+    "note": "sup_S |B_33| (coefficient of b_3 in chi_3)",
+    "up": 2.586006216799253e-38
+   },
+   "42": {
+    "arb": "[2.1823187125247572684e-35 +/- 2.11e-55]",
+    "label": "cert",
+    "note": "sup_S |B_42| (coefficient of b_2 in chi_4)",
+    "up": 2.1823187125247575e-35
+   },
+   "43": {
+    "arb": "[8.8322139684811030628e-36 +/- 2.22e-56]",
+    "label": "cert",
+    "note": "sup_S |B_43| (coefficient of b_3 in chi_4)",
+    "up": 8.832213968481104e-36
+   },
+   "44": {
+    "arb": "[1.7712175377261653553e-36 +/- 3.54e-56]",
+    "label": "cert",
+    "note": "sup_S |B_44| (coefficient of b_4 in chi_4)",
+    "up": 1.7712175377261657e-36
+   }
+  },
+  "Dd_int_ds": [
+   {
+    "arb": "[8.3116474807572686298e-10 +/- 2.53e-30]",
+    "label": "cert",
+    "note": "int_S (D^0 d)^2 ds",
+    "up": 8.31164748075727e-10
+   },
+   {
+    "arb": "[2.8476146582333989781e-9 +/- 2.03e-29]",
+    "label": "cert",
+    "note": "int_S (D^1 d)^2 ds",
+    "up": 2.8476146582333994e-09
+   },
+   {
+    "arb": "[1.0724950179496797332e-8 +/- 4.48e-29]",
+    "label": "cert",
+    "note": "int_S (D^2 d)^2 ds",
+    "up": 1.0724950179496799e-08
+   },
+   {
+    "arb": "[4.2680710607747678572e-8 +/- 2.35e-28]",
+    "label": "cert",
+    "note": "int_S (D^3 d)^2 ds",
+    "up": 4.2680710607747685e-08
+   },
+   {
+    "arb": "[1.7587912661832771524e-7 +/- 1.34e-27]",
+    "label": "cert",
+    "note": "int_S (D^4 d)^2 ds",
+    "up": 1.7587912661832774e-07
+   }
+  ],
+  "Dd_sup": [
+   {
+    "arb": "[0.00013012356840403827463 +/- 2.00e-24]",
+    "label": "cert",
+    "note": "sup_S |D^0 d|",
+    "up": 0.0001301235684040383
+   },
+   {
+    "arb": "[0.00024187432857534346946 +/- 4.88e-24]",
+    "label": "cert",
+    "note": "sup_S |D^1 d|",
+    "up": 0.0002418743285753435
+   },
+   {
+    "arb": "[0.00047054021467901428885 +/- 2.42e-24]",
+    "label": "cert",
+    "note": "sup_S |D^2 d|",
+    "up": 0.00047054021467901434
+   },
+   {
+    "arb": "[0.00093982999107908283230 +/- 3.18e-24]",
+    "label": "cert",
+    "note": "sup_S |D^3 d|",
+    "up": 0.0009398299910790829
+   },
+   {
+    "arb": "[0.0019086464566893770241 +/- 4.91e-23]",
+    "label": "cert",
+    "note": "sup_S |D^4 d|",
+    "up": 0.0019086464566893772
+   }
+  ],
+  "P2sq_int_ds": {
+   "arb": "[1.4925701878374875156e-28 +/- 2.94e-49]",
+   "label": "cert",
+   "note": "int_S (P'')^4 ds",
+   "up": 1.4925701878374877e-28
+  },
+  "P_int_ds": [
+   {
+    "arb": "[2.2242225539249075802e-5 +/- 2.13e-25]",
+    "label": "cert",
+    "note": "int_S (P^(0))^2 ds",
+    "up": 2.224222553924908e-05
+   },
+   {
+    "arb": "[7.4447686446159745655e-9 +/- 8.37e-31]",
+    "label": "cert",
+    "note": "int_S (P^(1))^2 ds",
+    "up": 7.444768644615975e-09
+   },
+   {
+    "arb": "[2.8257139828282635522e-15 +/- 4.91e-36]",
+    "label": "cert",
+    "note": "int_S (P^(2))^2 ds",
+    "up": 2.825713982828264e-15
+   },
+   {
+    "arb": "[4.4049635166032024297e-19 +/- 3.52e-39]",
+    "label": "cert",
+    "note": "int_S (P^(3))^2 ds",
+    "up": 4.404963516603203e-19
+   },
+   {
+    "arb": "[5.3375929474344888985e-22 +/- 4.24e-42]",
+    "label": "cert",
+    "note": "int_S (P^(4))^2 ds",
+    "up": 5.33759294743449e-22
+   }
+  ],
+  "Pbar": [
+   {
+    "arb": "[0.020938579670251960402 +/- 2.17e-22]",
+    "label": "cert",
+    "note": "sup_S |P^(0)|",
+    "up": 0.020938579670251964
+   },
+   {
+    "arb": "[0.00037330710613460969544 +/- 2.81e-24]",
+    "label": "cert",
+    "note": "sup_S |P^(1)|",
+    "up": 0.00037330710613460975
+   },
+   {
+    "arb": "[2.3384864631446845086e-7 +/- 3.31e-27]",
+    "label": "cert",
+    "note": "sup_S |P^(2)|",
+    "up": 2.3384864631446848e-07
+   },
+   {
+    "arb": "[3.0169578456197995133e-9 +/- 7.14e-30]",
+    "label": "cert",
+    "note": "sup_S |P^(3)|",
+    "up": 3.0169578456198e-09
+   },
+   {
+    "arb": "[1.0771206545914049812e-10 +/- 1.35e-31]",
+    "label": "cert",
+    "note": "sup_S |P^(4)|",
+    "up": 1.0771206545914051e-10
+   }
+  ],
+  "S_ds": {
+   "arb": "[0.053519125887960594667 +/- 4.48e-22]",
+   "label": "cert",
+   "note": "|S|_s = log(57.76/54.75)",
+   "up": 0.0535191258879606
+  },
+  "boxes": {
+   "alpha": "2.5e-4",
+   "note": "standing boxes B-a, B-d, B-e of fin13v4b",
+   "w": "0.5",
+   "w1": 0.015300000000000003,
+   "w2": 0.010958904109589045
+  },
+  "cells": 49,
+  "e": {
+   "arb": "[1.6036743440259823357e-44 +/- 3.29e-64]",
+   "label": "cert",
+   "up": 1.6036743440259826e-44
+  },
+  "eps_c": {
+   "arb": "[3.9197808091538765562e-44 +/- 4.01e-64]",
+   "label": "cert",
+   "up": 3.919780809153877e-44
+  },
+  "n1_core_reference": {
+   "e": 3.338189434449321e-20,
+   "file": "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/n1/out/n1_chart_fin13v4b.json",
+   "sup_add": [
+    3.9486442190381873e-19,
+    2.1400159645226127e-17,
+    1.1802203071659575e-15,
+    6.628473599312002e-14
+   ]
+  },
+  "rho_meas": {
+   "arb": "[2.2204460492503135739e-16 +/- 1.47e-36]",
+   "label": "cert",
+   "note": "weight transfer ds <-> dy/y incl. y^-m, m <= 8, both directions",
+   "up": 2.220446049250314e-16
+  },
+  "shell": [
+   "54.75",
+   "57.76"
+  ],
+  "spot_check": {
+   "label": "float diagonstic, not part of the proof",
+   "lhs": -0.002278627748583618,
+   "rel": 0.0,
+   "rhs": -0.002278627748583618
+  }
+ },
+ "stage": "X3 chart4_shell",
+ "timing": {
+  "maxrss_MB": 131,
+  "runtime_s": 199.8
+ }
+}

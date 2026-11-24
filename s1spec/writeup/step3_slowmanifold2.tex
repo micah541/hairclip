@@ -1,0 +1,144 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\sloppy
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\lt}{\tilde\lambda}
+
+\title[Step 3: second-order slow manifold, inner constants]{Step 3, nonlinear part: the second-order slow manifold and the inner energy constants}
+\author{Supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 6, 2026. Proof, code and draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+The trapping argument needs the slow mode to second order. With $u=\alpha\hat\psi_3+w$ alone, the certified coercivity amplifies the $O(\alpha^2)$ forcing about $125$ times relative to the true response $\alpha^2h_2$. That would cap the basin at $\alpha_0\approx1.6\cdot10^{-4}$. We certify a second-order correction $\hat h_2$ with residual $1.6\cdot10^{-6}$ and bound the remaining forcing by $12.34|\alpha|^3$. We also derive a divergence form of the $L^2$ energy identity that needs pointwise bounds on $w,w'$ only, and certify the $\alpha$-linear and $H^2$-level constants of the inner energy. One structural obstruction appears: the modulation couples linearly into the $H^2$ energy, which forces a small $H^2$ weight $\eps\approx10^{-5}$. All bounds are interval arithmetic on the tight profile of the step-1 sharpening (\texttt{s1\_tight.pdf}). Code: \texttt{step3nl/} in \texttt{s1\_step3\_nonlinear.zip}.
+\end{abstract}
+\maketitle
+
+\section{Decomposition}
+Notation is that of the slow-mode supplement: $x=\sigma-\sigma_{\rm tip}$ (even class), $\rho=e^{-\phi}$ with $\phi=\frac14(1+x^2)^{2/3}$, the linearization $L$, $\lt=-0.25615\ldots$, the certified $C^3$ function $\hat\psi_3$ with $\|(L-\lt)\hat\psi_3\|_\rho\le1.28\cdot10^{-6}$, the cutoff $\chi=\chi_{32}(\sigma)$ and $\tilde w=\chi w$. Write the graph equation as $u_\tau=F(u)-a(p+u-u'q/\alpha_g)+b(\sin\theta+u'\cos\theta/\alpha_g)$, with $F(u)=Lu+N_0(u)$, and decompose
+\[
+u=u_0+w,\qquad u_0=\alpha\hat\psi_3+\alpha^2\hat h_2,\qquad \alpha_\tau=\lt\alpha+\beta .
+\]
+Then
+\[
+w_\tau=Lw+\Phi_F-\beta(\hat\psi_3+2\alpha\hat h_2)-a(\psi_1+A(u))-b(\psi_2-B(u))+N_0(u)-N_0(u_0),
+\]
+\[
+\Phi_F=\alpha\,\hat r+\alpha^2\hat r_h+\big[N_0(u_0)-\alpha^2Q_2(\hat\psi_3)\big],
+\]
+where $\hat r=(L-\lt)\hat\psi_3$, $\hat r_h=(L-2\lt)\hat h_2+Q_2(\hat\psi_3)$, $A(u)=u-u'q/\alpha_g$ and $B(u)=u'\cos\theta/\alpha_g$. The constraints $\ip{\tilde w}{f_j}_\rho=0$ ($j=1,2,3$) determine $(a,b,\beta)$ as before.
+
+\section{The quadratic forcing and $h_2$}
+\begin{lemma}
+The quadratic part of $F$ at $S_1$ is
+\begin{align*}
+Q_2(u)={}&-4k^3uu''-3k^3u'^2-26k^2m\,uu'-\tfrac52k^2p\,u^2-15km^2u^2-4k\,uu''''\\
+&-6k\,u'u'''-3k\,u''^2-6m\,uu'''-8m\,u'u''-p\,uu''-\tfrac12p\,u'^2 .
+\end{align*}
+In particular $Q_2$ vanishes on the ray $k=m=p=0$, so $Q_2(\hat\psi_3)$ decays like the curvature of $S_1$.
+\end{lemma}
+This is obtained from the second variation in \texttt{graph\_eq.py}; sympy expansion, \texttt{q2\_derivs.pkl}. On the ray the curvature operator is odd in $u$ and the drift is linear.
+
+\begin{proposition}\label{prop:h2}
+Let $\hat h_2$ be the explicit $C^3$ function of \texttt{h2fun.py}. It is built like $\hat\psi_3$: multi-domain Chebyshev collocation on the same twenty elements, degree-$7$ Hermite corrections removing the interface jet mismatches (at most $1.1\cdot10^{-7}$), $\hat h_2'(0)=\hat h_2'''(0)=0$, and for $x\ge28$ the extension $c_1g_{A_2}+c_2E$ with $A_2=1-8\lt=3.049$. Then
+\[
+\big\|(L-2\lt)\hat h_2+Q_2(\hat\psi_3)\big\|_{L^2(\rho;[0,\infty))}\le1.572\cdot10^{-6},\qquad \|\hat h_2\|_\rho^2\in[170.74,\,171.83],\qquad \hat h_2(0)=0.2874.
+\]
+\end{proposition}
+\begin{proof}[Proof (\texttt{h2res.py})]
+The residual is bounded in four stages.
+\begin{itemize}
+\item \emph{$[\sigma_{\rm tip},8]$.} On the 51{,}246 CAPD boxes we use the second-order Taylor form of the residual itself, with the profile derivatives taken from the ODE and $Q_2$ and its total derivatives in closed form. This gives $1.57\cdot10^{-6}$.
+\item \emph{$\sigma\in[8,20]$.} We use the exact tail profile of the sharpened step 1: $k=\eps\,c_nK_0(\sigma)+O(r^{\rm nl}/w)$, with $K_j$ the rigorous Laplace integrals, and the same Taylor form. This gives $6.6\cdot10^{-8}$. Here the ray-plus-chunk-bound method of the $\hat\psi_3$ certificate fails, giving $1.3\cdot10^{-2}$: the forcing $Q_2\sim k\hat\psi_3^2$ is of size $0.1$ at $\sigma=8$ and cancels against $(L-L_{\rm ray})\hat h_2$.
+\item \emph{$\sigma\in[20,32]$.} Ray plus chunk bounds give $3\cdot10^{-10}$.
+\item \emph{$\sigma\ge32$.} Explicit bounds for the extension give $4\cdot10^{-12}$.
+\end{itemize}
+\end{proof}
+
+\begin{proposition}\label{prop:n3}
+For $|\alpha|\le3\cdot10^{-3}$,
+\[
+\big\|\chi\big(N_0(\alpha\hat\psi_3+\alpha^2\hat h_2)-\alpha^2Q_2(\hat\psi_3)\big)\big\|_\rho\le12.34\,|\alpha|^3 .
+\]
+For $|\alpha|\le10^{-2}$ the constant is $16.69$.
+\end{proposition}
+\begin{proof}[Proof (\texttt{n3\_forcing.py})]
+Let $g(\alpha)=N_0(\alpha\hat\psi_3+\alpha^2\hat h_2)$ pointwise in $x$. Then $g(0)=g'(0)=0$ and $g''(0)/2=Q_2(\hat\psi_3)$. With $c_j=g^{(j)}/j!$, the remainder is at most $|\alpha|^3\big(|c_3(0)|+a|c_4(0)|+a^2\sup_{|\xi|\le a}|c_5(\xi)|\big)$. The coefficients are arb power series of $N_0$, written in its exact monomial form in $(u'',u''',u'''')$, evaluated on every box. The coefficients at the exact point $0$ are essential: expanding at the interval point $[-a,a]$ overestimates $c_3$ about $240$ times through dependency.
+\end{proof}
+
+Consequently $\|\chi\Phi_F\|_\rho\le1.3\cdot10^{-6}|\alpha|+1.6\cdot10^{-6}\alpha^2+12.34|\alpha|^3$. In the old decomposition, without $h_2$, the forcing was $\|\chi Q_2(\hat\psi_3)\|\,\alpha^2\approx22\alpha^2$.
+
+\section{The $L^2$ energy identity in divergence form}
+The curvature part of the equation is $F_{\rm curv}(u)=-\alpha_g^{-1}\partial(J^{-1}\partial\kappa)$, with
+\[
+\kappa=J^{-3}\big(\alpha_gu''+kJ^2+u'(mu+ku')\big),\qquad \alpha_g=1-ku,\qquad J^2=\alpha_g^2+u'^2 .
+\]
+For any weight $\Psi$ and test function $w$, two integrations by parts give
+\[
+\int\Psi\,w\,F_{\rm curv}(u)=\int T_c(u;w),\qquad T_c=-\big[\Phi J^{-1}w''+B_1w'+B_0w\big]\kappa,
+\]
+where $\Phi=\Psi/\alpha_g$, $B_1=(\Phi J^{-1})_x+\Phi_xJ^{-1}$ and $B_0=(\Phi_xJ^{-1})_x$.
+
+\begin{lemma}
+$T_c/\rho$ depends only on $(\phi',\phi'',k,m,p,u,u',u'',w,w',w'')$, and it has total degree at most $2$ in $(u'',w'')$. Hence the second-order Taylor remainder of $\int\Psi wN_0(u)$ in the direction $w$ contains at most two factors $w''$. The $(w'')^3$ terms of the expanded equation, from $u''^3$, from $10J^{-6}u'u''u'''$ and from the quasilinear term, cancel exactly.
+\end{lemma}
+The identity was checked numerically, both linearized and fully nonlinear, to $10^{-8}$ (\texttt{nlin\_E0\_\allowbreak check.py}). So at the $L^2$ level only $\sup|w|$ and $\sup|w'|$ are needed, through the coefficients evaluated on jet boxes.
+
+\section{Inner constants}
+\emph{$\alpha$-linear form at the $L^2$ level} (\texttt{alin\_E0.py}, rigorous, $|\alpha|\le3\cdot10^{-3}$). We have $D\mathcal N(u_0)[w;w]=\int\rho\sum a_{ij}w^{(i)}w^{(j)}$ with the following bounds.
+\begin{center}
+\begin{tabular}{@{}l|ccccccccc@{}}
+$\sup|a_{ij}|/|\alpha|$ & 00 & 01 & 02 & 10 & 11 & 12 & 20 & 21 & 22\\ \hline
+$x\le12$ & 56.5 & 58.7 & 31.2 & 30.2 & 39.1 & 0.53 & 6.0 & 5.3 & 6.3\\
+$12<x\le31.25$ & $<10^{-3}$ & $<10^{-3}$ & $<10^{-3}$ & 1.5 & 2.9 & 1.2 & 16.4 & 31.7 & 15.2
+\end{tabular}
+\end{center}
+The parts involving $w''$ are absorbed by the $\theta$-margin $\frac19\|\tilde w''\|^2$. The parts in $\|w\|^2$ and $\|w'\|^2$, about $100|\alpha|$ together with about $340|\alpha|$ from the modulation terms $a\ip{\chi A(u_0)}{\tilde w}$, exceed the net coercivity $\omega_0=\frac1{32}-0.016$. They are handled by time-integrability. While $\|\tilde w\|\ll100|\alpha|$, $\alpha$ decays at the rate $0.256$, so $E$ grows at most by the factor $\exp(2C\int|\alpha|)$. This is $\approx e^{4.6}$ for $\alpha_1=10^{-3}$ and $\approx e^{2.3}$ for $\alpha_1=5\cdot10^{-4}$.
+
+\emph{$H^2$ level.} Here $(Lw)''=\tilde M w''+e_1w'+e_0w$ (\texttt{garding\_cert.py}, rigorous), with $\mathrm{Re}\ip{\tilde Mv}{v}_\rho\le-\frac12\|v''\|^2-\int\rho\mu_2v^2$ and the following bounds.
+\begin{center}
+\begin{tabular}{@{}l|cccc@{}}
+region & $x\le1$ & $1<x\le3$ & $3<x\le12$ & $12<x\le34.25$\\ \hline
+$\sup(-\mu_2)$ & 14.343 & 2.841 & $-0.180$ & $-0.289$\\
+$\sup|e_1|$, $\sup|e_0|$ & 16.28, 10.67 & 13.86, 5.25 & 2.17, 0.46 & $3\cdot10^{-8}$, $2\cdot10^{-8}$
+\end{tabular}
+\end{center}
+At this level the nonlinearity is paired with $w''''$, so no divergence form is needed: $\ip{(\chi D)''}{\tilde w''}_\rho=\ip{\chi D}{\tilde w''''-2\phi'\tilde w'''+(\phi'^2-\phi'')\tilde w''}_\rho$. Here $D=F(u_0+w)-F(u_0)-Lw=\sum d_{tjl}(w'')^t(w''')^j(w'''')^l+d_{000}$, bounded on jet boxes (\texttt{nlin\_E2.py}, $|\alpha|\le10^{-3}$, $|w|,|w'|\le10^{-4}$). For $x\le12$ the bounds are:
+\begin{itemize}
+\item the quasilinear coefficient $|1-J^{-4}|\le6.9\cdot10^{-3}$;
+\item the coefficients of $w''',w''$: $1.2\cdot10^{-2}$ and $4.2\cdot10^{-2}$;
+\item the coefficients of $w''^2,\ w''w''',\ w''^3$: $4.75$, $0.136$, $3.05$;
+\item $|d_{000}|\le0.54|w|+0.62|w'|$.
+\end{itemize}
+
+\emph{The obstruction.} At the $H^2$ level the modulation terms do not vanish: $a\ip{(\chi\psi_1)''}{\tilde w''}_\rho=a\ip{\mathcal D_\rho f_1}{\tilde w}$, with
+\[
+\mathcal D_\rho g=g''''-2\phi'g'''+(\phi'^2-\phi'')g'' .
+\]
+Here $\|\mathcal D_\rho f_1\|\approx11.8$ and $\|\mathcal D_\rho f_2\|\le6.5$ (float, via the profile ODE). Also
+\[
+|(a,b)|\le\|M^{-1}\|\,\|(L^*f_1,L^*f_2)\|\,\|\tilde w\|=31.2\|\tilde w\| .
+\]
+ So the coupling is linear in $\tilde w$ of size $421\|\tilde w\|^2$ in the $H^2$ identity. In $E=\|\tilde w\|^2+\eps\|\tilde w''\|^2$ this forces $\eps\lesssim10^{-5}$. The resulting pointwise bounds are lossy, $\|\tilde w''\|\le\sqrt{E/\eps}\approx316\sqrt E$. The remedy adopted is to treat the cubic terms by weighted Gagliardo--Nirenberg inequalities against the $L^2$-level dissipation, so that they are superlinear in $E$. The pointwise bounds then only keep the jet-box coefficients near their $u_0$-values ($|w|,|w'|\lesssim10^{-2}$).
+
+\section{Where this leaves the bootstrap}
+In the Lyapunov frame the forcing is no longer binding. The basin is set by the time-integrated $\alpha$-linear growth and by the smallness of $w$ needed for the cubic terms near the tip. Float bookkeeping indicates $\alpha_1\approx5\cdot10^{-4}$--$10^{-3}$, provided the hand-off state is within about $10^{-6}$ (in $L^2(\rho)$) of the second-order slow manifold $\alpha\hat\psi_3+\alpha^2\hat h_2$. For comparison, $\alpha_1^3h_3\approx5\cdot10^{-7}$ at $\alpha_1=10^{-3}$, and the fast modes decay like $e^{-0.70\tau}$. Still to be done, with explicit constants:
+\begin{itemize}
+\item the weighted Gagliardo--Nirenberg and Sobolev constants;
+\item rigorous cubic coefficients at the $L^2$ level;
+\item $\|\mathcal D_\rho f_j\|$;
+\item the cutoff commutators on $\sigma\in[29,32]$, where $\rho\le2.6\cdot10^{-11}$;
+\item the intermediate energy for $w'$ in the weight $W_I$, with its $H^2$ level;
+\item the outer lifespan lemma;
+\item the assembly.
+\end{itemize}
+\end{document}

@@ -1,0 +1,489 @@
+{
+ "Pi3": {
+  "X_direct_cert": 1.023841352586379e-05,
+  "X_direct_parts": {
+   "bump": 9.948026348977569e-06,
+   "far": 2.903871768862217e-07
+  },
+  "X_dual_hand": 5.178129323020864e-08,
+  "X_max_for_T3_le_coded": 0.00036388633753291157,
+  "X_max_over_eps1_n3": 0.7114435999651165,
+  "coded": 0.01607,
+  "covered_by_coded": {
+   "T0_probe_7.52*BETA0": false,
+   "T1_true_norm*BETA0": false,
+   "T2_proj123*BETA0_intersG33": true,
+   "T2_proj123*BETA0_lemmaG33": false,
+   "T3_sym_intersG33_eps1": true,
+   "T3_sym_intersG33_r3": true,
+   "T3_sym_lemmaG33_eps1": true
+  },
+  "eps1_n3_true": 0.0005114760151764013,
+  "g0_strip_norm": 0.00565490045268472,
+  "strip_sup_psi_jets": [
+   719.6189037856049,
+   45.51545884472098,
+   1.456910871150955,
+   0.0012339629009281753
+  ],
+  "treatments": {
+   "T0_probe_7.52*BETA0": 0.018347067272215117,
+   "T1_true_norm*BETA0": 0.018778861222575778,
+   "T2_proj123*BETA0_intersG33": 0.015746418580846355,
+   "T2_proj123*BETA0_lemmaG33": 0.016073654361632054,
+   "T3_sym_intersG33_eps1": 0.010183498140837136,
+   "T3_sym_intersG33_r3": 0.008507999400651754,
+   "T3_sym_lemmaG33_eps1": 0.010385359507506083
+  }
+ },
+ "alpha_form": {
+  "beta_Lin_symmetrised_est": 17.53907460838059,
+  "coded_MODA": 25.0,
+  "gAB_opnorm": 8.028590463071952,
+  "h2_norm": 13.108439652448586,
+  "need": {
+   "1.6e-4": {
+    "parts": {
+     "E33_feedback": 0.017449717437664897,
+     "E_loop_2nd_order": 0.04034948418782779,
+     "Qfull": 6.194178812420178,
+     "ab_alpha_corr_in_Q1": 0.799490490804008,
+     "ab_alpha_corr_in_loop": 0.56098894309741,
+     "beta_Lin_crude": 29.527443596109926,
+     "h2_direct": 0.06396314471735276
+    },
+    "total_without_drift": 37.20386418877437
+   },
+   "2.5e-4": {
+    "parts": {
+     "E33_feedback": 0.017449717437664897,
+     "E_loop_2nd_order": 0.06304606904348092,
+     "Qfull": 6.194178812420178,
+     "ab_alpha_corr_in_Q1": 1.2492038918812625,
+     "ab_alpha_corr_in_loop": 0.8765452235897031,
+     "beta_Lin_crude": 29.527443596109926,
+     "h2_direct": 0.06396314471735276
+    },
+    "total_without_drift": 37.99183045519957
+   }
+  },
+  "note": "drift alpha-form [est] is added in E0_AUDIT.md from e0_drift_est.py"
+ },
+ "args": {
+  "argv": [
+   "e0_lemma_consts.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "alin_spec": {
+    "path": "/home/claude/s1spec/step3nl_v4c/alin_E0_spec_0.001.json",
+    "sha256": "ccc02b4baa68c0ba4def283444bdc2ac19ef075a0124d49d7126bc0a36fad1c5"
+   },
+   "bloop": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/bloop/bloop.json",
+    "sha256": "ece9bd1eb8a795eab48ae3b66e183095813a85df67376fa32f4968ed93520a29"
+   },
+   "constants_v4": {
+    "path": "/home/claude/s1spec/step3nl_v4c/v4cert/out/constants_v4.json",
+    "sha256": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+   },
+   "e0_strip_drift": {
+    "path": "/home/claude/s1spec/step3nl_v4c/v4bcert/out/e0_strip_drift.json",
+    "sha256": "4ee153b4350df880bdc0d6240909cfc6fb801f67bca77fdaab2b765a382185a3"
+   },
+   "final": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/ibp/final_5e-4.json",
+    "sha256": "39caabfe877457bebdb9ea366663640c738ae0a54980d4e4b172981cfc2717f9"
+   },
+   "gram7": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/bloop/gram7_g3.json",
+    "sha256": "b8b6fa43b81e891c48b756ee534d218d570c25a301606b8783e80c6b0c95df45"
+   },
+   "h2res": {
+    "path": "/home/claude/s1spec/step3nl_v4c/h2res.json",
+    "sha256": "19525dd139af17f9292105b44d22e9ee458020b8b120eab133fceac01fd51ea6"
+   },
+   "ibp_consts.py": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/ibp/ibp_consts.py",
+    "sha256": "a092b36125ebe5dc181c9e324c02f8afa5a285b4354abd6e1ad4a2aa363161b9"
+   },
+   "lem_int": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/lemma/lem_integrals.json",
+    "sha256": "987afb8843489308d04538949c577c6af4e3310d69dbc1fc1f83fb01b01b0403"
+   },
+   "lyap2": {
+    "path": "/home/claude/s1spec/step3/lyap_consts2.json",
+    "sha256": "4221c83e658bf7d2cdba61951a0762e4ca9987bd287a7c950900a2a8d9289d87"
+   },
+   "lyap_extra": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/lemma/lyap_extra.json",
+    "sha256": "73427d2242cbf467c8846b99c706958f037c076da7f5be4def192ead7a7c6917"
+   },
+   "pair_f3": {
+    "path": "/home/claude/s1spec/step3nl_v4c/agent_mod/bloop/pair_f3.json",
+    "sha256": "311777ac4c1832844f1d76f9149e146145f5ad88958d6c483af9759bcd56a4c7"
+   },
+   "q2_ip": {
+    "path": "/home/claude/s1spec/step3nl_v4c/q2_ip.json",
+    "sha256": "45e69467beae057cf3139a06611ef6fceba91ddb565b5126dc9833b6703090c8"
+   }
+  },
+  "prec": 200,
+  "script_sha256": "47b3e8d8371576850fa8cd9f939f712d8fa70154f444582727fcfe320b635828"
+ },
+ "beta_lead_split": {
+  "eps1": 6.645150683094182e-05,
+  "intersectedG33": {
+   "H33": 31.53077244758606,
+   "diag_eps1": 0.002095267340685637,
+   "offdiag": 0.00029761535890733364,
+   "total": 0.0023928826995929706
+  },
+  "lemma": {
+   "H33": 32.14858680963516,
+   "diag_eps1": 0.002136322035985597,
+   "offdiag": 0.000303446838057169,
+   "total": 0.002439768874042766
+  },
+  "note": "lead = qform([H31,H32],Gp) + |H33| eps1 ; reproduces final_5e-4.json core.beta.lead",
+  "r3_read": 5.26438796785779e-05
+ },
+ "forcing": {
+  "BETAF": 0.6565275306344319,
+  "T2_plus_extra": {
+   "1.6e-4": 5.3330121894843305,
+   "2.5e-4": 5.337336180520722
+  },
+  "cPhi_norm_h": 0.6261407554952753,
+  "coded": 5.72,
+  "covered_by_coded": {
+   "1.6e-4": true,
+   "2.5e-4": true
+  },
+  "extra_ab_h2_at_alpha": {
+   "1.6e-4": 0.007687095175805708,
+   "2.5e-4": 0.012011086212196419
+  },
+  "treatments": {
+   "T0_probe_1+7.52*BETAF": 5.937087030370928,
+   "T1_1+n3true*BETAF": 6.053280222475622,
+   "T2_1+n3_123*BETAF": 5.325325094308525,
+   "T3_oblique": 5.019587486438135
+  }
+ },
+ "n3_proj": {
+  "G33_bloop": [
+   0.0317168943215125,
+   0.03299365863990313
+  ],
+  "G33_intersection": [
+   0.0317168943215125,
+   0.03299365863990313
+  ],
+  "G33_lemma": [
+   0.03110741141016634,
+   0.03360381663468589
+  ],
+  "P12_lo": 13.288652126597322,
+  "n3_12": 6.779002232092555,
+  "n3_123_intersectedG33": 6.5805206043607365,
+  "n3_123_lemmaG33": 6.588185403479988
+ },
+ "n3_true": {
+  "hi": 7.696981446600437,
+  "lo": 7.6968217856051195,
+  "note": "||chi psi3^||_rho from gram7_g3.json G[g0][g0]",
+  "typed": 7.52
+ },
+ "no_rerun_criterion": {
+  "cases": {
+   "T2_proj123*BETA0_intersG33@alpha<=1.6e-4": {
+    "Pi3": 0.015746418580846355,
+    "excess_alpha_terms": 0.0020405075432429727,
+    "margin": 0.15857888897552325,
+    "ok": false,
+    "slack": 0.0003235814191536451
+   },
+   "T2_proj123*BETA0_intersG33@alpha<=2.5e-4": {
+    "Pi3": 0.015746418580846355,
+    "excess_alpha_terms": 0.003385284602923445,
+    "margin": 0.09558470176309798,
+    "ok": false,
+    "slack": 0.0003235814191536451
+   },
+   "T2_proj123*BETA0_lemmaG33@alpha<=1.6e-4": {
+    "Pi3": 0.016073654361632054,
+    "excess_alpha_terms": 0.0020405075432429727,
+    "margin": -0.0017909081709369962,
+    "ok": false,
+    "slack": -3.654361632052416e-06
+   },
+   "T2_proj123*BETA0_lemmaG33@alpha<=2.5e-4": {
+    "Pi3": 0.016073654361632054,
+    "excess_alpha_terms": 0.003385284602923445,
+    "margin": -0.0010794843154092874,
+    "ok": false,
+    "slack": -3.654361632052416e-06
+   },
+   "T3_sym_lemmaG33_eps1@alpha<=1.6e-4": {
+    "Pi3": 0.010385359507506083,
+    "excess_alpha_terms": 0.0020405075432429727,
+    "margin": 2.78589535790656,
+    "ok": true,
+    "slack": 0.005684640492493917
+   },
+   "T3_sym_lemmaG33_eps1@alpha<=2.5e-4": {
+    "Pi3": 0.010385359507506083,
+    "excess_alpha_terms": 0.003385284602923445,
+    "margin": 1.6792208512054814,
+    "ok": true,
+    "slack": 0.005684640492493917
+   }
+  },
+  "drift_alpha_form_cert": 0.5493079564942096
+ },
+ "v4b_A2_budget": {
+  "cases": {
+   "1.6e-4": {
+    "excess": 0.0020405075432429727,
+    "margin": 2.78589535790656,
+    "need_total": 37.75317214526858,
+    "slack": 0.005684640492493917
+   },
+   "2.5e-4": {
+    "excess": 0.003385284602923445,
+    "margin": 1.6792208512054814,
+    "need_total": 38.54113841169378,
+    "slack": 0.005684640492493917
+   }
+  },
+  "note": "need = Qfull + n3_123 m_new + E0-4 pieces (section 6) + C_DR_CORE [cert]; coded MODA = 25, PI3 = 0.01607"
+ },
+ "v4b_H3j": {
+  "H31": [
+   -1.308990370318952e-05,
+   1.308990370318952e-05
+  ],
+  "H32": [
+   -1.924572086409171e-05,
+   1.924572086409171e-05
+  ],
+  "H33": [
+   29.756890654563904,
+   32.14858680963516
+  ]
+ },
+ "v4b_constants": {
+  "ALIN_AB": {
+   "dir": "up",
+   "raw": 35.86873623501742,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 35.86873623501743
+  },
+  "ALIN_BB": {
+   "dir": "up",
+   "raw": 6.21990350849228,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 6.219903508492281
+  },
+  "ALIN_W1B": {
+   "dir": "up",
+   "raw": 7.896699465811253,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 7.8966994658112535
+  },
+  "ALIN_sq": {
+   "dir": "up",
+   "raw": 59.32715308450967,
+   "source": "alin_E0_spec_0.001.json: max over regions (sum over regions <= max * global norms; Cauchy-Schwarz)",
+   "value": 59.327153084509675
+  },
+  "AMAX_E0": {
+   "dir": "exact",
+   "raw": 0.00025,
+   "source": "hypothesis of the E0 lemma, asserted in closure.box_assert",
+   "value": 0.00025
+  },
+  "CA0": {
+   "dir": "up",
+   "raw": 0.0007146303533450253,
+   "source": "e0_strip_drift.json CA0",
+   "value": 0.0007146303533450254
+  },
+  "CA1": {
+   "dir": "up",
+   "raw": 32.00000000001085,
+   "source": "e0_strip_drift.json CA1",
+   "value": 32.00000000001086
+  },
+  "CB0": {
+   "dir": "up",
+   "raw": 0.0004237798050213974,
+   "source": "e0_strip_drift.json CB0",
+   "value": 0.00042377980502139747
+  },
+  "CB1": {
+   "dir": "up",
+   "raw": 1.0321853286955687,
+   "source": "e0_strip_drift.json CB1",
+   "value": 1.032185328695569
+  },
+  "CD0": {
+   "dir": "up",
+   "raw": 0.0002473337067921552,
+   "source": "e0_strip_drift.json CD0",
+   "value": 0.00024733370679215526
+  },
+  "CD1": {
+   "dir": "up",
+   "raw": 0.6070460587369407,
+   "source": "e0_strip_drift.json CD1",
+   "value": 0.6070460587369408
+  },
+  "C_DR_CORE": {
+   "dir": "up",
+   "raw": 0.5493079564942096,
+   "source": "e0_strip_drift.json C_DR_CORE",
+   "value": 0.5493079564942097
+  },
+  "GABN": {
+   "dir": "up",
+   "raw": 8.028590463071952,
+   "source": "||(gA,gB)|| operator norm, gram7 (section 5)",
+   "value": 8.028590463071954
+  },
+  "H12AB": {
+   "dir": "up",
+   "raw": 0.0017471626519710742,
+   "source": "n3_123 sum_{j=1,2}|H3j| |(Ea_1j,Ea_2j)| (ibp_consts Ea)",
+   "value": 0.0017471626519710744
+  },
+  "H12B": {
+   "dir": "up",
+   "raw": 0.00807698747732209,
+   "source": "n3_123 sum_{j=1,2}|H3j| Ea_3j",
+   "value": 0.008076987477322092
+  },
+  "HOB": {
+   "dir": "up",
+   "raw": 33.36907824679363,
+   "source": "2||chi h2|| + n3_123 H33 E33/alpha",
+   "value": 33.369078246793634
+  },
+  "IR": {
+   "dir": "up",
+   "raw": 1.838283151750649e-11,
+   "source": "e0_strip_drift.json IR",
+   "value": 1.8382831517506494e-11
+  },
+  "IRW": {
+   "dir": "up",
+   "raw": 2.1271383902499618e-08,
+   "source": "e0_strip_drift.json IRW",
+   "value": 2.127138390249962e-08
+  },
+  "LOOPC": {
+   "dir": "up",
+   "raw": 5.650496737475288,
+   "source": "n3_123 H33 (|(e13,e23)| + AMAX_E0 |(r1,r2)|), bloop.json",
+   "value": 5.650496737475289
+  },
+  "M_STRIP_00": {
+   "dir": "up",
+   "raw": 4.206019717670418e-15,
+   "source": "e0_strip_drift.json M_STRIP_00",
+   "value": 4.2060197176704185e-15
+  },
+  "M_STRIP_01": {
+   "dir": "up",
+   "raw": 1.600640404969454,
+   "source": "e0_strip_drift.json M_STRIP_01",
+   "value": 1.6006404049694543
+  },
+  "M_STRIP_02": {
+   "dir": "up",
+   "raw": 23.45145690441132,
+   "source": "e0_strip_drift.json M_STRIP_02",
+   "value": 23.451456904411323
+  },
+  "M_STRIP_11": {
+   "dir": "up",
+   "raw": 1.1461846940219405,
+   "source": "e0_strip_drift.json M_STRIP_11",
+   "value": 1.1461846940219407
+  },
+  "M_STRIP_12": {
+   "dir": "up",
+   "raw": 16.94349274039269,
+   "source": "e0_strip_drift.json M_STRIP_12",
+   "value": 16.943492740392692
+  },
+  "M_STRIP_22": {
+   "dir": "up",
+   "raw": 3.2104541994631295,
+   "source": "e0_strip_drift.json M_STRIP_22",
+   "value": 3.21045419946313
+  },
+  "N3P": {
+   "dir": "up",
+   "raw": 6.588185403479988,
+   "source": "n3_123 = ||Pi_{f1,f2,f3}^perp chi psi3^|| (lemma G33), this script (2)",
+   "value": 6.588185403479989
+  },
+  "PHX": {
+   "dir": "up",
+   "raw": 1.0830000000000002,
+   "source": "constants_v4.json PHX (Phi1 = phi'(34.25), SOB_NOTES (I2))",
+   "value": 1.0830000000000004
+  },
+  "RA2": {
+   "dir": "up",
+   "raw": 26.90244860095413,
+   "source": "e0_strip_drift.json RA2",
+   "value": 26.902448600954134
+  },
+  "RB2": {
+   "dir": "up",
+   "raw": 5.4997026934448465,
+   "source": "e0_strip_drift.json RB2",
+   "value": 5.499702693444847
+  },
+  "RW": {
+   "dir": "up",
+   "raw": 4.700338185386159e-05,
+   "source": "e0_strip_drift.json RW",
+   "value": 4.70033818538616e-05
+  },
+  "WB": {
+   "dir": "exact",
+   "raw": 0.02,
+   "source": "|w| <= WB on [0,34.25]: hypothesis of e0_strip_drift (alpha_g lower bound), asserted in closure.box_assert",
+   "value": 0.02
+  },
+  "XW_COEF": {
+   "dir": "up",
+   "raw": 3.1263169869973407e-06,
+   "source": "e0_strip_drift.json XW_COEF",
+   "value": 3.126316986997341e-06
+  }
+ },
+ "v4b_forcing_budget": {
+  "alpha_max": 0.00025,
+  "coded": 5.72,
+  "margin": 1.0703701426978471,
+  "ok": true,
+  "parts": {
+   "A1rem_forcing": 7.77713541935677e-06,
+   "E33_betaF": 0.001173903877482369,
+   "H12_forcing": 3.003100839074007e-06,
+   "T2": 5.325325094308525,
+   "ab_forcing_Q1": 0.007708060454450148,
+   "h2_betaF": 0.0043030257577462705,
+   "loop_ab_forcing": 0.0054249087246963385
+  },
+  "total": 5.343945773359159
+ }
+}

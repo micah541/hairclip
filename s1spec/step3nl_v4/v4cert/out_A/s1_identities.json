@@ -1,0 +1,101 @@
+{
+ "all_zero": true,
+ "args": {
+  "argv": [
+   "s1_identities.py"
+  ],
+  "env": {
+   "ADD": null,
+   "DELTA": null,
+   "ETA": null,
+   "FIX": null,
+   "FLUX0": null,
+   "FLUX2": null,
+   "LY1SQ": null,
+   "MOD": null,
+   "MODA": null,
+   "NEW": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": "0",
+   "S0V": null,
+   "S1V": null,
+   "TAG": null,
+   "THETA": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4/graph_struct.pkl": "646b444445b82eb435b094ba7e283a5e619c6cb3bbfa67f495070f9a18f4195d",
+   "/home/claude/s1spec/step3nl_v4/v4cert/s1_identities.py": "e3d006d17ab45c0048af8df3cab41864ddc74bca22b4576861e288ef9eaadbdd"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "fd_check": [
+  {
+   "Nlow_prime_num": "1.18542978089387",
+   "c_prime_rel": 1.9319553907706452e-10,
+   "rel": 1.1535467223708086e-11,
+   "table": "1.18542978090755",
+   "x": 0.4129408318019593
+  },
+  {
+   "Nlow_prime_num": "-1.42400487289213",
+   "c_prime_rel": 2.249328719484809e-12,
+   "rel": 1.8924541223831906e-10,
+   "table": "-1.42400487262265",
+   "x": 1.4748388710597293
+  },
+  {
+   "Nlow_prime_num": "9.02852968915159",
+   "c_prime_rel": 1.531962172623683e-10,
+   "rel": 1.1215400964363132e-11,
+   "table": "9.02852968905033",
+   "x": 0.20207276645305736
+  },
+  {
+   "Nlow_prime_num": "-0.489961712636694",
+   "c_prime_rel": 2.834776946698111e-13,
+   "rel": 2.8358917626530344e-10,
+   "table": "-0.489961712497746",
+   "x": 1.4641431018586457
+  },
+  {
+   "Nlow_prime_num": "-0.257344465189102",
+   "c_prime_rel": 1.8675230688362452e-10,
+   "rel": 1.2341472774838342e-10,
+   "table": "-0.257344465220862",
+   "x": 0.3393848677864773
+  },
+  {
+   "Nlow_prime_num": "-31.9222852390152",
+   "c_prime_rel": 2.8741749267692833e-11,
+   "rel": 1.2238035121683588e-11,
+   "table": "-31.9222852386245",
+   "x": 1.4239139802719274
+  }
+ ],
+ "fd_ok": true,
+ "residuals": {
+  "I12_chain_rule_linear_in_g1": {
+   "c": "0",
+   "d010": "0",
+   "d100": "0",
+   "d110": "0",
+   "d200": "0",
+   "d300": "0"
+  },
+  "I13_c_is_1_minus_Jm4": "0",
+  "I13_d110": "0",
+  "I13_d300": "0",
+  "I14_E0c_at_0": "0",
+  "I14_E0c_form": "0",
+  "I14_E1c_eq_GU1_plus_drift": "0",
+  "I14_c0prime": "0",
+  "I14_drift_prime": "0",
+  "I14_linear_in_g1": "0",
+  "I15_Nlow_prime_table": "0",
+  "I16_v_equation": "0",
+  "monomials": "[(0, 0, 1), (0, 1, 0), (1, 0, 0), (1, 1, 0), (2, 0, 0), (3, 0, 0)]"
+ },
+ "runtime_s": 104.2
+}

@@ -1,0 +1,52 @@
+built 56.9
+  Z expand 0.0 nonzero
+  Z expand 0.0 zero
+  Z expand 0.0 nonzero
+res['I13_d300'] 0 57
+  Z expand 0.0 zero
+I12 c 0 57
+  Z expand 0.1 zero
+I12 d010 0 58
+  Z expand 1.4 zero
+I12 d100 0 70
+  Z expand 0.4 zero
+I12 d200 0 73
+  Z expand 0.0 zero
+I12 d110 0 73
+  Z expand 0.1 zero
+I12 d300 0 74
+  Z expand 0.0 zero
+  Z expand 0.0 zero
+  Z expand 0.0 zero
+  Z expand 0.0 zero
+  Z expand 0.0 zero
+  Z expand 0.0 zero
+I14 0 0 0 0 0 0 0 0 75
+  Z expand 0.0 zero
+res['I15_Nlow_prime_table'] 0 75
+  Z expand 0.1 nonzero
+res['I16_v_equation'] 0 78
+{
+ "monomials": "[(0, 0, 1), (0, 1, 0), (1, 0, 0), (1, 1, 0), (2, 0, 0), (3, 0, 0)]",
+ "I13_c_is_1_minus_Jm4": "0",
+ "I13_d110": "0",
+ "I13_d300": "0",
+ "I12_chain_rule_linear_in_g1": {
+  "c": "0",
+  "d010": "0",
+  "d100": "0",
+  "d200": "0",
+  "d110": "0",
+  "d300": "0"
+ },
+ "I14_E1c_eq_GU1_plus_drift": "0",
+ "I14_linear_in_g1": "0",
+ "I14_E0c_at_0": "0",
+ "I14_c0prime": "0",
+ "I14_drift_prime": "0",
+ "I14_E0c_form": "0",
+ "I15_Nlow_prime_table": "0",
+ "I16_v_equation": "0"
+}
+FD max rel 2.8358917626530344e-10 1.9319553907706452e-10
+ALL ZERO 311f36f315030f7237244da2ae34698cf32100f9aaa938662502194c435766f2

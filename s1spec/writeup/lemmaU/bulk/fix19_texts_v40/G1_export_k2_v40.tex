@@ -1,0 +1,155 @@
+% G1_export_k2_v40.tex -- text v40 (fix19_texts_v40, 21 Nov 2026), built by fix19_texts_v40/tools/build_v40.py from fix17_texts_v39/G1_export_k2_v39.tex (unchanged):
+% fixes of the final review fix18_final_review/FINAL_REVIEW_v39.md (F-1..F-7, R-1..R-3) where they touch this file.  Not compiled.
+% G1_export_k2_v40.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/G1_export_k2_v38.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v40.tex; v38 retag fixes.  Not compiled.
+% G1_export_k2.tex -- the level-2 window export of Lemma S(A) (k = 2, r_2 = 1/1000): statement and full proof, source by source.
+% Fix round 10 (fix10_proofs), 20 Nov 2026.  Not compiled (no LaTeX in WSL).  Check script: G1_check.py -> G1_check.json (arb), all_pass true.
+% Replaces the sketch fix8_flux2_impl/texts/lemmaD_k2_sketch.tex.  New file only; nothing closed is edited.
+% G1_export_k2_v40.tex -- text v38 (fix16_texts_v38/tools/build_texts_v38.py) from fix10_proofs/G1_export_k2.tex (unchanged): paths and
+% numbers of the (A) chain v37 on fin13v4c; the arithmetic file G1_check.json was run on the v36 data and is not rerun here (open);
+% fix11 C-7 noted.  The code of the chain is unchanged from v36 apart from path repoints (fix15 part B), so the proof is unchanged.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\newtheorem{lemma}{Lemma}\newtheorem{proposition}{Proposition}\newtheorem{remark}{Remark}\newtheorem{theorem}{Theorem}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tH}{\textup{[hand]}}\newcommand{\tR}{\textup{[read]}}\newcommand{\tI}{\textup{[inh]}}\newcommand{\tS}{\textup{[sym]}}
+\newcommand{\Eh}{\hat E}\newcommand{\Nb}{\bar N}\newcommand{\oh}{o}
+\begin{document}
+\title{G1: the level-2 window export of Lemma S(A)\\[2pt]\large statement and proof, source by source, against the v36 code (unchanged in the chain v37 apart from path repoints)}
+\date{20 November 2026 (fix round 10). \emph{Not compiled.}}
+\maketitle
+
+\noindent\textbf{Labels.} \tC: python-flint \fn{arb}, outward rounding, re-checked by \fn{G1_check.py} (\fn{fix10_proofs}, v36 data) and, on the chain-v37 data of this text, by its v38 copy \fn{step4/p2/v38/G1_check_v38.py}, stage 25 of \fn{step4/p2/out_v38/FINAL_manifest_v38.json} (29 stages, 992 pin entries on 646 distinct files: 629 stage paths and 55 scripts, 38 of them also stage paths, sha256 \fn{be909bbf42543ab017bb9c81ba58227c80fc4f010cc1b50a66a515b848f90418}) (\fn{out_v38/iface/G1_check.json}, \fn{all_pass: true}; text v39: the rerun owed in text v38 is done); \tR: verified by reading the cited file and line; \tH: hand argument written here, not machine-checked; \tI: inherited from a text that is not re-proved here (with its own label there).
+
+\noindent\textbf{Paths.} $\mathsf N$ = \fn{/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain} (the (A) chain v37 on \fn{fin13v4c}; text v37 of this file used \fn{fix6_v36}, chain v36); code in $\mathsf N$\fn{/t2_A/rigor/}; the production outputs are $\mathsf N$\fn{/runs/prod2/t2_A/} (byte-identical to \fn{prod1}, \fn{V36_REPORT.md} \S2). $\mathsf A$ = \fn{fix1/b12_text/lemmaS_A_v33.tex} (the v3.3 text of Lemma S(A)); $\mathsf U$ = \fn{fix1/lemmaU_rev/lemmaU_v34.tex}; $\mathsf F$ = \fn{fix19_texts_v40/flux2_lemma_v40.tex}. Line numbers of \fn{assembly_rep.py} and \fn{weights_t2.py} are those of $\mathsf N$\fn{/t2_A/rigor/}.
+
+\noindent\textbf{Result.} Theorem~\ref{G:thm} below is proved here, conditional only on the items listed in \S\ref{G:sec:status}; those items are the ones Lemma S(A) at $k=0,1$ already depends on, plus the regularity lemma U-1 (\fn{U1_regularity_v40.tex}, this directory). \emph{No disagreement between the code and the proof was found in the export itself.} Three text items are recorded in \S\ref{G:sec:status}: the v3.3 text says ``$r_2=0$, level 2 exports nothing'' and must be replaced; Lemma~D of $\mathsf U$ is stated for $k\in\{0,1\}$ with $r_k=1.249$; and \fn{V36_REPORT.md} \S6 quotes the design-setting values $114.782$, $0.0698142$ rounded \emph{down} (not consumed by anything).
+
+%======================================================================
+\section{Setting and what the flux lemma consumes}\label{G:sec:set}
+Notation of $\mathsf A$ \S1: $y=x-2.2490776515$, $s=\ln y$, $\varepsilon=y^{-4}$, $\omega=28/y$, $\eta_A=\eta_{\rm in}\eta_o$ ($=1$ on $[28,350]$), $\Theta=\varepsilon\omega\eta_A^2$, $v_A=f-U(\alpha(\tau),y)$, $z_k=z^A_k=\partial_s^kv_A$, $E_j=E^A_j=\int\omega\eta_A^2z_j^2\,ds$. $a_{\min}(M_0)=(1+M_0^2)^{-2}$; $a_c:=a_{\min}(0.11)$, $a_s:=a_{\min}(0.15)$, $a_r:=a_{\min}(0.05)$. For a window $I=[\tau_a,\tau_a+T]\subset[\tau_1,\tau']$ put
+\[
+X_2(\tau_a,T):=\int_{\tau_a}^{\tau_a+T}\!\!\int_{\ln28}^{\ln350}\varepsilon\omega\,z_4^2\,ds\,d\tau .
+\]
+\emph{Consumer.} Flux lemma v2 ($\mathsf F$, Lemma ``data on the outer ramp'', hypothesis (B$\Phi$) at $k=2$) uses $X_2(\tau_a,T)\le2(C0_2+C1_2T)$ on every window, through the shell $Y(S)\subset[54.75-10^{-30},\,57.76+10^{-30}]\subset[28,350]$ and the pointwise inequality $\varepsilon\omega\ge28\,y_{\max}^{-5}$ there (\fn{fix13_v37chain/flux/code/flux2_data.py} ll.15, 86--88 \tR). It reads $C0_2,C1_2$ as the upper ends of \fn{asm_design_N2ref4.json}\,\fn{res.tight.export["2"]} (\fn{flux2_data.py} l.53 \tR; equality of the values it used with those upper ends: \tC, \fn{G1_check} C3). (B$\Phi$) is a bootstrap hypothesis; the theorem below is the strict improvement (factor $1$ instead of $2$) that closes it (\fn{BPhi_continuation_v36.tex}).
+
+\begin{theorem}[Lemma D, $k=2$]\label{G:thm}
+Assume on $[\tau_1,\tau']$ the hypotheses of $\mathsf A$ Proposition~1 (``level-$j$ inequality'': verifier conclusions D1 with H-J-W, the boxes of $\mathsf A$ \S``Boxes by region'', H-O2$'$ with $\Nb^2\le4N_2^{\rm ref}$, $|\alpha|\le\alpha_1$), the datum of $\mathsf A$ Theorem~1, and the regularity lemma U-1. Then for every $\tau_1\le\tau_a\le\tau_a+T\le\tau'$
+\[
+X_2(\tau_a,T)\le C0_2+C1_2\,T,\qquad C0_2=\frac{\Eh_2+D_2}{r_2a_c},\qquad C1_2=\frac{2F_2^2/\gamma'_2+\hat c_2+\oh_2+D^s_2}{r_2a_c},\qquad r_2=\tfrac1{1000},
+\]
+with the constants of Table~\ref{G:tab:val}; in particular $C0_2\le116.3593$ and $C1_2\le0.2605999$ \tC.
+\end{theorem}
+
+\begin{table}[ht]\centering\small
+\caption{Constants at the setting $4N_2^{\rm ref}$ (\fn{asm_design_N2ref4.json}, \fn{res.tight}), rounded outward to 6 digits \tC.}\label{G:tab:val}
+\begin{tabular}{@{}lll@{}}\toprule
+quantity & value & key\\\midrule
+$\Eh_2$ (R-sup rule, used in $C0_2$) & $\le5.83419\cdot10^{-2}$ & \fn{E[2]}; certified $\Eh_2$ of Lemma~U $\le$ this (\fn{G1_check} C2)\\
+$D_2$ (damped data), $D_2^c$ (window constant) & $\le5.52518\cdot10^{-2}$, $\le5.52015\cdot10^{-2}$ & \fn{info[2].D}, \fn{D_window_const}\\
+$D_2^s$ (window slope) & $\le6.05041\cdot10^{-6}$ & \fn{info[2].D_window_slope}\\
+$F_2^2$; $\gamma'_2$ & $\le4.15721\cdot10^{-13}$; $\ge0.119546$ & \fn{info[2].F2}; \fn{gp[2]}\\
+$\hat c_2=\sum_{k<2}\hat G^{\rm core}_{2k}28^{-4}\Eh_k$ & $\le2.01658\cdot10^{-8}$ & \fn{info[2].coup_rate}\\
+$\oh_2=\sum_k\kappa^o_{2k}\Nb_k^2$ at $4N_2^{\rm ref}$ & $\le2.48336\cdot10^{-4}$ & \fn{OUTER["2"]}\\
+$a_c$; $r_2$ & $(1+0.11^2)^{-2}\ge0.976232$; $\frac1{1000}$ & \fn{export["2"].amin_c}, \fn{r}\\
+$C0_2$; $C1_2$ & $\le116.3593$; $\le0.2605999$ & \fn{export["2"].C0}, \fn{C1}\\\bottomrule
+\end{tabular}
+\end{table}
+
+%======================================================================
+\section{Step A: the level-2 inequality with retained dissipation}\label{G:sec:A}
+\begin{proposition}[level 2 with $r_2$]\label{G:prop}
+Under the hypotheses of Theorem~\ref{G:thm}, for every $\tau\in[\tau_1,\tau']$,
+\begin{equation}\label{G:eq:D1}
+\frac{d}{d\tau}E_2+\gamma'_2E_2+r_2\,a_c\!\int_{\ln28}^{\ln350}\!\varepsilon\omega\,z_4^2\,ds\ \le\ \mathfrak s_2(\tau)+2\sqrt{E_2}\,F_2+\mathrm{coup}_2(\tau)+\oh_2 ,
+\end{equation}
+with $\gamma'_2$, $\mathfrak s_2$, $F_2$, $\mathrm{coup}_2$, $\oh_2$ as in $\mathsf A$ Proposition~1, except that $\gamma'_2$ and $\hat G^{\rm core}_{22}$ are the v36 values (the interpolation share $B_c$ is lowered to make room for $r_2$).
+\end{proposition}
+\begin{proof}
+\emph{Regularity.} By U-1 (Theorem U-1(d)) $E_2\in C^1([\tau_1,\tau'])$, all $z_k$ are continuous in $(\tau,s)$ and smooth in $s$, and every integration by parts of $\mathsf A$ \S2 is valid at every $\tau$, with the point terms written there (Lemma~P of $\mathsf A$). So \eqref{G:eq:D1} is an inequality between continuous functions, at every $\tau$ \tH.
+
+\emph{Everything except the budget is $\mathsf A$ \S2 at $j=2$} \tI: Steps 1 (transport, damping, inflow), 2a (interface at $y=28$), 3 (inner-ramp cutoff terms, route IBP for the top pair at level 2), 4 (foot and S33), 5 (outer annulus $O$), 6 (forcing), 7 (summation). Their proofs do not depend on how the dissipation left over after the Young and interpolation steps is used; they use only that the Young steps take ``$\mathrm{used}$'' and the interpolation takes $B_ca_{\min}$, per unit $\Theta z_4^2$, region by region.
+
+\emph{The budget (the only change).} The dissipation of level 2 is $2\int\mathfrak a(V)\Theta z_4^2\,ds\ge2\int a_{\min}\Theta z_4^2\,ds$ with $a_{\min}$ the value of the region's box ($\mathsf A$ Step~2). On each region of $[28,350]$ the code chooses $B_c$ such that, per unit $\Theta z_4^2$,
+\[
+\mathrm{used}+B_ca_{\min}+r_2a_c\le2a_{\min}\qquad\text{pointwise in }y\in[28,350],
+\]
+as follows (all \tR\ and \tC):
+\begin{enumerate}[label=(b\arabic*),leftmargin=2.4em]
+\item \emph{core reference} (the coefficients on $[28,40]$, where $\tilde Y=Y_c$): \fn{weights_t2.py} l.179 sets $B_c=\lfloor(2-r_2-\mathrm{used}/a_c-10^{-6})10^6\rfloor/10^6=\frac{1688999}{10^6}$; with $\mathrm{used}/a_c=0.3100000$ the retained fraction is $2-B_c-\mathrm{used}/a_c=0.001001\ge r_2$ (asserted at l.285; recomputed in \fn{G1_check} B1);
+\item \emph{rise $[40,50]$ and S33 partition $[50,60]$} (box of the core, $a_{\min}=a_c$): per cell, $B_c=\lfloor(2-\mathrm{used}/a_c-r_2)10^6\rfloor/10^6$ (l.230, \fn{rreq_c} $=r_2$, l.241); a cell with $2-\mathrm{used}/a_c-r_2\le0$ is a failure; there is none (\fn{G1_check} B3);
+\item \emph{plateau $(60,175]$} (segment box, $a_{\min}=a_s$): $B_c=\lfloor(2-\mathrm{used}/a_s-r_2a_c/a_s)10^6\rfloor/10^6=\frac{1523979}{10^6}$ (l.256), retained $\ge r_2a_c$ in absolute units ($1.0002685\cdot10^{-3}\,a_c$; \fn{G1_check} B2);
+\item \emph{rise $[175,250]$ and partition $[250,350]$} (segment box): as (b2) with \fn{rreq_s} $=r_2a_c/a_s$ (l.241); no failing cell (\fn{G1_check} B3).
+\end{enumerate}
+The core reference, the four zones and the plateau cover $[28,350]$ (\fn{G1_check} B3). $\eta_A=1$ there, so $\Theta=\varepsilon\omega$. Every other user of level-2 dissipation lives outside $[28,350]$: the ramp Young users (top pair, class $(2,4)$) use the ramp slack on $[14,28]$, $\sum\delta=0.3255\le0.32585$ in units $a_r$ (\fn{assembly_rep.py} l.188, \fn{G1_check} B4), and the outer cutoff classes and the outer foot use the reserve $\delta_o=\frac14$ on $O=[350,700]$ ($\mathsf A$ Step~5). The $B_c$ values feed $\hat G$ by the formula of $\mathsf A$ Step~2, and every zone passes the rate check $\sup\varepsilon\hat G^{\rm reg}_{2k}\le\varepsilon(28)\hat G^{\rm core}_{2k}$ with the lowered $B_c$ (\fn{all_ok}, \fn{G1_check} B3). Hence the amount $r_2a_c\int_{[\ln28,\ln350]}\varepsilon\omega z_4^2$ is not used by any step and stays on the left of \eqref{G:eq:D1} \tH.
+\end{proof}
+
+%======================================================================
+\section{Step B: every level-2 source is window-affine}\label{G:sec:B}
+\begin{lemma}[(D2) at $k=2$]\label{G:lem:D2}
+For every window $I$: $\int_I\mathfrak s_2\le D^c_2+D^s_2\,T$, with $D^c_2\le D_2$.
+\end{lemma}
+\noindent\emph{Two facts used throughout} \tH.
+(F1) \emph{H-J-W on every window} ($\mathsf A$ Lemma~H-J-W, $\mathsf U$ Lemma~H-J-W; \tI): $\int_IV_m^2\le J_m(1+\kappa_J)+s_mT$, $m=0,1,2,4$, and $\int_IV_3^2\le(\int_IV_2^2)^{1/2}(\int_IV_4^2)^{1/2}+c_{1W}\int_IV_2^2$ by $V_3^2\le V_2(V_4+c_{1W}V_2)$ and Cauchy--Schwarz in time. With $\vec J:=(J_m(1+\kappa_J))_m$ and $\rho:=\max_m s_m/(J_m(1+\kappa_J))$, the vector of window integrals is $\le(1+\rho T)\vec J$ componentwise (also for $m=3$, by homogeneity). The code's $\rho$ is \fn{assembly_rep.py} l.135, computed after the $J$'s are scaled by $1+\kappa_J$ (\fn{--hjw}); $\rho\le5.50094\cdot10^{-7}$.
+(F2) \emph{Monotone, degree-1 functionals.} Each conversion $\mathrm{conv}_k(t;\vec J)$ (\fn{convk} of \fn{base_ibp/rigor/assembly_arb.py} l.79--87: $(\sqrt b+\sum_i\binom ki G_i\sqrt{b_{k-i}})^2$, $b$ linear in $\vec J$ with nonnegative coefficients) and its chart form ($\rho_{\rm meas}$-factor times $(\sqrt{C_k}+\sum\beta_{ki}\sqrt{C_i})^2$, l.146) is nondecreasing and positively homogeneous of degree~1 in $\vec J$; so is $J_F^{3/4}J_G^{1/4}$. For such $\Phi$: $\Phi((1+\rho T)\vec J)=(1+\rho T)\Phi(\vec J)$. The code evaluates every $w'$-part at $\vec J^e=\vec J+\vec s/\gamma'_2\ge\vec J$ (l.142), which only enlarges the constant.
+
+\noindent\emph{Splitting rules} (class \fn{Tr}, l.103--118) \tH. For a quadratic density with $w'$-part $t_w$ and $d$-part $t_d$ (a rate per unit $\tau$, since $|\alpha|\le\alpha_1$ at every $\tau$): $(a+b)^2\le(1+e)a^2+(1+e^{-1})b^2$ pointwise, any $e>0$, so the window integral is $\le(1+e)t_w(1+\rho T)+(1+e^{-1})t_dT$, which is \fn{trq}'s window pair $((1+e)t_w,\ (1+e)\rho t_w+(1+e^{-1})t_d)$. For a cubic density, $|a+b|^3\le(1+e)^2|a|^3+(1+e^{-1})^2|b|^3$ (convexity of $|\cdot|^3$ with weights $\frac1{1+e},\frac e{1+e}$), giving \fn{trc}. For a Cauchy--Schwarz product of two window-affine quantities, $\sqrt{(X_c+X_sT)(Y_c+Y_sT)}\le\frac12\bigl(l(X_c+X_sT)+(Y_c+Y_sT)/l\bigr)$ for any fixed $l>0$, giving \fn{trp}. Sums of window pairs are window pairs.
+
+\begin{proof}[Proof of Lemma~\ref{G:lem:D2}, source by source]
+$\mathfrak s_2$ is the sum, at each $\tau$, of the densities below; the code builds the data term $\texttt{data}=\texttt{infl}+\texttt{rampc}+\texttt{top}+\texttt{cls}+\texttt{extra}$ (l.213), each a \fn{Tr}. The list of level-2 classes and routes in \fn{asm_design_N2ref4.json} is exactly the one below (\fn{G1_check} S1), and the parts add up to $D_2$ (S2).
+\begin{enumerate}[label=(s\arabic*),leftmargin=2.4em]
+\item \emph{Inflow} $\bar c\int\omega(\eta_{\rm in}^2)'z_2^2$ (l.148): a quadratic ramp density, converted by Lemma~conv of $\mathsf A$; by (F1), (F2) and \fn{trq} its window integral is $\le(1+e)t_w(1+\rho T)+(1+e^{-1})t_dT$. Value (damped) $1.95385\cdot10^{-2}$.
+\item \emph{Ramp commutators and ramp share of the rate} $\sum_{k\le2}\int q_kz_k^2$ (l.150): as (s1). $1.17548\cdot10^{-2}$.
+\item \emph{Top pair, route IBP} (l.168, l.195): $\int c\,z_3^2=-\int c\,z_2z_4+\frac12\int c''_{\rm reg}z_2^2+(\text{point term}\le0)$ at each $\tau$ ($\mathsf A$ Step 3(b)). The product is split by Young \emph{at each $\tau$}: $|c\,z_2z_4|\le\delta a_r\Theta z_4^2+\frac{c^2}{4\delta a_r\Theta}z_2^2$; the first part is taken from the ramp slack (pointwise in $\tau$; no window issue), the second is a quadratic density, as (s1). The jet-free part of $c''$ is a quadratic density (\fn{top2}), as (s1); its jet parts are the classes $(2,2,2)$ and $(2,2,3)$ with tag \fn{top}, handled as (s5), (s6). Value $1.02340\cdot10^{-2}$ ($\delta=0.3236$).
+\item \emph{Pair classes} $(x,y)$ (l.174--181): $(2,2)$ by data (one quadratic density, (s1)); $(2,3)$ by data through \fn{trp}: $\iint|c||z_2z_3|\le(\iint|c|z_2^2)^{1/2}(\iint|c|z_3^2)^{1/2}$ on the window (Cauchy--Schwarz in space-time), each factor of kind (s1), then the AM--GM rule; $(2,4)$ by Young against the ramp slack at each $\tau$ ($\delta=0.0019$), the remainder quadratic, (s1).
+\item \emph{Class $(2,2,2)$}, handler \fn{phi} (l.172): $\le\sup(w/\varepsilon\omega)\iint_{\rm ramp}\varepsilon\omega|z_2|^3$. The cubic integral is split by \fn{trc} into $w'$-part and $d$-part. The $w'$-part is bounded by $\mathsf U$ Lemma~S (sup-free cubic bound) applied on the time interval $I$, with $P$ from the pointwise bound $F_{\max}$ (B1: $\Lambda\le\Lambda_{\rm bar}$ at every $\tau$, l.159--160) and $J_F,J_G$ the window integrals of $\|G\|^2,\|G'\|^2$, which are of kind (s1). Lemma~S is stated for any time interval (its proof is pointwise Sobolev in $s$, then H\"older in time over the interval) \tR, so it applies to $I$; the bound $\sqrt P(J_F/\sqrt\ell+\sqrt2J_F^{3/4}J_G^{1/4})$ is monotone and of degree~1 in $\vec J$ (F2). The $d$-part is $\le\sup|D^2d+\chi^{\rm add}_2|\iint\varepsilon\omega(D^2d+\chi^{\rm add}_2)^2$, a rate per unit $\tau$ (l.162).
+\item \emph{Class $(2,2,3)$}, handler \fn{ibp223} (l.173): $\int\kappa z_2^2z_3=-\frac13\int\kappa'z_2^3$ at each $\tau$ ($\kappa$ continuous, no point term; $\mathsf A$ Step 3(c)), then as (s5).
+\item \emph{Ramp foot} (l.207): $\mathrm{footw}_2\int_{\rm ramp}\varepsilon\omega z_2^2$, a quadratic density, (s1). $3.72168\cdot10^{-4}$.
+\item \emph{Ramp S33 foot} (l.208): $\frac{W_{33}C_\eta}3\iint\varepsilon\omega|z_2|^3$, as (s5). $1.06199\cdot10^{-3}$.
+\end{enumerate}
+The damped values are those at $\vec J^e(\gamma'_2)$ with $t_d/\gamma'_2$; the window constant of every item is $\le$ its damped value (for \fn{trq}, \fn{trc} the $t_d/\gamma'$ part is dropped; for \fn{trp}, $\frac12(lX_c+Y_c/l)=\sqrt{X_cY_c}\le\sqrt{X_dY_d}$ at $l=\sqrt{Y_c/X_c}$). The code asserts $D^c_2\le D_2$ (l.237; \fn{G1_check} S2).
+\emph{Kill check of ROUTE\_DECISION G1:} no level-2 source is bounded only in the exponentially weighted form: every one is a \fn{Tr} built by \fn{trq}, \fn{trc}, \fn{trp} or a Young split at fixed $\tau$ \tR. The kill condition did not fire.
+\end{proof}
+
+%======================================================================
+\section{Step C: integration (Lemma D at $k=2$)}\label{G:sec:C}
+\begin{proof}[Proof of Theorem~\ref{G:thm}]
+The proof of $\mathsf U$ Lemma~D does not use $k\le1$; it uses (D1)--(D3) only. Here (D1) is Proposition~\ref{G:prop}, (D2) is Lemma~\ref{G:lem:D2}, (D3) is $E_2\le\Eh_2$ on $[\tau_1,\tau']$ ($\mathsf A$ Theorem~1(a) \tI; the R-sup value is a bound at \emph{every} $\tau$).
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item $2\sqrt{E_2}F_2\le\frac{\gamma'_2}2E_2+\frac{2F_2^2}{\gamma'_2}$.
+\item $\mathrm{coup}_2(\tau)=\sum_{k<2}\hat G^{\rm core}_{2k}28^{-4}E_k(\tau)\le\hat c_2$ by $E_k\le\Eh_k$ at every $\tau$ ($k=0,1$); the code's \fn{coup_rate} is this sum with the $E_k$ of the same assembly (l.210; recomputed, \fn{G1_check} C1), and the certified $\Eh_k$ of Lemma~U are $\le$ those (C2).
+\item $\oh_2$ is constant (H-O2$'$, $\Nb^2\le4N_2^{\rm ref}$ \tC: \fn{U_cert_v36_pass3.json} \fn{supersolution.N2_le_4N2ref}; the assembly runs at \fn{--N2 0.4 0.8 20.0} $=4N_2^{\rm ref}$; C2).
+\item By U-1, $E_2$ is $C^1$, so \eqref{G:eq:D1} integrates over $I$:
+\[
+E_2(\tau_a+T)+\tfrac{\gamma'_2}2\!\int_IE_2+r_2a_cX_2(\tau_a,T)\le E_2(\tau_a)+\int_I\mathfrak s_2+\Bigl(\tfrac{2F_2^2}{\gamma'_2}+\hat c_2+\oh_2\Bigr)T .
+\]
+Drop the first two terms ($\ge0$), use $E_2(\tau_a)\le\Eh_2$ and Lemma~\ref{G:lem:D2} with $D^c_2\le D_2$, and divide by $r_2a_c>0$.
+\end{enumerate}
+This is the code's rule (\fn{assembly_rep.py} l.235--236: $C0=(E_2+D_2)/(r_2a_c)$, $C1=(2F_2/\gamma'_2+\mathrm{coup}+o_2+D^s_2)/(r_2a_c)$, where the variable \fn{F2} is $F_2^2$) with $E_2$ the assembly's R-sup value, which dominates the certified $\Eh_2$ (C2). The values were recomputed in \fn{arb} from the components (C1). Monotonicity in $\Nb^2$: $\oh_2$ and $\Eh_2$ are nondecreasing in $\Nb^2$ ($\kappa^o\ge0$), and $D_2,D^s_2,F_2,\gamma'_2$ do not depend on $\Nb$; so the values at $4N_2^{\rm ref}$ dominate those at the certified $\Nb^2$ \tH.
+\end{proof}
+
+\begin{remark}[how the flux lemma uses it]\label{G:rem:use}
+On the shell, $\int_I\int_{Y(S)}z_4^2\,dy/y\,d\tau\le(y_{\max}^5/28)\,X_2(\tau_a,T)$ because $\varepsilon\omega=28y^{-5}\ge28y_{\max}^{-5}$ on $Y(S)$ and $Y(S)\subset[\ln28,\ln350]$ in $s=\ln y$ ($ds=dy/y$) \tH. Under (B$\Phi$) the factor is $2(C0_2+C1_2T)$; Theorem~\ref{G:thm} gives $C0_2+C1_2T$, a strict improvement for every window, as \fn{BPhi_continuation_v36.tex} requires. The variable is (A)'s $z^A_4=\partial_s^4(f-U)$; the passage to $g''''$ on $\mathrm{OR}$ is the chart lemma at $k=4$ ($\mathsf F$ Lemma ``chart identity at level 4'') and is not part of G1.
+\end{remark}
+
+%======================================================================
+\section{Status, and what is not proved here}\label{G:sec:status}
+\begin{center}\small\begin{tabular}{@{}p{0.43\linewidth}p{0.17\linewidth}p{0.33\linewidth}@{}}\toprule
+step & label & source\\\midrule
+budget $\mathrm{used}+B_ca_{\min}+r_2a_c\le2a_{\min}$ on $[28,350]$ & \tC\tR & \fn{weights_t2.json}; \fn{G1_check} B1--B4\\
+Steps 1--7 of $\mathsf A$ at $j=2$ (all other terms of \eqref{G:eq:D1}) & \tI & $\mathsf A$ \S2 and its scripts\\
+(D2) source by source & \tH\tR & \S\ref{G:sec:B}; class list \tC\ (S1, S2)\\
+H-J-W on every window; Lemma~S (cubic) on any interval & \tI\tR & $\mathsf U$; verifier \fn{fin13v4c} via flux lemma v2 (C2, C6, C7 of \fn{FLUX2_IMPL_REPORT.md})\\
+integration (Lemma D proof) & \tH & \S\ref{G:sec:C}\\
+regularity ($E_2\in C^1$, identities at every $\tau$) & \tH & \fn{U1_regularity_v40.tex}, Theorem U-1(d)\\
+values $C0_2,C1_2$; setting $4N_2^{\rm ref}$; consumption by \fn{flux2_data.py} & \tC & \fn{G1_check} C1--C4\\\bottomrule
+\end{tabular}\end{center}
+\noindent\textbf{Findings.}
+\begin{enumerate}[leftmargin=*]
+\item \emph{Code versus proof:} no disagreement in the export. The code's $C0_2$, $C1_2$ are exactly the constants of Lemma~D with $k=2$; the retained amount is reserved on all of $[28,350]$; no level-2 source escapes the window form.
+\item \emph{Text to replace} (for G4): $\mathsf A$ Proposition~1 says $r_2=0$ and \S3(b) ends ``Level 2 exports nothing ($r_2=0$)''; Theorem~1(b) is stated for $k=0,1$; the core budget line says ``retained $(1.25,1.25,0)$'' and $B_c=\frac{169}{100}$ at level 2. In v36: retained $(1.25,1.25,0.001001)$ in units $a_c$, $B_c^{(2)}=\frac{1688999}{10^6}$, and the theorem holds for $k=0,1,2$. $\mathsf U$ Lemma~D says ``$k\in\{0,1\}$'' and ``$r_k=1.249$''; it holds verbatim for $k=2$ with $r_2=\frac1{1000}$.
+\item \emph{Report quote rounded down:} \fn{V36_REPORT.md} \S6 gives $C0_2=114.782$, $C1_2=0.0698142$ at $N_2^{\rm ref}$; the certified values are $114.78222\ldots$, $0.069814238\ldots$ (\fn{A_interface.json} \fn{C0_ref}, \fn{C1_ref} are correct upper bounds). Nothing consumes the design setting.
+\item \emph{Inherited:} the boundedness $F_{\max}$ in (s5) is read from the verifier's peak $\sqrt\Lambda$ (B1). Under flux lemma v2 the verifier's conclusion is $\Lambda\le L+2C'$; that this is inside the rounded peak is the flux lemma's check C7 (``sqrtL\_max''), not re-done here.
+\end{enumerate}
+\end{document}

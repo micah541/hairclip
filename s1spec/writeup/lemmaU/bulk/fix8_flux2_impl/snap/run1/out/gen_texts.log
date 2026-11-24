@@ -1,0 +1,2 @@
+balance {'flux2_lemma_v2.tex': {'brace_balance': 0, 'begin_end_equal': True, 'ok': True}, 'absorption_lemma_v2.tex': {'brace_balance': 0, 'begin_end_equal': True, 'ok': True}, 'erratum_flux2.tex': {'brace_balance': 0, 'begin_end_equal': True, 'ok': True}, 'BPhi_continuation_v36.tex': {'brace_balance': 0, 'begin_end_equal': True, 'ok': True}}
+X7 done sha ee2353cf63c83cd63f859b84638d1254ff0faed5b756e28b5d0f2ff0646caad4

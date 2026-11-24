@@ -1,0 +1,193 @@
+{
+ "args": {
+  "argv": [
+   "d_cubic_strip.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4b/cubic_E0fine_0.001_0.01_0.01.json": "9966342863778614733e7bd29ea24a7ca80b61e78487cb4efbd7c1929c7703a6",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.000125.json": "c2fa7e18ab15178e7828b0a9219c5d183f890dd6702fcd3ffd1c7d9db296c61f",
+   "/home/claude/s1spec/step3nl_v4b/runs/P/rate_table_fin13v4b_a0.00015.json": "d1dcd10f639c83a5de15075dfa31702535fb93f1bd7c3fa3e6fb5af465a05007",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/out/tc_weighted.pkl": "da22cb16c2de16736d6ecacedba9bfc84bb0a4922bd2c0aad97e99dbf64f4ecd",
+   "/home/claude/s1spec/step3nl_v4b/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+  },
+  "runtime_s": 5.2,
+  "script_sha256": "3d89e7a83b5753e0f26934584e4c5e6951b976e8dcbcb4242c011115b46c7c3e"
+ },
+ "cubic_box": {
+  "asserted": {
+   "far_w1": 0.02,
+   "far_w_16p25_34p25": 0.02,
+   "tip_0_16p25": 0.001
+  },
+  "asserted_implies_certificate_box": false,
+  "certificate": {
+   "alpha_max": 0.001,
+   "eta0": 0.01,
+   "eta1": 0.01,
+   "regions": [
+    "8<x<=12",
+    "4<x<=8",
+    "2<x<=4",
+    "1<x<=2",
+    "0<x<=1",
+    "12<x<=16.25",
+    "16.25<x<=31.25"
+   ]
+  },
+  "holds_in_run": true,
+  "run": {
+   "1.25e-4": {
+    "S_ramp_max": 0.0007342380410518628,
+    "alpha_max": 0.00013000000000000002,
+    "far_w1_max": 0.0011399656773996407,
+    "far_w_max": 0.0005802189928785259,
+    "peak_sqrtL": 5.214276278396489e-08,
+    "sI1_max": 0.0011399656773996407,
+    "sI2_max": 0.015184817614414798
+   },
+   "1.5e-4": {
+    "S_ramp_max": 0.0007475146934914683,
+    "alpha_max": 0.00016,
+    "far_w1_max": 0.0011605787854731917,
+    "far_w_max": 0.0005907106392882794,
+    "peak_sqrtL": 5.3085619596085034e-08,
+    "sI1_max": 0.0011605787854731917,
+    "sI2_max": 0.015459392799237106
+   }
+  }
+ },
+ "size_estimate_at_peak": {
+  "V0": 1.87686007999406e-07,
+  "V1": 2.5418942241682398e-06,
+  "V2": 3.4266620103123235e-05,
+  "note": "[est] every norm at its own maximum for Lyap = peak^2 (mutually exclusive maxima): an over-estimate of the rate contribution; the E_I dissipation at the V2-saturated shape is mu(1-theta)/2 V2^2/Lambda = 1.58e+04 per unit Lambda",
+  "over_Lambda": 0.00013024040312780514,
+  "parts": {
+   "(0, 1, 2)": 1.9985848534406026e-19,
+   "(0, 2, 1)": 6.69350126006354e-20,
+   "(0, 3, 0)": 1.4713329485329157e-21,
+   "(1, 0, 2)": 5.080290211971817e-20,
+   "(1, 1, 1)": 4.691599409240496e-20,
+   "(1, 2, 0)": 1.0445398911941983e-21,
+   "(2, 0, 1)": 4.613461744590763e-37,
+   "(2, 1, 0)": 7.782574365999445e-39,
+   "(3, 0, 0)": 1.522563624175472e-57
+  },
+  "strip_cubic_upper_est": 3.670282669965459e-19,
+  "sups": [
+   0.0005907106392882794,
+   0.0011605787854731917,
+   0.015459392799237106
+  ]
+ },
+ "strip_cubic_coefficients": {
+  "(0, 1, 2)": 0.5670272221323109,
+  "(0, 2, 1)": 2.571936513530093,
+  "(0, 3, 0)": 0.7656731754541406,
+  "(1, 0, 2)": 0.2831846275366846,
+  "(1, 1, 1)": 3.5418295115232508,
+  "(1, 2, 0)": 1.0679657794535171,
+  "(2, 0, 1)": 2.4452547864494558e-17,
+  "(2, 1, 0)": 5.5865803613495595e-18,
+  "(3, 0, 0)": 4.018265826814363e-37
+ },
+ "strip_integrals": {
+  "IR": 1.8382831517506488e-11,
+  "IRW": 2.1271383902499615e-08,
+  "RW": 4.7003381853861584e-05
+ },
+ "structure": {
+  "keys": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    2
+   ],
+   [
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    1
+   ],
+   [
+    1,
+    0,
+    2
+   ],
+   [
+    1,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    2
+   ],
+   [
+    1,
+    2,
+    2
+   ],
+   [
+    2,
+    0,
+    0
+   ],
+   [
+    2,
+    0,
+    1
+   ],
+   [
+    2,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    2
+   ]
+  ],
+  "n_nonzero": 17
+ }
+}

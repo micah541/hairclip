@@ -1,0 +1,51 @@
+{
+ "item": "tightened (H2) for f - U_1 on [14, 60], v3.3 thresholds (1e-8, 1e-6, 1e-3), true curve at t_1, slab 180",
+ "label": "certified",
+ "rule": "sqrt G_k[f - U_1] <= sqrt E_k[w'] (h2t_v33 with_error) + sqrt E_k[d] (b0_dprof at_alpha_t1)",
+ "alpha_t1": 0.00011738738550483467,
+ "rows": [
+  {
+   "j": 0,
+   "threshold": 1e-08,
+   "E_wprime_with_error": 8.012896342255056e-11,
+   "E_d": 1.0348415559007052e-10,
+   "bound": 3.657348158868848e-10,
+   "margin": 27.342215084857607,
+   "ok": true,
+   "margin_ge_2": true
+  },
+  {
+   "j": 1,
+   "threshold": 1e-06,
+   "E_wprime_with_error": 4.705796928861562e-10,
+   "E_d": 4.185640892214731e-10,
+   "bound": 1.7767647835694346e-09,
+   "margin": 562.8207004368064,
+   "ok": true,
+   "margin_ge_2": true
+  },
+  {
+   "j": 2,
+   "threshold": 0.001,
+   "E_wprime_with_error": 1.5587558914040862e-06,
+   "E_d": 1.7190791864554688e-09,
+   "bound": 1.664005155747869e-06,
+   "margin": 600.9596764443683,
+   "ok": true,
+   "margin_ge_2": true
+  }
+ ],
+ "all_ok": true,
+ "all_margin_ge_2": true,
+ "min_margin": 27.342215084857607,
+ "Ybar": 1.0000000000000004e-12,
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/h2u_v33.py": "9fc567361d4009f661636992cfe905451f70f7cf17f034037985dfdc6179fd6b",
+   "/home/claude/s1spec/step4/p2/out_v33/h2t_v33.json": "0b6a56a5ce435f9d66cdd31b77aa5ab61e2c4439f3f9ff65e65c0d08e939ef3d",
+   "/home/claude/s1spec/step4/p2/out_v33/b0_dprof.json": "7fdf378c5f59f098263aec8f39bfff7f365e0d25cbbcd154c3f1010bd4a2cd8e"
+  }
+ }
+}

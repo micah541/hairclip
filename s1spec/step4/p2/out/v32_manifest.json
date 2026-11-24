@@ -1,0 +1,129 @@
+{
+ "note": "v3.2 candidate hand-off (far (M,K)=(0.15,0.3); cone unchanged); pending approval of the step-3 amendment. Paths relative to /home/claude/s1spec/step4 (p2/...). v3.1 outputs untouched. Inputs: p2/out/t9_cone_kch.json, p2/out/t9_far.json data (via t9_far_v32.json), p2/t8se/constants/amp_A1_w180.json, constants_fin.json, p2/h6/fable/h6f_cases.json.",
+ "outputs": [
+  {
+   "stage": "t9_far.py --v32 (far data vs v3.2 thresholds)",
+   "path": "p2/out/t9_far_v32.json",
+   "sha256": "226cca999106791cbc29b1c25b6ae9f0cbcbc0228deffee6a28da0919445ef15",
+   "command": "python3 -I t9_far.py --v32 t8se/constants/amp_A1_w180.json t8se/constants/constants_fin.json",
+   "args": {
+    "argv": [
+     "t8se/constants/amp_A1_w180.json",
+     "t8se/constants/constants_fin.json"
+    ],
+    "window": [
+     180,
+     180
+    ],
+    "slab_hulls": 180,
+    "y_err": 147,
+    "v32": true
+   }
+  },
+  {
+   "stage": "h4loc far M = 0.15",
+   "path": "p2/t8se/constants/h4loc_v32.json",
+   "sha256": "15db280c35f66b5e31fb501dc5f05a9c6e1d3432fa166867646448848e35acb0",
+   "command": "cd t8se; FAR_M=0.15 H4OUT=constants/h4loc_v32.json python3 -I h4loc.py constants/amp_A1_w180.json",
+   "args": {
+    "argv": [
+     "constants/amp_A1_w180.json"
+    ],
+    "amp": [
+     "constants/amp_A1_w180.json"
+    ],
+    "jets": "/home/claude/s1spec/step4/p2/t6/jets",
+    "chart_factor": 1.001,
+    "env": {
+     "FAR_M": "0.15",
+     "H4OUT": "constants/h4loc_v32.json"
+    },
+    "out": "/home/claude/s1spec/step4/p2/t8se/constants/h4loc_v32.json"
+   }
+  },
+  {
+   "stage": "cone H6-data checks",
+   "path": "p2/out/t9_v32_checks.json",
+   "sha256": "d561cf004ec9be2b69ffc97cb997b7fd0a89a2046c1cedfe1a6c797ddd0a5b12",
+   "command": "python3 -I t9_v32_checks.py",
+   "args": {
+    "source": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+    "thresholds": {
+     "slope": "0.08",
+     "K2": "0.03",
+     "N3": "0.004"
+    },
+    "units": "own cylinder units, whole cylinder (cone r_c 200-380)"
+   }
+  },
+  {
+   "stage": "H6 closure",
+   "path": "p2/out/t9_h6_v32.json",
+   "sha256": "03507573b78762751775c737ddd6b9d97aab9c76d498aa87938ef14410d800c4",
+   "command": "python3 -I t9_h6_v32.py",
+   "args": {
+    "cone": "cone X=3 M=0.12 K=0.18",
+    "far": "far X=2 M=0.15 K=0.3",
+    "r_max": 380,
+    "cases": "h6f_cases.json",
+    "t9": "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json",
+    "t9_far": "/home/claude/s1spec/step4/p2/out/t9_far_v32.json",
+    "h4": "p2/t8se/constants/h4loc_v32.json",
+    "windows": "writeup/lemmaS/lemmaS_Bbox_1e-05_a0.00015_dv0.15.json",
+    "sha256": {
+     "cases": "f3e6512a4c3bddbbc49081b32b342ec4cf7f17db59a320a3b381f933c16acbf6",
+     "t9_cone_kch": "a5d89af5a88eeeeb75dda7bcdc7575915980c3c8338faac05b3211d09646b644",
+     "t9_far_v32": "c75e1f2fa1c763a0722405d23195f2a27e2bd88b273f438b838d878e9e180580",
+     "h4loc_v32": "15db280c35f66b5e31fb501dc5f05a9c6e1d3432fa166867646448848e35acb0"
+    }
+   }
+  },
+  {
+   "stage": "Lemma O H1/H8, cone C0 = 0.0023",
+   "path": "p2/out/t9_lemmaO_v32.json",
+   "sha256": "5a150445cb345ccb73dd04785295c961cb1150578456bed77f46df0ef53be461",
+   "command": "LO_NS=48 python3 -I t9_lemmaO.py --v32 t8se/constants/amp_A1_w180.json 180",
+   "args": {
+    "argv": [
+     "t8se/constants/amp_A1_w180.json",
+     "180"
+    ],
+    "slab": 180,
+    "C0": {
+     "cone": 0.0023,
+     "far": 0.05
+    },
+    "v32": true,
+    "H8_min": 0.1,
+    "err": "T7 4b + C4 core"
+   }
+  }
+ ],
+ "scripts": [
+  {
+   "stage": "t9_far.py (edited: --v32)",
+   "path": "p2/t9_far.py",
+   "sha256": "ad8288cf78d357d2a378b949bbae5ff09a620f319b4ea63284a24f80025e5d51"
+  },
+  {
+   "stage": "t8se/h4loc.py (edited: env FAR_M)",
+   "path": "p2/t8se/h4loc.py",
+   "sha256": "ad0164edd5aeaefb7985d015075e2fd7d4bf039a8fd14d08813eed2fdd0ceacc"
+  },
+  {
+   "stage": "t9_v32_checks.py (new)",
+   "path": "p2/t9_v32_checks.py",
+   "sha256": "c4e7537c2baa02e446f03d309ca6d79df15c04964df8fe1d0c805f4343ace91a"
+  },
+  {
+   "stage": "t9_h6_v32.py (new)",
+   "path": "p2/t9_h6_v32.py",
+   "sha256": "b959542916d3b88ceee3485ab88d6f7c254c1b9ce36a7aa08729d49e8ae2c53d"
+  },
+  {
+   "stage": "t9_lemmaO.py (edited: --v32)",
+   "path": "p2/t9_lemmaO.py",
+   "sha256": "336e36c492ae24ca5bf210c60871bd51c29b141dca86b555adc550b255286993"
+  }
+ ]
+}

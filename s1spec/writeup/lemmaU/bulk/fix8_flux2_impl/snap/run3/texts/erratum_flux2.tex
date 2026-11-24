@@ -1,0 +1,8 @@
+% erratum_flux2.tex -- erratum entries for the outer-ramp flux (generated; not compiled).
+\begin{itemize}
+\item[(E-F1)] \emph{Cutoff shape.} The v3.1 flux tables used a quintic cutoff; the verifier's cutoff is the septic $S_7((60-x)/3)$, $C^3$, with $\zeta^{(4)}(57^+)=-280/27$. All v2 tables are generated from $S_7$ (\fn{flux2_coef.py}).
+\item[(E-F2)] \emph{Jet box.} v3.1 modelled the commutator with quasilinear coefficients and an a-priori jet box (M2--M5). v2 uses the commutator of $L_1$ with the quasilinear factor $j=J^{-4}$ inside it, $j\in[1-\bar c,1+\bar c]$, $|j'|\le\bar c_1$, and no jet box.
+\item[(E-F3)] \emph{Drift double use.} The drift sign ($C_{\rm eff}>0$, $\zeta\zeta'\le0$) is used once, in the one-sided diagonal, with the modulation transport inside the same ball $C_{\rm eff}\in C\pm\bar a(|Q_u|+|C_u|)$.
+\item[(E-F4)] \emph{Trace route.} The endpoint route through $g^{(3)}(57)$ does not close $K_2^{\rm OR}$ (residue $\frac52 g''(g^{(3)})^2$, \fn{flux2_forms.py} (f)); v2 uses the level-2 export of (A) as a space-time $L^2$ bound of $g^{(4)}$ on $[57,60]$, with no integration by parts at level 2.
+\item[(E-F5)] \emph{$W(57)$.} The value $1.43716\cdot10^{-18}$ of \fn{lemmaS_cflux.json} belongs to the quintic weight blend; for the verifier's $S_7$ blend $W(57)\le1.3404\cdot10^{-18}$. The (A)-chain flux block (records only) still uses the old value; flux lemma v2 does not.
+\end{itemize}

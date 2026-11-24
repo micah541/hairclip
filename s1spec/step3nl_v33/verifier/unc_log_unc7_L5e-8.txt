@@ -1,0 +1,4 @@
+  V1 march part: delta=0.2 max r1=+0.0561  sum Phi*D=9.218e-15  total/theta = 2.2355e-13
+  V1 tail: delta_t=0.2 r1*=-0.00189 Phi(a*)=4.559e-18
+  X parts (J=X/(theta*n_k)): {"Ly1_half": 1.25e-15, "march_r1plus": 7.09850992708849e-16, "march_Phi": 9.217884568063966e-15, "tail_Lstar_half": 3.1285760900122257e-15, "tail_Phi_over_rho": 2.0974553668583267e-15} slope {"Phi_LF_over_Lstar": 2.199294562097264e-22, "F0": 3.280480000000001e-22}
+  UNCONDITIONAL: int V0^2 <= 2.6424e-11 + 8.827e-19(T-tau_t);  int V1^2 <= 3.7121e-11 + 1.240e-18(T-tau_t);  int V2^2 <= 8.2016e-12 + 2.740e-19(T-tau_t);  int V4^2 <= 2.7340e-07 + 9.133e-15(T-tau_t)

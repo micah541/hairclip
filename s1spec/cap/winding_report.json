@@ -1,0 +1,18 @@
+{
+ "even": {
+  "arg_change_over_pi": 2.0,
+  "winding": 2,
+  "max_step": 0.29417427462107426,
+  "segments": 5058,
+  "sign_start": -1,
+  "sign_end": -1
+ },
+ "odd": {
+  "arg_change_over_pi": 2.0,
+  "winding": 2,
+  "max_step": 0.32958764998477363,
+  "segments": 5058,
+  "sign_start": -1,
+  "sign_end": -1
+ }
+}

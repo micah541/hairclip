@@ -1,0 +1,39 @@
+| design | A0 | A1 | A2 | A3 | A4 | Y: item 3 (E3) | Y: K4 via F4 | Y: K4 good time | Y: item 2 |
+|---|---|---|---|---|---|---|---|---|---|
+| T5 design: Lemma S ramp, global | 3.38e+03 | 5.68e+04 | 5.60e+05 | 1.79e+08 | 8.17e+10 | 1.35e-11 | 8.10e-12 | 5.17e-11 | 1.27e-07 |
+| T5 design, localized (transport-following Omega) | 2.58e+03 | 5.68e+04 | 4.59e+05 | 2.07e+08 | 9.24e+10 | 1.17e-11 | 7.08e-12 | 5.32e-11 | 1.66e-07 |
+| levels 3-4 ramp [14,22], delta_P=1.5 | 3.38e+03 | 5.68e+04 | 5.60e+05 | 1.21e+08 | 4.36e+10 | 1.98e-11 | 1.35e-11 | 6.37e-11 | 1.27e-07 |
+| levels 3-4 nested on D_1, D_2 | 8.98e+03 | 1.50e+05 | 1.07e+06 | 2.40e+08 | 2.07e+09 | 1.00e-11 | 4.17e-11 | 3.32e-11 | 4.79e-08 |
+| lev 0-3 [14,22], lev 4 nested on D_2 | 5.78e+03 | 9.45e+04 | 7.43e+05 | 1.21e+08 | 9.02e+08 | 1.97e-11 | 8.80e-11 | 5.62e-11 | 7.43e-08 |
+| fallback 1 (time-diff.), D4 <= 100 Ybar | 5.78e+03 | 9.45e+04 | 7.43e+05 | 6.61e+07 | 9.02e+08 | 3.56e-11 | 1.23e-10 | 7.70e-11 | 7.43e-08 |
+| fallback 1 (time-diff.), D4 <= 30 Ybar | 5.78e+03 | 9.45e+04 | 7.43e+05 | 4.47e+07 | 9.02e+08 | 5.17e-11 | 1.51e-10 | 9.40e-11 | 7.43e-08 |
+| fallback 1 (time-diff.), D4 <= 10 Ybar | 5.78e+03 | 9.45e+04 | 7.43e+05 | 3.54e+07 | 9.02e+08 | 6.46e-11 | 1.70e-10 | 1.06e-10 | 7.43e-08 |
+| E_I weight (1+x^2)^-1 (J unchanged, indicative) | 1.55e+03 | 1.23e+04 | 2.08e+05 | 1.05e+07 | 4.37e+08 | 2.19e-10 | 4.53e-10 | 3.26e-10 | 2.77e-07 |
+
+| T5 design, sensitivity | A3 | A4 | Y item 3 | Y K4 good time |
+|---|---|---|---|---|
+| C_x = 2 | 1.68e+08 | 8.16e+10 | 1.44e-11 | 6.06e-11 |
+| C_x = 10 | 2.07e+08 | 8.20e+10 | 1.16e-11 | 3.71e-11 |
+| kappa_D = 1 (T5 (Y) as written; not valid) | 1.40e+08 | 5.79e+10 | 1.72e-11 | 6.19e-11 |
+| kappa_D = 0.25 | 2.36e+08 | 1.15e+11 | 1.02e-11 | 4.16e-11 |
+| eps = 3e-5 | 1.41e+08 | 4.99e+10 | 1.70e-11 | 5.88e-11 |
+| c3 = 0.2 | 1.32e+08 | 4.37e+10 | 1.82e-11 | 6.08e-11 |
+| theta0 = 0.05 | 1.59e+08 | 7.91e+10 | 1.51e-11 | 5.84e-11 |
+| mu_e = 0.08 | 1.56e+08 | 6.84e+10 | 1.55e-11 | 5.73e-11 |
+
+T5 level 2: inflow k_jj J_j 3.86e+05; inflow k_jm J_m (m<j) 0.00e+00; ramp cross r_ji sqrt(JjJi) 3.30e+02; ramp e-terms 5.43e+00; Duhamel (d_ji F_i, e, rough mod.) 4.80e-09; G: couplings c_ji 2.28e+01; G: modulation |x| gam 1.74e+05; G: e-forcing 1.05e-01; total sqrt(F) 5.60e+05
+T5 level 3: inflow k_jj J_j 1.74e+08; inflow k_jm J_m (m<j) 0.00e+00; ramp cross r_ji sqrt(JjJi) 9.04e+03; ramp e-terms 4.06e+01; Duhamel (d_ji F_i, e, rough mod.) 2.65e+00; G: couplings c_ji 7.53e+02; G: modulation |x| gam 5.08e+06; G: e-forcing 2.33e-01; total sqrt(F) 1.79e+08
+T5 level 4: inflow k_jj J_j 8.15e+10; inflow k_jm J_m (m<j) 5.15e-04; ramp cross r_ji sqrt(JjJi) 7.81e+06; ramp e-terms 3.34e+02; Duhamel (d_ji F_i, e, rough mod.) 6.39e+01; G: couplings c_ji 1.77e+05; G: modulation |x| gam 1.85e+08; G: e-forcing 3.76e+00; total sqrt(F) 8.17e+10
+   J-cascade at tau1 (lam_min=0.244): J0..J4 = 2.052e+02, 2.547e+02, 3.174e+01, 1.240e+04, 4.822e+06
+   J4 shares: D4 part 3.510e+06 of 4.818e+06; JB=200, JD4=8e+05, JW1=31, JW3=1.28e+04
+opt4n level 2: inflow k_jj J_j 5.67e+05; inflow k_jm J_m (m<j) 0.00e+00; ramp cross r_ji sqrt(JjJi) 1.18e+02; ramp e-terms 3.38e+00; Duhamel (d_ji F_i, e, rough mod.) 3.89e-09; G: couplings c_ji 4.70e+01; G: modulation |x| gam 1.74e+05; G: e-forcing 9.60e-02; total sqrt(F) 7.43e+05
+opt4n level 3: inflow k_jj J_j 1.16e+08; inflow k_jm J_m (m<j) 0.00e+00; ramp cross r_ji sqrt(JjJi) 4.49e+03; ramp e-terms 5.12e+01; Duhamel (d_ji F_i, e, rough mod.) 1.77e+01; G: couplings c_ji 1.33e+03; G: modulation |x| gam 5.06e+06; G: e-forcing 2.71e-01; total sqrt(F) 1.21e+08
+opt4n level 4: nested kD iD_2 7.23e+08; Duhamel (d_ji F_i, e, rough mod.) 1.99e+04; G: couplings c_ji 1.12e+05; G: modulation |x| gam 1.78e+08; G: e-forcing 2.14e+00; total sqrt(F) 9.02e+08
+   J-cascade at tau1 (lam_min=0.246): J0..J4 = 2.035e+02, 2.528e+02, 3.162e+01, 1.238e+04, 4.827e+06
+   J4 shares: D4 part 3.514e+06 of 4.824e+06; JB=200, JD4=8e+05, JW1=30.9, JW3=1.28e+04
+
+level 0: k_jj in [2.064e+04, 2.088e+04] (at y~21.9), lam in [0.2414, 0.2476], max c_ji 0.00e+00 (k>850: 0.00e+00), gamma_j max 8.32e+01 (cone y<600: 2.31e+01)
+level 1: k_jj in [9.619e+06, 9.734e+06] (at y~22.4), lam in [0.2488, 0.2521], max c_ji 1.14e-02 (k>850: 5.36e-08), gamma_j max 4.79e+02 (cone y<600: 2.30e+01)
+level 2: k_jj in [4.646e+09, 4.734e+09] (at y~22.8), lam in [0.2487, 0.2527], max c_ji 3.95e-01 (k>850: 2.42e-07), gamma_j max 1.11e+04 (cone y<600: 5.18e+02)
+level 3: k_jj in [2.391e+12, 2.446e+12] (at y~23.0), lam in [0.2436, 0.2521], max c_ji 4.35e+00 (k>850: 1.55e-06), gamma_j max 3.21e+05 (cone y<600: 1.50e+04)
+level 4: k_jj in [1.382e+15, 1.394e+15] (at y~23.1), lam in [0.2220, 0.2479], max c_ji 1.15e+01 (k>850: 5.99e-06), gamma_j max 1.12e+07 (cone y<600: 5.23e+05)

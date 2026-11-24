@@ -1,0 +1,6 @@
+{'1_yform_vs_sform': '0', '2_level_0': '0', '2_level_1': '0', '2_level_2': '0', '2_level_3': '0', '3_noneps': '2*b*c_U*p*alpha(tau)*exp(s*(p - 1))*cos(theta)', 'all_zero': False}
+Traceback (most recent call last):
+  File "/home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/r3/r3_symcheck.py", line 45, in <module>
+    print({k: v for k, v in res.items() if k != 'args'}); assert ok
+                                                                 ^^
+AssertionError

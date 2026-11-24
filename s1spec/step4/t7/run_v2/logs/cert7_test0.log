@@ -1,0 +1,17 @@
+fixed functions: 372 fine / 121 coarse elements; c_phi (normalised, raw) = ([1.894851600741711, 1.5342031911812246, 0.31759691877797597], [3.465907673521856, 1.8191715210248687, 2.4445115649781215]) (3s)
+assembled n = 743 (6s)
+cert 0: slabs 0-1, tau_c = 0.15 (slab 1), k_c = 27.27
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.9261e-02, H = 0.150 -> reserved c_R = 6.435e-03; C3(tau_c): mbar 5.060 lbar 9.562 Cx 7.075 nV 1.6662e-01 (5s)
+   local margins: mu0 <= 7.578e-03 (x<10: 7.578e-03), mu1 <= 3.819e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=False 
+  [C1+C2] c = 0.06500: ok=True 
+  [C1+C2] c = 0.06750: ok=True 
+  [C1+C2] c = 0.06875: ok=True 
+  [C1+C2] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.07719: ok=False 
+  [C1 at tau_c] c = 0.07328: ok=False 
+  [C1 at tau_c] c = 0.07133: ok=True 
+CERT 0: c_I = 0.06293970232876976, c(tau_c) >= 0.071328125, c_R = 6.44e-03, mu0 <= 7.58e-03, mu1 <= 3.82e-03  (121s)

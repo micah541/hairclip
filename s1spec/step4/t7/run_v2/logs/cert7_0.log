@@ -1,0 +1,193 @@
+fixed functions: 372 fine / 121 coarse elements; c_phi (normalised, raw) = ([1.894851600741711, 1.5342031911812246, 0.31759691877797597], [3.465907673521856, 1.8191715210248687, 2.4445115649781215]) (3s)
+assembled n = 743 (7s)
+cert 2: slabs 4-5, tau_c = 0.75 (slab 5), k_c = 31.75
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.7342e-02, H = 0.150 -> reserved c_R = 5.954e-03; C3(tau_c): mbar 5.090 lbar 9.542 Cx 6.975 nV 1.5005e-01 (5s)
+   local margins: mu0 <= 6.699e-03 (x<10: 6.699e-03), mu1 <= 3.409e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=True 
+CERT 2: c_I = 0.06467147053059781, c(tau_c) >= 0.072421875, c_R = 5.95e-03, mu0 <= 6.70e-03, mu1 <= 3.41e-03  (115s)
+assembled n = 743 (5s)
+cert 4: slabs 8-9, tau_c = 1.3499999999999999 (slab 9), k_c = 36.95
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.5455e-02, H = 0.150 -> reserved c_R = 5.480e-03; C3(tau_c): mbar 5.119 lbar 9.525 Cx 6.881 nV 1.3423e-01 (5s)
+   local margins: mu0 <= 5.898e-03 (x<10: 5.898e-03), mu1 <= 3.026e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=True 
+CERT 4: c_I = 0.0651450210755114, c(tau_c) >= 0.072421875, c_R = 5.48e-03, mu0 <= 5.90e-03, mu1 <= 3.03e-03  (113s)
+assembled n = 743 (5s)
+cert 6: slabs 12-15, tau_c = 2.0999999999999996 (slab 14), k_c = 44.66
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.3207e-02, H = 0.300 -> reserved c_R = 1.014e-02; C3(tau_c): mbar 5.152 lbar 9.506 Cx 6.775 nV 1.1583e-01 (5s)
+   local margins: mu0 <= 9.518e-03 (x<10: 9.518e-03), mu1 <= 5.016e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=False 
+  [C1 at tau_c] c = 0.07000: ok=True 
+  [C1 at tau_c] c = 0.07750: ok=False 
+  [C1 at tau_c] c = 0.07375: ok=False 
+  [C1 at tau_c] c = 0.07188: ok=True 
+CERT 6: c_I = 0.05986359453613718, c(tau_c) >= 0.07187500000000001, c_R = 1.01e-02, mu0 <= 9.52e-03, mu1 <= 5.02e-03  (120s)
+assembled n = 743 (7s)
+cert 8: slabs 20-23, tau_c = 3.299999999999999 (slab 22), k_c = 60.46
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.0010e-02, H = 0.300 -> reserved c_R = 8.457e-03; C3(tau_c): mbar 5.201 lbar 9.482 Cx 6.637 nV 9.0069e-02 (6s)
+   local margins: mu0 <= 7.250e-03 (x<10: 7.250e-03), mu1 <= 3.862e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=True 
+CERT 8: c_I = 0.062167778961842966, c(tau_c) >= 0.072421875, c_R = 8.46e-03, mu0 <= 7.25e-03, mu1 <= 3.86e-03  (130s)
+assembled n = 743 (6s)
+cert 10: slabs 28-31, tau_c = 4.5 (slab 30), k_c = 81.80
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 7.4133e-03, H = 0.300 -> reserved c_R = 7.094e-03; C3(tau_c): mbar 5.242 lbar 9.464 Cx 6.537 nV 6.9001e-02 (6s)
+   local margins: mu0 <= 5.470e-03 (x<10: 5.470e-03), mu1 <= 2.937e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=False 
+CERT 10: c_I = 0.0635314969158309, c(tau_c) >= 0.07062500000000001, c_R = 7.09e-03, mu0 <= 5.47e-03, mu1 <= 2.94e-03  (128s)
+assembled n = 743 (5s)
+cert 12: slabs 36-39, tau_c = 5.700000000000003 (slab 38), k_c = 110.62
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 5.4145e-03, H = 0.300 -> reserved c_R = 6.044e-03; C3(tau_c): mbar 5.277 lbar 9.450 Cx 6.468 nV 5.2280e-02 (6s)
+   local margins: mu0 <= 4.098e-03 (x<10: 4.098e-03), mu1 <= 2.214e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=False 
+CERT 12: c_I = 0.0645812870338861, c(tau_c) >= 0.07062500000000001, c_R = 6.04e-03, mu0 <= 4.10e-03, mu1 <= 2.21e-03  (131s)
+assembled n = 743 (4s)
+cert 14: slabs 44-47, tau_c = 6.900000000000006 (slab 46), k_c = 149.52
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 3.9292e-03, H = 0.300 -> reserved c_R = 5.264e-03; C3(tau_c): mbar 5.305 lbar 9.440 Cx 6.421 nV 3.9293e-02 (6s)
+   local margins: mu0 <= 3.055e-03 (x<10: 3.055e-03), mu1 <= 1.658e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=False 
+CERT 14: c_I = 0.06536139385402105, c(tau_c) >= 0.07062500000000001, c_R = 5.26e-03, mu0 <= 3.05e-03, mu1 <= 1.66e-03  (130s)
+assembled n = 743 (6s)
+cert 16: slabs 52-61, tau_c = 8.55000000000001 (slab 57), k_c = 226.18
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 2.5248e-03, H = 0.750 -> reserved c_R = 1.179e-02; C3(tau_c): mbar 5.334 lbar 9.430 Cx 6.381 nV 2.6288e-02 (6s)
+   local margins: mu0 <= 5.251e-03 (x<10: 5.251e-03), mu1 <= 2.849e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=False 
+  [C1+C2] c = 0.06500: ok=True 
+  [C1+C2] c = 0.06750: ok=True 
+  [C1+C2] c = 0.06875: ok=True 
+  [C1+C2] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.07719: ok=False 
+  [C1 at tau_c] c = 0.07328: ok=False 
+  [C1 at tau_c] c = 0.07133: ok=False 
+CERT 16: c_I = 0.05758073130300306, c(tau_c) >= 0.069375, c_R = 1.18e-02, mu0 <= 5.25e-03, mu1 <= 2.85e-03  (132s)
+assembled n = 743 (6s)
+cert 18: slabs 72-81, tau_c = 11.550000000000017 (slab 77), k_c = 479.51
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.1457e-03, H = 0.750 -> reserved c_R = 9.722e-03; C3(tau_c): mbar 5.366 lbar 9.420 Cx 6.348 nV 1.2449e-02 (5s)
+   local margins: mu0 <= 2.470e-03 (x<10: 2.470e-03), mu1 <= 1.347e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=False 
+  [C1+C2] c = 0.06500: ok=True 
+  [C1+C2] c = 0.06750: ok=True 
+  [C1+C2] c = 0.06875: ok=True 
+  [C1+C2] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.06938: ok=True 
+  [C1 at tau_c] c = 0.07719: ok=False 
+  [C1 at tau_c] c = 0.07328: ok=False 
+  [C1 at tau_c] c = 0.07133: ok=False 
+CERT 18: c_I = 0.05965322107568745, c(tau_c) >= 0.069375, c_R = 9.72e-03, mu0 <= 2.47e-03, mu1 <= 1.35e-03  (133s)
+assembled n = 743 (5s)
+cert 20: slabs 92-101, tau_c = 14.550000000000024 (slab 97), k_c = 1015.81
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 5.5401e-04, H = 0.750 -> reserved c_R = 8.833e-03; C3(tau_c): mbar 5.382 lbar 9.415 Cx 6.335 nV 5.8289e-03 (6s)
+   local margins: mu0 <= 1.153e-03 (x<10: 1.153e-03), mu1 <= 6.306e-04
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=False 
+  [C1 at tau_c] c = 0.07000: ok=True 
+  [C1 at tau_c] c = 0.07750: ok=False 
+  [C1 at tau_c] c = 0.07375: ok=False 
+  [C1 at tau_c] c = 0.07188: ok=False 
+CERT 20: c_I = 0.06116743977391739, c(tau_c) >= 0.07, c_R = 8.83e-03, mu0 <= 1.15e-03, mu1 <= 6.31e-04  (124s)
+assembled n = 743 (5s)
+cert 22: slabs 112-121, tau_c = 17.55000000000001 (slab 117), k_c = 2151.16
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 3.6716e-04, H = 0.750 -> reserved c_R = 8.552e-03; C3(tau_c): mbar 5.389 lbar 9.413 Cx 6.330 nV 2.7152e-03 (5s)
+   local margins: mu0 <= 5.361e-04 (x<10: 5.361e-04), mu1 <= 2.936e-04
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=False 
+  [C1 at tau_c] c = 0.07000: ok=True 
+  [C1 at tau_c] c = 0.07750: ok=False 
+  [C1 at tau_c] c = 0.07375: ok=False 
+  [C1 at tau_c] c = 0.07188: ok=False 
+CERT 22: c_I = 0.061448241725313685, c(tau_c) >= 0.07, c_R = 8.55e-03, mu0 <= 5.36e-04, mu1 <= 2.94e-04  (131s)
+assembled n = 743 (5s)
+cert 24: slabs 142-161, tau_c = 22.79999999999996 (slab 152), k_c = 7994.18
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 2.7300e-04, H = 1.500 -> reserved c_R = 1.703e-02; C3(tau_c): mbar 5.394 lbar 9.412 Cx 6.327 nV 7.0960e-04 (6s)
+   local margins: mu0 <= 3.083e-04 (x<10: 3.083e-04), mu1 <= 1.682e-04
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=False 
+  [C1 at tau_c] c = 0.07000: ok=True 
+  [C1 at tau_c] c = 0.07750: ok=False 
+  [C1 at tau_c] c = 0.07375: ok=False 
+  [C1 at tau_c] c = 0.07188: ok=False 
+CERT 24: c_I = 0.05297243690580122, c(tau_c) >= 0.07, c_R = 1.70e-02, mu0 <= 3.08e-04, mu1 <= 1.68e-04  (138s)

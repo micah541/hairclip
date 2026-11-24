@@ -1,0 +1,9 @@
+P1 slab 95: M = 2800, Q = 39, k = [26.253778600562246184 +/- 6.55e-20], lam = 5.865139e-02, ell = 411.973362  (0.0s)
+  N = 120, n = 840; nodal values done (0.2s)
+  9600 Gauss values done (3.8s)
+  projected: turning + pi = [-3.75e-38 +/- 3.04e-41] (exact-kappa quadrature: [-3.75e-38 +/- 2.97e-41]), far point Gamma(ell) = -312.889516864 + [3.43e-21 +/- 2.43e-24] i  (3.9s)
+  closure it 0: eps = 7.564e-23  ImGamma(ell) = [-2.32e-33 +/- 2.60e-36]  turning+pi = [-4e-38 +/- 3.95e-39]
+  closure it 1: eps = 7.564e-23  ImGamma(ell) = [+/- 1.05e-33]  turning+pi = [+/- 5.48e-36]
+  final (128-bit dyadic seed; max 192-bit radius 2.0e-40): turning+pi = [+/- 8.24e-34], far point = [-312.88951686425814525 +/- 1.90e-18] + [+/- 6.14e-32] i; bump eps = 7.564e-23  (4.0s)
+  projection |kappa_h - kappa_P1| (300 random x): x<=40 4.74e-17, x>40 6.30e-20; float state 2.22e-16
+  wrote seed_p1_95.pkl  (4.2s)

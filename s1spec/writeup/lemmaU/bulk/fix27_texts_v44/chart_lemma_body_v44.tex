@@ -1,0 +1,73 @@
+% chart_lemma_body_v44.tex -- text v44 (fix27_texts_v44, 24 Nov 2026), built by fix27_texts_v44/tools/build_v44.py from fix24_texts_v43/chart_lemma_body_v43.tex (unchanged):
+% the check fix25_check_v43/CHECK_v43.md (F-1..F-6, Note) and the LaTeX defects of fix26_latex_v43/LATEX_v43.md, where they touch this file.  Text v44 not yet compiled.
+% chart_lemma_body_v44.tex -- text v43 (fix24_texts_v43, 23 Nov 2026), built by fix24_texts_v43/tools/build_v43.py from fix22_texts_v42/chart_lemma_body_v42.tex (unchanged):
+% the findings of the delta check fix23_delta_check/DELTA_CHECK_v42.md (S-1..S-4, W-1..W-9), where they touch this file.  Not compiled.
+% chart_lemma_body_v44.tex -- text v42 (fix22_texts_v42, 23 Nov 2026), built by fix22_texts_v42/tools/build_v42.py from fix21_texts_v41/chart_lemma_body_v41.tex (unchanged):
+% Lean replaces DKS (writeup/lean_bridge/REVIEW_W7.md section 3) and the v41 leftovers, where they touch this file.  Not compiled.
+% chart_lemma_body_v44.tex -- text v41 (fix21_texts_v41, 21 Nov 2026), built by fix21_texts_v41/tools/build_v41.py from fix19_texts_v40/chart_lemma_body_v40.tex (unchanged):
+% wording items W-1..W-5 and the retag item of the delta check fix20_delta_check/DELTA_CHECK_v40.md where they touch this file.  Not compiled.
+% chart_lemma_body_v44.tex -- text v40 (fix19_texts_v40, 21 Nov 2026), built by fix19_texts_v40/tools/build_v40.py from fix17_texts_v39/chart_lemma_body_v39.tex (unchanged):
+% fixes of the final review fix18_final_review/FINAL_REVIEW_v39.md (F-1..F-7, R-1..R-3) where they touch this file.  Not compiled.
+% chart_lemma_body_v44.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/chart_lemma_body_v38.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v44.tex; v38 retag fixes.  Not compiled.
+% chart_lemma_body_v44.tex -- byte copy of fix12_texts/chart_lemma_body_v37.tex with this line prepended (text v38).
+% chart_lemma_body_v37.tex -- verbatim copy (text v37 name) of fix1/b12_text/chart_lemma_body.tex, unchanged.
+% chart_lemma_body.tex -- body of fix2/n12/chart_lemma.tex (re-review N1), merged into lemmaS_A_v33.tex (\input in Section "chart identification", N35).
+% Generated from chart_lemma.tex by dropping the preamble and heading and renaming Theta -> theta_infty (limit angle of S_1) and varepsilon -> varepsilon_c (chart term),
+% to avoid the symbols Theta = eps*omega*eta_A^2 and eps = y^{-4} of Lemma S(A).  Content otherwise unchanged.  Not compiled.
+
+\paragraph{Setting.} Fix $\tau$ and work in the rescaled, modulated frame of step~3 (the frame of the verifier and of Lemma~S(A); frame conventions as in v3.2 \S6 item~5). $S_1$ is $\Gamma_1(\sigma)$, $\sigma$ its arclength in the CAPD convention (the verifier's variable is $x=\sigma-\sigma_{\rm tip}$, $\sigma_{\rm tip}=8-\tau_{\rm tip}\approx-2.2490776515$), with unit tangent $T_1=e^{i\theta_1}$ and
+\[
+\Gamma_1=(q+ip)\,e^{i\theta_1},\qquad \theta_1'=k,\quad k'=m,\quad m'=p/4,\quad p'=-kq,\quad q'=1+kp\qquad({}'=d/d\sigma).
+\]
+Let $\theta_\infty=\lim_{\sigma\to\infty}\theta_1(\sigma)$ and $\delta:=\theta_1-\theta_\infty=-\int_\sigma^\infty k$. The curve is the normal graph $\Gamma=\Gamma_1+u\,N_1$, $N_1=iT_1$ (\fn{step3nl/graph_eq.py}), $u=\alpha\hat\psi_3+\alpha^2\hat h_2+w$; write $b:=u'=w'+P$ with $P:=\alpha\hat\psi_3'+\alpha^2\hat h_2'$. The verifier's variable is $w'$ (its $J_m=\iint W(\partial_x^mw')^2$, $W=(1+x^2)^{-2}$ on $x\le30.25$, and its sups). The ray chart of (A) is $y=\operatorname{Re}(e^{-i\theta_\infty}\Gamma)$, $h=\operatorname{Im}(e^{-i\theta_\infty}\Gamma)$, $f=dh/dy$, $U(y)=1.3056\,\alpha y^p$, $p=1.0246$, $z^A_k=D_y^k(f-U)$, $D_y=y\,d/dy$. The profile difference of B0 is $d(\sigma)=P(\sigma)-U(\sigma)$ (stage \fn{b0_dprof}). Put $D=\sigma\,d/d\sigma$.
+
+\begin{lemma}[exact identification]\label{C:lem:id}
+Where the curve is a graph over the ray ($Y'>0$ below), with $Y(\sigma):=y$ at the curve point $\Gamma(\sigma)$:
+\begin{enumerate}
+\item[(a)] $\operatorname{Re}(e^{-i\theta_\infty}\Gamma_1)=q\cos\delta-p\sin\delta$ and $\operatorname{Im}(e^{-i\theta_\infty}\Gamma_1)=q\sin\delta+p\cos\delta$; hence
+\[Y=q\cos\delta-(p+u)\sin\delta,\qquad e:=Y-\sigma=(q-\sigma)\cos\delta-2\sigma\sin^2\tfrac\delta2-(p+u)\sin\delta,\qquad Y'=1-\eta,\]
+\[\eta:=2\sin^2\tfrac\delta2+b\sin\delta+ku\cos\delta .\]
+\item[(b)] $f(Y(\sigma))=b+\Phi$, \qquad $\Phi=\dfrac{(1-ku+b^2)\sin\delta+kub\cos\delta}{(1-ku)\cos\delta-b\sin\delta}$.
+\item[(c)] $D_y=(1+\varepsilon_{\rm c})D$ along the curve, with $1+\varepsilon_{\rm c}=\dfrac{Y}{\sigma Y'}=\dfrac{1+e/\sigma}{1-\eta}$.
+\item[(d)] For $k=0,\dots,3$:
+\[
+z^A_k\circ Y=D^k(w'+d)+\chi_k,\qquad \chi_k:=\bigl(T^k-D^k\bigr)b+T^k\Phi+p^k\bigl(U(\sigma)-U(Y)\bigr),\quad T=(1+\varepsilon_{\rm c})D .
+\]
+\item[(e)] $\chi_k=A_k+B_{k2}\,u'''+B_{k3}\,u''''$ with $A_k,B_{k2},B_{k3}$ explicit functions of $(\sigma,e,\delta,k,k',k'',k''',u,u',u'')$; $B_{02}=B_{03}=B_{12}=B_{13}=B_{23}=0$; $B_{22}$ does not depend on $u''$; every term of $A_k,B_{kj}$ carries a factor $\sin\delta$, $k^{(i)}$, $\eta$ or $e$, and $\chi_k\equiv0$ when $\delta\equiv0$, $e\equiv0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\tP\ (a) $e^{-i\theta_\infty}\Gamma_1=(q+ip)e^{i\delta}$. With $d(\sin\delta)/d\sigma=k\cos\delta$ and the profile ODE, $\frac{d}{d\sigma}(q\cos\delta-p\sin\delta)=(1+kp)\cos\delta-qk\sin\delta+kq\sin\delta-pk\cos\delta=\cos\delta$, so $Y'=\cos\delta-(u\sin\delta)'=1-\eta$. (b) $\Gamma'=T_1\bigl((1-ku)+i\,b\bigr)$, so the tangent angle of $\Gamma$ is $\theta_1+\arg((1-ku)+ib)$ and $f=\tan(\delta+\arctan\frac b{1-ku})$; expand $\tan(A+B)-b$. (c) $D_y=y\frac d{dy}=\frac{Y}{Y'}\frac d{d\sigma}$. (d) $z^A_k\circ Y=T^k(f\circ Y-U\circ Y)$; $T^k(U\circ Y)=p^kU(Y)$ since $D_y^ky^p=p^ky^p$; $f\circ Y=b+\Phi$ and $D^k(w'+d)=D^k(b-U(\sigma))=D^kb-p^kU(\sigma)$. (e) Symbolic: \fn{n1_chart.py} builds $\chi_k$ with sympy from (a)--(d) ($e'=-\eta$), asserts $\partial^2\chi_k/\partial(u''')^2=\partial^2\chi_k/\partial u'''\partial u''''=\partial^2\chi_k/\partial(u'''')^2=0$, no $u^{(5)}$, $\partial B_{22}/\partial u''=0$, and $\chi_k|_{\delta\equiv0,e=0}=0$.
+\end{proof}
+
+\begin{lemma}[bounds; consumed by (A)]\label{C:lem:bd}
+Let $|\alpha|\le\alpha_1=1.5\cdot10^{-4}$ \tH\ (bootstrap B1) and let the verifier's sups hold (verifier \fn{fin13v4c}, $\alpha_1$ row (text v39; the v3.3 computation used the \fn{fin12f4} row, which gives the same printed bounds): $\sup|w|\le\max(\mathrm{far\_w},S_{\rm ramp})$ and $\sup|w'|\le\max(sI_1,S_{\rm ramp})$ on $x\ge10.25$, $\sup|w''|\le sI_2$ on $x\ge16.25$; the same inputs (A) already uses for its ramp boxes, with $sI_2$ replaced on the sliver $x\in[16.2491,16.25]$ by the certified $sI_2'$ of Remark~(4)). Write $D^2w'$, $D^3w'$ for the $D$-derivatives of the verifier's variable and split
+\[
+\chi_k=\chi_k^{\rm add}+\beta_{k2}D^2w'+\beta_{k3}D^3w',\qquad u'''=\frac{D^2w'-Dw'}{\sigma^2}+P'',\quad u''''=\frac{D^3w'-3D^2w'+2Dw'}{\sigma^3}+P''' ,
+\]
+with $|Dw'|=\sigma|w''|\le\sigma\,sI_2$ moved into $\chi^{\rm add}_k$. Then \tC\ (\fn{step4/p2/out_v38/n1_chart.json}, stage 19 of \fn{FINAL_manifest_v38.json} (29 stages, \fn{be909bbf...}), on \fn{fin13v4c}; equal apart from args to the chain-v37 file \fn{n1/out/n1_chart_fin13v4c.json}; the v3.3 file \fn{p2/out_v33/n1_chart.json} on \fn{fin12f4} gives the same printed digits):
+\begin{enumerate}
+\item[(i)] \emph{Profile envelopes.} With $(k_b,m_b,p_b,q_s)$ = \fn{hstail.profile_bounds}$(\sigma_0)$ (step-1 tail theorem, valid on $\sigma\ge\sigma_0$) and $\mu=(\sigma_0/4)^{1/3}$: $|\delta|\le k_b/\mu$ (since $|k|\le\bar R e^{-E(\sigma)}(8/\sigma)^{1/3}$ with $E$ convex, $E'=\mu$), $|k|\le k_b$, $|k'|\le m_b$, $|k''|\le p_b/4$, $|k'''|=|kq|/4\le k_b(\sigma_1+q_s)/4$, $|e|\le q_s+2\sigma_1\sin^2\frac\delta2+(p_b+|u|)|\delta|$.
+\item[(ii)] \emph{Ramp} $\sigma\in[14-2^{-19},28+2^{-19}]$ (it contains $Y^{-1}([14,28])$: $|e|\le4.39\cdot10^{-10}<2^{-19}$):
+$\sup|\chi^{\rm add}_k|\le(2.087\cdot10^{-8},\ 4.444\cdot10^{-7},\ 9.910\cdot10^{-6},\ 2.307\cdot10^{-4})$;
+$X_k:=\int W(\chi^{\rm add}_k)^2d\sigma\le(1.876\cdot10^{-21},\ 8.989\cdot10^{-19},\ 4.725\cdot10^{-16},\ 2.708\cdot10^{-13})$ per unit $\tau$;
+$\sup|\beta_{22}|\le2.41\cdot10^{-9}$, $\sup|\beta_{32}|\le1.82\cdot10^{-7}$, $\sup|\beta_{33}|\le3.20\cdot10^{-9}$, $\sup|D\beta_{22}|\le8.50\cdot10^{-8}$, $\sup|\varepsilon_{\rm c}|\le7.83\cdot10^{-10}$; weight transfer $1+\rho_{\rm meas}$, $\rho_{\rm meas}\le1.05\cdot10^{-9}$, where $1+\rho_{\rm meas}\ge Y'(\sigma/Y)^{2m}W(Y+X_0)/W(\sigma+X_0)$, $m\le3$.
+\item[(iii)] \emph{Core} $\sigma\in[28,60]$: $\sup|\chi^{\rm add}_k|\le(3.95\cdot10^{-19},\ 2.15\cdot10^{-17},\ 1.19\cdot10^{-15},\ 6.63\cdot10^{-14})$, $\int\frac{28}\sigma(\chi^{\rm add}_k)^2\frac{d\sigma}\sigma\le(2.22\cdot10^{-39},\ 6.61\cdot10^{-36},\ 2.04\cdot10^{-32},\ 6.53\cdot10^{-29})$, $|\beta|\le2.8\cdot10^{-17}$, $|e|\le3.4\cdot10^{-20}$, $\rho_{\rm meas}\le4.5\cdot10^{-16}$.
+\item[(iv)] \emph{Consequences in (A)} (all implemented in \fn{t2_A_v35/rigor/assembly_rep.py --chart}). For a ramp term with conversion table $a$ (Lemma A:lem:conv), with $C_j$ the existing sliver-corrected conversion of level $j$ of the verifier's $J^e$ and $c_k(d)$ that of $d$:
+\[
+\iint\Theta_a(z^A_k)^2\le(1+\rho_{\rm meas})\Bigl[\bigl(\sqrt{C_k}+\beta_{k2}\sqrt{C_2}+\beta_{k3}\sqrt{C_3}\bigr)\ \oplus\ \bigl(\sqrt{c_k(d)}+\sqrt{a_0X_k}\bigr)\Bigr]^2 ,
+\]
+where $\oplus$ is (A)'s per-term Young split ($t\le(1+\eta)t_w+(1+\eta^{-1})t_d$), $a_0=a[0]$ or $a[1]/196$, and the $d$-part is a rate per unit $\tau$; $d$'s $W$-norms include the end slivers $[14-2^{-19},14]\cup[28,28+2^{-19}]$. In $\Phi$ (Lemma A:lem:Phi): $Z_w=(1+\beta_{22})D^2w'$, $\partial_sZ_w=(1+\varepsilon_{\rm c})\bigl((1+\beta_{22})D^3w'+(D\beta_{22})D^2w'\bigr)$, so $J_F$, $F_{\max}$ get $(1+\rho_{\rm meas})(1+\bar\beta_{22})^2$ and $J_G=2(1+\rho_{\rm meas})\bigl[(1+\bar\varepsilon_{\rm c})^2((1+\bar\beta_{22})\sqrt{C_3}+\overline{D\beta_{22}}\sqrt{C_2})^2+6.25(1+\bar\beta_{22})^2C_2\bigr]$; the cubic $d$-part uses $Z_a=D^2d+\chi^{\rm add}_2$. Ramp boxes: $|z^A_1|\le M_1^{\rm ver}(28+2^{-19})/28+\sup|Dd|+\sup|\chi^{\rm add}_1|$, $|f|\le sI_1+U(28)+\sup|d|+\sup|\chi^{\rm add}_0|$. Core: $\sup|w'|\le S^v_0+\sup|d|+\sup|\chi^{\rm add}_0|+\sqrt{e_c\hat E^A_1/27}$, $\sup|\sigma w''|\le S^v_1+\sup|Dd|+\sup|\chi^{\rm add}_1|+\sqrt{e_c\hat E^A_2/27}$ (the last terms bound $z^A_k(Y)-z^A_k(y_{\rm end})$ for $Y$ within $e_c$ of $28$, $60$, using $\omega\eta_A^2\ge0.98$ on $[27.9,28]$ and $\omega\ge28/60.1$ on $[60,60.1]$); fluxes $K_i\le(1-\bar\beta_c)^{-2}\bigl(\sqrt{(1+\rho_c)K_i(E^A)}+\sqrt{K_i(E_{d+\chi})}\bigr)^2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\tP\ (i) $\int_\sigma^\infty k_b(t)\,dt\le k_b(\sigma)\int_0^\infty e^{-\mu(\sigma)s}ds$ by $E(t)-E(\sigma)\ge E'(\sigma)(t-\sigma)$ and $(8/t)^{1/3}\le(8/\sigma)^{1/3}$; the rest is the profile ODE and (a). (ii)--(iii): cell-wise arb evaluation of $A_k,B_{kj},D\beta_{22},\eta,\varepsilon_{\rm c}$ on boxes from (i), \fn{c4fun} jets of $\hat\psi_3,\hat h_2$ and the verifier sups (cells $1/64$ on the ramp, $1/4$ on the core); outward rounding throughout. (iv) Change variables $y=Y(\sigma)$ in each weighted integral: $\Theta_a(Y)\frac{Y'}{Y}\sigma^{2m}W(\sigma+X_0)^{-1}\le(1+\rho_{\rm meas})\,a_m$; Lemma~\ref{C:lem:id}(d) and Minkowski in the weighted $L^2(d\sigma\,d\tau)$; the relative parts $\beta_{kj}D^jw'$ are bounded by $\bar\beta_{kj}\sqrt{C_j}$ with the same table (base$(j)$ uses only $a_m$, $m\in S(j,\cdot)\subset S(k,\cdot)$). For $\Phi$, $\partial_s=D_y=T$ and $T Z_w$ as stated, using that $\beta_{22}$ depends on $u''$-free arguments (Lemma~\ref{C:lem:id}(e)), so $D\beta_{22}$ is sup-bounded. Core: Lemma~\ref{C:lem:id}(d) solved for $D^kw'$; on the core $\chi_2-\chi_2^{\rm add}=\beta_{22}D^2w'$ gives $\|D^2w'\|\le(1-\bar\beta_c)^{-1}(\cdots)$, and $\sqrt{K_i}$ is a monotone seminorm of the vector of level norms. The end terms: $|z(Y)-z(28)|\le|Y-28|^{1/2}(\int z_{k+1}^2ds/y)^{1/2}$.
+\end{proof}
+
+\begin{remark}[what changes and what does not]\label{C:rem:chart}
+(1) The typed level-0 allowance $2\cdot10^{-7}$ of B0 is no longer used by (A); the certified $\sup|\chi^{\rm add}_0|\le2.087\cdot10^{-8}$ replaces it, and $\chi_1,\chi_2,\chi_3$ and the relative parts are new.
+(2) \emph{Datum.} The hand-off (H2), (H2f) are computed by step~4 in the ray chart itself (\fn{t9h/win.py}, \fn{win_arb.py}: $f=\tan(\tilde\theta-\theta_\infty)$ minus the profiles at $x=y-\sigma_{\rm tip}$, i.e.\ $f-P$ as a function of $y$), and $f-U_1=(f-P)+d$ exactly; no chart term is needed there. The ball $\pm2\cdot10^{-7}$ that \fn{win.py:70} adds at level~0 only widens those enclosures (harmless), and its comment ("$S_1$ = ray up to $|\theta_1-\theta_\infty|\le B(14)$") does not describe a needed correction.
+(3) Sizes [est, from the certified tables]: the chart terms are largest at $\sigma=14$ ($2.09\cdot10^{-8}$, $4.44\cdot10^{-7}$, $9.91\cdot10^{-6}$, $2.31\cdot10^{-4}$ at levels $0$--$3$), about $\times20$ smaller at $\sigma=16$, and below $10^{-13}$ at $\sigma\ge28$; the reviewer's float probe (\fn{t8_review/scratch2/chartprobe.py}) gave $2.2\cdot10^{-8}$, $4.4\cdot10^{-7}$, $9.4\cdot10^{-6}$, $2.0\cdot10^{-4}$ at $\sigma=14$.
+(4) The verifier's far sups on the sliver $x\in[16.249,16.25]$ are no longer an inherited convention: $\sup|w''|\le sI_2'=0.015456178888449044$ is certified there by the step-4 stage \fn{f12\_sliver} (\fn{step4/p2/v33/F12\_REPORT.md} \S2; $sI_2'=(1+2.70\cdot10^{-14})\,sI_2+1.08\cdot10^{-10}sI_1$, relative change $+8.1\cdot10^{-12}$), so $M_1'=28\,sI_2'\le0.4328$, the four-digit value that (A) reads and the ramp boxes are unchanged. The frame conventions remain inherited, unchanged (v3.2 \S6 item~5).
+\end{remark}

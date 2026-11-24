@@ -1,0 +1,7 @@
+PASS runs/P: every pin matches the disk {"P/modsups_fin13v4c/final_alpha_points_5e-8.json": 0, "P/rate_table_fin13v4c_a0.000125.json": 0, "P/rate_table_fin13v4c_a0.00015.json": 0}
+PASS runs/P_A: every pin matches the disk except the documented exception {"P_A/modsups_fin13v4c/final_alpha_points_5e-8.json": 1, "P_A/rate_table_fin13v4c_a0.000125.json": 1, "P_A/rate_table_fin13v4c_a0.00015.json": 1}
+PASS runs/reg_fin13v4b: every pin matches the disk except the documented exception {"reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json": 1, "reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": 1, "reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": 1}
+PASS runs/P: no pin needs the exception 
+PASS numbers: runs/P_A == runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs) {"P_A/modsups_fin13v4c/final_alpha_points_5e-8.json": true, "P_A/rate_table_fin13v4c_a0.000125.json": true, "P_A/rate_table_fin13v4c_a0.00015.json": true}
+PASS numbers: runs/reg_fin13v4b == step3nl_v4b/runs/P (rate tables and mod_sups apart from args and timing: runtime_s, oracle_rows secs) {"reg_fin13v4b/modsups_fin13v4b/final_alpha_points_5e-8.json": true, "reg_fin13v4b/rate_table_fin13v4b_a0.000125.json": true, "reg_fin13v4b/rate_table_fin13v4b_a0.00015.json": true}
+all ok: True

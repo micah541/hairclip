@@ -1,0 +1,97 @@
+{
+ "C0P": 9.874845989704222e-12,
+ "NAB": 0.2734670762116986,
+ "NAB_components": [
+  0.27300547200769476,
+  0.015882506906364266
+ ],
+ "NH2": 1.7953559992249246,
+ "NP12": 1.71683424471761e-07,
+ "NP12_components": [
+  1.708565677798992e-07,
+  1.6829482607126326e-08
+ ],
+ "NP3": 0.25950631715792866,
+ "args": {
+  "argv": [
+   "c3_modx.py"
+  ],
+  "env": {
+   "ADD": null,
+   "DELTA": null,
+   "ETA": null,
+   "FIX": null,
+   "FLUX0": null,
+   "FLUX2": null,
+   "LY1SQ": null,
+   "MOD": null,
+   "MODA": null,
+   "NEW": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": "0",
+   "S0V": null,
+   "S1V": null,
+   "TAG": null,
+   "THETA": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1_tight/bracket2.json": "c7793f237994a16aa827a0e14ce89f7472bcf2f8e5aaea73f363c0ef25778429",
+   "/home/claude/s1spec/step3/gen_hs3.py": "f786c266e47221ea5e040e0c0b357ac3b082eee927ef3125017d89196402913a",
+   "/home/claude/s1spec/step3/hs_uforms.pkl": "226db25a9f4a858098a3aeb647920f66ba1f013821e75d21b4f5af65b6258823",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/h2md_14.json": "d810075bb58ad65645a07139eaa929ee870c6164f4bc921db357e451683728db",
+   "/home/claude/s1spec/step3nl/h2res.py": "1fb142954865eab8852b6c72fe63cf124cc87df2ec9808a426e84adb4123fa02",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/psi3md2_14.json": "f0b3348aace69762cb63dee523ac520aacae7246c66aa0571b7e6073340ef2a5",
+   "/home/claude/s1spec/step3nl/q2_derivs.pkl": "f9dd27d690049910e2a7320e3e9c3e761d063cac2d2eccd40b5efb65a8845dfc",
+   "/home/claude/s1spec/step3nl_v4/agent_int/planB/c4fun.py": "f483ff1c37c7f97cd4e6180e488728c2fbbb4172587b8fb3231f260e162666fa",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v2/int_common.py": "04e55015547b3151979c648438eeed584818eca14fcd03aa43e494ea97f99e06",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v2/int_v56.py": "70bffd81a7641380cd97f673da298c9e1e96cd6a8ff4ab14704ea4736040b227",
+   "/home/claude/s1spec/step3nl_v4/agent_int/v2/v2_V56_1.json": "ee03caacd0ee22500ab7cf242cb36b698621ef8d85e8486758091bf83dea977a",
+   "/home/claude/s1spec/step3nl_v4/v4cert/c3_modx.py": "e458cee868f022e6fe01ea65c9ae0a7f9e691481bd556073ef629da689df4ad3"
+  },
+  "nboxes": 3375,
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "description": "Stage C3 (fin13v4): W-norms of the modulation source terms of the v-equation for the C^4 slow-manifold functions (EI_SPEC 4.9, U-6).\nCopy of agent_int/v2/int_v56.py (V5 part; same boxes, same pointwise formulas, P=2, R=60), with the jets of psi3~, h2~ taken from the C^4\nfunctions of agent_int/planB/c4fun.py instead of the C^3 ones (h2res.jets_any).  Norms ||zeta f||_W^2 = sum len * W_up(x_lo) * sup zeta^2 * sup f^2.\nQuantities: NP12 = (||zeta psi1'||, ||zeta psi2'||), NP3 = ||zeta psi3'||, NH2 = ||zeta h2'||, NAB = (||zeta A1(u0)'||/alpha, ||zeta B1(u0)'||/alpha)\n(alpha ball [-1e-3, 1e-3], valid at every alpha-level <= 1e-3), C0P = ||zeta c0'||.   Also reports the C^3 (v2) values for comparison.\nOutput out/c3_modx.json.  Run: PYTHONHASHSEED=0 nice -n 19 python3 c3_modx.py",
+ "norms_zeta_C4": {
+  "A1p_over_alpha": 0.27300547200769476,
+  "B1p_over_alpha": 0.015882506906364266,
+  "c0p": 9.874845989704222e-12,
+  "h2p": 1.7953559992249246,
+  "psi1p": 1.708565677798992e-07,
+  "psi2p": 1.6829482607126326e-08,
+  "psi3p": 0.25950631715792866
+ },
+ "rel_C4_vs_C3": {
+  "A1p_over_alpha": 9.270672451933137e-09,
+  "B1p_over_alpha": 9.871506945202668e-09,
+  "c0p": 0.0,
+  "h2p": 1.0191736343756475e-10,
+  "psi1p": 0.0,
+  "psi2p": 0.0,
+  "psi3p": 1.537536764573133e-10
+ },
+ "runtime_s": 1.4,
+ "sup_on_support": {
+  "A1p_over_alpha": 92.25035176552166,
+  "B1p_over_alpha": 1.5382047165767292,
+  "c0p": 7.775097330409154e-07,
+  "h2p": 1690.3262368365608,
+  "psi1p": 0.0013346084469958444,
+  "psi2p": 0.00016659859488754594,
+  "psi3p": 83.31818201748888
+ },
+ "v2_C3_norms_zeta": {
+  "A1p_over_alpha": 0.2730054694767505,
+  "B1p_over_alpha": 0.01588250674957999,
+  "c0p": 9.874845989704222e-12,
+  "h2p": 1.7953559990419468,
+  "psi1p": 1.708565677798992e-07,
+  "psi2p": 1.6829482607126326e-08,
+  "psi3p": 0.25950631711802863
+ }
+}

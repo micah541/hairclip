@@ -1,0 +1,84 @@
+{
+ "AG_MIN": 0.9688182656730425,
+ "CA0": 0.0007146303533450253,
+ "CA1": 32.00000000001085,
+ "CB0": 0.0004237798050213974,
+ "CB1": 1.0321853286955687,
+ "CD0": 0.0002473337067921552,
+ "CD1": 0.6070460587369407,
+ "CHI1": 0.7291666666666667,
+ "CURV_STRIP_00": 2.617751506050889e-16,
+ "CURV_STRIP_01": 1.600640404969454,
+ "CURV_STRIP_02": 23.45145690441132,
+ "CURV_STRIP_11": 1.1461846940219405,
+ "CURV_STRIP_12": 16.94349274039269,
+ "CURV_STRIP_22": 3.2104541994631295,
+ "C_DR_CORE": 0.5493079564942096,
+ "DR_STRIP": 3.944244567065329e-15,
+ "IR": 1.838283151750649e-11,
+ "IRW": 2.1271383902499618e-08,
+ "KW": 2323000.0000000005,
+ "M_STRIP_00": 4.206019717670418e-15,
+ "M_STRIP_01": 1.600640404969454,
+ "M_STRIP_02": 23.45145690441132,
+ "M_STRIP_11": 1.1461846940219405,
+ "M_STRIP_12": 16.94349274039269,
+ "M_STRIP_22": 3.2104541994631295,
+ "RA2": 26.90244860095413,
+ "RB2": 5.4997026934448465,
+ "RW": 4.700338185386159e-05,
+ "XW_COEF": 3.1263169869973407e-06,
+ "args": {
+  "argv": [
+   "e0_strip_drift.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1_tight/bracket2.json": "c7793f237994a16aa827a0e14ce89f7472bcf2f8e5aaea73f363c0ef25778429",
+   "/home/claude/s1_tight/prof/prof_tight.txt": "c55625ae0b1356a367270cd2d3a208cbb5eed9dae61b5187b2987a708fa07c77",
+   "/home/claude/s1spec/step3/gen_hs3.py": "f786c266e47221ea5e040e0c0b357ac3b082eee927ef3125017d89196402913a",
+   "/home/claude/s1spec/step3/hs_uforms.pkl": "226db25a9f4a858098a3aeb647920f66ba1f013821e75d21b4f5af65b6258823",
+   "/home/claude/s1spec/step3/hstail.py": "ab86d9fac5b17ccc2f4e4dcdf902624d4f6d7e1e01ccea6dda2778c1eda16c49",
+   "/home/claude/s1spec/step3nl/h2fun.py": "87f88e8fcc0ed3fbeb97d1b2e05b30d92885cdfaa9d1468e8a75967ceb4727ad",
+   "/home/claude/s1spec/step3nl/h2md_14.json": "d810075bb58ad65645a07139eaa929ee870c6164f4bc921db357e451683728db",
+   "/home/claude/s1spec/step3nl/h2res.py": "1fb142954865eab8852b6c72fe63cf124cc87df2ec9808a426e84adb4123fa02",
+   "/home/claude/s1spec/step3nl/psi3fun.py": "0e1c49c2f906f8fa06229f058ff5a84cc721c0b84231b2d223473758a257529f",
+   "/home/claude/s1spec/step3nl/psi3md2_14.json": "f0b3348aace69762cb63dee523ac520aacae7246c66aa0571b7e6073340ef2a5",
+   "/home/claude/s1spec/step3nl/q2_derivs.pkl": "f9dd27d690049910e2a7320e3e9c3e761d063cac2d2eccd40b5efb65a8845dfc",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/e0_strip_drift.py": "2d2bd1b31d11a944652cdae9ae3d339f3b4869ddd4c9beadd1b5e291cb22fea0",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/out/tc_weighted.pkl": "da22cb16c2de16736d6ecacedba9bfc84bb0a4922bd2c0aad97e99dbf64f4ecd",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/v4bcommon.py": "b75fd5d82dcd12ff273dc884bef6ccb6b62877dcd0c3720a280b4f200d17321f",
+   "/home/claude/s1spec/step3nl_v4b/v4cert/out/constants_v4.json": "590102ee0a6980051e244ffa94e2a90fec96cf1c7ded7c34a495d51b4e4e6fd2"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "labels": "all values [cert] (arb, outward) given the certified inputs",
+ "params": {
+  "AMAX": 0.00025,
+  "GROUP": 10,
+  "NB": 50,
+  "NS": 200,
+  "WB": 0.02,
+  "prec": 200,
+  "strip_sigma": [
+   29,
+   32
+  ],
+  "strip_x_hi": 34.24907765151944
+ },
+ "runtime_s": 5.6,
+ "strip_argmax_x": {
+  "M_STRIP_00": 31.249077650575472,
+  "M_STRIP_01": 31.249077650575472,
+  "M_STRIP_02": 31.249077650575472,
+  "M_STRIP_11": 31.249077650575472,
+  "M_STRIP_12": 31.249077650575472,
+  "M_STRIP_22": 31.249077650575472
+ }
+}

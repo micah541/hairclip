@@ -1,0 +1,65 @@
+alpha1=0.001 Ly1=1.225000e-13 sqrt=3.500000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=9.7939e-04 sqrtLy<=3.5954e-07 rate<=+0.33086 (lb +0.32921) cell 6.04s
+  k=  10 tau=  1.062 D=0.129 alpha<=7.6194e-04 sqrtLy<=4.5190e-07 rate<=+0.17267 (lb +0.17181) cell 6.35s
+  k=  20 tau=  3.265 D=0.338 alpha<=4.3330e-04 sqrtLy<=5.6332e-07 rate<=+0.06243 (lb +0.06193) cell 14.25s
+  k=  25 tau=  5.849 D=0.600 alpha<=2.2358e-04 sqrtLy<=6.1803e-07 rate<=+0.02322 (lb +0.02272) cell 16.36s
+  k=  26 tau=  6.449 D=0.600 alpha<=1.9174e-04 sqrtLy<=6.2452e-07 rate<=+0.01741 (lb +0.01691) cell 21.49s
+  k=  27 tau=  7.049 D=0.600 alpha<=1.6443e-04 sqrtLy<=6.2952e-07 rate<=+0.01329 (lb +0.01279) cell 19.53s
+  k=  28 tau=  7.649 D=0.600 alpha<=1.4101e-04 sqrtLy<=6.3306e-07 rate<=+0.00935 (lb +0.00885) cell 21.51s
+  tail anchor: a*=1.4101e-04 L*=4.0076e-13  rate_s bound U=+0.00569
+  k=  29 tau=  8.249 D=0.600 alpha<=1.2092e-04 sqrtLy<=6.3565e-07 rate<=+0.00681 (lb +0.00631) cell 22.91s
+  tail anchor: a*=1.2092e-04 L*=4.0405e-13  rate_s bound U=+0.00324
+  k=  30 tau=  8.849 D=0.600 alpha<=1.0370e-04 sqrtLy<=6.3731e-07 rate<=+0.00434 (lb +0.00384) cell 12.02s
+  tail anchor: a*=1.0370e-04 L*=4.0616e-13  rate_s bound U=+0.00117
+  k=  31 tau=  9.449 D=0.600 alpha<=8.8929e-05 sqrtLy<=6.3805e-07 rate<=+0.00192 (lb +0.00142) cell 17.23s
+  tail anchor: a*=8.8929e-05 L*=4.0710e-13  rate_s bound U=-0.00057
+  k=  32 tau= 10.049 D=0.600 alpha<=7.6263e-05 sqrtLy<=6.3788e-07 rate<=-0.00044 (lb -0.00094) cell 11.76s
+  tail anchor: a*=7.6263e-05 L*=4.0689e-13  rate_s bound U=-0.00204
+  tail: rho=0.00204 alpha-condition OK (margin 3.050e+01); floor sqrt(L_F)=4.941e-324, alpha_F<= 4.941e-324
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 9.0020e-03   (sup|w'| alone: 9.0020e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: sI1<=1.3976e-02, far_w1<=1.3976e-02, far_w<=7.1137e-03, sr1<=9.0020e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]
+  theta=0.3: max step rate_theta=+0.3309
+  theta=0.3: tail anchor rate_s_theta = -0.00204
+  int V0^2 <= 7.2107e-11 + 1.349e-321(T-tau_t);  int V1^2 <= 1.0130e-10 + 1.892e-321(T-tau_t);  int V2^2 <= 2.2381e-11 + 4.200e-322(T-tau_t)
+RESULT alpha1=0.001: rigorous max sqrt(Ly) <= 6.3929e-07   (float code: see baseline)  tail=True  runtime 1007.9 s
+alpha1=0.001 Ly1=6.250000e-14 sqrt=2.500000e-07  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=9.7939e-04 sqrtLy<=2.5859e-07 rate<=+0.41554 (lb +0.41347) cell 5.45s
+  k=  10 tau=  0.853 D=0.099 alpha<=8.0373e-04 sqrtLy<=3.2544e-07 rate<=+0.22969 (lb +0.22855) cell 5.95s
+  k=  20 tau=  2.408 D=0.224 alpha<=5.3974e-04 sqrtLy<=4.0718e-07 rate<=+0.09809 (lb +0.09759) cell 13.94s
+  k=  28 tau=  5.750 D=0.600 alpha<=2.2928e-04 sqrtLy<=4.7812e-07 rate<=+0.02438 (lb +0.02388) cell 18.88s
+  k=  29 tau=  6.350 D=0.600 alpha<=1.9662e-04 sqrtLy<=4.8337e-07 rate<=+0.01822 (lb +0.01772) cell 21.09s
+  k=  30 tau=  6.950 D=0.600 alpha<=1.6861e-04 sqrtLy<=4.8742e-07 rate<=+0.01389 (lb +0.01339) cell 19.29s
+  k=  31 tau=  7.550 D=0.600 alpha<=1.4459e-04 sqrtLy<=4.9029e-07 rate<=+0.00979 (lb +0.00929) cell 24.5s
+  tail anchor: a*=1.4459e-04 L*=2.4038e-13  rate_s bound U=+0.00646
+  k=  32 tau=  8.150 D=0.600 alpha<=1.2400e-04 sqrtLy<=4.9240e-07 rate<=+0.00716 (lb +0.00666) cell 11.21s
+  tail anchor: a*=1.2400e-04 L*=2.4246e-13  rate_s bound U=+0.00385
+  k=  33 tau=  8.750 D=0.600 alpha<=1.0634e-04 sqrtLy<=4.9376e-07 rate<=+0.00460 (lb +0.00410) cell 18.09s
+  tail anchor: a*=1.0634e-04 L*=2.4380e-13  rate_s bound U=+0.00167
+  k=  34 tau=  9.350 D=0.600 alpha<=9.1190e-05 sqrtLy<=4.9439e-07 rate<=+0.00212 (lb +0.00162) cell 9.96s
+  tail anchor: a*=9.1190e-05 L*=2.4442e-13  rate_s bound U=-0.00017
+  k=  35 tau=  9.950 D=0.600 alpha<=7.8201e-05 sqrtLy<=4.9465e-07 rate<=+0.00090 (lb +0.00040) cell 9.84s
+  tail anchor: a*=7.8201e-05 L*=2.4468e-13  rate_s bound U=-0.00171
+  k=  36 tau= 10.550 D=0.600 alpha<=6.7062e-05 sqrtLy<=4.9421e-07 rate<=-0.00150 (lb -0.00200) cell 9.96s
+  tail anchor: a*=6.7062e-05 L*=2.4424e-13  rate_s bound U=-0.00303
+  tail: rho=0.00303 alpha-condition OK (margin 3.455e+01); floor sqrt(L_F)=4.941e-324, alpha_F<= 4.941e-324
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 6.9755e-03   (sup|w'| alone: 6.9755e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: sI1<=1.0830e-02, far_w1<=1.0830e-02, far_w<=5.5123e-03, sr1<=6.9755e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]
+  theta=0.3: max step rate_theta=+0.4155
+  theta=0.3: tail anchor rate_s_theta = -0.00303
+  int V0^2 <= 4.1894e-11 + 1.349e-321(T-tau_t);  int V1^2 <= 5.8853e-11 + 1.892e-321(T-tau_t);  int V2^2 <= 1.3003e-11 + 4.200e-322(T-tau_t)
+RESULT alpha1=0.001: rigorous max sqrt(Ly) <= 4.9537e-07   (float code: see baseline)  tail=True  runtime 1067.8 s
+ADD=['a', 'b', 'c', 'd'] QUAD=True RAMP=table  (degrees: (lo=valuation, hi=top degree))
+mode radial: H=(0, 2)  L=(0, 1)  NEG=(0, 2)
+   required condition for mode radial: OK
+mode s     : H=(2, 5.0)  L=(1, 1)  NEG=(2, 2)
+   required condition for mode s: OK
+mode joint : H=(2, 5.0)  L=(2, 4)  NEG=(2, 2)
+   required condition for mode joint: OK
+ALL STRUCTURAL CONDITIONS HOLD
+alpha<=0 Ly in [1e-12,1e-12]: U=-0.01046 lb=-0.01096 U-lb=4.99e-04 (allowed 5.00e-04)  leaves=190 minwidth-leaves=0  evals=249107  16.0s
+alpha<=0.001 Ly in [1.4e-13,1.5e-13]: U=+0.31709 lb=+0.31552 U-lb=1.58e-03 (allowed 1.58e-03)  leaves=749 minwidth-leaves=0  evals=253357  16.5s
+alpha<=0.0005 Ly in [3e-13,3.2e-13]: U=+0.06710 lb=+0.06660 U-lb=5.00e-04 (allowed 5.00e-04)  leaves=658 minwidth-leaves=0  evals=249891  15.1s
+alpha<=7e-05 Ly in [2.4e-13,2.45e-13]: U=-0.00268 lb=-0.00318 U-lb=4.99e-04 (allowed 5.00e-04)  leaves=251 minwidth-leaves=0  evals=238603  13.1s
+alpha<=0.00025 Ly in [5e-13,5.3e-13]: U=+0.01984 lb=+0.01934 U-lb=5.00e-04 (allowed 5.00e-04)  leaves=420 minwidth-leaves=0  evals=246697  15.3s
+rate_table_final_L3.5e-7_a0.001.json: Lambda_int<=2.0273e-10  int V0^2<=2.5341e-09  int V1^2<=4.6482e-07  int V2^2<=8.4471e-05
+rate_table_final_L2.5e-7_a0.001.json: Lambda_int<=8.2866e-11  int V0^2<=1.0358e-09  int V1^2<=1.8999e-07  int V2^2<=3.4528e-05

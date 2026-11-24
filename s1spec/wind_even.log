@@ -1,0 +1,5 @@
+even: rectangle Re[-0.5,3.0] x Im[-4.0,4.0]: winding = 3.0000  (512 evaluations)
+even: rectangle Re[-1.5,3.0] x Im[-4.0,4.0]: winding = 5.0000  (562 evaluations)
+even: rectangle Re[0.6,3.0] x Im[-4.0,4.0]: winding = 1.0000  (490 evaluations)
+even: rectangle Re[0.1,0.6] x Im[-4.0,4.0]: winding = 1.0000  (504 evaluations)
+even: rectangle Re[-0.1,0.1] x Im[-1.0,1.0]: winding = -0.0000  (168 evaluations)

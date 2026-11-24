@@ -1,0 +1,98 @@
+## edits_v41.txt -- the asserted text replacements of text v41, read by build_v41.py (plain text: no escaping).
+## Source: the wording items W-1..W-5 and the cosmetic retag item of fix20_delta_check/DELTA_CHECK_v40.md (section 4). No number changes.
+## Block format:  "@@ FILE <v40 source name>" starts a file section; "@@ REP" (exactly once), "@@ REP <k>" (exactly k times) or
+## "@@ REPQ" (exactly once, not recorded as new text) starts an edit; the old text follows up to "@@ NEW"; the new text up to "@@ END".
+## Old texts are matched AFTER the retag of the set's file names to v41 and the retitle of \title/\date lines (b41_common.py).
+## Placeholder in NEW text: @DC@ (the delta-check file).  Old and new texts are taken verbatim (trailing newline of each block removed).
+
+@@ FILE bootstrap_v40.tex
+@@ REPQ
+\author{}\date{21 November 2026 (text v41; text v40: closure proof repaired
+@@ NEW
+\author{}\date{21 November 2026 (text v41: wording items W-1, W-3 of the delta check of text v40; text v40: closure proof repaired
+@@ END
+@@ REP
+\emph{Closed.} Suppose $\tau^*<\tau_{\rm mod}$. Each member except GS, G, (F1) and B3U(a) is an inequality $Q(\tau)\le c$ for a function $Q$ continuous on $[\tau_1,\tau_{\rm mod})$ (for B1(a,b) the right side is the continuous barrier function of $\tau$) (Theorem U-1 of \fn{U1_regularity_v41.tex}: $P$, $\Lambda$, the energies and the sups of $w,w'$ on compact $x$-sets are continuous in $\tau$); these pass to $\tau^*$. (F1): the window integrals are continuous in the window end (U-1(d)), so the bound passes to windows ending at $\tau^*$. B3U(a): joint continuity of $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ (\fn{lemmaU_v41.tex}, ``Closed''). G: Lemma~\ref{C:lem:G}. GS: Lemma GS-4 of \fn{GS_lemma_v41.tex} (limits of graph functions with the strict bounds of GS-2; the solution is smooth at $t(\tau^*)<t_1+T_{\max}$ because $\tau^*<\tau_{\rm mod}$). Hence $\tau^*\in\mathcal T$.
+@@ NEW
+\emph{Closed.} Suppose $\tau^*<\tau_{\rm mod}$. First GS and G at $\tau^*$ (text v41, delta check @DC@ W-1: they use only the members on $[\tau_1,\tau^*)$, the continuity of $P$ and the smoothness of the flow at $t(\tau^*)$, not U-1 at $\tau^*$). G: Lemma~\ref{C:lem:G}. GS: Lemma GS-4 of \fn{GS_lemma_v41.tex} (limits of graph functions with the strict bounds of GS-2; the solution is smooth at $t(\tau^*)<t_1+T_{\max}$ because $\tau^*<\tau_{\rm mod}$). So GS and G hold on $[\tau_1,\tau^*]$, and Theorem U-1 of \fn{U1_regularity_v41.tex} applies on $[\tau_1,\tau^*]$. Each other member except (F1) and B3U(a) is an inequality $Q(\tau)\le c$ for a function $Q$ that is defined and continuous wherever GS and G hold, in particular on $[\tau_1,\tau^*]$ (for B1(a,b) the right side is the continuous barrier function of $\tau$) (Theorem U-1: $P$, $\Lambda$, the energies and the sups of $w,w'$ on compact $x$-sets are continuous in $\tau$); these pass to $\tau^*$. (F1): the window integrals are continuous in the window end (U-1(d)), so the bound passes to windows ending at $\tau^*$. B3U(a): joint continuity of $(\tau,\rho)\mapsto\E^\rho_j(\tau)$ (\fn{lemmaU_v41.tex}, ``Closed''). Hence $\tau^*\in\mathcal T$.
+@@ END
+@@ REP
+\emph{Step 1: the members with a gap.} GS: Lemma GS-3 (openness with the endpoint $x=\pm60$) gives GS on $[\tau^*,\tau^*+\delta]$. The scalar members other than B1(a,b)
+@@ NEW
+\emph{Step 1: the members with a gap} (in this order: GS and G, then U-1, then the other members; text v41, delta check @DC@ W-1). GS: Lemma GS-3 (openness with the endpoint $x=\pm60$) gives GS on $[\tau^*,\tau^*+\delta]$. G: Lemma~\ref{C:lem:G} (``Open''). Both need only the continuity of $P$ ((P2$'$)(b)) and the smooth flow. Theorem U-1 now applies on $[\tau_1,\tau^*+\delta]$: it needs only GS, G and $\tau^*+\delta<\tau_{\rm mod}$; it gives the continuity used in the rest of Step~1. The scalar members other than B1(a,b)
+@@ END
+@@ REP
+B3U(a) and G: as in \fn{lemmaU_v41.tex} (``Open'') and Lemma~\ref{C:lem:G}. No step of Step~1 uses B1(a,b) beyond $\tau^*$.
+@@ NEW
+B3U(a): as in \fn{lemmaU_v41.tex} (``Open''). No step of Step~1 uses B1(a,b) beyond $\tau^*$.
+@@ END
+@@ REP
+\emph{Step 2: B1(a,b) by first touch.} Theorem U-1 applies on $[\tau_1,\tau^*+\delta]$: it needs only GS, G and $\tau^*+\delta<\tau_{\rm mod}$.
+@@ NEW
+\emph{Step 2: B1(a,b) by first touch.} Theorem U-1 applies on $[\tau_1,\tau^*+\delta]$ (Step~1).
+@@ END
+@@ REP
+and for $\alpha$ the comparison of \fn{step3nl_v4c/verifier/TAIL_LEMMA.tex}, section ``Tail contraction (first touch)'' (cooperative: $\beta$ is nondecreasing in $\Lambda$, and $\Lambda\le\mathrm{Ly}^{hi}_k$ up to the first touch).
+@@ NEW
+and for $\alpha$: in the tail the comparison of \fn{step3nl_v4c/verifier/TAIL_LEMMA.tex}, section ``Tail contraction (first touch)'' (cooperative: $\beta$ is nondecreasing in $\Lambda$); on a march step the $\alpha$-barrier is the per-cell fixed point of \fn{closure.py}:113--120, 134, and it needs only $\Lambda\le\mathrm{Ly}^{hi}_k$, which holds up to and just beyond a first touch of $Y=L$ by (C2) (Proposition~\ref{F:prop:abs}, ``the $\alpha$-barrier is unchanged''; text v41, delta check @DC@ W-3).
+@@ END
+
+@@ FILE flux2_lemma_v40.tex
+@@ REP
+$D^kd$ is a rate per unit $\tau$ ($|\alpha|\le\alpha_1$).
+@@ NEW
+$D^kd$ is a rate per unit $\tau$ ($|\alpha|\le2.5\cdot10^{-4}$, the box (B-a) of the $E_I$ lemma, part of B1(c); text v41, delta check @DC@ W-4: the certified code uses this box level, not $\alpha_1$, so (F:eq:star) does not depend on B1(a)).
+@@ END
+@@ REP
+The $\alpha$-barrier is unchanged (it is evaluated at $\mathrm{Ly}^{hi}_k$ and $\Lambda\le\mathrm{Ly}^{hi}_k$).
+@@ NEW
+The $\alpha$-barrier is unchanged: on a march step it is the per-cell fixed point of \fn{closure.py}:113--120, 134, evaluated at $\mathrm{Ly}^{hi}_k$, and it needs only $\Lambda\le\mathrm{Ly}^{hi}_k$, which holds up to and just beyond the first touch by (C2), as just shown (text v41, delta check @DC@ W-3).
+@@ END
+
+@@ FILE U1_regularity_v40.tex
+@@ REP
+and (G) for the far-field energies of (d).)
+@@ NEW
+and (G) for the far-field energies of (d). Text v41, delta check @DC@ W-2: this concerns the regularity statements; the inequalities quoted in (c) and (d) keep the hypotheses of their own lemmas, and U-1 only upgrades ``for a.e.\ $\tau$'' to ``for every such $\tau$''.)
+@@ END
+@@ REP
+the inequality (F:eq:star) of \fn{flux2_lemma_v41.tex} holds at every $\tau$;
+@@ NEW
+wherever the hypotheses of the $E_I$ and flux lemmas (B1(c), BF, B2$'$) hold, the inequality (F:eq:star) of \fn{flux2_lemma_v41.tex} holds at every such $\tau$, not only a.e.;
+@@ END
+@@ REP
+so the level-$j$ inequality (D1) there holds at every $\tau$;
+@@ NEW
+so, wherever the hypotheses of Lemma S(A) hold, the level-$j$ inequality (D1) there holds at every such $\tau$, not only a.e.;
+@@ END
+
+@@ FILE lemmaU_v40.tex
+@@ REPQ
+(v40: fixes of review fix18 F-1, F-2, R-1;
+@@ NEW
+(v41: wording item W-5 of the delta check of text v40; v40: fixes of review fix18 F-1, F-2, R-1;
+@@ END
+@@ REP
+So every inequality of $\mathrm{BS}_U$ holds on $[\tau_1,\tau']$ with a strictly smaller right-hand side;
+@@ NEW
+So every inequality of $\mathrm{BS}_U$ except B1(a,b), which are re-derived by first touch (\fn{bootstrap_v41.tex}, Open step; text v41, delta check @DC@ W-5), holds on $[\tau_1,\tau']$ with a strictly smaller right-hand side;
+@@ END
+
+@@ FILE main_v3_v40.tex
+@@ REP
+derive each bound strictly better from $\mathrm{BS}(\tau')$, the hand-off data and the certified constants;
+@@ NEW
+derive each bound strictly better from $\mathrm{BS}(\tau')$, the hand-off data and the certified constants, except B1(a,b), which are re-derived by first touch (\fn{bootstrap_v41.tex}, Open step; text v41, delta check W-5);
+@@ END
+
+@@ FILE lemmaS_A_v40.tex
+@@ REPQ
+\title{Lemma S(A), repaired (step 3, text v39): statement and proof
+@@ NEW
+\title{Lemma S(A), repaired (step 3, text v41): statement and proof
+@@ END
+@@ REPQ
+\author{}\date{21 November 2026 (text v41; text v40; text v40: chain v37, verifier \fn{fin13v4c}).
+@@ NEW
+\author{}\date{21 November 2026 (text v41; text v40; text v39: chain v37, verifier \fn{fin13v4c}).
+@@ END

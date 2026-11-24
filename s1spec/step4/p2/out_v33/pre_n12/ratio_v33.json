@@ -1,0 +1,21 @@
+{
+ "item": "Lemma O H7, fixed-L cone family (L = 50)",
+ "label": "certified",
+ "abar": 2.19103e-07,
+ "ratio_upper": 1.6000014022604293e-07,
+ "needed": 1.6001e-07,
+ "ratio_le_needed": true,
+ "t_star_lower": 3.68334e-07,
+ "margin_tstar_over_ratio": 2.3020854824228896,
+ "margin_tstar_over_needed": 2.3019436285232167,
+ "C0_sqrt_t_at_needed": 0.00226524,
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/ratio_v33.py": "8f2fdd078c833887f8d5990102d9b010b3b6db174a65bf831906365c7a4a98f7",
+   "/home/claude/s1spec/step3nl_v33/verifier/modsups_fin12f4/final_alpha_points_5e-8.json": "d5b14797e932bb01c3ce2c4cd89c56fd994a42647ac6e4c0133fbb808d3cfde6",
+   "/home/claude/s1spec/writeup/lemmaO_v32/lemmaO_v32_consts.json": "c64ae6b534f69aac8fd028d5494a39579a9b7b506b714bc52742fe45dc327f9c"
+  }
+ }
+}

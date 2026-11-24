@@ -1,0 +1,1139 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{FreeSerif}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Lemma F: far-field energies of the P2 error (step 4, T8)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{lemma-f-far-field-energies-of-the-p2-error-step-4-t8}{%
+\section{Lemma F: far-field energies of the P2 error (step 4,
+T8)}\label{lemma-f-far-field-energies-of-the-p2-error-step-4-t8}}
+
+Status. §2 (Lemma F) and §4 (Lemma J) are proved here for the
+\textbf{linear} error equation, with the modulation and residual forcing
+included. The energies are half-curve energies; the far-end boundary
+term is §3.1 (Lemma B and hypothesis (SE)). Lemma N3′ (§6.1) bounds the
+nonlinear terms of the exact graph operator and the modulation terms 𝒬
+at every level j ≤ 3, with x-dependent majorants on the certified far
+boxes and without level 4 (\texttt{p2/t8se/n3sym.py},
+\texttt{n3qsym.py}, \texttt{n3wcheck.py}, \texttt{n3far.py} →
+\texttt{camp.py\ -\/-n3}). The algebraic core, the level-j identity
+(I\_j), is machine-checked: \texttt{lfsym.py} (κ̃-coefficients, j ≤ 4)
+and \texttt{cforms.py} (generic coefficients β, b₂, c₀, j ≤ 3) run an
+Euler-operator test, and negative controls fail as they should. Every
+constant is an explicit sup or integral of base quantities. Certified
+(arb) values on the polished base, slabs 5--187: \texttt{cconst.py},
+\texttt{merge.py}, \texttt{camp.py} → \texttt{constants/} (T8\_REPORT
+§3). Float values: \texttt{fb.py}, \texttt{weights.py},
+\texttt{lfnum.py}, \texttt{jcas.py}, \texttt{amp.py}. Inputs taken from
+T5/T7 without being re-derived are tagged \textbf{{[}T7{]}}.
+
+Notation: x is base arclength from the tip, y := x − X0 with X0 =
+2.2490776515 (as in Lemma S), and c := ¼ − ã.
+
+\hypertarget{setting}{%
+\subsection{1. Setting}\label{setting}}
+
+\textbf{1.1 The far-field equation.} T5 §2.1 (signs confirmed in T1
+\texttt{signs.py}) gives e\_τ = 𝓛e − Σᵢxᵢgᵢ − (1−ϑ)r + 𝒩 + 𝒬, with 𝓛e =
+−e'\,'\,'\,' + b₂e'\,' + b₁e' + b₀e and b₂ = −κ̃², b₁ = −5κ̃κ̃' − c q̃ − b̃t̃₁
++ ϖ, b₀ = c − 3κ̃`² − 4κ̃κ̃'`. Inserting ϖ = −κ̃κ̃' + Q + c(q̃ − x) + b̃t̃₁ (T1
+§3) gives
+
+b₁ = −c y + β, β := Q − cX0 − 6κ̃κ̃' + A, Q := ∫₀ˣκ̃`², b₀ = c + c₀, c₀ :=
+−3κ̃'² − 4κ̃κ̃''.
+
+Here A is the residual part of the transport (T6 §5: ϖ = ϖ* + A, A' =
+κ̃r, A(0) = 0); the float study of T8\_REPORT §2 used A = 0. The terms
+−cq̃ and −b̃t̃₁ cancel exactly in b₁, so b₁ involves neither the closure q̃
+nor the turning t̃₁.
+
+On the far field y ≥ y\_a ≥ 14.001 we have x ≥ 16.25, so ζ\_∞ = 1 and v
+:= e' is T5's E\_I variable. Differentiating once:
+
+\textbf{v\_τ = −v'\,'\,'\,' − c y v' + (βv + b₂v' + c₀e)' + f}, f :=
+−x₁g₁' − x₂g₂' − x₃(gˢ₃ + gʳ)' − r' + (𝒩+𝒬)'. (1.1)
+
+Here g₃ = Ṽ/n = gˢ₃ + gʳ + r/n with gˢ₃ := (cp̃ + b̃ñ)/n and gʳ := −κ̃'`/n,
+by T5's definition r := Ṽ + κ̃'' − cp̃ − b̃ñ. So x₃g₃ + (1−ϑ)r = x₃(gˢ₃ +
+gʳ) + r: the clock factor drops out of the residual forcing. The
+derivation of (1.1) is ∂ₓ(𝓛e) = −v'\,'\,'\,' + (b₂v')' + (−cyv + βv)' +
+cv + (c₀e)' = −v'\,'\,'\,' − cyv' + (βv + b₂v' + c₀e)'.
+
+We write w\_m := ∂ₓᵐv for m ≥ 0 and w₋₁ := e. Lemma F treats f without
+the nonlinear part (𝒩+𝒬)'; §6.1 adds 𝒩 and 𝒬 at levels 0--3.
+
+\textbf{1.2 Parities.} The base is exactly symmetric about both ends
+(T1: κ̃' = κ̃'\,'\,' = 0 at x = 0 and x = ℓ̃). We view the half curve as
+one half of the closed doubled curve x ∈ {[}0, 2ℓ̃{]}. About the far end
+x = ℓ̃:
+
+\begin{itemize}
+\tightlist
+\item
+  κ̃, b₂, c₀ and e are even, and w\_m has parity (−1)\^{}\{m+1\};
+\item
+  β\^{}\{(m)\} has parity (−1)\^{}\{m+1\} for m ≥ 1;
+\item
+  b₁ + ℓ̃\_τ is odd up to the constant D := b₁(ℓ̃) + ℓ̃\_τ. This holds
+  because κ̃κ̃', Q − Q(ℓ̃) and y − y\_ℓ are odd, with y\_ℓ := ℓ̃ − X0. With
+  T1's length equation ℓ̃\_τ = cℓ̃ − Q(ℓ̃) + ε\_ℓ and b₁(ℓ̃) = Q(ℓ̃) − cℓ̃ +
+  A(ℓ̃) one gets \textbf{D = A(ℓ̃) + ε\_ℓ}, \textbar D\textbar{} ≤ 6.9e-13
+  (T6: sup\textbar A(ℓ̃)\textbar{} ≤ 6.7e-13, sup\textbar ε\_ℓ\textbar{}
+  ≤ 2.3e-14). T6's scalar D\_end = ϖ(ℓ̃) + ℓ̃\_τ equals D + cq̃(ℓ̃) +
+  b̃t̃₁(ℓ̃); it is not the transport coefficient (the closure terms cancel
+  in b₁, §1.1).
+\end{itemize}
+
+\textbf{1.3 Weights.} For each level j ∈ \{0..4\} take a ramp {[}y\_a,j,
+y\_b,j{]} and set T\_j(x,τ) := 28 η\_j(y)² Y\_ℓ(x,τ)\^{}\{2j−2\}
+Ω(Y\_ℓ/Y\_h(τ)), where: - η\_j = S(t), S(u) = u⁴(35 − 84u + 70u² −
+20u³), t = ln(y/y\_a)/ln(y\_b/y\_a), clipped to {[}0,1{]}. The T5 design
+is y\_a, y\_b = 14, 28 for all j (the Lemma S ramp). - Y\_ℓ := y\_ℓ
+Φ(y/y\_ℓ) is a far-end flattening. Φ(s) = s for s ≤ ½, and Φ' = 1 −
+ψ(2s−1) with ψ(u) = u⁵(21/4 − 49u/8 + 15u²/8). Then Φ' is odd about s =
+1, so Y\_ℓ is even about ℓ̃ on the doubled curve, and Y\_ℓ = y on the
+half of the curve nearer the tip. - Ω ≡ 1 for the \emph{global}
+energies. The \emph{localized} energies of Remark 6.3 use an outer
+factor that follows the characteristics.
+
+The properties used are: (W1) T\_j ∈ W\^{}\{4,∞\}, since η² is C³ at
+y\_b with T'\,'\,'\,' bounded; (W2) T\_j = 0 for y ≤ y\_a and T\_j ≍ (y
+− y\_a)⁸ there, so T'²/T and T'\,'²/T are bounded; (W3) T\_j is even
+about ℓ̃. (The jets are checked against finite differences in
+\texttt{weights.py}; the only mismatch is at the C³ point y = y\_b.)
+
+Regions: the ramp R\_j := \{y\_a,j \textless{} y \textless{} y\_b,j\}
+and the core C\_j := \{y ≥ y\_b,j\}, the latter including the flattened
+far end.
+
+\textbf{1.4 Energies and data.} The energies are the half-curve
+integrals F\_j := ∫\_\{x*\}\^{}\{ℓ̃(τ)\} T\_j w\_j², the dissipations
+D\_j := ∫T\_j w\_\{j+2\}², and N\_\{j+1\}² := ∫T\_j w\_\{j+1\}² (same
+domain). The ramp data are the E\_I norms of T5 restricted to the ramp,
+V\_m := (∫\_\{R\} W (∂ᵐv)²)\^{}\{1/2\} ≤ T5's V\_m, with W :=
+(1+x²)\^{}\{−2\}. The cost of a stronger weight is ∫T\_j w\_j² vs ∫W
+w\_j², i.e.~y\^{}\{2j+2\} on the ramp. This conversion factor drives the
+amplification (T8\_REPORT §2).
+
+\textbf{1.5 Regularity.} κ̃ ∈ C⁴ with κ̃\^{}\{(5)\} ∈ L\^{}∞ (T1), so e ∈
+W\^{}\{7,∞\} and v ∈ W\^{}\{6,∞\} on the far field (T5 §2.1). The
+identity (I\_j) below involves w\_\{≤ j+2\} and κ̃\^{}\{(≤5)\} only. It
+is proved for smooth data and extends by density, because every term is
+continuous in the norms that are available. The time derivative is taken
+a.e.; F\_j is absolutely continuous.
+
+\hypertarget{statement}{%
+\subsection{2. Statement}\label{statement}}
+
+\textbf{Lemma F.} Let j ∈ \{0,\ldots,4\}, let the weights satisfy
+(W1)--(W3), and let the ramps satisfy y\_a,i \textless{} y\_b,j for i
+\textless{} j, so that T\_i \textgreater{} 0 on C\_j. Let F\_j be the
+half-curve energies of §1.4 and assume the symmetric-end hypothesis (SE)
+of §3.1. Along the linear part of (1.1), for a.e. τ:
+
+F\_j' ≤ −λ\_j F\_j − θ\_j D\_j + 2√F\_j g\_j + h\_j, (F)
+
+g\_j = Σ\_\{i\textless j\} ½c\_ji √F\_i + \textbar x\textbar γ\_j +
+½a\_j Ȳ, h\_j = Σ\_\{i\textless j\} d\_ji F\_i + 𝓘\_j + e\_j Ȳ² +
+δ\_s⁻¹(𝓡\_j + \textbar x\textbar γʳ\_j)² + 𝓡̂\_j²,
+
+with the ramp data
+
+𝓘\_j = k\_jj V\_j² + Σ\_\{i\textless j\}(k\_ji V\_i² + r\_ji V\_j V\_i)
++ re\_j V\_j Ȳ (standard ramp), 𝓘\_j = kD\_j D\_\{j−2\} +
+Σ\_\{i\textless j\} sD\_ji (D\_\{j−2\}F\_i)\^{}\{1/2\} + \ldots{}
+(nested ramp: R\_j ⊂ C\_\{j−2\}).
+
+The constants are defined as follows. Fix a = 0.01, ν = 10⁻³, δ\_P ∈ (0,
+1.5{]}, δ\_s ∈ (0, ½{]} and δ₆ = 0.1. Let n\_j be the number of
+(j+1,·)-pairs in (I\_j), plus 1 for the forcing, recall P\_j, q\_j,
+p\_ji from §3.2, and let ε\_j := \textbar D\textbar/m\_j be the far-end
+constant of Lemma B (§3.1).
+
+\begin{itemize}
+\tightlist
+\item
+  q̂\_j := ∂\_τT\_j + q\_j + ½P\_j'\,' + P\_j²/(4δ\_P T\_j) + (a n\_j/4 +
+  ε\_j/2)(T\_j'`)⁺ + ν\textbar T\_j''\textbar.
+\item
+  ΔF\_j := a n\_j/8 + ε\_j(2/y\_ℓ + 5/4), σ\_j := c + sup\_\{C\_j\}
+  q̂\_j/T\_j + ΔF\_j and λ\_j := c − σ\_j.
+\item
+  θ\_j := 2 − δ\_P − a n\_j/2 − δ₆{[}j=4{]} − δ\_s − ε\_j. (The design
+  opt4n has δ\_P = 1.5 at j = 3; it needs δ\_s \textless{} ½ there, and
+  the certified run uses δ\_s = ¼.)
+\item
+  k\_jj := sup\_\{R\_j\} (q̂\_j + (λ\_j + ΔF\_j) T\_j)⁺/W. In the nested
+  case, kD\_j := sup\_\{R\_j\} (q̂\_j + (λ\_j + ΔF\_j)T\_j)⁺/T\_\{j−2\}.
+  (Earlier versions omitted ΔF\_jT\_j here; it is the ramp share of the
+  F\_j-part of the Young steps, §3.4.)
+\item
+  c\_ji := sup\_\{C\_j\} \textbar p\_ji\textbar/√(T\_jT\_i). The
+  e-coupling adds 2A₂ to c\_j0; A₂ would suffice.
+\item
+  r\_ji := sup\_\{R\_j\}\textbar p\_ji\textbar/W. In the nested case,
+  sD\_ji := sup\_\{R\_j\}\textbar p\_ji\textbar/√(T\_\{j−2\}T\_i).
+\item
+  (j+1,0)-pairs p: d\_j0 += sup\_\{C\_j\} p²/(T\_jT\_0)/(2a) and k\_j0
+  += sup\_\{R\_j\} p²/(T\_jW)/(2a).
+\item
+  (j,e)-pairs p: a\_j := ε̂₀(∫\_\{C\_j\}p²/T\_j)\^{}\{1/2\}, A₂ :=
+  (∫\_\{C\_j\}(p²/T\_j)H²)\^{}\{1/2\}, and re\_j :=
+  (sup\_\{R\_j\}\textbar p\textbar/W ·
+  ∫\_\{R\_j\}\textbar p\textbar ê²)\^{}\{1/2\}.
+\item
+  (j+1,e)- and (j+2,e)-pairs p: e\_j += {[}2ε̂₀²∫\_\{C\_j\}p²/T\_j +
+  ∫\_\{R\_j\}(p²/T\_j)ê²{]}/κ and d\_j0 += 2∫\_\{C\_j\}(p²/T\_j)H²/κ,
+  with κ = 2a for (j+1,e) and κ = 4δ₆ for (j+2,e).
+\item
+  γ\_j := (Σᵢ∫T\_j(∂\^{}\{j+1\}gᵢˢ)²)\^{}\{1/2\} and γʳ\_j :=
+  (∫T\_j(∂\^{}\{j−1\}gʳ)²)\^{}\{1/2\}, where gˢ := (p̃/‖χp̃‖\_ρ,
+  ñ/‖χñ‖\_ρ, (cp̃+b̃ñ)/n) and gʳ := −κ̃'`/n with n = ‖χṼ‖\_ρ (T5
+  normalisation). For j = 0, ∂\^{}\{−1\}gʳ := −κ̃'/n.
+\item
+  𝓡\_j := (∫T\_j(∂\^{}\{j−1\}r)²)\^{}\{1/2\}, which is T5's R\^{}F\_j up
+  to the Y\_ℓ flattening, with ∂\^{}\{−1\}r := −∫\_x\^{}\{ℓ̃\}r.
+\item
+  𝓡̂\_j² := (8/a)∫(T\_j'²/T\_j)ρ\_j² +
+  ν⁻¹∫\textbar T\_j'\,'\textbar ρ\_j², with ρ\_j := ∂\^{}\{j−1\}(r +
+  x₃gʳ).
+\end{itemize}
+
+The e-bound uses three functions:
+
+\begin{itemize}
+\tightlist
+\item
+  ê(x) := K\_e + Ĩ(x)/√μ\_e, with Ĩ(x)² := ∫\_\{x*\}\^{}x W\^{}\{−1\}
+  and \textbar e(x*)\textbar{} ≤ K\_eȲ \textbf{{[}T7{]}};
+\item
+  ε̂₀ := ê(x₁), where x₁ is the start of C₀;
+\item
+  H(x)² := ∫\_\{x₁\}\^{}x T₀\^{}\{−1\} on C₀, with H := 0 below x₁.
+\end{itemize}
+
+\textbf{Validity.} All sups are finite by (W2). If λ\_j \textgreater{} 0
+and θ\_j \textgreater{} 0, then (F) holds with these constants (any λ ≤
+λ\_j may be used in (F) and in k\_jj). In the nested case, R\_j ⊂
+C\_\{j−2\} and T\_i \textgreater{} 0 on R\_j are required.
+
+\textbf{Hand-off coverage.} The window energies of Lemma S (cutoff
+S(ln(y/14)/ln 2) on {[}14,28{]}) are dominated by F\_j whenever η\_j ≥
+S(ln(y/14)/ln 2), for instance for every log-ramp {[}14, y\_b{]} with
+y\_b ≤ 28.
+
+\hypertarget{proof}{%
+\subsection{3. Proof}\label{proof}}
+
+\textbf{3.1 Half-curve energies and the far-end boundary term.} T\_j
+vanishes to order 8 at y\_a (W2), so nothing happens at x*. At the
+moving far end,
+
+F\_j' = ∫\_\{x*\}\^{}\{ℓ̃\}(∂\_τT\_j)w\_j² + 2∫\_\{x*\}\^{}\{ℓ̃\}T\_j w\_j
+∂\_τw\_j + ℓ̃\_τT\_j(ℓ̃)w\_j(ℓ̃)².
+
+Insert (I\_j); its total-derivative part 𝔉\_j leaves 𝔉\_j(ℓ̃). The flux
+of the transport term 2T\_jw\_j·b₁w\_\{j+1\} = (T\_jb₁w\_j²)' −
+(T\_jb₁)'w\_j² is T\_jb₁w\_j². Hence
+
+F\_j' = ∫\_\{x*\}\^{}\{ℓ̃\}{[}(∂\_τT\_j)w\_j² + density of (I\_j){]} +
+𝔅\^{}D\_j + 𝔅\^{}S\_j, 𝔅\^{}D\_j := D·T\_j(ℓ̃)w\_j(ℓ̃)², D = b₁(ℓ̃) + ℓ̃\_τ
+= A(ℓ̃) + ε\_ℓ (§1.2),
+
+and 𝔅\^{}S\_j is the sum of the fluxes at ℓ̃ of the fourth-order, b₂-,
+c₀-, forcing and X\_j-terms. 𝔅\^{}S\_j contains no b₁; it is a bilinear
+form in the boundary jets (e, w₀, \ldots, w\_\{j+3\})(ℓ̃) with
+coefficients from T\_j\^{}\{(≤3)\}(ℓ̃) (T\_j' = T\_j'\,'\,' = 0 there by
+(W3)) and the coefficient jets at ℓ̃.
+
+\textbf{Lemma B (transport defect).} With m\_j :=
+(Φ(½)/Φ(1))\^{}\{2j−2\} for j ≥ 2, m₀ = m₁ = 1 (Φ(½) = ½, Φ(1) =
+0.8828125) and ε\_j := \textbar D\textbar/m\_j,
+
+\textbar 𝔅\^{}D\_j\textbar{} ≤ ε\_j{[}(2/y\_ℓ + 5/4)F\_j + D\_j +
+½∫(T\_j'\,')⁺w\_j²{]}.
+
+\emph{Proof.} P := \{y\_ℓ/2 ≤ y ≤ y\_ℓ\} has length d = y\_ℓ/2 and lies
+in C\_j. On P, T\_j ≥ m\_jT\_j(ℓ̃): T₀ = 28Y\_ℓ⁻² decreases, T₁ = 28 is
+constant, T\_j increases for j ≥ 2. For f = w\_j, the trace inequality
+f(ℓ̃)² ≤ d⁻¹∫\_P f² + 2‖f‖\_\{L²(P)\}‖f'‖\_\{L²(P)\} (average f(ℓ̃)² =
+f(z)² + ∫\_z\^{}ℓ̃(f²)' over z ∈ P) gives T\_j(ℓ̃)w\_j(ℓ̃)² ≤ m\_j⁻¹(F\_j/d
++ 2√F\_jN\_\{j+1\}) ≤ m\_j⁻¹((2/y\_ℓ + 1)F\_j + N²\_\{j+1\}). Finally
+N²\_\{j+1\} ≤ D\_j + ¼F\_j + ½∫(T\_j'\,')⁺w\_j² (S3). ∎
+
+Lemma B is what the constants ΔF\_j, θ\_j and q̂\_j of §2 contain. With
+\textbar D\textbar{} ≤ 6.9e-13, ε\_j ≤ 2.1e-11: negligible, but included
+in the certified run.
+
+\textbf{(SE) Symmetric end.} 𝔅\^{}S\_j ≤ 0.
+
+(SE) holds with 𝔅\^{}S\_j = 0 when the error, the base coefficients and
+the residual are symmetric about the far-end normal line. This is the
+closed-curve argument: write 2F\_j as an integral over the doubled far
+field {[}x*, 2ℓ̃ − x*{]}, on which (1.1) holds with the even/odd
+continuations of the coefficients (§1.2). Under x ↦ 2ℓ̃ − x every density
+is even by §1.2 and (W3), and the transport/∂\_τT pair is
+mirror-symmetric (b₁(2ℓ̃−x) = −b₁(x) − 2ℓ̃\_τ, ∂\_τ{[}T(2ℓ̃−x){]} =
+(∂\_τT)(2ℓ̃−x) + 2ℓ̃\_τT'(2ℓ̃−x)), so no flux appears at ℓ̃. The evenness of
+T\_j is what makes the fourth-order fluxes vanish; with the unflattened
+power weight, 2T'w\_jw\_j'\,' + T'`'w\_j² would survive at ℓ̃ for odd j,
+and a positive term 2\textbar T'\textbar w\_j'² for j = 0.
+
+\emph{Remark (far end off the axis).} The base is symmetric about its
+own far-end normal line N(τ), since κ̃ is exactly even about ℓ̃. The true
+curve is symmetric about the axis. By T6, N is off the axis by
+\textbar q̃(ℓ̃)\textbar{} ≤ 4.6e-9 and tilted by \textbar t̃₁(ℓ̃)\textbar{}
+≤ 2.4e-13. The offset grows like ℓ̃ (q̃(ℓ̃)/ℓ̃ ≈ 1.3e-14 on slabs ≥ 100),
+and the turning defect θ̃(ℓ̃) + 3π/2 ≤ 1.65e-14 is constant. This is the
+signature of a fixed physical rigid rotation of about 1.6e-14 rad. So
+(SE) fails only through this rigid mode; by §1.1 the offset does
+\emph{not} enter the transport term. There are two ways to restore (SE):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Compare the true curve with the base rotated by that angle.
+    Rotations about the origin are symmetries of the rescaled flow up to
+    the axial drift, which changes r by at most
+    \textbar b̃\textbar·1.7e-14 ≤ 1.1e-15 (T6 would enclose this). This
+    is a choice in P2's representation, for T5/T9; T4 must check the
+    start tolerance, since the tip moves by about 4e-14.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Bound 𝔅\^{}S\_j directly, as (jets of the rigid mode at ℓ̃, of size
+    1.7e-14·ℓ̃(19.4/ℓ̃)\^{}m) × (traces of w\_\{≤j+3\} at ℓ̃). This needs
+    pointwise far-end control of w\_\{j+3\}, which the level-j energies
+    do not give.
+  \end{enumerate}
+\end{itemize}
+
+The mode's own energies are ≤ 1e-20 relative to F\_j, so the effect is
+nil; but (SE) is an input of Lemma F, not a consequence.
+
+\textbf{3.2 The identity (I\_j)} (machine-checked: \texttt{lfsym.py},
+output \texttt{lf\textbackslash{}\_forms.pkl}). With T = T\_j,
+
+2T w\_j ∂ʲ{[}v\_τ − f{]} ≐ −2T w\_\{j+2\}² + P\_j w\_\{j+1\}² + q\_j
+w\_j² + Σ\_\{i=−1\}\^{}\{j−1\} p\_ji w\_j w\_i + X\_j,
+
+where ≐ means equality modulo a total x-derivative, and
+
+\begin{itemize}
+\tightlist
+\item
+  P\_j = 4T'\,' + 2κ̃²T. The second summand is the anti-diffusive −2b₂T
+  term.
+\item
+  q\_j = −T'\,'\,'\,' + (cy − β)T' + (1−2j)cT + (2j+1)β'T + (Tb₂)'\,' −
+  (j+1)(Tb₂')' + j(j+1)Tb₂'\,' + 2c₀T.
+\item
+  p\_ji = 2C(j+1,j+1−i)Tβ\^{}\{(j+1−i)\}·{[}i ≥ 0, j+1−i ≥ 2{]} +
+  2C(j+1,j+2−i)Tb₂\^{}\{(j+2−i)\}·{[}1 ≤ i ≤ j−1{]} +
+  2C(j+1,j−i)Tc₀\^{}\{(j−i)\}·{[}i ≤ j−1{]}.
+\item
+  X\_j keeps every coefficient derivative at κ̃\^{}\{(≤5)\}. It replaces
+  three high-order terms by integrations by parts onto (Tw\_jw\_i):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    j=3: the c₀\^{}\{(4)\}-term 2Tc₀\^{}\{(4)\}w₃e becomes
+    −2c₀'\,'\,'(T'w₃e + Tw₄e + Tw₃w₀).
+  \item
+    j=4, β\^{}\{(5)\} and c₀\^{}\{(4)\} terms: these become
+    −(2β\^{}\{(4)\} + 10c₀'\,'\,')(T'w₄w₀ + Tw₅w₀ + Tw₄w₁).
+  \item
+    j=4, c₀\^{}\{(5)\}-term: this becomes 2c₀'\,'`(T''w₄e + 2T'w₅e +
+    2T'w₄w₀ + Tw₆e + 2Tw₅w₀ + Tw₄w₁).
+  \end{itemize}
+\end{itemize}
+
+Derivation:
+
+\begin{itemize}
+\tightlist
+\item
+  From −2Tw\_jw\_j'\,'\,'`, three integrations by parts give
+  −2Tw\_\{j+2\}² + 4T'`w\_\{j+1\}² − T''\,'\,'w\_j².
+\item
+  From ∂ʲ(−cyw₁) = −cyw\_\{j+1\} − jcw\_j: the term c(yT' +
+  (1−2j)T)w\_j².
+\item
+  The β-, b₂- and c₀-terms are expanded by Leibniz. The β and b₂ terms
+  with m = 0, 1 (and m = 2 for b₂) are folded into q\_j and P\_j by one
+  or two integrations by parts.
+\end{itemize}
+
+The Euler test checks the whole identity for arbitrary T, κ̃ and Q with
+Q' = κ̃'². It reports κ̃-derivatives ≤ 5 in all coefficients. Pairs
+present: j=0: (0,e); j=1: (1,e),(1,0); j=2: (2,e),(2,0),(2,1); j=3:
+(3,e),(3,0..2),(4,e); j=4: (4,e),(4,0..3),(5,e),(5,0),(6,e).
+
+\textbf{3.3 Bounds.}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{(S1)} Exactly, ∫P w\_\{j+1\}² = −∫P w\_j w\_\{j+2\} +
+  ½∫P'\,'w\_j². Then \textbar∫Pw\_jw\_\{j+2\}\textbar{} ≤ δ\_P D\_j +
+  (4δ\_P)⁻¹∫(P²/T)w\_j².
+\item
+  \textbf{(S2) (j,i), 0 ≤ i \textless{} j.} On C\_j the weights are
+  regular: ∫\textbar p\textbar\textbar w\_jw\_i\textbar{} ≤
+  c\_ji√(F\_jF\_i). On R\_j use the ramp data: ≤ r\_ji V\_jV\_i. In the
+  nested case use instead ≤
+  (∫\_\{R\_j\}T\_\{j−2\}w\_j²)\^{}\{1/2\}(∫(p²/T\_\{j−2\})w\_i²)\^{}\{1/2\}
+  ≤ sD\_ji√(D\_\{j−2\}F\_i).
+\item
+  \textbf{(S3) (j+1,i), i ∈ \{0,e\}.} First N\_\{j+1\}² =
+  −∫Tw\_jw\_\{j+2\} + ½∫T'`w\_j² ≤ D\_j + ¼F\_j + ½∫(T'')⁺w\_j². Then
+  \textbar∫pw\_\{j+1\}w\_i\textbar{} ≤ N\_\{j+1\}M\_i ≤ (a/2)N\_\{j+1\}²
+  + M\_i²/(2a), where M\_i² = ∫(p²/T)w\_i² is split over C\_j (giving
+  F₀) and R\_j (giving V₀ or ê).
+\item
+  \textbf{(S4) (j+2,e).} \textbar∫pw\_\{j+2\}e\textbar{} ≤ δ₆D\_j +
+  (4δ₆)⁻¹∫(p²/T)e².
+\item
+  \textbf{(S5) e.} Write e(x) = e(x*) + ∫\_\{x*\}\^{}x v. Then
+  \textbar e\textbar{} ≤ ê(x)Ȳ on R₀, using μ\_eV₀² ≤ Λ\_e ≤ Ȳ². On C₀,
+  \textbar e\textbar{} ≤ ε̂₀Ȳ + H(x)√F₀, by Cauchy--Schwarz with T₀ and
+  because ê is increasing. Hence
+  ∫\_\{C\_j\}\textbar p\textbar\textbar w\_j\textbar\textbar e\textbar{}
+  ≤ √F\_j(a\_jȲ + A₂√F₀) by Minkowski, and
+  ∫\_\{R\_j\}\textbar p\textbar\textbar w\_j\textbar\textbar e\textbar{}
+  ≤ re\_jV\_jȲ. For j ≥ 1 the A₂-part goes into c\_j0. For j = 0 it is a
+  self-coupling, and λ₀ is lowered by 2A₂ (≤ 10⁻⁸; the certified run
+  does this).
+\item
+  \textbf{(S6) Forcing.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Residual and rough modulation: two integrations by parts give
+    −2∫(Tw\_j)`'ρ\_j = −2∫(T'`w\_j + 2T'w\_\{j+1\} + Tw\_\{j+2\})ρ\_j
+    (their fluxes at ℓ̃ belong to 𝔅\^{}S\_j). With ‖ρ\_j‖\_T ≤ 𝓡\_j +
+    \textbar x\textbar γʳ\_j, this is ≤ δ\_sD\_j + δ\_s⁻¹(𝓡\_j +
+    \textbar x\textbar γʳ\_j)² + (a/2)N\_\{j+1\}² + 𝓡̂\_j² +
+    ν∫\textbar T''\textbar w\_j². (For j=0, ∂\^{}\{−1\}r = S₁ − S₁(ℓ̃)
+    vanishes at ℓ̃.)
+  \item
+    Smooth modulation: Cauchy--Schwarz in x and in i gives ≤
+    2\textbar x\textbar√F\_jγ\_j. For this smooth forcing the
+    two-integrations route is far worse: it pays the y⁴ weight mismatch
+    between D\_j and F\_j.
+  \end{itemize}
+\end{itemize}
+
+\textbf{3.4 Collecting.}
+
+\begin{itemize}
+\tightlist
+\item
+  All w\_j²-terms are ∫q̂\_jw\_j² + ΔF\_jF\_j, where ΔF\_j is the F\_j
+  part of the N\_\{j+1\}² bounds in (S3), (S6) and Lemma B. On C\_j they
+  are ≤ (sup\_\{C\_j\}q̂\_j/T\_j + ΔF\_j)∫\_\{C\_j\}T\_jw\_j² =
+  −λ\_j∫\_\{C\_j\}T\_jw\_j². On R\_j, write ∫\_\{R\_j\}(q̂\_j +
+  ΔF\_jT\_j)w\_j² = −λ\_j∫\_\{R\_j\}T\_jw\_j² + ∫\_\{R\_j\}(q̂\_j + (λ\_j
+  + ΔF\_j)T\_j)w\_j²; the last integral is ≤ k\_jjV\_j². In the nested
+  case it is ≤ kD\_jD\_\{j−2\}, using T\_\{j−2\} ≡
+  T\_\{j−2\}\textbar\_\{core\} on R\_j.
+\item
+  The D\_j-coefficient is −2 + δ\_P + an\_j/2 + δ₆{[}j=4{]} + δ\_s +
+  ε\_j = −θ\_j.
+\end{itemize}
+
+Together with 𝔅\^{}D\_j (Lemma B) and 𝔅\^{}S\_j ≤ 0 (SE), this proves
+(F). ∎
+
+\hypertarget{lemma-j-time-weighted-ramp-data}{%
+\subsection{4. Lemma J (time-weighted ramp
+data)}\label{lemma-j-time-weighted-ramp-data}}
+
+\textbf{Hypotheses.} T5's closure is run with a reserved fraction κ\_𝔇
+of its dissipation surplus. Concretely:
+
+\begin{itemize}
+\tightlist
+\item
+  ½Λ\_e' ≤ −ϱΛ\_e − κ\_𝔇𝔇 + a\_cY + Ξ'², where 𝔇 = (θ₀/4)B² + (ε/8)D₄² +
+  (μ\_e/8)V₂² + (μ\_eε\_I/8)V₄² and Ξ'² = Ξ²/(1−κ\_𝔇).
+\item
+  Ȳ' = −ϱȲ + Φ with Φ = a\_c + √ϱΞ', √Λ\_e ≤ Ȳ ≤ 1 and Ȳ ≥ Ξ'/√ϱ
+  \textbf{{[}T7{]}}.
+\end{itemize}
+
+As written in T5 (Y), the surplus is consumed by the residual Young
+steps, so κ\_𝔇 = 0 there; we use κ\_𝔇 = ½.
+
+We also use:
+
+\begin{itemize}
+\tightlist
+\item
+  (I0) and (I2) of T5 §2.4 with \textbar x\textbar{} ≤ C\_xA;
+\item
+  the interpolations W₁² ≤ AB + c₁A², W₃² ≤ BD₄ + c₁B², V₁² ≤ V₀V₂ + c₁W
+  V₀², V₃² ≤ V₂V₄ + c₁W V₂² \textbf{{[}T7/S3{]}}.
+\end{itemize}
+
+Let 0 \textless{} λ \textless{} 2 min(μ₁, μ₂), ω(s) := e\^{}\{−λ(τ−s)\},
+and J\_X := ∫\_\{τ0\}\^{}τ ωX².
+
+\textbf{Conclusion.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ∫ω𝔇 ≤ 𝔅 := κ\_𝔇⁻¹{[}½ + (ϱ̄ − λ/2)⁺/λ{]}.
+\item
+  J\_A ≤ 1/λ, J\_B ≤ 4𝔅/θ₀, J\_\{D4\} ≤ 8𝔅/ε, J\_\{W1\} ≤ √(J\_AJ\_B) +
+  c₁J\_A, J\_\{W3\} ≤ √(J\_BJ\_\{D4\}) + c₁J\_B.
+\item
+  (μ₁ − λ/2)J\_\{V0\} + ½J\_\{V2\} ≤ K + C\_xγ₀√(J\_AJ\_\{V0\}), with K
+  := ½ω(τ0)/μ\_e + a\_fJ\_\{W1\} + b\_fJ\_B.
+\item
+  J\_\{V4\} ≤ 2ω(τ0)/(μ\_eε\_I) + M(λ)(c₃√J\_\{D4\} + c₂√J\_\{W3\} +
+  c₁ᴵ√J\_B + c₀ᴵ√J\_\{W1\} + C\_xγ₂√J\_A)², with M(λ) := min\_κ
+  4{[}(1+Ψ₁/κ)² + (Ψ₁κ + 2Ψ₁√c₁W + 2c₁W)²/(4(μ₂ − λ/2)){]}.
+\item
+  J\_\{V1\} ≤ √(J\_\{V0\}J\_\{V2\}) + c₁W J\_\{V0\} and J\_\{V3\} ≤
+  √(J\_\{V2\}J\_\{V4\}) + c₁W J\_\{V2\}. The Λ-routes J\_\{V2\} ≤
+  8𝔅/μ\_e and J\_\{V4\} ≤ 8𝔅/(μ\_eε\_I) are also valid.
+\item
+  Residual terms. Suppose the majorant satisfies Ȳ ≥ Ȳ\_* (the certified
+  run uses Ȳ\_* = 10⁻¹²; the budget is about 2.3·10⁻¹²). The term 𝓡₁(V₂
+  + 2Ψ₁V₁ + Ψ₂V₀) of (I0) is bounded by δ(V₀² + V₂²) + 𝓡₁²C\_res/(4δ),
+  where C\_res = (1+Ψ₁)² + (Ψ₁(1 + 2√c₁W) + Ψ₂)² and Ψ₂ := 2c₁W (this
+  uses V₁ ≤ ½(V₀ + V₂) + √c₁W V₀). Hence item 3 holds with μ₁ → μ₁ − δ,
+  ½J\_\{V2\} → (½ − δ)J\_\{V2\}, and K += C\_res(𝓡̄₁/Ȳ\_*)²/(4δλ). In
+  (I2), 𝓡ᴵ\_s enters X additively; it adds 𝓡̄ᴵ\_s/(Ȳ\_*√λ) to √∫ωX². The
+  run uses δ = 10⁻³.
+\end{enumerate}
+
+\textbf{Proof.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Multiply the closure by ω and integrate, using ½∫ωΛ' = ½{[}ωΛ{]} −
+  (λ/2)∫ωΛ. Since Y ≤ Ȳ and Ξ'² ≤ √ϱΞ'Ȳ, we have a\_cY + Ξ'² ≤ ΦȲ. Write
+  ∫ωΦȲ = ∫ω(½(Ȳ²)' + ϱȲ²) = ½Ȳ(τ)² − ½ω(τ0)Ȳ(τ0)² + ∫ω(ϱ − λ/2)Ȳ². This
+  gives κ\_𝔇∫ω𝔇 ≤ ½Ȳ(τ)² + ∫ω(ϱ − λ/2)(Ȳ² − Λ\_e). The last integral is
+  ≤ (ϱ̄ − λ/2)⁺/λ.
+\item
+  The pointwise bound Λ\_e ≤ Ȳ² ≤ 1 gives J\_A, and item 1 gives J\_B
+  and J\_\{D4\}. The remaining bounds follow from the interpolations and
+  Cauchy--Schwarz in time.
+\item
+  Multiply (I0) by ω.
+\item
+  Multiply (I2) by ω. Use V₃ ≤ √(V₂V₄) + √c₁W V₂ ≤ V₄/(2κ) + (κ/2 +
+  √c₁W)V₂, then Young: XαV₄ ≤ ¼V₄² + α²X² and Xβ̂V₂ ≤ (μ₂ − λ/2)V₂² +
+  β̂²X²/(4(μ₂ − λ/2)). Finally apply Minkowski in time to √∫ωX². ∎
+\end{enumerate}
+
+For the T7 inputs \textbf{{[}T7{]}} (S1 reference values / T5 defaults):
+μ\_e = 0.02, ε = 10⁻⁵, ε\_I = 3·10⁻⁵, θ₀ = 0.02, ϱ̄ = 0.03, c₁ = 0.5804,
+a\_f = 0.0696, b\_f = 0.0394, μ₁ = 0.1552, μ₂ = 0.6555, c\^{}I\_\{0..3\}
+= (0.425, 0.424, 0.526, 0.442), c₁W = 0.8477, Ψ₁ = 0.39, C\_x = 4, γ₀ =
+0.05, γ₂ = 0.01, κ\_𝔇 = ½. With λ = 0.244 this gives, per unit Ȳ²:
+
+\begin{itemize}
+\tightlist
+\item
+  J₀..J₄ = (205, 255, 31.7, 1.24·10⁴, 4.82·10⁶);
+\item
+  73\% of J₄ is the c₃²J\_\{D4\} = c₃²·8𝔅/ε term, i.e.~the 1/√ε loss.
+\end{itemize}
+
+\hypertarget{corollary-c-comparison-and-hand-off}{%
+\subsection{5. Corollary C (comparison and
+hand-off)}\label{corollary-c-comparison-and-hand-off}}
+
+\textbf{C1 (supersolution).} Suppose F' ≤ −λF + 2g√F + h with λ, g, h ≥
+0. Define H := e\^{}\{−∫λ\}F(τ0) + ∫e\^{}\{−∫\_s\^{}τλ\}h and G :=
+∫e\^{}\{−½∫\_s\^{}τλ\}g. Then √F ≤ √H + G.
+
+Proof. Z := (√H + G)² satisfies Z' = −λZ + 2g√Z + h + Gh/√H ≥ −λZ + 2g√Z
++ h. On any interval where F \textgreater{} Z \textgreater{} 0 we get (F
+− Z)' ≤ (−λ + g/√Z)(F − Z). Grönwall from the last time with F ≤ Z gives
+F ≤ Z; add δ \textgreater{} 0 to F(τ0) and let δ → 0. ∎
+
+\textbf{C2 (triangular system).} Apply C1 level by level, with √F\_i ≤
+√H\_i + G\_i for i \textless{} j inside g\_j and h\_j, and with ∫ωh\_j
+bounded through Lemma J:
+
+\begin{itemize}
+\tightlist
+\item
+  ∫ω𝓘\_j ≤ Σ k\_jm J\_m + Σ r\_ji √(J\_jJ\_i) + re\_j √(J\_j/λ);
+\item
+  in the nested case, ∫ωD\_\{j−2\} ≤
+  θ\_\{j−2\}⁻¹{[}H\_\{j−2\}\^{}\{(λ)\} + 2
+  sup(g\_\{j−2\}√F\_\{j−2\})/λ{]}. Here ω and H\_\{j−2\}\^{}\{(λ)\} use
+  the rate λ = min(λ\_j, λ\_\{j−2\}), since the term (λ −
+  λ\_\{j−2\})⁺∫ωF\_\{j−2\} must vanish.
+\end{itemize}
+
+\texttt{amp.py} implements this with per-slab sups (sup over θ = 0, ½,
+1) and the running sup of k\_jm.
+
+\textbf{C3 (windows, item 3).} z\_j = (y∂\_y)ʲv = Σ\_m S(j,m) y\^{}m
+w\_m (Stirling), so √E\_j\^{}\{{[}y,1.5y{]}\}{[}err{]} ≤ κ\_ch Σ\_m
+S(j,m)√F\_m. For E₃ this is √F₃ + 3√F₂ + √F₁. Here κ\_ch is T9's chart
+factor (≤ 1.02).
+
+\textbf{C4 (pointwise level 3, item 4).} For I = {[}y, 1.5y{]}:
+sup\_I\textbar w₃\textbar² ≤ ∫\_Iw₃²/\textbar I\textbar{} +
+2‖w₃‖\_\{L²(I)\}‖w₄‖\_\{L²(I)\}, with ‖w₃‖² ≤ F₃/(28y⁴) and either ‖w₄‖²
+≤ F₄/(28y⁶) or ‖w₄‖² ≤ D₂(τ*)/(28y²).
+
+\textbf{C5 (good time).} Integrating (F) at j = 2 over a window W =
+{[}τ\_a, τ\_b{]} with ω ≡ 1 gives θ₂∫\_W D₂ ≤ F₂(τ\_a) + ∫\_W(2g₂√F₂ +
+h₂ + inflow). So there is τ* ∈ W with D₂(τ*) ≤ \textbar W\textbar⁻¹∫\_W
+D₂. Lemma O does not make this selection: its H4, ∫(h₀⁽⁵⁾)² ≤ M² per
+cylinder, is a hypothesis on the data at t₁ = t(τ*), so step 4 must
+choose τ* (review A1). The bound is quadratic in Ȳ and is dominated by
+F₂(τ\_a)/(θ₂\textbar W\textbar): with the hand-off sub-window W′
+(\textbar W′\textbar{} = 1.46·10⁻⁴) it is D₂(τ*) ≤ 1.25·10⁻⁸ at Ȳ =
+10⁻¹², and with one whole slab (\textbar W\textbar{} = 0.15) it is
+1.26·10⁻¹¹ (\texttt{camp.py\ -\/-window\ 180-180}). On a cylinder
+support S (y ≥ y₀ ≥ 22) the localized dissipation obeys ∫\_S w₄² ≤
+D\_S/(28y₀²) with D\_S := ∫\_S T₂w₄² ≤ D₂. A localized energy ∫T₂ψ²w₂²
+(ψ = 1 on S) does not improve the leading term: its value at τ\_a is
+bounded only by F₂(τ\_a), and its inflow (the ramp, or transport through
+an inner cut-off) is that of F₂. So the window length, not the
+localization, decides. \texttt{p2/t8se/h4loc.py} evaluates H4 per
+cylinder (error part L⁷·1.001²·D₂(τ*)/(28y₀²), base part from the T6
+hulls of κ̃\^{}\{(≤3)\}). With W′, H4 fails by ×16--279 on the cone
+cylinders (r\_c = 200--380) and by ×4.95 on the far cylinder centred at
+376. Even the Ȳ-free part, 2.6·10⁻¹⁰ (the review's 2.9·10⁻⁹ also
+contains the part linear in Ȳ), fails by ×5.8 at r\_c = 380. With one
+slab (slab 179 or 180), the worst cylinder (cone r\_c = 370--380) has
+∫(h₀⁽⁵⁾)² ≤ 0.31·M²; the far cylinders have ≤ 0.0052·M²; and the Ȳ-free
+part is ≤ 2.7·10⁻¹³, i.e.~≤ 0.6\% of M². Item 4 then uses the same τ*,
+and the binding requirement becomes item 3 (Ȳ ≤ 1.79·10⁻¹¹). H1--H4 must
+then hold over the whole window slab. By Lemma N3′, level 4 is not
+needed for the nonlinear bootstrap either.
+
+\hypertarget{remarks}{%
+\subsection{6. Remarks}\label{remarks}}
+
+\textbf{6.1 Nonlinear and modulation terms, levels 0--3 (Lemma N3′):
+exact operator, x-dependent majorants, no level 4.}
+
+This replaces the earlier Lemma N3. That lemma expanded ∂⁴(𝒩+𝒬) fully,
+which produced the trilinear classes w₃²w₄ and w₃³, and it used T5's box
+with placeholder majorants a₀ = 20η\_F, a₁ = 40(η\_F/x +
+\textbar κ̃\textbar). On base v2, T7's Hessian sups grow with x (x²n₂ ≤
+6.2·10¹⁴ at slab 180), so the placeholders were not justified. N3′ uses
+the exact operator, has no trilinear classes, covers every level j ≤ 3
+and the modulation part 𝒬, and is evaluated on the certified far boxes.
+
+\emph{Operator.} Let α := 1 − κ̃e and J² := α² + e'². At the base
+modulation and with the clock fixed (T7 \texttt{nl7.py}), the equation
+is e\_τ = F(e) with
+
+F(e) = (J/α){[}−κ\_ss + c(−q̃e' + (p̃+e)α)/J + b̃(−t̃₁e' + ñα)/J{]} − Ṽ +
+e'(ϖ − eθ̃\_τ)/α.
+
+F = A₄e'\,'\,'\,' + A₃e'\,'\,' + A₂ with A₄ = −J⁻⁴ and A₃, A₂ functions
+of z := (e, e', e'\,'). The nonlinear remainder is
+
+𝒩 := F(e) − F(0) − DF(0)e = Ãe'\,'\,'\,' + B̃e'\,'\,' + C̃, Ã := 1 − J⁻⁴,
+B̃ := A₃(z) − A₃(0), C̃ := A₂(z) − A₂(0) − ∇A₂(0)·z.
+
+\emph{Cancellation: no coefficient grows with x.} Insert the base
+identities
+
+ϖ = −κ̃κ̃' + Q + c(q̃ − x) + b̃t̃₁ + A, θ̃\_τ = −κ̃'\,'\,' − κ̃²κ̃' + κ̃Q − cxκ̃ +
+ρ\_θ with ρ\_θ = r' + κ̃A, Ṽ = −κ̃'\,' + cp̃ + b̃ñ + r.
+
+The quadratic part of the tangential term is ee'(κ̃ϖ − θ̃\_τ)/α = ee'(cκ̃q̃
++ b̃κ̃t̃₁ + κ̃'\,'\,' − r')/α. Its first two parts cancel the quadratic
+parts −cq̃κ̃ee'/α and −b̃t̃₁κ̃ee'/α of the normal velocity. The remaining c-
+and b̃-terms are linear in e. Hence
+
+𝒩 = 𝒩\_K + (κ̃'\,'\,' − r')ee'/α, where 𝒩\_K is the nonlinear part of
+−(J/α)κ\_ss.
+
+So 𝒩 depends on none of c, b̃, p̃, q̃, ñ, t̃₁, x, Q and A. Its coefficients
+are functions of κ̃, \ldots, κ̃'\,'\,' and r' only, and none of them grows
+with x. \texttt{n3sym.py} checks A₄ = −J⁻⁴, F(0) = −r and the
+independence of c, \ldots, Q symbolically; A drops out of the generated
+forms. T7's growth of n₂ comes from the interval hull of the cancelling
+sum, with q̃, x and Q taken as independent intervals; it is not a
+property of 𝒩.
+
+\emph{Modulation part.} For the terms 𝒬, with the true clock and
+modulation (T5 §2.1: c → (1−ϑ)c − x₁, b̃ → (1−ϑ)b̃ − x₂, κ\_ss →
+(1−ϑ)κ\_ss), the exact split is
+
+𝒩 + 𝒬 = (1−ϑ)𝒩 + ϑe'\,'\,'\,' + ϑκ̃²e'\,' − ϑc₀e + ϑP + g·e' − (ϑc +
+x₁)e,
+
+P := (κ̃'\,'\,' − r')ee'/α, g := U/α + 5ϑκ̃κ̃`, U := (x₁ + ϑc)q̃ + (x₂ +
+ϑb̃)t̃₁, c₀ = −3κ̃'² − 4κ̃κ̃''.
+
+\texttt{n3qsym.py} checks this split symbolically. The first five terms
+have the structure of 𝒩, with Ã → (1−ϑ)Ã + ϑ and C̃ → (1−ϑ)C̃ + ϑκ̃²e'\,' −
+ϑc₀e + ϑP, and no coefficient grows with x; they go through the weak
+form below. The last two terms carry the velocity U ≈ (x₁ + ϑc)x, which
+does grow with x; they go through the strong form. The modulation bounds
+come from T5's (M): \textbar x\textbar{} ≤ m̄(1 − m̄ē(A+W₁))⁻¹(ℓ̄A + c\_φℛ₂
++ n\_φη₁(A+W₁+B) + strip). The linear part is T7's C\_xΛ\^{}\{1/2\}, and
+the residual part x\_r := m̄c\_φℛ₂ is added explicitly per slab (T7's m̄;
+c\_φ is the 2-norm of (c\_φ,j)\_\{j=1..3\}, the largest over the T7
+certificates, since the largest component understates it ×1.30 (T7);
+T6's ℛ₂; x\_r ≤ 2.6·10⁻¹⁶ on slabs 2--180), in camp and here (review
+B6). The nonlinear and E\_ij parts are O(η₁Ȳ) relative. T7 Lemma 4c(M)
+bounds them on the box by x\_NL ≤ 1.95·10⁻¹⁵. This fits in the slack
+C\_x(Ȳ − Y\_cert) ≥ 2.44·10⁻¹² (ratio ≤ 8.0·10⁻⁴; t7/constants.json
+meta.modulation\_nl) that the certified (Y) level leaves for every Ȳ ≥
+10⁻¹². That level is 1.33·10⁻¹³ (p2/ycomp.py, SLAB0 = 2), with Y(τ₀) ≤
+6.21·10⁻¹³ at the switch. So \textbar x\textbar{} ≤ C\_xȲ + x\_r and
+\textbar ϑ\textbar{} = \textbar x₃\textbar/n ≤ (C\_xȲ + x\_r)/n, with
+the per-slab lower bound of n = ‖χṼ‖\_ρ (cconst's nV).
+
+\emph{Weak form, level 3.} Recall w\_m = ∂\^{}\{m+1\}e. At level 3, 𝒩
+contributes S := 2∫T₃w₃∂⁴𝒩 to F₃'. Two integrations by parts give S =
+2∫(T₃w₃)'\,'∂²𝒩, with
+
+∂²𝒩 = Ãw₅ + a₄w₄ + a₃w₃ + a♭,
+
+a₄ := 2Ã' + B̃, a₃ := Ã'\,' + 2B̃' + (∂\_\{e'`\}A₃)e''\,' + ∂\_\{e'`\}C̃,
+a♭ := {[}B̃'\,'{]}♭e''\,' + {[}C̃'\,'{]}♭.
+
+Here ' is the total x-derivative along the solution, and {[}·{]}♭ drops
+the chain-rule term that contains e'\,'\,'`. Since Ã depends on (e, e')
+and A₃, A₂ depend on z, the coefficients a₄, a₃ and those inside a♭
+involve only e, \ldots, e'\,'`, the boxed jets. So ∂²𝒩 is linear in the
+free jets w₃, w₄, w₅, and \textbf{there are no trilinear classes}. Write
+T := T₃ and ϕ := T'(6Ã' + 4B̃) − 2T'\,'Ã. One more integration by parts
+of the w₄w₅- and w₄²-terms gives
+
+S = 2∫TÃw₅² + ∫Ψ₄₅w₄w₅ + ∫Ψ₃₅w₃w₅ + ∫Ψ₃₄w₃w₄ + ∫Ψ₃₃w₃² + 2∫(Tw₅ + 2T'w₄
++ T'\,'w₃)a♭,
+
+Ψ₄₅ = 2Ta₄, Ψ₃₅ = 2Ta₃ + 4T'`Ã − T'(6Ã' + 4B̃), Ψ₃₄ = T'(4a₃ − 6Ã'\,' −
+4B̃`) − 2T'`B̃ + 2T'`'Ã, Ψ₃₃ = 2T''a₃.
+
+There are no boundary terms. At y\_a, T, \ldots, T'\,'\,' vanish (W2).
+At ℓ̃ the closed-curve argument of (SE) applies, because 𝒩 is even when e
+is. S involves w\_\{≤5\}, κ̃\^{}\{(≤5)\} and r\^{}\{(≤3)\} only, so the
+identity extends by density as in §1.5.
+
+\emph{Weak form, levels j ≤ 2.} For j = 1, 2 the contribution
+2∫T\_jw\_j∂\^{}\{j+1\}𝒩 equals 2∫(T\_jw\_j)'\,'∂\^{}\{j−1\}𝒩, with
+∂\^{}\{j−1\}𝒩 = Ãw\_\{j+2\} + α₁w\_\{j+1\} + α₀w\_j + α♭ and
+
+j = 2: α₁ = Ã' + B̃, α₀ = B̃' + ∂\_\{e'`\}C̃, α♭ = ∂\_XC̃ + (∂\_eC̃)e' +
+(∂\_\{e'\}C̃)e'`; j = 1: α₁ = B̃, α₀ = ∫₀¹∂\_\{e'`\}C̃(e, e', se'`)ds, α♭ =
+C̃(e, e', 0).
+
+With ϕ := 4T'α₁ − 2T'`Ã − 2T'Ã', the same steps give S\_j =
+2∫TÃw\_\{j+2\}² + Σ∫Ψ\_\{ab\}w\_aw\_b + 2∫(Tw\_\{j+2\} + 2T'w\_\{j+1\} +
+T'\,'w\_j)α♭, where
+
+Ψ\_\{j+1,j+2\} = 2Tα₁, Ψ\_\{j,j+2\} = 2Tα₀ + 4T'`Ã − T'(4α₁ − 2Ã'),
+Ψ\_\{j,j+1\} = T'(4α₀ − 4α₁' + 2Ã'`) − 2T'`α₁ + 4T'`Ã' + 2T'`'Ã,
+Ψ\_\{jj\} = 2T''α₀
+
+(j = 3 is the case above). At level 0, 2∫T₀w₀∂𝒩 = −2∫(T₀w₀)'𝒩, and one
+more integration by parts of the Ãw₃-terms gives
+
+S₀ = 2∫TÃw₂² + ∫2T(Ã' − B̃)w₁w₂ + ∫{[}4T'`Ã + 2T'(2Ã' − B̃){]}w₀w₂ +
+∫{[}2T'`'Ã + 4T'`Ã' + 2T'Ã'\,'{]}w₀w₁ − 2∫(Tw₁ + T'w₀)C̃,
+
+with \textbar C̃\textbar{} ≤ γ\_e\textbar e\textbar{} +
+γ₀\textbar w₀\textbar{} + γ₁\textbar w₁\textbar, γᵢ := ½ΣⱼZⱼ
+sup\textbar∂ᵢ∂ⱼA₂\textbar. \texttt{n3wcheck.py} checks every one of
+these identities (the difference of the integrands is an exact
+derivative; Euler-operator test).
+
+\emph{Strong form for g·e' and (ϑc + x₁)e.} At level j,
+2∫T\_jw\_j∂\^{}\{j+1\}(gw₀) = ∫{[}(2j+1)g'T − gT'{]}w\_j² +
+2Σ\_\{k=2\}\^{}\{j+1\} C(j+1,k)∫Tw\_j g\^{}\{(k)\}w\_\{j+1−k\}. The flux
+Tgw\_j² vanishes at ℓ̃ because g(ℓ̃) = 0 (q̃(ℓ̃) = t̃₁(ℓ̃) = κ̃`(ℓ̃) = 0 on base
+v2), and T = 0 at y\_a. The x-growth of U is absorbed: gτ₁ is bounded
+because τ₁ = O(1/Y\_ℓ). In g\^{}\{(j+1)\} the top jet e\^{}\{(j+1)\} =
+w\_j occurs once, with coefficient ∂\_eg = Uκ̃/α²; that part costs 2
+sup\textbar∂\_eg·e'\textbar{} in σ\_j. Hence
+
+Δσ\_j ∋ sup\_C{[}(2j+1)\textbar g'\textbar{} +
+\textbar g\textbar\textbar τ₁\textbar{} +
+2\textbar∂\_eg\textbar\textbar e'\textbar{]} + 2(x̄ +
+ϑ̄\textbar c\textbar) (at j = 0 the ∂\_eg-term is part of g'), Δk\_jj ∋
+sup\_R{[}((2j+1)\textbar g'\textbar{} +
+2\textbar∂\_eg\textbar\textbar e'\textbar)T +
+\textbar g\textbar\textbar T'\textbar{]}/W, Δc\_\{j,j+1−k\} = 2C(j+1,k)
+sup\_\{C∪R\}\textbar g\^{}\{(k)\}♭\textbar Y\_ℓ\^{}\{k−1\} (k = 2,
+\ldots, j+1; ♭: the top jet removed),
+
+where x̄ := C\_xȲ + x\_r and ϑ̄ := x̄/n.~The Δc\_\{jm\} enter g\_j as
+½Δc\_\{jm\}√F\_m. The majorants of g\^{}\{(k)\} use the Frenet jets of
+q̃, t̃₁ (q̃' = 1 + κ̃p̃, p̃' = −κ̃q̃, t̃₁' = κ̃ñ, ñ' = −κ̃t̃₁) and (1/α)\^{}\{(m)\},
+m ≤ 4, from \texttt{n3qforms.py}.
+
+\emph{Boxes.} The bootstrap hypothesis 𝔹′ is the following, for the slab
+and x ≥ x\_a:
+
+\begin{itemize}
+\tightlist
+\item
+  y ≥ 28: \textbar e\textbar{} ≤ 1.7·E(x) with E := η₁ +
+  √F₀·y\^{}\{3/2\}/√84 and √F₀ ≤ A₀Ȳ + B₀ (camp's split, per slab), and
+  \textbar e'\textbar{} ≤ ζ₁, x\textbar e'`\textbar{} ≤ ζ₂,
+  x²\textbar e''\,'\textbar{} ≤ ζ₃;
+\item
+  y \textless{} 28 (x ≤ 34.25): \textbar e\textbar,
+  \textbar e'\textbar{} ≤ η₁ = 10⁻⁵ (T5's tip box, T5 §2.5; T7 Lemma 4b
+  certifies it: c\_e1Ȳ = 2.8·10⁻⁸ at Ȳ = 1.7·10⁻¹², and
+  \texttt{n3boxes.py} checks this), and x\textbar e'`\textbar,
+  x²\textbar e''`\textbar{} ≤ η\_F = 10⁻² (the e'' part is the
+  assembly's Lemma 4a).
+\end{itemize}
+
+The defaults are ζ₁ = 1.5·10⁻³, ζ₂ = 3·10⁻⁴, ζ₃ = η\_F, with Ȳ =
+1.7·10⁻¹² in E and in the modulation bound. \texttt{n3boxes.py} checks
+all four for the final camp run, at Ȳ = 1.7·10⁻¹² (every smaller Ȳ is
+then covered, since the bounds are monotone in Ȳ): \textbar e'\textbar{}
+≤ 5.47·10⁻⁴, x\textbar e'`\textbar{} ≤ 1.20·10⁻⁴,
+x²\textbar e''\,'\textbar{} ≤ 9.33·10⁻³, and √F₀ (with N3′) ≤ 1.00·√F₀
+(used). At Ȳ = 10⁻¹² the margins are ×2.76, ×3.97, ×1.69 and ×1.70
+(review B2: the first version assumed 7·10⁻⁴, 1.65·10⁻⁴ and factor 1.25,
+so its true margins were ×1.29, ×2.19, ×1.76 and ×1.25). The
+\textbar e\textbar{} box is a fixed point: n3far is run with the camp
+output without N3′, then once more with the camp output of that n3 file.
+(E bounds \textbar e\textbar{} because \textbar e\textbar{} ≤
+\textbar e(28)\textbar{} + H₂₈√F₀, with \textbar e(28)\textbar{} ≤ η₁
+and H₂₈(y)² := ∫₂₈\^{}y T₀⁻¹ ≤ (y³ − 28³)/84.)
+
+\emph{Majorants per x-range.} Cut each slab's far field into the ramp R,
+{[}x\_b, 30.25{]}, {[}30.25, 34.25{]} and the dyadic ranges {[}2ᵏ·34.25,
+2ᵏ⁺¹·34.25{]} up to ℓ̃. On each range, the base data are arb hulls of κ̃,
+\ldots, κ̃\^{}\{(5)\}, r', r'`, r''\,' and p̃, q̃, ñ, t̃₁ over the range and
+the slab. The box enters through (Z₀, Z₁, Z₂, Z₃) := (1.25E(x\_hi), ζ₁,
+ζ₂/x\_lo, ζ₃/x\_lo²) for y ≥ 28, and (η₁, η₁, η\_F/x\_lo, η\_F/x\_lo²)
+below. The box is convex and contains 0, so mean-value forms with sups
+over the box give (i, j = 0, 1, 2 index z):
+
+\begin{itemize}
+\tightlist
+\item
+  Ã⁺, \textbar Ã\textbar, \textbar Ã'\textbar{} and
+  \textbar Ã'\,'\textbar{} directly;
+\item
+  \textbar B̃\textbar{} ≤ Σᵢ Zᵢ sup\textbar∂ᵢA₃\textbar,
+  \textbar B̃`\textbar{} ≤ Σᵢ Zᵢ sup\textbar∂\_X∂ᵢA₃\textbar{} + Σᵢ Zᵢ₊₁
+  sup\textbar∂ᵢA₃\textbar, \textbar∂\_\{e'`\}C̃\textbar{} ≤ Σⱼ Zⱼ
+  sup\textbar∂ⱼ∂\_\{e'`\}A₂\textbar; then \textbar a₄\textbar{} ≤
+  2\textbar Ã'\textbar{} + \textbar B̃\textbar{} and
+  \textbar a₃\textbar{} ≤ \textbar Ã'`\textbar{} +
+  2\textbar B̃'\textbar{} + Z₃ sup\textbar∂\_\{e'`\}A₃\textbar{} +
+  \textbar∂\_\{e''\}C̃\textbar;
+\item
+  \textbar a♭\textbar{} ≤ β♭\_e\textbar e\textbar{} + Σ\_\{m≤2\}
+  β♭\_m\textbar w\_m\textbar. In {[}C̃'\,'{]}♭ = ∂\_X²C̃ + 2Σᵢ(∂\_X∂ᵢC̃)zᵢ'
+  + Σᵢⱼ(∂ᵢ∂ⱼA₂)zᵢ'zⱼ' + Σ\_\{i≤1\}(∂ᵢC̃)zᵢ'\,' and in
+  {[}B̃'\,'{]}♭e'\,'\,', every monomial is one jet times boxed factors.
+  Keep the jet and box the rest. The α♭ of the levels j ≤ 2 and the γ's
+  of level 0 are treated the same way.
+\end{itemize}
+
+For 𝒬, all majorants of 𝒩 are multiplied by 1 + ϑ̄, Ã⁺ and
+\textbar Ã\textbar{} gain ϑ̄(1 + \textbar Ã\textbar) and ϑ̄,
+\textbar∂\_\{e'`\}C̃\textbar{} gains ϑ̄κ̃², the Hessian sups of A₂ gain ϑ̄
+times those of P, and the linear terms ϑκ̃²e'' and −ϑc₀e add their own
+derivatives to the α₀ and β♭ of each level. ∂\_X differentiates through
+the base only (κ̃\^{}\{(k)\} → κ̃\^{}\{(k+1)\}, r\^{}\{(k)\} →
+r\^{}\{(k+1)\}). \texttt{n3forms.py} (generated by \texttt{n3sym.py})
+and \texttt{n3qforms.py} (generated by \texttt{n3qsym.py}) give every
+derivative needed as an arb function.
+
+\emph{Constants.} On the core (y ≥ y\_b), with τ\_m := T\^{}\{(m)\}/T,
+set
+
+m₃₅ := 2\textbar a₃\textbar{} + 4\textbar τ₂\textbar\textbar Ã\textbar{}
++ \textbar τ₁\textbar(6\textbar Ã'\textbar{} + 4\textbar B̃\textbar), m₃₄
+:= \textbar τ₁\textbar(2\textbar Ã'`\textbar{} + 4\textbar B̃'\textbar{}
++ 4Z₃ sup\textbar∂\_\{e'`\}A₃\textbar{} + 4\textbar∂\_\{e''\}C̃\textbar)
++ 2\textbar τ₂\textbar\textbar B̃\textbar{} +
+2\textbar τ₃\textbar\textbar Ã\textbar,
+
+m₄₅ := 2\textbar a₄\textbar, m₃₃ :=
+2\textbar τ₂\textbar\textbar a₃\textbar,
+
+so that \textbar Ψ\_\{ab\}\textbar{} ≤ m\_\{ab\}T (sups over the core
+pieces; m₄₅ also over R₃). On the ramp set M₃₅ := sup\_R Ψ₃₅²/(TW), and
+M₃₄ likewise, using the same bounds with T\^{}\{(m)\} in place of Tτ\_m
+(T\^{}\{(m)2\}/T is bounded by (W2)). Also set M₃₃ := sup\_R
+\textbar Ψ₃₃\textbar/W, M\_f := sup\_R T'`²/(TW), M\_T := sup\_R
+\textbar T'`\textbar/W and τ̄₂ := sup\_C \textbar τ₂\textbar. Young's
+inequality is used with the weights δ\_D = 10, δ\_R = 10⁻², δ\_A = 0.05,
+δ\_B = 3·10⁻³, δ\_C = 1, δ\_f = 10⁻³ and δ₃₄ := (4M₃₄/M\_T)\^{}\{1/2\},
+together with N₄² ≤ D₃ + ¼F₃ + ½∫(T'')⁺w₃² (S3). With c\_N := ½m₃₄ +
+m₄₅/(2δ\_D) + ½δ₃₄ + δ\_B this gives
+
+Δθ₃ = 2 sup Ã⁺ + ½(m₃₅ + m₄₅)δ\_D + δ\_R + δ\_A + c\_N,
+
+Δσ₃ = m₃₅/(2δ\_D) + ½m₃₄ + m₃₃ + δ\_C τ̄₂² + c\_N(¼ + ½τ̄₂),
+
+Δk₃₃ = M₃₅/(4δ\_R) + M₃₄/(2δ₃₄) + M₃₃ + δ\_f M\_f + ½c\_N M\_T.
+
+The a♭ terms are paired as follows, with ‖a‖²\_T := ∫Ta² and
+‖a‖²\_\{(1)\} := ∫(T'²/T)a² (the script doubles the 1/δ\_A and 4/δ\_B
+terms, which is spare):
+
+2∫Tw₅a♭ ≤ δ\_A D₃ + ‖a♭‖²\_T/δ\_A, 4∫T'w₄a♭ ≤ δ\_B N₄² +
+4‖a♭‖²\_\{(1)\}/δ\_B,
+
+2∫T'\,'w₃a♭ ≤ δ\_C τ̄₂²F₃ + δ\_f M\_f V₃² + ‖a♭‖²\_\{T,C\}/δ\_C +
+‖a♭‖²\_\{T,R\}/δ\_f.
+
+Three facts are used: (Σ of four terms)² ≤ 4Σ(·)²; T₃/T\_m =
+Y\_ℓ\^{}\{6−2m\} on the core and y\^{}\{6−2m\} on the ramp (one ramp for
+all levels); and on y ≥ 28, e² ≤ 2η₁² + 2H₂₈²F₀. Together they add to h₃
+the terms Σ\_\{m≤2\}(Δd₃ₘF\_m + Δk₃ₘV\_m²) + hf₃, where
+
+Δd₃ₘ = 4{[}f\_C sup\_C β♭\_m²Y\_ℓ\^{}\{6−2m\} + f₁ sup\_C
+τ₁²β♭\_m²Y\_ℓ\^{}\{6−2m\} + f\_R sup\_R β♭\_m²y\^{}\{6−2m\}{]}, plus
+8{[}f\_C∫\_C Tβ♭\_e²H₂₈² + f₁∫\_C Tτ₁²β♭\_e²H₂₈²{]} for m = 0,
+
+Δk₃ₘ = 4f₁ sup\_R β♭\_m²T'²/(TW),
+
+hf₃ = 8η₁²{[}f\_C∫\_C Tβ♭\_e² + f₁∫\_C Tτ₁²β♭\_e²{]} + 4η₁²{[}f\_R∫\_R
+Tβ♭\_e² + f₁∫\_R(T'²/T)β♭\_e²{]},
+
+f\_C = 2/δ\_A + 1/δ\_C, f\_R = 2/δ\_A + 1/δ\_f, f₁ = 8/δ\_B.
+
+Levels j = 1, 2 use the same formulas with (j, j+1, j+2) in place of (3,
+4, 5), T\_j/T\_m = Y\_ℓ\^{}\{2(j−m)\}, j + 1 terms in α♭ instead of 4,
+and the weights δ\_D = 1, δ\_R = δ\_A = 10⁻³, δ\_B = 10⁻⁴; θ₂ enters
+item 4 through C5, so the D-side weights are kept small there. Level 0
+pairs the three Ψ's as above (with N₁, √F₀, √D₀ and the ramp datum V₀),
+and the C̃-term as 2∫T\textbar w₁\textbar\textbar C̃\textbar{} ≤ 2γ₁N₁² +
+2γ₀√F₀N₁ + 2N₁(E\_abs + E\_F√F₀), and so on for T'w₀C̃; here E\_abs² :=
+2η₁²∫\_C Tγ\_e² + η₁²∫\_R Tγ\_e² and E\_F² := 2∫\_\{y≥28\}Tγ\_e²H₂₈².
+Every product of two norms is split by Young (weights 10⁻⁴ on N₁² for
+the absolute and ramp T'-terms), and N₁² ≤ D₀ + (¼ + ½τ̄₂)F₀ + ½M\_T V₀²
+(S3).
+
+\textbf{Lemma N3′.} Assume 𝔹′, (SE), \textbar x\textbar{} ≤ x̄ and
+\textbar ϑ\textbar{} ≤ x̄/n.~Then (F) at each j ≤ 3 holds for the
+equation with 𝒩 + 𝒬 included, provided θ\_j, λ\_j, k\_jj, k\_jm and
+c\_jm are replaced by θ\_j − Δθ\_j, λ\_j − Δσ\_j, k\_jj + Δk\_jj, k\_jm
++ Δk\_jm and c\_jm + Δc\_jm, and h\_j gains
+Σ\_\{m\textless j\}Δd\_jmF\_m + hf\_j. All of these are per-slab arb
+bounds.
+
+\emph{Evaluation (base v2, slabs 2--180; certified).} The inputs are the
+SE-corrected T6 data that \texttt{p2/se\textbackslash{}\_corr.py} writes
+(p2/t6/jets and residuals.json), with its outward rounding. Run
+\texttt{cconst.py} (TOPLOSS = 0.0196) and \texttt{merge.py} to get
+constants\_fin.json, and \texttt{camp.py} without N3′ to get
+amp\_fin.json. Then run
+\texttt{n3far.py\ -\/-slabs\ 2-180\ -\/-amp\ constants/amp\textbackslash{}\_fin.json\ -\/-out\ constants/n3\textbackslash{}\_it0.json}
+(about 30 s, one process) and
+\texttt{camp.py\ ...\ -\/-n3\ constants/n3\textbackslash{}\_it0.json}.
+Then run n3far once more with \texttt{-\/-amp} set to that camp output
+(→ n3.json), camp again, and \texttt{n3boxes.py}. Every output JSON has
+an \texttt{args} block with the argv, the env and the input paths. The
+cconst slab files also record sha256 digests of their jets, of
+residuals.json and of the T7 inputs. A cached slab is reused only if
+these match, and merge.py checks that they agree. camp enters each
+Δd\_jmF\_m through √F\_m ≤ A\_mȲ + B\_m, with an adaptive split of the
+cross term.
+
+\begin{itemize}
+\tightlist
+\item
+  sup Ã⁺ = 0.0161 at slab 180 on the 1.7-box (sup\textbar κ̃e\textbar{} ≤
+  4.1·10⁻³; the certified value is 2.4·10⁻³). The top loss is 2 sup Ã⁺ ≈
+  8 sup\textbar κ̃e\textbar. The assembly's TOPLOSS = 2 sup\textbar A₄ −
+  A₄(0)\textbar{} ≤ 0.0196, on the unscaled box, is the same quantity.
+\item
+  Level 3: Δθ₃ ≤ 0.096, which takes θ₃ from 0.220 to ≥ 0.124; Δσ₃ ≤
+  2.9·10⁻³; Δk₃₃ ≤ 1.7·10⁹ (+0.15\% of k₃₃); Δd₃ₘ ≤ (1.6·10⁵, 74,
+  0.044); Δk₃ₘ ≤ (9.5·10³, 8.0·10⁵, 4.0·10⁷); Δc₃ₘ ≤ (0.044, 2.8·10⁻³,
+  9.3·10⁻⁵); hf₃ ≤ 9.1·10⁻¹².
+\item
+  Levels 0--2: Δθ\_j ≤ 0.035 (0.032 of it is the top term); Δσ\_j ≤
+  2.0·10⁻³, 1.3·10⁻³, 1.3·10⁻³; Δk\_jj ≤ 7.3, 8.3·10³, 4.6·10⁶ (≤ 0.05\%
+  of k\_jj); Δd₁₀ ≤ 1.4, Δd₂ₘ ≤ (2.5·10³, 0.18); Δc\_jm ≤ 7.1·10⁻⁴;
+  hf\_j ≤ 3·10⁻¹³.
+\item
+  𝒬: x̄ ≤ 1.33·10⁻¹¹ and ϑ̄ ≤ 5.8·10⁻⁸ (at Ȳ = 1.7·10⁻¹²; slab 180, n ≥
+  2.3·10⁻⁴). Its strong-form share of Δσ\_j is ≤ 1.7·10⁻⁶; it is the
+  only source of the Δc\_jm.
+\item
+  Requirement (pipeline of STEP4\_RESULT, current KCH, review B4 and B6
+  applied). On W′ (SUBW): Ȳ ≤ 4.99·10⁻¹² (item 4), against 5.11·10⁻¹²
+  without N3′. On a one-slab window (\texttt{-\/-window\ 180-180}): Ȳ ≤
+  1.79·10⁻¹¹ (item 3, E3), against 1.80·10⁻¹¹ without N3′.
+\item
+  𝔹′ closes, as checked above (thinnest margin ×1.69,
+  x²\textbar e'\,'`\textbar). N3′ is certified for Ȳ ≤ 1.7·10⁻¹² (the
+  run's Ȳ); the x²\textbar e''\,'\textbar{} box itself closes up to Ȳ ≈
+  1.83·10⁻¹².
+\item
+  \emph{Review B1: the residual of the corrected base, computed
+  directly.} \texttt{p2/t6c/slabc.py} runs T6's engine on the
+  (SE)-corrected base itself, so se\_corr's majorants are no longer
+  used. a₁ = −δ is exact. a₂ is the root of Im Ŵ(ℓ) = 0; on every slab,
+  by Banach, it is unique in a ball of radius ≤ 7.6·10⁻²⁶ (contraction ≤
+  2·10⁻¹⁴). a₁′ and a₂′ come from T6's θ\_τ = ρ\_θ + Φ − Φ(0) and from
+  its velocity identity. The geometry uses e\^{}\{iθ\} from θ itself, at
+  time degree 20. The two window elements are cut at u = 0.6 and 0.8. On
+  slab 11 a knot crosses u = 0.6, so that slab is also cut in time. The
+  corrected far end encloses 0: \textbar Im Ŵ(ℓ)\textbar{} ≤ 2.2·10⁻²⁰
+  and \textbar θ̂(ℓ) + 3π/2\textbar{} ≤ 1.9·10⁻²⁵. With the bump set to
+  zero, the run reproduces T6. Maxima over slabs 2--180, direct against
+  se\_corr: R1 4.6·10⁻¹⁵ vs 2.6·10⁻¹⁴; 𝓡₀ 3.5·10⁻⁹ vs 8.7·10⁻⁹; 𝓡₁
+  4.4·10⁻¹¹ vs 4.5·10⁻¹⁰; 𝓡₂ 2.5·10⁻¹⁰ vs 6.9·10⁻⁹; 𝓡₃ 4.9·10⁻⁹ vs
+  1.7·10⁻⁷. se\_corr left out that S₁(ℓ) moves; this shifts ∂⁻¹r over
+  the whole far field. The direct level-0 hats are up to ×3 per slab,
+  but their maxima are below se\_corr's. Chain on these data
+  (\texttt{constants/*\textbackslash{}\_b1*}): B\_j = 7.6·10⁻⁷,
+  1.8·10⁻⁹, 5.1·10⁻⁸, 7.8·10⁻⁶. The far-box margins at Ȳ = 10⁻¹² are
+  ×6.43, ×4.69, ×1.99 and ×1.70. The requirement is Ȳ ≤ 5.15·10⁻¹² on W′
+  and ≤ 1.79·10⁻¹¹ on one slab. H4 on one slab is ≤ 0.23·M². ϱ\_c is
+  still 0.04711. The (Y) level is 3.2·10⁻¹⁴.
+\end{itemize}
+
+\emph{Remarks.}
+
+\begin{itemize}
+\tightlist
+\item
+  The class terms (A), (B) of the old N3 in \texttt{cconst.py} (κ\_N,
+  \texttt{NLFAC}) are superseded; keeping them is conservative (θ₃
+  −5·10⁻⁵ and k₃₃ +2.7·10⁵, approximately).
+\item
+  With \texttt{-\/-n3}, cconst's TOPLOSS counts the top term a second
+  time; it may be set to 0.
+\item
+  \texttt{n3far.py\ -\/-noQ\ -\/-levels\ 3} reproduces the level-3-only
+  evaluation of the first version of N3′ (with that version's boxes).
+\end{itemize}
+
+\emph{Conclusion.} N3′ uses F\_j, D\_j, N\_\{j+1\} (through S3), the
+lower F\_m and the ramp data V₀--V₃. \textbf{Level 4 is not used.}
+Together with C5, level 4 is dropped altogether.
+
+\textbf{6.2 Variants.}
+
+\begin{itemize}
+\tightlist
+\item
+  Nested ramps (R\_j ⊂ C\_\{j−2\}) replace W-data at level j by
+  D\_\{j−2\}. This is good for level 4 (A₄ falls 40×) and bad for level
+  3.
+\item
+  Narrow or steep ramps lose through (S1): the P²/T term at the steep
+  foot of S dominates the transport flux.
+\item
+  With δ\_P = 1.5 (most of D\_j used) the best level-3 ramp is {[}14,
+  22{]}.
+\end{itemize}
+
+\textbf{6.3 Localization.} A transport-following outer factor
+Ω(Y\_ℓ/Y\_h), with Y\_h' = c\_hY\_h and c\_h \textless{} c, removes the
+bend from the hand-off energies. However:
+
+\begin{itemize}
+\tightlist
+\item
+  its 4th-order commutators at small Y\_h cost more than the bend
+  contributes;
+\item
+  in the global T5 design the bend contributes ≤ 3\% of √F₃, through
+  modulation (γ\_j on the bend), and \textless{} 10⁻⁵ through c\_ji.
+\end{itemize}
+
+It is therefore not recommended.
+
+\textbf{6.4 Not covered.} These remain outside the lemma:
+
+\begin{itemize}
+\tightlist
+\item
+  the T7 constants: Lemma J inputs, C\_x and the modulation constants
+  are taken from t7/constants.json, some still pending or provisional
+  there; μ\_e, ϱ\_c and K\_e are placeholders;
+\item
+  T9's chart factors and the base's own window energies (T1);
+\item
+  hypothesis (SE) at the far end (§3.1, Remark), and T4's F\_j(τ₀);
+\item
+  the bootstrap boxes of 6.1 at Ȳ above 1.7·10⁻¹² (they close up to Ȳ ≈
+  1.83·10⁻¹²), and the tip box η₁ of 6.1 (review A3).
+\end{itemize}
+
+\end{document}

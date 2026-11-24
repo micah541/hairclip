@@ -1,0 +1,162 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+
+\title{A computer-assisted proof of the one-loop self-shrinker $S_1$}
+\author{Supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 5, 2026. Proof, code and draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove Conjecture~7.2 of the working notes: the shrinker equation $k''=\tfrac14\ip{\Gamma}{\nu}$ of curve diffusion flow has a reflection-symmetric solution with conical ends and exactly one transverse double point, with the tip distance, tip curvature and asymptotic angles stated there. The proof has three parts: a pen-and-paper Lyapunov--Perron construction of the conical ends on $[8,\infty)$ with explicit constants, checked in ball arithmetic; validated integration of the resulting one-parameter family back to the symmetry line with the CAPD library, giving a sign change of the shooting function; and validated geometric checks. Every rigorous step reruns in a few seconds (\texttt{run\_all.sh}).
+\end{abstract}
+
+\section{Statement}
+Conventions follow \S1 of the notes: $T=e^{i\theta}$, $\nu=iT$, $k=\theta'$, and CDF is $\partial_t\gamma=-k_{ss}\nu$. A curve $\Gamma$ gives the self-shrinker $\gamma(t)=x_T+(T-t)^{1/4}\Gamma$ iff $k''=\frac14\ip{\Gamma}{\nu}$ (Proposition~2.6 of the notes).
+
+\begin{theorem}\label{thm:main}
+There is a smooth, properly immersed curve $\Gamma:\R\to\R^2$, parametrized by arclength, solving $k''=\frac14\ip{\Gamma}{\nu}$, with the following properties.
+\begin{enumerate}
+\item $\Gamma$ is symmetric under reflection in the line $\ell$ through $0$ and the tip $\Gamma(0)$. The tip distance is $D=|\Gamma(0)|\in[2.500798,\,2.500813]$ and the tip curvature is $k(0)\in[1.539789,\,1.539858]$.
+\item On each half-branch $k>0$, and the total turning lies in $[196.645^\circ,\,196.682^\circ]$. Each end is asymptotic to a ray from $0$ making angle $\pm[106.645^\circ,\,106.682^\circ]$ with the direction from the tip to $0$, and $k$ decays like $\exp(-0.4725\,|\sigma|^{4/3})$.
+\item $\Gamma$ has exactly one self-intersection. It is a transverse double point on $\ell$, on the same side of $0$ as the tip, at distance $[0.82859,\,0.83170]$ from $0$, with crossing angle in $[52.29^\circ,\,52.62^\circ]$.
+\end{enumerate}
+In particular Conjecture~7.2 of the notes holds: $D=2.50081$, $k_0=1.53982$, rays at $\pm106.67^\circ$, the double point near $(-0.8302,0)$, the crossing angle $52.5^\circ$ and the turning $196.67^\circ$ all lie in these enclosures.
+\end{theorem}
+
+\section{Set-up and strategy}
+Write $p=\ip{\Gamma}{\nu}$, $q=\ip{\Gamma}{T}$, $m=k'$. Then
+\begin{equation}\label{eq:sys}
+p'=-kq,\qquad q'=1+kp,\qquad k'=m,\qquad m'=\tfrac14 p,\qquad \theta'=k,
+\end{equation}
+and conversely any solution of \eqref{eq:sys} defines $\Gamma:=e^{i\theta}(q+ip)$ with $\Gamma'=e^{i\theta}$, curvature $k$, $\ip{\Gamma}{T}=q$, $\ip{\Gamma}{\nu}=p$, hence a solution of the shrinker equation. The map $R(p,q,k,m)=(p,-q,k,-m)$ is a reversing symmetry. A solution that passes through $\mathrm{Fix}(R)=\{q=m=0\}$ at $\sigma_0$ satisfies $(p,q,k,m)(\sigma_0+s)=R\,(p,q,k,m)(\sigma_0-s)$, so the curve is symmetric in the line through $0$ and $\Gamma(\sigma_0)$.
+
+\emph{Strategy (the inward shooting of Claim~2.8).} Proposition~\ref{prop:tail} constructs, for each $\eps$ in an interval, a solution of \eqref{eq:sys} on $[S,\infty)$, $S=8$, with a conical end, normalized by $q-\sigma\to0$. We integrate it backwards in $\sigma$ (in the reversed time $\tau=S-\sigma$) to $\sigma=-1/2$, where $q<0$. Define $M(\eps)$ to be $m$ at the next zero of $q$. A zero of $M$ is a point of $\mathrm{Fix}(R)$ on a conical orbit, hence a symmetric shrinker with two conical ends.
+
+\section{Conical ends}\label{sec:tail}
+Let $\mu(\sigma)=(\sigma/4)^{1/3}$ and $E(\sigma)=\int_S^\sigma\mu=a(\sigma^{4/3}-S^{4/3})$ with $a=\frac34 4^{-1/3}=0.47247\ldots$. Let $\omega_j=e^{2\pi i j/3}$, $c=1/\sqrt3$, $C_{10}=-\frac12+\frac{i}{2\sqrt3}$, and
+\[
+\gamma^{(1)}=\frac{C_{10}}3\int_S^\infty \tau^{-1}e^{-(1-\omega_1)E(\tau)}\,d\tau .
+\]
+
+\begin{proposition}\label{prop:tail}
+Let $S=8$ and $\eps_{\max}=1.62\cdot10^{-4}$. For every $|\eps|\le\eps_{\max}$ there is a solution of \eqref{eq:sys} on $[S,\infty)$ with $p,k,m=O(e^{-E(\sigma)})$ and $q-\sigma\to0$. It depends continuously on $\eps$, and its state at $\sigma=S$ is
+\[
+k=\eps+2\,\mathrm{Re}\,Z_1,\quad m=-\mu(\eps+2\,\mathrm{Re}(\omega_1Z_1)),\quad p=4\mu^2(\eps+2\,\mathrm{Re}(\omega_2Z_1)),\quad q=S+4km+4J,
+\]
+with $\mu=\mu(S)=2^{1/3}$ and
+\[
+|Z_1-\eps\gamma^{(1)}|\le\delta_1=3.44\cdot10^{-8},\qquad 0\le J\le \bar J=1.79\cdot10^{-8},
+\]
+\[
+\gamma^{(1)}=-0.010356215835809902424\ldots+0.000332793623115475053\ldots\,i\quad(\pm 10^{-36}).
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{Reduction.} If $k$ solves
+\begin{equation}\label{eq:k}
+k'''+\tfrac{\sigma}{4}k=N:=-k\,(kk'+J),\qquad J(\sigma)=\int_\sigma^\infty k'^2,
+\end{equation}
+with enough decay, then $m=k'$, $p=4k''$, $q=\sigma+4kk'+4J$ solve \eqref{eq:sys}. Indeed $p'=4k'''=-k(\sigma+4kk'+4J)=-kq$ and $q'=1+4k'^2+4kk''-4k'^2=1+kp$. Also $q-\sigma\to0$.
+
+\emph{Diagonalization.} Put $Y=(k,k',k'')^T=P Z$ with $P=\mathrm{diag}(1,\mu,\mu^2)V$ and $V_{ij}=(-\omega_j)^i$. The columns of $P$ are eigenvectors $(1,\lambda_j,\lambda_j^2)$ of the companion matrix, with $\lambda_j=-\omega_j\mu$, and $P^{-1}P'=\frac1{3\sigma}C$ with $C=V^{-1}\mathrm{diag}(0,1,2)V$ constant. One computes $C_{jj}=1$ and $C_{jl}=\frac13(\zeta+2\zeta^2)$ with $\zeta=\omega_l/\omega_j$, so $|C_{jl}|=c$, and $P^{-1}e_3=\mu^{-2}(\omega_j/3)_j$. Hence
+\[
+Z_j'=\Big(\lambda_j-\frac1{3\sigma}\Big)Z_j-\frac1{3\sigma}\sum_{l\ne j}C_{jl}Z_l+\frac{\omega_j}{3\mu^2}N,
+\qquad k=\textstyle\sum_jZ_j,\quad k'=-\mu\sum_j\omega_jZ_j .
+\]
+The solution is real exactly when $Z_0\in\R$ and $Z_2=\bar Z_1$. The diagonal propagators are $\Phi_j(\sigma,\tau)=e^{-\omega_j(E(\sigma)-E(\tau))}(\tau/\sigma)^{1/3}$. Thus $|\Phi_0(\sigma,\tau)|=e^{-(E(\sigma)-E(\tau))}(\tau/\sigma)^{1/3}$ for $\sigma\ge\tau$, and $|\Phi_1(\sigma,\tau)|=e^{-(E(\tau)-E(\sigma))/2}(\tau/\sigma)^{1/3}$ for $\tau\ge\sigma$.
+
+\emph{Fixed-point problem.} Let $w=e^{E}(\sigma/S)^{1/3}$ and $g=(\sigma/S)^{4/3}$. Use the norms $\|Z_0\|_0=\sup w|Z_0|$ and $\|Z_1\|_1=\sup wg|Z_1|$ on continuous functions on $[S,\infty)$. Define
+\[
+(TZ)_0(\sigma)=\eps\Phi_0(\sigma,S)+\int_S^\sigma\Phi_0(\sigma,\tau)F_0(\tau)\,d\tau,\qquad
+(TZ)_1(\sigma)=-\int_\sigma^\infty\Phi_1(\sigma,\tau)F_1(\tau)\,d\tau,
+\]
+where $F_j$ collects the coupling and nonlinear terms above, with $Z_2=\bar Z_1$. A fixed point solves the $Z$-system, and $w\,\eps\Phi_0(\cdot,S)\equiv\eps$. Three elementary inequalities drive everything:
+\begin{gather*}
+w(\sigma)\Big|\int_S^\sigma\Phi_0(\sigma,\tau)F\,d\tau\Big|\le\int_S^\sigma w|F|,\qquad
+w(\sigma)g(\sigma)\Big|\int_\sigma^\infty\Phi_1(\sigma,\tau)F\,d\tau\Big|\le g(\sigma)\int_\sigma^\infty e^{-\frac32(E(\tau)-E(\sigma))}w|F|,\\
+\int_\sigma^\infty e^{-\beta(E(\tau)-E(\sigma))}d\tau\le\frac1{\beta\mu(\sigma)}.
+\end{gather*}
+
+\emph{Linear coupling.} $w|F_0^{\rm lin}|\le\frac{2c}{3\tau}\|Z_1\|_1/g$ and $w|F_1^{\rm lin}|\le\frac{c}{3\tau}(\|Z_0\|_0+\|Z_1\|_1)$. Since $\int_S^\infty\frac{2c}{3\tau}(S/\tau)^{4/3}d\tau=\frac c2$ and $g(\sigma)/(\sigma\mu(\sigma))=1/(S\mu(S))$, the coupling contributes at most $\frac c2\|Z_1\|_1$ to $\|TZ-\eps\Phi_0\|_0$ and at most $\kappa(\|Z_0\|_0+\|Z_1\|_1)$ to $\|TZ\|_1$, where $\kappa=\frac{2c}{9S\mu(S)}=0.012729$.
+
+\emph{Nonlinear terms.} Let $\mathcal R=\|Z_0\|_0+2\|Z_1\|_1$. Then $|k|\le\mathcal R/w$ and $|k'|\le\mu\mathcal R/w$. Integration by parts gives $\int_\sigma^\infty\mu^2e^{-2E}\le e^{-2E(\sigma)}(\frac\mu2+\frac1{12\sigma})$, hence
+\[
+J\le\mathcal R^2\Big(\frac\mu2+\frac1{12\sigma}\Big)w^{-2},\qquad |N|\le\mathcal R^3\Big(\frac32\mu+\frac1{12\sigma}\Big)w^{-3},\qquad
+\Big|\frac{\omega_jN}{3\mu^2}\Big|\le \mathcal R^3n(\sigma)w^{-3},
+\]
+with $n=\frac1{2\mu}+\frac1{36\sigma\mu^2}$. Using $e^{2E(\sigma)}\ge(\sigma/S)^{2/3}$ and the monotonicity of $n$ and $n/\mu$, the nonlinear terms contribute at most $\nu_0\mathcal R^3$ and $\nu_1\mathcal R^3$, where $\nu_0=n(S)/(2\mu(S))$ and $\nu_1=\frac27n(S)/\mu(S)$. The same estimates with $\mathcal R^3$ replaced by $3\bar{\mathcal R}^2\|\delta Z\|$ bound the Lipschitz constants.
+
+\emph{Contraction.} Let $B=\{\|Z_0-\eps\Phi_0\|_0\le r_0,\ \|Z_1\|_1\le r_1\}$ and $\bar{\mathcal R}=\eps_{\max}+r_0+2r_1$. Then $T(B)\subset B$ provided
+\[
+\tfrac c2r_1+\nu_0\bar{\mathcal R}^3\le r_0,\qquad \kappa(\eps_{\max}+r_0+r_1)+\nu_1\bar{\mathcal R}^3\le r_1,
+\]
+and $T$ is a contraction in $\|Z_0\|_0+\|Z_1\|_1$ with constant $L=\frac c2+\kappa+6(\nu_0+\nu_1)\bar{\mathcal R}^2$. With $r_0=6.06\cdot10^{-7}$ and $r_1=2.10\cdot10^{-6}$ these hold and $L=0.3014$. All inequalities are verified in Arb ball arithmetic at 256 bits (\texttt{tail.py}). The fixed point depends continuously on $\eps$, being that of a uniform contraction depending continuously on $\eps$.
+
+\emph{State at $S$.} $Z_0(S)=\eps$. Writing $Z_0=\eps\Phi_0(\cdot,S)+z_0$, the term $\eps\Phi_0$ inserted into $F_1$ produces exactly $\eps\gamma^{(1)}$ in $Z_1(S)$, because $\Phi_1(S,\tau)\Phi_0(\tau,S)=e^{-(1-\omega_1)E(\tau)}$. The remainder is at most $\delta_1=\kappa(r_0+r_1)+\nu_1\bar{\mathcal R}^3$. Also $J(S)\le\bar J=\bar{\mathcal R}^2(\frac{\mu(S)}2+\frac1{12S})$. The integral $\gamma^{(1)}$ is computed with Arb's validated quadrature on $[8,38]$, plus the tail bound $\frac23e^{-\frac32E(38)}/(38\,\mu(38))<10^{-30}$.
+\end{proof}
+
+\begin{remark}
+As a non-rigorous sanity check, the conical end computed by high-accuracy integration from $\sigma=24$ satisfies $\sup wg|Z_1|$ at $83\%$ and $\sup w|Z_0-\eps\Phi_0|$ at $50\%$ of the proven radii, and $|Z_1(S)/\eps-\gamma^{(1)}|=1.03\cdot10^{-4}$ against the bound $2.12\cdot10^{-4}$ (\texttt{sanity\_tail.py}).
+\end{remark}
+
+\section{Validated shooting}\label{sec:shoot}
+\texttt{gen\_input.py} produces a parallelepiped $x+C\,r_0\subset\R^5$ that contains the states of Proposition~\ref{prop:tail} for all $\eps$ in a given interval. Its directions are $\partial_\eps$, the two real directions of $Z_1-\eps\gamma^{(1)}$, $\partial_q$ (absorbing $J$ and the $q$-dependence) and $\partial_\theta$, and all rounding goes outward. CAPD~6.1.0 (C$^0$-Lohner sets \texttt{C0Rect2Set}, Taylor order~25, FILIB interval arithmetic) integrates the reversed field to $\tau_1=8.5$, i.e.\ $\sigma=-\frac12$, and then applies the Poincar\'e map to $\{q=0\}$ with crossing direction \texttt{MinusPlus} in $\tau$ (\texttt{s1proof.cpp}). CAPD checks transversality $\nabla q\cdot f\ne0$ on the enclosure of every step that can touch the section, and it rejects any cross-and-return within a step.
+
+\begin{center}\small
+\begin{tabular}{lll}
+\hline
+set & result & meaning\\\hline
+$\eps_a=1.45\cdot10^{-4}$ & $m\in[0.0433869,\ 0.0434043]$ & $M(\eps_a)>0$\\
+$\eps_b=1.62\cdot10^{-4}$ & $m\in[-0.0393414,\ -0.0393249]$ & $M(\eps_b)<0$\\
+$I=[\eps_a,\eps_b]$ & $q(\tau_1)\in[-1.2791,-1.1349]$; Poincar\'e map validated & $M$ continuous on $I$\\\hline
+\end{tabular}
+\end{center}
+
+The map $\eps\mapsto x(\eps)$ is continuous, and on the whole set the return to $\{q=0\}$ is the first one after $\tau_1$ and is transversal. Hence $M$ is continuous on $I$, and it has a zero $\eps^*$. Repeating the endpoint computation in a bisection gives $\eps^*\in[1.53458496\ldots,\,1.53466797\ldots]\cdot10^{-4}$, with the signs certified at both ends. The point where $M(\eps^*)=0$ lies in $\mathrm{Fix}(R)$, so Section~2 gives a symmetric solution with two conical ends. Its tip is at $\sigma_{\rm tip}\in[-2.249127,-2.249019]$ in the tail normalization, with $D=-p$ and $k(0)$ enclosed as in Theorem~\ref{thm:main}.
+
+\section{Geometry}\label{sec:geom}
+Three elementary lemmas are used:
+\begin{enumerate}
+\item[(L1)] If $q=\ip{\Gamma}{T}$ has a strict sign on an arc, then $|\Gamma|$ is strictly monotone there and the arc is embedded.
+\item[(L2)] If the tangent angle on an arc stays in an interval of length $<\pi$, the arc is embedded, being a graph over the bisecting direction.
+\item[(L3)] If two arcs leave a common point $x_0$ with outward tangent angles in closed intervals $I_1,I_2$, each of length $<\pi$, and $I_1\cap I_2=\emptyset$, then the arcs meet only at $x_0$. Each arc lies in the closed cone $x_0+\{re^{i\psi}:\psi\in I_j,\ r\ge0\}$.
+\end{enumerate}
+CAPD's solution curve on the bracket set gives 7961 boxes enclosing $(p,q,k,m,\theta)$ for $\sigma\in[\sigma_{\rm tip},8]$ (\texttt{s1curve.cpp}). In the frame $\tilde\Gamma=-e^{-i\varphi_{\rm tip}}\Gamma$ the tip is at $(-D,0)$ and $\ell$ is the real axis. With $\alpha=\theta-\theta_{\rm tip}$ we have $\tilde x=q\sin\alpha+p\cos\alpha$, $\tilde y=p\sin\alpha-q\cos\alpha$ and $d\tilde y/d\tau=\cos\alpha$. \texttt{geometry.py} certifies:
+\begin{enumerate}
+\item[(a)] \emph{Axis crossings.} $\tilde y$ is positive, then has a single run of zero-containing boxes on which $\cos\alpha<0$, so it has exactly one transversal zero, at $\sigma_{\rm dp}$. It is then negative up to the tip run, on which $\cos\alpha>0$. The double point satisfies $\tilde x\in[-0.83170,-0.82859]$. The forward tangent angle there is in $[63.691^\circ,63.852^\circ]$, so the crossing angle is $180^\circ-2\psi\in[52.29^\circ,52.62^\circ]$.
+\item[(b)] \emph{Embedding of the compact half-branch.} Every overlapping pair of boxes lies on a sub-arc of tangent range $<\pi$, so (L2) applies.
+\item[(c)] \emph{Mirror.} Let $B_\pm$ be the parts of the half-branch with $\tilde y\gtrless0$. Overlaps of $R(B_-)$ with $B_+$ occur only within $100$ boxes, about $0.13$ in arclength, of the double point. There (L3) applies with $I_2=[63.69^\circ,68.17^\circ]$ for $B_+$ and $I_1=[116.14^\circ,121.04^\circ]$ for $R(B_-)$.
+\item[(d)] \emph{Tail and radii.} $q$ has exactly one, transversal zero on $(\sigma_{\rm tip},8)$, at the closest approach, so $|\Gamma|$ on $[\sigma_{\rm tip},8]$ attains its maximum only at $\sigma=8$. By Proposition~\ref{prop:tail}, $|\Gamma|$ increases for $\sigma\ge8$, $\int_8^\infty|k|\le1.26\cdot10^{-4}$, $|p|\le1.01\cdot10^{-3}$ and $q\ge7.9999$. Hence $\arg\tilde\Gamma\in[106.638^\circ,106.689^\circ]$ on the tail, the tail meets neither the rest of the curve nor its mirror image, and the asymptotic angle lies in $[106.645^\circ,106.682^\circ]$.
+\item[(e)] \emph{Convexity.} $k\ge1.5\cdot10^{-4}>0$ on the compact part, and $k\ge(\eps-r_0-2r_1)/w>0$ on the tail. The turning $\theta_\infty-\theta_{\rm tip}$ lies in $[196.645^\circ,196.682^\circ]$.
+\end{enumerate}
+By symmetry, every self-intersection of $B\cup R(B)$ off $\ell$ would give a point of $R(B_-)\cap B_+$ other than the double point, and on $\ell$ the only candidates are the tip and $x_{\rm dp}$. With (b) this proves part~(3) of Theorem~\ref{thm:main}, and (d) and (e) prove part~(2). \qed
+
+\section{Reproducibility, trust base, and what this does not prove}
+\texttt{run\_all.sh} compiles the two CAPD programs and reruns every rigorous step, printing \texttt{ALL STEPS PASSED}. It needs CAPD~6.1.0 (\url{https://github.com/CAPDGroup/CAPD}) and python-flint~0.9 (Arb). The trust base is the correctness of CAPD's interval ODE solver and Poincar\'e map, of Arb's ball arithmetic and quadrature, and of the hand estimates in Proposition~\ref{prop:tail}, which the non-rigorous check above corroborates.
+
+The theorem settles Conjecture~7.2. It does not give uniqueness of $S_1$, its linear stability (the spectrum of the linearized rescaled flow in the reflection-symmetric class), or the embedded blow-up of Conjecture~7.1. The next steps toward Conjecture~7.1 are, in order:
+\begin{enumerate}
+\item a computer-assisted spectral bound showing that, in the symmetric class, $S_1$ has only the unstable modes coming from time shift and translation along $\ell$;
+\item nonlinear stability near $S_1$ with explicit constants;
+\item validated integration of an embedded curve into that basin.
+\end{enumerate}
+
+\begin{remark}[An unrelated numerical discrepancy in \S3 of the notes]
+An independent Barrett--Garcke--N\"urnberg finite-element code (uniform mesh, $N=6800$--$13600$, two time steps) reproduces the hairpin outcome of \S3 of the notes: for arms $12$ the pocket collapses at $\tilde x\approx10.70$, and arms $10$ re-embeds. It also reproduces both validation runs there (Gerono $T=0.0693$, lima\c{c}on $T=0.02436$). However it gives a collapse time $T\approx0.894$, converged in that code, against $1.0279$, and a final lens area of $0.05$ against $0.026$. The early contact time agrees. This is worth resolving before $T$ is quoted to seven digits.
+\end{remark}
+
+\end{document}

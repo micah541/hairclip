@@ -1,0 +1,14 @@
+v3.2 manifest verified: 34 stages, 523 paths, 97 upstream, 26 scripts
+h2f: widened parameter balls (h2f_ift.py): rc 0 (0s)
+h2f: base sums on [60, 700], 32 t_c balls (h2f_balls.py -> h2f_win.py): rc 0 (250s)
+h2f: error-transfer constants on [60, 700] (t9_h2f.py): rc 0 (8s)
+h2f: (H2f) for the true curve at Ybar = 1e-12 (h2f_camp.py): rc 0 (0s)
+tightened (H2) shells (h2t_v33.py): rc 0 (0s)
+fixed-L cone: jets, (H5), H3 (t9_cone_v33.py): rc 0 (1s)
+fixed-L cone: H4 (h4loc_v33.py): rc 0 (1s)
+fixed-L cone: Lemma O H1 graph (t9_lemmaO_v33.py, LO_NS=48): rc 1 (20s)
+Traceback (most recent call last):
+  File "/home/claude/s1spec/step4/p2/v33/final_tail_v33.py", line 109, in <module>
+    assert r.returncode == 0, (S['stage'], open(S['log']).read()[-2000:])
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ('fixed-L cone: Lemma O H1 graph (t9_lemmaO_v33.py, LO_NS=48)', ' 30: x_e 20.491 (2s)\n  element 40: x_e 40.000 (2s)\n  element 50: x_e 162.284 (2s)\n  element 60: x_e 608.478 (3s)\n  element 70: x_e 2288.963 (3s)\n  element 80: x_e 8503.252 (4s)\n  element 90: x_e 23808.460 (4s)\n  element 100: x_e 53222.078 (4s)\n  element 110: x_e 88113.452 (5s)\n  element 120: x_e 126575.726 (5s)\n  element 130: x_e 168519.102 (6s)\n  element 140: x_e 213196.498 (6s)\n  element 150: x_e 259964.099 (7s)\n  element 160: x_e 308342.583 (7s)\n  element 170: x_e 357983.665 (8s)\n{"item": "Lemma O H1 (graph, arc by arc), fixed-L cone cylinders", "label": "certified", "H1_all": false, "cylinders": 8, "sup_h0_max": 0.2162153699008037, "H_max": 0.2184853699008037, "C0_sqrt_t1": 0.00227, "H8_min_dist_informational": 0.14865956280014644, "fails": ["cone r_c 300-310", "cone r_c 310-320", "cone r_c 320-330", "cone r_c 330-340", "cone r_c 340-350", "cone r_c 350-360", "cone r_c 360-370", "cone r_c 370-380"], "args": {"jets": "/home/claude/s1spec/step4/p2/t6c/jets", "argv": ["t8se/constants/amp_A1_w180.json", "180"], "slab": 180, "C0": {"cone": 0.00227}, "H8": "informational", "err": "T7 4b + C4 core", "env": {"T6DIR": "/home/claude/s1spec/step4/p2/t6c", "LO_NS": "48"}, "inputs": {"/home/claude/s1spec/step4/p2/v33/t9_lemmaO_v33.py": "6ac6c658757c664db1d7629c4108bf8d84dc6b79ebe96e7c0da0be12261ff4e0", "t8se/constants/amp_A1_w180.json": "b7f319194090659642c94f987d9bca59b67e3459084e9a54c1a78e049c60d8ac", "/home/claude/s1spec/step4/p2/t6c/jets/jets_180.npz": "b101d98dcbd7fb60ac3393f2b2de257a3076fb4354693a52226971c155b62393", "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e", "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"}}}\nTraceback (most recent call last):\n  File "/home/claude/s1spec/step4/p2/v33/t9_lemmaO_v33.py", line 111, in <module>\n    assert summ[\'H1_all\'], \'H1 graph fails\'\n           ~~~~^^^^^^^^^^\nAssertionError: H1 graph fails\n')

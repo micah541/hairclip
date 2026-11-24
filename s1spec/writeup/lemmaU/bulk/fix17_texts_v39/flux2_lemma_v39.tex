@@ -1,0 +1,223 @@
+% flux2_lemma_v39.tex -- text v39 (fix17_texts_v39, 20 Nov 2026), built by fix17_texts_v39/tools/build_v39.py from fix16_texts_v38/flux2_lemma_v38.tex (unchanged):
+% re-pinned step-4 records (manifest_v38 be909bbf...), v4 kits (WSL test runs only), step4_handoff_v39.tex; v38 retag fixes.  Not compiled.
+% flux2_lemma_v39.tex -- flux lemma v2 for the outer-ramp functional K^OR (levels 0 and 2), the data lemma, and the time-integrated
+% absorption, text v38 (fix16_texts_v38, 20 Nov 2026; built by tools/build_texts_v38.py from fix12_texts/flux2_lemma_v37.tex, unchanged).
+% v38: numbers of the v37 reassembly (fix13_v37chain/flux/out/flux2_cert.json) on fin13v4c, C8 by U-1 (reviewed), the bootstrap items
+% as members of BS (bootstrap_v39.tex).  Original header: FINAL TEXT (text v37, fix12_texts, 20 Nov 2026).  Built by fix12_texts/tools/make_flux2_lemma_v37.py from
+% fix8_flux2_impl/texts/flux2_lemma_v2.tex (unchanged), with the text fixes T1-T4 of fix9_review/FLUX2_REVIEW.md.
+% Numbers [cert] from fix8_flux2_impl/out/flux2_cert.json (and the stage JSONs there).  Not compiled (no LaTeX on this machine).
+% Standalone, or \input by step3_v37_main.tex (which defines \stepmain); in that case the preamble below is skipped.
+\ifdefined\stepmain\else
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\newtheorem{lemma}{Lemma}\newtheorem{proposition}{Proposition}\newtheorem{remark}{Remark}\newtheorem{definition}{Definition}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\cst}[1]{\ensuremath{\langle\texttt{\detokenize{#1}}\rangle}}
+\newcommand{\tC}{\textup{[cert]}}\newcommand{\tHd}{\textup{[hand]}}\newcommand{\tE}{\textup{[est]}}\newcommand{\tS}{\textup{[sym]}}
+\newcommand{\OR}{\mathrm{OR}}\newcommand{\eI}{\varepsilon_I}
+\newcommand{\fD}{\mathfrak D}\newcommand{\fX}{\mathfrak X}\newcommand{\fa}{\mathfrak a}
+\begin{document}
+\title{Flux lemma v2 for the outer ramp of $E_I$ (step 3): statements and proofs}
+\date{20 November 2026 (text v39). \emph{Not compiled.} Numbers [cert] from \fn{fix13_v37chain/flux/out/}.}
+\maketitle
+\fi
+\providecommand{\fD}{\mathfrak D}\providecommand{\fX}{\mathfrak X}\providecommand{\fa}{\mathfrak a}\providecommand{\OR}{\mathrm{OR}}\providecommand{\eI}{\varepsilon_I}\providecommand{\tHd}{\textup{[hand]}}\providecommand{\tS}{\textup{[sym]}}\providecommand{\tC}{\textup{[cert]}}\providecommand{\tE}{\textup{[est]}}\providecommand{\tR}{\textup{[read]}}
+\providecommand{\cst}[1]{\ensuremath{\langle\texttt{\detokenize{#1}}\rangle}}
+\section{Flux lemma v2 (outer ramp of $E_I$)}\label{F:sec:top}
+\noindent\textbf{Status (text v39; v38 status follows).} \emph{Implemented, certified and reviewed; not closed as part of step~3.} The certified computation is \fn{fix8_flux2_impl} (stages X0--X7, \fn{FLUX2_IMPL_REPORT.md}), reassembled on the (A) chain v37 and the verifier \fn{fin13v4c} in \fn{fix13_v37chain/flux/} (\fn{V37_REPORT.md}: regression to fix8 and a byte-identical double run; FLUX0 and FLUX2 unchanged); every scripted condition (C0)--(C7) passes at both production points of \fn{fin13v4c} (\fn{flux2_cert.json} \key{conditions}). Reviews: \fn{fix9_review/FLUX2_REVIEW.md} (sound modulo listed items; independent recomputation) and \fn{fix15_review} part B (wiring and numbers of the v37 reassembly correct). (C8) is the regularity lemma U-1 (\fn{U1_regularity_v39.tex}, \tHd; reviewed in \fn{fix11_review} part C), which the script cannot check (\key{conditions.C8} prints ``OPEN'', review B-v37-2); the level-2 export is G1 (\fn{G1_export_k2_v39.tex}, reviewed in \fn{fix11_review} part C). The proofs of Lemmas~\ref{F:lem:data}, \ref{F:lem:chart4}, \ref{F:lem:flux} are hand proofs whose arithmetic is certified; the proofs of Lemma~\ref{F:lem:Z} and Proposition~\ref{F:prop:abs} are complete hand proofs. \textbf{The only flux hypothesis of the verifier is the combined (I3$'$)} of Proposition~\ref{F:prop:abs}; a separate inequality $K_2^{\OR}\le\fn{FLUX2}$ is not claimed and is false ($K_2^{\rm pt}=1.74\times\fn{FLUX2}$).
+
+
+\noindent Sources: the $E_I$ specification \fn{fix5/ei_spec/EI_SPEC.md} (\S2.3, \S3, \S4.10), the verifier \fn{step3nl_v4c} (tag \fn{fin13v4c}), the level-0 reduction of \fn{fix3/flux/} (F1), the route decision \fn{fix3/ROUTE_DECISION.md}, and the (A) chain v37 (\fn{fix13_v37chain/}). Labels: \tC\ arb with outward rounding; \tS\ exact symbolic identity; \tHd\ hand derivation; \tE\ estimate.
+
+\subsection{Setting}\label{F:sec:set}
+$x=\sigma-\sigma_{\rm tip}$; $g=w'$; $\OR=[57,60]$;
+\[\zeta(x)=S_7\bigl(\tfrac{60-x}3\bigr)\ \text{on }\OR,\qquad S_7(t)=t^4(35-84t+70t^2-20t^3),\]
+so $\zeta\in C^3$, $\zeta^{(i)}(57)=\zeta^{(i)}(60)=0$ for $i=1,2,3$ and $\zeta''''(57^+)=-\frac{280}{27}$, $\zeta''''(60^-)=\frac{280}{27}$. $v=\zeta g$; $W=e^{-\psi}$ with $\psi'=x/(3(1+x^2)^{1/3})$ on $x\ge38.25$; $\psi_2:=\psi'^2-\psi''$;
+\[D_2v:=\frac{(Wv'')''}{W}=v''''-2\psi'v'''+\psi_2v''.\]
+$K_mg:=[\partial^m,\zeta]g$: $K_2g=2\zeta'g'+\zeta''g$, $K_3g=3\zeta'g''+3\zeta''g'+\zeta'''g$, $K_4g=4\zeta'g'''+6\zeta''g''+4\zeta'''g'+\zeta''''g$.
+With $U_0=u_0+w$, $U_1=u_0'+g$, $J^2=(1-kU_0)^2+U_1^2$ put
+\[j:=J^{-4}=1-c,\qquad C:=7km+\tfrac q4,\qquad C_{\rm eff}:=C-a\,Q_u-b\,C_u ,\]
+$(a,b)$ the modulation parameters, $Q_u=q/(1-ku)$, $C_u=\cos\theta/(1-ku)$. The lower-order nonlinearity is (in $g$-jets)
+\[N_{\rm low}=d_{010}g''+d_{100}g'+d_{200}g'^2+d_{110}g'g''+d_{300}g'^3+d_{000},\qquad|d_{000}|\le A_0|w|+A_1|g| ,\]
+with coefficients $d_\bullet=d_\bullet(x;U_0,U_1,u_0'',u_0''',u_0'''')$, and $\frac d{dx}d_\bullet=:Dd_\bullet$, $|Dd_\bullet|\le d_\bullet^a+d_\bullet^b|g'|$.
+
+\begin{lemma}[the outer-ramp functionals; \fn{EI_SPEC.md} \S4.10 rewritten]\label{F:lem:def}
+\[X_0:=jK_4g+j'K_3g+k^2K_2g+C_{\rm eff}\zeta'g+\zeta c_0'w+\zeta(aE_A'+bE_B')w,\qquad X_2:=X_0+\zeta N_{\rm low}' ,\]
+\[K_0^{\OR}=\int_{\OR}W\,v\,X_0\,dx-\int_{\OR}(W\zeta v)'N_{\rm low}\,dx,\qquad K_2^{\OR}=\int_{\OR}W\,D_2v\;X_2\,dx .\]
+\end{lemma}
+\begin{proof}[Sketch]\tS\tHd\ $-\partial^4+(c\,\partial^3)'=-(j\,\partial^3)'$ and $\zeta\cdot\bigl(-(jg''')'\bigr)=-(jv''')'+jK_4g+j'K_3g$ \tS; so $-[L_1,\zeta]g-cK_4g-c'K_3g=jK_4g+j'K_3g+k^2K_2g+C\zeta'g$. The term $-\zeta'(aQ_u+bC_u)g$ (T9 of the specification) joins $C\zeta'g$.
+\end{proof}
+
+\paragraph{Standing hypotheses on $\OR$} (boxes of the verifier, asserted by \fn{closure.box_assert}): $|\alpha|\le2.5\cdot10^{-4}$; $|g|\le s_0:=S^V_0$; $|g'|\le s_1:=S^V_1/\sigma_{\min}$; $|w|\le\bar w:=\frac12$; $|(a,b)|\le\bar a$. Consequently \tC: $|c|\le\bar c$, $|j'|=|c'|\le\bar c_1:=c^a+c^bs_1$, and the sups $d_\bullet,d^a_\bullet,d^b_\bullet,A_0,A_1,B_0,B_1$ on $\OR$ ($\bar c=3.3655\cdot10^{-3}$, $\bar c_1=1.8712\cdot10^{-3}$, $d_{010}=1.5359\cdot10^{-4}$, $d_{110}=4.1143\cdot10^{-1}$, $d_{300}=3.0457$, $A_1=1.4792\cdot10^{-9}$, $B_1=3.5280\cdot10^{-11}$).
+
+\subsection{Data}\label{F:sec:data}
+$S:=[57+\sigma_{\rm tip},60+\sigma_{\rm tip}]$ (the shell), $\sigma_{\min}:=\inf S$, $y_{\max}:=\sup Y(S)$, $D=\sigma\partial_\sigma$.
+\[M_l(\tau)^2:=\int_{\OR}(\partial_x^lg)^2dx,\qquad N_l^2:=\int_{\OR}W(\partial_x^lg)^2dx\le W(57)M_l^2,\qquad s_2(\tau):=\sup_{\OR}|g''|,\qquad\omega_W^2:=\int_{\OR}W .\]
+A \emph{window} is an interval $I=[\tau_a,\tau_a+T]\subset[\tau_1,\tau']$.
+
+\begin{lemma}[data on the outer ramp]\label{F:lem:data}
+Assume the bootstrap hypotheses of Lemma~S(A) on $[\tau_1,\tau']$ at the level $\beta_A=2$, and
+\begin{itemize}[leftmargin=3.2em]
+\item[\textup{(B$\Phi$)}] for $k=1,2$ and every window: $\displaystyle\int_I\!\int_{\ln28}^{\ln350}\varepsilon\omega\,(z^A_{k+2})^2\,ds\,d\tau\le2\,(C0_k+C1_kT)$,
+\end{itemize}
+where $C0_k,C1_k$ are the export constants of Lemma~S(A) (Lemma~D; $k=2$ with $r_2=\frac1{1000}$). Then
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(pointwise)} for every $\tau$ and $l\le2$: $N_l\le\bar N_l$, $M_l\le\bar M_l$ \tC\ ($\bar N=(1.9925\cdot10^{-11}, 3.2575\cdot10^{-12}, 1.4619\cdot10^{-12})$, $\bar M=(1.7211\cdot10^{-2}, 2.8137\cdot10^{-3}, 1.2628\cdot10^{-3})$);
+\item \emph{(windows)} for every window: $\int_IM_3^2\le m_{3c}+m_{3s}T$ and $\int_IM_4^2\le m_{4c}+m_{4s}T$ \tC\ ($m_{3c}=1.5796\cdot10^{-5}$, $m_{3s}=2.8100\cdot10^{-7}$, $m_{4c}=3.6759\cdot10^{-3}$, $m_{4s}=8.4622\cdot10^{-6}$);
+\item \emph{(sup of $g''$)} $s_2^2\le\frac13M_2^2+2M_2M_3$ for a.e.\ $\tau$, hence $\int_Is_2^2\le\sigma_{2c}+\sigma_{2s}T$ with $\sigma_{2c}=\bar M_2m_{3c}/\lambda_s$, $\sigma_{2s}=\frac13\bar M_2^2+\bar M_2(\lambda_s+m_{3s}/\lambda_s)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}[Sketch]\tHd\ (a) is the existing conversion (Lemma~S(A), Theorem (e), interface (I3)), level by level. (b) $\sigma^3\partial_\sigma^3=D^3-3D^2+2D$ and $\sigma^4\partial_\sigma^4=D^4-6D^3+11D^2-6D$ \tS, so, by Minkowski in $L^2(S\times I;ds\,d\tau)$ (the form implemented, \S\ref{F:sec:impl}(i); $ds=d\sigma/\sigma$),
+\[\|M_3\|_{L^2(I)}\le\sigma_{\min}^{-5/2}\bigl(\|D^3g\|+3\|D^2g\|+2\|Dg\|\bigr),\qquad\|M_4\|_{L^2(I)}\le\sigma_{\min}^{-7/2}\bigl(\|D^4g\|+6\|D^3g\|+11\|D^2g\|+6\|Dg\|\bigr),\]
+and $M_2\le\sigma_{\min}^{-3/2}(\|D^2g\|+\|Dg\|)$; sums of window norms $\sum_iw_i(a_i+b_iT)^{1/2}$ are squared with fixed rational weights $\theta_i$, $\sum\theta_i\le1$ (Cauchy--Schwarz), which keeps every bound affine in $T$. (The squared-sum form $M_3^2\le3\sigma_{\min}^{-5}\int_S[(D^3g)^2+9(D^2g)^2+4(Dg)^2]$ of the design is also valid and is weaker.)
+By the chart identity, $D^kg=z^A_k\circ Y-D^kd-\chi_k$; Minkowski in $L^2(S\times I;ds\,d\tau)$, the change of variable $y=Y(\sigma)$ (factor $1+\rho_c$), $\varepsilon\omega\ge28\,y_{\max}^{-5}$ on $Y(S)$ and (B$\Phi$) give the $z^A_3,z^A_4$ parts; $z^A_k$, $k\le2$, are bounded by $\beta_A\hat E_k$ per unit $\tau$; $D^kd$ is a rate per unit $\tau$ ($|\alpha|\le\alpha_1$). For $k\le3$, $\chi_k$ is bounded by the certified core values of the chart lemma. For $k=4$ use Lemma~\ref{F:lem:chart4}. The weights are those of (B$\Phi$) at the bootstrap level; $\int\varepsilon\omega(z^A_{k+2})^2$ is the export of Lemma~S(A) (\fn{lemmaS_A_v39.tex}, Lemma~D, $k=1,2$). (c) is Agmon's inequality on an interval of length $3$, then $2M_2M_3\le\bar M_2(\lambda_s+M_3^2/\lambda_s)$.
+\end{proof}
+
+\begin{lemma}[chart identity at level 4 on the shell]\label{F:lem:chart4}
+With the notation of the chart lemma ($b=u'$, $T=(1+\varepsilon_{\rm c})D$): $z^A_4\circ Y=D^4(w'+d)+\chi_4$, $\chi_4=(T^4-D^4)b+T^4\Phi+p^4(U(\sigma)-U(Y))$, and
+\[\chi_4=A_4+B_{42}\,b_2+B_{43}\,b_3+B_{44}\,b_4+B_{422}\,b_2^2,\qquad b_i:=\partial_\sigma^ib=u^{(i+1)},\]
+with $A_4,B_\bullet$ functions of $(\sigma,e,\delta,k,\dots,k'''',u,b,b_1)$ that vanish for a ray. On $S$: $\sup|A_4|,\sup|B_\bullet|\le$ $\bar A_4=5.5456\cdot10^{-36}$, $\max_i\bar B_{4i}=2.1824\cdot10^{-35}$, $\bar B_{422}=1.3969\cdot10^{-36}$ \tC, and for every window
+\[\|\chi_4\|_{L^2(S\times I)}\le\bar A_4(|S|_sT)^{1/2}+\sum_{i=2}^4\bar B_{4i}\bigl(\|\partial^ig\|+\|P^{(i)}\|\bigr)+2\bar B_{422}\bigl(\|g''^2\|+\|P''^2\|\bigr),\qquad\|g''^2\|^2\le\bar M_2^2\int_Is_2^2 .\]
+\end{lemma}
+\begin{proof}[Sketch]\tHd\ Part (d) of the chart lemma holds for every $k$ with the same proof. Structure: give $D^ib$ the weight $i$; $\chi_4$ has total weight $\le4$ and $D^i\varepsilon_{\rm c}$, $D^i\Phi$ contain $D^ib$ linearly at top order, so the only product of two jets of order $\ge2$ is $(D^2b)^2$. This structure is asserted in sympy in stage X3 (\fn{chart4_shell.py}; the assertion passed) and was confirmed independently with a construction sharing no code (\fn{fix9_review/chi4_check.py}: $\chi_4$ has no $b_5,b_6$, no $k^{(5)}$; $\partial^2\chi_4/\partial b_i\partial b_j=0$ for $(2,3),(2,4),(3,3),(3,4),(4,4)$; $\partial^3\chi_4/\partial b_2^3=0$; $\chi_k=0$ on a ray) \tS. The bound is Minkowski with $b_i=\partial^ig+P^{(i)}$; the $g''''$ term has a coefficient $\le$ \ensuremath{1.7713\cdot10^{-36}} $\ll1$ and is moved to the left side.
+\end{proof}
+
+\subsection{The flux lemma}\label{F:sec:flux}
+\begin{lemma}[flux lemma v2]\label{F:lem:flux}
+Under the standing hypotheses and Lemma~\ref{F:lem:data}, for a.e.\ $\tau\in[\tau_1,\tau']$:
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Level 0, pointwise.}
+\[K_0^{\OR}\le\bar K_0:=\sum_{l\le2}\kappa^{(0)}_l\bar N_l^2+K_0^{\rm nl}+K_0^{w},\]
+\[K_0^{\rm nl}=(\bar N_1+\varkappa_2\bar N_0)\bigl[(d_{010}+d_{110}s_1)\bar N_2+(d_{100}+d_{200}s_1+d_{300}s_1^2)\bar N_1+A_1\bar N_0+A_0\bar w\,\omega_W\bigr],\]
+$\varkappa_2=\sup_{\OR}|2\zeta\zeta'-\psi'\zeta^2|$, $K_0^w=\bar N_0\bar w\,\omega_W(\sup|c_0'|+\bar a\sup|(E_A',E_B')|)$, and $\kappa^{(0)}$ \tC\ (\ensuremath{(8.46429, 4.17395, 2.26745)}).
+\item \emph{Level 2, no integration by parts.} $|K_2^{\OR}|\le\fD\,\fX$ with
+\[\fD=\underbrace{\fa_2N_2+\fa_1N_1+\fa_0N_0}_{\fD_{\rm pt}}+\underbrace{N_4+\fa_3N_3}_{\fD_{\rm int}},\qquad\fX=\fX_{\rm pt}+\underbrace{x_3N_3+d_{110}\bar N_2\,s_2}_{\fX_{\rm int}},\]
+where $\fa_i=\sup_{\OR}|\text{coefficient of }g^{(i)}\text{ in }D_2v|$, $x_3=4z_1(1+\bar c)+d_{010}+d_{110}s_1$, $z_i=\sup_{\OR}|\zeta^{(i)}|$, and $\fX_{\rm pt}$ is the sum of the pointwise rows of Table~\ref{F:tab:X}.
+\item \emph{Split.} For fixed $\lambda_1,\lambda_2>0$: $\fD\fX\le K_2^{\rm pt}+\varphi_2(\tau)$,
+\[K_2^{\rm pt}:=\bar\fD_{\rm pt}\bar\fX_{\rm pt}+\tfrac{\lambda_1}2\bar\fD_{\rm pt}^2+\tfrac{\lambda_2}2\bar\fX_{\rm pt}^2,\qquad\varphi_2:=\bigl(\tfrac1{2\lambda_1}+\tfrac12\bigr)\fX_{\rm int}^2+\bigl(\tfrac1{2\lambda_2}+\tfrac12\bigr)\fD_{\rm int}^2 ,\]
+and for every window $\int_I\varphi_2\le C''+S''T$ with $C'',S''$ \tC\ (\ensuremath{1.1050\cdot10^{-20}}, \ensuremath{4.3960\cdot10^{-23}}) given by Lemma~\ref{F:lem:data}(b),(c), $\fX_{\rm int}^2\le2x_3^2N_3^2+2(d_{110}\bar N_2)^2s_2^2$ and $\fD_{\rm int}^2\le2N_4^2+2\fa_3^2N_3^2$.
+\item \emph{Verifier form.} With $\mu=0.08$, $\eI=3\cdot10^{-5}$, $F_0=\mu(\fn{FLUX0}+\eI\,\fn{FLUX2})$,
+\[\mu K_0^{\OR}+\mu\eI K_2^{\OR}\le F_0-s+\varphi(\tau),\qquad s:=F_0-\mu\bar K_0-\mu\eI K_2^{\rm pt},\quad\varphi:=\mu\eI\varphi_2\ge0,\]
+$\int_I\varphi\le C'+S'T$, $C'=\mu\eI C''$, $S'=\mu\eI S''$; and $s>S'$ \tC\ ($s=1.0390\cdot10^{-21}$, $S'=1.0551\cdot10^{-28}$, $C'=2.6519\cdot10^{-26}$).
+\end{enumerate}
+\end{lemma}
+
+\begin{table}[h]\centering\small
+\caption{$W$-norms on $\OR$ of the terms of $X_2$. ``int'' rows form $\fX_{\rm int}$.}\label{F:tab:X}
+\begin{tabular}{@{}lll@{}}\toprule
+term & bound & class\\\midrule
+$j\,4\zeta'g'''$ & $(1+\bar c)\,4z_1N_3$ & int\\
+$j(6\zeta''g''+4\zeta'''g')$ & $(1+\bar c)(6z_2N_2+4z_3N_1)$ & pt\\
+$j\zeta''''g+C_{\rm eff}\zeta'g$ & $\sup_{\OR}\bigl((1+\bar c)|\zeta''''|+|C_{\rm eff}\zeta'|\bigr)N_0$ & pt\\
+$j'K_3g$ & $\bar c_1(3z_1N_2+3z_2N_1+z_3N_0)$ & pt\\
+$k^2K_2g$ & $\sup k^2(2z_1N_1+z_2N_0)$ & pt\\
+$d_{010}g'''$ & $d_{010}N_3$ & int\\
+$(Dd_{010}+d_{100})g''$ & $(d^a_{010}+d^b_{010}s_1+d_{100})N_2$ & pt\\
+$Dd_{100}\,g'$ & $(d^a_{100}+d^b_{100}s_1)N_1$ & pt\\
+$2d_{200}g'g''$ & $2d_{200}s_1N_2$ & pt\\
+$Dd_{200}\,g'^2$ & $(d^a_{200}+d^b_{200}s_1)s_1N_1$ & pt\\
+$d_{110}g''^2$ & $d_{110}\,s_2\,N_2$ & int\\
+$d_{110}g'g'''$ & $d_{110}s_1N_3$ & int\\
+$Dd_{110}\,g'g''$ & $(d^a_{110}+d^b_{110}s_1)s_1N_2$ & pt\\
+$3d_{300}g'^2g''$ & $3d_{300}s_1^2N_2$ & pt\\
+$Dd_{300}\,g'^3$ & $(d^a_{300}+d^b_{300}s_1)s_1^2N_1$ & pt\\
+$D(d_{000})$ & $A_1N_1+B_1N_0+B_0\bar w\,\omega_W$ & pt\\
+$\zeta c_0'w+\zeta(aE_A'+bE_B')w$ & $(\sup|c_0'|+\bar a\sup|(E_A',E_B')|)\bar w\,\omega_W$ & pt\\\bottomrule
+\end{tabular}\end{table}
+
+\begin{proof}[Sketch]\tHd\
+\emph{(a)} Expand $W\zeta g\,(jK_4g+j'K_3g+k^2K_2g+C_{\rm eff}\zeta'g)$ into monomials $c\,g^{(a)}g^{(b)}$. A monomial with $a>2$ is integrated by parts on $\OR$ only if $c$ vanishes identically at $57^+$ and at $60^-$, tested with the exact one-sided values of $\zeta^{(i)}$ and with $W,C_{\rm eff},k^2,j,j'$ generic. Only $4W\zeta\zeta'j\,g\,g'''$ qualifies; its coefficient is differentiated once, so the reduced coefficients are affine in $(j,j')$ and contain no $j''$ (asserted in stage X1, \fn{flux2_forms.py}, 35 checks PASS). The identity ``integrand $-$ reduced form $=$ total derivative'' is checked by the Euler operator. (Equivalent hand form \tS: with $\kappa=4W\zeta\zeta'j$, $\int\kappa gg'''=-\int\kappa'gg''+\frac12\int\kappa'g'^2$.) Coefficient sups are taken in arb on cells of $\OR$ with $j\in[1-\bar c,1+\bar c]$, $j'\in[-\bar c_1,\bar c_1]$, $C_{\rm eff}\in C\pm\bar a(\sup|Q_u|+\sup|C_u|)$ as balls; the diagonal is one-sided, $\Gamma_{aa}=\sup\max(c_{aa}/W,0)$, which uses $C_{\rm eff}>0$ and $\zeta\zeta'\le0$ once; off-diagonal pairs by AM--GM with fixed rationals. For $j\equiv1$, $\bar a=0$ this is the level-0 statement of F1. The nonlinear part: $(W\zeta v)'=W(\zeta^2g'+(2\zeta\zeta'-\psi'\zeta^2)g)$ and Cauchy--Schwarz with $|g'|\le s_1$.
+\emph{(b)} $D_2v=\zeta g''''+(4\zeta'-2\psi'\zeta)g'''+(6\zeta''-6\psi'\zeta'+\psi_2\zeta)g''+(4\zeta'''-6\psi'\zeta''+2\psi_2\zeta')g'+(\zeta''''-2\psi'\zeta'''+\psi_2\zeta'')g$ \tS, so $\|D_2v\|_{W,\OR}\le\fD$; Table~\ref{F:tab:X} gives $\|X_2\|_{W,\OR}\le\fX$ (each row: the highest derivative in $L^2(W)$, the other factors in sup; $\|g''^2\|_W\le s_2N_2$); Cauchy--Schwarz. No derivative is moved, so there is no boundary term, and $\zeta''''$ enters only through $\sup_{(57,60)}|\zeta''''|=\frac{280}{27}$.
+\emph{(c)} $\fD_{\rm pt}\fX_{\rm int}\le\frac{\lambda_1}2\fD_{\rm pt}^2+\frac1{2\lambda_1}\fX_{\rm int}^2$, $\fD_{\rm int}\fX_{\rm pt}\le\frac{\lambda_2}2\fX_{\rm pt}^2+\frac1{2\lambda_2}\fD_{\rm int}^2$, $\fD_{\rm int}\fX_{\rm int}\le\frac12(\fD_{\rm int}^2+\fX_{\rm int}^2)$; then $N_l^2\le W(57)M_l^2$ and Lemma~\ref{F:lem:data}. (d) is (a)+(c).
+\end{proof}
+
+\begin{remark}[endpoint terms; why not the trace form]\label{F:rem:trace}
+(1) At level 0 the only integration by parts has a coefficient that vanishes at both ends. At level 2 there is none. In particular the point term $W(57)\frac{280}{27}g(57)g'''(57)$ of the first flux lemma (F1) does not arise: the monomial $W\zeta\zeta''''gg''''$ is bounded by $\frac{280}{27}N_0N_4$.
+(2) The route ``integrate $g''''$ away and bound the trace $g'''(57)$ in $L^2(d\tau)$'' does not close $K_2^{\OR}$: $\zeta N_{\rm low}'$ contains $d_{110}(g'g'')'$, and $(g'g'')'g''''+\frac52g''g'''^2$ is a total derivative \tS, so one is left with $-\frac52\int W\zeta^2d_{110}\,g''g'''^2$, which is not integrable in $\tau$ when $g'''$ is controlled only in $L^2(d\tau;L^2_x)$ and $g''$ has no pointwise-in-$\tau$ sup bound.
+\end{remark}
+
+\subsection{Absorption of the time-integrated part}\label{F:sec:abs}
+Let $\mathrm{tot}_s(\alpha,x)$ be the verifier's right-hand side without the flux constants and $\mathrm{tot}:=\mathrm{tot}_s+F_0$ the function its certificates bound. The $E_I$ inequality and Lemma~\ref{F:lem:flux}(d) give, for a.e.\ $\tau$,
+\begin{equation}\label{F:eq:star}
+\tfrac12\Lambda'\le\mathrm{tot}(\alpha(\tau),x(\tau))-s+\varphi(\tau).
+\end{equation}
+
+\begin{lemma}[reflected integral]\label{F:lem:Z}
+Let $\Lambda$ be absolutely continuous on $[\tau_1,\tau']$ and satisfy \eqref{F:eq:star}; let $\varphi\ge0$ be integrable with $\int_\sigma^\tau\varphi\le C'+S'(\tau-\sigma)$ for all $\tau_1\le\sigma\le\tau\le\tau'$, and $S'\le s$. Put $P(\tau)=2\int_{\tau_1}^\tau(\varphi-s)$ and
+\[Z(\tau):=P(\tau)-\min_{[\tau_1,\tau]}P=2\sup_{\sigma\le\tau}\int_\sigma^\tau(\varphi-s).\]
+Then $0\le Z\le2C'$, $Z(\tau_1)=0$, $Z$ is absolutely continuous with $Z'\ge2(\varphi-s)$ a.e., and $Y:=\Lambda-Z$ satisfies
+\[\tfrac12Y'\le\mathrm{tot}(\alpha(\tau),x(\tau))\ \text{a.e.},\qquad Y\le\Lambda\le Y+2C' .\]
+\end{lemma}
+\begin{proof}\tHd\ $\int_\sigma^\tau(\varphi-s)\le C'+(S'-s)(\tau-\sigma)\le C'$, and $\sigma=\tau$ gives $Z\ge0$. $m(\tau)=\min_{[\tau_1,\tau]}P$ is nonincreasing and $|m(t)-m(r)|\le\int_r^t|P'|$, so $m$ is absolutely continuous with $m'\le0$ a.e.; hence $Z'=P'-m'\ge P'$. Subtract from \eqref{F:eq:star}.
+\end{proof}
+
+\begin{proposition}[the verifier's conclusions with $\Lambda\le\text{barrier}+2C'$]\label{F:prop:abs}
+Let $(U_k,L_k,\mathrm{Ly}^{hi}_k)$ be the march cells of the rate table, $\mathrm{pad}_k=10^{-9}\max(1,|U_k|)$, and $(a^*,L^*,\rho,\eta,L_F)$ the tail data, for each of the two production points. Assume
+\begin{enumerate}[label=(C\arabic*),leftmargin=3em,start=0]
+\item $s>0$;\quad \textup{(C1)} $S'\le s$;
+\setcounter{enumi}{1}
+\item $L(\tau)+2C'\le\mathrm{Ly}^{hi}_k$ on every march cell;
+\item $U_k^+\cdot2C'<\mathrm{pad}_k\,L_k$ for every $k$;
+\item $2C'\le\eta L_F$;
+\item the whole-tail $\alpha$-condition holds with its right side multiplied by $1+2C'/L_F$;
+\item $\kappa_J^{\rm used}-\kappa_J^{\rm cert}\ge C'/X_{\rm const}$ (the unconditional integrals);
+\item every other consumer of ``$\Lambda\le$ barrier'' uses a value with relative reserve $\ge2C'/L_k$ (march) or $\ge C'/L_F$ (floor).
+\end{enumerate}
+Then all conclusions of the verifier \fn{fin13v4c} hold on $[\tau_1,\tau']$ with $\Lambda(\tau)\le L(\tau)+2C'$ on the march and $\Lambda(\tau)\le\ell(\tau)+2C'$ in the tail, the $\alpha$-barriers unchanged, and the window integrals of $V_m^2$ bounded by $J_m(1+\kappa_J^{\rm used})+s_mT$.
+\end{proposition}
+\begin{proof}\tHd\ Fix one of the two production points and let $Y=\Lambda-Z$ be as in Lemma~\ref{F:lem:Z}; by (C0), (C1) the lemma applies, so $Y\le\Lambda\le Y+2C'$ and $\frac12Y'\le\mathrm{tot}(\alpha(\tau),x(\tau))$ a.e. Throughout, ``the state is in cell $k$'' means $\Lambda\in[\mathrm{Ly}^{lo}_k,\mathrm{Ly}^{hi}_k]$ and $|\alpha|\le\alpha^{\rm up}_k$; the alpha-barrier itself is checked by the verifier at $\mathrm{Ly}^{hi}_k$, and $\beta$-bounds are evaluated there.
+
+\emph{What a cell certifies} \tR. \fn{closure.py}:129 calls \fn{orc.rate}, i.e.\ \fn{bb.bound_cell}$(0,\alpha_k,\mathrm{Ly}^{lo}_k,\mathrm{Ly}^{hi}_k,\text{floors}=\text{True})$, which returns $U_k\ge\sup\mathrm{tot}/\Lambda$ over all shapes, $|\alpha|\le\alpha_k$ and $\Lambda\in[\mathrm{Ly}^{lo}_k,\mathrm{Ly}^{hi}_k]$ (\fn{bb.py}:142--185; the $\Lambda$-range by evaluating $H-\mathrm{NEG}$ at $s_{hi}$ and $L$ at $s_{lo}$; the flux constants enter $L$ as the degree-0 constant $F_0$, taken at $\mathrm{Ly}^{lo}$; \fn{TAIL_LEMMA.tex}, ``s-monotone split'' and ``leaf certificate''). Cell ends: $\mathrm{Ly}^{hi}_k=\max(L_k,g)(1+10^{-3})$, $\mathrm{Ly}^{lo}_k=\min(L_k,g)(1-10^{-3})$, and the step is accepted only if $L_{k+1}\in[\mathrm{Ly}^{lo}_k,\mathrm{Ly}^{hi}_k]$ (\fn{closure.py}:112--115, 131--132). The barrier on step $k$ is $L'=2(U_k+\mathrm{pad}_k)L$, $\mathrm{pad}_k=10^{-9}\max(1,|U_k|)$ (\fn{closure.py}:130).
+
+\emph{March (first touch with $Y$).} Claim: $Y\le L$ on every step. At $\tau_1$, $Z=0$ and $Y=\Lambda(\tau_1)\le\mathrm{Ly}_1<L(0)$. Suppose the claim fails on step $k$ and put $G:=Y-L$, absolutely continuous. Let $t_0$ be the last time before a point with $G>0$ at which $G\le0$; then $G(t_0)=0$ and $G>0$ on $(t_0,t_0+\delta)$. For $t\in(t_0,t_0+\delta)$ and $\delta$ small: $\Lambda\ge Y>L\ge\mathrm{Ly}^{lo}_k$, and $\Lambda\le Y+2C'=L+G+2C'<\mathrm{Ly}^{hi}_k$ because $L+2C'\le\mathrm{Ly}^{hi}_k$ holds with room on every step by (C2) (checked against $\max(L_k,L_{k+1})$, margin $\ge\times5.0\cdot10^{7}$) and $G$ is small. The $\alpha$-barrier is unchanged (it is evaluated at $\mathrm{Ly}^{hi}_k$ and $\Lambda\le\mathrm{Ly}^{hi}_k$). So the state is in cell $k$ and $\frac12Y'\le\mathrm{tot}\le U_k\Lambda$ a.e. on $(t_0,t_0+\delta)$.
+If $U_k\ge0$: $\Lambda\le Y+2C'$ gives $Y'\le2U_k(Y+2C')$, and $L'=2(U_k+\mathrm{pad}_k)L$, so $G'\le2U_kG+(4U_kC'-2\,\mathrm{pad}_kL)$; the bracket is $<0$ by (C3) (with $L\ge\mathrm{Ly}^{lo}_k$, margin $\ge\times1547$). Gronwall from $G(t_0)=0$ gives $G\le0$ on $(t_0,t_0+\delta)$, a contradiction. If $U_k<0$: $\Lambda\ge Y$ gives $Y'\le2U_k\Lambda\le2U_kY$, so $G'\le2U_kG-2\,\mathrm{pad}_kL<0$ wherever $G\ge0$ is small; again $G\le0$. Hence $Y\le L$ and $\Lambda\le L+2C'$ on the march. No march step of either table used the slack path of \fn{closure.py}:126--128 (\fn{recompute.json}, $n_{\rm slack}=0$).
+
+\emph{Tail.} The anchor certificate gives $\mathrm{rate}_s\le-\rho$ on $\Lambda\in[L^*,(1+\eta)L^*]$, $|\alpha|\le a^*$, floors off, $\eta=0.01$ (\fn{closure.py}:165). Let $\ell$ be the tail barrier, $\ell'=-\rho\ell$ above the floor and constant at $L_F=2F_0/\rho$. At a first touch $G=Y-\ell=0$, $G>0$ just after: $\Lambda\in(\ell,\ell+2C'+G]$; with $\lambda^2=\ell/L^*$ the scaled state has $\Lambda/\lambda^2\in[L^*,(1+\eta)L^*]$ as soon as $2C'<\eta L_F$ (C4, margin $\ge\times1.7\cdot10^5$), and $|\alpha|/\lambda\le a^*$ by the $\alpha$-barrier. Joint scaling gives $\mathrm{tot}_s\le-\rho\Lambda$, so $Y'\le-2\rho\Lambda+2F_0\le-2\rho Y+2F_0$. This is the differential inequality of the floor paragraph of \fn{TAIL_LEMMA.tex} with $Y$ in place of $\Lambda$: above the floor $G'\le-2\rho G$ (using $\rho\ell\ge2F_0$ there), on the flat part $G'\le-2\rho G-\rho L_F$; so $G\le0$, with the same $L_F$. The tail anchor boxes are asserted at $L^*$ without cushion (\fn{closure.py}:162); they cover $\Lambda\le L^*+2C'$ because $L^*+2C'\le\mathrm{Ly}^{hi}$ of the last march cell, whose boxes are asserted at $\mathrm{Ly}^{hi}$, and $a^*\le\alpha^{\rm up}$ of that cell (margins $\times1.97\cdot10^8$, $\times5.1\cdot10^7$; $a^*=3.68\cdot10^{-5}$, $3.58\cdot10^{-5}$ against $5\cdot10^{-5}$; \fn{fix9_review/recompute.json}).
+
+\emph{$\alpha$-equation.} $\beta$ is nondecreasing in $\Lambda$ and each $\Lambda$-dependent term has degree $\le1$ in $\Lambda$ ($\sqrt\Lambda$ and $\mathrm{QBL}\cdot\Lambda$, \fn{closure.py}:22); with $\Lambda\le(1+2C'/L_F)\ell$ the right side of the whole-tail condition (\fn{closure.py}:185) grows by at most the factor $1+2C'/L_F$, which (C5) allows (margin $\ge\times1512$). Floor quotes: $\sqrt{\Lambda}\le(1+2C'/L_F)^{1/2}\sqrt{\ell}$, relative change $\le2.7\cdot10^{-8}$.
+
+\emph{Integrals.} The march uses $r_1$ at the point cell $\mathrm{Ly}^{hi}$ with $L$ dropped (\fn{closure.py}:222; \fn{TAIL_LEMMA.tex} \S V1), valid for every $\Lambda\le\mathrm{Ly}^{hi}$, which (C2) keeps. Then $2\theta\int_a^b\mathrm{NEGV}\le Y(a)-Y(b)+2\int_a^b(r_1^+\Lambda+\Phi+F_0)$, $Y(a)\le\Lambda(a)$, $-Y(b)\le2C'$: the constant gains $C'$ (or $2C'$ if march and tail are bounded separately), the slope nothing. $\kappa_J$ enters as $J_m(1+\kappa_J)$ with $\kappa_J=\kappa_J^{\rm cert}+10^{-9}$ (\fn{fix13_v37chain/t2_A/rigor/hjw_rep.py}:38--39), so the pad covers $C'\le10^{-9}X_{\rm const}$: (C6), margin $\ge\times141$ ($\times70$ for $2C'$).
+
+\emph{Other consumers} (C7) \tR: \fn{mod_sups.py}:33--37 reads the march rows at $\mathrm{Ly}^{hi}$ and one tail row at $L^*$ (scripted reserve $\ge\times2.5\cdot10^8$); \fn{fix13_v37chain/v36cfg.py}:66--84 rounds the $J$'s, slopes and peak up to 5 digits and $\rho$ down; the raw $\sqrt{L_F}$ in \fn{assembly_arb.f4b} feeds only $I_{3c}$, $I_{3s}$, which v37 does not use. Hence all conclusions of the verifier hold with $\Lambda\le L+2C'$ (march), $\Lambda\le\ell+2C'$ (tail), the $\alpha$-barriers unchanged, and $\int_IV_m^2\le J_m(1+\kappa_J)+s_mT$.
+\end{proof}
+
+\begin{definition}[bootstrap set of the flux lemma]\label{F:def:boot}
+The items below are members of the bootstrap set $\mathrm{BS}$ of \fn{bootstrap_v39.tex} (Definition~\ref{BS:def}: (F1), (F2) form BF; (F3)--(F5) are part of the box part B1(c) and of B2$'$; (F6) is B1(b)). On $[\tau_1,\tau']$ they are assumed; each is \emph{strictly improved} by the conclusions obtained under it (certified factor given):
+\begin{enumerate}[label=(F\arabic*),leftmargin=3em]
+\item (B$\Phi$): for $k=1,2$ and every window, $\int_I\!\int_{\ln28}^{\ln350}\varepsilon\omega(z^A_{k+2})^2\le2(C0_k+C1_kT)$, $C0_1\le\BPhiCzerooneV$, $C1_1\le\BPhiConeoneV$, $C0_2\le\BPhiCzerotwoV$, $C1_2\le\BPhiConetwoV$ (setting $4N_2^{\rm ref}$; \fn{flux2_data.json} \key{res.export}). Improved by Lemma~S(A), Lemma~D: the bound holds without the factor 2 (factor $\times2$).
+\item $|(a,b)|\le\bar a_F:=10^{-6}$ (typed, used in $C_{\rm eff}$ and $K_0^w$). Improved by the verifier: $\sup|(a,b)|\le\abarV$ (\fn{mod_sups} of \fn{fin13v4c}, $\times4.67$).
+\item $|\alpha|\le2.5\cdot10^{-4}$ (coefficient tables, chart boxes; (B-a), (E0), (E2) of \fn{ei_lemma_v4c_v39.tex}). Improved: $|\alpha|\le1.6\cdot10^{-4}$ on every march cell and $\le a^*$ in the tail (worst ratio $0.64$).
+\item $\max(|w|,|w'|)\le10^{-4}$ on $[0,8]$ (E2 tip-jet box (E2)). Improved: asserted at every cell's $\mathrm{Ly}^{hi}$ with worst ratio $\EtwoTipV$ (\key{E2_tip_jet}).
+\item the standing boxes on OR and the rest of (B-b)--(B-e) of \fn{ei_lemma_v4c_v39.tex}: $|g|\le S^V_0=0.0153$, $|g'|\le S^V_1/\sigma_{\min}$, $|w|\le\frac12$ (ratios $\BbIRV$, $0.765$, $\BdV$ for the asserted ones; $S^V_0,S^V_1$ improved by Lemma~S(A), $\times\MarSzeroV$ and $\times\MarSoneV$ at $4N_2^{\rm ref}$).
+\item B1 in the form $\Lambda\le L+2C'$ on the march, $\le\ell+2C'$ in the tail. Improved: Proposition~\ref{F:prop:abs} gives $Y\le L$ strictly (pad and cushion, (C2), (C3) $\times\FluxCthreeV$).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[bootstrap order]\label{F:rem:boot}
+(B$\Phi$) and the other items of Definition~\ref{F:def:boot} are members of $\mathrm{BS}$; the closure argument for them is part of Proposition~\ref{BS:prop:close} of \fn{bootstrap_v39.tex}, and is as follows. Under the bootstrap set on $[\tau_1,\tau']$: Lemma~\ref{F:lem:flux} holds with $(C',S')$ computed from the doubled exports and from $\beta_A\hat E$; Proposition~\ref{F:prop:abs} gives the verifier's conclusions (H-J-W included); Lemma~S(A) then gives the exports with $(C0_k,C1_k)$, a strict improvement of (B$\Phi$). The window integrals are continuous in the window end, so (B$\Phi$) is closed (monotone convergence) and open (the extra piece $\int_{\tau'}^{\tau''}$ is independent of the window start and tends to $0$, given local integrability of $\varepsilon\omega(z^A_{k+2})^2$ past $\tau'$, Theorem U-1); (F2)--(F6) are closed conditions on continuous quantities and are improved strictly, so they are open by continuity (Theorem U-1). Lemma~S(A) itself does not use (B$\Phi$).
+\end{remark}
+
+\begin{remark}[why the verifier permits integrated control]
+(1) Both flux inputs enter additively, as one constant of the degree-0 group, so only $\mu K_0^{\OR}+\mu\eI K_2^{\OR}$ matters and the level-2 part carries the factor $\mu\eI=2.4\cdot10^{-6}$. (2) Every certificate is a statement about all states of a cell whose upper end has a relative cushion $10^{-3}$. (3) The barrier is strict by the pad $10^{-9}$. (4) In the tail the certified inequality is decreasing in $\Lambda$. (5) The time integrals are computed from the cushioned cell ends and gain one additive constant. No rate cell is recomputed.
+\end{remark}
+
+
+\subsection{Implementation notes (fix round 8; v37 reassembly)}\label{F:sec:impl}
+Certified values (python-flint arb, outward rounding; \fn{fix13_v37chain/flux/out/flux2_cert.json}, chain v37 on \fn{fin13v4c}):
+$\bar K_0\le\KzeroBarV$ against $\fn{FLUX0}=1.64\cdot10^{-20}$ ($\times\FluxKzeroMarV$); $K_2^{\rm pt}\le\KtwoPtV$; combined pointwise margin $(\fn{FLUX0}+\eI\fn{FLUX2})/(\bar K_0+\eI K_2^{\rm pt})\ge\FluxCombMarV$;
+$C''\le\CppV$, $S''\le\SppV$, $C'\le\CprimeV$, $S'\le\SprimeV$, $s\ge\slackSV$; $W(57)\le1.3404\cdot10^{-18}$; (C3) $\times\FluxCthreeV$ / $\times\FluxCthreeBV$, (C5) $\times\FluxCfiveV$ / $\times\FluxCfiveBV$, (C6) $\times\FluxCsixV$ (at $\alpha_1=1.5\cdot10^{-4}$ / $1.25\cdot10^{-4}$; \key{conditions}). (The fix-8 values on chain v36 agree to 4 digits and are superseded.)
+Deviations from the design, each a valid alternative:
+\begin{enumerate}[label=(\roman*)]
+\item The conversions of Lemma~\ref{F:lem:data}(b) are used in Minkowski form, $M_3\le\sigma_{\min}^{-5/2}(\|D^3g\|+3\|D^2g\|+2\|Dg\|)$, $M_4\le\sigma_{\min}^{-7/2}(\|D^4g\|+6\|D^3g\|+11\|D^2g\|+6\|Dg\|)$ (and $M_2\le\sigma_{\min}^{-3/2}(\|D^2g\|+\|Dg\|)$), and sums of window norms $\sum_iw_i(a_i+b_iT)^{1/2}$ are squared with fixed rational weights $\theta_i$, $\sum\theta_i\le1$.
+\item $\|g''^2\|^2_{L^2(S\times I;ds\,d\tau)}\le\sigma_{\min}^{-1}\bar M_2^2\int_Is_2^2$ (the factor $\sigma_{\min}^{-1}$ from $ds=d\sigma/\sigma$).
+\item $W$ is the verifier's weight ($S_7$ blend on $[30.25,38.25]$, $W=(1+x^2)^{-2}$ below): $W(57)\le1.3404\cdot10^{-18}$ by a validated integral. The v3.1 value $1.43716\cdot10^{-18}$ (quintic blend) is not used.
+\item The coefficient sups on $\OR$ are the certified C2 tables of the verifier restricted to the boxes meeting $(57,60)$ (\fn{c2_t3d.json}, sub-region $[57,60]$), each asserted $\le$ the zone value.
+\item $|(a,b)|\le\bar a:=10^{-6}$ is taken as a typed hypothesis ($\ge2.19103\cdot10^{-7}$, every level in use).
+\item The level-4 chart structure of Lemma~\ref{F:lem:chart4} is asserted in sympy (\fn{chart4_shell.py}; passed) and independently confirmed (\fn{fix9_review/chi4_check.py}): $b_2^2=(u^{(3)})^2$ is the only quadratic monomial in $(b_2,b_3,b_4)$, no $b_5$, $\chi_4=0$ for a ray.
+\end{enumerate}
+
+\paragraph{Status (text v38).} Certified computation complete (\fn{flux2_cert.json} of the v37 reassembly, verdict PASS; all of (C0)--(C7) pass at both production points, (C9) by construction; (C8) is U-1, reviewed). Reviewed: \fn{FLUX2_REVIEW.md} (sound modulo the listed items; $\bar K_0$ is conservative by $\times3.4$, a direct pair-form reduction giving a combined margin $\times16.29$, not needed) and \fn{fix15_review} part B. Records (text v39): the outputs \fn{fix13_v37chain/flux/out/*} and \fn{flux/texts} are pinned by stage 21 of \fn{step4/p2/out_v38/FINAL_manifest_v38.json} (29 stages, 629 paths and 55 scripts pinned, sha256 \fn{be909bbf42543ab017bb9c81ba58227c80fc4f010cc1b50a66a515b848f90418}), which reruns the 8 flux stages into \fn{out_v38/flux} and reproduces every file (JSON apart from args; pkl and texts byte for byte; verdict PASS, combined margin $\times4.8045$), and they are in \fn{kit_step3_v4.zip} (WSL test run only). Open: review item B-v37-1 (\fn{inputs.json} pins an older sha256 of \fn{V37_LOG.md}, the one non-args difference of the rerun; \fn{SHA256SUMS_v37} not regenerated); the gen\_texts strings of \fn{flux/texts/} still carry the fix-8 wording (B-v37-2; this file supersedes them); LaTeX compile.
+\ifdefined\stepmain\else
+\end{document}
+\fi

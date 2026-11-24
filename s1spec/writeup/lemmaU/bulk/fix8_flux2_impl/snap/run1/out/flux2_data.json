@@ -1,0 +1,231 @@
+{
+ "all_pass": true,
+ "args": {
+  "argv": [
+   "flux2_data.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/runs/prod2/t2_A/asm_design_N2ref4.json": "a9267ad701088a781656d65562cdae2469c7c8fbd21127cfedac7c8a556689a1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix6_v36/t2_A/base_ibp/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "4b3c477e10eb1637e51bd87ea96d3c177d7b3ab865f54395d39a84f3aa5c7ccb",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/flux2_data.py": "882e7c264673eb914c824a48b130699103b169463964da315afe5bd3dc401ac9",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/chart4_shell.json": "b27489849021c9431d4d4c8c0601831f2e4b987c9ac6fbcc7ddd66ad96a5ec0e",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_coef.json": "c9bb62286375cd0e7d6739a72e9809eb8ee0700f21b968d2dcea75ec38c3f299",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/inputs.json": "31f957cd9b59cde5fcf902a97c4be7a87552e183e39ccb515995eb447d219409"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "checks": {
+  "STOP RULE: C0_2 = 1.1638e+02 < 4e3 (kill 4e4; design: raise lambda_2 above 4e3)": true,
+  "X3 chart shift e <= 1e-30 (so Y(S) within [54.75 - 1e-30, 57.76 + 1e-30]; y_max = 57.76 + e used below)": true,
+  "X3 shell is [54.75, 57.76] and X2 sigma range inside it": true,
+  "X4 Nbar_l^2 (with d, chart) <= 1.05 x old f4b N_l^2 rescaled to the same W(57) (sanity; old has no d/chart)": true,
+  "export statements have the weight y^-4 (28/y) on [ln 28, ln 350] for z_3 (k=1) and z_4 (k=2)": true,
+  "level-2 chart absorption: sigma_min^{-3/2} Bbar_22 sigma_min^{-1/2} < 1e-30": true,
+  "level-2 export retained fraction r_2 = 1/1000 (A_interface r2_export)": true,
+  "level-3 chart absorption < 1e-30": true,
+  "level-4 chart absorption < 1e-30 (B_44 circular term, sec. 3.4)": true,
+  "regression: f4b formula on (E, beta = 2, lemmaS_cflux) reproduces the v36 pipeline K0_w at beta = 2 (rel <= 1e-9)": true
+ },
+ "res": {
+  "E_hat": [
+   {
+    "arb": "[1.2115519554105673987e-6 +/- 3.57e-26]",
+    "label": "cert",
+    "note": "v36 asm_design_N2ref4 res.tight.E[0]",
+    "up": 1.2115519554105675e-06
+   },
+   {
+    "arb": "[0.00010453761199537955204 +/- 4.74e-24]",
+    "label": "cert",
+    "note": "v36 asm_design_N2ref4 res.tight.E[1]",
+    "up": 0.00010453761199537956
+   },
+   {
+    "arb": "[0.058351104875434923483 +/- 4.59e-22]",
+    "label": "cert",
+    "note": "v36 asm_design_N2ref4 res.tight.E[2]",
+    "up": 0.058351104875434934
+   }
+  ],
+  "Mbar": {
+   "0": {
+    "arb": "[0.017210704024823216679 +/- 2.99e-23]",
+    "label": "cert",
+    "note": "sup_tau M_0 at beta_A = 2, with d and chart",
+    "up": 0.01721070402482322
+   },
+   "1": {
+    "arb": "[0.0028138976991673248298 +/- 4.98e-23]",
+    "label": "cert",
+    "note": "sup_tau M_1 at beta_A = 2, with d and chart",
+    "up": 0.0028138976991673253
+   },
+   "2": {
+    "arb": "[0.0012628010206410136655 +/- 1.87e-23]",
+    "label": "cert",
+    "note": "sup_tau M_2 at beta_A = 2, with d and chart",
+    "up": 0.0012628010206410139
+   }
+  },
+  "Nbar": {
+   "0": {
+    "arb": "[1.9925095981136884960e-11 +/- 1.70e-31]",
+    "label": "cert",
+    "note": "sup_tau N_0 = (int_OR W (g^(0))^2)^1/2 <= W(57)^1/2 Mbar_0",
+    "up": 1.9925095981136888e-11
+   },
+   "1": {
+    "arb": "[3.2576925183387491303e-12 +/- 3.94e-33]",
+    "label": "cert",
+    "note": "sup_tau N_1 = (int_OR W (g^(1))^2)^1/2 <= W(57)^1/2 Mbar_1",
+    "up": 3.2576925183387495e-12
+   },
+   "2": {
+    "arb": "[1.4619641070498431720e-12 +/- 4.21e-32]",
+    "label": "cert",
+    "note": "sup_tau N_2 = (int_OR W (g^(2))^2)^1/2 <= W(57)^1/2 Mbar_2",
+    "up": 1.4619641070498434e-12
+   }
+  },
+  "beta_A": "2",
+  "export": {
+   "1": {
+    "C0": {
+     "arb": "[0.00016636596280525829518 +/- 1.84e-24]",
+     "label": "cert",
+     "up": 0.00016636596280525831
+    },
+    "C1": {
+     "arb": "[7.6842789165939472494e-8 +/- 1.05e-28]",
+     "label": "cert",
+     "up": 7.684278916593948e-08
+    }
+   },
+   "2": {
+    "C0": {
+     "arb": "[116.37817282565600844 +/- 9.65e-20]",
+     "label": "cert",
+     "up": 116.37817282565602
+    },
+    "C1": {
+     "arb": "[0.26060039165395048085 +/- 1.21e-21]",
+     "label": "cert",
+     "up": 0.26060039165395055
+    }
+   }
+  },
+  "lam_s": "1",
+  "m3c": {
+   "arb": "[1.5798247290297333145e-5 +/- 2.70e-25]",
+   "label": "cert",
+   "up": 1.5798247290297337e-05
+  },
+  "m3s": {
+   "arb": "[2.8103341305483555172e-7 +/- 3.46e-27]",
+   "label": "cert",
+   "up": 2.810334130548356e-07
+  },
+  "m4c": {
+   "arb": "[0.0036764776909705676987 +/- 1.39e-23]",
+   "label": "cert",
+   "up": 0.003676477690970568
+  },
+  "m4s": {
+   "arb": "[8.4621798898843653451e-6 +/- 4.56e-26]",
+   "label": "cert",
+   "up": 8.462179889884367e-06
+  },
+  "n3c": {
+   "arb": "[2.1174466637295187463e-23 +/- 2.05e-43]",
+   "label": "cert",
+   "note": "int_I N_3^2 <= n3c + n3s T",
+   "up": 2.117446663729519e-23
+  },
+  "n3s": {
+   "arb": "[3.7667043181109848687e-25 +/- 1.01e-45]",
+   "label": "cert",
+   "up": 3.7667043181109853e-25
+  },
+  "n4c": {
+   "arb": "[4.9276006875792606256e-21 +/- 2.91e-41]",
+   "label": "cert",
+   "up": 4.9276006875792614e-21
+  },
+  "n4s": {
+   "arb": "[1.1341900304801117025e-23 +/- 4.95e-43]",
+   "label": "cert",
+   "up": 1.1341900304801118e-23
+  },
+  "regression": {
+   "I3c_new_equiv": 1.0213292376427025e-21,
+   "I3c_pipeline_w": 1.744719261674755e-21,
+   "I3s_new_equiv": 1.8168321854520092e-23,
+   "I3s_pipeline_w": 6.3219551280894245e-25,
+   "K0w_old_formula": 4.772046639468217e-21,
+   "K0w_pipeline_beta2": 4.772046639468217e-21,
+   "note": "I3 of the pipeline = kappa_I2[3] W57_old N3-pipeline (v3.1 rules: 2 a_min conversion, no chart); reported only",
+   "ratio_Nbar2_new_over_old_sameW": [
+    0.987825029072283,
+    0.9676202364713449,
+    0.5223271137209805
+   ]
+  },
+  "sig2c": {
+   "arb": "[1.9950042802526603708e-8 +/- 4.32e-29]",
+   "label": "cert",
+   "note": "int_I s_2^2 <= sig2c + sig2s T",
+   "up": 1.9950042802526607e-08
+  },
+  "sig2s": {
+   "arb": "[0.0012633329310028720577 +/- 4.92e-23]",
+   "label": "cert",
+   "up": 0.0012633329310028723
+  },
+  "sigma_max": "57.76",
+  "sigma_min": "54.75",
+  "theta": {
+   "level3": [
+    "982975835/1000000004",
+    "1161/500000002",
+    "4138409/250000001",
+    "468205/1000000004"
+   ],
+   "level4": [
+    "992809179/1000000015",
+    "1/200000003",
+    "1/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "1016553/142857145",
+    "16/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "1/1000000015",
+    "73231/1000000015",
+    "242/142857145"
+   ]
+  },
+  "y_max": {
+   "arb": "[57.760000000000000000 +/- 1e-23]",
+   "label": "cert",
+   "up": 57.760000000000005
+  }
+ },
+ "stage": "X4 flux2_data",
+ "timing": {
+  "runtime_s": 0.2
+ }
+}

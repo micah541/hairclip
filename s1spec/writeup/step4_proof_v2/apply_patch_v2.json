@@ -1,0 +1,89 @@
+{
+ "args": {
+  "argv": [
+   "apply_patch_v2.py"
+  ],
+  "env": {
+   "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/step4_proof/step4_proof.tex": "6b4c183ab14a339b25472ff4e0a1c566d907c244059b35ad62299dfb2f15fb4f",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix27_texts_v44/STEP4_PATCH_NOTE_v44.md": "8bb6bfe3d343295b4e6da8f4657a955f240ad7dd444ce9dcd16af38067fa7ebc"
+  }
+ },
+ "edits": [
+  {
+   "id": "P1",
+   "mode": "adapted",
+   "base_line": 53,
+   "old_sha256": "e001521044a25738b268222731ab2a08e00411b65f892b1bdd2b3d89fd46f437",
+   "new_sha256": "3165cfa6830641c1ea91aa54e98853fbb865c5eddca33732f3b79013dc1a58e1"
+  },
+  {
+   "id": "P2",
+   "mode": "note",
+   "base_line": 89,
+   "old_sha256": "6229fb6fa7ef77821f5867490ada4b2da7ca5b621a6cd33662f295d4a1d9216f",
+   "new_sha256": "dc32f61909575ae746c7a6c8c0c00ecafd601832ef8ba084a4dff47c589dfa3f"
+  },
+  {
+   "id": "P3",
+   "mode": "adapted",
+   "base_line": 119,
+   "old_sha256": "5931487e6e6e42149b9e5cd39535d861300b915b783634016f06ae6ef42bc08e",
+   "new_sha256": "7c391ef65d079f11577b2e53fefe74a26c7a9157731feb22fdd3c6454f2341bc"
+  },
+  {
+   "id": "P4",
+   "mode": "adapted",
+   "base_line": 130,
+   "old_sha256": "2690a2a80432cfc28a4e0a331f563d7e0aa10d173723a989788a56a1dddf4252",
+   "new_sha256": "798d8c944f649fde18e4a9d646bf666b40cd7ff47daf9d660e1a934744a4b245"
+  },
+  {
+   "id": "P5",
+   "mode": "adapted",
+   "base_line": 131,
+   "old_sha256": "6b69f41545a77affe98695a2c75d57c12ad1f7a35dcd256aa40ff8804f7d75e3",
+   "new_sha256": "b122edc6399389ee49cddb6ba26ce87f08bf148d065581b295a7efcbfdd85967"
+  },
+  {
+   "id": "P6",
+   "mode": "note",
+   "base_line": 336,
+   "old_sha256": "d0c674250977ece7fc84cfd58f045daa9f3e207aa883bdd1bd2a625e468d309f",
+   "new_sha256": "a853bea69b516d0a6bb9c4ea5b557329d0cf5233c645c44068556e689d8168a0"
+  },
+  {
+   "id": "P7",
+   "mode": "adapted",
+   "base_line": 370,
+   "old_sha256": "66452824210c491f4777fd6f32440334aad6f0166b714fb65d00e9e70fd8f07a",
+   "new_sha256": "816cbf7125f7a7197fbfacb73e859b7fcdc2989ef8c8bc2af9051d9678d53c21"
+  },
+  {
+   "id": "P8",
+   "mode": "note",
+   "base_line": 672,
+   "old_sha256": "0974a8abdb0edae1b31023b507dd656cde191ad076d53f98ef7c1458e2048a52",
+   "new_sha256": "1f7e2db2ca990bf254772a2c46d01409ecbff0dc3245fa8b4309f0f11eee535b"
+  },
+  {
+   "id": "P9",
+   "mode": "adapted",
+   "base_line": 798,
+   "old_sha256": "9c46f483792adec2c56e3cf7252bb5ef19a6c427dd9b2bdcef41ad853b1c548a",
+   "new_sha256": "6ce314038e07c3aa773536ece1c2bb176c42f65b90729ca7dd175b7d23b3c56c"
+  },
+  {
+   "id": "P10",
+   "mode": "adapted",
+   "base_line": 874,
+   "old_sha256": "a3f6694f6e74738ff64fdb88f7604f0d5746b6002fcd26ce6b73d960bd753cfd",
+   "new_sha256": "7658c00f8f80a9f4e57028e7dbd9db8629fea02759cf4d85ca3f0add6de0977f"
+  }
+ ],
+ "output": {
+  "/home/claude/s1spec/writeup/step4_proof_v2/step4_proof_v2.tex": "a972c349e75265731527ff54942bfb03a15414f9c4030094b826874e13b6006c"
+ }
+}

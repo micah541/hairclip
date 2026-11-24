@@ -1,0 +1,2382 @@
+ΓÜá [2784/2807] Replayed CWFlow.Extension.Symbols
+warning: CWFlow/Extension/Symbols.lean:136:24: Variable name `s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Symbols.lean:137:67: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Symbols.lean:223:9: `ContinuousMultilinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/Symbols.lean:452:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ΓÜá [2785/2807] Replayed CWFlow.Extension.SymbolProd
+warning: CWFlow/Extension/SymbolProd.lean:93:24: Variable name `s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/SymbolProd.lean:94:67: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [2786/2807] Replayed CWFlow.Extension.SymbolDeriv
+warning: CWFlow/Extension/SymbolDeriv.lean:142:24: This simp argument is unused:
+  wt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [2791/2808] Replayed CWFlow.Extension.SymbolTotalD
+warning: CWFlow/Extension/SymbolTotalD.lean:204:5: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [2972/2985] Replayed CWFlow.Extension.GraphCoeff
+warning: CWFlow/Extension/GraphCoeff.lean:209:32: Variable name `I` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _I
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphCoeff.lean:212:32: Variable name `I` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _I
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [2976/2991] Replayed CWFlow.Extension.CovSymbols
+warning: CWFlow/Extension/CovSymbols.lean:77:27: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [3044/3060] Replayed CWFlow.Extension.PullZ
+warning: CWFlow/Extension/PullZ.lean:106:13: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: CWFlow/Extension/PullZ.lean:106:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/PullZ.lean:107:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Extension/PullZ.lean:178:5: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [3045/3060] Replayed CWFlow.Extension.ImmReparam
+warning: CWFlow/Extension/ImmReparam.lean:78:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/ImmReparam.lean:78:44: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Extension/ImmReparam.lean:119:34: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: CWFlow/Extension/ImmReparam.lean:119:65: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+ΓÜá [3075/3094] Replayed CWFlow.Extension.IntM
+warning: CWFlow/Extension/IntM.lean:218:48: Variable name `y` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _y
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/IntM.lean:219:8: Variable name `y` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _y
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [8721/8746] Replayed CWFlow.Moser.Forms
+warning: CWFlow/Moser/Forms.lean:85:30: This simp argument is unused:
+  u1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Fin.sum_univ_two, u0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Moser/Forms.lean:117:39: `ContinuousLinearMap.neg_apply` has been deprecated: Use `_root_.neg_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.neg_apply` to `_root_.neg_apply x`).
+warning: CWFlow/Moser/Forms.lean:106:25: This simp argument is unused:
+  fderiv_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [extDeriv, Pi.zero_apply, smul_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Moser/Forms.lean:106:39: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [extDeriv, fderiv_const, smul_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Moser/Forms.lean:142:39: `ContinuousLinearMap.neg_apply` has been deprecated: Use `_root_.neg_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.neg_apply` to `_root_.neg_apply x`).
+ΓÜá [8722/8746] Replayed CWFlow.Moser.Chart
+warning: CWFlow/Moser/Chart.lean:88:13: `ContinuousLinearMap.coe_add'` has been deprecated: Use `FunLike.coe_add` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_add'` to `FunLike.coe_add x`).
+ΓÜá [8723/8750] Replayed CWFlow.Weinstein.Coord
+warning: CWFlow/Weinstein/Coord.lean:58:13: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Weinstein/Coord.lean:59:37: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:60:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:60:36: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+warning: CWFlow/Weinstein/Coord.lean:73:41: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:79:41: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:142:30: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:142:61: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Weinstein/Coord.lean:144:21: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+warning: CWFlow/Weinstein/Coord.lean:145:64: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:145:17: This simp argument is unused:
+  inner_zero_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [beta, pb1, lamA, ContinuousLinearMap.sub_apply, ContinuousLinearMap.coe_comp', Function.comp_apply,
+    fderiv_Phi0_zero hF hA, fderiv_ell_zero hF hA, hFst, Phi0, map_zero, sub_zero, lam0L, ContinuousLinearMap.coe_smul',
+    Pi.smul_apply, innerSL_apply_apply, smul_eq_mul, ContinuousLinearMap.coe_fst', ContinuousLinearMap.zero_apply,
+    neg_zero, inner_sub_right, hJi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Weinstein/Coord.lean:146:4: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [beta, pb1, lamA, ContinuousLinearMap.sub_apply, ContinuousLinearMap.coe_comp', Function.comp_apply,
+    fderiv_Phi0_zero hF hA, fderiv_ell_zero hF hA, hFst, Phi0, map_zero, sub_zero, lam0L, ContinuousLinearMap.coe_smul',
+    Pi.smul_apply, innerSL_apply_apply, smul_eq_mul, inner_zero_left, ContinuousLinearMap.coe_fst',
+    ContinuousLinearMap.zero_apply, inner_sub_right, hJi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Weinstein/Coord.lean:188:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Weinstein/Coord.lean:188:44: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Weinstein/Coord.lean:235:13: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+ΓÜá [8725/8750] Replayed CWFlow.Moser.Field
+warning: CWFlow/Moser/Field.lean:56:0: automatically included section variable(s) unused in theorem `CWFlow.toAlt1_add_smul`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Field.lean:70:0: automatically included section variable(s) unused in theorem `CWFlow.moserField_spec`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Field.lean:86:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffAt_extDeriv_toAlt1`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8729/8753] Replayed CWFlow.Weinstein.ZeroSection
+warning: CWFlow/Weinstein/ZeroSection.lean:34:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffAt_lamA`:
+  [FiniteDimensional Γä¥ E]
+  [FiniteDimensional Γä¥ G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [FiniteDimensional Γä¥ G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/ZeroSection.lean:96:0: automatically included section variable(s) unused in theorem `CWFlow.nondeg_of_lift`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/ZeroSection.lean:121:0: automatically included section variable(s) unused in theorem `CWFlow.moserField_zero`:
+  [FiniteDimensional Γä¥ E]
+  [FiniteDimensional Γä¥ G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [FiniteDimensional Γä¥ G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8730/8753] Replayed CWFlow.Weinstein.Lift
+warning: CWFlow/Weinstein/Lift.lean:30:8: automatically included section variable(s) unused in theorem `CWFlow.metricMap_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Lift.lean:42:30: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Weinstein/Lift.lean:37:0: automatically included section variable(s) unused in theorem `CWFlow.metricMap_injective`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Lift.lean:66:0: automatically included section variable(s) unused in theorem `CWFlow.inner_J_liftA`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Lift.lean:74:19: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+ΓÜá [8731/8753] Replayed CWFlow.Scalar.Pointwise
+warning: CWFlow/Scalar/Pointwise.lean:53:8: automatically included section variable(s) unused in theorem `CWFlow.gOf_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Pointwise.lean:55:0: automatically included section variable(s) unused in theorem `CWFlow.metricMap_eq_gOf`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Pointwise.lean:101:24: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Scalar/Pointwise.lean:97:0: automatically included section variable(s) unused in theorem `CWFlow.gOf_injective`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Pointwise.lean:125:0: automatically included section variable(s) unused in theorem `CWFlow.contDiff_gOf`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8732/8753] Replayed CWFlow.Weinstein.Interface
+warning: CWFlow/Weinstein/Interface.lean:82:20: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+warning: CWFlow/Weinstein/Interface.lean:82:51: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+ΓÜá [8736/8753] Replayed CWFlow.Scalar.Invariance
+warning: CWFlow/Scalar/Invariance.lean:54:0: automatically included section variable(s) unused in theorem `CWFlow.gOf_comp`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Invariance.lean:56:0: automatically included section variable(s) unused in theorem `CWFlow.injective_comp_equiv`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Invariance.lean:98:0: automatically included section variable(s) unused in theorem `CWFlow.perpOf_add`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Invariance.lean:102:0: automatically included section variable(s) unused in theorem `CWFlow.perpOf_smul`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8737/8753] Replayed CWFlow.Scalar.Reparam
+warning: CWFlow/Scalar/Reparam.lean:70:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Scalar/Reparam.lean:70:44: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+ΓÜá [8739/8753] Replayed CWFlow.Scalar.Graph
+warning: CWFlow/Scalar/Graph.lean:40:0: automatically included section variable(s) unused in theorem `CWFlow.hasFDerivAt_graphMap`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Graph.lean:57:0: automatically included section variable(s) unused in theorem `CWFlow.injective_fderiv_of_symplectic`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Graph.lean:72:0: automatically included section variable(s) unused in theorem `CWFlow.inner_J_fderiv_vertical`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Graph.lean:102:0: automatically included section variable(s) unused in theorem `CWFlow.hasDerivAt_slice_fderiv`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Graph.lean:130:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Scalar/Graph.lean:130:44: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Scalar/Graph.lean:131:35: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Scalar/Graph.lean:122:0: automatically included section variable(s) unused in theorem `CWFlow.fderiv_time_deriv_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8741/8753] Replayed CWFlow.Flow.TanAlgebra
+warning: CWFlow/Flow/TanAlgebra.lean:36:0: automatically included section variable(s) unused in theorem `CWFlow.tanPart_add`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/TanAlgebra.lean:40:0: automatically included section variable(s) unused in theorem `CWFlow.tanPart_sub`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8743/8777] Replayed CWFlow.Scalar.LinearChange
+warning: CWFlow/Scalar/LinearChange.lean:23:0: automatically included section variable(s) unused in theorem `CWFlow.fderiv_comp_linearEquiv`:
+  [FiniteDimensional Γä¥ E]
+  [FiniteDimensional Γä¥ E']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [FiniteDimensional Γä¥ E'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8764/8803] Replayed ShortTime.Nonlinear.FlowsNaturalEuclid
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:66:25: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:74:25: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:106:47: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:110:49: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:208:26: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:208:57: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:209:4: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: ShortTime/Nonlinear/FlowsNaturalEuclid.lean:248:6: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+ΓÜá [8768/8803] Replayed CWFlow.Scalar.Flat
+warning: CWFlow/Scalar/Flat.lean:37:8: automatically included section variable(s) unused in theorem `CWFlow.slot1_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8769/8803] Replayed CWFlow.Scalar.JetFunction
+warning: CWFlow/Scalar/JetFunction.lean:43:0: automatically included section variable(s) unused in theorem `CWFlow.slot1L_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/JetFunction.lean:63:34: `fderiv_id'` has been deprecated: Use `fderiv_fun_id` instead
+warning: CWFlow/Scalar/JetFunction.lean:59:0: automatically included section variable(s) unused in theorem `CWFlow.iteratedFDeriv_id_eq_zero`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/JetFunction.lean:67:0: automatically included section variable(s) unused in theorem `CWFlow.iteratedFDeriv_fderiv_eq_curryRight`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/JetFunction.lean:201:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffAt_TkOf`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8770/8803] Replayed CWFlow.Scalar.Principal
+warning: CWFlow/Scalar/Principal.lean:99:4: `ContinuousMultilinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: CWFlow/Scalar/Principal.lean:99:4: This simp argument is unused:
+  ContinuousMultilinearMap.sum_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [FormalMultilinearSeries.taylorComp, Fintype.sum_unique]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Scalar/Principal.lean:204:0: automatically included section variable(s) unused in theorem `CWFlow.taylorComp_add_top'`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Principal.lean:219:0: automatically included section variable(s) unused in theorem `CWFlow.TkOf_addTop_of_le`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Principal.lean:230:57: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/Principal.lean:232:0: automatically included section variable(s) unused in theorem `CWFlow.topTerm_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Principal.lean:239:0: automatically included section variable(s) unused in theorem `CWFlow.LOf_apply`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Scalar/Principal.lean:246:25: `ContinuousMultilinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Scalar/Principal.lean:246:61: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+Γ£ö [8793/8827] Built CWFlow.Curve.Defs (150s)
+ΓÜá [8808/8834] Replayed CWFlow.Moser.Flow
+warning: CWFlow/Moser/Flow.lean:31:0: automatically included section variable(s) unused in theorem `CWFlow.contDiff_autField`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Flow.lean:198:0: automatically included section variable(s) unused in theorem `CWFlow.lipschitzWith_slice`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Flow.lean:225:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+ΓÜá [8813/8840] Replayed CWFlow.Moser.Theorem
+warning: CWFlow/Moser/Theorem.lean:84:0: automatically included section variable(s) unused in theorem `CWFlow.IsMoserCurve.continuousOn`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Theorem.lean:88:0: automatically included section variable(s) unused in theorem `CWFlow.IsMoserCurve.mem`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Theorem.lean:98:0: automatically included section variable(s) unused in theorem `CWFlow.IsMoserCurve.graph_subset`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Moser/Theorem.lean:150:23: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Moser/Theorem.lean:150:55: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Moser/Theorem.lean:212:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: CWFlow/Moser/Theorem.lean:284:15: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: CWFlow/Moser/Theorem.lean:284:46: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+warning: CWFlow/Moser/Theorem.lean:320:0: automatically included section variable(s) unused in theorem `CWFlow.mem_moserDom_of_zero`:
+  [FiniteDimensional Γä¥ W]
+  hO
+  hlam
+  h╬▓
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] hO hlam h╬▓ in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8814/8840] Replayed CWFlow.Moser.Natural
+warning: CWFlow/Moser/Natural.lean:46:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: CWFlow/Moser/Natural.lean:46:44: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+ΓÜá [8815/8840] Replayed CWFlow.Weinstein.Existence
+warning: CWFlow/Weinstein/Existence.lean:113:59: This simp argument is unused:
+  ContinuousAlternatingMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [omegaT, ContinuousAlternatingMap.add_apply, one_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [8819/8842] Replayed CWFlow.Weinstein.Cn
+warning: CWFlow/Weinstein/Cn.lean:72:8: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+ΓÜá [8820/8842] Replayed CWFlow.Weinstein.Glue
+warning: CWFlow/Weinstein/Glue.lean:33:8: automatically included section variable(s) unused in theorem `CWFlow.cotLift_fst`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Glue.lean:103:22: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Weinstein/Glue.lean:129:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffAt_ell`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Glue.lean:168:0: automatically included section variable(s) unused in theorem `CWFlow.fderiv_F_natural`:
+  [FiniteDimensional Γä¥ E]
+  h╧äinv
+  hinjΓéü
+  hinjΓéé
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] h╧äinv hinjΓéü hinjΓéé in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [8825/8847] Replayed CWFlow.Weinstein.Global
+warning: CWFlow/Weinstein/Global.lean:78:0: automatically included section variable(s) unused in theorem `CWFlow.isOpen_chart_target`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:81:0: automatically included section variable(s) unused in theorem `CWFlow.isOpen_overlap`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:85:0: automatically included section variable(s) unused in theorem `CWFlow.overlap_subset`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:87:0: automatically included section variable(s) unused in theorem `CWFlow.mapsTo_transition`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:90:0: automatically included section variable(s) unused in theorem `CWFlow.chartRep_transition`:
+  [FiniteDimensional Γä¥ E]
+  [NormedAddCommGroup V]
+  [InnerProductSpace Γä¥ V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [NormedAddCommGroup V] [InnerProductSpace Γä¥ V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:95:0: automatically included section variable(s) unused in theorem `CWFlow.transition_transition`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Weinstein/Global.lean:109:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffOn_transition`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [9314/9339] Replayed ShortTime.Linear.Operator
+warning: ShortTime/Linear/Operator.lean:69:22: Variable name `╬╛` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _╬╛
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Linear/Operator.lean:69:24: Variable name `╬╖` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _╬╖
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Linear/Operator.lean:70:23: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Linear/Operator.lean:70:25: Variable name `╬╛` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _╬╛
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [9370/9398] Replayed ShortTime.Linear.RicciPerm
+warning: ShortTime/Linear/RicciPerm.lean:82:33: Unused tactic linter: `omega` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ShortTime/Linear/RicciPerm.lean:82:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ΓÜá [9372/9398] Replayed ShortTime.Linear.RicciEstimate
+warning: ShortTime/Linear/RicciEstimate.lean:229:14: Unused tactic linter: `ext` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ShortTime/Linear/RicciEstimate.lean:229:22: Unused tactic linter: `simp [finSumFinEquiv_apply_left]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ShortTime/Linear/RicciEstimate.lean:229:14: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ShortTime/Linear/RicciEstimate.lean:229:22: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ΓÜá [9374/9398] Replayed ShortTime.Analysis.TimeDerivManifold
+warning: ShortTime/Analysis/TimeDerivManifold.lean:30:54: Variable name `hSU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [9375/9398] Replayed ShortTime.Analysis.EnergyODE
+warning: ShortTime/Analysis/EnergyODE.lean:80:25: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, exp_zero, one_mul, he0, intervalIntegral.integral_same, sub_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Analysis/EnergyODE.lean:80:45: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, neg_zero, exp_zero, he0, intervalIntegral.integral_same, sub_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [9383/9411] Replayed ShortTime.Linear.Parabolic
+warning: ShortTime/Linear/Parabolic.lean:219:4: Unused tactic linter: `change 0 Γëñ RCLike.re (parabolicInner g s p m T u.family u.family)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ΓÜá [9385/9411] Replayed ShortTime.Nonlinear.FlatCoord
+warning: ShortTime/Nonlinear/FlatCoord.lean:166:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [9388/9411] Replayed ShortTime.Nonlinear.FlatAlgebra
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:59:17: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:75:17: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:114:77: This simp argument is unused:
+  dite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [appendFirst, Fin.cons_zero, Fin.val_zero, Nat.zero_lt_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:121:49: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:179:18: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:179:50: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:198:39: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:205:43: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:230:57: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:230:45: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.coe_castAdd] at hv Γèó
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:240:66: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:244:47: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_natAdd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:273:43: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:265:29: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_cast, Fin.val_natAdd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:265:41: This simp argument is unused:
+  Fin.val_natAdd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_cast, Fin.val_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:273:31: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_cast, Fin.coe_castAdd] at hv hv' Γèó
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:281:49: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_natAdd, Fin.val_cast] at hv hv' Γèó
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Nonlinear/FlatAlgebra.lean:286:49: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.val_natAdd, Fin.val_cast] at hv hv' Γèó
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [9491/9524] Replayed ShortTime.Sanity.PolyTrace
+warning: ShortTime/Sanity/PolyTrace.lean:90:24: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Sanity/PolyTrace.lean:90:56: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+ΓÜá [9496/9524] Replayed ShortTime.Nonlinear.RicciJetOps
+warning: ShortTime/Nonlinear/RicciJetOps.lean:197:27: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/RicciJetOps.lean:225:47: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [9507/9532] Replayed ShortTime.MM.PairingBasis
+warning: ShortTime/MM/PairingBasis.lean:147:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ShortTime/MM/PairingBasis.lean:163:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [9515/9538] Replayed ShortTime.Linear.LimitSmooth
+warning: ShortTime/Linear/LimitSmooth.lean:213:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ShortTime/Linear/LimitSmooth.lean:291:4: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: ShortTime/Linear/LimitSmooth.lean:332:13: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+ΓÜá [9521/9538] Replayed ShortTime.Linear.LimitFamily
+warning: ShortTime/Linear/LimitFamily.lean:282:44: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coordL, Module.Basis.repr_self, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Linear/LimitFamily.lean:314:4: This simp argument is unused:
+  ContinuousLinearEquiv.symm_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ContinuousLinearMap.comp_apply, ContinuousLinearEquiv.coe_coe]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ShortTime/Linear/LimitFamily.lean:358:32: `ContinuousLinearMap.coe_sum'` has been deprecated: Use `FunLike.coe_sum` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_sum'` to `FunLike.coe_sum x`).
+warning: ShortTime/Linear/LimitFamily.lean:359:4: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+warning: ShortTime/Linear/LimitFamily.lean:401:48: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+ΓÜá [9522/9538] Replayed ShortTime.Nonlinear.FibreMapChart
+warning: ShortTime/Nonlinear/FibreMapChart.lean:124:19: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: ShortTime/Nonlinear/FibreMapChart.lean:124:50: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: ShortTime/Nonlinear/FibreMapChart.lean:161:60: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/FibreMapChart.lean:163:55: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+ΓÜá [9527/9545] Replayed ShortTime.Nonlinear.FlowsNaturalChart
+warning: ShortTime/Nonlinear/FlowsNaturalChart.lean:167:22: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: ShortTime/Nonlinear/FlowsNaturalChart.lean:324:2: Unused tactic linter: `change chartRd g ╬▒ (iteratedCovGrad g 0 s j u) (flow╧ê X ╬▒ q) = _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ΓÜá [9530/9545] Replayed ShortTime.Nonlinear.Lowering
+warning: ShortTime/Nonlinear/Lowering.lean:53:4: Unused tactic linter: `change flatCc g r s (u 0) = flatCc g r s uΓéÇ` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ShortTime/Nonlinear/Lowering.lean:95:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [9534/9547] Replayed ShortTime.Nonlinear.ParabolicBound
+warning: ShortTime/Nonlinear/ParabolicBound.lean:206:2: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:206:37: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:212:6: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:212:39: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:214:6: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:256:4: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: ShortTime/Nonlinear/ParabolicBound.lean:263:4: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+ΓÜá [9536/9549] Replayed ShortTime.Nonlinear.Tube
+warning: ShortTime/Nonlinear/Tube.lean:350:49: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: ShortTime/Nonlinear/Tube.lean:381:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: ShortTime/Nonlinear/Tube.lean:382:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [9736/9769] Built CWFlow.Curve.CircleChart (20s)
+warning: CWFlow/Curve/CircleChart.lean:129:4: `ContinuousLinearMap.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+warning: CWFlow/Curve/CircleChart.lean:167:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.lift_eventuallyEq_real`:
+  [NormedAddCommGroup V]
+  [NormedSpace Γä¥ V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedAddCommGroup V] [NormedSpace Γä¥ V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [9744/9769] Built CWFlow.Curve.Periodic (26s)
+warning: CWFlow/Curve/Periodic.lean:38:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: CWFlow/Curve/Periodic.lean:326:19: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: CWFlow/Curve/Periodic.lean:330:19: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ΓÜá [9748/9776] Built CWFlow.Curve.Arclength (18s)
+warning: CWFlow/Curve/Arclength.lean:211:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.cSpd_pos`:
+  hI
+  h╬│
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hI h╬│ in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Arclength.lean:236:45: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/Arclength.lean:241:8: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/Arclength.lean:243:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.norm_cTan`:
+  hI
+  h╬│
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hI h╬│ in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Arclength.lean:253:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.p╬╕_cTan`:
+  hI
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hI in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Arclength.lean:488:17: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Curve/Arclength.lean:488:17: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Γ£ö [9752/9776] Built CWFlow.Curve.LiftC (26s)
+ΓÜá [9761/9781] Built CWFlow.Curve.LiftA (27s)
+warning: CWFlow/Curve/LiftA.lean:57:60: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [e0, Matrix.cons_val_zero, Matrix.cons_val_one, hginv, hdX, hddX]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [10056/10074] Replayed ShortTime.Nonlinear.FibreMap
+warning: ShortTime/Nonlinear/FibreMap.lean:119:57: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10062/10082] Replayed ShortTime.Nonlinear.EqFibre
+warning: ShortTime/Nonlinear/EqFibre.lean:51:53: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: ShortTime/Nonlinear/EqFibre.lean:52:42: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+ΓÜá [10065/10086] Replayed ShortTime.Nonlinear.FibreMapTame
+warning: ShortTime/Nonlinear/FibreMapTame.lean:345:21: `ContinuousLinearMap.coe_smul'` has been deprecated: Use `FunLike.coe_smul` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_smul'` to `FunLike.coe_smul x`).
+ΓÜá [10066/10086] Replayed ShortTime.Nonlinear.FibreCalcBound
+warning: ShortTime/Nonlinear/FibreCalcBound.lean:330:26: `continuous_finset_prod` has been deprecated: Use `continuous_finsetProd` instead
+ΓÜá [10073/10086] Replayed ShortTime.Nonlinear.NemytskiiExt
+warning: ShortTime/Nonlinear/NemytskiiExt.lean:157:0: automatically included section variable(s) unused in theorem `ShortTime.SmoothExtension.eqOn_of_continuousOn_of_dense`:
+  [NormedSpace Γä¥ Y]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace Γä¥ Y] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [10074/10086] Replayed ShortTime.Nonlinear.LinOp
+warning: ShortTime/Nonlinear/LinOp.lean:34:4: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+ΓÜá [10083/10092] Replayed ShortTime.Nonlinear.Cutoff
+warning: ShortTime/Nonlinear/Cutoff.lean:418:25: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: ShortTime/Nonlinear/Cutoff.lean:418:25: This simp argument is unused:
+  ContinuousLinearMap.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [10084/10092] Replayed ShortTime.Nonlinear.Formal
+warning: ShortTime/Nonlinear/Formal.lean:484:38: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10092/10105] Replayed ShortTime.Nonlinear.FlowsParabolicSmooth
+warning: ShortTime/Nonlinear/FlowsParabolicSmooth.lean:64:51: Variable name `hD` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hD
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10103/10120] Replayed ShortTime.Nonlinear.FlowsParabolicVolume
+warning: ShortTime/Nonlinear/FlowsParabolicVolume.lean:127:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: ShortTime/Nonlinear/FlowsParabolicVolume.lean:141:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+ΓÜá [10104/10120] Replayed ShortTime.Nonlinear.FlowsNatural
+warning: ShortTime/Nonlinear/FlowsNatural.lean:193:69: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10105/10120] Replayed ShortTime.Nonlinear.AngenentIFT
+warning: ShortTime/Nonlinear/AngenentIFT.lean:56:0: automatically included section variable(s) unused in theorem `ShortTime.Angenent.graphEquiv_coe`:
+  [CompleteSpace ╬¢]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace ╬¢] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ShortTime/Nonlinear/AngenentIFT.lean:146:6: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+ΓÜá [10106/10126] Replayed ShortTime.Nonlinear.FlowsParabolicBound
+warning: ShortTime/Nonlinear/FlowsParabolicBound.lean:66:29: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+warning: ShortTime/Nonlinear/FlowsParabolicBound.lean:90:10: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: ShortTime/Nonlinear/FlowsParabolicBound.lean:98:7: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/FlowsParabolicBound.lean:174:7: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10114/10132] Replayed ShortTime.Nonlinear.AngenentSmooth
+warning: ShortTime/Nonlinear/AngenentSmooth.lean:53:11: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/AngenentSmooth.lean:55:9: Variable name `k` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _k
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/AngenentSmooth.lean:133:40: Variable name `he` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _he
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/AngenentSmooth.lean:275:59: `ContinuousLinearMap.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+warning: ShortTime/Nonlinear/AngenentSmooth.lean:309:6: `ContinuousLinearMap.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+ΓÜá [10116/10132] Replayed ShortTime.Nonlinear.UniformTubeGen
+warning: ShortTime/Nonlinear/UniformTubeGen.lean:64:9: Variable name `╬▒` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _╬▒
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10117/10132] Replayed ShortTime.Nonlinear.NemytskiiParamFibre
+warning: ShortTime/Nonlinear/NemytskiiParamFibre.lean:227:42: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: ShortTime/Nonlinear/NemytskiiParamFibre.lean:228:42: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: ShortTime/Nonlinear/NemytskiiParamFibre.lean:332:21: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+ΓÜá [10123/10139] Replayed ShortTime.Nonlinear.AngenentNaturalCore
+warning: ShortTime/Nonlinear/AngenentNaturalCore.lean:66:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10124/10139] Replayed ShortTime.Nonlinear.UniformTubeBound
+warning: ShortTime/Nonlinear/UniformTubeBound.lean:45:49: Variable name `hw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/UniformTubeBound.lean:46:5: Variable name `hwdom` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hwdom
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ShortTime/Nonlinear/UniformTubeBound.lean:129:8: Overlapping instance parameters in `exists_taylor_bound_aux`:
+
+ΓÜá∩╕Å There are 2 `[CompleteSpace E]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+ΓÜá [10127/10139] Replayed ShortTime.Nonlinear.SmoothRepEuclid
+warning: ShortTime/Nonlinear/SmoothRepEuclid.lean:140:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/SmoothRepEuclid.lean:142:4: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: ShortTime/Nonlinear/SmoothRepEuclid.lean:355:34: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/SmoothRepEuclid.lean:462:40: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10128/10139] Replayed ShortTime.Nonlinear.SmoothRepSpatial
+warning: ShortTime/Nonlinear/SmoothRepSpatial.lean:264:4: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+ΓÜá [10133/10145] Replayed ShortTime.Nonlinear.Closable
+warning: ShortTime/Nonlinear/Closable.lean:138:5: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+warning: ShortTime/Nonlinear/Closable.lean:138:40: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+ΓÜá [10139/10155] Replayed ShortTime.Nonlinear.SmoothRepTimeComp
+warning: ShortTime/Nonlinear/SmoothRepTimeComp.lean:63:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: ShortTime/Nonlinear/SmoothRepTimeComp.lean:65:4: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+ΓÜá [10140/10155] Replayed ShortTime.Analysis.IFTParam
+warning: ShortTime/Analysis/IFTParam.lean:24:0: automatically included section variable(s) unused in theorem `ShortTime.exists_solution_param`:
+  [CompleteSpace Y]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace Y] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [10143/10163] Replayed ShortTime.Nonlinear.SmoothRepTimePi
+warning: ShortTime/Nonlinear/SmoothRepTimePi.lean:45:20: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: ShortTime/Nonlinear/SmoothRepTimePi.lean:45:51: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: ShortTime/Nonlinear/SmoothRepTimePi.lean:51:14: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hc.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [10155/10177] Replayed ShortTime.Nonlinear.RegularityTraceAbstract
+warning: ShortTime/Nonlinear/RegularityTraceAbstract.lean:42:0: automatically included section variable(s) unused in theorem `ShortTime.Angenent.quotMap_mk`:
+  [IsClosed[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] ΓåæS]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsClosed[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] ΓåæS] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ShortTime/Nonlinear/RegularityTraceAbstract.lean:106:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10156/10177] Replayed ShortTime.Nonlinear.RegularityTrace
+warning: ShortTime/Nonlinear/RegularityTrace.lean:88:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10159/10185] Replayed ShortTime.Nonlinear.ContJetClose
+warning: ShortTime/Nonlinear/ContJetClose.lean:65:49: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10162/10185] Replayed CWFlow.Bridge.GraphChart
+warning: CWFlow/Bridge/GraphChart.lean:170:21: Variable name `w` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _w
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Bridge/GraphChart.lean:170:40: Variable name `w` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _w
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10163/10185] Replayed CWFlow.Scalar.Symm4
+warning: CWFlow/Scalar/Symm4.lean:85:92: Unused tactic linter: `exact le_of_lt (by exact_mod_cast ENat.coe_lt_top 4)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Scalar/Symm4.lean:85:147: Unused tactic linter: `(norm_cast; exact le_top)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Scalar/Symm4.lean:85:92: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Scalar/Symm4.lean:85:147: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ΓÜá [10164/10186] Replayed ShortTime.Nonlinear.ContLevel
+warning: ShortTime/Nonlinear/ContLevel.lean:141:4: Unused tactic linter: `change u 0 + (a - uΓéÇ) = a` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ΓÜá [10167/10186] Replayed ShortTime.MainTheorems
+warning: ShortTime/MainTheorems.lean:45:54: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10169/10186] Replayed CWFlow.Scalar.GraphTime
+warning: CWFlow/Scalar/GraphTime.lean:34:43: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:34:56: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:46:39: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:79:9: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:86:9: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:130:4: `ContinuousLinearMap.coe_comp'` has been deprecated: Use `ContinuousLinearMap.coe_comp` instead
+warning: CWFlow/Scalar/GraphTime.lean:131:4: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Scalar/GraphTime.lean:131:35: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Scalar/GraphTime.lean:130:4: This simp argument is unused:
+  ContinuousLinearMap.coe_comp'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ContinuousLinearMap.flip_apply, ContinuousLinearMap.compL_apply, Function.comp_apply,
+    ContinuousLinearMap.inr_apply, ContinuousLinearMap.add_apply, ContinuousLinearMap.zero_apply, map_zero,
+    ContinuousLinearMap.comp_apply, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Scalar/GraphTime.lean:130:35: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ContinuousLinearMap.flip_apply, ContinuousLinearMap.compL_apply, ContinuousLinearMap.coe_comp',
+    ContinuousLinearMap.inr_apply, ContinuousLinearMap.add_apply, ContinuousLinearMap.zero_apply, map_zero,
+    ContinuousLinearMap.comp_apply, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Scalar/GraphTime.lean:148:32: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:148:45: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Scalar/GraphTime.lean:171:33: Variable name `h╬⌐` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h╬⌐
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10174/10193] Replayed CWFlow.Flow.DiffeoChart
+warning: CWFlow/Flow/DiffeoChart.lean:32:0: automatically included section variable(s) unused in theorem `CWFlow.isOpen_diffeoDom`:
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:39:0: automatically included section variable(s) unused in theorem `CWFlow.contDiffOn_diffeoRep`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:54:0: automatically included section variable(s) unused in theorem `CWFlow.mem_diffeoDom`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:61:0: automatically included section variable(s) unused in theorem `CWFlow.diffeoRep_chart`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:66:0: automatically included section variable(s) unused in theorem `CWFlow.diffeoRep_symm_diffeoRep`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:77:0: automatically included section variable(s) unused in theorem `CWFlow.diffeoRep_mem_diffeoDom`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Flow/DiffeoChart.lean:110:0: automatically included section variable(s) unused in theorem `CWFlow.chartRep_comp_diffeo`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+  [NormedAddCommGroup V]
+  [InnerProductSpace Γä¥ V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] [NormedAddCommGroup V] [InnerProductSpace Γä¥ V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [10206/10226] Replayed CWFlow.Flow.Potential
+warning: CWFlow/Flow/Potential.lean:34:21: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10209/10226] Replayed CWFlow.Flow.Main
+warning: CWFlow/Flow/Main.lean:37:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10210/10226] Replayed CWFlow.Flow.GraphUnique
+warning: CWFlow/Flow/GraphUnique.lean:101:9: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10221/10227] Replayed CWFlow.Flow.UniqueMain
+warning: CWFlow/Flow/UniqueMain.lean:34:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10222/10227] Replayed CWFlow.Extension.SymbolLow
+warning: CWFlow/Extension/SymbolLow.lean:25:27: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/SymbolLow.lean:32:27: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: CWFlow/Extension/SymbolLow.lean:38:27: `ContinuousLinearMap.neg_apply` has been deprecated: Use `neg_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.neg_apply` to `neg_apply x`).
+warning: CWFlow/Extension/SymbolLow.lean:59:27: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+ΓÜá [10223/10241] Replayed CWFlow.Interp.HamiltonStep
+warning: CWFlow/Interp/HamiltonStep.lean:45:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.gradSq_eq`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:47:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.hessSq_eq`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:51:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.norm_sum_le_sqrt_mul`:
+  [InnerProductSpace Γä¥ W]
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace Γä¥ W] [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:59:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.abs_double_sum_le`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:104:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.pd_contDiff`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:117:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.pd_eq_zero`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:117:18: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/HamiltonStep.lean:121:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.tsupport_pd_subset`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:135:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.gradSq_nonneg`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:138:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.hessSq_nonneg`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:218:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.Gi_compact`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:236:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Interp/HamiltonStep.lean:236:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Interp/HamiltonStep.lean:310:8: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: CWFlow/Interp/HamiltonStep.lean:314:4: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: CWFlow/Interp/HamiltonStep.lean:330:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.tendsto_Phi`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:471:22: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/HamiltonStep.lean:474:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.hasCompactSupport_norm`:
+  [InnerProductSpace Γä¥ W]
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace Γä¥ W] [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/HamiltonStep.lean:484:33: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10224/10241] Replayed CWFlow.Interp.RealLemmas
+warning: CWFlow/Interp/RealLemmas.lean:37:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: CWFlow/Interp/RealLemmas.lean:52:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: CWFlow/Interp/RealLemmas.lean:59:36: Variable name `h╬▒` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h╬▒
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10225/10241] Replayed CWFlow.Interp.LogConvex
+warning: CWFlow/Interp/LogConvex.lean:44:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ΓÜá [10230/10246] Replayed CWFlow.Extension.SliceSmooth
+warning: CWFlow/Extension/SliceSmooth.lean:25:75: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/SliceSmooth.lean:74:55: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/SliceSmooth.lean:74:75: Variable name `q` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _q
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10232/10246] Replayed CWFlow.Interp.ParamInverse
+warning: CWFlow/Interp/ParamInverse.lean:166:16: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10234/10250] Replayed CWFlow.Extension.JetSymm
+warning: CWFlow/Extension/JetSymm.lean:85:6: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ΓÜá [10236/10250] Replayed CWFlow.Extension.ImmDiv
+warning: CWFlow/Extension/ImmDiv.lean:224:13: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:224:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:225:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:225:49: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:307:5: Variable name `hinj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ImmDiv.lean:429:15: `ContinuousLinearMap.neg_apply` has been deprecated: Use `neg_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.neg_apply` to `neg_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:429:46: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:430:6: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/ImmDiv.lean:430:37: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+ΓÜá [10237/10250] Replayed CWFlow.Extension.VolEvol
+warning: CWFlow/Extension/VolEvol.lean:262:4: `ContinuousLinearMap.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+warning: CWFlow/Extension/VolEvol.lean:386:59: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10239/10252] Replayed CWFlow.Extension.EvolPointwise
+warning: CWFlow/Extension/EvolPointwise.lean:39:22: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10240/10252] Replayed CWFlow.Extension.GraphBridge
+warning: CWFlow/Extension/GraphBridge.lean:270:49: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphBridge.lean:271:5: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10241/10252] Replayed CWFlow.Extension.GraphLocal
+warning: CWFlow/Extension/GraphLocal.lean:62:21: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphLocal.lean:62:60: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphLocal.lean:73:60: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphLocal.lean:88:10: This simp argument is unused:
+  gb_UU
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gb_inner_eb_eb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Extension/GraphLocal.lean:93:65: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10243/10260] Replayed CWFlow.Extension.TimeGraph
+warning: CWFlow/Extension/TimeGraph.lean:30:55: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10244/10260] Replayed CWFlow.Extension.TimeGraphFlow
+warning: CWFlow/Extension/TimeGraphFlow.lean:197:5: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10246/10260] Replayed CWFlow.Extension.Slope
+warning: CWFlow/Extension/Slope.lean:153:34: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Slope.lean:154:5: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Slope.lean:250:35: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Slope.lean:251:5: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Slope.lean:251:35: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Slope.lean:252:5: Variable name `hdim` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hdim
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10247/10260] Replayed CWFlow.Extension.GraphRadiusLocal
+warning: CWFlow/Extension/GraphRadiusLocal.lean:164:40: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10248/10260] Replayed CWFlow.Interp.RadialLift
+warning: CWFlow/Interp/RadialLift.lean:180:5: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10249/10267] Replayed CWFlow.Interp.RayLift
+warning: CWFlow/Interp/RayLift.lean:30:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.rl_local`:
+  [T2Space X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [T2Space X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [10255/10270] Replayed CWFlow.Extension.GraphAt
+warning: CWFlow/Extension/GraphAt.lean:24:45: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphAt.lean:25:5: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GraphAt.lean:54:13: This simp argument is unused:
+  WithLp.ofLp_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Extension/GraphAt.lean:54:31: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [WithLp.ofLp_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [10257/10270] Replayed CWFlow.Extension.IBPBounds
+warning: CWFlow/Extension/IBPBounds.lean:461:108: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:119: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:134: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:141: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:108: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:119: Unused tactic linter: `exact le_top` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:134: Unused tactic linter: `simp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/IBPBounds.lean:461:141: Unused tactic linter: `exact_mod_cast le_top` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ΓÜá [10259/10270] Replayed CWFlow.Extension.VolChart
+warning: CWFlow/Extension/VolChart.lean:231:19: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Extension/VolChart.lean:231:50: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+ΓÜá [10264/10276] Replayed CWFlow.Extension.ChartEnergy
+warning: CWFlow/Extension/ChartEnergy.lean:166:27: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10265/10276] Replayed CWFlow.Extension.ChartBounds
+warning: CWFlow/Extension/ChartBounds.lean:83:5: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ChartBounds.lean:83:44: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ChartBounds.lean:161:51: Variable name `hcΓéÇ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcΓéÇ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10266/10283] Replayed CWFlow.Interp.SupBound
+warning: CWFlow/Interp/SupBound.lean:135:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.supStmt_zero`:
+  [CompleteSpace V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/SupBound.lean:150:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.contDiff_slice_deriv`:
+  [CompleteSpace V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/SupBound.lean:161:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.hasCompactSupport_slice_deriv`:
+  [CompleteSpace V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/SupBound.lean:239:49: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ΓêÇ (p : ENNReal) (≡¥ò£ : Type u_1) {╬╣ : Type u_2} [inst : DecidableEq ╬╣] [inst_1 : Zero ≡¥ò£] (i : ╬╣) (a : ≡¥ò£) (j : ╬╣),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ΓêÇ {╬╣ : Type u_1} {≡¥ò£ : Type u_3} [inst : RCLike ≡¥ò£] [inst_1 : DecidableEq ╬╣] (i : ╬╣) (a : ≡¥ò£) (j : ╬╣),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+warning: CWFlow/Interp/SupBound.lean:239:32: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [EuclideanSpace.equiv, EuclideanSpace.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Interp/SupBound.lean:239:49: This simp argument is unused:
+  EuclideanSpace.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [EuclideanSpace.equiv, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ΓÜá [10274/10285] Replayed CWFlow.Interp.OdeJet
+warning: CWFlow/Interp/OdeJet.lean:186:37: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/OdeJet.lean:187:5: Variable name `hV` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hV
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10275/10285] Replayed CWFlow.Interp.OdeTower
+warning: CWFlow/Interp/OdeTower.lean:195:20: Variable name `htb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10278/10289] Replayed CWFlow.Extension.LimitChartAux
+warning: CWFlow/Extension/LimitChartAux.lean:74:27: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10283/10300] Replayed CWFlow.Extension.Partition
+warning: CWFlow/Extension/Partition.lean:335:58: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/Partition.lean:335:69: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/Partition.lean:335:84: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/Partition.lean:335:90: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: CWFlow/Extension/Partition.lean:335:58: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/Partition.lean:335:69: Unused tactic linter: `exact le_top` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/Partition.lean:335:84: Unused tactic linter: `simp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/Partition.lean:335:90: Unused tactic linter: `exact_mod_cast le_top` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CWFlow/Extension/Partition.lean:456:33: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gradE, PiLp.inner_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Extension/Partition.lean:774:44: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Partition.lean:775:41: Variable name `hcΓéÇ1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcΓéÇ1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10287/10300] Replayed CWFlow.Interp.ThreeOrders
+warning: CWFlow/Interp/ThreeOrders.lean:28:72: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/ThreeOrders.lean:28:85: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/ThreeOrders.lean:29:5: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/ThreeOrders.lean:29:18: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/ThreeOrders.lean:29:44: Variable name `hsn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Interp/ThreeOrders.lean:110:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.Gc_compact`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/ThreeOrders.lean:114:0: automatically included section variable(s) unused in theorem `CWFlow.Interp.tsupport_Gc_subset`:
+  [FiniteDimensional Γä¥ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Interp/ThreeOrders.lean:136:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: CWFlow/Interp/ThreeOrders.lean:136:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Interp/ThreeOrders.lean:197:6: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+ΓÜá [10288/10302] Replayed CWFlow.Extension.LeadingMain
+warning: CWFlow/Extension/LeadingMain.lean:643:65: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10290/10302] Replayed CWFlow.Extension.ChartAbsorb
+warning: CWFlow/Extension/ChartAbsorb.lean:155:71: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ChartAbsorb.lean:180:72: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10292/10302] Replayed CWFlow.Extension.Rescale
+warning: CWFlow/Extension/Rescale.lean:79:5: Variable name `hinj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Rescale.lean:90:58: Variable name `hX` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hX
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/Rescale.lean:125:5: Variable name `hinj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10294/10311] Replayed CWFlow.Extension.ChartDeriv
+warning: CWFlow/Extension/ChartDeriv.lean:291:24: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ChartDeriv.lean:291:73: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10295/10311] Replayed CWFlow.Extension.GlobalIneq
+warning: CWFlow/Extension/GlobalIneq.lean:52:35: Variable name `h╬┤0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h╬┤0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:52:84: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:62:35: Variable name `hC1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:71:52: Variable name `hC1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:79:57: Variable name `hC0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:86:45: Variable name `h╬╡` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h╬╡
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/GlobalIneq.lean:155:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.gi_chart_int`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ΓÜá [10296/10311] Replayed CWFlow.Extension.ImmPot
+warning: CWFlow/Extension/ImmPot.lean:77:12: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Extension/ImmPot.lean:121:5: Variable name `hinj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ImmPot.lean:132:5: Variable name `h╬⌐` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h╬⌐
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/ImmPot.lean:132:21: Variable name `hX` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hX
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10297/10311] Replayed CWFlow.Extension.FlowBridge
+warning: CWFlow/Extension/FlowBridge.lean:88:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.fb_isOpen_chartDomE`:
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Extension/FlowBridge.lean:91:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.fb_contDiffOn_iff`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Extension/FlowBridge.lean:123:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.isLagImm_iff_isLagImmersion`:
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Extension/FlowBridge.lean:160:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.fb_chartInv_mem`:
+  [FiniteDimensional Γä¥ E]
+  [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] [IsManifold ≡¥ôÿ(Γä¥, E) Γê₧ M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Extension/FlowBridge.lean:164:0: automatically included section variable(s) unused in theorem `CWFlow.Extension.fb_contMDiffOn_chartPre`:
+  [FiniteDimensional Γä¥ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional Γä¥ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Extension/FlowBridge.lean:195:13: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10299/10316] Replayed CWFlow.Extension.EnergyBound
+warning: CWFlow/Extension/EnergyBound.lean:65:52: Variable name `X` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _X
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Extension/EnergyBound.lean:65:54: Variable name `y` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _y
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10302/10316] Replayed CWFlow.Flow.NormalTransport
+warning: CWFlow/Flow/NormalTransport.lean:234:39: Variable name `hJi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Flow/NormalTransport.lean:234:74: Variable name `hJJ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJJ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ΓÜá [10304/10316] Replayed CWFlow.Flow.Restart
+warning: CWFlow/Flow/Restart.lean:122:47: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Flow/Restart.lean:122:73: Variable name `hsT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Flow/Restart.lean:281:2: Try this: 
+  haveI╠╡
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ΓÜá [10306/10316] Built CWFlow.Curve.Energy (103s)
+warning: CWFlow/Curve/Energy.lean:29:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.contDiff_deriv_c`:
+  hreg
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hreg in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:36:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.w_pos`:
+  hc
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hc in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:51:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.periodic_w`:
+  hc
+  hreg
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hc hreg in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:54:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.periodic_curv`:
+  hc
+  hreg
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hc hreg in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:59:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.periodic_dS`:
+  hc
+  hreg
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hc hreg in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:67:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.integral_dS_mul`:
+  hcp
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hcp in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:86:0: automatically included section variable(s) unused in theorem `CWFlow.Curve.exists_dS_eq_zero`:
+  hc
+  hreg
+  hcp
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hc hreg hcp in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: CWFlow/Curve/Energy.lean:326:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ΓÜá [10307/10316] Built CWFlow.Curve.N1Basic (278s)
+warning: CWFlow/Curve/N1Basic.lean:173:72: This simp argument is unused:
+  Complex.inv_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.inner, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
+    Complex.sub_re, Complex.sub_im, Complex.ofReal_re, Complex.ofReal_im, Complex.neg_re, Complex.neg_im,
+    Complex.conj_re, Complex.conj_im, Complex.inv_im, Complex.div_re, Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Curve/N1Basic.lean:174:6: This simp argument is unused:
+  Complex.inv_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.inner, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
+    Complex.sub_re, Complex.sub_im, Complex.ofReal_re, Complex.ofReal_im, Complex.neg_re, Complex.neg_im,
+    Complex.conj_re, Complex.conj_im, Complex.inv_re, Complex.div_re, Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Curve/N1Basic.lean:174:22: This simp argument is unused:
+  Complex.div_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.inner, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
+    Complex.sub_re, Complex.sub_im, Complex.ofReal_re, Complex.ofReal_im, Complex.neg_re, Complex.neg_im,
+    Complex.conj_re, Complex.conj_im, Complex.inv_re, Complex.inv_im, Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Curve/N1Basic.lean:174:38: This simp argument is unused:
+  Complex.div_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.inner, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
+    Complex.sub_re, Complex.sub_im, Complex.ofReal_re, Complex.ofReal_im, Complex.neg_re, Complex.neg_im,
+    Complex.conj_re, Complex.conj_im, Complex.inv_re, Complex.inv_im, Complex.div_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CWFlow/Curve/N1Basic.lean:195:25: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: CWFlow/Curve/N1Basic.lean:301:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CWFlow/Curve/N1Basic.lean:378:29: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/N1Basic.lean:378:45: Variable name `hX` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hX
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/N1Basic.lean:379:5: Variable name `hinj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/N1Basic.lean:379:65: Variable name `hy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Γ£ö [10308/10316] Built CWFlow.Flow.MaximalFlow (242s)
+Γ£ö [10309/10316] Built CWFlow.Curve.LiftV (30s)
+Γ£ö [10310/10316] Built CWFlow.Curve.Periodic2Circle (30s)
+ΓÜá [10311/10316] Built CWFlow.Curve.N1 (31s)
+warning: CWFlow/Curve/N1.lean:306:5: Variable name `haT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _haT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Γ£ö [10312/10316] Built CWFlow.Curve.Lift3 (26s)
+Γ£ö [10313/10316] Built CWFlow.Curve.Lift (26s)
+ΓÜá [10314/10316] Built CWFlow.Curve.Criterion (27s)
+warning: CWFlow/Curve/Criterion.lean:28:47: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CWFlow/Curve/Criterion.lean:93:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Γ£ö [10315/10316] Built CWFlow.Curve.MaxShift (27s)
+Γ£ö [10316/10316] Built CWFlow.Curve.All (24s)
+Build completed successfully (10316 jobs).

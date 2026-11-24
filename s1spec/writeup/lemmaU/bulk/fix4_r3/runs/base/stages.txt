@@ -1,0 +1,11 @@
+bash /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t2_A/run_t2.sh|38.67_s|92780_KB
+nice -n 19 python3 -B u1_ghat.py|1.26_s|77792_KB
+nice -n 19 python3 -B u34_sweeps.py --case primary|47.10_s|75184_KB
+nice -n 19 python3 -B u2_K.py --fresh|49.57_s|79936_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/t5_zone3/out/zone3_interface.json --out U_cert_r3_pass1.json|0.31_s|72956_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_r3_pass1.json out/U_cert_for_zone3_r3_pass1.json|0.02_s|16676_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_r3_pass1.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t4_cert/out/U_cert_r3_pass1.json|0.09_s|35692_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t5_zone3/out/zone3_interface_pass1.json --out U_cert_r3_pass2.json|0.30_s|73044_KB
+nice -n 19 python3 -B make_ucert_for_zone3.py out/U_cert_r3_pass2.json out/U_cert_for_zone3_r3.json|0.02_s|16636_KB
+nice -n 19 python3 -B zone3.py --ucert ../t4_cert/out/U_cert_for_zone3_r3.json --ucert_full /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t4_cert/out/U_cert_r3_pass2.json|0.09_s|35676_KB
+nice -n 19 python3 -B assemble_U.py --A /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t2_A/out/A_interface.json --zone3 /home/claude/s1spec/writeup/lemmaU/bulk/fix4_r3/t5_zone3/out/zone3_interface.json --out U_cert_r3_pass3.json|0.31_s|72880_KB

@@ -1,0 +1,30 @@
+REPRODUCTION CHECK kit_step3 v4  (python 3.14.4, python-flint 0.9.0, Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43)
+
+PASS  verifier: tail_cert PASS, log identical to the reference
+FAIL  verifier: rate_table_fin13v4c_a0.00015.json (closure alpha1 = 1.5e-4)
+        output missing: kit_out/verifier/rate_table_fin13v4c_a0.00015.json
+FAIL  verifier: rate_table_fin13v4c_a0.000125.json (closure alpha1 = 1.25e-4)
+        output missing: kit_out/verifier/rate_table_fin13v4c_a0.000125.json
+FAIL  verifier: mod_sups final_alpha_points_5e-8.json (sup|(a,b)|, sup|beta|, J, rho)
+        output missing: kit_out/verifier/modsups_fin13v4c/final_alpha_points_5e-8.json
+SKIP  cert (strip_cubic_v4c, e0_A2_budget_v4c)
+        not run
+SKIP  n1 chart terms
+        not run
+SKIP  lemmaSA (base chain, R3, t2_A)
+        not run
+SKIP  lemmaU / zone III
+        not run
+SKIP  flux lemma v2 (v37)
+        not run
+SKIP  proofs (G1_check, U1_sym, GS_boot)
+        not run
+SKIP  ibp
+        not run
+SKIP  lemmaO
+        not run
+PASS  guard: files read outside the kit and outside the Python installation / OS directories
+        0
+PASS  guard: no step tried to write / chdir / start a child outside the kit
+
+SUMMARY: 3 PASS, 3 FAIL, 0 WARN, 8 SKIP

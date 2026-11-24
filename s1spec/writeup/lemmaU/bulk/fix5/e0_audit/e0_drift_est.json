@@ -1,0 +1,11 @@
+{
+ "sup_abs_d": 0.5487137593013313,
+ "argmax_x": 0.0,
+ "sup_qk": 2.2988949624966213,
+ "psi_tip": 1.0000000000000018,
+ "a_w_coef": 15.719337127483387,
+ "b_w_coef": 0.8097583760763309,
+ "cubic_drift_coef": 0.3658091728675535,
+ "alpha_form_allowance": 1.1,
+ "note": "[est] float; alpha_form_allowance = 2 x sup|d| rounded up to 0.1, used as the drift allowance in e0_cert.py (7)"
+}

@@ -1,0 +1,113 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\lab}[1]{\textup{\textsc{[#1]}}}
+\newcommand{\stip}{\sigma_{\rm tip}}
+\providecommand{\re}{}\renewcommand{\re}{\operatorname{Re}}
+
+\title[Step 3: slow mode and an $H^2$ margin]{Step 3: a certified slow eigenfunction,\\ a constrained coercivity estimate with an $H^2$ margin,\\ and the structure of the nonlinear bootstrap}
+\author[Sixth supplement]{Sixth supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 6, 2026. Draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+Three results for the nonlinear part of step 3, all with the original constraint functions $f_1,f_2,f_3$ of the fourth supplement. (1) An explicit $C^3$ function $\hat\psi_3$ with $\hat\psi_3(0)=1$ and $\|(L-\tilde\lambda)\hat\psi_3\|_\rho\le3.81\cdot10^{-3}$, $\|\hat\psi_3\|_\rho=7.70$, together with certified inner products $\ip{\hat\psi_3}{f_i}_\rho$. (2) With $\hat\psi_3$ as slow direction, the triangular Lyapunov lemma of the fourth supplement improves to decay rate $0.0261$ with constant $10.6$; the coupling $\|g\|$ drops from $67.7$ to $0.12$. (3) A new computer-assisted coercivity theorem with an $H^2$ margin: $\re\ip{Lv}{v}_\rho+\frac19\|v''\|_\rho^2\le-\frac1{32}\|v\|_\rho^2$ on $\{f_1,f_2,f_3\}^\perp$. The margin is needed because the quasilinear term of the graph equation is of size $6.2\,\alpha\,\partial^4$ near the tip, and the Gårding constant of the weighted form is too large ($\mu_-=3.34$) for a convexity argument to supply it. Finally the note records three structural facts that fix the design of the nonlinear bootstrap. Half-line norms $\|v\|_\rho^2=\int_0^\infty\rho v^2$ are used throughout, as in the fourth supplement. Labels as before.
+\end{abstract}
+\maketitle
+
+\section{The slow eigenfunction}\label{sec:psi}
+
+\begin{proposition}\label{prop:psi}\lab{computer-assisted}
+Let $\hat\psi_3$ be the even function defined on $x\ge0$ by
+\begin{itemize}
+\item on each of the $20$ elements $[a_e,b_e]$ of $0=a_0<\dots<b_{19}=28$: a Chebyshev polynomial of degree $14$ with floating-point coefficients (file \texttt{psi3md2\_14.json}), plus a degree-$7$ Hermite correction $H_e$ with exact real coefficients;
+\item for $x\ge28$: $c_1g(s)+c_2E(s)$, $s=x+\sigma_*$, $\sigma_*=-2.249077651$, where $g(s)=\sum_{j=0}^3a_js^{A-4j}$, $A=1-4\tilde\lambda$, $a_0=1$, $a_j=a_{j-1}\prod_{i=1}^4(A-4j+i)/j$, and $E(s)=\exp\big(-3(s/4)^{4/3}+3(s_*/4)^{4/3}\big)$, $s_*=28+\sigma_*$, with float constants $c_1=0.6449$, $c_2=1.71\cdot10^{-8}$.
+\end{itemize}
+The corrections $H_e$ are chosen so that the jets $(u,u',u'',u''')$ agree at every interface and at $x=28$, and so that $u'(0)=u'''(0)=0$. Then $\hat\psi_3$ is $C^3$, piecewise smooth, even, in $H^4_{\rm loc}$, $\hat\psi_3(0)=1$, and
+\[
+\|(L-\tilde\lambda)\hat\psi_3\|_\rho\le3.8051\cdot10^{-3},\qquad \|\hat\psi_3\|_\rho^2\in[59.201,59.284].
+\]
+Moreover $\ip{\hat\psi_3}{f_1}_\rho\in[-0.8012,-0.7648]$, $\ip{\hat\psi_3}{f_2}_\rho\in[-2.5370,-2.4827]$ and $\ip{\hat\psi_3}{f_3}_\rho\in[0.031107,0.033604]$.
+\end{proposition}
+
+\emph{Construction} \lab{numerical}. $\hat\psi_3$ comes from a multi-domain Chebyshev collocation of $(L-\tilde\lambda)u=0$ with $C^3$ matching, even conditions at the tip and, at $x=28$, the condition that the jet lies in the span of the jets of $g$ and $E$ (\texttt{psi3md2.py}). The operator has an exponential dichotomy: inward integration amplifies the mode that decays at infinity, which is why the far end is imposed through these two explicit functions rather than by integration. The collocation eigenvalue is $-0.2561532209$ (certified $\tilde\lambda=-0.2561532225$) and the float residual is $1.5\cdot10^{-7}$. The interface jet mismatches of the float data are $10^{-9}$--$2.5\cdot10^{-8}$; the Hermite corrections remove them exactly (\texttt{psi3fun.py}; after correction the computed jumps are enclosures of $0$ of radius $10^{-56}$).
+
+\emph{Exact asymptotics} \lab{proved}. Let $R=-\partial_s^4-\frac s4\partial_s+\frac14-\tilde\lambda$ be the ray operator. Since $R[s^e]=\frac{A-e}4s^e-e(e-1)(e-2)(e-3)s^{e-4}$, the recursion for $a_j$ makes the sum telescope: $R[g]=-4a_4s^{A-16}$ exactly. For $E$, with $S'=-(s/4)^{1/3}$ the terms $-S'^4-\frac s4S'$ cancel, so $R[E]=E\cdot\big(-(S''''+4S'S'''+3S''^2+6S'^2S'')+\frac14-\tilde\lambda\big)$, a bounded factor times $E\le1$.
+
+\emph{Proof of the residual bound} \lab{computer-assisted} (\texttt{psi3res2.py}). Three ranges, in ball arithmetic.
+\begin{enumerate}
+\item $\stip\le\sigma\le8$: on each of the $51{,}246$ boxes of the CAPD run of the fourth supplement (profile hulls, \texttt{MONALL}$=2\cdot10^{-4}$), the derivatives of $\hat\psi_3$ are enclosed by a second-order Taylor form and the residual $-u''''-k^2u''-(5km+\frac q4)u'+(\frac14-3m^2-kp-\tilde\lambda)u$ is evaluated with the profile hulls. Contribution to $\|r\|_\rho^2$: $\le1.4479\cdot10^{-5}$. The floor is the width of the step-1 profile enclosure at the tip.
+\item $8\le\sigma\le32$: profile $=$ ray $+$ the step-1 tail bounds $|k|,|m|,|p|,|q-\sigma|\le(k_b,m_b,p_b,q_s)$ on unit chunks. The ray part is bounded by a second-order Taylor form of the residual \emph{itself} (a Taylor form of the separate derivatives loses five orders of magnitude to cancellation). The tip parameter enters as $\frac{|\stip-\sigma_*|}4|u'|$. Contribution $\le2.0\cdot10^{-10}$.
+\item $\sigma\ge32$: the closed forms above, the tail bounds at $\sigma=32$, $|u^{(d)}|\le M_ds^A$, and $\int_{x_1}^\infty x^{2A}e^{-x^{4/3}/4}dx\le x_1^{2A}e^{-x_1^{4/3}/4}/(x_1^{1/3}/3-2A/x_1)$ by convexity of $x^{4/3}$. Contribution $\le5\cdot10^{-19}$.
+\end{enumerate}
+The Hermite corrections are included in all ranges. The inner products and the norm are bounded on the $3425$ hull boxes of the Lyapunov run of the fourth supplement by (length)$\times$(hull of the integrand) (\texttt{psi3ip.py}); the norm uses $40{,}000$ boxes of width $10^{-3}$ and the same tail bound. \qed
+
+\section{The triangular lemma with the slow eigenfunction}\label{sec:tri}
+
+In Lemma 9 of the fourth supplement replace $\varphi_3=(I-\Pi)f_3/N$ by $\varphi_3=(I-\Pi)\hat\psi_3/N'$ with $N'=\ip{(I-\Pi)\hat\psi_3}{f_3}_\rho$, and keep $c=\ip{u}{f_3}_\rho$. Since $L$ maps $\mathrm{span}\{\psi_1,\psi_2\}$ into itself, $(\mathcal L-\tilde\lambda)\varphi_3=(I-\Pi)(L-\tilde\lambda)\hat\psi_3/N'$, so the coupling $g$ is now a residual. Everything else in the lemma is unchanged.
+
+\begin{proposition}\label{prop:tri}\lab{computer-assisted} (\texttt{lyap\_psi3.py})
+$N'\ge0.031105$, $\|\varphi_3\|\le247.6$, $\|g\|\le0.1223$, $G_0=\|g\|+\eps_1\|\varphi_3\|^2\le4.195$. The Lyapunov condition holds for every $\omega'<0.02904$. With $\omega'=0.02614$ and $\kappa=7.5\cdot10^4$, $\|u(\tau)\|_\rho\le10.64\,e^{-\omega'\tau}\|u(0)\|_\rho$ for the modulated linear flow on $\{f_1,f_2\}^\perp$.
+\end{proposition}
+For comparison, the fourth supplement had $\|g\|=67.7$, $\omega'=0.0213$ and constant $14.8$. The remaining bottleneck is $\eps_1\|\varphi_3\|^2$: $\|\varphi_3\|\ge1/\|f_3\|$ by Cauchy--Schwarz, and here it is $4.8$ times larger because $\hat\psi_3$ and the adjoint mode $f_3$ make an angle with cosine $0.216$ (non-normality). $\eps_1=6.6\cdot10^{-5}$ is dominated by the cutoff residual $\|[L^*,\chi]F\|$ at $\sigma\in[29,32]$.
+
+\section{Coercivity with an $H^2$ margin}\label{sec:theta}
+
+\begin{theorem}\label{thm:theta}\lab{computer-assisted}
+For every even $v\in D(L)$ with $\ip{v}{f_1}_\rho=\ip{v}{f_2}_\rho=\ip{v}{f_3}_\rho=0$,
+\[
+\re\ip{Lv}{v}_\rho+\tfrac19\|v''\|_\rho^2\le-\tfrac1{32}\|v\|_\rho^2 .
+\]
+\end{theorem}
+\begin{proof}
+The statement is that the form $\int\rho\big((1-\theta)v''^2-\mathcal Av'^2-(V+\omega)v^2\big)$, $\theta=\frac19$, $\omega=\frac1{32}$, is nonnegative on $\{f_i\}^\perp$. Divide by $1-\theta$: this is the form of the fourth supplement with $\mathcal A$ and $V+\omega$ multiplied by $\frac98$ (exact in the CAPD input). The whole proof of Theorem 1 there goes through with this change:
+\begin{itemize}
+\item positivity at infinity: $\mu_\theta=-\frac{81}{64}\frac{\mathcal A^2}2-\frac98\frac{(\rho\mathcal A)''}{2\rho}-\frac98(V+\omega)\ge0.001\,x^{4/3}$ for $x\ge30$ ($400$ pieces; smallest lower bound $0.00139$);
+\item tail theorem at $\sigma=32$ for $\lambda=-\frac1{32}$ and the scaled coefficients: invariant ball $\eta=0.0395$, Lipschitz constant $3.1\cdot10^{-3}$, transversality to the Dirichlet plane with margin $1.0$;
+\item Morse count: the plane run has $2$ resolved zeros of $W_{01}$, and $W_{01}(0)\in[-141.7,-136.6]$, $W_{13}(0)\in[296.4,307.0]$, so $n(A_{\rm even})=3$;
+\item Gram matrix: the $34$ CAPD runs and the affine post-processing of the fourth supplement give $g_{11}<0$, $\det G_2>0$ and Schur complement $S\in[-4.93,-1.73]\cdot10^{-4}$, so $n(G)=3$.
+\end{itemize}
+By the constrained inertia lemma the form has $3-3=0$ negative directions on $\{f_i\}^\perp$.
+\end{proof}
+
+\emph{Float scans} \lab{numerical} (\texttt{float\_theta.py}, an independent replica that reproduces the Schur complement $-4.6325\cdot10^{-4}$ of the original certificate). Schur complements for other choices: $(\theta,\omega)=(0.1,\frac1{32})$: $-4.2\cdot10^{-4}$; $(\frac19,\frac3{128})$: $-5.4\cdot10^{-4}$; $(0.2,\frac1{64})$: $-3.1\cdot10^{-4}$. The constrained numerical abscissa of $\re\ip{Lv}{v}+\theta\|v''\|^2$ is $-0.0724,-0.0514,-0.0398,-0.0274,+0.0008$ for $\theta=0,0.1,0.15,0.2,0.3$ (\texttt{theta\_margin.py}).
+
+\emph{Why the margin is needed.} The positivity identity gives $-\re\ip{Lv}{v}\ge\frac12\|v''\|^2+\int\rho\mu v^2$ with $\min\mu=-3.34$ at the tip. Combined with the constrained estimate by convexity this yields only $\theta=(\omega-\omega')/(2\cdot3.34)\approx0.0035$. The quasilinear coefficient of the graph equation is $J^{-4}-1\approx4ku$, of size $6.2\,\alpha$ at the tip for a slow-mode amplitude $\alpha$.
+
+\section{Structure of the nonlinear bootstrap}\label{sec:boot}
+
+\emph{Exact nonlinearity} \lab{computer algebra} (\texttt{graph\_struct.py}). With $J^{-1}$ and $\alpha_g^{-1}=(1-ku)^{-1}$ carried as symbols, the curvature part of the graph equation is
+\[
+-J^{-4}u''''+10J^{-6}u'\,u''u'''+b_{01}u'''-3J^{-6}(6J^{-2}u'^2-1)\,u''^3+b_{20}u''^2+b_{10}u''+b_{00},
+\]
+with $b_{ij}$ explicit polynomials in $(J^{-1},\alpha_g^{\pm1},k,m,p,q,u,u')$, and the drift and modulation part is $(\frac14-a)(p+u-u'q/\alpha_g)+b(\sin\theta+u'\cos\theta/\alpha_g)$. In particular $\psi_1=p$, $\psi_2=-\sin\theta$, and the $(a,b)$-terms are $-a(\psi_1+u-u'q/\alpha_g)-b(\psi_2-u'\cos\theta/\alpha_g)$.
+
+\emph{Decomposition.} Write $u=\alpha\hat\psi_3+w$ with $\alpha(\tau)$ a third modulation parameter and $\tilde w=\chi w$, where $\chi$ is the cutoff of the constraint functions, and impose $\ip{\tilde w}{f_j}_\rho=0$ for $j=1,2,3$. With $g_1=\chi\psi_1=f_1$, $g_2=\chi\psi_2=f_2$, $g_3=\chi\hat\psi_3$ and $\beta=\alpha_\tau-\tilde\lambda\alpha$,
+\[
+\tilde w_\tau=L\tilde w-a g_1-b g_2-\beta g_3+G,\qquad G=[\chi,L]w+\chi\big(\alpha(L-\tilde\lambda)\hat\psi_3+N(u)\big),
+\]
+and $(a,b,\beta)$ solve a $3\times3$ system with matrix $[\ip{g_i}{f_j}]$, block-triangular up to $|\ip{g_i}{f_3}|\le4\cdot10^{-7}$. In the energy identity the modulation terms drop out exactly, $\ip{g_1}{\tilde w}=\ip{g_2}{\tilde w}=0$, except $\beta\ip{g_3}{\tilde w}$, which costs $\eps_1\|\chi\hat\psi_3-\frac{N_3}{\|f_3\|^2}f_3\|/N_3\le0.0165$ in the rate. So Theorem~\ref{thm:theta} gives $\frac12\frac d{d\tau}\|\tilde w\|^2\le-0.0147\|\tilde w\|^2-\frac19\|\tilde w''\|^2+(\text{forcing})$.
+
+Three facts fix the rest of the design.
+\begin{enumerate}
+\item \emph{The energy cutoff must be the constraint cutoff.} With a cutoff $\chi_R$, $R\approx8$, instead, $\ip{\chi_R\psi_2}{\tilde w}=-\ip{(1-\chi_R)\psi_2}{\tilde w}$ is supported on the annulus, and $|b|\sim\|M^{-1}\|\Lambda\|\tilde w\|\approx31\|\tilde w\|$ turns it into a loss $\approx3.4\|\tilde w\|\|\tilde w\|_{\rm ann}$. Cutting the constraints themselves at $R$ is no better: the float abscissa even improves ($-0.106$ at $R=6$, \texttt{theta\_cut.py}), but then $\ip{\chi_R\psi_i}{f_3}\approx5\cdot10^{-3}$, and the slow coordinate couples to $\tilde w$ with strength $\approx0.15$. The adjoint mode $f_3$ is intrinsically spread out ($\rho F^2\sim e^{-0.222x^{4/3}}$), so the inner energy must reach $|x|\approx34$.
+\item \emph{Perturbations proportional to $\alpha$ are integrable in time.} $\alpha$ decays at rate $\approx0.256$. A term $C|\alpha|\|\tilde w\|^2$ in the energy inequality costs a factor $\exp(C|\alpha_0|/0.256)$, not a condition $C|\alpha|<\omega$. Only terms quadratic in $w$ itself need the rate. The forcing is $O(\alpha^2)$ and decays faster than the energy, so $\|\tilde w\|\lesssim\|\tilde w_0\|+46\alpha_0^2$.
+\item \emph{The binding constraint is the slope of the slow mode on $15\le|x|\le34$.} There $\hat\psi_3'\approx1.3x^{1.02}$ ($41$ at $x=32$), so $J^{-4}-1\approx-2\alpha^2\hat\psi_3'^2$ must fit into the $H^2$ margin: $\alpha\lesssim4\cdot10^{-3}$ with $\theta=\frac19$. The far region is in fact much more dissipative: the float abscissa with a margin $\theta(x)$ rising from $\frac19$ ($x\le15$) to $\frac12$ ($x\ge25$) is still $-0.0489$ (\texttt{theta\_var.py}). A certificate with variable $\theta$ needs the Jacobi system with row $(0,-\mathcal A/a,\varphi'-a'/a,-1/a)$, $a=1-\theta(x)$, and positivity at infinity for the far value of $\theta$ beyond $x\approx70$. It would allow $\alpha\approx8\cdot10^{-3}$.
+\end{enumerate}
+With $\alpha\approx c_{3k}/k_{\max}$ and $|c_{3k}|\approx3.3$ for the current target curve, $\alpha_0=4\cdot10^{-3}$ means a hand-off at $k_{\max}\approx800$, and $8\cdot10^{-3}$ at $\approx400$.
+
+\section{Status}
+Certified: $S_1$; even spectrum; coercivity $\frac3{64}$ and, new, $(\theta,\omega)=(\frac19,\frac1{32})$; $\hat\psi_3$ with residual and inner products; the triangular lemma with rate $0.0261$. Next \lab{plan}: the energy inequalities for $\|\tilde w\|^2$ and $\|\tilde w''\|^2$ with explicit constants (weighted interpolation and Sobolev inequalities on $|x|\le34$, jet-box bounds for the exact nonlinearity above), the pointwise control of $w$ on $8\le|x|\le34$ from the outer region (frozen in original variables over the remaining time), and the matching of the inner amplitude $\alpha(\tau)$ to the frozen bending of the strands.
+
+\end{document}

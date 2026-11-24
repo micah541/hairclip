@@ -1,0 +1,255 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\lab}[1]{\textup{\textsc{[#1]}}}
+\newcommand{\stip}{\sigma_{\rm tip}}
+
+\title{Step 3, linear part: the constrained energy estimate is certified}
+\author{Fourth supplement to the working notes for W.\,J.~Ogden and M.~Warren}
+\date{November 5, 2026. Draft by Claude (Anthropic) at M.~Warren's request.}
+
+\begin{document}
+\begin{abstract}
+The third supplement reduced the linear estimate needed in step 3 to an inertia count (its Lemma~``constrained inertia''). This note carries the count out. With $\omega=3/64$ and three explicit smooth even constraint functions --- the two symmetry modes, cut off far out, and a computed approximate adjoint eigenfunction for $\lambda_3\approx-0.2562$ --- we prove, with computer assistance, that $\re\ip{Lv}{v}_\rho\le-\frac{3}{64}\|v\|_\rho^2$ for every even $v$ orthogonal to all three. There are three validated ingredients: the Morse index of $A=-H_{\rm sym}-\omega$ on even functions is $3$; $A$ is invertible; and the $3\times3$ Gram matrix $G=[\ip{A^{-1}f_j}{f_i}_\rho]$ is negative definite, with Schur complement enclosed in $[-7.31\cdot10^{-4},-1.95\cdot10^{-4}]$. The constants of a triangular Lyapunov argument are then certified as well. Consequently the modulated linear flow decays on the complement of the symmetry modes: $\|e^{\tau\mathcal L}u\|_\rho\le14.8\,e^{-0.0213\,\tau}\|u\|_\rho$. The note also records the method (the first validated pipeline gave enclosures about a thousand times too wide) and the independent checks. Labels: \lab{proved}, \lab{computer-assisted}, \lab{numerical}, \lab{plan}.
+\end{abstract}
+\maketitle
+
+\section{Statement}
+
+Notation is that of the earlier supplements. The profile of $S_1$ in arclength $\sigma$ (normalized by $q-\sigma\to0$ at $+\infty$) solves $p'=-kq$, $q'=1+kp$, $k'=m$, $m'=p/4$, with $p=\ip{\Gamma}{\nu}$, $q=\ip{\Gamma}{\tau}$. The symmetry point is $\stip\in[-2.249127,-2.249019]$, and $x=\sigma-\stip$. The weight is $\rho=e^{-\varphi}$, $\varphi=\frac14(1+x^2)^{2/3}$, and $H=L^2_{\rm even}(\rho)$. The linearization is
+\[
+Lu=-u''''-k^2u''-(5km+\tfrac q4)u'+(\tfrac14-3m^2-kp)u,
+\qquad \re\ip{Lu}{u}_\rho=\int\rho\big(-|u''|^2+\mathcal A|u'|^2+V|u|^2\big),
+\]
+with $\mathcal A=2(\varphi'^2-\varphi'')+k^2$ and $V$ the explicit function of $\varphi',\dots,\varphi''''$ and the profile given in the third supplement. Let $H_{\rm sym}$ be the self-adjoint operator of this form and $A=-H_{\rm sym}-\omega$ with $\omega=3/64$. Even functions are described by their restriction to $x\ge0$.
+
+\begin{definition}[constraint functions]\label{def:f}
+Let $\chi(\sigma)=1$ for $\sigma\le29$, $\chi=S\big(\frac{32-\sigma}{3}\big)$ for $29\le\sigma\le32$, $\chi=0$ for $\sigma\ge32$, where $S(u)=u^4(35-84u+70u^2-20u^3)$ is the $C^3$ smoothstep. Set
+\begin{enumerate}
+\item $f_1=\chi\,p$, the cut-off scaling mode $\psi_1=p$ (eigenvalue $1$);
+\item $f_2=\chi\,\ip{\tau}{\tau(\stip)}$, the cut-off translation mode $\psi_2=\pm\ip{e_1}{\nu}$ (eigenvalue $\frac14$);
+\item $f_3=\chi F-a\eta_1-b\eta_3$, where:
+ \begin{itemize}
+ \item $F=w/\rho$ and $w$ solves $L^{T}w=\tilde\lambda w$, with $L^{T}w=-w''''-k^2w''+(km+\frac q4)w'+\frac12w$ the unweighted transpose, on $\stip\le\sigma\le32$. Here $\tilde\lambda=-0.2561532224577463$. The data at $\sigma=32$ are
+\begin{align*}
+\big(w,w',w'',w'''\big)/\rho\,\big|_{\sigma=32}=\big(&0.21294411849189518,\ -1.939091002262411,\\ &2.9151394596950477,\ 1.9965600784217332\big),
+\end{align*}
+which is $\alpha\,\mathrm{Re}\,v-\mathrm{Im}\,v$ for $v=(1,z,z^2,z^3)$, $z^4=8z+\frac12-\tilde\lambda$, $\re z<-\frac12$, $\alpha=0.21294411849189518$. Thus $\rho F$ is an exact solution of the adjoint equation; on $\sigma>32$, $\chi F=0$.
+ \item $\eta_1=4s\,\zeta(s)$ and $\eta_3=\frac{32}{3} s^3\zeta(s)$, with $\zeta(s)=(1-s^2)^4$ on $s=x/(4c)\in[0,1]$ and $0$ beyond, where $c=(8-\stip)/T_0$ and $T_0=10.249073$ (so $c=1+O(10^{-5})$).
+ \item $a=c\,F'(0)$ and $b=c^3F'''(0)+\frac32c\,F'(0)$.
+ \end{itemize}
+\end{enumerate}
+\end{definition}
+
+With these choices $f_3'(0)=f_3'''(0)=0$, so every $f_i$ extends evenly to a $C^3$ function with bounded fourth derivative, supported in $|x|\le32-\stip$. In particular $f_i\in D(L)\cap D(L^*)$. The three numbers $\tilde\lambda$, $\alpha$, $T_0$ were fixed in floating point once and for all. $\tilde\lambda$ and $\alpha$ were tuned by Newton's method so that $F'(0)=F'''(0)=0$ in floating point; the true $a,b$ are certified to satisfy $|a|\le9.1\cdot10^{-8}$, $|b|\le2.6\cdot10^{-7}$ (\S\ref{sec:decay}). The support length $4$ of the bumps was chosen to make their contribution to the residual of $f_3$ small.
+
+\begin{theorem}\label{thm:main}\lab{computer-assisted}
+For every even $v\in D(L)$ with $\ip{v}{f_1}_\rho=\ip{v}{f_2}_\rho=\ip{v}{f_3}_\rho=0$,
+\[
+\re\ip{Lv}{v}_\rho\le-\tfrac{3}{64}\,\|v\|_\rho^2 .
+\]
+\end{theorem}
+The spectral hypotheses (boundedness below, compact resolvent) are supplied by Lemma~\ref{lem:infty}.
+
+\begin{remark}[why these constraints]
+$f_1,f_2$ are the symmetry eigenfunctions themselves, up to a cutoff where $\rho\le e^{-22}$. This is what the modulation needs: the modulated flow is $u_\tau=(I-\Pi)Lu$, where $\Pi$ projects onto $\mathrm{span}\{\psi_1,\psi_2\}$ along $\{f_1,f_2\}^\perp$. Because $\psi_i-f_i=(1-\chi)\psi_i$ is negligible, $\re\ip{(I-\Pi)Lv}{v}$ differs from $\re\ip{Lv}{v}$ by a negligible amount on $\{f_i\}^\perp$ (Lemma~\ref{lem:tri}). $f_3$ is an approximate \emph{adjoint} eigenfunction. Then the coefficient $c=\ip{u}{f_3}$ evolves almost autonomously, $c_\tau\approx\tilde\lambda c$, giving the triangular structure. The numerical compressed abscissa for this mixed set is $-0.0724$ (third supplement's discretization), so $\omega=3/64$ leaves a margin of about $0.026$. Smoothness at the tip is needed so that $\ip{Lu}{f_3}=\ip{u}{L^*f_3}$ without boundary terms; this is the reason for $\eta_1,\eta_3$.
+\end{remark}
+
+\section{Reduction to three validated statements}
+
+\begin{lemma}[positivity at infinity]\label{lem:infty}\lab{proved + computer-assisted}
+Let $\mu=-\frac12\mathcal A^2-\frac1{2\rho}(\rho\mathcal A)''-V-\omega$. For all $u\in C_c^\infty$,
+\[
+\int\rho\big(u''^2-\mathcal Au'^2-(V+\omega)u^2\big)\ \ge\ \tfrac12\int\rho\,u''^2+\int\rho\,\mu\,u^2 ,
+\]
+and $\mu(x)\ge0.004\,|x|^{4/3}$ for $|x|\ge30$. Consequently $A$ is bounded below and has compact resolvent, and its form is positive on functions supported in $\{|x|\ge30\}$.
+\end{lemma}
+\begin{proof}
+The inequality is exact algebra plus one Cauchy--Schwarz step. Two integrations by parts give $\int\rho\mathcal Au'^2=-\int\rho\mathcal A\,uu''+\frac12\int(\rho\mathcal A)''u^2$, and $|\int\rho\mathcal A uu''|\le\frac12\int\rho u''^2+\frac12\int\rho\mathcal A^2u^2$. In $\mu$, $(\rho\mathcal A)''/\rho=\mathcal A''-2\varphi'\mathcal A'+(\varphi'^2-\varphi'')\mathcal A$, and $\mathcal A',\mathcal A''$ are expressed through the profile ODE. In the chart $u=x^{-1/3}$, $x^{-4/3}\mu$ becomes a polynomial in $u$, $(1+u^6)^{-1/3}$ and the profile, with $q=u^{-3}+\stip+(q-\sigma)$. It was evaluated in ball arithmetic on $400$ pieces of $0\le u\le30^{-1/3}$, with $|k|,|m|,|p|,|q-\sigma|$ bounded by the step-1 tail bounds (\texttt{positivity.py}). The smallest certified lower bound is $0.00408$. The limit as $x\to\infty$ is $\frac1{24}+\frac1{162}-\frac3{81}=0.0108$. Since $\mu$ is continuous and even, it is bounded below. Since $\mu\to\infty$, the form domain embeds compactly into $L^2(\rho)$ (Rellich on $|x|\le R$ plus $\int_{|x|\ge R}\rho u^2\le\sup_{|x|\ge R}\mu^{-1}\cdot Q$), which gives compact resolvent.
+\end{proof}
+
+\begin{lemma}[constrained inertia; third supplement]\label{lem:inertia}\lab{proved; standard}
+Let $A$ be self-adjoint and invertible, with finitely many negative eigenvalues $n(A)$ and the rest of its spectrum positive. Let $f_1,\dots,f_m\in H$ be independent, with $G=[\ip{A^{-1}f_j}{f_i}]$ nonsingular. Then the quadratic form of $A$ on $\{f_j\}^\perp$ has exactly $n(A)-n(G)$ negative directions.
+\end{lemma}
+
+On $[0,\infty)$ the equation $Au=f$ is the Euler--Lagrange equation of $\int\rho(u''^2-\mathcal A u'^2-(V-\lambda)u^2)-2\int\rho fu$, with $\lambda=-\omega$. Write it as the Jacobi system $y'=My+(0,0,0,-f)$ for $y=(u,u',u'',y_4)$, $y_4=-u'''+\varphi'u''-\mathcal Au'$:
+\[
+M=\begin{pmatrix}0&1&0&0\\0&0&1&0\\0&-\mathcal A&\varphi'&-1\\-(V-\lambda)&0&0&\varphi'\end{pmatrix}.
+\]
+Even functions satisfy $u'(0)=y_4(0)=0$; Dirichlet conditions are $u(0)=u'(0)=0$. Let $\mathcal P(x)$ be the admissible plane, spanned by the homogeneous solutions $z_a,z_b$ in the form domain near $+\infty$. Let $W_{ij}=z_{a,i}z_{b,j}-z_{a,j}z_{b,i}$ be its Pl\"ucker coordinates (indices $0..3$).
+
+\begin{lemma}[Morse count]\label{lem:morse}\lab{proved, modulo the standard Morse index theorem}
+Assume $W_{01}(0)\ne0$, $W_{13}(0)\ne0$, and that $W_{01}$ has finitely many zeros on $(0,\infty)$, at each of which $W_{02}\neq0$. Then $A_{\rm even}$ is invertible and
+\[
+n(A_{\rm even})=\#\{x>0:\ W_{01}(x)=0\}+\big[\,W_{01}(0)W_{13}(0)<0\,\big].
+\]
+\end{lemma}
+\begin{proof}
+(i) Dirichlet problem. The form is regular ($\rho>0$ multiplies $u''^2$). By Lemma~\ref{lem:infty} it is positive on functions supported in $[s,\infty)$ for $s\ge30$. The Dirichlet eigenvalues on $[s,\infty)$ are continuous and strictly increasing in $s$. Zero is an eigenvalue for $[s,\infty)$ exactly when $\mathcal P(s)$ meets the Dirichlet plane, i.e.\ $W_{01}(s)=0$. The kernel then has dimension $1$: dimension $2$ would force $W_{02}(s)=0$. By the Morse index theorem for regular variational problems (e.g.\ W.\,T.~Reid, \emph{Sturmian Theory for Ordinary Differential Equations}, Springer 1980), $n(A_{\rm Dir})$ equals the number of zeros of $W_{01}$ in $(0,\infty)$.
+
+(ii) Even versus Dirichlet. Let $h=z_{b,1}(0)z_a-z_{a,1}(0)z_b$. Then $h\in\mathcal P$ and $h'(0)=0$, so $h$ is in the even form domain, and $h(0)=W_{01}(0)$, $y_4[h](0)=-W_{13}(0)$. Integrating by parts, for $u$ solving the homogeneous equation,
+\[
+a(u,v)=\big[-\rho u''v'+\rho(u'''-\varphi'u''+\mathcal Au')v\big]_{x=0}.
+\]
+Hence $a(h,v)=0$ for all $v$ with $v(0)=v'(0)=0$, and $a(h,h)=-\rho(0)\,h(0)\,y_4[h](0)=\rho(0)W_{01}(0)W_{13}(0)$. The even form domain is the $a$-orthogonal sum of the Dirichlet one and $\mathrm{span}\{h\}$, so the inertias add. $A_{\rm even}$ is invertible because $Au=0$ with even conditions has a solution in $\mathcal P$ iff $W_{13}(0)=0$.
+\end{proof}
+
+\begin{proposition}[the count]\label{prop:count}\lab{computer-assisted}
+At $\lambda=-3/64$: $W_{01}$ has exactly two zeros on $(0,\infty)$, in $\sigma\in[1.36593,1.37793]$ and $\sigma\in[-1.60121,-1.58921]$, both with $W_{02}\ne0$. At the tip, $W_{01}(0)\in[-213.15,-206.42]$ and $W_{13}(0)\in[381.23,393.71]$ (common normalization). Hence $n(A_{\rm even})=2+1=3$, and $A_{\rm even}$, $A_{\rm Dir}$ are invertible.
+\end{proposition}
+\begin{proof}[Method]
+For $\sigma\ge32$, a Lyapunov--Perron cone argument in the chart $u=x^{-1/3}\in[0,0.30793]$ with $140$ pieces (\texttt{hstail.py}, ball arithmetic at 200 bits) does three things. It places $\mathcal P$ in a cone of aperture $\eta=0.036241$ around a frozen-coefficient plane at $x_0=32-\stip$, uniformly in $\stip$. It certifies the minimal gap $1.3627$. And it certifies transversality of $\mathcal P$ to the Dirichlet plane for all $x\ge x_0$ (margin $0.9715$), so there are no zeros of $W_{01}$ there. On $\stip\le\sigma\le32$ the Pl\"ucker system $W'=M^{(2)}W$ was integrated in CAPD with the cone as initial set. $W_{01},W_{02}$ were enclosed on $8563$ subintervals, and the zero count is read off by \texttt{count\_zeros.py}: on each run of subintervals where the $W_{01}$-enclosure meets $0$, the $W_{02}$-enclosure has a fixed sign. Profile data: the step-1 tail bounds for $\sigma\ge8$ and the step-1 enclosure for $\sigma\le8$.
+\end{proof}
+
+\begin{proposition}[Gram matrix]\label{prop:gram}\lab{computer-assisted}
+$G=[\ip{A^{-1}f_j}{f_i}_\rho]_{i,j\le3}$, computed on the half line (the full-line matrix is twice this), is enclosed entrywise by
+\[
+\begin{pmatrix}
+-2.358792\pm1.5\cdot10^{-3} & 1.324336\pm1.9\cdot10^{-3} & 0.0189861\pm1.4\cdot10^{-4}\\
+\cdot & -2.891481\pm1.3\cdot10^{-2} & 0.0360535\pm4.6\cdot10^{-4}\\
+\cdot & \cdot & -0.00163196\pm2.3\cdot10^{-4}
+\end{pmatrix}.
+\]
+The leading $2\times2$ block has $g_{11}<0$ and $\det\in5.10\pm0.073$. The Schur complement $g_{33}-g^TG_2^{-1}g$ lies in $[-7.3091\cdot10^{-4},\,-1.9497\cdot10^{-4}]$. Hence $G\prec0$ and $n(G)=3$.
+\end{proposition}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+By Lemma~\ref{lem:infty}, $A$ is bounded below with compact resolvent; by Lemma~\ref{lem:morse} and Proposition~\ref{prop:count} it is invertible with $n(A_{\rm even})=3$. Proposition~\ref{prop:gram} gives $n(G)=3$, so by Lemma~\ref{lem:inertia} the form of $A$ is nonnegative on $\{f_1,f_2,f_3\}^\perp$. That is the claim.
+\end{proof}
+
+The rest of the note explains Proposition~\ref{prop:gram}.
+
+\section{How the Gram matrix is computed}\label{sec:gram}
+
+\begin{lemma}[half-line formula]\label{lem:formula}\lab{proved}
+Let $g$ be smooth and supported in $[0,x_0]$. Let $y$ solve the forced Jacobi system on $[0,x_0]$ with $y(x_0)=0$, and let $z_a,z_b$ span $\mathcal P$. For a second such function $f$ put $I_a=\int_0^{x_0}\rho z_{a,0}f$, $I_b=\int_0^{x_0}\rho z_{b,0}f$, $m_r=z_{a,r}I_b-z_{b,r}I_a$, and $I=\int_0^{x_0}\rho y_0f$. Then
+\[
+\ip{A^{-1}g}{f}_{\rho,[0,\infty)}=I+\frac{y_1(0)\,m_3(0)-y_3(0)\,m_1(0)}{W_{13}(0)}.
+\]
+The ratios $m_r/W_{13}$ depend only on the plane, not on the basis. As functions of $x$, the $m_r$ solve $m'=Mm-\rho f\,(W_{r0})_r$, driven by the Pl\"ucker coordinates.
+\end{lemma}
+\begin{proof}
+$u=A^{-1}g$ equals $y+\alpha z_a+\beta z_b$ on $[0,x_0]$ and $\alpha z_a+\beta z_b$ beyond. This is continuous with all Jacobi components because $y(x_0)=0$ and $g=0$ for $x>x_0$, and it is admissible at $\infty$. The even conditions $u'(0)=y_4(0)=0$ give a $2\times2$ system with determinant $W_{13}(0)$. Then $\int_0^\infty\rho uf=I+\alpha I_a+\beta I_b$, and Cramer's rule gives the formula. The ODE for $m_r$ is direct differentiation.
+\end{proof}
+
+For composite constraints the bilinearity of $G$ is used. Write $f_2=C_{\rm tip}\cos K+S_{\rm tip}\sin K$ with $K(\sigma)=\int_\sigma^{32}k$ and $(C_{\rm tip},S_{\rm tip})=(\cos K,\sin K)(\stip)$; both are carried as states. Write $f_3=\chi F-a\eta_1-b\eta_3$. The validated runs compute $G$ on the six generators $\chi p,\ \chi\cos K,\ \chi\sin K,\ \chi F,\ \eta_1,\ \eta_3$. That is six plane runs ($W$ plus the four $m_r$ for one generator) and $28$ forced runs ($y$ and one $I$), $34$ CAPD integrations in all, each $3$--$10$ seconds. The $3\times3$ matrix is then assembled with the exact coefficients $C_{\rm tip},S_{\rm tip},a,b$, which are themselves enclosed by the runs.
+
+\subsection*{Validated integration}
+\emph{Stage B}, $8\le\sigma\le32$. The profile enters only through interval parameters $k,m,p\in\pm(k_b,m_b,p_b)(\sigma)$ and $q\in\sigma\pm q_s(\sigma)$, from the step-1 tail theorem, set per unit chunk. Steps are fixed, $h=0.05$, Taylor order $20$. \emph{Stage C}, $\stip\le\sigma\le8$. The profile is part of the state, initialized from the step-1 enclosure at $\sigma=8$. Three devices were decisive.
+
+\begin{enumerate}
+\item \emph{The tip parameter is a state.} $\stip$ appears in the weight and fixes where the boundary conditions are imposed. As an interval \emph{parameter} it is re-wrapped at every step. That inflated the Pl\"ucker enclosures to $1.6\%$, against a true sensitivity of $7\cdot10^{-5}$. As a state $st$ with $st'=0$ its effect is carried linearly by the Lohner set.
+\item \emph{Stage C runs in rescaled time.} Take $t\in[0,T_0]$, $\sigma=8-ct$, $c=(8-st)/T_0$. Every right-hand side is multiplied by $c$ and $x=c(T_0-t)$, so $t=T_0$ is exactly the tip for every $st$ in the set, and no time-window enclosure is needed. The tip bumps live in a third stage $t\in[T_0-4,T_0]$.
+\item \emph{No boxing anywhere.} The stage-B set is passed to stage C in its full doubleton form $x+Cr_0+Br$, block-diagonal with the step-1 profile set. CAPD's reorganization is switched off. Plane and forced variables are scaled by powers of $2$ so that all rows are $O(1)$; without this, QR wrapping in the $17$--$21$-dimensional sets blew up near the tip.
+\end{enumerate}
+
+\begin{lemma}[affine bookkeeping]\label{lem:affine}\lab{proved}
+In a CAPD doubleton step the matrix $C$ is transported as $J C$ and immediately split into its midpoint and an interval part. The interval part, multiplied by the \emph{original} box $r_0$, is absorbed into $Br$. So each run's final set is $\{x_T+C_Ts+B_Tr:\ s\in r_0,\ r\in R_T\}$ with $C_T$ a point matrix. The true trajectory corresponds to the true value $s^*$ of the parameters in $r_0$ and some $r\in R_T$. The parameter coordinates are the step-1 profile parameters (amplitude bracket, tail remainder, $q$-offset), $st$, and, in the plane runs, the five cone coordinates. They are the same physical numbers in every run. Hence quantities from different runs may be combined as affine forms in the shared symbols $s$, with run-local remainders. First-order cancellations between runs are then kept.
+\end{lemma}
+
+The post-processing (\texttt{gram\_post7.py}, \texttt{gram\_post8.py}; ball arithmetic, 128 bits) proceeds as follows.
+\begin{itemize}
+\item The ratios $m_r/W_{13}$ are evaluated by the mean-value form, with the gradient over the run's hull. Being homogeneous of degree $0$, they lose the cone's scale uncertainty exactly.
+\item Each entry $\ell_i\cdot(y_j,I_{ji})$, with $\ell_i=(0,\frac{m_3}{W_{13}},0,-\frac{m_1}{W_{13}},1)$, combines rows \emph{before} bounding. $\ell_i$ annihilates the extended admissible directions, so the large run-local errors of $y$ along $\mathcal P$ cancel.
+\item Both triangles of the symmetric $G$ are computed where available, and the two enclosures are intersected.
+\item Negative definiteness is tested via $g_{11}<0$, $\det G_2>0$ and the Schur complement.
+\end{itemize}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+pipeline & radius of $g_{33}$ & Schur complement\\
+\midrule
+interval parameter $\stip$, boxing at $\sigma=8$, hull post-processing & $1.5\cdot10^{-1}$ & undecided\\
+$st$ as state, rescaled stage C, mean-value forms & $2.1\cdot10^{-4}$ & $[-7.1,-2.2]\cdot10^{-4}$\\
+final (cutoff, exact $f_2$, smooth $f_3$, shared symbols) & $2.3\cdot10^{-4}$ & $[-7.31,-1.95]\cdot10^{-4}$\\
+\bottomrule
+\end{tabular}
+\caption{Effect of the devices above. The true value is $-4.63\cdot10^{-4}$. The first two rows used slightly different (non-smooth) $f_2,f_3$.}
+\end{table}
+
+\subsection*{Checks}
+\lab{numerical} An independent float64 implementation (\texttt{float\_final.py}) integrates $z_a,z_b$ directly instead of Pl\"ucker coordinates and minors, and solves the boundary conditions explicitly. Its $G$ lies inside every rigorous enclosure, at most $1.4\%$ of the radius from the midpoint, and its Schur complement is $-4.6325\cdot10^{-4}$. Its $6\times6$ generator matrix is symmetric to $9\cdot10^{-14}$. Moving $\stip$ by its half-width changes $g_{33}$ by $2\cdot10^{-7}$. Moving the step-1 profile by any of its uncertainty directions changes the Schur complement by $\le1.4\cdot10^{-8}$. The identities $F'(0)=w'(0)/\rho(0)$, $F'''(0)=(w'''+w')(0)/\rho(0)$ and $f_3'(0)=f_3'''(0)=0$, and the derivatives of $\eta_i$ and of $S$, were checked symbolically.
+
+\section{Decay of the modulated linear flow}\label{sec:decay}
+
+Let $\Pi$ be the projection onto $\mathrm{span}\{\psi_1,\psi_2\}$ with kernel $K=\{f_1,f_2\}^\perp$:
+\[
+\Pi z=\sum_{i}\psi_i\,(M^{-1}\mathcal Fz)_i,\qquad (\mathcal Fz)_j=\ip{z}{f_j},\qquad M=[\ip{\psi_i}{f_j}]\ \text{(symmetric, invertible)}.
+\] The modulated linear flow is $u_\tau=\mathcal Lu:=(I-\Pi)Lu$ on $K$; it is what remains of $w_\tau=Lw-a\psi_1-b\psi_2$ after the modulation parameters enforce $w\perp f_1,f_2$. Put $N=\ip{(I-\Pi)f_3}{f_3}$ and $\varphi_3=(I-\Pi)f_3/N$. For $u\in K$ write $u=c\varphi_3+v$, $c=\ip{u}{f_3}$, so $v\in K$ and $v\perp f_3$.
+
+\begin{lemma}[mixed triangular structure]\label{lem:tri}\lab{proved}
+Let $r_3=(L^*-\tilde\lambda)f_3$, $e_i=(1-\chi)\psi_i$, $\Lambda=(\sum_j\|L^*f_j\|^2)^{1/2}$, and
+\[
+\eps_1=\|r_3\|+\big|(\ip{\psi_i}{f_3})_i\big|\,\|M^{-1}\|\,\Lambda,\qquad \eps_2=\big(\textstyle\sum_i\|e_i\|^2\big)^{1/2}\|M^{-1}\|\,\Lambda .
+\]
+Then $c_\tau=\tilde\lambda c+\ell(u)$ with $|\ell(u)|\le\eps_1\|u\|$, and $v_\tau=\mathcal Lv+c\,g-\ell(u)\varphi_3$ with $g=(I-\Pi)(L-\tilde\lambda)f_3/N$. Moreover $\re\ip{\mathcal Lv}{v}\le-(\omega-\eps_2)\|v\|^2$. If
+\[
+\eps_1\big(\|g\|+\eps_1\|\varphi_3\|^2\big)\ \le\ \big(|\tilde\lambda|-\eps_1\|\varphi_3\|-\omega'\big)\big(\omega-\eps_2-\eps_1\|\varphi_3\|-\omega'\big),
+\]
+then there are admissible $\kappa>0$, namely those with $(\kappa\eps_1+G_0)^2\le4\kappa A_0B_0$, where $G_0=\|g\|+\eps_1\|\varphi_3\|^2$ and $A_0,B_0$ are the two factors on the right (e.g.\ $\kappa=G_0/\eps_1$). For these, $E=\kappa c^2+\|v\|^2$ satisfies $E_\tau\le-2\omega'E$. Since $\|u\|^2\le(1+\|\varphi_3\|^2/\kappa)E$ and $E\le(\kappa\|f_3\|^2+(1+\|f_3\|\|\varphi_3\|)^2)\|u\|^2$, it follows that $\|u(\tau)\|\le Ce^{-\omega'\tau}\|u(0)\|$ with $C$ the square root of the product of these two constants.
+\end{lemma}
+\begin{proof}
+$c_\tau=\ip{Lu}{f_3}-\ip{\Pi Lu}{f_3}$. The first term is $\ip{u}{L^*f_3}=\tilde\lambda c+\ip{u}{r_3}$, because $f_3\in D(L^*)$. The second is $\sum_i\ip{\psi_i}{f_3}(M^{-1}(\ip{u}{L^*f_j})_j)_i$. Next, $L$ maps $\mathrm{ran}\,\Pi=\mathrm{span}\{\psi_1,\psi_2\}$ into itself, so $(I-\Pi)L\Pi=0$, hence $\mathcal L\varphi_3=(I-\Pi)Lf_3/N$ and $\mathcal L\varphi_3-\tilde\lambda\varphi_3=g$. For the dissipation, $\re\ip{\mathcal Lv}{v}=\re\ip{Lv}{v}-\re\ip{\Pi Lv}{v}$. The first term is $\le-\omega\|v\|^2$ by Theorem~\ref{thm:main}. In the second, $\ip{\psi_i}{v}=\ip{e_i}{v}$ because $v\perp f_i$. Finally $E_\tau+2\omega'E\le-2(\kappa A_0c^2+B_0\|v\|^2-\gamma|c|\|v\|)$ with $\gamma=\kappa\eps_1+G_0$. This is $\le0$ iff $\gamma^2\le4\kappa A_0B_0$. For $\kappa=G_0/\eps_1$ that is exactly the displayed condition.
+\end{proof}
+
+\begin{proposition}[the constants]\label{prop:consts}\lab{computer-assisted}
+\begin{center}\small
+\begin{tabular}{@{}ll@{\qquad}ll@{}}
+\toprule
+$\|f_3\|$ & $0.0194760\pm4\cdot10^{-7}$ & $\|r_3\|$ & $\le5.27\cdot10^{-5}$\\
+$|\ip{\psi_1}{f_3}|$, $|\ip{\psi_2}{f_3}|$ & $\le4.0\cdot10^{-7}$, $1.9\cdot10^{-7}$ & $\|(L-\tilde\lambda)f_3\|$ & $\le0.02570$\\
+$\|M^{-1}\|$ & $\le2.0005$ & $\Lambda$ & $\le15.59$\\
+$(\sum\|e_i\|^2)^{1/2}$ & $\le1.73\cdot10^{-6}$ & $\|\Pi\|=\|I-\Pi\|$ & $\le1.00008$\\
+$N$ & $\ge3.793\cdot10^{-4}$ & $\eps_1$, $\eps_2$ & $\le6.65\cdot10^{-5}$, $5.38\cdot10^{-5}$\\
+$\|g\|$ & $\le67.75$ & $\|\varphi_3\|$ & $\le51.36$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Of $\|r_3\|$, the far-field cutoff contributes $5.14\cdot10^{-5}$ and the tip bumps $1.3\cdot10^{-6}$.
+The condition of Lemma~\ref{lem:tri} holds for every $\omega'\le0.0237$. At $\omega'=0.0213$ the choice $\kappa=5.62\cdot10^5$ gives $C\le14.8$.
+\end{proposition}
+
+\begin{corollary}\label{cor:decay}\lab{computer-assisted}
+For even $u\in K\cap D(L)$, $\|e^{\tau\mathcal L}u\|_\rho\le14.8\,e^{-0.0213\,\tau}\|u\|_\rho$.
+\end{corollary}
+
+\subsection*{How the constants are bounded}
+One more validated run (\texttt{run\_lyap.py}, about $4$\,s) carries the profile, $st$, the adjoint solution, two copies of the tangent angle, and twenty weighted integrals. It writes the hull of the full state on $3425$ subintervals ($\Delta t=0.01$). Every norm in the table is then bounded by $\sum(\text{length})\cdot\sup(\rho|h|^2)$ over these boxes, with $h$ evaluated in ball arithmetic. Here $h$ is $(L-L^*)F$, $[L^{(*)},\chi]F$, $(L^{(*)}-\tilde\lambda)\eta_i$, or $L^*(\chi\psi_j)$. Derivatives of $F$ come from the scaled frame through Bell polynomials in $\varphi',\dots,\varphi''''$; derivatives of $\psi_j$ come from the profile ODE. Inner products such as $\ip{\psi_i}{\chi F}$ and $M$ come from the run's integrals. Three points mattered.
+\begin{enumerate}
+\item \emph{Two copies of the angle.} The stage-B curvature is only an interval parameter, which makes the tangent angle uncertain by $\int_8^{32}k_b\approx2\cdot10^{-4}$. The constraint $\psi_2=\cos(\theta-\theta_{\rm tip})$ only sees angle differences, so a second angle restarted at $\sigma=8$ is used below $\sigma=8$. The tip-angle error drops from $2\cdot10^{-4}$ to $10^{-6}$.
+\item \emph{Physical constraints.} As in Lemma~\ref{lem:affine}, the final set is affine in the shared symbols. The run, however, also covers unphysical pairs (tip parameter $st$ not at the tip of the profile, or a profile that is not symmetric). For those, $a,b$ and $\ip{\psi_i}{f_3}$ are genuinely of size $10^{-6}$. The true pair satisfies $q(\stip)=m(\stip)=0$. The run gives $q,m$ at $\sigma=st$ as affine forms, so these two equations determine the amplitude symbol and $st$ in terms of the remaining symbols and the run-local remainders of $q,m$, which become two new symbols. Substituting removes the spurious first-order dependence. The implied values ($-4.6\cdot10^{-10}$ in a box of radius $4.2\cdot10^{-9}$, and $-4.6\cdot10^{-6}$ in a box of radius $5.4\cdot10^{-5}$) lie inside their boxes, as they must. This is what brings $|a|,|b|$ to $\le9.1\cdot10^{-8},\,2.6\cdot10^{-7}$ and $|\ip{\psi_i}{f_3}|$ to $\le4\cdot10^{-7}$. The true values are below $10^{-10}$ in floating point.
+\item \emph{Implementation pitfalls.} In python-flint~0.9, \verb|x**n| returns NaN for a ball with midpoint $0$; all integer powers are written as products. Polynomials (the smoothstep, the bumps) are evaluated in Taylor form centered at each box, since expanded monomials lose everything to cancellation near $u=1$.
+\end{enumerate}
+The dominant term is the far-field cutoff residual $\|[L^*,\chi]F\|$. Moving the cutoff and $x_0$ to $\sigma\approx40$ would make it negligible and raise $\omega'$ to about $0.04$. That needs a new tail theorem at the larger $x_0$ and has not been done.
+
+\section{What remains}\label{sec:open}
+\begin{enumerate}
+\item \lab{plan} The quasilinear energy estimates, modulation equations and outer region of step 3, and step 4 (third supplement, \S\S4--5). Corollary~\ref{cor:decay}, in the Lyapunov form of Lemma~\ref{lem:tri}, is the linear input they require.
+\end{enumerate}
+
+\section*{Reproduction}
+Directory \texttt{step3/} of the code bundle:
+\begin{verbatim}
+g++ -O2 -o hsrun3 hsrun3.cpp `capd-config --cflags` `capd-config --libs`
+python3 run8.py 10            # 34 validated runs, about 20 s on 8 cores
+python3 gram_post8.py out10   # Gram certificate
+python3 run_lyap.py           # Lyapunov constants
+\end{verbatim} The adjoint data come from \texttt{refine\_wstar.py} (writes \texttt{wstar\_refined.json}). The Morse count is \texttt{hstail.py} (tail theorem) together with \texttt{count\_zeros.py mon.txt}. Positivity at infinity: \texttt{positivity.py}. Floating-point checks: \texttt{float\_final.py}, \texttt{resid\_float.py}, \texttt{bump\_float.py}, \texttt{K\_float.py} and \texttt{Lf\_float.py}.
+\end{document}

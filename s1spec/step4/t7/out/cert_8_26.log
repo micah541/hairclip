@@ -1,0 +1,21 @@
+fixed functions: 372 fine / 121 coarse elements; c_phi (normalised, raw) = ([1.894851600741711, 1.5342031911812246, 0.31759691877797597], [3.465907673521856, 1.8191715210248687, 2.4445115649781215]) (10s)
+assembled n = 743 (17s)
+cert 8: slabs 23-26, tau_c = 3.7499999999999987 (slab 25), k_c = 51.67
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.1599e-02, H = 0.300 -> reserved c_R = 7.615e-03; C3(tau_c): mbar 5.176 lbar 9.494 Cx 6.704 nV 1.0285e-01 (20s)
+   local margins: mu0 <= 8.362e-03 (x<10: 8.362e-03), mu1 <= 4.431e-03
+  [C1+C2] c = 0.04000: ok=True 
+  [C1+C2] c = 0.06000: ok=True 
+  [C1+C2] c = 0.07000: ok=True 
+  [C1+C2] c = 0.07500: ok=False 
+  [C1+C2] c = 0.07250: ok=False 
+  [C1+C2] c = 0.07125: ok=False 
+  [C1+C2] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07063: ok=True 
+  [C1 at tau_c] c = 0.07781: ok=False 
+  [C1 at tau_c] c = 0.07422: ok=False 
+  [C1 at tau_c] c = 0.07242: ok=True 
+CERT 8: c_I = 0.0630102534040068, c(tau_c) >= 0.072421875, c_R = 7.61e-03, mu0 <= 8.36e-03, mu1 <= 4.43e-03  (246s)
+assembled n = 743 (10s)
+cert 9: slabs 27-30, tau_c = 4.35 (slab 29), k_c = 60.12
+   rank-3: ||dPi/dtau||_Z(tau_c) <= 1.0065e-02, H = 0.300 -> reserved c_R = 6.608e-03; C3(tau_c): mbar 5.200 lbar 9.482 Cx 6.639 nV 9.0512e-02 (10s)
+   local margins: mu0 <= 7.289e-03 (x<10: 7.289e-03), mu1 <= 3.882e-03

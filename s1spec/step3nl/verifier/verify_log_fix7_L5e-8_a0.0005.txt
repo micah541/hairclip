@@ -1,0 +1,27 @@
+alpha1=0.0005 Ly1=2.500000e-15 sqrt=5.000000e-08  ADD=['a', 'b', 'c', 'd']  tol=0.0005 rtol=0.005
+  k=   0 tau=  0.081 D=0.081 alpha<=4.8969e-04 sqrtLy<=5.1107e-08 rate<=+0.26921 (lb +0.26787) cell 22.5s
+  k=  10 tau=  1.372 D=0.186 alpha<=3.5181e-04 sqrtLy<=6.3955e-08 rate<=+0.11565 (lb +0.11507) cell 17.08s
+  k=  15 tau=  2.709 D=0.342 alpha<=2.4981e-04 sqrtLy<=7.1216e-08 rate<=+0.06148 (lb +0.06098) cell 9.39s
+  k=  16 tau=  3.106 D=0.397 alpha<=2.2567e-04 sqrtLy<=7.2612e-08 rate<=+0.04894 (lb +0.04844) cell 10.61s
+  k=  17 tau=  3.604 D=0.498 alpha<=1.9862e-04 sqrtLy<=7.4126e-08 rate<=+0.04139 (lb +0.04089) cell 9.81s
+  k=  18 tau=  4.194 D=0.589 alpha<=1.7080e-04 sqrtLy<=7.5518e-08 rate<=+0.03158 (lb +0.03108) cell 9.95s
+  k=  19 tau=  4.794 D=0.600 alpha<=1.4647e-04 sqrtLy<=7.6691e-08 rate<=+0.02569 (lb +0.02519) cell 10.16s
+  tail anchor: a*=1.4647e-04 L*=5.8815e-15  rate_s bound U=+0.01715
+  k=  20 tau=  5.394 D=0.600 alpha<=1.2560e-04 sqrtLy<=7.7523e-08 rate<=+0.01797 (lb +0.01748) cell 9.53s
+  tail anchor: a*=1.2560e-04 L*=6.0098e-15  rate_s bound U=+0.01239
+  k=  21 tau=  5.994 D=0.600 alpha<=1.0771e-04 sqrtLy<=7.8146e-08 rate<=+0.01334 (lb +0.01284) cell 10.9s
+  tail anchor: a*=1.0771e-04 L*=6.1068e-15  rate_s bound U=+0.00861
+  k=  22 tau=  6.594 D=0.600 alpha<=9.2371e-05 sqrtLy<=7.8572e-08 rate<=+0.00907 (lb +0.00857) cell 10.2s
+  tail anchor: a*=9.2371e-05 L*=6.1736e-15  rate_s bound U=+0.00556
+  k=  23 tau=  7.194 D=0.600 alpha<=7.9214e-05 sqrtLy<=7.8905e-08 rate<=+0.00704 (lb +0.00654) cell 9.23s
+  tail anchor: a*=7.9214e-05 L*=6.2260e-15  rate_s bound U=+0.00306
+  k=  24 tau=  7.794 D=0.600 alpha<=6.7932e-05 sqrtLy<=7.9057e-08 rate<=+0.00321 (lb +0.00271) cell 8.82s
+  tail anchor: a*=6.7932e-05 L*=6.2500e-15  rate_s bound U=+0.00099
+  k=  25 tau=  8.394 D=0.600 alpha<=5.8257e-05 sqrtLy<=7.9122e-08 rate<=+0.00137 (lb +0.00087) cell 7.62s
+  tail anchor: a*=5.8257e-05 L*=6.2603e-15  rate_s bound U=-0.00073
+  k=  26 tau=  8.994 D=0.600 alpha<=4.9960e-05 sqrtLy<=7.9102e-08 rate<=-0.00042 (lb -0.00092) cell 7.83s
+  tail anchor: a*=4.9960e-05 L*=6.2572e-15  rate_s bound U=-0.00217
+  tail: rho=0.00217 alpha-condition OK (margin 1.610e+02); floor sqrt(L_F)=5.494e-10, alpha_F<= 3.470e-07
+  tail: V1 delta_t=0.2
+S_ramp (sup(|w|,|w'|) on [10.25,16.25], worst case over all shapes) max along trajectory <= 1.1163e-03   (sup|w'| alone: 1.1163e-03);  box certified: 1e-2
+far-field sups on x>=16.25 (worst case over shapes), max along trajectory: A_max<=7.9279e-08, W1_max<=9.9800e-07, sI1<=1.7332e-03, sI2<=2.3087e-02, M1_ramp<=6.4644e-01, far_w1<=1.7332e-03, far_w<=8.8218e-04, sr1<=1.1163e-03   [sI1 = KW/E_I-based sup|w'|, far_w1 = max(E0,E_I) sup|w'|, far_w = sup|w|]

@@ -1,0 +1,95 @@
+{
+ "set": "v32",
+ "ball": 16,
+ "tc_ball": [
+  0.0,
+  0.0625
+ ],
+ "label": "certified (arb, outward; M9 cells)",
+ "windows_max": [
+  3.184329596752553e-08,
+  1.1593572232883838e-07,
+  3.4666299503878635e-07,
+  9.05967413440911e-07
+ ],
+ "windows_at": [
+  253.0,
+  253.0,
+  253.0,
+  253.0
+ ],
+ "n_windows": 407,
+ "shells": [
+  7.368546379427349e-11,
+  1.2108358168635857e-10,
+  2.717063009572689e-10
+ ],
+ "G_60_700": [
+  2.8789763618046776e-07,
+  9.295428034461049e-07,
+  2.2781574961208035e-06,
+  3.794268445220876e-06
+ ],
+ "G_60_379p5": [
+  4.4237284021000665e-08,
+  1.6431585536182818e-07,
+  5.002117674729373e-07,
+  1.3900780750423815e-06
+ ],
+ "G_379p5_700": [
+  2.4401352662154807e-07,
+  7.664756881113724e-07,
+  1.781529894326776e-06,
+  2.4126206500907186e-06
+ ],
+ "coverage": {
+  "windows": {
+   "cells": 1370,
+   "first_yhi": 43.255234809416244,
+   "last_ylo": 720.380157115981,
+   "min_cos_phi": 0.9923179493959594
+  },
+  "shells": {
+   "cells": 110,
+   "first_yhi": 11.291352216533006,
+   "last_ylo": 61.566304677695804,
+   "min_cos_phi": 0.9999469203576822
+  },
+  "h2f": {
+   "cells": 1370,
+   "first_yhi": 43.255234809416244,
+   "last_ylo": 720.380157115981,
+   "min_cos_phi": 0.9923179493959594
+  }
+ },
+ "ncells": [
+  1370,
+  110
+ ],
+ "max_rel_rad_hh": 0.0014710651829598165,
+ "alpha": [
+  -0.00011515367782250825,
+  -0.0001150144527672459
+ ],
+ "args": {
+  "argv": [
+   "v32",
+   "16"
+  ],
+  "env": {
+   "T9TC": "0.03125,0.03125",
+   "T9IFT": "/home/claude/s1spec/step4/p2/out/h1slab/ift_16.json"
+  },
+  "xmax": 730.0,
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/win_arb.py": "aa03d65d2feb3d287b355c7180f41ce133696d5b63b64c9d8bdd52fed249c03b",
+   "/home/claude/s1spec/step4/p2/out/h1slab/ift_16.json": "a2f0311fb4ab1eccea2b14cfa92f9cae799b48f0216f1d4fecb9a56d2de90daa",
+   "/home/claude/s1spec/step4/p2/t9h/win.py": "9d5145bc0a0d94ddbc66f71313f81d3f88449f82688a871ac0df3b6d877e74e1",
+   "/home/claude/s1spec/step4/p2/t9h/basegeo.py": "a7beb2d50aea4f2093094b2a7083ba94d57264c242a6c10e16bf3335fc46099e",
+   "/home/claude/s1spec/step4/p2/t9h/ift.py": "880f7c92a35985ad5a14b799adb6d465f6602050606ba9f22a97cd1cd51d8877",
+   "/home/claude/s1spec/step4/p2/t9h/s1chart.py": "9e5081a456aaba969117af606215a97623b371dfe81ae2d8c8e4713f78d7a973",
+   "/home/claude/s1spec/step3nl/agent_int/v3/c4fun.py": "2b9ded5d015ea1e48705788d4a0c5b8524c30548cde7c01cb7c39a73ae71a886",
+   "/home/claude/s1spec/step4/t1/polished_v2/slab_180.pkl": "bb69905814236c3e59ad4a74dfe61ce724c2293d5947f81b9579f0945cfbb3be"
+  }
+ }
+}

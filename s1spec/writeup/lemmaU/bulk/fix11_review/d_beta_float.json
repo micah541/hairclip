@@ -1,0 +1,45 @@
+{
+ "args": {
+  "argv": [
+   "d_beta_float.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "numpy": "2.5.3",
+  "script_sha256": "00dbfab66003869c6020724358d2ebf78161587f8c235c851b296c75788364f4"
+ },
+ "n_fail": 0,
+ "pass": {
+  "T1_x_eq_HR_minus_HETx": true,
+  "T1b_E_matrix_definition": true,
+  "T1c_R_j_form": true,
+  "T2_beta_decomposition": true,
+  "T3_E0_pairing_identity": true,
+  "T3b_constraints_conserved": true,
+  "T4_projection": true,
+  "T5a_g0_h_eq_1": true,
+  "T5b_oblique": true,
+  "T6_rank_one_ratio_le_1": true,
+  "T7_E13_E23_first_order_remainder_ratio_dev": true,
+  "T7b_E33_exact": true,
+  "T8_Q2_lead_selfadjoint": true
+ },
+ "trials": [],
+ "worst_over_40_seeds": {
+  "T1_x_eq_HR_minus_HETx": 2.187639146093625e-15,
+  "T1b_E_matrix_definition": 1.55999440029409e-14,
+  "T1c_R_j_form": 5.475727343295923e-16,
+  "T2_beta_decomposition": 1.1590840146803364e-13,
+  "T3_E0_pairing_identity": 8.486585092621654e-15,
+  "T3b_constraints_conserved": 1.6163008584664265e-14,
+  "T4_projection": 2.046301074795201e-14,
+  "T5a_g0_h_eq_1": 1.3322676295501878e-15,
+  "T5b_oblique": 5.8406225132345034e-15,
+  "T6_rank_one_ratio_le_1": 0.24640304833790608,
+  "T7_E13_E23_first_order_remainder_ratio_dev": 0.03327061566344525,
+  "T7b_E33_exact": 5.396614108830231e-13,
+  "T8_Q2_lead_selfadjoint": 9.099551538479088e-15
+ }
+}

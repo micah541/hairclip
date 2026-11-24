@@ -1,0 +1,7 @@
+start fine from /home/claude/s1spec/step4/design/snap_clip_24_0.4_0.05_0.85_1600.npz k=1613.02 N=131072 L=48.043694 cdt=0.005 tol=1e-12 Nmax=524288
+snap 2000 k=2018.612 N=262144 L=48.04282881 tail=5.00e-17 steps=1150 wall=268s
+  k=2377.20 N=262144 tail=4.26e-15 steps=2000 wall=414s
+snap 3000 k=3002.702 N=262144 L=48.04170228 tail=4.75e-13 steps=3100 wall=599s
+  k=3570.58 N=524288 tail=8.87e-19 steps=4000 wall=899s
+snap 4000 k=4036.135 N=524288 L=48.04111093 tail=2.47e-17 steps=4550 wall=1106s
+DONE

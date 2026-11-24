@@ -1,0 +1,117 @@
+{
+ "zip": "/home/claude/s1spec/kit_step4b_v5.zip",
+ "sha256": "49c4b7227069090d0b3573e6c6a10d42d77e94a437b3306101c3e303dbdf8ea2",
+ "size": 43917654,
+ "nfiles": 1612,
+ "changes": [
+  {
+   "file": "kit_guard.py",
+   "before": "970e4e50d7de034944c49143e5f4fdf95532b0b08778c305a38e7c90dc6cf390",
+   "after": "c977ce5143896a417db18538ff2efee93cd8dd4b4261c8a812948a3720c5814c",
+   "why": "winfix 1: on Windows the subprocess.Popen audit event carries ONE joined command line, so the guard denied the kit's own guarded Python children; split it with CommandLineToArgvW (code of the tested Windows run copies). No effect on POSIX.",
+   "patches": [
+    "docstring",
+    "winfix1-def",
+    "winfix1-split"
+   ]
+  },
+  {
+   "file": "writeup/lemmaU/bulk/fix13_v37chain/flux/code/chart4_shell.py",
+   "before": "81418ebb2e200731e3b219f6065bd3edd002ac64a5518c08c6d8a7fe7933b282",
+   "after": "bd5451152c00086d7deec2242f752879eda7853554746dd6700be4acc8a40820",
+   "why": "winfix 2: `resource` is Unix-only (RSS report only, written to the timing sidecar / log, never compared): import guarded, Windows peak working set via psapi, else -1. Replaces the env shim of the kit4bv4 Windows run. Certified computation unchanged.",
+   "patches": [
+    "winfix2-import",
+    "winfix2-rss"
+   ]
+  },
+  {
+   "file": "step4/p2/v38/flux_v38.py",
+   "before": "05af4627d35e88f81799a22b1579ae2f528c5d87a7ddcd77c91fc27f7cfd23b5",
+   "after": "6f096f1192dfaf3e833824a3981c9a1ff615d6c927933ede80909845c38e15a0",
+   "why": "winfix 3: the 6 rerun flux texts and the output hashes recorded in gen_texts.json are compared modulo CRLF (Python text mode writes CRLF on Windows); the tested run-copy patch (kit4bv4_run_win1/flux_v38_winfix.diff). Compare side: gen_texts.py (proof-tree script) unchanged. Identical result on POSIX.",
+   "patches": [
+    "winfix3-lf",
+    "winfix3-gen_texts",
+    "winfix3-texts"
+   ]
+  },
+  {
+   "file": "step4/p2/v38/verify_v4c_runs_with_exceptions.py",
+   "before": "59a4064f4bc4e28ea701f4cf0919862d25e49ff9bf3f32a38db8ec3b022262cc",
+   "after": "33b96308aff25741146fc7a031b9fc41772e8b309bd96f0f6be9686950be1315",
+   "why": "winfix 4: the exception record lists affected records as runs/<run>/<file> with '/'; os.path.relpath gives backslashes on Windows, so the documented exception was not recognised (stage 28 failed). relpath joined with '/' (tested line) and the two output dict keys made separator-independent. Identical on POSIX.",
+   "patches": [
+    "winfix4-affected",
+    "winfix4-rowkey",
+    "winfix4-comment",
+    "winfix4-eqkey"
+   ]
+  },
+  {
+   "file": "verify_v33.py",
+   "before": "326546c14fe92ade5a0c925e31ae6dd2edb572422cb924acd19274c835213acd",
+   "after": "7d22961294b703603820228af7fb2ade4b8bc2709c1c73396d89c027fdb3e8c1",
+   "why": "winfix 3 (checker): a non-JSON output (the 5 flux .tex) equal to the reference modulo CRLF is EXACT (was DIFFERENT -> WARN in the Windows run).",
+   "patches": [
+    "winfix3-exact",
+    "winfix3-helper",
+    "doc"
+   ]
+  },
+  {
+   "file": "check.py",
+   "before": "e0e4d2c09e04bbd3063aa657f1bfb48428489cc7e7c0e74ec6a7665a69c121d2",
+   "after": "6811e6d8151c3be05061fce0cdafebee0c7aebfd613d6067cd1d0d1b4f57228d",
+   "why": "version strings v4 -> v5; INFO labels say that text outputs count as byte-identical modulo CRLF (verify_v33.py change).",
+   "patches": [
+    "version",
+    "label",
+    "label",
+    "version"
+   ]
+  },
+  {
+   "file": "run_all.py",
+   "before": "50cfd5c6f48fa6a492bca3efe3669f94508e949cd0d8574abe0e723fce835f65",
+   "after": "a2824e0b8cea14471963c4772e32c24af64c2cfb46fc0187e64b74255bab3dbb",
+   "why": "version string (docstring only).",
+   "patches": [
+    "version"
+   ]
+  },
+  {
+   "file": "README.md",
+   "before": "9483475f21edae12249466d46971deddf802c0487a147a239bf8fb0abf4c1d4e",
+   "after": "deecc9a67b54013a9df91e97c6d1622c36c0a9375fe6b6c1ef442ec5b8bb5d72",
+   "why": "winfix 5: README: v5 note, Windows instructions (venv, Python 3.13.7 tested, flint 0.9.0), expected WARN, the \"outputs vs proof tree ... different\" line is INFO.",
+   "patches": [
+    "v5-head"
+   ]
+  },
+  {
+   "file": "inputs/MANIFEST.sha256",
+   "before": "3e33e549f9b2457d7c09fc9c30f1e924602fddcda2f35864e2b247b80843517f",
+   "after": "776bce86656d0b52b1f97a8284aaa6b07bc778aa47c84447573b49c9f57d4b4a",
+   "why": "pins of the changed kit files regenerated (kit v5)",
+   "patches": [
+    "pins"
+   ]
+  }
+ ],
+ "pins": [
+  {
+   "file": "writeup/lemmaU/bulk/fix13_v37chain/flux/code/chart4_shell.py",
+   "manifest": "inputs/MANIFEST.sha256",
+   "before": "81418ebb2e200731e3b219f6065bd3edd002ac64a5518c08c6d8a7fe7933b282",
+   "after": "bd5451152c00086d7deec2242f752879eda7853554746dd6700be4acc8a40820"
+  }
+ ],
+ "added": [
+  {
+   "file": "CHANGES_v5.md",
+   "sha256": "5c4440e4908838c216f965764815786996b10edb0173b5acac305b47a41e9ed1",
+   "why": "this list"
+  }
+ ]
+}

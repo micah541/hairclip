@@ -1,0 +1,400 @@
+## edits_v42.txt -- the asserted text replacements of text v42, read by build_v42.py (plain text: no escaping).
+## Source: writeup/lean_bridge/REVIEW_W7.md section 3 (Lean replaces DKS; items 1-12), the hand bridges S3a/S3b (one macro \LeanSthree per file),
+## the v41 leftovers (TEXTS_REPORT_v41 section 4) and the open-item lists.  No number is computed.
+## Block format:  "@@ FILE <v41 source name>" starts a file section; "@@ REP" (exactly once) starts an edit; the old text follows up to
+## "@@ NEW"; the new text up to "@@ END".  Old texts are matched AFTER the retag of the set's file names to v42 and the retitle of
+## \title/\date lines (b42_common.py), and after the earlier edits of the same file (applied in order).
+
+@@ FILE U1_regularity_v41.tex
+@@ REP
+\newcommand{\tI}{\textup{[inh]}}
+@@ NEW
+\newcommand{\tI}{\textup{[inh]}}
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+@@ END
+@@ REP
+\tL: a theorem of Micah Warren's Lean development \fn{HSLflow-Whitney/CWFlow}, statement read from source (\S\ref{U:sec:inputs}); \tD: Dziuk--Kuwert--Sch\"atzle 2002, as read in \fn{writeup/lit_P1/P1_CONFIRMATION.md};
+@@ NEW
+\tL: a compiled theorem of Micah Warren's Lean development \fn{CWFlow}, directory \fn{CWFlow/Curve/} or the library it imports (commit pending: files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}; compiled per file against the repository's existing build outputs; axiom check \fn{[propext, Classical.choice, Quot.sound]}; \S\ref{U:sec:lean}; text v42: in text v41 \tL\ meant ``statement read from source, not compiled''); \LeanSthree: the S3 items of review W7 (S3a: periodic curve to \fn{Circle}; S3b: the shifted maximal flow and endpoint gluing), formalized after that review in \fn{Periodic2Circle.lean} and \fn{MaxShift.lean} (snapshot \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}), printed as [Lean]; one macro, kept so that the provenance stays visible; the label [DKS] of text v41 is no longer used;
+@@ END
+@@ REP
+\subsection{From the Lean development (local well-posedness and uniqueness)}
+Source: \fn{github.com/micah541/HSLflow-Whitney}, commit \fn{d72b7447edb0c830331a76152559902c23a4092e} (19 Nov 2026), tarball sha256 \fn{da77acbf...b67dc08}, toolchain \fn{leanprover/lean4:v4.33.1}. Files read (not executed, not compiled here): \fn{CWFlow/CWFlow/Flow/Main.lean} (sha256 \fn{f0996906...}), \fn{Flow/UniqueMain.lean} (\fn{12b29d3c...}), \fn{Flow/GraphUnique.lean} (\fn{2b9d734c...}, structure \fn{IsFlow}), \fn{Scalar/Pointwise.lean} (\fn{d4efaf4a...}, \fn{meanCurv}, \fn{flowPot}, \fn{flowVel}), \fn{Weinstein/Global.lean} (\fn{3013f2ff...}, \fn{IsLagImmersion}). Both theorems end with \texttt{\#print axioms} guarded to \fn{[propext, Classical.choice, Quot.sound]}; no \fn{sorry} or \fn{axiom} occurs in \fn{CWFlow/} (text search) \tR.
+
+Setting of both theorems: $E$ a finite-dimensional real normed space with $\dim E\ne0$; $M$ a compact Hausdorff $\sigma$-compact smooth manifold modelled on $E$; $V$ a finite-dimensional real inner product space; $J:V\to V$ linear with $\ip{Ju}{Jv}=\ip uv$ and $J^2=-1$; $\dim V=2\dim E$. \fn{IsLagImmersion E J F}: $F$ smooth in charts, injective derivative, $\ip{J\,DF\,u}{DF\,w}=0$. \fn{IsFlow E J T Phi}: $(t,x)\mapsto\Phi(t,x)$ is $C^\infty$ on $[0,T]\times M$, every $\Phi(t)$ is a Lagrangian immersion, and in every chart $\partial_t\Phi=\fn{flowVel}\,J\,(\Phi(t))$ (one-sided at $t=0,T$), where, for $X:E\to V$, with $g=X^*\ip\cdot\cdot$,
+\[
+H=\mathrm{tr}_g(D^2X)^\perp,\qquad \fn{flowPot}=\mathrm{tr}_g\ip{D(JH)}{DX},\qquad\fn{flowVel}=J\,\nabla_g\fn{flowPot}.
+\]
+\begin{enumerate}[label=(L\arabic*),leftmargin=2.4em]
+\item \fn{exists_flow_of_immersion}: if $F$ is a Lagrangian immersion, there are $T>0$ and $\Phi$ with $\Phi(0)=F$ satisfying the three clauses of \fn{IsFlow} on $[0,T]$ \tL.
+\item \fn{flow_unique_of_immersion}: if \fn{IsFlow E J T Phi1}, \fn{IsFlow E J T Phi2} and $\Phi_1(0)=\Phi_2(0)$, then $\Phi_1(t)=\Phi_2(t)$ for all $t\in[0,T]$ \tL.
+\end{enumerate}
+\emph{Instance used:} $E=\mathbb R^1$ (\fn{EuclideanSpace R (Fin 1)}), $M=\mathbb S^1$ (the unit sphere of \fn{EuclideanSpace R (Fin 2)} with its Mathlib smooth structure), $V=\mathbb C\cong\mathbb R^2$, $J=$ multiplication by $i$. Then $\dim V=2=2\dim E$, $J$ is an isometry with $J^2=-1$, and every immersion is Lagrangian since $\ip{Jv}{v}=0$ \tS\ (S4). The final statements carry no hypothesis $\dim E\ge2$ (only $\dim E\ne0$) \tR. \emph{Not checked here:} that this instance elaborates in Lean (a few-line file; Mathlib instances for the sphere); that the repository builds at this commit.
+
+\begin{lemma}[$n=1$: the Lean velocity is CDF]\label{U:lem:vel}
+For $X:\mathbb R\supset U\to\mathbb C$ an immersion, $\fn{flowVel}\,J\,X=-k_{ss}N$, with $T=X_\theta/|X_\theta|$, $N=JT$, $k=\ip{X_{\theta\theta}}{JX_\theta}/|X_\theta|^3$, $\partial_s=|X_\theta|^{-1}\partial_\theta$. Moreover $\fn{flowVel}(\sigma X)=\sigma\,\fn{flowVel}(X)$ for $\sigma(z)=\bar z$, and $\fn{flowVel}(X\circ\varphi)=\fn{flowVel}(X)\circ\varphi$ for every diffeomorphism $\varphi$ (either orientation).
+\end{lemma}
+\begin{proof}\tS\ (S1--S3 of \fn{U1_sym.py}: the Lean formulas with the one-dimensional trace $\mathrm{tr}_g=g^{-1}$ are expanded in jets of $X$ and compared exactly, modulo $|X_\theta|^2=g$).
+\end{proof}
+\noindent So an \fn{IsFlow} at $n=1$ is a smooth closed immersed curve moving with velocity $-k_{ss}N$ and \emph{no tangential part}. This is the parametrised curve diffusion flow of DKS ($\partial_tf=-\nabla_s^2\kappa$, $n=2$) and of step~3 (normal velocity $-\kappa_{ss}$).
+
+\subsection{From Dziuk--Kuwert--Sch\"atzle 2002}
+\begin{enumerate}[label=(D\arabic*),leftmargin=2.4em]
+\item \emph{(inside the proof of Theorem~3.1, pp.~1234--1235)} if $f:[0,T)\times\mathbb S^1\to\mathbb R^n$ is a smooth solution of $\partial_tf=-\nabla_s^2\kappa$, $T<\infty$, and $\sup_{t<T}\int|\kappa|^2ds<\infty$, then $f$ extends smoothly to $[0,T]\times\mathbb S^1$ \tD.
+\item \emph{(Theorem~3.1, statement, p.~1234, as recorded verbatim in \fn{writeup/lit_P1/P1_CONFIRMATION.md} \S1)} ``Let $f:[0,T)\times I\to\mathbb R^n$ be a maximal solution of the curve diffusion equation $\partial_tf=-\nabla_s^2\kappa$. If $T<\infty$, then $\int_I|\kappa|^2ds\ge c(T-t)^{-1/4}$'' \tD. This is the criterion used below (text v40, review fix18 F-5; (D1) is kept for Remark~\ref{U:rem:D1}, and C-1 uses it separately). \emph{Author confirmation} (item A-2 of the review): that DKS's ``maximal solution'' means maximal among smooth solutions (DKS do not prove uniqueness; Lemma~\ref{U:lem:max} supplies it).
+\end{enumerate}
+No embeddedness, area or turning-number hypothesis is involved (\fn{P1_CONFIRMATION.md} \S2).
+@@ NEW
+\subsection{From the Lean development (existence, uniqueness, maximal flow, blow-up criterion)}\label{U:sec:lean}
+\emph{Source} (text v42; independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: ``sound; no blocking finding''). Micah Warren's Lean development \fn{CWFlow} (local repository \fn{agents/lean/CWFlow}; library at HEAD \fn{8718f95}, its dependency \fn{MM} at \fn{7b15b01}, toolchain \fn{leanprover/lean4:v4.33.1}), new directory \fn{CWFlow/Curve/} (16 files, 23 Nov 2026: the 14 files of the snapshot \fn{writeup/lean_bridge/snap_final/}, of which \fn{All.lean} is superseded, plus \fn{Periodic2Circle.lean}, \fn{MaxShift.lean} and the new aggregator \fn{All.lean} of the snapshot \fn{writeup/lean_bridge/snap_s3/}, written after review W7 for its items S3a, S3b). \textbf{Commit pending:} \fn{CWFlow/Curve/} is not yet committed (and the repository has no remote), so its files are identified by the SHA256 sums in \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}; every cited file of the snapshot is byte-identical to the repository file (re-checked by \fn{tools/check_numbers_v42.py} of this text set). The theorems below are in \fn{Criterion.lean} (\fn{fe567708...}), \fn{N1.lean} (\fn{f1d3d641...}), \fn{N1Basic.lean} (\fn{357cf86a...}), \fn{Lift.lean} (\fn{0833e4df...}), \fn{Lift3.lean} (\fn{95d693ca...}), \fn{Energy.lean} (\fn{dbd9441f...}), \fn{Defs.lean} (\fn{e7598375...}), \fn{Periodic2Circle.lean} (\fn{f7d02857...}) and \fn{MaxShift.lean} (\fn{80b86094...}); aggregator \fn{All.lean} (\fn{91d5788e...}). Text v41 cited commit \fn{d72b744} of \fn{HSLflow-Whitney}; that commit does not contain these files, and it is no longer cited. \emph{Compile status:} each file of \fn{CWFlow/Curve/} (the aggregator \fn{All.lean} too, after the S3 additions) was compiled with \fn{lean}, one file at a time in dependency order, against the repository's existing build outputs (\fn{.olean}) of the imported library modules (\fn{writeup/lean_bridge/IMPL_LOG.md}; raw logs with return code 0 for \fn{LiftV}, \fn{Lift3}, \fn{N1}, \fn{Lift}, \fn{Criterion}; no log is kept for \fn{N1Basic}, whose build output exists and against which these compiled). A full \fn{lake build CWFlow.Curve.All} is \emph{pending} (review W7 item S1). Each theorem (L1)--(Sh), (PC), (MS), (GE) below is followed in its file by an axiom check (\fn{guard_msgs} around \fn{print axioms}) whose expected output is \fn{[propext, Classical.choice, Quot.sound]}, so the compile fails if any other axiom, in particular \fn{sorryAx}, is used anywhere in the import closure; (Gl) is used in the proof of (T2) and is covered by its check. No \fn{sorry}, \fn{axiom} or \fn{native_decide} occurs in \fn{CWFlow/Curve/} (text search, review W7 \S2) \tR.
+
+\emph{Setting} (\fn{Defs.lean}, \fn{N1Basic.lean}, \fn{N1.lean}). $M=\mathbb S^1$ is Mathlib's \fn{Circle}, the unit complex numbers, a smooth manifold modelled on \fn{E1 := EuclideanSpace R (Fin 1)} (text v41 said ``the unit sphere of \fn{EuclideanSpace R (Fin 2)}''; that was wrong); $V=\mathbb C$; $J=\fn{Jc}$, multiplication by $i$ (\fn{Jc_isom}: an isometry; \fn{Jc_JJ}: $J^2=-1$). On \fn{Circle}, $\iota(p)=p^{-1}=\bar p$. For $F:\mathbb S^1\to\mathbb C$, $\fn{lift}\,F(\theta)=F(e^{i\theta})$ (\fn{Circle.exp}), a $2\pi$-periodic map. For $c:\mathbb R\to\mathbb C$: $\fn{curv}\,c=\ip{c''}{ic'}/|c'|^3$ (the signed curvature, with $N=iT$), $\fn{dS}\,c\,f=f'/|c'|$ (the derivative $\partial_s$), and
+\[
+\fn{bendingEnergy}\,c=\int_0^{2\pi}(\fn{curv}\,c)^2\,|c'|\,d\theta ,
+\]
+so that $\fn{bendingEnergy}(\fn{lift}F)=\int k^2ds$ over the closed curve $F$ traversed once. \fn{IsLagImmersion E1 Jc F}: $F$ is $C^\infty$ in Mathlib's charts of \fn{Circle}, with injective derivative; at $n=1$ the Lagrangian clause is automatic, and \fn{isLagImmersion_iff} identifies the notion with \fn{IsCurveImmersion} (chartwise $C^\infty$ with injective derivative). There is no embeddedness, orientation or turning-number hypothesis. \fn{IsFlow E1 Jc T Phi}, for $\Phi:\mathbb R\to\mathbb S^1\to\mathbb C$: $(t,p)\mapsto\Phi(t,p)$ is $C^\infty$ on $[0,T]\times\mathbb S^1$, each $\Phi(t)$, $t\in[0,T]$, is an \fn{IsLagImmersion}, and in every chart $\partial_t\Phi=\fn{flowVel}\,J\,(\Phi(t))$ (one-sided at $t=0$ and $t=T$), where, for $X:E\to V$ with $g=X^*\ip\cdot\cdot$,
+\[
+H=\mathrm{tr}_g(D^2X)^\perp,\qquad \fn{flowPot}=\mathrm{tr}_g\ip{D(JH)}{DX},\qquad\fn{flowVel}=J\,\nabla_g\fn{flowPot}.
+\]
+$\Phi$ is a total function of $t\in\mathbb R$; its values outside the interval named are arbitrary and never used.
+\begin{enumerate}[label=(L\arabic*),leftmargin=3em]
+\item \fn{CWFlow.Curve.cdf_exists} (\fn{N1.lean}): if \fn{IsCurveImmersion F}, there are $T>0$ and $\Phi$ with $\Phi(0)=F$ and \fn{IsFlow E1 Jc T Phi} \tL\ (the library theorem \fn{exists_flow_of_immersion} at $n=1$).
+\item \fn{CWFlow.Curve.cdf_unique} (\fn{N1.lean}): if \fn{IsFlow E1 Jc T Phi1}, \fn{IsFlow E1 Jc T Phi2} and $\Phi_1(0)=\Phi_2(0)$, then $\Phi_1(t)=\Phi_2(t)$ for all $t\in[0,T]$ \tL\ (equality of maps; the library theorem \fn{flow_unique_of_immersion} at $n=1$). For flows with a tangential term, \fn{cdf_unique_up_to_reparam} gives equality up to a family of diffeomorphisms $\chi_t$ with $\chi_0=\mathrm{id}$ \tL.
+\item[(T1)] \fn{CWFlow.Curve.cdf_exists_maximal} (\fn{Criterion.lean}). If \fn{IsLagImmersion E1 Jc F0}, there are $T_{\max}\in(0,\infty]$ and $\Phi$ with $\Phi(0)=F_0$ such that: (i) \fn{IsFlow E1 Jc T Phi} for every real $T$ with $0<T<T_{\max}$; (ii) for every $T>0$ and every $\Psi$ with \fn{IsFlow E1 Jc T Psi} and $\Psi(0)=F_0$: $T<T_{\max}$ and $\Psi(t)=\Phi(t)$ for $t\in[0,T]$; (iii) if $T_{\max}<\infty$, then for every $K\in\mathbb R$ there is $t\in[0,T_{\max})$ with $\fn{bendingEnergy}(\fn{lift}(\Phi(t)))>K$ \tL. ($T_{\max}$ is an extended nonnegative real; its real value is used only under $T_{\max}<\infty$.)
+\item[(T2)] \fn{CWFlow.Curve.cdf_extends_of_bounded_energy} (\fn{Criterion.lean}). If $0<T$, \fn{IsFlow E1 Jc T' Phi} for every $T'\in(0,T)$, $t_0\in(0,T)$, and $\fn{bendingEnergy}(\fn{lift}(\Phi(t)))\le K$ for $t\in[t_0,T)$, then there are $\varepsilon>0$ and $\Psi$ such that $\Psi$ is an \fn{IsFlow E1 Jc} on $[0,T+\varepsilon]$ and $\Psi(t)=\Phi(t)$ for $t\in[0,T)$ \tL. (T1) is proved from (T2) in Lean.
+\item[(T3)] \fn{CWFlow.Curve.aNormSq_eq_curv_sq} (\fn{Lift3.lean}): in a chart of \fn{Circle}, the library's $|A|^2$ of an immersion $F$ equals $\fn{curv}(\fn{lift}F)(\theta)^2$ at the corresponding $\theta$ \tL. Used only inside the Lean proof of (T2); not an input of this text.
+\item[(T4)] \fn{CWFlow.Curve.IsFlow.lift_isCDF} (\fn{Lift.lean}): if \fn{IsFlow E1 Jc T Phi}, then $\gamma(t,\theta)=\Phi(t,e^{i\theta})$ is \fn{IsCDF} on $(0,T)$: $C^\infty$ on $(0,T)\times\mathbb R$, $2\pi$-periodic in $\theta$, $\gamma_\theta\ne0$, and $\partial_t\gamma=-(\partial_s\partial_s\kappa)\,i\gamma_\theta/|\gamma_\theta|$ with $\kappa=\fn{curv}$, $\partial_s=\fn{dS}$ \tL. (Interior times only; at $t=0$ and $t=T$ the velocity identity is the clause of \fn{IsFlow} together with (V).)
+\item[(T5)] \fn{CWFlow.Curve.IsCDF.curv_sq_le} (\fn{Energy.lean}): an \fn{IsCDF} on $(a,b)$ with $\fn{bendingEnergy}\le K$ on $[t_0,b)$ has $\kappa^2\le C$ on $[t_0,b)\times\mathbb R$ for some $C$ \tL. Used only inside the Lean proof of (T2).
+\item[(V)] \fn{CWFlow.Curve.flowVel_eq_neg_kss} (\fn{N1Basic.lean}): for $X:\mathbb R\to\mathbb C$ of class $C^\infty$ with $X'\ne0$ everywhere, $\fn{flowVel}\,\fn{Jc}\,X=-(\partial_s\partial_s\kappa)\,iX'/|X'|$ with $\kappa=\fn{curv}X$, $\partial_s=\fn{dS}X$ \tL.
+\item[(Sy)] \fn{CWFlow.Curve.cdf_symmetric} (\fn{N1.lean}): if \fn{IsFlow E1 Jc T Phi} and $\overline{\Phi(0,p^{-1})}=\Phi(0,p)$ for all $p\in\mathbb S^1$, then $\overline{\Phi(t,p^{-1})}=\Phi(t,p)$ for all $t\in[0,T]$ and $p\in\mathbb S^1$ \tL\ (from \fn{IsFlow.conj_reflect} and (L2)).
+\item[(Sh)] \fn{CWFlow.Curve.IsFlow.shift_gen} (\fn{N1.lean}): if \fn{IsFlow E J T Phi} and $a\ge0$, then $t\mapsto\Phi(t+a)$ is an \fn{IsFlow} on $[0,T-a]$ \tL.
+\item[(Gl)] \fn{CWFlow.rst_glue} (library, \fn{Flow/Restart.lean}): if $a\ge0$, $0<s\le T_1$, $\Phi$ is an \fn{IsFlow} on $[0,a+s]$, $\Theta$ is an \fn{IsFlow} on $[0,T_1]$ and $\Theta(t)=\Phi(a+t)$ for $t\in[0,s]$, then there is an \fn{IsFlow} $\Psi$ on $[0,a+T_1]$ with $\Psi=\Phi$ on $[0,a+s]$ \tL\ (gluing with an overlap of positive length).
+\item[(PC)] \fn{CWFlow.Curve.exists_isLagImmersion_of_periodic} (\fn{Periodic2Circle.lean}): if $c:\mathbb R\to\mathbb C$ is $C^\infty$, $2\pi$-periodic and $c'(\theta)\ne0$ for all $\theta$, there is $F:\mathbb S^1\to\mathbb C$ with $\fn{lift}\,F=c$ and \fn{IsLagImmersion E1 Jc F}; and \fn{lift_injective}: $F$ is determined by $\fn{lift}\,F$ \LeanSthree\ (review W7 S3a; it also shows that the hypothesis of (T1) is inhabited).
+\item[(MS)] \fn{CWFlow.Curve.cdf_maximal_shift} (\fn{MaxShift.lean}): let $\Phi$, $T_{\max}$ satisfy clauses (i), (ii) of (T1) for $F_0=\Phi(0)$, and let $0\le t_1$, $t_1<T_{\max}$. Then $T_{\max}-t_1>0$; $t\mapsto\Phi(t_1+t)$ is an \fn{IsFlow} on every $[0,T]$ with $0<T<T_{\max}-t_1$; every \fn{IsFlow} $\Psi$ on $[0,T]$, $T>0$, from $\Phi(t_1)$ has $T<T_{\max}-t_1$ and equals $\Phi(t_1+\cdot)$ there; and if $T_{\max}-t_1<\infty$, then $\fn{bendingEnergy}(\fn{lift}(\Phi(t_1+t)))$ is unbounded \LeanSthree\ (review W7 S3b).
+\item[(GE)] \fn{CWFlow.Curve.isFlow_glue_endpoint} (\fn{MaxShift.lean}): if $a,b>0$, $\Phi$ is an \fn{IsFlow} on $[0,a]$, $\Theta$ is an \fn{IsFlow} on $[0,b]$ and $\Theta(0)=\Phi(a)$, then there is an \fn{IsFlow} $\Psi$ on $[0,a+b]$ with $\Psi=\Phi$ on $[0,a]$ and $\Psi(a+t)=\Theta(t)$ for $t\in[0,b]$ \LeanSthree\ (review W7 S3b, endpoint gluing).
+\end{enumerate}
+\emph{Hypotheses carried, junk values.} None of these theorems carries an unproved hypothesis: the library's hypotheses (\fn{hJi}, \fn{hJJ}, \fn{hdim}) are discharged by \fn{Jc_isom}, \fn{Jc_JJ}, \fn{Complex.finrank_real_complex}, and there is no hypothesis $\dim E\ge2$ \tR\ (review W7 \S1). Every \fn{curv} and \fn{bendingEnergy} in (T1)--(T5) is taken at a time at which the curve is an immersion, where \fn{lift} is $C^\infty$ with nonvanishing derivative (\fn{contDiff_lift_of_chart}, \fn{deriv_lift_ne_zero_of_chart}), so Mathlib's junk values of \fn{deriv} and of the interval integral never enter \tR\ (review W7 \S2). $\int\kappa^2|c'|\,d\theta$ is invariant under reparametrisation, so $\fn{bendingEnergy}(\fn{lift}(\Phi(t)))=\int_{\gamma(t)}k^2ds$ for every parametrisation of the same closed curve \tH.
+
+\begin{lemma}[$n=1$: the Lean velocity is CDF]\label{U:lem:vel}
+For $X:\mathbb R\supset U\to\mathbb C$ an immersion, $\fn{flowVel}\,J\,X=-k_{ss}N$, with $T=X_\theta/|X_\theta|$, $N=JT$, $k=\ip{X_{\theta\theta}}{JX_\theta}/|X_\theta|^3$, $\partial_s=|X_\theta|^{-1}\partial_\theta$. Moreover $\fn{flowVel}(\sigma X)=\sigma\,\fn{flowVel}(X)$ for $\sigma(z)=\bar z$, and $\fn{flowVel}(X\circ\varphi)=\fn{flowVel}(X)\circ\varphi$ for every diffeomorphism $\varphi$ (either orientation).
+\end{lemma}
+\begin{proof}\tL\ (text v42). (V) \fn{flowVel_eq_neg_kss}; for a chart representative of an immersion of \fn{Circle}, the velocity is that of the lift (\fn{flowVel_chart_eq_lift}, \fn{LiftV.lean}; for a flow, (T4)); $\sigma$: \fn{flowVel_conj_any} (\fn{N1Basic.lean}, no hypotheses); reparametrisation: the library's \fn{flowVel_comp} (an invertible derivative suffices, so either orientation). The exact sympy identities S1--S3 of \fn{U1_sym.py} \tS\ remain as an independent cross-check.
+\end{proof}
+\noindent So an \fn{IsFlow} at $n=1$ is a smooth closed immersed curve moving with velocity $-k_{ss}N$ and \emph{no tangential part}: the parametrised curve diffusion flow $\partial_tf=-\nabla_s^2\kappa$, i.e.\ normal velocity $-\kappa_{ss}$ as in step~3.
+
+\subsection{Dziuk--Kuwert--Sch\"atzle 2002 (no longer an input)}
+Text v42: (D1) and (D2) of text v41 are not used. The criterion is (T1)(iii) and the extension form is (T2) \tL, so the author item A-2 (that ``maximal solution'' in the sense of DKS means maximal among smooth solutions) and the re-reading of DKS for (D1) are void. As literature only: the $L^2$ criterion for curve diffusion is Theorem~3.1 of Dziuk, Kuwert and Sch\"atzle (2002), which also gives the rate $\int\kappa^2ds\ge c(T-t)^{-1/4}$ (not used: (T1) gives $\sup=\infty$ without a rate, and every use in the step-3 texts is in the sup form), and, for plane curves of nonzero area, Chou (2003). \fn{writeup/lit_P1/P1_CONFIRMATION.md} is now a historical record. No embeddedness, area or turning-number hypothesis is involved anywhere.
+@@ END
+@@ REP
+\begin{lemma}[gluing]\label{U:lem:glue}
+If $\Phi_1$ is an \fn{IsFlow} on $[0,a]$, $\Phi_2$ is an \fn{IsFlow} on $[0,b]$ and $\Phi_2(0)=\Phi_1(a)$, then $\Phi(t)=\Phi_1(t)$ ($t\le a$), $\Phi_2(t-a)$ ($t\ge a$) is an \fn{IsFlow} on $[0,a+b]$.
+\end{lemma}
+\begin{proof}\tH\ Immersions and the velocity clause are clear away from $t=a$, and at $t=a$ both one-sided derivatives equal $\fn{flowVel}(\Phi_1(a))$. Joint smoothness: in a chart, $\partial_t\Phi=\mathcal V(\partial_x^{\le4}\Phi)$ with $\mathcal V$ a smooth function of the 4-jet on immersions (Lemma~\ref{U:lem:vel}); differentiating in $t$ on each closed half (where $\Phi$ is $C^\infty$ up to $t=a$), $\partial_t^m\partial_x^k\Phi=\mathcal V_{m,k}(\partial_x^{\le4m+k}\Phi)$ with smooth $\mathcal V_{m,k}$, by induction. At $t=a$ both halves have the same spatial map, hence the same one-sided values of every $\partial_t^m\partial_x^k\Phi$. A function on $(a-\delta,a+\delta)\times U$ that is $C^\infty$ on both closed halves with all one-sided partial derivatives equal at $t=a$ is $C^\infty$ (each $\partial^\beta\Phi$ is continuous, and $\partial_t$ of it exists at $t=a$ by the mean value theorem on each side).
+\end{proof}
+
+\begin{lemma}[maximal smooth solution]\label{U:lem:max}
+Let $F=\gamma(t_1)$. There is $T_{\max}\in(0,\infty]$ and a unique $\Phi:[0,T_{\max})\times\mathbb S^1\to\mathbb C$ such that $\Phi|_{[0,T]}$ is an \fn{IsFlow} with $\Phi(0)=F$ for every $T<T_{\max}$, and there is no \fn{IsFlow} on $[0,T_{\max}]$ with $\Phi(0)=F$ when $T_{\max}<\infty$. Every \fn{IsFlow} on $[0,T]$ from $F$ is the restriction of $\Phi$. Put $\gamma(t_1+t):=\Phi(t)$.
+\end{lemma}
+\begin{proof}\tH\ Let $\mathcal T$ be the set of $T>0$ admitting an \fn{IsFlow} from $F$ on $[0,T]$; $\mathcal T\ne\emptyset$ by (L1) (with (S4.1)), and $\mathcal T$ is an interval from $0$ (restriction of an \fn{IsFlow} to $[0,T']$, $T'<T$, is an \fn{IsFlow}: the clauses restrict, \fn{IsFlow.mono} in \fn{Flow/GaugeEvolution.lean} l.34 \tR). For $T<T'$ in $\mathcal T$ the two flows agree on $[0,T]$ by (L2) applied to the restriction. Put $T_{\max}=\sup\mathcal T$ and define $\Phi$ by consistency. If $T_{\max}<\infty$ and $T_{\max}\in\mathcal T$, then $\Phi(T_{\max})$ is a Lagrangian immersion, (L1) gives an \fn{IsFlow} from it on some $[0,\delta]$, and Lemma~\ref{U:lem:glue} gives one on $[0,T_{\max}+\delta]$: contradiction.
+\end{proof}
+
+\begin{lemma}[symmetry]\label{U:lem:sym}
+$\sigma\circ\gamma(t)=\gamma(t)\circ\iota$ for all $t\in[t_1,t_1+T_{\max})$.
+\end{lemma}
+\begin{proof}\tH\ $\tilde\Phi(t):=\sigma\circ\Phi(t)\circ\iota$ is jointly smooth, consists of immersions, and $\partial_t\tilde\Phi=\sigma(\fn{flowVel}\,\Phi(t))\circ\iota=\fn{flowVel}(\sigma\Phi(t)\circ\iota)$ by Lemma~\ref{U:lem:vel} (S2, S3). In a chart this is the velocity clause of \fn{IsFlow}. $\tilde\Phi(0)=F$ by (S4.2). By (L2), $\tilde\Phi=\Phi$ on every $[0,T]$, $T<T_{\max}$. (That \fn{IsFlow} is closed under $\sigma\circ\cdot\circ\iota$ is the content of S2, S3; it is not a Lean lemma.)
+\end{proof}
+
+\begin{lemma}[blow-up criterion, the form needed]\label{U:lem:bu}
+If $T_{\max}<\infty$ then $\sup_{t<t_1+T_{\max}}\int_{\gamma(t)}k^2ds=\infty$.
+\end{lemma}
+\begin{proof}\tH\ (Text v40, review fix18 F-5.) By Lemma~\ref{U:lem:max}, $\Phi$ is a smooth solution of $\partial_tf=-\nabla_s^2\kappa$ on $[0,T_{\max})$ (an \fn{IsFlow} at $n=1$ is such a solution, Lemma~\ref{U:lem:vel}), every smooth solution from $F$ on an interval $[0,T]$ is a restriction of $\Phi$, and $\Phi$ has no smooth extension to $[0,T_{\max}]$ when $T_{\max}<\infty$. So $\Phi$ is a maximal solution in the sense of DKS, read as ``maximal among smooth solutions'' (author item A-2). If $T_{\max}<\infty$, (D2) gives $\int_{\gamma(t_1+t)}k^2ds\ge c(T_{\max}-t)^{-1/4}\to\infty$ as $t\uparrow T_{\max}$.
+\end{proof}
+\begin{remark}[the route of text v39, through (D1)]\label{U:rem:D1}
+Alternatively: if $\sup\int k^2ds<\infty$, (D1) extends $\Phi$ smoothly to $[0,T_{\max}]$; the extension is an \fn{IsFlow} on $[0,T_{\max}]$ (the velocity identity passes to the limit $t\uparrow T_{\max}$ with all derivatives, and $\Phi(T_{\max})$ is an immersion because DKS's extension is a smooth solution, in particular $|\partial_x\Phi|>0$ up to $T_{\max}$), contradicting Lemma~\ref{U:lem:max}. This uses a step inside DKS's proof rather than its statement, and the immersion at $T_{\max}$ (the C-4 completion); the statement (D2) needs neither.
+\end{remark}
+\noindent This is (P1$'$) with: existence and uniqueness from (L1), (L2); the criterion from the statement of DKS Theorem~3.1, (D2) (text v40; text v39 used (D1)).
+@@ NEW
+\begin{lemma}[gluing]\label{U:lem:glue}
+If $a,b>0$, $\Phi_1$ is an \fn{IsFlow} on $[0,a]$, $\Phi_2$ is an \fn{IsFlow} on $[0,b]$ and $\Phi_2(0)=\Phi_1(a)$, then $\Phi(t)=\Phi_1(t)$ ($t\le a$), $\Phi_2(t-a)$ ($t\ge a$) is an \fn{IsFlow} on $[0,a+b]$.
+\end{lemma}
+\begin{proof}\LeanSthree\ (GE) \fn{CWFlow.Curve.isFlow_glue_endpoint} (a $\Psi$ equal to $\Phi_1$ on $[0,a]$ and to $\Phi_2(\cdot-a)$ on $[a,a+b]$, i.e.\ $\Psi=\Phi$ on $[0,a+b]$; the clauses of \fn{IsFlow} on $[0,a+b]$ involve only the values on $[0,a+b]$). The overlap form is (Gl) \fn{rst_glue}. (Text v42: text v41 had a hand proof. Lemma~\ref{U:lem:max} no longer needs gluing: it takes maximality from (T1).)
+\end{proof}
+
+\begin{lemma}[maximal smooth solution]\label{U:lem:max}
+Let $F=\gamma(t_1)$. There is $T_{\max}\in(0,\infty]$ and a unique $\Phi:[0,T_{\max})\times\mathbb S^1\to\mathbb C$ such that $\Phi|_{[0,T]}$ is an \fn{IsFlow} with $\Phi(0)=F$ for every $T<T_{\max}$, and there is no \fn{IsFlow} on $[0,T_{\max}]$ with $\Phi(0)=F$ when $T_{\max}<\infty$. Every \fn{IsFlow} on $[0,T]$ from $F$ is the restriction of $\Phi$. Put $\gamma(t_1+t):=\Phi(t)$.
+\end{lemma}
+\begin{proof}\tL\ (text v42). $F=\gamma(t_1)$ is the value at $t_1$ of an \fn{IsFlow} on an interval $[0,T]\ni t_1$ (Theorem C-1 (i), (iv) of \fn{C1_identification_v42.tex}), so it is an \fn{IsLagImmersion E1 Jc} by the immersion clause of \fn{IsFlow}; no conversion from a periodic curve is needed here. (T1) with $F_0=F$ gives $T_{\max}$ and $\Phi$. Clause (i) is ``$\Phi|_{[0,T]}$ is an \fn{IsFlow} for every $T<T_{\max}$''. Clause (ii) gives that every \fn{IsFlow} from $F$ on $[0,T]$ has $T<T_{\max}$ and is the restriction of $\Phi$; in particular there is none on $[0,T_{\max}]$ when $T_{\max}<\infty$, and $\Phi$ is unique on $[0,T_{\max})$. (Text v41 assembled this by hand from (L1), (L2) and the gluing lemma.)
+\end{proof}
+
+\begin{lemma}[symmetry]\label{U:lem:sym}
+$\sigma\circ\gamma(t)=\gamma(t)\circ\iota$ for all $t\in[t_1,t_1+T_{\max})$.
+\end{lemma}
+\begin{proof}\tL\ (text v42). (Sy) \fn{cdf_symmetric}, applied to $\Phi|_{[0,T]}$ for each $T<T_{\max}$; its hypothesis $\overline{\Phi(0,p^{-1})}=\Phi(0,p)$ is (S4.2) with $\iota(p)=p^{-1}=\bar p$ on \fn{Circle}, and its conclusion $\overline{\Phi(t,p^{-1})}=\Phi(t,p)$ for all $p$ is the claim (replace $p$ by $p^{-1}$). (Text v41 had a hand proof through S2, S3; the closure of \fn{IsFlow} under $\sigma\circ\cdot\circ\iota$ is now the Lean lemma \fn{IsFlow.conj_reflect}.)
+\end{proof}
+
+\begin{lemma}[blow-up criterion, the form needed]\label{U:lem:bu}
+If $T_{\max}<\infty$ then $\sup_{t<t_1+T_{\max}}\int_{\gamma(t)}k^2ds=\infty$.
+\end{lemma}
+\begin{proof}\tL\ (text v42). Clause (iii) of (T1): if $T_{\max}<\infty$, then $\fn{bendingEnergy}(\fn{lift}(\Phi(t)))$ is unbounded on $[0,T_{\max})$, and this quantity is $\int_{\gamma(t_1+t)}k^2ds$ (\S\ref{U:sec:lean}, last paragraph before Lemma~\ref{U:lem:vel}). (Texts v40, v41 derived this from the statement of DKS Theorem~3.1, with the author item A-2 on ``maximal solution''; neither is used now.)
+\end{proof}
+\begin{remark}[extension form; (D1) replaced]\label{U:rem:D1}
+The extension form of the criterion is (T2) \fn{cdf_extends_of_bounded_energy} \tL: if $\int k^2ds$ stays bounded near a finite end, the flow extends to an \fn{IsFlow} on a closed interval beyond it, so the extension is an immersion at the end time and satisfies the velocity identity there (the ``C-4 completion'' that text v41 added to DKS (D1) by hand is part of the Lean statement). (T1) is proved from (T2) in Lean; nothing in U-1 uses (T2) directly.
+\end{remark}
+\noindent This is (P1$'$), with existence, uniqueness, maximality, symmetry and the criterion from the compiled Lean theorems (T1), (Sy) (and (L1), (L2)) \tL, subject to the build and commit items of \S\ref{U:sec:gaps} (text v42; text v41: (L1), (L2) read from source and DKS (D2)).
+@@ END
+@@ REP
+it inherits the Lean and DKS caveats below and C-1's own gap list.
+@@ NEW
+it inherits the Lean items below and C-1's own gap list (text v42: DKS is no longer an input).
+@@ END
+@@ REP
+\item \textbf{Lean.} (L1), (L2) are read from source at commit \fn{d72b744}, not compiled here, and the instance $E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$ is not elaborated in Lean here. Closure of \fn{IsFlow} under $\sigma\circ\cdot\circ\iota$ (Lemma~\ref{U:lem:sym}) and the gluing Lemma~\ref{U:lem:glue} are mathematical arguments, not Lean lemmas. Suggested Lean check for Micah: instantiate both theorems at \fn{E := EuclideanSpace R (Fin 1)}, \fn{M := sphere (0 : EuclideanSpace R (Fin 2)) 1}, \fn{V := C}, \fn{J := I}-multiplication, and state \fn{IsFlow.shift}/gluing.
+\item \textbf{DKS} (text v40, review fix18 F-5): the criterion is now the \emph{statement} of Theorem~3.1, (D2), recorded verbatim in \fn{P1_CONFIRMATION.md} \S1. Open author item: confirm that DKS's ``maximal solution'' means maximal among smooth solutions. (D1), a step inside the proof (``Smoothness up to and beyond $T$''), is kept as Remark~\ref{U:rem:D1} and is still used by C-1 (with the uniform bounds of C-4); DKS has not been re-read for it.
+@@ NEW
+\item \textbf{Lean} (text v42). (L1), (L2), (T1)--(T5), (V), (Sy), (Sh), (Gl) are compiled theorems (\S\ref{U:sec:lean}). Open: (a) a full \fn{lake build CWFlow.Curve.All} (so far each file is compiled against the repository's existing build outputs; the aggregator \fn{All.lean} was never compiled); (b) the commit and push of \fn{CWFlow/Curve/} and the citation of that commit, in place of ``commit pending'' with the snapshot SHA256 sums; the two hand bridges of review W7 (S3a, S3b) that text v42 first listed here are now Lean theorems, (PC), (MS), (GE) \LeanSthree.
+\item \textbf{DKS}: no longer an input (text v42). The author item A-2 (``maximal solution'') and the re-reading of DKS for (D1) and for the uniform bounds of C-1 are void; (D1), (D2) are replaced by (T2), (T1).
+@@ END
+@@ REP
+\item \textbf{Everything else} (Lemmas~\ref{U:lem:glue}--\ref{U:lem:ibp}, Proposition~\ref{U:prop:mod}, Theorem~\ref{U:thm}) is \tH, using the \tS\ identities S1--S8.
+@@ NEW
+\item \textbf{Everything else} (Lemmas~\ref{U:lem:graph}, \ref{U:lem:leib}, \ref{U:lem:ibp}, Proposition~\ref{U:prop:mod}, Theorem~\ref{U:thm}) is \tH, using the \tS\ identities S1--S8. Lemmas~\ref{U:lem:vel}, \ref{U:lem:glue}, \ref{U:lem:max}, \ref{U:lem:sym}, \ref{U:lem:bu} are \tL\ since text v42.
+@@ END
+
+@@ FILE C1_identification_v41.tex
+@@ REP
+\newcommand{\tN}{\textup{[num]}}
+@@ NEW
+\newcommand{\tN}{\textup{[num]}}\newcommand{\tL}{\textup{[Lean]}}
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+@@ END
+@@ REP
+; for the Lean theorems this means \emph{statement read from source, not compiled}.
+@@ NEW
+. \tL\ (text v42): a compiled theorem of Micah Warren's Lean development, as listed in \fn{U1_regularity_v42.tex} \S1.2 (directory \fn{CWFlow/Curve/}, commit pending, files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}; compiled per file; axioms \fn{propext}, \fn{Classical.choice}, \fn{Quot.sound}); text v41 cited the Lean theorems as \tI, ``statement read from source, not compiled''. \LeanSthree: the S3 items of review W7 (S3a: periodic curve to \fn{Circle}; S3b: the shifted maximal flow and endpoint gluing), formalized after that review in \fn{Periodic2Circle.lean} and \fn{MaxShift.lean} (snapshot \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}), printed as [Lean]; one macro, kept so that the provenance stays visible.
+@@ END
+@@ REP
+with existence and uniqueness from the Lean theorems (L1), (L2), the criterion from DKS (D1), and step~4's certified bounds.
+@@ NEW
+with existence, uniqueness, maximality, symmetry and the blow-up criterion from the compiled Lean theorems (T1), (Sy) of \fn{U1_regularity_v42.tex} \S1.2 (text v42; text v41: (L1), (L2) read from source and DKS (D1)), and step~4's certified bounds.
+@@ END
+@@ REP
+\paragraph{(I4) Lean \tI.} (L1) \fn{exists_flow_of_immersion}, (L2) \fn{flow_unique_of_immersion} of \fn{HSLflow-Whitney/CWFlow} (commit \fn{d72b7447}), as stated and instantiated in \fn{U1_regularity_v42.tex} \S1.2: $E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$, $J=i$. \fn{IsFlow E J T Phi}: $\Phi$ jointly $C^\infty$ on $[0,T]\times\mathbb S^1$, immersions, $\partial_t\Phi=\fn{flowVel}(\Phi)$. \emph{The statements were read from source; the repository has not been built and the $n=1$ instance has not been elaborated in Lean} (review C-3). At $n=1$, $\fn{flowVel}(X)=-k_{ss}N$, $N=iT$, with no tangential part, and it commutes with $\bar\cdot$ and with reparametrisations (\fn{U1_regularity_v42.tex} Lemma~``$n=1$'', \fn{U1_sym.py} S1--S3, \tS\ there). The lemmas ``gluing'', ``maximal smooth solution'', ``symmetry'' and ``blow-up criterion'' of \fn{U1_regularity_v42.tex} \S2 are stated there for $F=\gamma(t_1)$; their proofs use only that $F$ is a smooth immersion with $\bar F=F\circ\iota$, so they hold verbatim for $F=F_0$ \tH.
+@@ NEW
+\paragraph{(I4) Lean \tL.} (Text v42; review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding.) The theorems (L1) \fn{cdf_exists}, (L2) \fn{cdf_unique}, (T1) \fn{cdf_exists_maximal}, (T2) \fn{cdf_extends_of_bounded_energy}, (V) \fn{flowVel_eq_neg_kss}, (Sy) \fn{cdf_symmetric}, (Sh) \fn{IsFlow.shift_gen}, (PC) \fn{exists_isLagImmersion_of_periodic}, (MS) \fn{cdf_maximal_shift}, (GE) \fn{isFlow_glue_endpoint} of \fn{CWFlow/Curve/} and (Gl) \fn{rst_glue} of the library, as stated in \fn{U1_regularity_v42.tex} \S1.2: $M=\mathbb S^1$ is Mathlib's \fn{Circle}, $V=\mathbb C$, $J=i$. They are compiled per file at $n=1$ (commit pending, SHA256 sums in \fn{writeup/lean_bridge/snap_final/SHA256SUMS} and \fn{writeup/lean_bridge/snap_s3/SHA256SUMS}; a full \fn{lake build CWFlow.Curve.All} is pending). Text v41's caveat ``read from source, not compiled; the $n=1$ instance not elaborated'' (review C-3) no longer applies. \fn{IsFlow E1 Jc T Phi}: $\Phi$ jointly $C^\infty$ on $[0,T]\times\mathbb S^1$, immersions, $\partial_t\Phi=\fn{flowVel}(\Phi)$; at $n=1$, $\fn{flowVel}(X)=-k_{ss}N$, $N=iT$, with no tangential part ((V); Lemma~``$n=1$'' of \fn{U1_regularity_v42.tex}, with S1--S3 of \fn{U1_sym.py} \tS\ as a cross-check). The maximal flow, its uniqueness, its symmetry and the blow-up criterion are (T1) and (Sy) for any $F_0$ with \fn{IsLagImmersion E1 Jc F0}; no step-3 statement is involved.
+@@ END
+@@ REP
+\paragraph{(I5) DKS \tI.} (D1) (inside the proof of Thm.~3.1 of Dziuk--Kuwert--Sch\"atzle 2002, pp.~1234--35, as quoted in \fn{writeup/lit_P1/P1_CONFIRMATION.md} \S1): a smooth solution on $[0,T)$, $T<\infty$, with $\sup_{t<T}\int\kappa^2ds<\infty$ extends smoothly to $[0,T]$. \emph{Completion of review item C-4} \tH: the proof obtains the extension from uniform bounds on $\|\partial_s^m\kappa\|_{L^\infty}$, $m\ge0$, on $[0,T)$ (interpolation, with $L\ge4\pi^2/\int\kappa^2ds$ since $\int|\kappa|ds\ge2\pi$ for a closed curve); then $\partial_t\ln|\Phi_x|=-kV=kk_{ss}$ \tS\ (Y1b with $V=-k_{ss}$) is bounded, so $|\Phi_x(t)|\ge|\Phi_x(0)|e^{-CT}>0$ and the extension is an immersion at $t=T$. The DKS paper was not re-read for this sentence (the PDF could not be opened in the earlier rounds).
+@@ NEW
+\paragraph{(I5) Criterion \tL.} (Text v42.) The blow-up criterion is (T1)(iii): if $T_*<\infty$, then $\fn{bendingEnergy}(\fn{lift}(\gamma(t)))=\int_{\gamma(t)}k^2ds$ is unbounded on $[0,T_*)$. Text v41 used here DKS (D1), a step inside the proof of DKS Theorem~3.1, with a hand completion (review item C-4: the extension is an immersion at the extension time). Neither is used now. If an extension form is wanted, it is (T2), whose extension is an \fn{IsFlow} on a closed interval $[0,T+\varepsilon]$, hence an immersion at $T$ with the velocity identity there \tL. C-1 uses only (T1), through Lemma~\ref{C1:lem:max}.
+@@ END
+@@ REP
+\begin{proof}\tH\ (I4) with $F=F_0$ (Lemma~\ref{C1:lem:G0}): the U-1 lemmas ``maximal smooth solution'', ``symmetry'' and ``blow-up criterion'', the last with (I5) including the C-4 completion.
+@@ NEW
+\begin{proof}\tL\ (text v42). \emph{The data on \fn{Circle}} \LeanSthree\ (review W7 S3a): $X^0$ is $C^\infty$ and $2\pi$-periodic with $X^0_\alpha\ne0$ (Lemma~\ref{C1:lem:G0}), so (PC) \fn{exists_isLagImmersion_of_periodic} gives $F$ with $\fn{lift}\,F=X^0$ and \fn{IsLagImmersion E1 Jc F}; $\fn{lift}\,F=X^0$ says $F(e^{i\alpha})=X^0(\alpha)$, so $F=F_0$ (\fn{lift_injective}). \emph{The rest} \tL: (T1) with this $F_0$ gives $T_*$ and $\gamma$; clauses (i), (ii) give existence on every $[0,T]$, $T<T_*$, and that every \fn{IsFlow} from $F_0$ on $[0,T]$ has $T<T_*$ and is the restriction of $\gamma$ (so none exists on $[0,T_*]$, and $\gamma$ is unique on $[0,T_*)$); clause (iii) is the criterion, with $\fn{bendingEnergy}(\fn{lift}(\gamma(t)))=\int_{\gamma(t)}k^2ds$. Symmetry: $\bar F_0=F_0\circ\iota$ (Lemma~\ref{C1:lem:G0}) is the hypothesis of (Sy), and (Sy) on each $[0,T]$, $T<T_*$, gives $\overline{\gamma(t)}=\gamma(t)\circ\iota$. (Text v41: the U-1 lemmas assembled by hand from (L1), (L2), gluing, and DKS (D1) with the C-4 completion.)
+@@ END
+@@ REP
+(v): $t\mapsto\gamma(t_1+t)$ restricted to $[0,T]$, $T<T_*-t_1$, is an \fn{IsFlow} from $\gamma(t_1)$ (the clauses are invariant under a time shift); by (L2) and the gluing lemma both maximal flows coincide where defined and neither can be longer than the other.
+@@ NEW
+(v) \LeanSthree\ (review W7 S3b; text v42): (MS) \fn{cdf_maximal_shift} with $\Phi=\gamma$, $T_{\max}=T_*$ (clauses (i), (ii) of (T1), Lemma~\ref{C1:lem:max}) and $0\le t_1<T_*$ gives: $t\mapsto\gamma(t_1+t)$ is an \fn{IsFlow} on every $[0,T]$, $0<T<T_*-t_1$, every \fn{IsFlow} from $\gamma(t_1)$ on $[0,T]$ has $T<T_*-t_1$ and equals $\gamma(t_1+\cdot)$ there, and the criterion holds if $T_*<\infty$. These are the defining properties of the maximal flow of Lemma ``maximal smooth solution'' of \fn{U1_regularity_v42.tex} (from (T1) for $F=\gamma(t_1)$); by its clause (ii) and the one just stated, the two flows agree and $T_{\max}=T_*-t_1$. (Text v41 cited (L2) and an endpoint gluing lemma with a hand proof.)
+@@ END
+@@ REP
+\item \textbf{Lean.} (L1), (L2) are read from source at \fn{d72b7447}; not compiled; the $n=1$ instance is not elaborated (review C-3, owed by Micah: \fn{lake build} and a short instantiation file). The closure of \fn{IsFlow} under $\bar\cdot\circ\iota$, the gluing and the time shift are mathematical arguments, not Lean lemmas.
+\item \textbf{DKS (D1)} is a step inside a proof, read through \fn{P1_CONFIRMATION.md}; the C-4 completion (uniform $\|\partial_s^m\kappa\|_\infty$ in that proof) is my reading of the structure of DKS's argument and has not been checked against the paper.
+@@ NEW
+\item \textbf{Lean} (text v42): the theorems used are compiled (\fn{U1_regularity_v42.tex} \S1.2; review \fn{writeup/lean_bridge/REVIEW_W7.md}). The two hand bridges of review W7, S3a (the data on \fn{Circle}, Lemma~\ref{C1:lem:max}) and S3b (Theorem~\ref{C1:thm}(v)), are Lean theorems since text v42: (PC), (MS) \LeanSthree. Open: a full \fn{lake build CWFlow.Curve.All}; the commit of \fn{CWFlow/Curve/} and its citation (until then ``commit pending'' with the snapshot SHA256 sums).
+\item \textbf{DKS}: no longer an input (text v42). (D1) and the C-4 completion of text v41 are replaced by (T1) (and (T2), which C-1 does not need); the re-reading of DKS is void.
+@@ END
+
+@@ FILE continuation_v41.tex
+@@ REP
+whose inputs are Micah Warren's Lean theorems \fn{exists_flow_of_immersion}, \fn{flow_unique_of_immersion} \cite{CWFlow} (existence and uniqueness) and the smooth-extension step (D1) inside the proof of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002} (the criterion); see
+@@ NEW
+whose inputs are, since text v42, compiled theorems of Micah Warren's Lean development \cite{CWFlow}: \fn{cdf_exists_maximal} (existence, uniqueness, maximality and the $L^2$ blow-up criterion), \fn{cdf_symmetric}, \fn{cdf_exists}, \fn{cdf_unique} (text v41: the Lean statements read from source, and the step (D1) inside the proof of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002}); see
+@@ END
+@@ REP
+  \item \emph{existence} (L1) \fn{exists_flow_of_immersion} and \emph{uniqueness} (L2) \fn{flow_unique_of_immersion} of the Lean development \fn{HSLflow-Whitney/CWFlow} \cite{CWFlow} (commit \fn{d72b7447edb0c830331a76152559902c23a4092e}, files \fn{Flow/Main.lean}, \fn{Flow/UniqueMain.lean}), instantiated at $E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$, $J=i$; at $n=1$ the Lean velocity is $-k_{ss}N$ with no tangential part \tS\ (\fn{U1_sym.py} S1--S4). The statements were read from source; the build was not run, and the $n=1$ instance has not been elaborated in Lean;
+@@ NEW
+  \item \emph{existence, uniqueness, maximality and criterion} (text v42): the compiled Lean theorems \fn{CWFlow.Curve.cdf_exists_maximal} (T1) and \fn{cdf_extends_of_bounded_energy} (T2) of \fn{Criterion.lean}, with \fn{cdf_exists}, \fn{cdf_unique}, \fn{cdf_symmetric} of \fn{Curve/N1.lean} and \fn{flowVel_eq_neg_kss} of \fn{Curve/N1Basic.lean} \cite{CWFlow}, at $n=1$ ($M$ Mathlib's \fn{Circle}, $V=\mathbb C$, $J=i$; the Lean velocity is $-k_{ss}N$ with no tangential part); $\int\kappa^2ds$ is \fn{bendingEnergy} of the lift $\theta\mapsto F(e^{i\theta})$. Status: compiled per file against the repository's existing build outputs, axioms \fn{propext}, \fn{Classical.choice}, \fn{Quot.sound}; a full \fn{lake build CWFlow.Curve.All} and the commit of \fn{CWFlow/Curve/} are pending (cited as ``commit pending'' with the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}); statements and details in \fn{U1_regularity_v42.tex} \S1.2. Text v41 cited (L1) \fn{exists_flow_of_immersion}, (L2) \fn{flow_unique_of_immersion} at commit \fn{d72b744}, read from source, not built;
+@@ END
+@@ REP
+  \item \emph{criterion} (text v40, review fix18 F-5): the \emph{statement} of Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002}, ``for a maximal solution with $T<\infty$, $\int\kappa^2ds\ge c(T-t)^{-1/4}$'' (verbatim in \fn{writeup/lit_P1/P1_CONFIRMATION.md} \S1), applied to the maximal smooth solution given by (L1), (L2) and gluing; author item: confirm that DKS's ``maximal solution'' means maximal among smooth solutions. Text v39 used instead the step (D1) inside the proof (now the Remark ``the route of text v39, through (D1)'' of \fn{U1_regularity_v42.tex}); Chou \cite{Chou2003} is not needed;
+@@ NEW
+  \item \emph{literature} (comparison only since text v42): the criterion is Theorem~3.1 of Dziuk--Kuwert--Sch\"atzle \cite{DKS2002} (with the rate $c(T-t)^{-1/4}$, not used) and, for plane curves of nonzero area, Chou \cite{Chou2003}; neither is an input, and the author item on DKS's ``maximal solution'' (text v40, review fix18 A-2) is void;
+@@ END
+@@ REP
+\item \textbf{(P1$'$), (P2$'$)} \tH: proved in \fn{U1_regularity_v42.tex} from (L1), (L2) \cite{CWFlow} and DKS (D1) \cite{DKS2002}; U-1 was reviewed (\fn{fix11_review/REVIEW_v4b_v36_proofs.md} part C: sound modulo items; text v38 applies D-1, D-5, C-5). Open there: the Lean build at commit \fn{d72b744} was not run and the $n=1$ instance ($E=\mathbb R^1$, $M=\mathbb S^1$, $V=\mathbb C$) was not elaborated (suggested check for Micah: a short Lean file instantiating both theorems); the gluing lemma and the closure of \fn{IsFlow} under the reflection are written mathematics, not Lean; the criterion is the statement of DKS Theorem~3.1 (text v40, review fix18 F-5), with the author item ``maximal solution'' = maximal among smooth solutions; (D1), a step inside the proof, is still used by C-1 together with the uniform bounds on $\partial_s^m\kappa$, and DKS has not been re-read for it (pp.~1234--35); (H6) smoothness at $t_1$ is now Theorem C-1 (\fn{C1_identification_v42.tex}, with its own gaps).
+@@ NEW
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+\item \textbf{(P1$'$), (P2$'$)} \tH: proved in \fn{U1_regularity_v42.tex} from the compiled Lean theorems (T1), (Sy), (L1), (L2) \cite{CWFlow} (text v42; text v41: the Lean statements read from source and DKS (D1)); U-1 was reviewed (\fn{fix11_review/REVIEW_v4b_v36_proofs.md} part C: sound modulo items; text v38 applies D-1, D-5, C-5), and the Lean bridge was reviewed independently (\fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding). Open: a full \fn{lake build CWFlow.Curve.All}; the commit of \fn{CWFlow/Curve/} and its citation (now ``commit pending'' with the snapshot SHA256 sums); the bridges S3a, S3b of C-1 are Lean theorems since text v42 (\fn{exists_isLagImmersion_of_periodic}, \fn{cdf_maximal_shift}, \fn{isFlow_glue_endpoint}) \LeanSthree. (H6) smoothness at $t_1$ is Theorem C-1 (\fn{C1_identification_v42.tex}, with its own gaps). DKS is no longer an input.
+@@ END
+@@ REP
+\bibitem{CWFlow} M. Warren, Lean development \fn{HSLflow-Whitney}, directory \fn{CWFlow/}, \fn{github.com/micah541/HSLflow-Whitney}, commit \fn{d72b7447edb0c830331a76152559902c23a4092e} (19 Nov 2026); theorems \fn{exists_flow_of_immersion}, \fn{flow_unique_of_immersion}.
+@@ NEW
+\bibitem{CWFlow} M. Warren, Lean development \fn{CWFlow} (local repository \fn{agents/lean/CWFlow}), directory \fn{CWFlow/Curve/}, \textbf{commit pending} (files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}); theorems \fn{CWFlow.Curve.cdf_exists_maximal}, \fn{cdf_extends_of_bounded_energy}, \fn{cdf_exists}, \fn{cdf_unique}, \fn{cdf_symmetric}, \fn{flowVel_eq_neg_kss}. (Text v41 cited commit \fn{d72b7447} of \fn{HSLflow-Whitney}, which does not contain \fn{CWFlow/Curve/}.)
+@@ END
+
+@@ FILE bootstrap_v41.tex
+@@ REP
+\subsection{Order}\label{BS:sec:order}
+@@ NEW
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+\subsection{Order}\label{BS:sec:order}
+@@ END
+@@ REP
+\fn{C1_ke.json}); Lean (L1), (L2); DKS (D1); no step-3 statement
+@@ NEW
+\fn{C1_ke.json}); compiled Lean theorems (T1), (Sy) (text v42; with the bridges S3a, S3b \LeanSthree); no step-3 statement
+@@ END
+
+@@ FILE step3_v41_main.tex
+@@ REP
+\small\textbf{Status (text v40). Step~3 is NOT closed.} \emph{New in v40:}
+@@ NEW
+\small\textbf{Status (text v42). Step~3 is NOT closed.} \emph{New in v42:} (P1$'$) rests on compiled Lean theorems of Micah Warren's \fn{CWFlow/Curve/} in place of DKS: \fn{cdf_exists_maximal} (existence, uniqueness, maximality, $L^2$ blow-up criterion), \fn{cdf_extends_of_bounded_energy}, \fn{cdf_symmetric}, \fn{flowVel_eq_neg_kss} (\fn{U1_regularity_v42.tex} \S1.2, \fn{C1_identification_v42.tex}; review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding); compiled per file, a full \fn{lake build CWFlow.Curve.All} and the commit are pending (cited as ``commit pending'' with snapshot SHA256 sums); the two bridges S3a, S3b of the review are Lean theorems too (\fn{exists_isLagImmersion_of_periodic}, \fn{cdf_maximal_shift}, \fn{isFlow_glue_endpoint}) \LeanSthree. The independent check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}: OK); text v41 applied its wording items. The open lists of the older statuses in this box are superseded by \S\ref{M:sec:remains}. \emph{Text v40 status.} \emph{New in v40:}
+@@ END
+@@ REP
+are proposed in \fn{STEP4_PATCH_NOTE_v42.md} (not applied).
+@@ NEW
+are proposed in \fn{STEP4_PATCH_NOTE_v42.md} (not applied; they need the authors' go).
+@@ END
+@@ REP
+\item \textbf{Literature / Lean}: the Lean build at commit \fn{d72b744} and the $n=1$ instance; DKS: confirm the statement of Theorem~3.1 and that ``maximal solution'' means maximal among smooth solutions (text v40, review fix18 A-2), and re-read (D1) with the uniform bounds used by C-1; (P3$'$); Lemma~O arc by arc; the single-point statement.
+@@ NEW
+\item \textbf{Lean} (text v42; DKS is no longer an input): a full \fn{lake build CWFlow.Curve.All} (so far each file of \fn{CWFlow/Curve/} is compiled against existing build outputs); the commit and push of \fn{CWFlow/Curve/} and the citation of that commit (now ``commit pending'' with the snapshot SHA256 sums). The bridges S3a, S3b of review W7 are Lean theorems since text v42 \LeanSthree. \textbf{Author items}: (P3$'$); Lemma~O arc by arc; the single-point statement.
+@@ END
+@@ REP
+\item \textbf{LaTeX compile} of every v40 file (the macro check of text v40 is static; it does not replace a compile); an independent check of the text-v40 changes (the final review of text v39, \fn{fix18_final_review/FINAL_REVIEW_v39.md}, is done: ``closes with fixes, none blocking'', modulo the external and author items; its fixes F-1 to F-7, R-1 to R-3 are applied in text v40).
+@@ NEW
+\item \textbf{LaTeX compile} of every v42 file (the macro check is static; it does not replace a compile). The independent check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}: OK; its wording items are applied in text v41); the text-v41 and text-v42 changes have not been checked independently. \textbf{Final review} of the assembled step~3 after the items above.
+@@ END
+@@ REP
+\bibitem{CWFlow} M. Warren, Lean development \fn{HSLflow-Whitney}, \fn{CWFlow/}, commit \fn{d72b7447edb0c830331a76152559902c23a4092e}.
+@@ NEW
+\bibitem{CWFlow} M. Warren, Lean development \fn{CWFlow} (local repository \fn{agents/lean/CWFlow}), directory \fn{CWFlow/Curve/}, \textbf{commit pending}; files identified by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS} (text v41 cited commit \fn{d72b7447} of \fn{HSLflow-Whitney}, which does not contain them).
+@@ END
+
+@@ FILE b12_preamble_v41.tex
+@@ REP
+\providecommand{\tL}{\textup{[Lean]}}   % theorem of the Lean development CWFlow, read from source (not compiled here)
+@@ NEW
+\providecommand{\tL}{\textup{[Lean]}}   % text v42: compiled theorem of the Lean development CWFlow/Curve (commit pending; snapshot SHA256SUMS in writeup/lean_bridge/snap_final)
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]   % text v42: the ONE switch for the S3 items (S3a, S3b) of review W7
+@@ END
+
+@@ FILE step4_handoff_v41.tex
+@@ REP
+\begin{document}
+@@ NEW
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+\begin{document}
+@@ END
+@@ REP
+with the Lean theorems (L1), (L2) \tI\ (read from source at commit \fn{d72b7447}, \emph{not built}), DKS (D1) \tI\ (a step inside the proof of Theorem~3.1, \emph{not re-read}), Lemma (P2-a) \tH,
+@@ NEW
+with the compiled Lean theorems (T1) \fn{cdf_exists_maximal} and (Sy) \fn{cdf_symmetric} of \fn{CWFlow/Curve/} \tI\ (text v42: compiled per file, commit pending, full \fn{lake build CWFlow.Curve.All} pending; the data bridge S3a by \fn{exists_isLagImmersion_of_periodic} \LeanSthree; text v41: Lean read from source and DKS (D1)), Lemma (P2-a) \tH,
+@@ END
+@@ REP
+For step~3 v3.3 this is (P1$'$): DKS 2002 Theorem~3.1 with the regularity lemma U-1 (\fn{U1_regularity_v42.tex}) and Theorem C-1(v); it is not removed by C-1 and keeps its own open items (Lean build, DKS re-read).
+@@ NEW
+For step~3 v3.3 this is (P1$'$): the compiled Lean theorem \fn{cdf_exists_maximal} (text v42; DKS 2002 is no longer an input) with the regularity lemma U-1 (\fn{U1_regularity_v42.tex}) and Theorem C-1(v) (\fn{cdf_maximal_shift}) \LeanSthree; it is not removed by C-1 and keeps its own open items (a full \fn{lake build CWFlow.Curve.All}, the commit of \fn{CWFlow/Curve/}).
+@@ END
+
+@@ FILE ei_lemma_v4c_v41.tex
+@@ REP
+((H6) at $t_1$ now by C-1, the Lean theorems read from source, DKS (D1))
+@@ NEW
+((H6) at $t_1$ now by C-1; text v42: the compiled Lean theorems (T1), (Sy), with a full Lean build and the commit open (the C-1 bridges S3a, S3b are Lean theorems); DKS no longer an input)
+@@ END
+
+@@ FILE GS_lemma_v41.tex
+@@ REP
+(with its Lean/DKS caveats).
+@@ NEW
+(with its Lean items: full build, commit; text v42: DKS is no longer an input).
+@@ END
+
+@@ FILE lemmaU_v41.tex
+@@ REP
+\begin{document}
+@@ NEW
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+\begin{document}
+@@ END
+@@ REP
+Open: the Lean instance at $n=1$ (used by U-1) has not been elaborated, the Lean build has not been run, DKS has not been re-read;
+@@ NEW
+Open (text v42): a full \fn{lake build CWFlow.Curve.All} and the commit of \fn{CWFlow/Curve/} (the Lean theorems used by U-1 and C-1 are compiled per file, commit pending; DKS is no longer an input; the bridges S3a, S3b of C-1 are Lean theorems \LeanSthree);
+@@ END
+@@ REP
+As v3.2 \S4.1, quoted from the literature \tH, in the form of \fn{continuation_v33.tex} \S``Continuation'':
+@@ NEW
+As v3.2 \S4.1, in the form of \fn{continuation_v33.tex} \S``Continuation'' (text v42: (P1) is no longer a literature item; it is proved in \fn{U1_regularity_v42.tex} \tH\ from compiled Lean theorems, \fn{cdf_exists_maximal} giving existence, uniqueness, maximality and the $L^2$ criterion; the literature pointers and the author confirmation in the next sentence are historical):
+@@ END
+@@ REP
+(P1) ($L^2$ form)--(P3) & & \tH & literature, \fn{continuation_v33.tex}\\
+@@ NEW
+(P1) ($L^2$ form)--(P3) & & \tH & (P1), (P2): \fn{U1_regularity_v42.tex} (Lean, text v42); (P3): \fn{continuation_v33.tex}\\
+@@ END
+@@ REP
+\item \textbf{(P1)--(P3)}, as in \S7.1 ((P1) in $L^2$ form; literature).
+@@ NEW
+\item \textbf{(P1)--(P3)}, as in \S7.1 ((P1) in $L^2$ form; since text v42 from compiled Lean theorems through U-1, not literature).
+@@ END
+@@ REP
+\item \emph{wording for main\_v3}: the statement is conditional on (P1) in $L^2$ form, and the literature facts
+@@ NEW
+\item \emph{wording for main\_v3}: the statement is conditional on (P1) in $L^2$ form (text v42: (P1) is now proved from compiled Lean theorems, \fn{U1_regularity_v42.tex}; the Lean build and commit items remain), and the literature facts
+@@ END
+@@ REP
+(the authors' Windows runs of the v4 kits, the Lean build and the instance at $n=1$, DKS, records, LaTeX, the final review;
+@@ NEW
+(the authors' Windows runs of the v4 kits, the full Lean build and the commit of \fn{CWFlow/Curve/} (text v42; the bridges S3a, S3b are Lean theorems; the instance at $n=1$ is compiled and DKS is no longer an input), records, LaTeX, the final review;
+@@ END
+
+@@ FILE main_v3_v41.tex
+@@ REP
+\begin{document}
+@@ NEW
+\providecommand{\LeanSthree}{\textup{[Lean]}}% S3 items of review W7 (lean_bridge snap_s3); text v42 first marked them [hand; Lean formalization in progress]
+\begin{document}
+@@ END
+@@ REP
+\small\textbf{Status (21 November 2026, v40): not compiled; step 3 is NOT closed.}
+@@ NEW
+\small\textbf{Status (23 November 2026, v42): not compiled; step 3 is NOT closed.} \emph{New in v42:} (P1) of step~3 (local well-posedness, uniqueness and the $L^2$ blow-up criterion) rests on compiled theorems of M.~Warren's Lean development \fn{CWFlow/Curve/} (\fn{cdf_exists_maximal}, \fn{cdf_extends_of_bounded_energy}, \fn{cdf_symmetric}, \fn{flowVel_eq_neg_kss}) instead of Dziuk--Kuwert--Sch\"atzle; compiled per file (axioms \fn{propext}, \fn{Classical.choice}, \fn{Quot.sound}), commit pending (cited by the SHA256 sums of \fn{writeup/lean_bridge/snap_final/SHA256SUMS}), a full \fn{lake build CWFlow.Curve.All} pending; the two bridges S3a, S3b of the review are Lean theorems too \LeanSthree; independent review \fn{writeup/lean_bridge/REVIEW_W7.md}: sound, no blocking finding. The check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}: OK). \textbf{Open now:} the full Lean build, the commit and its citation; the authors' confirmations ((P3$'$), Lemma~O arc by arc, the single-point statement); the authors' Windows runs of the two v4 kits; LaTeX compilation; the step-4 text patch (\fn{STEP4_PATCH_NOTE_v42.md}, needs the authors' go); a final review. The open lists of the older boxes below are superseded by this one. \emph{v40 text of this box:} \textbf{Status (21 November 2026, v40): not compiled; step 3 is NOT closed.}
+@@ END
+@@ REP
+(b) Step~3 quotes three standard facts (P1)--(P3): local well-posedness and continuation for immersed data, continuity of the modulation, interior regularity; the continuation criterion (P1) is the $L^2$ blow-up criterion for closed immersed curves of Dziuk--Kuwert--Sch\"atzle \cite{DziukKuwertSchatzle2002} (Theorem~3.1) and/or Chou \cite{Chou2003} \textbf{[to be confirmed by the authors: theorem number, exact form, immersed non-embedded curves]}, and the references for (P2), (P3) are still to be supplied \dref{S3'} \S4.1, \S6.
+@@ NEW
+(b) Step~3 uses three standard facts (P1)--(P3): local well-posedness and continuation for immersed data, continuity of the modulation, interior regularity. Since text v42, (P1), local well-posedness with uniqueness and the $L^2$ blow-up criterion for closed immersed curves, is proved from compiled theorems of M.~Warren's Lean development (\fn{CWFlow/Curve/}, commit pending; \fn{cdf_exists_maximal}; the regularity lemma U-1 and the interface C-1 of the step-3 texts) and is no longer a literature item; the criterion goes back to Dziuk--Kuwert--Sch\"atzle \cite{DziukKuwertSchatzle2002} (Theorem~3.1) and, for plane curves of nonzero area, Chou \cite{Chou2003}. (P2) is Proposition (P2$'$) of U-1; the reference for (P3) is still to be supplied \dref{S3'} \S4.1, \S6.
+@@ END
+@@ REP
+\item \textbf{Status v39 (20 November 2026): step 3 is not closed.}
+@@ NEW
+\item \textbf{Status v42 (23 November 2026; v39 of 20 November 2026): step 3 is not closed.}
+@@ END
+@@ REP
+Open: (a$'$) the authors' Windows runs of both v4 kits; (b) the Lean build at commit \fn{d72b744} and an $n=1$ instantiation file; (c) DKS: the authors' confirmation of the statement of Theorem~3.1 and of the meaning of ``maximal solution'' (the criterion is cited by its statement since text v40), and a re-reading of pp.~1234--35 for (D1) and the uniform bounds used in C-1;
+@@ NEW
+Open (updated in v42): (a$'$) the authors' Windows runs of both v4 kits; (b) the Lean items: a full \fn{lake build CWFlow.Curve.All}, the commit of \fn{CWFlow/Curve/} and its citation (the theorems are compiled per file; DKS is no longer an input) (the bridges S3a, S3b are Lean theorems too \LeanSthree); (c) the step-4 text patch (\fn{STEP4_PATCH_NOTE_v42.md}; needs the authors' go);
+@@ END
+@@ REP
+(g) an independent check of the text-v40 changes (the final review of text v39, \fn{fix18_final_review/FINAL_REVIEW_v39.md}, is done: ``closes with fixes, none blocking'', modulo the external and author items; its fixes F-1 to F-7, R-1 to R-3 are applied in text v40);
+@@ NEW
+(g) the independent check of the text-v40 changes is done (\fn{fix20_delta_check/DELTA_CHECK_v40.md}: OK; the final review of text v39, \fn{fix18_final_review/FINAL_REVIEW_v39.md}, is done too); open: a final review after the items above;
+@@ END
+@@ REP
+The verifier's tail lemma (W2) and the literature facts (P1)--(P3) are as before.
+@@ NEW
+The verifier's tail lemma (W2) and the facts (P1)--(P3) are as before ((P1) since text v42 from compiled Lean theorems).
+@@ END
+@@ REP
+frame conventions, the literature facts (P1), and the items
+@@ NEW
+frame conventions, the facts (P1) (since text v42 from compiled Lean theorems, not literature), and the items
+@@ END
+@@ REP
+\item \textbf{Literature:} (P1) in step~3 is cited as Dziuk--Kuwert--Sch\"atzle \cite{DziukKuwertSchatzle2002} Theorem~3.1 and/or Chou \cite{Chou2003} \textbf{[to be confirmed by the authors]}; precise references for (P2), (P3);
+@@ NEW
+\item \textbf{Literature:} (P1) in step~3 is no longer a literature item (text v42: compiled Lean theorems; Dziuk--Kuwert--Sch\"atzle \cite{DziukKuwertSchatzle2002} and Chou \cite{Chou2003} are cited for attribution only); the Lean development needs a bibliography entry (\fn{writeup/main/main.bib} has none yet; commit pending); a precise reference for (P3);
+@@ END

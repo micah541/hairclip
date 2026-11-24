@@ -1,0 +1,12 @@
+ADD=['a', 'b', 'c', 'd'] QUAD=True RAMP=table  (degrees: (lo=valuation, hi=top degree))
+mode radial: H=(0, 2)  L=(0, 1)  NEG=(0, 2)
+   required condition for mode radial: OK
+mode s     : H=(2, 5.0)  L=(0, 1)  NEG=(2, 2)
+   required condition for mode s: OK
+mode joint : H=(2.0, 5.0)  L=(0, 5)  NEG=(2, 2)
+   joint, floors=False (tot_s): H=(2.0, 5.0) L=(2, 5)
+   required condition for mode joint: OK
+Split (version W): homogeneous part (floors=False, degrees >= 2 jointly in (alpha,x)) -> mode joint above, i.e. the scale-invariant tail lemma;
+  floor part = degree<2 terms (absolute strip, flux K0/K2, c0w V0, Phi_F-type constants): they sit in L only (checked: mode s, hi(L)<=2, and L-only in the lines above),
+  and enter the tail through the separate floor / L^1_loc argument (TAIL_LEMMA.tex), not through the scale-invariance condition.
+TAIL_CERT PASS: ALL STRUCTURAL CONDITIONS HOLD

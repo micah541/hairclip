@@ -1,0 +1,38 @@
+{
+ "X1_reduction_00_exact_residual": "0",
+ "X1_reduction_01_exact_residual": "0",
+ "X1_reduction_02_exact_residual": "0",
+ "X1_reduction_10_exact_residual": "0",
+ "X1_reduction_11_exact_residual": "0",
+ "X1_reduction_12_exact_residual": "0",
+ "X1_reduction_20_exact_residual": "0",
+ "X1_reduction_21_exact_residual": "0",
+ "X1_reduction_22_exact_residual": "0",
+ "X1_reduction_ok": true,
+ "args": {
+  "argv": [
+   "tc_weighted.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl/nlin_E0.pkl": "637cd5b982c664e9acf55b50f1c785a3200d6f3bf642d3a461b85615fb46ca08",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/tc_weighted.py": "1ee04f8a23ee9e4ba1239431df35748d426a1a08b50ac6305319e4bddefc85dd",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/v4bcommon.py": "b75fd5d82dcd12ff273dc884bef6ccb6b62877dcd0c3720a280b4f200d17321f"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "drift_lin_ok": true,
+ "drift_split_ok": true,
+ "euler_curv_exact_residual": "0",
+ "euler_curv_max_abs_at_3_random_rational_points": 0.0,
+ "euler_curv_ok": true,
+ "euler_drift_ok": true,
+ "euler_drift_simplified": "0",
+ "runtime_s": 102.9
+}

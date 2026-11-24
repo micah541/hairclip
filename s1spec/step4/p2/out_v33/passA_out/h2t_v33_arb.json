@@ -1,0 +1,47 @@
+{
+ "item": "tightened (H2) shells [14, 60], v3.3 thresholds (1e-8, 1e-6, 1e-3)",
+ "label": "certified",
+ "base_source": "m9 arb cells (win_arb_summary combined)",
+ "rows": [
+  {
+   "j": 0,
+   "threshold": 1e-08,
+   "base": 8.010214032010072e-11,
+   "with_error": 8.013494004903772e-11,
+   "margin": 124.78951121546491,
+   "Ybar_limit": 4.969426808060283e-08,
+   "ok": true
+  },
+  {
+   "j": 1,
+   "threshold": 1e-06,
+   "base": 1.3353261147329056e-10,
+   "with_error": 4.705964939306002e-10,
+   "margin": 2124.9627077490973,
+   "Ybar_limit": 9.750275053299459e-11,
+   "ok": true
+  },
+  {
+   "j": 2,
+   "threshold": 0.001,
+   "base": 2.935820408643843e-10,
+   "with_error": 1.5587568407003126e-06,
+   "margin": 641.5368798322153,
+   "Ybar_limit": 2.566710566377281e-11,
+   "ok": true
+  }
+ ],
+ "all_ok": true,
+ "min_margin": 124.78951121546491,
+ "Ybar": 1.0000000000000004e-12,
+ "args": {
+  "argv": [],
+  "env": {},
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/v33/h2t_v33_arb.py": "a97b780a6f2e14f6ab4726447aa5442d1afdce82c7ae173b7b8991d9fdbc5395",
+   "/home/claude/s1spec/step4/p2/out_v33/m9/win_arb_summary.json": "20c8a2fa648eeb417a8aa049b2d26f4dce6ab3f94f4b3158f5e3a2401a85ee1c",
+   "/home/claude/s1spec/step4/p2/out/t9_cone_kch.json": "6312bb98696838dc37d0eb92b6914dc34d3fdb89acd2417add1a046383b0a4c2",
+   "/home/claude/s1spec/step4/p2/t8se/constants/amp_A1_w180.json": "b7f319194090659642c94f987d9bca59b67e3459084e9a54c1a78e049c60d8ac"
+  }
+ }
+}

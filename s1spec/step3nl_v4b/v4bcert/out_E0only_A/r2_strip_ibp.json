@@ -1,0 +1,159 @@
+{
+ "STRIP_AB_R2": 4.227131780191151e-10,
+ "STRIP_BETA_R2": 7.786633689656624e-11,
+ "ab": {
+  "alpha_coef_S0": 2.439586858119067e-07,
+  "const_coef_S0_S3": [
+   8.782323333487766e-09,
+   7.439626663258616e-09,
+   4.7917295613034196e-09,
+   5e-324
+  ]
+ },
+ "args": {
+  "argv": [
+   "r2_strip_ibp.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3/outA5.txt": "e1c0bd6c45b60ff5b73c1b3850f040de38a2eb50d4f6703c9cd9933e313fc33c",
+   "/home/claude/s1spec/step3nl/agent_mod/mod_gram.py": "59ae2cbd9d496ac14d2d5f583efcf2abd2e735631fb3a4ab36f77b6f78af48bc",
+   "/home/claude/s1spec/step3nl_v4b/agent_mod/ibp/final_5e-4.json": "39caabfe877457bebdb9ea366663640c738ae0a54980d4e4b172981cfc2717f9",
+   "/home/claude/s1spec/step3nl_v4b/agent_mod/ibp/mod_ibp.json": "3a6cd3ec8ef76bd7c195e1839de19549d25e7f75d3d9ef9ed1266b5cf65d05e0",
+   "/home/claude/s1spec/step3nl_v4b/agent_mod/lemma/lem_integrals.json": "987afb8843489308d04538949c577c6af4e3310d69dbc1fc1f83fb01b01b0403",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/r2_strip_ibp.py": "7f2a7b5ccf9ae436447b2349fd0161bf179cc89ac1e33b8fbb42e2a68a19236f",
+   "/home/claude/s1spec/step3nl_v4b/v4bcert/v4bcommon.py": "b75fd5d82dcd12ff273dc884bef6ccb6b62877dcd0c3720a280b4f200d17321f",
+   "/home/claude/s1spec/step3nl_v4b/v4cert/out/u3_strip_form.json": "c722d0be332b1be6edb02a4c375be3055f0d7fc28509e0e09497ba963961dd5a"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "beta": {
+  "alpha_coef_S0": 4.5385996899682516e-08,
+  "const_coef_S0_S3": [
+   1.6158750485500848e-09,
+   1.3703088528715896e-09,
+   8.844399449567961e-10,
+   5e-324
+  ]
+ },
+ "commutator_regression_rel": {
+  "a": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "b": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "beta": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "description": "V4_REVIEW R-2 (strip hypothesis sup|w'''| <= 0.02 in STRIP_BETA / STRIP_AB): one integration by parts in the strip commutator pairing.\nThe modulation lemma bounds <[L,chi] w, f_j>_rho = int rho f_j sum_i c_i w^(i) (strip sigma in [29,32]), c = (chi'''' + k^2 chi'' + (5km + q/4) chi',\n4 chi''' + 2 k^2 chi', 6 chi'', 4 chi')  (agent_mod/lemma/lem_integrals.py) by sum_i kappa_{j,i} S_i, S_i = sup_strip |w^(i)|, kappa_{j,i} = int rho |f_j| |c_i|.\nThe w''' term is integrated by parts once (chi'(29) = chi'(32) = 0, no boundary term):\n    int rho f 4 chi' w''' = - int (4 rho f chi')' w''  =>  new w'' coefficient  rho [6 f chi'' - 4 (f' chi' + f chi'' - phi' f chi')] = rho [2 f chi'' - 4 f' chi' + 4 phi' f chi'],\nso kappa'_{j,2} = int rho |2 f_j chi'' - 4 f_j' chi' + 4 phi' f_j chi'|, kappa'_{j,3} = 0, kappa'_{j,0}, kappa'_{j,1} unchanged.\nf_1 = chi p, f_2 = chi psi_2 (frame), f_3 = chi F with F = ws0, F' = ws1 + phi' ws0 (outA5 rows; lyap_consts2.py:140); f' = chi' g + chi g'.\nThen the U-3 strip form (v4cert/u3_strip_form.py: same feedback and linearisation) is recomputed with kappa' -> STRIP_BETA_R2, STRIP_AB_R2,\nwhich need only S0, S1, S2 <= 0.02 (asserted along the march) and |alpha| <= 5e-4: no hypothesis on w'''.\nRegression: the unchanged kappa_{j,0}, kappa_{j,1}, kappa_{j,2}, kappa_{j,3} recomputed here equal lem_integrals.json to rounding.  Output out/r2_strip_ibp.json.",
+ "hypotheses": {
+  "S0_S1_S2_le": 0.02,
+  "S3": "none",
+  "alpha_le": 0.0005
+ },
+ "kappa_new": {
+  "1": [
+   1.0475909936070287e-28,
+   8.260613649228305e-29,
+   5.684866897460101e-29,
+   0.0
+  ],
+  "2": [
+   7.711869321884718e-11,
+   6.078172068992443e-11,
+   3.346763020914766e-11,
+   0.0
+  ],
+  "3": [
+   4.787521552592007e-11,
+   4.0525769326747485e-11,
+   2.6220583071185032e-11,
+   0.0
+  ]
+ },
+ "kappa_regression": {
+  "1": {
+   "lem_integrals": [
+    1.0475909936070287e-28,
+    8.260613649228305e-29,
+    5.171385144786114e-29,
+    1.1381300324643343e-29
+   ],
+   "mine": [
+    1.0475909936070287e-28,
+    8.260613649228305e-29,
+    5.171385144786114e-29,
+    1.1381300324643343e-29
+   ],
+   "rel": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "2": {
+   "lem_integrals": [
+    7.711869321884718e-11,
+    6.078172068992443e-11,
+    3.6422069450203214e-11,
+    1.2015503801619852e-11
+   ],
+   "mine": [
+    7.711869321884718e-11,
+    6.078172068992443e-11,
+    3.6422069450203214e-11,
+    1.2015503801619852e-11
+   ],
+   "rel": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "3": {
+   "lem_integrals": [
+    4.787521552592007e-11,
+    4.0525769326747485e-11,
+    2.4106015873293952e-11,
+    5.867419028905252e-12
+   ],
+   "mine": [
+    4.787521552592007e-11,
+    4.0525769326747485e-11,
+    2.4106015873293952e-11,
+    5.867419028905252e-12
+   ],
+   "rel": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "n_strip_boxes": 300,
+ "runtime_s": 0.7,
+ "v4_with_S3_hypothesis": {
+  "STRIP_AB": 4.36775885830452e-10,
+  "STRIP_BETA": 8.039642303460082e-11
+ }
+}

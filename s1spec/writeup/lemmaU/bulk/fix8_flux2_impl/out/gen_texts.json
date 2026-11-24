@@ -1,0 +1,63 @@
+{
+ "all_balanced": true,
+ "args": {
+  "argv": [
+   "gen_texts.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code",
+  "env": {
+   "F2_NCELL": null,
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2/flux2_lemma.tex": "06e27c02e026cc85d1599d9ce5a4abd3e1244663e29958bacf624e927aa62ec8",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/f2common.py": "89d8c6464049241abfea2f4811f840fcd5ee403a9d347a19dd18c0044b9a3124",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/code/gen_texts.py": "6f2d8e87ccebc6337aab6c1a7e4a87e0c9d890902387d8dabc5066e16ef6e5d1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/chart4_shell.json": "701e0e870179f64ae36b715864dc91f98d80bb5e4b0476eac5c89cb9553e5c4e",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_cert.json": "300bf7ff35d41da6cf90e86b824cc9520771aaa45e326729a8fbdd04e778fe44",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_coef.json": "d06df1dde9d4599614213e109074073372afdb286847903d4c17e479d81c3b75",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix8_flux2_impl/out/flux2_data.json": "b809db4c5b7194ebb51962b674207ef7a5709e9b5769373dfde49cbc46073418"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "balance": {
+  "BPhi_continuation_v36.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "absorption_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "erratum_flux2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "flux2_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "lemmaD_k2_sketch.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  }
+ },
+ "outputs": {
+  "BPhi_continuation_v36.tex": "7c98eccd71483f46e428248cc24c6ab6750dc59cdf80df0ab4def0951e20f49a",
+  "absorption_lemma_v2.tex": "26f04bacf91438d2b5c48b16938a87256a6a10c9d96773ab3dd404e59ea978db",
+  "erratum_flux2.tex": "f370b2f35747234941f2d85c22086084f0670ca00dda1c66cd022869809d3c0d",
+  "flux2_lemma_v2.tex": "94db4c4b036f828b9bbb3039746c9425fbfb40a9d38c68c46a1eb178d7ff376d",
+  "lemmaD_k2_sketch.tex": "7a3269fd14abb6336b5ddaf18d0d5ebb149a3e66b2b252f7ba7ce5e8a6aeec88",
+  "numbers_flux2.json": "5de7ec9c2eab24251b8741d6a52088b6ac69e61dcf9d5c82983d324c5400d229"
+ },
+ "stage": "X7 gen_texts"
+}

@@ -1,0 +1,37 @@
+{
+ "I1_num_rel": 1.2360666310300044e-15,
+ "I1_sym": true,
+ "I2_num_rel": 5.995972666526306e-16,
+ "I2_sym": true,
+ "I3_sym": true,
+ "I4_sym": true,
+ "I5_sym": true,
+ "I6_sym": true,
+ "I7_ref_tc_weighted": {
+  "X1_reduction_ok": true,
+  "drift_lin_ok": true,
+  "drift_split_ok": true,
+  "euler_curv_ok": true,
+  "euler_drift_ok": true
+ },
+ "I8_sym": true,
+ "all_ok": true,
+ "args": {
+  "argv": [
+   "e0_identities.py"
+  ],
+  "env": {
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0",
+   "V4BOUT": null
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/e0_identities.py": "3dc52554ae50638936d097785180fce25e5ac9a528255b8235b6dbda0425570b",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/out/tc_weighted.json": "e93f83724c4b1076dd17fd8770867e9accd4f810b0b1b9e8554ae2c877d13512",
+   "/home/claude/s1spec/step3nl_v4c/v4bcert/v4bcommon.py": "c426baf38db609679433630048f7a21ee518d6192f5b552d1b23a123c5e7c06e"
+  },
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ }
+}

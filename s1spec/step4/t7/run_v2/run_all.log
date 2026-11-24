@@ -1,0 +1,168 @@
+T6V2_DONE seen Wed Nov 11 07:22:58 PST 2026
+store /home/claude/s1spec/step4/t1/polished_v2: slabs 0-180, 26 certificate intervals, steps ['tip', 'far', 'cert', 'c2r3', 'farg', 'nl', 'merge', 't8']
+>> /usr/local/bin/python3 run_batch.py --script tip7.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_tip --base /home/claude/s1spec/step4/t1/polished_v2
+   exit 0 (131s)
+>> /usr/local/bin/python3 run_batch.py --script far7.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_far --base /home/claude/s1spec/step4/t1/polished_v2
+   exit 0 (129s)
+>> /usr/local/bin/python3 run_batch.py --script c2r3.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_c2r3 --base /home/claude/s1spec/step4/t1/polished_v2
+   exit 0 (3187s)
+>> /usr/local/bin/python3 run_batch.py --script farg7.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_farg --base /home/claude/s1spec/step4/t1/polished_v2
+   exit 0 (2552s)
+>> /usr/local/bin/python3 run_batch.py --script nl7.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_nl --base /home/claude/s1spec/step4/t1/polished_v2
+   exit 0 (3580s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.187178472497032
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 closure_cert.py --work /home/claude/s1spec/step4/t7/run_v2 --mu 0.036
+cert  0 (k_c     27.3): rho_c = 0.06036 certified=True (relaxed float 0.06067); om 0.0629 Cg0 0.0812
+cert  1 (k_c     29.4): rho_c = 0.06116 certified=True (relaxed float 0.06147); om 0.0638 Cg0 0.0842
+cert  2 (k_c     31.7): rho_c = 0.06200 certified=True (relaxed float 0.06231); om 0.0647 Cg0 0.0847
+cert  3 (k_c     34.3): rho_c = 0.06227 certified=True (relaxed float 0.06259); om 0.0649 Cg0 0.0825
+cert  4 (k_c     37.0): rho_c = 0.06249 certified=True (relaxed float 0.06281); om 0.0651 Cg0 0.083
+cert  5 (k_c     39.9): rho_c = 0.06335 certified=True (relaxed float 0.06367); om 0.0660 Cg0 0.0822
+cert  6 (k_c     44.7): rho_c = 0.05729 certified=True (relaxed float 0.05758); om 0.0599 Cg0 0.0825
+cert  7 (k_c     52.0): rho_c = 0.05879 certified=True (relaxed float 0.05909); om 0.0614 Cg0 0.0814
+cert  8 (k_c     60.5): rho_c = 0.05959 certified=True (relaxed float 0.05989); om 0.0622 Cg0 0.0807
+cert  9 (k_c     70.3): rho_c = 0.06031 certified=True (relaxed float 0.06062); om 0.0629 Cg0 0.0799
+cert 10 (k_c     81.8): rho_c = 0.06091 certified=True (relaxed float 0.06122); om 0.0635 Cg0 0.082
+cert 11 (k_c     95.1): rho_c = 0.06150 certified=True (relaxed float 0.06182); om 0.0641 Cg0 0.0796
+cert 12 (k_c    110.6): rho_c = 0.06195 certified=True (relaxed float 0.06227); om 0.0646 Cg0 0.0814
+cert 13 (k_c    128.6): rho_c = 0.06235 certified=True (relaxed float 0.06267); om 0.0650 Cg0 0.0822
+cert 14 (k_c    149.5): rho_c = 0.06273 certified=True (relaxed float 0.06305); om 0.0654 Cg0 0.0809
+cert 15 (k_c    173.8): rho_c = 0.06222 certified=True (relaxed float 0.06254); om 0.0650 Cg0 0.0912
+cert 16 (k_c    226.2): rho_c = 0.05464 certified=True (relaxed float 0.05492); om 0.0576 Cg0 0.103
+cert 17 (k_c    329.4): rho_c = 0.05536 certified=True (relaxed float 0.05564); om 0.0588 Cg0 0.125
+cert 18 (k_c    479.5): rho_c = 0.05434 certified=True (relaxed float 0.05461); om 0.0597 Cg0 0.184
+cert 19 (k_c    698.0): rho_c = 0.05245 certified=True (relaxed float 0.05272); om 0.0608 Cg0 0.256
+cert 20 (k_c   1015.8): rho_c = 0.05458 certified=True (relaxed float 0.05486); om 0.0612 Cg0 0.215
+cert 21 (k_c   1478.3): rho_c = 0.05584 certified=True (relaxed float 0.05612); om 0.0613 Cg0 0.188
+cert 22 (k_c   2151.2): rho_c = 0.05007 certified=True (relaxed float 0.05033); om 0.0614 Cg0 0.313
+cert 23 (k_c   3775.9): rho_c = 0.04336 certified=True (relaxed float 0.04358); om 0.0528 Cg0 0.291
+cert 24 (k_c   7994.2): rho_c = 0.03375 certified=True (relaxed float 0.03393); om 0.0530 Cg0 0.46
+=== resume after server restart Wed Nov 11 10:35:35 PST 2026: steps merge,t8
+store /home/claude/s1spec/step4/t1/polished_v2: slabs 0-180, 26 certificate intervals, steps ['merge', 't8']
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.187178472497032
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (1s)
+>> /usr/local/bin/python3 closure_cert.py --work /home/claude/s1spec/step4/t7/run_v2 --mu 0.036
+cert  0 (k_c     27.3): rho_c = 0.06036 certified=True (relaxed float 0.06067); om 0.0629 Cg0 0.0812
+cert  1 (k_c     29.4): rho_c = 0.06116 certified=True (relaxed float 0.06147); om 0.0638 Cg0 0.0842
+cert  2 (k_c     31.7): rho_c = 0.06200 certified=True (relaxed float 0.06231); om 0.0647 Cg0 0.0847
+cert  3 (k_c     34.3): rho_c = 0.06227 certified=True (relaxed float 0.06259); om 0.0649 Cg0 0.0825
+cert  4 (k_c     37.0): rho_c = 0.06249 certified=True (relaxed float 0.06281); om 0.0651 Cg0 0.083
+cert  5 (k_c     39.9): rho_c = 0.06335 certified=True (relaxed float 0.06367); om 0.0660 Cg0 0.0822
+cert  6 (k_c     44.7): rho_c = 0.05729 certified=True (relaxed float 0.05758); om 0.0599 Cg0 0.0825
+cert  7 (k_c     52.0): rho_c = 0.05879 certified=True (relaxed float 0.05909); om 0.0614 Cg0 0.0814
+cert  8 (k_c     60.5): rho_c = 0.05959 certified=True (relaxed float 0.05989); om 0.0622 Cg0 0.0807
+cert  9 (k_c     70.3): rho_c = 0.06031 certified=True (relaxed float 0.06062); om 0.0629 Cg0 0.0799
+cert 10 (k_c     81.8): rho_c = 0.06091 certified=True (relaxed float 0.06122); om 0.0635 Cg0 0.082
+cert 11 (k_c     95.1): rho_c = 0.06150 certified=True (relaxed float 0.06182); om 0.0641 Cg0 0.0796
+cert 12 (k_c    110.6): rho_c = 0.06195 certified=True (relaxed float 0.06227); om 0.0646 Cg0 0.0814
+cert 13 (k_c    128.6): rho_c = 0.06235 certified=True (relaxed float 0.06267); om 0.0650 Cg0 0.0822
+cert 14 (k_c    149.5): rho_c = 0.06273 certified=True (relaxed float 0.06305); om 0.0654 Cg0 0.0809
+cert 15 (k_c    173.8): rho_c = 0.06222 certified=True (relaxed float 0.06254); om 0.0650 Cg0 0.0912
+cert 16 (k_c    226.2): rho_c = 0.05464 certified=True (relaxed float 0.05492); om 0.0576 Cg0 0.103
+cert 17 (k_c    329.4): rho_c = 0.05536 certified=True (relaxed float 0.05564); om 0.0588 Cg0 0.125
+cert 18 (k_c    479.5): rho_c = 0.05434 certified=True (relaxed float 0.05461); om 0.0597 Cg0 0.184
+cert 19 (k_c    698.0): rho_c = 0.05245 certified=True (relaxed float 0.05272); om 0.0608 Cg0 0.256
+cert 20 (k_c   1015.8): rho_c = 0.05458 certified=True (relaxed float 0.05486); om 0.0612 Cg0 0.215
+cert 21 (k_c   1478.3): rho_c = 0.05584 certified=True (relaxed float 0.05612); om 0.0613 Cg0 0.188
+cert 22 (k_c   2151.2): rho_c = 0.05007 certified=True (relaxed float 0.05033); om 0.0614 Cg0 0.313
+cert 23 (k_c   3775.9): rho_c = 0.04336 certified=True (relaxed float 0.04358); om 0.0528 Cg0 0.291
+cert 24 (k_c   7994.2): rho_c = 0.03375 certified=True (relaxed float 0.03393); om 0.0530 Cg0 0.46
+cert 25 (k_c  16301.4): rho_c = 0.03784 certified=True (relaxed float 0.03803); om 0.0530 Cg0 0.396
+mu_e 0.036 min rho_c 0.03375 all certified True
+   exit 0 (109s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180 --publish
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.187178472497032
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 cconst.py --slabs 0-180 --out /home/claude/s1spec/step4/t8/constants/slabs --jobs 2
+   exit 0 (116s)
+>> /usr/local/bin/python3 merge.py --in /home/claude/s1spec/step4/t8/constants/slabs --first 0 --last 180
+181 slabs merged, missing [] -> /home/claude/s1spec/step4/t8/constants/constants.json
+  j=0: lam_min 0.2395  k_jj max 9.6955e+04  theta_min 1.245  gamma max 1.009e+02
+  j=1: lam_min 0.2488  k_jj max 3.0748e+07  theta_min 1.245  gamma max 5.448e+02
+  j=2: lam_min 0.2485  k_jj max 1.0271e+10  theta_min 1.245  gamma max 1.923e+04
+  j=3: lam_min 0.2456  k_jj max 1.1353e+12  theta_min 0.240  gamma max 7.621e+05
+   exit 0 (0s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180 --lambda_max 0.2520088616136364 --publish
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.19043432869412547
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 camp.py
+A_j (window sup, per unit Ybar): {0: '6.5619e+03', 1: '6.5109e+04', 2: '1.2234e+06', 3: '1.2050e+08'}  residual parts B_j: {0: '1.89e-06', 1: '2.44e-09', 2: '1.58e-08', 3: '1.27e-05'}
+limits: {'item3_E0': '4.854e-08', 'item3_E1': '4.418e-08', 'item3_E2': '2.092e-09', 'item3_E3': '1.950e-11', 'item2_E0': '6.519e-08', 'item2_E1': '1.503e-07', 'item2_E2': '3.403e-07', 'item4_K4_goodtime': '4.319e-11'}
+Ybar requirement 1.950e-11 (binding item3_E3); J at the end: 1.131e+02, 7.503e+01, 3.662e+01, 8.137e+03, 1.806e+06; routes Lambda/I0/I2; A3 parts {'sqrt_inflow': 96113340.44941293, 'sqrt_duhamel': 45826.66319888959, 'G': 24386821.20049878}
+   exit 0 (1s)
+lambda < 2 mu1: T8 certified lambda_max = 0.2520 < 2 min mu1 = 0.3000 (margin 0.190)
+rho_c min = 0.03375 (mu_e = 0.036), K_e = 890.6, C_gamma0 max = 0.46; T8 inputs: muE=0.036, rho=0.03375, Ke=890.5943374695329, Cg0=0.4600348229700629
+T8 Ybar requirement: 1.9500e-11 (binding item3_E3), window slabs [177, 180] (k from 2.041e+04)
+run_all done Wed Nov 11 10:39:26 2026
+chain exit 0 Wed Nov 11 10:39:26 PST 2026
+=== Wed Nov 11 10:42:02 PST 2026: steps fargref,merge,t8 (farg 4 tc-balls on slabs with sqrt lmax G0 > 0.1)
+store /home/claude/s1spec/step4/t1/polished_v2: slabs 0-180, 26 certificate intervals, steps ['fargref', 'merge', 't8']
+>> /usr/local/bin/python3 run_batch.py --script farg7.py --slabs 0-180 --jobs 2 --out /home/claude/s1spec/step4/t7/run_v2/out_farg --base /home/claude/s1spec/step4/t1/polished_v2 -- --refine 0.1 --nsub 4
+   exit 0 (1444s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.187178472497032
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 closure_cert.py --work /home/claude/s1spec/step4/t7/run_v2 --mu 0.036
+cert  0 (k_c     27.3): rho_c = 0.06036 certified=True (relaxed float 0.06067); om 0.0629 Cg0 0.0812
+cert  1 (k_c     29.4): rho_c = 0.06116 certified=True (relaxed float 0.06147); om 0.0638 Cg0 0.0842
+cert  2 (k_c     31.7): rho_c = 0.06200 certified=True (relaxed float 0.06231); om 0.0647 Cg0 0.0847
+cert  3 (k_c     34.3): rho_c = 0.06227 certified=True (relaxed float 0.06259); om 0.0649 Cg0 0.0825
+cert  4 (k_c     37.0): rho_c = 0.06249 certified=True (relaxed float 0.06281); om 0.0651 Cg0 0.083
+cert  5 (k_c     39.9): rho_c = 0.06335 certified=True (relaxed float 0.06367); om 0.0660 Cg0 0.0822
+cert  6 (k_c     44.7): rho_c = 0.05729 certified=True (relaxed float 0.05758); om 0.0599 Cg0 0.0825
+cert  7 (k_c     52.0): rho_c = 0.05879 certified=True (relaxed float 0.05909); om 0.0614 Cg0 0.0814
+cert  8 (k_c     60.5): rho_c = 0.05959 certified=True (relaxed float 0.05989); om 0.0622 Cg0 0.0807
+cert  9 (k_c     70.3): rho_c = 0.06031 certified=True (relaxed float 0.06062); om 0.0629 Cg0 0.0799
+cert 10 (k_c     81.8): rho_c = 0.06091 certified=True (relaxed float 0.06122); om 0.0635 Cg0 0.082
+cert 11 (k_c     95.1): rho_c = 0.06150 certified=True (relaxed float 0.06182); om 0.0641 Cg0 0.0796
+cert 12 (k_c    110.6): rho_c = 0.06195 certified=True (relaxed float 0.06227); om 0.0646 Cg0 0.0814
+cert 13 (k_c    128.6): rho_c = 0.06235 certified=True (relaxed float 0.06267); om 0.0650 Cg0 0.0822
+cert 14 (k_c    149.5): rho_c = 0.06273 certified=True (relaxed float 0.06305); om 0.0654 Cg0 0.0809
+cert 15 (k_c    173.8): rho_c = 0.06222 certified=True (relaxed float 0.06254); om 0.0650 Cg0 0.0912
+cert 16 (k_c    226.2): rho_c = 0.05464 certified=True (relaxed float 0.05492); om 0.0576 Cg0 0.103
+cert 17 (k_c    329.4): rho_c = 0.05536 certified=True (relaxed float 0.05564); om 0.0588 Cg0 0.125
+cert 18 (k_c    479.5): rho_c = 0.05613 certified=True (relaxed float 0.05642); om 0.0597 Cg0 0.126
+cert 19 (k_c    698.0): rho_c = 0.05728 certified=True (relaxed float 0.05757); om 0.0608 Cg0 0.126
+cert 20 (k_c   1015.8): rho_c = 0.05741 certified=True (relaxed float 0.05770); om 0.0612 Cg0 0.134
+cert 21 (k_c   1478.3): rho_c = 0.05769 certified=True (relaxed float 0.05799); om 0.0613 Cg0 0.13
+cert 22 (k_c   2151.2): rho_c = 0.05789 certified=True (relaxed float 0.05819); om 0.0614 Cg0 0.126
+cert 23 (k_c   3775.9): rho_c = 0.04961 certified=True (relaxed float 0.04986); om 0.0528 Cg0 0.12
+cert 24 (k_c   7994.2): rho_c = 0.04713 certified=True (relaxed float 0.04737); om 0.0530 Cg0 0.207
+cert 25 (k_c  16301.4): rho_c = 0.04965 certified=True (relaxed float 0.04991); om 0.0530 Cg0 0.126
+mu_e 0.036 min rho_c 0.04713 all certified True
+   exit 0 (98s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180 --publish
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.187178472497032
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 cconst.py --slabs 0-180 --out /home/claude/s1spec/step4/t8/constants/slabs --jobs 2
+   exit 0 (112s)
+>> /usr/local/bin/python3 merge.py --in /home/claude/s1spec/step4/t8/constants/slabs --first 0 --last 180
+181 slabs merged, missing [] -> /home/claude/s1spec/step4/t8/constants/constants.json
+  j=0: lam_min 0.2395  k_jj max 9.6955e+04  theta_min 1.245  gamma max 1.009e+02
+  j=1: lam_min 0.2488  k_jj max 3.0748e+07  theta_min 1.245  gamma max 5.448e+02
+  j=2: lam_min 0.2485  k_jj max 1.0271e+10  theta_min 1.245  gamma max 1.923e+04
+  j=3: lam_min 0.2456  k_jj max 1.1353e+12  theta_min 0.240  gamma max 7.621e+05
+   exit 0 (0s)
+>> /usr/local/bin/python3 merge.py --work /home/claude/s1spec/step4/t7/run_v2 --base /home/claude/s1spec/step4/t1/polished_v2 --slabs 0-180 --lambda_max 0.2520088616136364 --publish
+certificates 26 min c_I 0.052839902284073786 (with T6 corrections 0.0528399000824299 ) min lambda<2mu1 margin 0.19043432869412547
+pending counts {'c2r3': 0, 'far': 0, 'tip': 0, 'farg': 0, 'nl': 0} slabs [0, 180] not covered by a certificate 0
+   exit 0 (0s)
+>> /usr/local/bin/python3 camp.py
+A_j (window sup, per unit Ybar): {0: '6.5619e+03', 1: '6.1690e+04', 2: '1.1250e+06', 3: '1.1238e+08'}  residual parts B_j: {0: '1.89e-06', 1: '2.44e-09', 2: '1.58e-08', 3: '1.27e-05'}
+limits: {'item3_E0': '4.854e-08', 'item3_E1': '4.663e-08', 'item3_E2': '2.272e-09', 'item3_E3': '2.092e-11', 'item2_E0': '6.519e-08', 'item2_E1': '1.586e-07', 'item2_E2': '3.694e-07', 'item4_K4_goodtime': '4.697e-11'}
+Ybar requirement 2.092e-11 (binding item3_E3); J at the end: 1.131e+02, 6.462e+01, 2.573e+01, 6.820e+03, 1.806e+06; routes Lambda/I0/I2; A3 parts {'sqrt_inflow': 87995222.11688437, 'sqrt_duhamel': 45826.66319888959, 'G': 24386794.671487276}
+   exit 0 (1s)
+lambda < 2 mu1: T8 certified lambda_max = 0.2520 < 2 min mu1 = 0.3000 (margin 0.190)
+rho_c min = 0.04713 (mu_e = 0.036), K_e = 890.6, C_gamma0 max = 0.2068; T8 inputs: muE=0.036, rho=0.04713, Ke=890.5943374695329, Cg0=0.20682812128209846
+T8 Ybar requirement: 2.0917e-11 (binding item3_E3), window slabs [177, 180] (k from 2.041e+04)
+run_all done Wed Nov 11 11:09:39 2026
+chain exit 0 Wed Nov 11 11:09:39 PST 2026

@@ -1,0 +1,80 @@
+{
+ "args": {
+  "argv": [
+   "tools/check_titles_v44.py",
+   "../fix24_texts_v43",
+   "tools/title_check_on_v43.json"
+  ],
+  "dir": "../fix24_texts_v43/"
+ },
+ "titles_seen": 249,
+ "fail": [
+  {
+   "file": "G1_export_k2_v43.tex",
+   "line": 52,
+   "cmd": "caption",
+   "short": null,
+   "title": "Constants at the setting $4N_2^{\\rm ref}$ (\\fn{asm_design_N2ref4.json}, \\fn{res.tight}), rounded outward to 6 digits \\tC.",
+   "why": [
+    "\\fn",
+    "\\fn",
+    "underscore"
+   ]
+  },
+  {
+   "file": "ei_lemma_v4c_v43.tex",
+   "line": 28,
+   "cmd": "section",
+   "short": null,
+   "title": "The $E_I$ lemma of verifier \\fn{fin13v4c}",
+   "why": [
+    "\\fn"
+   ]
+  },
+  {
+   "file": "ei_lemma_v4c_v43.tex",
+   "line": 140,
+   "cmd": "subsection",
+   "short": null,
+   "title": "The E0 and E2 blocks of \\fn{fin13v4c}",
+   "why": [
+    "\\fn"
+   ]
+  },
+  {
+   "file": "main_v3_v43.tex",
+   "line": 189,
+   "cmd": "caption",
+   "short": null,
+   "title": "Enclosures of $S_1$: step-1 supplement \\dref{S1}; tight \\dref{S1t}; conditioned on $M=0$ through the mean value theorem on $Y$, valid for every zero of $M$ in $",
+   "why": [
+    "\\fn",
+    "underscore"
+   ]
+  },
+  {
+   "file": "main_v3_v43.tex",
+   "line": 227,
+   "cmd": "caption",
+   "short": null,
+   "title": "Illustration in floating point (\\fn{make_fig.py}), not a certificate. (a) $\\Gamma_0$; the arms have length about $24$. (b) The bend: a small chamber at the end ",
+   "why": [
+    "\\fn",
+    "underscore"
+   ]
+  },
+  {
+   "file": "step3_v43_main.tex",
+   "line": 73,
+   "cmd": "section",
+   "short": null,
+   "title": "Lemma U (summary; proof in \\fn{lemmaU.tex}, revision \\fn{fix24_texts_v43/lemmaU_v43.tex})",
+   "why": [
+    "\\fn",
+    "\\fn",
+    "underscore"
+   ]
+  }
+ ],
+ "ok": false
+}

@@ -1,0 +1,209 @@
+{
+ "labels": "cert = arb with outward rounding on certified exports; the implication (O3) => Nbar_k^2 <= ln 2 is [paper]",
+ "note": "Nbar^2 = (ln 2, ln 2, ln 2); everything else as in the source export (kappa_J applied, A5 interface, point terms, R5prime).",
+ "res": {
+  "t2_A (fin11 verifier, H2f design 5e-7)": {
+   "tight": {
+    "H2": [
+     "1e-8",
+     "1e-6",
+     "1e-3"
+    ],
+    "H2f": [
+     "5e-7",
+     "5e-6",
+     "1e-5"
+    ],
+    "EA_at_N2ref": [
+     6.876572646023776e-07,
+     0.00010388245059950142,
+     0.05658435726218403
+    ],
+    "EA_at_O3": [
+     7.053795498217959e-07,
+     0.00010394074580508542,
+     0.056137533471650104
+    ],
+    "rel_increase_vs_N2ref": [
+     0.02577197410932002,
+     0.0005611650981238123,
+     -0.007896595669781467
+    ],
+    "K0_at_O3": 1.4042850726645579e-21,
+    "K2_at_O3": 4.0870105583468926e-21,
+    "K0_at_N2ref": 1.369956532378183e-21,
+    "K2_at_N2ref": 4.001721580017565e-21,
+    "FLUX0": "4.1e-21",
+    "FLUX2": "2.0e-20",
+    "margin_beta2": {
+     "FLUX0_over_2K0": 1.4598175540741394,
+     "FLUX2_over_2K2": 2.4467761600412365
+    },
+    "margin_beta5_4": {
+     "FLUX0_over_K0": 2.335708086518623,
+     "FLUX2_over_K2": 3.914841856065979
+    },
+    "margin_beta2_at_N2ref": {
+     "FLUX0_over_2K0": 1.4963978429602374,
+     "FLUX2_over_2K2": 2.4989244753894413
+    }
+   },
+   "v31": {
+    "H2": [
+     "2e-7",
+     "1e-4",
+     "0.2"
+    ],
+    "H2f": [
+     "5e-7",
+     "5e-6",
+     "1e-5"
+    ],
+    "EA_at_N2ref": [
+     8.776572646023776e-07,
+     0.0002028824521171696,
+     0.2555846765463393
+    ],
+    "EA_at_O3": [
+     8.953795498217958e-07,
+     0.0002029407473227536,
+     0.25513785275580536
+    ],
+    "rel_increase_vs_N2ref": [
+     0.02019271751535866,
+     0.00028733488271491503,
+     -0.0017482417043611835
+    ],
+    "K0_at_O3": 1.823052600443037e-21,
+    "K2_at_O3": 6.236050696079045e-21,
+    "K0_at_N2ref": 1.7887240601566623e-21,
+    "K2_at_N2ref": 6.150761717749719e-21,
+    "FLUX0": "4.1e-21",
+    "FLUX2": "2.0e-20",
+    "margin_beta2": {
+     "FLUX0_over_2K0": 1.1244875762234237,
+     "FLUX2_over_2K2": 1.6035790097549336
+    },
+    "margin_beta5_4": {
+     "FLUX0_over_K0": 1.799180121957478,
+     "FLUX2_over_K2": 2.5657264156078936
+    },
+    "margin_beta2_at_N2ref": {
+     "FLUX0_over_2K0": 1.1460683319821026,
+     "FLUX2_over_2K2": 1.6258148923477629
+    }
+   }
+  },
+  "t2_A_v33 (fin12f4 verifier, H2f design 1e-6)": {
+   "tight": {
+    "H2": [
+     "1e-8",
+     "1e-6",
+     "1e-3"
+    ],
+    "H2f": [
+     "1e-6",
+     "5e-6",
+     "1e-5"
+    ],
+    "EA_at_N2ref": [
+     1.1876580400899677e-06,
+     0.00010388289240348952,
+     0.05658469931500306
+    ],
+    "EA_at_O3": [
+     1.205380325309386e-06,
+     0.00010394118760907353,
+     0.05613787552446913
+    ],
+    "rel_increase_vs_N2ref": [
+     0.014922043737502,
+     0.0005611627115424167,
+     -0.007896547935096221
+    ],
+    "K0_at_O3": 2.3736471706315068e-21,
+    "K2_at_O3": 6.540991978413403e-21,
+    "K0_at_N2ref": 2.3393186303451318e-21,
+    "K2_at_N2ref": 6.455703000084075e-21,
+    "FLUX0": "1.64e-20",
+    "FLUX2": "8.0e-20",
+    "margin_beta2": {
+     "FLUX0_over_2K0": 3.454599361462132,
+     "FLUX2_over_2K2": 6.115280393556221
+    },
+    "margin_beta5_4": {
+     "FLUX0_over_K0": 5.527358978339412,
+     "FLUX2_over_K2": 9.784448629689953
+    },
+    "margin_beta2_at_N2ref": {
+     "FLUX0_over_2K0": 3.5052941885006113,
+     "FLUX2_over_2K2": 6.196071907192611
+    }
+   },
+   "v31": {
+    "H2": [
+     "2e-7",
+     "1e-4",
+     "0.2"
+    ],
+    "H2f": [
+     "1e-6",
+     "5e-6",
+     "1e-5"
+    ],
+    "EA_at_N2ref": [
+     1.3776580400899678e-06,
+     0.0002028828939211577,
+     0.25558501859915833
+    ],
+    "EA_at_O3": [
+     1.3953803253093863e-06,
+     0.0002029411891267417,
+     0.25513819480862443
+    ],
+    "rel_increase_vs_N2ref": [
+     0.012864066919147113,
+     0.00028733425700564673,
+     -0.001748239364665897
+    ],
+    "K0_at_O3": 2.792414698409986e-21,
+    "K2_at_O3": 8.690032116145559e-21,
+    "K0_at_N2ref": 2.758086158123611e-21,
+    "K2_at_N2ref": 8.60474313781623e-21,
+    "FLUX0": "1.64e-20",
+    "FLUX2": "8.0e-20",
+    "margin_beta2": {
+     "FLUX0_over_2K0": 2.9365265856354066,
+     "FLUX2_over_2K2": 4.602974933278141
+    },
+    "margin_beta5_4": {
+     "FLUX0_over_K0": 4.698442537016651,
+     "FLUX2_over_K2": 7.364759893245026
+    },
+    "margin_beta2_at_N2ref": {
+     "FLUX0_over_2K0": 2.9730760860562264,
+     "FLUX2_over_2K2": 4.648598959823392
+    }
+   }
+  }
+ },
+ "args": {
+  "argv": [
+   "o3_outer_check.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/t7_assembly/erratum",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "flint": "0.9.0",
+  "env": {
+   "PYTHONHASHSEED": "0"
+  },
+  "inputs": {
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/out/A_interface.json": "4f86e3cb66c62bb1ee7a52334ede7d88a42d5cfefca8b933745918c200f76f31",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A/base_ibp/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A_v33/out/A_interface.json": "5237a96a1c6ca873e0f6f214f413c1a39996002155b8f128920d9cdacb087aa4",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t2_A_v33/base_ibp/lemmaS_cflux.json": "f08e90fb25d0d8893a60109827334dc24f53fc37ed0cdf3f6e6d5407ca61bd65",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/t7_assembly/erratum/o3_outer_check.py": "742b38e30ee023d6d5635be44f4a99fd50f0ff41f8b7c7aeeda6f5834fdcbfb7"
+  }
+ }
+}

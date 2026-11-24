@@ -1,0 +1,18 @@
+ADD='abcd' alpha=0 Ly=1e-16: rigorous lower bound of max rate = +5.57257 at [9.902e-01 8.330e-05 4.131e-03 1.240e-01 3.974e+00]
+ADD='abcd' alpha=0.0001 Ly=1e-16: rigorous lower bound of max rate = +5.57457 at [9.857e-01 1.056e-04 4.136e-03 1.242e-01 3.977e+00]
+ADD='abcd' alpha=0 Ly=1e-14: rigorous lower bound of max rate = +5.57936 at [9.897e-01 9.011e-05 4.154e-03 1.242e-01 3.980e+00]
+ADD='abcd' alpha=0.0001 Ly=1e-14: rigorous lower bound of max rate = +5.57971 at [9.886e-01 1.064e-04 4.145e-03 1.243e-01 3.977e+00]
+ADD='abcd' alpha=0 Ly=1e-12: rigorous lower bound of max rate = +5.69159 at [0.989 0.053 0.004 0.127 4.034]
+ADD='abcd' alpha=0.0001 Ly=1e-12: rigorous lower bound of max rate = +5.65198 at [9.929e-01 2.689e-05 4.348e-03 1.249e-01 4.013e+00]
+AR1=1.85e-2
+ alpha 0.0 lb 5.69159
+ alpha 0.0001 lb 5.65198
+AR1=5e-3
+ alpha 0.0 lb 0.18561
+ alpha 0.0001 lb 0.18567
+AR1=2e-3
+ alpha 0.0 lb -0.01095
+ alpha 0.0001 lb 0.00014
+AR1=1e-3
+ alpha 0.0 lb -0.01095
+ alpha 0.0001 lb 0.00013

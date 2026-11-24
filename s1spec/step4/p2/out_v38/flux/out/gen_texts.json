@@ -1,0 +1,64 @@
+{
+ "all_balanced": true,
+ "args": {
+  "argv": [
+   "gen_texts.py"
+  ],
+  "cwd": "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code",
+  "env": {
+   "F2_NCELL": null,
+   "F2_VTAG": "fin13v4c",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "flint": "0.9.0",
+  "inputs": {
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/chart4_shell.json": "88307694104cc8eb23925a1af5f0e7ea0f2150c1eb0228c489d401b6f4b8456f",
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_cert.json": "1a06ef08cfbc1b033072e95623a7e59b763e933fe74d573c59a4623d657d52f4",
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_coef.json": "97ae428fcb0730349ff076091a23421aa100baa3ede205fab3eeccfecfe95b68",
+   "/home/claude/s1spec/step4/p2/out_v38/flux/out/flux2_data.json": "e4f700a92db47995e9f839219e4dad9b4034d0b166fd6b74a04a221ddf69c759",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/f2common.py": "4d813dc2c0af0dbf57717734d8ede9d147e0b170ff1d84518fa6980587f73242",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix13_v37chain/flux/code/gen_texts.py": "6f2d8e87ccebc6337aab6c1a7e4a87e0c9d890902387d8dabc5066e16ef6e5d1",
+   "/home/claude/s1spec/writeup/lemmaU/bulk/fix7_flux2/flux2_lemma.tex": "06e27c02e026cc85d1599d9ce5a4abd3e1244663e29958bacf624e927aa62ec8"
+  },
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "sympy": "1.14.0"
+ },
+ "balance": {
+  "BPhi_continuation_v36.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "absorption_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "erratum_flux2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "flux2_lemma_v2.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  },
+  "lemmaD_k2_sketch.tex": {
+   "begin_end_equal": true,
+   "brace_balance": 0,
+   "ok": true
+  }
+ },
+ "outputs": {
+  "BPhi_continuation_v36.tex": "9a4b159b8ccd85b23c2bb04d572a3ada4fe4fffa81371b51ab609e0ab97c2359",
+  "absorption_lemma_v2.tex": "ff97ad56c3096e26aab95fc9806c895969b4e520f784ac18a6e1d11ac52fa7d6",
+  "erratum_flux2.tex": "f370b2f35747234941f2d85c22086084f0670ca00dda1c66cd022869809d3c0d",
+  "flux2_lemma_v2.tex": "14ef530260351ab298005d6621fe378943f7822ea04284aed7306ef901012490",
+  "lemmaD_k2_sketch.tex": "823aa2d3fd21c7ebdb6123dc1af9dfe68efc3a279ca7c8f823addd65481fa64d",
+  "numbers_flux2.json": "32256e075adfaf7c00a89dd2963073837a7dd5c19af240a23992b29972af0207"
+ },
+ "stage": "X7 gen_texts"
+}

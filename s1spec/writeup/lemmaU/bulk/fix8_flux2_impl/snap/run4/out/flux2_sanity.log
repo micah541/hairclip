@@ -1,0 +1,5 @@
+{'test': 'sin', 'K0_defining': -7.28920050009811e-05, 'K0_reduced': -7.28920050009811e-05, 'rel_diff': 0.0, 'K0_bound': 0.0002784404929924872, 'K0_le_bound': True, 'K2lin': 0.000754102008104718, 'K2lin_bound': 0.012289390605586377, 'K2lin_le_bound': True}
+{'test': 'gauss', 'K0_defining': -2.488709326906484e-08, 'K0_reduced': -2.488709326906484e-08, 'rel_diff': 0.0, 'K0_bound': 4.695837974665847e-06, 'K0_le_bound': True, 'K2lin': 6.513438752928323e-05, 'K2lin_bound': 0.000614580692674487, 'K2lin_le_bound': True}
+{'test': 'cubic', 'K0_defining': -6.022203356458609e-08, 'K0_reduced': -6.022203356458609e-08, 'rel_diff': 0.0, 'K0_bound': 2.421426003434822e-07, 'K0_le_bound': True, 'K2lin': 6.330818216708472e-07, 'K2lin_bound': 7.83500484861897e-06, 'K2lin_le_bound': True}
+reflected: {'Cp': 1.0, 'Sp': 0.01, 's': 0.05, 'Zmax': 0.4950674324515687, 'Z_le_2Cp': True, 'Zmin': 0.0, 'slope_ok': True}
+X6 done all_ok True sha 499ec4d49d8f4755101b09cd1a2c35034c81b18dfee3ce11344fb3be545f1663 (7.8s)

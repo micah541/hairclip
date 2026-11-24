@@ -1,0 +1,54 @@
+SELF-CHECK (ORIG t1 inputs)
+  t1 sweep (4,4,0.3) KS=1: M1 x1.7248 (t1 json x1.7248, rel dev 0.0e+00); M0 x3.507 (t1 x3.507, dev 0.0e+00)
+  launch LATE (4,4,0.3) KS=1: M1 x2.1300 (launch_model.json x2.1300, dev 0.0e+00); M0 x3.898 (x3.898); conservative M1 x1.979 (x1.979, dev 0.0e+00)
+  launch PRESENT (y_c list) max rel dev of M1 vs launch_model.json: 0.0e+00
+  t1 sweep with (H3): M1 x1.666 (LAUNCH.md: x1.666)
+  SELF-CHECK PASSED
+
+PHASE-1 INPUTS: E^A = [1.21100549634497e-07, 8.174174733435895e-05, 0.04804485849340202], gamma' = [0.24628896551872523, 0.24617402900616975, 0.1235535587471464] [cert]; Ghat22: P1(0.05) 239750.3, P1(0.09) 250917.8, P2 276917.6 -> worst 276917.6 [cert]; Gw = 1.8199
+  K (ramp_K_cert['4.0']['K']) = {'0': {'0': 7930.066048686205, '1': 724.9633698409896}, '1': {'0': 0.08151807850657682, '1': 5952.784263185688, '2': 545.2697032670607, '3': 0.5716083543691122}, '2': {'0': 0.8719445232479055, '1': 528.6750810066006, '2': 20960.361416655367, '3': 555.1907517077063}};  footw = (1.9407, 2068.74), C_eta^Xi = 13.3490, S33 coef = 26.917 + 72.299 = 99.216; (2,2,3) placeholder coef 32.609 [est, unbounded in proof]
+  K_jj consistency: P2's K_jj use Y_{j+1} of P2's conventions (largest); P1's Y is smaller (Ghat 2.51e5 < 2.77e5) so K_jj is conservative for every G22 row: no rescale.
+
+== weight (4,4,0.3): IW = 4.136, IW_in(56) = 1.443, w_min = 0.735, C_A = 2.231, q = 0.01853  [est]
+  [with (2,2,3)] G22=P1(Umax=0.05, info)  Gw=1.639 KS=1: LATE launch M0 x3.91 M1 x2.120 | LATE cons M0 x3.68 M1 x1.957 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.79 M1 x1.49 | t1-sweep+H3 M1 x1.655  [est]
+  [with (2,2,3)] G22=P1(Umax=0.05, info)  Gw=1.639 KS=2: LATE launch M0 x3.77 M1 x2.029 | LATE cons M0 x3.42 M1 x1.770 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.38 | cons M0 x1.75 M1 x1.40 | t1-sweep+H3 M1 x1.542  [est]
+  [with (2,2,3)] G22=P1(Umax=0.09)        Gw=1.690 KS=1: LATE launch M0 x3.88 M1 x2.090 | LATE cons M0 x3.65 M1 x1.929 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.49 | cons M0 x1.78 M1 x1.47 | t1-sweep+H3 M1 x1.632  [est]
+  [with (2,2,3)] G22=P1(Umax=0.09)        Gw=1.690 KS=2: LATE launch M0 x3.75 M1 x2.000 | LATE cons M0 x3.40 M1 x1.745 | PRESENT(yc<=126.7) launch M0 x1.97 M1 x2.35 | cons M0 x1.74 M1 x1.38 | t1-sweep+H3 M1 x1.520  [est]
+  [with (2,2,3)] G22=P2                   Gw=1.820 KS=1: LATE launch M0 x3.83 M1 x2.019 | LATE cons M0 x3.60 M1 x1.863 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.41 | cons M0 x1.76 M1 x1.42 | t1-sweep+H3 M1 x1.576  [est]
+  [with (2,2,3)] G22=P2                   Gw=1.820 KS=2: LATE launch M0 x3.70 M1 x1.932 | LATE cons M0 x3.35 M1 x1.684 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.27 | cons M0 x1.72 M1 x1.34 | t1-sweep+H3 M1 x1.468  [est]
+  [with (2,2,3)] G22=WORST                Gw=1.820 KS=1: LATE launch M0 x3.83 M1 x2.019 | LATE cons M0 x3.60 M1 x1.863 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.41 | cons M0 x1.76 M1 x1.42 | t1-sweep+H3 M1 x1.576  [est]
+  [with (2,2,3)] G22=WORST                Gw=1.820 KS=2: LATE launch M0 x3.70 M1 x1.932 | LATE cons M0 x3.35 M1 x1.684 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.27 | cons M0 x1.72 M1 x1.34 | t1-sweep+H3 M1 x1.468  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.05, info)  Gw=1.639 KS=1: LATE launch M0 x3.91 M1 x2.120 | LATE cons M0 x3.68 M1 x1.957 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.79 M1 x1.49 | t1-sweep+H3 M1 x1.655  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.05, info)  Gw=1.639 KS=2: LATE launch M0 x3.77 M1 x2.029 | LATE cons M0 x3.42 M1 x1.770 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.38 | cons M0 x1.75 M1 x1.40 | t1-sweep+H3 M1 x1.542  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.09)        Gw=1.690 KS=1: LATE launch M0 x3.88 M1 x2.090 | LATE cons M0 x3.65 M1 x1.929 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.49 | cons M0 x1.78 M1 x1.47 | t1-sweep+H3 M1 x1.632  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.09)        Gw=1.690 KS=2: LATE launch M0 x3.75 M1 x2.000 | LATE cons M0 x3.40 M1 x1.745 | PRESENT(yc<=126.7) launch M0 x1.97 M1 x2.35 | cons M0 x1.74 M1 x1.38 | t1-sweep+H3 M1 x1.520  [est]
+  [no (2,2,3) ] G22=P2                   Gw=1.820 KS=1: LATE launch M0 x3.83 M1 x2.019 | LATE cons M0 x3.60 M1 x1.863 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.41 | cons M0 x1.76 M1 x1.42 | t1-sweep+H3 M1 x1.576  [est]
+  [no (2,2,3) ] G22=P2                   Gw=1.820 KS=2: LATE launch M0 x3.70 M1 x1.932 | LATE cons M0 x3.35 M1 x1.684 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.27 | cons M0 x1.72 M1 x1.34 | t1-sweep+H3 M1 x1.468  [est]
+  [no (2,2,3) ] G22=WORST                Gw=1.820 KS=1: LATE launch M0 x3.83 M1 x2.019 | LATE cons M0 x3.60 M1 x1.863 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.41 | cons M0 x1.76 M1 x1.42 | t1-sweep+H3 M1 x1.576  [est]
+  [no (2,2,3) ] G22=WORST                Gw=1.820 KS=2: LATE launch M0 x3.70 M1 x1.932 | LATE cons M0 x3.35 M1 x1.684 | PRESENT(yc<=126.7) launch M0 x1.96 M1 x2.27 | cons M0 x1.72 M1 x1.34 | t1-sweep+H3 M1 x1.468  [est]
+  FLIP (4,4,0.3) late_launch KS=1: Ghat22 -> 5.303e+05 (x1.91 of worst; Gw 7.29);  ramp constants -> KS = 35.2
+  FLIP (4,4,0.3) late_cons KS=1: Ghat22 -> 5.162e+05 (x1.86 of worst; Gw 6.24);  ramp constants -> KS = 12.3
+  FLIP (4,4,0.3) late_launch KS=2: Ghat22 -> 5.229e+05 (x1.89 of worst; Gw 6.70);  ramp constants -> KS = 35.2
+  FLIP (4,4,0.3) late_cons KS=2: Ghat22 -> 4.95e+05 (x1.79 of worst; Gw 5.14);  ramp constants -> KS = 12.3
+
+== weight (4,4,0.0): IW = 2.161, IW_in(56) = 0.672, w_min = 0.455, C_A = 1.388, q = 0.00907  [est]
+  [with (2,2,3)] G22=P1(Umax=0.05, info)  Gw=1.639 KS=1: LATE launch M0 x4.01 M1 x2.272 | LATE cons M0 x3.78 M1 x2.094 | PRESENT(yc<=126.7) launch M0 x2.00 M1 x2.79 | cons M0 x1.82 M1 x1.58 | t1-sweep+H3 M1 x1.778  [est]
+  [with (2,2,3)] G22=P1(Umax=0.05, info)  Gw=1.639 KS=2: LATE launch M0 x3.90 M1 x2.187 | LATE cons M0 x3.54 M1 x1.902 | PRESENT(yc<=126.7) launch M0 x2.00 M1 x2.64 | cons M0 x1.78 M1 x1.49 | t1-sweep+H3 M1 x1.659  [est]
+  [with (2,2,3)] G22=P1(Umax=0.09)        Gw=1.690 KS=1: LATE launch M0 x3.99 M1 x2.241 | LATE cons M0 x3.76 M1 x2.066 | PRESENT(yc<=126.7) launch M0 x1.99 M1 x2.76 | cons M0 x1.81 M1 x1.56 | t1-sweep+H3 M1 x1.754  [est]
+  [with (2,2,3)] G22=P1(Umax=0.09)        Gw=1.690 KS=2: LATE launch M0 x3.88 M1 x2.158 | LATE cons M0 x3.52 M1 x1.876 | PRESENT(yc<=126.7) launch M0 x1.99 M1 x2.61 | cons M0 x1.77 M1 x1.47 | t1-sweep+H3 M1 x1.636  [est]
+  [with (2,2,3)] G22=P2                   Gw=1.820 KS=1: LATE launch M0 x3.94 M1 x2.167 | LATE cons M0 x3.71 M1 x1.997 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.67 | cons M0 x1.79 M1 x1.52 | t1-sweep+H3 M1 x1.695  [est]
+  [with (2,2,3)] G22=P2                   Gw=1.820 KS=2: LATE launch M0 x3.83 M1 x2.086 | LATE cons M0 x3.47 M1 x1.812 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.75 M1 x1.43 | t1-sweep+H3 M1 x1.581  [est]
+  [with (2,2,3)] G22=WORST                Gw=1.820 KS=1: LATE launch M0 x3.94 M1 x2.167 | LATE cons M0 x3.71 M1 x1.997 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.67 | cons M0 x1.79 M1 x1.52 | t1-sweep+H3 M1 x1.695  [est]
+  [with (2,2,3)] G22=WORST                Gw=1.820 KS=2: LATE launch M0 x3.83 M1 x2.086 | LATE cons M0 x3.47 M1 x1.812 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.75 M1 x1.43 | t1-sweep+H3 M1 x1.581  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.05, info)  Gw=1.639 KS=1: LATE launch M0 x4.01 M1 x2.272 | LATE cons M0 x3.78 M1 x2.095 | PRESENT(yc<=126.7) launch M0 x2.00 M1 x2.79 | cons M0 x1.82 M1 x1.58 | t1-sweep+H3 M1 x1.778  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.05, info)  Gw=1.639 KS=2: LATE launch M0 x3.90 M1 x2.187 | LATE cons M0 x3.54 M1 x1.902 | PRESENT(yc<=126.7) launch M0 x2.00 M1 x2.64 | cons M0 x1.78 M1 x1.49 | t1-sweep+H3 M1 x1.659  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.09)        Gw=1.690 KS=1: LATE launch M0 x3.99 M1 x2.241 | LATE cons M0 x3.76 M1 x2.066 | PRESENT(yc<=126.7) launch M0 x1.99 M1 x2.76 | cons M0 x1.81 M1 x1.56 | t1-sweep+H3 M1 x1.754  [est]
+  [no (2,2,3) ] G22=P1(Umax=0.09)        Gw=1.690 KS=2: LATE launch M0 x3.88 M1 x2.158 | LATE cons M0 x3.52 M1 x1.876 | PRESENT(yc<=126.7) launch M0 x1.99 M1 x2.61 | cons M0 x1.77 M1 x1.47 | t1-sweep+H3 M1 x1.636  [est]
+  [no (2,2,3) ] G22=P2                   Gw=1.820 KS=1: LATE launch M0 x3.94 M1 x2.167 | LATE cons M0 x3.71 M1 x1.997 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.67 | cons M0 x1.79 M1 x1.52 | t1-sweep+H3 M1 x1.695  [est]
+  [no (2,2,3) ] G22=P2                   Gw=1.820 KS=2: LATE launch M0 x3.83 M1 x2.086 | LATE cons M0 x3.47 M1 x1.812 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.75 M1 x1.43 | t1-sweep+H3 M1 x1.581  [est]
+  [no (2,2,3) ] G22=WORST                Gw=1.820 KS=1: LATE launch M0 x3.94 M1 x2.167 | LATE cons M0 x3.71 M1 x1.997 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.67 | cons M0 x1.79 M1 x1.52 | t1-sweep+H3 M1 x1.695  [est]
+  [no (2,2,3) ] G22=WORST                Gw=1.820 KS=2: LATE launch M0 x3.83 M1 x2.086 | LATE cons M0 x3.47 M1 x1.812 | PRESENT(yc<=126.7) launch M0 x1.98 M1 x2.53 | cons M0 x1.75 M1 x1.43 | t1-sweep+H3 M1 x1.581  [est]
+  FLIP (4,4,0.0) late_launch KS=1: Ghat22 -> 5.462e+05 (x1.97 of worst; Gw 8.98);  ramp constants -> KS = 49.3
+  FLIP (4,4,0.0) late_cons KS=1: Ghat22 -> 5.336e+05 (x1.93 of worst; Gw 7.58);  ramp constants -> KS = 15.3
+  FLIP (4,4,0.0) late_launch KS=2: Ghat22 -> 5.406e+05 (x1.95 of worst; Gw 8.30);  ramp constants -> KS = 49.3
+  FLIP (4,4,0.0) late_cons KS=2: Ghat22 -> 5.156e+05 (x1.86 of worst; Gw 6.21);  ramp constants -> KS = 15.3

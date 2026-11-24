@@ -1,0 +1,69 @@
+H-J-W fallback: J_m scaled by 1 + kappa_J = 1.0423504097918466
+E^A(tau_1) from out/ic_design.json tight design [1.01e-06, 6e-06, 0.00101]
+M14 verifier ramp sups (rounded up): M1 0.4328 sI1 0.001161
+flux: K0(E) = 2.458e-21, K2(E) = 6.772e-21; beta 5/4: FLUX0/K0 x5.354 FLUX2/K2 x9.478; beta 2: FLUX0/K0 x3.364 FLUX2/K2 x5.953
+
+==================== setting tight: (H2) = ('1e-8', '1e-6', '1e-3') ====================
+           repaired       lemmaS_A_ibp   v3.1           | parts of the repaired E_j
+E_0       1.2134309e-06  1.2110074e-07  3.1110055e-07  | handoff 1.01e-06 inflow 1.18e-07 ramp 3.14e-09 TOP 5.19e-08 CLS 7.83e-09 extra 0 forcing 7.3e-09 coupling 0 OUTER 1.5e-08
+E_1       0.0001045163   8.1741888e-05  0.00018074175  | handoff 6e-06 inflow 8.08e-05 ramp 1.82e-06 TOP 1.09e-05 CLS 4.57e-06 extra 2.31e-07 forcing 7e-08 coupling 4.8e-12 OUTER 1.7e-07
+E_2       0.058246643    0.048045022    0.24704507     | handoff 0.00101 inflow 0.0195 ramp 0.0117 TOP 0.0102 CLS 0.0123 extra 0.00143 forcing 3.5e-06 coupling 1.7e-07 OUTER 0.0021
+gamma'_0  0.24292642     0.24628897     0.24628897    
+gamma'_1  0.24106454     0.24617403     0.24617403    
+gamma'_2  0.11961517     0.12355356     0.14306229    
+   level 0: Phi 3.32e-05; top route J {'J': '5.19e-08'}; deltas {'1': '0.3034'}
+       class pairs [0, 1]     pair    data   7.83e-09
+       class pairs [0, 2]     pair    young  2.34e-13
+   level 1: Phi 3.32e-05; top route J {'J': '1.09e-05'}; deltas {'1': '0.2054'}
+       class pairs [1, 2]     pair    data   4.57e-06
+       class pairs [1, 3]     pair    young  2.24e-09
+   level 2: Phi 3.32e-05; top route IBP {'young': '0.00325', 'cpp': '0.00135', 'delta': '0.324', 'J_route_for_comparison': '3.16'}; deltas {'top': '0.3236', '5': '0.0019'}
+       class pairs [2, 2]     pair    data   0.00011
+       class pairs [2, 2, 2]  phi            0.0081
+       class pairs [2, 2, 3]  ibp223         0.000185
+       class pairs [2, 2, 3]  ibp223         0.000556
+       class pairs [2, 3]     pair    data   0.0033
+       class pairs [2, 4]     pair    young  1.92e-05
+       class top  [2, 2, 2]  phi            0.00503
+       class top  [2, 2, 3]  ibp223         0.000371
+       class top  [2, 2, 3]  ibp223         0.000209
+margins (arb lower): {'S0v': 2.7659, 'S0v_vs_0.0153': 2.1159, 'S1v_vs_0.6': 5.7482, 'M0core': 5.4498, 'M1core': 4.409, 'ramp M1': 1.1847, 'ramp z1': 1.2014, 'ramp M0': 7.0205, 'Ghat22': 1.9174, 'win M1': 2.0516, 'win M0': 2.5438, 'win z2': 4.2684, '|f|<=1/2': 5.3881, 'K2': 5.0804, 'K3': 4.8245}
+   ref  : S0v: 5.3791, M0core: 6.5814, M1core: 4.8561, ramp M1: 2.0505, ramp M0: 7.0304, Ghat22: 1.9771, windows M1/M0/z2: 2.0516/2.5438/4.2684, |f|<=1/2: 5.3881, K2/K3: 5.0746/4.8140
+   v3.1 : S0v: 3.4809, M0core: 5.8694, M1core: 2.8200, ramp M1: 2.0505, ramp M0: 7.0304, Ghat22: 2.3378, windows M1/M0/z2: 2.0516/2.5438/4.2684, |f|<=1/2: 5.3881, K2/K3: 5.0746/4.8140
+export (R4): {0: {'C0': '1.1435e-06', 'C1': '3.755e-09', 'r': '1249/1000'}, 1: {'C0': '0.00016632', 'C1': '7.684e-08', 'r': '1249/1000'}}
+claims failing: [('E_0 (v3.1 page 1)', '3.12e-7', '1.21343e-06'), ("gamma'_0 (v3.1 page 1)", '0.246', '0.242926'), ("gamma'_1 (v3.1 page 1)", '0.246', '0.241065'), ("gamma'_2 (v3.1 page 1)", '0.143', '0.119615'), ('E_B0 (y_E=50) (v3.1 page 1)', '3.15e-7', '1.22912e-06'), ("gamma'_B >= 0.2394 (v3.1 page 1)", '0.2394', '0.237177'), ('S0_B (y_E=50) <= S0V=0.0153', '0.0153', '0.0171194'), ('K0 (v3.1 page 6.83e-22)', '6.83e-22', '2.45775e-21'), ('K2 flux (v3.1 page 3.26e-21)', '3.26e-21', '6.77177e-21'), ('I3 const (v3.1 page 1.84e-21)', '1.84e-21', '2.01627e-21'), ('I3 slope (v3.1 page 1.39e-27)', '1.39e-27', '7.12625e-25')]
+E^A(tau_1) from out/ic_design.json v31 design [1.2e-06, 0.000105, 0.20001]
+M14 verifier ramp sups (rounded up): M1 0.4328 sI1 0.001161
+flux: K0(E) = 2.883e-21, K2(E) = 8.951e-21; beta 5/4: FLUX0/K0 x4.563 FLUX2/K2 x7.168; beta 2: FLUX0/K0 x2.866 FLUX2/K2 x4.500
+
+==================== setting v31: (H2) = ('2e-7', '1e-4', '0.2') ====================
+           repaired       lemmaS_A_ibp_v31H2 v3.1           | parts of the repaired E_j
+E_0       1.4039826e-06  3.1110055e-07  3.1110055e-07  | handoff 1.2e-06 inflow 1.18e-07 ramp 3.14e-09 TOP 5.19e-08 CLS 7.83e-09 extra 0 forcing 7.8e-09 coupling 0 OUTER 1.5e-08
+E_1       0.00020354407  0.00018074175  0.00018074175  | handoff 0.000105 inflow 8.08e-05 ramp 1.82e-06 TOP 1.09e-05 CLS 4.57e-06 extra 2.31e-07 forcing 9.8e-08 coupling 5.6e-12 OUTER 1.7e-07
+E_2       0.25725062     0.24704515     0.24704507     | handoff 0.2 inflow 0.0195 ramp 0.0117 TOP 0.0102 CLS 0.0123 extra 0.00143 forcing 7.3e-06 coupling 3.3e-07 OUTER 0.0021
+gamma'_0  0.24292642     0.24628897     0.24628897    
+gamma'_1  0.24106454     0.24617403     0.24617403    
+gamma'_2  0.11961517     0.12355356     0.14306229    
+   level 0: Phi 3.32e-05; top route J {'J': '5.19e-08'}; deltas {'1': '0.3034'}
+       class pairs [0, 1]     pair    data   7.83e-09
+       class pairs [0, 2]     pair    young  2.34e-13
+   level 1: Phi 3.32e-05; top route J {'J': '1.09e-05'}; deltas {'1': '0.2054'}
+       class pairs [1, 2]     pair    data   4.57e-06
+       class pairs [1, 3]     pair    young  2.24e-09
+   level 2: Phi 3.32e-05; top route IBP {'young': '0.00325', 'cpp': '0.00135', 'delta': '0.324', 'J_route_for_comparison': '3.16'}; deltas {'top': '0.3236', '5': '0.0019'}
+       class pairs [2, 2]     pair    data   0.00011
+       class pairs [2, 2, 2]  phi            0.0081
+       class pairs [2, 2, 3]  ibp223         0.000185
+       class pairs [2, 2, 3]  ibp223         0.000556
+       class pairs [2, 3]     pair    data   0.0033
+       class pairs [2, 4]     pair    young  1.92e-05
+       class top  [2, 2, 2]  phi            0.00503
+       class top  [2, 2, 3]  ibp223         0.000371
+       class top  [2, 2, 3]  ibp223         0.000209
+margins (arb lower): {'S0v': 2.2772, 'S0v_vs_0.0153': 1.7421, 'S1v_vs_0.6': 3.3738, 'M0core': 5.0607, 'M1core': 2.7168, 'ramp M1': 1.1847, 'ramp z1': 1.2014, 'ramp M0': 7.0205, 'Ghat22': 1.9174, 'win M1': 2.0516, 'win M0': 2.5438, 'win z2': 4.2684, '|f|<=1/2': 5.3881, 'K2': 5.0804, 'K3': 4.8245}
+   ref  : S0v: 3.4809, M0core: 5.8694, M1core: 2.8200, ramp M1: 2.0505, ramp M0: 7.0304, Ghat22: 1.9771, windows M1/M0/z2: 2.0516/2.5438/4.2684, |f|<=1/2: 5.3881, K2/K3: 5.0746/4.8140
+   v3.1 : S0v: 3.4809, M0core: 5.8694, M1core: 2.8200, ramp M1: 2.0505, ramp M0: 7.0304, Ghat22: 2.3378, windows M1/M0/z2: 2.0516/2.5438/4.2684, |f|<=1/2: 5.3881, K2/K3: 5.0746/4.8140
+export (R4): {0: {'C0': '1.2998e-06', 'C1': '3.755e-09', 'r': '1249/1000'}, 1: {'C0': '0.00024753', 'C1': '7.684e-08', 'r': '1249/1000'}}
+claims failing: [('E_0 (v3.1 page 1)', '3.12e-7', '1.40398e-06'), ('E_1 (v3.1 page 1)', '1.81e-4', '0.000203544'), ('E_2 (v3.1 page 1)', '0.248', '0.257251'), ("gamma'_0 (v3.1 page 1)", '0.246', '0.242926'), ("gamma'_1 (v3.1 page 1)", '0.246', '0.241065'), ("gamma'_2 (v3.1 page 1)", '0.143', '0.119615'), ('E_B0 (y_E=50) (v3.1 page 1)', '3.15e-7', '1.42213e-06'), ('E_B1 (y_E=50) (v3.1 page 1)', '1.83e-4', '0.000206171'), ('E_B2 (y_E=50) (v3.1 page 1)', '0.250', '0.260571'), ("gamma'_B >= 0.2394 (v3.1 page 1)", '0.2394', '0.237177'), ('S0_B (y_E=50) <= S0V=0.0153', '0.0153', '0.0209097'), ('K0 (v3.1 page 6.83e-22)', '6.83e-22', '2.88329e-21'), ('K2 flux (v3.1 page 3.26e-21)', '3.26e-21', '8.95078e-21'), ('I3 const (v3.1 page 1.84e-21)', '1.84e-21', '3.82034e-21'), ('I3 slope (v3.1 page 1.39e-27)', '1.39e-27', '7.1477e-25')]
+
+wrote out/asm_design_N2ref4.json

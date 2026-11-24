@@ -1,0 +1,15 @@
+% lemmaD_k2_sketch.tex -- statement and proof SKETCH of the level-2 window export of Lemma S(A) (unit G1). [hand]; generated; not compiled.
+% Status: the export is CERTIFIED as a computation in v36 (assembly_rep.export, A_interface r2_export); this written proof is a sketch, NOT reviewed.
+\begin{lemma}[Lemma D, $k=2$]\label{D:k2}
+Under the bootstrap hypotheses of Lemma~S(A) on $[\tau_1,\tau']$, for every $\tau_a\ge\tau_1$ and $T\ge0$ with $\tau_a+T\le\tau'$,
+\[X_2(\tau_a,T):=\int_{\tau_a}^{\tau_a+T}\!\int_{\ln28}^{\ln350}y^{-4}\tfrac{28}{y}\,(z^A_4)^2\,ds\,d\tau\le C0_2+C1_2\,T,\]
+\[C0_2=\frac{\hat E_2+D_2}{r_2a_c},\qquad C1_2=\frac{2F_2^2/\gamma'_2+\mathrm{coup}_2+o_2+D_2^{\rm slope}}{r_2a_c},\qquad r_2=\tfrac1{1000},\ a_c=(1+0.11^2)^{-2},\]
+with, at the setting $4N_2^{\rm ref}$ used by flux lemma v2, $C0_2\le1.1638\cdot10^{2}$, $C1_2\le2.6061\cdot10^{-1}$ [cert, v36].
+\end{lemma}
+\begin{proof}[Sketch \textup{[hand]}]
+(1) \emph{Retained dissipation.} In the level-2 energy inequality of Lemma~S(A) the dissipation $2\int\Theta(z^A_4)^2$ is split by the weight tables of \fn{weights_t2}: the parts $B_c$ used to absorb the level-2 sources and a remainder. With $B_c^{\rm core}=1688999/10^6$ and, on every zone of $[28,350]$, $B_c\le2-\mathrm{used}/a-r_2a_c/a_z$, the remainder is $\ge r_2a_c\,y^{-4}\frac{28}{y}(z^A_4)^2$ pointwise on $[\ln28,\ln350]$ (asserted in arb in \fn{weights_t2}). So
+\[\tfrac{d}{d\tau}E_2+r_2a_c\int_{\ln28}^{\ln350}y^{-4}\tfrac{28}{y}(z^A_4)^2\,ds\le\textstyle\sum\mathrm{sources}.\]
+(2) \emph{Sources are window-affine.} Every level-2 source of \fn{assembly_rep} is a \texttt{Tr} object (inflow, ramp commutators, IBP top term with its Young users, the class costs, foot, S33): over any window its integral is at most a window constant plus a slope times $T$, the damped constant being $\le D_2$ (asserted $D_2^c\le D_2$) and the slopes summing to $D_2^{\rm slope}$. The forcing is bounded by Young against the retained part of $\gamma'_2E_2$, giving $2F_2^2/\gamma'_2$ per unit $\tau$; the couplings to $k<2$ use the pointwise $E_k\le\hat E_k$ and give $\mathrm{coup}_2$ per unit $\tau$; the outer part gives $o_2$ per unit $\tau$.
+(3) \emph{Integration.} Integrate (1) over $[\tau_a,\tau_a+T]$, drop $E_2(\tau_a+T)\ge0$ and use $E_2(\tau_a)\le\hat E_2$ (pointwise R-sup bound, every $\tau_a\ge\tau_1$).
+\end{proof}
+\noindent\emph{Open:} the written verification, source by source, that each level-2 \texttt{Tr} bound holds in window form (the code asserts it by construction; no text exists), and an independent review. Until then the export, and with it the integrated part of flux lemma v2, rests on the certified computation plus this sketch.

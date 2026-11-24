@@ -1,0 +1,23 @@
+# Vendored subset of the CWFlow Lean package (commit 3130aef39829f02c126aeb166fbb9583f7670108):
+# only the transitive import closure of CWFlow.Curve.All. See README.md in this directory.
+# Differences from lakefile.orig.toml: ShortTime is required from git (pinned commit) instead of
+# the local path ../MM, and the library root is CWFlow.Curve.All (CWFlow.lean is not vendored).
+name = "CWFlow"
+version = "0.1.0"
+defaultTargets = ["CWFlow"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+
+# ShortTime = local path ../MM in the original; its HEAD 7b15b01b2d957ffa977396b3d555ad37b27cb515
+# (on origin/main of the repo below) is the version the original build used. It pins
+# DifferentialGeometry v0.1.3 and Mathlib v4.33.1.
+[[require]]
+name = "ShortTime"
+git = "https://github.com/micah541/parabolic-short-time-lean"
+rev = "7b15b01b2d957ffa977396b3d555ad37b27cb515"
+
+[[lean_lib]]
+name = "CWFlow"
+roots = ["CWFlow.Curve.All"]

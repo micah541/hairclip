@@ -1,0 +1,40 @@
+started from /home/claude/s1spec/step4/t2/gamma0_final.json: M=1000, block 185
+--- slab 1: h 6.751e-09 -> 6.751e-09 (decay ratio 13.3), t = 0.001, theta_max 47.91, M 1000, block 185, cap 30
+h=6.751e-09 (dt~5.000e-04)  M=1000 Ma=185 Nc=4000 K=24 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 5.95e-12, sum n^3 sup|r_n| = 2.07e-01, induced sum n^3 r_n/max(lam_n,1/h) = 1.85e-13; defect*w |.|_3 = 1.19e-08
+  polish |F| = ['1.2e-05', '7.5e-16', '2.0e-23']  u(0)-xbar = 9.4e-23  cond(P_a(h)) = 1.9e+02
+  rho radii max: 8.137e-24 -> 8.261e-24 (|diag B|w 1.372e-33, |B|w 8.139e-24, absorbed 2.29e-28, intra-slab 6.92e-24);  sv(P_a(h)) ['1.02', '1', '1', '0.00532']
+  parallelepiped hull sum_n n^j|G||w|: j=1 1.628e-23 -> 2.912e-21; j=3 2.424e-22 -> 3.351e-17;  box |.|_1 out 4.66e-21
+  box |.|_3: 2.386e-12 -> 4.801e-15  (Zend block 5.19e-20, rest 4.80e-15); tail T: 1.00e-30 -> 2.43e-23
+  slab-wide sup |e|_j (j=0..3): ['5.59e-20', '6.59e-18', '2.34e-15', '2.67e-12'];  int <u_aa^2> = 4.471314738716329e-04 +/- 2.8e-23
+  time 533.9s  {base: 60.6, resid: 9.8, coef: 1.7, Pfloat: 27.9, defect: 401.6, apriori: 24.6, lohner: 7.6, quad: 0.1}  sub-intervals [(4, 0, 0), (5, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (6, 0, 0), (7, 0, 0)]
+  block 185->167 (passengers 0), h_next=1.0126545736013858e-08, theta_end=46.936
+  quadratures: t=[0.00049953960868845877442 +/- 3.55e-24]  L=[103.60618094294690593 +/- 2.69e-18]  X0=[-0.874987453924625602 +/- 3.25e-19]
+--- slab 2: h 1.013e-08 -> 1.013e-08 (decay ratio 12.5), t = 0.00149954, theta_max 46.94, M 1000, block 167, cap 0.24
+h=1.013e-08 (dt~7.487e-04)  M=1000 Ma=167 Nc=4000 K=24 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 8.59e-14, sum n^3 sup|r_n| = 2.90e-03, induced sum n^3 r_n/max(lam_n,1/h) = 2.60e-15; defect*w |.|_3 = 1.70e-13
+  polish |F| = ['4.7e-06', '1.1e-19', '4.8e-29']  u(0)-xbar = 3.4e-36  cond(P_a(h)) = 1.9e+02
+  rho radii max: 8.261e-24 -> 8.268e-24 (|diag B|w 8.263e-24, |B|w 8.267e-24, absorbed 8.94e-29, intra-slab 4.85e-25);  sv(P_a(h)) ['1.02', '1', '1', '0.00526']
+  parallelepiped hull sum_n n^j|G||w|: j=1 2.912e-21 -> 1.505e-21; j=3 3.351e-17 -> 9.885e-18;  box |.|_1 out 1.09e-22
+  box |.|_3: 4.801e-15 -> 1.090e-16  (Zend block 1.25e-20, rest 1.09e-16); tail T: 2.43e-23 -> 1.69e-30
+  slab-wide sup |e|_j (j=0..3): ['4.87e-22', '4.54e-20', '9.43e-18', '5.53e-15'];  int <u_aa^2> = 5.617263477225819e-04 +/- 3.0e-25
+  time 462.6s  {base: 23.7, resid: 9.9, coef: 1.8, Pfloat: 25.7, defect: 374.0, apriori: 21.7, lohner: 5.7, quad: 0.1}  sub-intervals [(3, 0, 0), (4, 0, 0), (6, 0, 0), (6, 0, 0), (5, 0, 0), (6, 0, 0), (6, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0)]
+  block 167->151 (passengers 0), h_next=1.5204832719783445e-08, theta_end=46.763
+  quadratures: t=[0.0012473352719209408209 +/- 2.36e-23]  L=[103.54799896402947780 +/- 4.49e-18]  X0=[-0.875445222130552057 +/- 4.48e-19]
+stopping after slab 2 (--max-slabs)
+resumed at slab 2: t = [0.00124733527192 +/- 9.41e-16], M = 1000, block 151
+--- slab 3: h 1.520e-08 -> 1.520e-08 (decay ratio 12.6), t = 0.00224734, theta_max 46.76, M 1000, block 151, cap 0.021
+resumed at slab 2: t = [0.00124733527192 +/- 9.41e-16], M = 1000, block 151
+--- slab 3: h 1.520e-08 -> 1.520e-08 (decay ratio 12.6), t = 0.00224734, theta_max 46.76, M 1000, block 151, cap 0.021
+   eta cap exceeded (max eta/cap 2.50e+00): redo
+h=1.520e-08 (dt~1.122e-03)  M=1000 Ma=151 Nc=4000 K=24 KP=16 KJ=6 msub=8
+  residual: max_n sup|r_n| = 2.07e-15, sum n^3 sup|r_n| = 6.02e-05, induced sum n^3 r_n/max(lam_n,1/h) = 6.03e-17; defect*w |.|_3 = 3.30e-15
+  polish |F| = ['6.4e-06', '1.2e-19', '1.2e-28']  u(0)-xbar = 3.5e-36  cond(P_a(h)) = 1.8e+02
+  rho radii max: 8.268e-24 -> 8.274e-24 (|diag B|w 8.271e-24, |B|w 8.274e-24, absorbed 1.84e-28, intra-slab 4.44e-25);  sv(P_a(h)) ['1.03', '1', '1', '0.00562']
+  parallelepiped hull sum_n n^j|G||w|: j=1 1.505e-21 -> 1.099e-21; j=3 9.885e-18 -> 4.910e-18;  box |.|_1 out 3.58e-24
+  box |.|_3: 1.090e-16 -> 2.022e-19  (Zend block 1.08e-20, rest 1.88e-19); tail T: 1.69e-30 -> 4.18e-35
+  slab-wide sup |e|_j (j=0..3): ['8.71e-23', '6.32e-21', '7.60e-19', '1.90e-16'];  int <u_aa^2> = 7.235538418810139e-04 +/- 6.0e-26
+  time 561.1s  {base: 36.8, resid: 14.4, coef: 3.5, Pfloat: 36.1, defect: 445.8, apriori: 20.4, lohner: 3.9, quad: 0.1}  sub-intervals [(3, 0, 0), (4, 0, 0), (8, 0, 0), (7, 0, 0), (6, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0), (7, 0, 0)]
+  block 151->136 (passengers 0), h_next=2.28355938773153e-08, theta_end=49.882
+  quadratures: t=[0.0023672544240700203349 +/- 2.77e-23]  L=[103.47310351027411746 +/- 5.66e-19]  X0=[-0.876331537214833697 +/- 6.91e-19]
+stopping after slab 3 (--max-slabs)

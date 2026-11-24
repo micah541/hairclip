@@ -1,0 +1,131 @@
+% GS_lemma.tex -- fix round 14 (fix14_interface), 20 Nov 2026.  Closes review item C-2 of fix11_review/REVIEW_v4b_v36_proofs.md:
+% (GS), the tip arc as a normal graph over S_1, at tau_1 and in the bootstrap with strict improvement.  New file only.  Not compiled.
+% Certificates: GS_tau1.py -> GS_tau1.json, GS_boot.py -> GS_boot.json (arb).  Identities: C1_sym.py Y9 (sympy).
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,enumitem,booktabs}
+\newtheorem{lemma}{Lemma}[section]\newtheorem{definition}[lemma]{Definition}\newtheorem{remark}[lemma]{Remark}
+\newcommand{\fn}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\tH}{\textup{[hand]}}\newcommand{\tS}{\textup{[sym]}}\newcommand{\tC}{\textup{[cert]}}\newcommand{\tI}{\textup{[cited]}}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+\begin{document}
+\title{C-2: (GS), the tip arc as a normal graph over $S_1$:\\ hand-off at $\tau_1$ and strict improvement in the bootstrap}
+\date{20 November 2026 (fix round 14). \emph{Not compiled.}}
+\maketitle
+\noindent\textbf{Labels} as in \fn{C1_identification.tex}: \tC\ arb certificate (script and JSON named), \tS\ sympy (\fn{C1_sym.py}), \tI\ another document, \tH\ hand argument.
+
+\section{The range: $60$, not $60\frac14$}\label{GS:sec:range}
+\fn{U1_regularity.tex} (Definition ``frame and charts'') and \fn{continuation_v37.tex} (Definition GS) pose (GS) on $|x|\le X_S=60\frac14$, while every verifier box stops at $x=60$ (review C-2). Nothing uses $u$ on $(60,60\frac14]$: $\tilde w=\chi w$ is supported in $|x|\le34.25$, $v=\zeta w'$ in $[10.25,60]$, $\mathrm{OR}=[57,60]$, $E_I$ lives on $[10.25,60]$, and the integrations by parts at $x=60$ in \fn{U1_regularity.tex} Theorem U-1(b) need only one-sided derivatives at $60$ (their boundary terms vanish because $\zeta,\dots,\zeta'''$ vanish there). The only reason for a margin beyond $60$ is the openness step of the graph lemma, which Lemma~\ref{GS:lem:open} handles at the endpoint directly. \textbf{Resolution: (GS) is posed on $|x|\le X_S:=60$.} At $\tau_1$ it is certified on $|x|\le60\frac14$ anyway (Lemma~\ref{GS:lem:tau1}), so either convention holds at the hand-off.
+
+\begin{definition}[GS, GS$^\circ$]\label{GS:def}
+Let $\Psi(x,n)=S_1(x)+n\nu_{S_1}(x)$, $x$ the arclength of $S_1$ from its tip, $k=k_{S_1}$. For $P=(t,\lambda,\xi,\alpha)$ with $\Gamma_P=(\gamma(t)-\xi e_1)/\lambda$:
+\begin{itemize}[leftmargin=*]
+\item $\mathrm{GS}(P)$: there is $u\in C^1([-60,60])$ with $\sup|ku|\le\frac12$, $\sup|u'|\le1$, such that $x\mapsto\Psi(x,u(x))$ is a $C^1$ reparametrisation of a sub-arc of $\Gamma_P$ containing the tip.
+\item $\mathrm{GS}^\circ(P)$ (relaxed, open): the same with $\sup|ku|<1$, $\sup|u'|<2$.
+\end{itemize}
+\end{definition}
+\noindent (Review C-5: the modulation functions of \fn{U1_regularity.tex} Proposition (P2$'$) are to be defined on the open set where $\mathrm{GS}^\circ$ and the relaxed validity box hold, which contains the closed set $\mathfrak B$ where GS and the box hold; Lemma~\ref{GS:lem:open} is the openness of $\mathrm{GS}^\circ$ and of GS with a gap.)
+
+\section{A tube lemma}
+\begin{lemma}[T]\label{GS:lem:T}
+Let $S$ be a unit-speed $C^2$ curve (tangent $T_S$, normal $\nu=iT_S$, curvature $k$), $c:[0,\Xi]\to\mathbb C$ a $C^1$ regular curve, and $[0,\Xi]=\bigcup_jC_j$ a finite union of consecutive closed cells. Let $\sigma:[0,\Xi]\to\mathbb R$ be continuous and, for each cell, $\delta_j,\eta_j,K_j\ge0$ with, for $\xi\in C_j$:
+\[
+|c(\xi)-S(\sigma(\xi))|\le\delta_j,\qquad|\arg c'(\xi)-\arg T_S(\sigma(\xi))|\le\eta_j,\qquad\sup_{|X-\sigma(\xi)|\le2\delta_j}|k(X)|\le K_j,
+\]
+with continuous lifts of the arguments, and $q_1:=3K_j\delta_j<\frac12$, $\eta_j+2K_j\delta_j<\frac\pi2$. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item for each $\xi$ there is a unique $X(\xi)$ with $|X-\sigma(\xi)|\le2\delta_j$ and $\ip{c(\xi)-S(X)}{T_S(X)}=0$; $X$ is $C^1$ on $[0,\Xi]$ (well defined at cell ends);
+\item $c(\xi)=\Psi(X(\xi),n(\xi))$ with $n=\ip{c-S(X)}{\nu(X)}$, $|n|\le3\delta_j$, so $|k(X)n|\le q_1$;
+\item $X'=\ip{c'}{T_S(X)}/(1-k(X)n)>0$, and $u:=n\circ X^{-1}$ satisfies $u'=(1-ku)\tan d$, $d=\arg c'-\arg T_S(X)$, $|d|\le\eta_j+2K_j\delta_j$; hence $|u'|\le q_2:=(1+q_1)\tan(\eta_j+2K_j\delta_j)$.
+\end{enumerate}
+So if moreover $\sigma(0)=0$, $X(0)=0$ and $\max_j\max_{\xi\in C_j}(\sigma(\xi)-2\delta_j)\ge X_S$, then $c([0,\Xi])$ contains the graph arc $x\mapsto\Psi(x,u(x))$, $x\in[0,X_S]$, with $\sup|ku|\le\max q_1$, $\sup|u'|\le\max q_2$.
+\end{lemma}
+\begin{proof}\tH, \tS\ Y9. Fix $\xi\in C_j$ and $g(X)=\ip{c(\xi)-S(X)}{T_S(X)}$. By Y9c, $g'(X)=-1+k(X)\ip{c-S(X)}{\nu(X)}$; on $|X-\sigma|\le2\delta_j$, $|c-S(X)|\le\delta_j+2\delta_j$, so $g'\le-1+3K_j\delta_j<-\frac12$. Since $|g(\sigma)|\le\delta_j$, $g(\sigma-2\delta_j)\ge g(\sigma)+\delta_j\ge0\ge g(\sigma)-\delta_j\ge g(\sigma+2\delta_j)$: one zero, unique in the window. Inside a cell the window radius is fixed and its centre moves continuously; the zero is simple, so the implicit function theorem and uniqueness give a $C^1$ branch. At a common end of $C_j$ and $C_{j+1}$ both windows are centred at the same $\sigma(\xi)$, the smaller lies in the larger, and $g$ is strictly monotone on the larger: the two zeros coincide, and the one-sided derivatives agree (both are given by (c)). (b): $c-S(X)\perp T_S(X)$. (c): Y9a, Y9b give $\ip{c'}{T_S(X)}=X'(1-kn)$, $\ip{c'}{\nu(X)}=n'$; $\ip{c'}{T_S(X)}=|c'|\cos d$ with $|d|\le|\arg c'-\arg T_S(\sigma)|+|\arg T_S(\sigma)-\arg T_S(X)|\le\eta_j+2K_j\delta_j<\frac\pi2$; so $X'>0$ and $u'=n'/X'=(1-ku)\tan d$. The last sentence: $X$ is increasing with $X(\xi)\ge\sigma(\xi)-2\delta_j$, so $X([0,\Xi])\supset[0,X_S]$.
+\end{proof}
+
+\section{(GS) at $\tau_1$}
+\begin{lemma}[GS-1: hand-off]\label{GS:lem:tau1}
+For every good time $\tau^*$ of base slab 180, every $S_1$ in the certified set and the step-3 frame $(x_c,\lambda)$ of the hand-off, $\mathrm{GS}$ holds at $P_1$ on $|x|\le60\frac14$ with
+\[
+\sup|ku|\le6.52\cdot10^{-3},\qquad\sup|u'|\le0.0542 .
+\]
+\end{lemma}
+\begin{proof}\tC\ \fn{GS_tau1.py} $\to$ \fn{GS_tau1.json} (\fn{ok: true}; 16 $t_c$-balls of radius $1/16$ covering slab 180, about 684 cells each, CPU 43~s), with Lemma~\ref{GS:lem:T} applied to $c$ = the true tip arc in the step-3 frame, parametrised by base arclength $\xi$, $S=S_1$ and $\sigma(\xi)=\xi$. Inputs, all read-only:
+\begin{itemize}[leftmargin=*]
+\item the base of slab 180 from step~4's own geometry code (\fn{p2/t9h/basegeo.py}, the T6 engine on \fn{t1/polished_v2}), the objects of step~4's H1 stage;
+\item the true curve $=\tilde\Gamma+e\tilde\nu$ (Theorem P2, which is a statement about the smooth flow by \fn{C1_identification.tex} Theorem C-1(iii)), with P2's boxes: $|e|,|e'|\le10^{-5}$ for $y<28$; $|e|\le1.7E(x)$, $|e'|\le1.5\cdot10^{-3}$ for $y\ge28$, $\sqrt{F_0}$ of slab 180 from \fn{amp_A1_w180.json} at $\bar Y=1.7\cdot10^{-12}$; $\arg c'=\tilde\theta+\beta$, $|\beta|\le|e'|/(1-|\tilde\kappa e|)$;
+\item the frame: \fn{P_hull} of \fn{p2/out/h1slab/summary.json} (all 16 Krawczyk points and 32 balls of slab 180), widened by $10^{-9}$ to cover the true-curve shift $\le3.3\cdot10^{-11}$ (\fn{step4_proof.tex} \S``(H1)--(H4)'');
+\item $S_1$ from \fn{p2/t9h/s1chart2.py} (\fn{prof_tight} and \fn{ext813} rows with the tip-position ball; tail envelopes for $\sigma\ge13$), the chart of step~4's H1 stage, so the frame conventions are those in which step~4 computed $w$ and $\Lambda(\tau_1)$.
+\end{itemize}
+Per cell: $\delta$ by a mean-value form about the cell centre for $x\le x_{13}=15.249$ (the curvature there is up to $1.54$), by hulls beyond ($k_{S_1}\le2\cdot10^{-7}$ there); $\eta$ by hulls; $K$ by $S_1$ hulls on the window. Asserted per cell: $q_1<\frac12$, $\eta+2K\delta<\frac\pi2$, $q_2<1$; contiguity of the cells; coverage $\sigma-2\delta\ge61.27>60\frac14$ in every ball; the base tip at $s=-1$ of element 0 ($x=0$, $\tilde\theta=-\frac\pi2$). $X(0)=0$: the true curve and $S_1$ are symmetric (Theorem C-1(i)), so with $X$ also $-X$ is a foot of the tip, and the foot is unique. The negative side is the mirror image.
+\end{proof}
+\noindent The bounds are crude (the cell hulls dominate $\delta$ near the tip); the true values are about $|ku|\lesssim2\cdot10^{-4}$, $|u'|\lesssim|\alpha(\tau_1)|\hat\psi_3'(60)\approx0.01$ [estimated, not certified].
+
+\section{Strict improvement under the bootstrap}
+\begin{lemma}[GS-2]\label{GS:lem:strict}
+Assume $\mathrm{BS}_U(\tau)$ and $\mathrm{GS}(P(\tau))$, so that $u$ and $w=u-\alpha\hat\psi_3-\alpha^2\hat h_2$ are defined on $|x|\le60$. Then
+\[
+\sup_{|x|\le60}|ku|\le5.40\cdot10^{-4}<\tfrac12,\qquad\sup_{|x|\le60}|u'|\le0.0410<1 .
+\]
+\end{lemma}
+\begin{proof}\tC\ \fn{GS_boot.py} $\to$ \fn{GS_boot.json}, \tH, \tI. Under $\mathrm{BS}_U$ the verifier \fn{fin13v4b} asserts in \fn{closure.box_assert}, at every march step and at the tail anchor (\fn{closure.py} l.143, l.162; beyond the anchor the tail lemma keeps $(\Lambda,\alpha)$ below the anchor values and the boxes are monotone in them, \fn{VERIFIER.md} ``Monotonicity check'') \tI:
+\begin{center}\small\begin{tabular}{@{}lll@{}}\toprule
+region & box & name (max ratio along the production run $\alpha_1=1.5\cdot10^{-4}$)\\\midrule
+all & $|\alpha|\le2.5\cdot10^{-4}$ & \fn{E0_alpha} (0.64)\\
+$[0,8]$ & $|w|,|w'|\le10^{-4}$ & \fn{E2_tip_jet} (0.324)\\
+$[0,34.25]$ & $|w|\le0.02$ & \fn{E0_w_all34} (0.030)\\
+$[10.25,16.25]$ & $|w|,|w'|\le10^{-3}$ & \fn{Bb_IR_jet} (0.748)\\
+$[16.25,60]$ & $|w'|\le0.02$ & \fn{Bc_w1_far_EI}, \fn{Bc_w1_far_S0V} (0.058, 0.765)\\
+$[34.25,60]$ & $|w|\le0.5$ & \fn{Bd_w_34_60} (0.789)\\\bottomrule
+\end{tabular}\end{center}
+No $w'$ box is asserted on $[8,10.25]$. There \tH: $\chi=1$, $\rho$ is decreasing, and $\Lambda\ge\varepsilon B^2$, so
+$|w'(x)|\le|w'(10.25)|+(2.25)^{1/2}\|w''\|_{L^2(8,10.25)}\le10^{-3}+1.5\,\rho(10.25)^{-1/2}(\Lambda/\varepsilon)^{1/2}\le1.415\cdot10^{-3}$,
+with $\sqrt\Lambda\le5.3086\cdot10^{-8}$ (B1: below the verifier barrier, \fn{sqrtL_max} of the production run) and $\varepsilon=10^{-5}$ \tC. Then, on each cell of width $1/64$ of $[0,60]$ (aligned with $8,10.25,16.25,34.25,60$), $|ku|\le K_{\rm cell}(A|\hat\psi_3|+A^2|\hat h_2|+W_0)$ and $|u'|\le A|\hat\psi_3'|+A^2|\hat h_2'|+W_1$ with $A=2.5\cdot10^{-4}$, the boxes $W_0,W_1$ of the cell's region, $\hat\psi_3,\hat h_2$ from \fn{c4fun.py} on the cell ball, and $K_{\rm cell}$ from the $S_1$ rows or the tail envelope; asserted $<\frac12$ and $<1$ per cell. Evenness gives $|x|\le60$. The script asserts the six box ratios $\le1$ in the run file and reads the box values from \fn{constants.py}, \fn{e0v4b_constants.json}, \fn{e2v4b_constants.json}; all inputs are hashed.
+\end{proof}
+\begin{remark}[why the argument must be cellwise]
+$u$ is \emph{not} small near $x=60$: $|\alpha\hat\psi_3(60)|\le2.5\cdot10^{-4}\cdot2377=0.59$, and with the box $|w|\le0.5$, $\sup|u|\le1.10$ on $[34.25,60]$ (\fn{GS_boot.json}, \fn{regions}). $|ku|<\frac12$ holds there because $k_{S_1}$ decays super-exponentially ($|k_{S_1}|\le1.5\cdot10^{-20}$ at $\sigma=30$, $\le1.04\cdot10^{-49}$ at $\sigma=60$; \fn{hstail.profile_bounds}). A bound by $\sup|k|\cdot\sup|u|$ over $[0,60]$ (as in the v37 sketch) would give $1.54\cdot1.10>\frac12$ and fail.
+\end{remark}
+
+\section{GS in the bootstrap}
+\begin{lemma}[openness, with the endpoint]\label{GS:lem:open}
+If $\mathrm{GS}^\circ(P_0)$ holds, then $\mathrm{GS}^\circ(P)$ holds for $P$ near $P_0$, and $u=\mathcal U(P;x)$ is jointly $C^\infty$ on a neighbourhood of $\{P_0\}\times[-60,60]$. If $\mathrm{GS}(P_0)$ holds with $\sup|ku|\le c_1<\frac12$, $\sup|u'|\le c_2<1$, then $\mathrm{GS}(P)$ holds for $P$ near $P_0$.
+\end{lemma}
+\begin{proof}\tH\ Let $\theta(x)$ be the parameter of $\Psi(x,u(x))$ on $\Gamma_{P_0}$. Since $|ku|<1$, $\Psi$ is a local diffeomorphism at $(x,u(x))$, and $(X,N):=\Psi^{-1}\circ G$, $G(P,\theta)=\Gamma_P(\theta)$, is smooth near $(P_0,\theta(x))$; $X(P_0,\theta(x))=x$ and, by Lemma~\ref{GS:lem:T}(c) read backwards, $\partial_\theta X=|\Gamma_\theta|\cos d/(1-kN)>0$ with $|\tan d|=|u'|/(1-ku)$ finite. At the endpoints, the curve continues past $\theta(\pm60)$ and $\partial_\theta X>0$ there, so for some $\epsilon>0$, $X(P_0,\cdot)$ maps $[\theta(-60)-\epsilon,\theta(60)+\epsilon]$ increasingly onto an interval containing $[-60-\epsilon',60+\epsilon']$, and (compactness, finitely many local inverses glued by uniqueness of $\theta(x)$) the same holds for $P$ near $P_0$ with an interval containing $[-60,60]$. The implicit function theorem gives $\theta=\Theta(P,x)$ and $\mathcal U=N(P,\Theta(P,x))$, jointly smooth; $\mathcal U(P,\cdot)\to u$ in $C^1([-60,60])$ as $P\to P_0$, so the strict inequalities persist. Evenness as in \fn{U1_regularity.tex}.
+\end{proof}
+
+\begin{lemma}[GS is part of the bootstrap]\label{GS:lem:boot}
+Add GS to $\mathrm{BS}_U$ (next to G). On $[\tau_1,\tau_{\max})$ the extended set is nonempty, closed and open in the sense of the closure proposition of \fn{lemmaU.tex}; hence GS holds on $[\tau_1,\tau_{\max})$, with $\sup|ku|\le5.40\cdot10^{-4}$ and $\sup|u'|\le0.0410$.
+\end{lemma}
+\begin{proof}\tH\ \emph{Nonempty}: Lemma~\ref{GS:lem:tau1}. \emph{Strictness with a uniform gap}: Lemma~\ref{GS:lem:strict}. \emph{Open}: at $\tau_b$ where the extended set holds, Lemma~\ref{GS:lem:strict} gives the gap at $P(\tau_b)$, Lemma~\ref{GS:lem:open} gives GS for $P$ near $P(\tau_b)$, and $P(\tau)$ is continuous (Proposition (P2$'$)(b) of \fn{U1_regularity.tex}, with the modulation defined on the $\mathrm{GS}^\circ$-neighbourhood). \emph{Closed}: let $\tau_n\uparrow\tau_b<\tau_{\max}$ with GS at $P_n=P(\tau_n)$, so (Lemma~\ref{GS:lem:strict}) $|ku_n|\le c_1$, $|u_n'|\le c_2$; $P_n\to P_b$ and $\Gamma_{P_n}\to\Gamma_{P_b}$ in $C^\infty$ (the solution is smooth at $t(\tau_b)<T_{\max}$). The $u_n$ are equi-Lipschitz and $|u_n(0)|\le c_1/k(0)$; the parameter maps $\theta_n$ have $\theta_n'=(1-ku_n)/(|\Gamma_\theta|\cos d_n)$ bounded above and below uniformly ($|\tan d_n|\le c_2/(1-c_1)$), and $\theta_n(0)$ is the tip. By Arzel\`a--Ascoli a subsequence gives $u_n\to u$, $\theta_n\to\theta$ uniformly, $\theta$ bi-Lipschitz increasing, $\Psi(x,u(x))=\Gamma_{P_b}(\theta(x))$, $u$ is $c_2$-Lipschitz with $|ku|\le c_1$. Since $|ku|<1$, $X=\Psi^{-1}\circ\Gamma_{P_b}$ is smooth near $\theta(x)$ with $X\circ\theta=\mathrm{id}$, so $\partial_\theta X\ge c>0$ and $\theta$, $u=N\circ\theta$ are $C^\infty$: GS at $P_b$. The other members of $\mathrm{BS}_U$ are closed by the closure proposition of \fn{lemmaU.tex}.
+\end{proof}
+
+\section{Review of the v37 sketch and replacement text}\label{GS:sec:review}
+\paragraph{Review of \fn{fix12_texts/continuation_v37.tex} l.41 (``Strictness (sketch added in text v37)'').}
+\begin{enumerate}[leftmargin=*]
+\item \emph{Global sup argument fails} (Remark above): $|u|$ reaches $\approx1.1$ near $x=60$; strictness of $|ku|<\frac12$ needs the cellwise product with $k_{S_1}$. The sketch's ``$|u_0|\le|\alpha|\sup|\hat\psi_3|+\alpha^2\sup|\hat h_2|$, these should give $|ku|<\frac12$'' is not true with global sups.
+\item \emph{Sources mixed.} ``$\le5.91\cdot10^{-4}$ on $[16.25,34.25]$'' and ``$|w'|\le1.1606\cdot10^{-3}$ on $x\ge16.25$'' are trajectory values of the production run (\fn{far_max.far_w}, \fn{sI1}), not the asserted boxes ($0.02$, $0.02$); ``$|w'|\le0.0153$ on $[34.25,60]$'' is the B2$'$ core bound $S^v_0+\sup|d|$ of \fn{lemmaU_v37.tex}, not the verifier box. Either kind is valid under $\mathrm{BS}_U$ if cited correctly; Lemma~\ref{GS:lem:strict} uses only the asserted boxes and B1.
+\item \emph{$[8,10.25]$ missing}: no $w'$ box is asserted there; now derived ($\le1.415\cdot10^{-3}$).
+\item \emph{$\hat\psi_3,\hat h_2$ sups} were not collected; now on cells in arb.
+\item \emph{$X_S=60\frac14$} against boxes to $60$; now $X_S=60$ (\S\ref{GS:sec:range}).
+\item \emph{Openness} needs the open relaxed set (C-5) and the endpoint; \emph{closedness} is not the compactness step of (P2$'$)(c) (that one is about the modulation box set) but the limit argument of Lemma~\ref{GS:lem:boot}.
+\item \emph{At $\tau_1$}, ``implicit in step~4's certification of $\Lambda(\tau_1)$'' is not a proof (step~4's H1 stage computes foot points cell by cell with local uniqueness only); now certified (Lemma~\ref{GS:lem:tau1}).
+\end{enumerate}
+
+\paragraph{Replacement for \fn{continuation_v37.tex}, Definition C:def:GS and Lemma C:lem:GS} (to be placed in the next text version; the current file is not edited):
+\begin{quote}\small
+\textbf{Definition (GS).} $\mathrm{GS}(\tau)$: there is $u\in C^1([-60,60])$ with $\sup|ku|\le\frac12$, $\sup|u'|\le1$ such that $x\mapsto\Psi(x,u(x))$ reparametrises a sub-arc of $\Gamma_{\rm tip}(\tau)$ containing the tip (\fn{fix14_interface/GS_lemma.tex}, Definition~\ref{GS:def}; the range is $60$, the end of the verifier boxes).
+
+\textbf{Lemma (GS is part of the bootstrap).} Add GS to $\mathrm{BS}_U$ next to G. The extended set is nonempty, closed and open; GS holds on $[\tau_1,\tau_{\max})$ with $\sup|ku|\le5.40\cdot10^{-4}$, $\sup|u'|\le0.0410$.
+
+\emph{Proof.} At $\tau_1$: certified on $|x|\le60\frac14$ with $\sup|ku|\le6.52\cdot10^{-3}$, $\sup|u'|\le0.0542$ (\fn{GS_tau1.json}, tube lemma T on step~4's base of slab 180, P2's boxes and the hand-off frame) \tC. Strictness: under $\mathrm{BS}_U$ the verifier's asserted boxes, B1 and the cell sups of $\hat\psi_3,\hat h_2,k_{S_1}$ give the bounds above (\fn{GS_boot.json}) \tC. Open and closed: \fn{GS_lemma.tex}, Lemmas~\ref{GS:lem:open}, \ref{GS:lem:boot} \tH.
+\end{quote}
+\paragraph{Consequential edits owed (new versions only).} \fn{U1_regularity.tex}: $X_S:=60$ in Definition ``frame and charts''; define $\mathcal O$ in Proposition (P2$'$) through $\mathrm{GS}^\circ$ (C-5); gap item~4 is closed by this file. \fn{continuation_v37.tex}: the replacement above; gap item~2 (``(GS) at $\tau_1$ must be added to the hand-off list'') is closed by Lemma~\ref{GS:lem:tau1}, and the hand-off list (Theorem~4(c)) should name GS next to (H1). \fn{lemmaU_v37.tex}: GS in the list of $\mathrm{BS}_U$ members and in the order table (it uses D1's boxes only).
+
+\section{Gaps, stated plainly}
+\begin{enumerate}[leftmargin=*]
+\item Lemma~\ref{GS:lem:strict} uses the box hypotheses as asserted by \fn{fin13v4b}. The open item N1 of the review (D-3, a new verifier tag with term H8) does not change the box constants; if the production run is redone, \fn{GS_boot.py} must be rerun on its run file (one argument, 3~s).
+\item Lemma~\ref{GS:lem:tau1} inherits step~4's P2 boxes and hand-off frame at slab 180 and the identification Theorem C-1 of \fn{C1_identification.tex} (with its Lean/DKS caveats).
+\item Lemmas~\ref{GS:lem:T}, \ref{GS:lem:open}, \ref{GS:lem:boot} are hand arguments; their identities are Y9 of \fn{C1_sym.py}.
+\item That the box assertions also cover the tail beyond the anchor rests on the verifier's monotonicity statement (\fn{VERIFIER.md}), read, not re-audited here.
+\end{enumerate}
+\end{document}

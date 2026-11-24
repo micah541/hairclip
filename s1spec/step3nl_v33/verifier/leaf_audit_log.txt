@@ -1,0 +1,5 @@
+alpha<=0 Ly in [1e-12,1e-12]: U=-0.01046 lb=-0.01096 U-lb=4.99e-04 (allowed 5.00e-04)  leaves=190 minwidth-leaves=0  evals=249107  16.0s
+alpha<=0.001 Ly in [1.4e-13,1.5e-13]: U=+0.31709 lb=+0.31552 U-lb=1.58e-03 (allowed 1.58e-03)  leaves=749 minwidth-leaves=0  evals=253357  16.5s
+alpha<=0.0005 Ly in [3e-13,3.2e-13]: U=+0.06710 lb=+0.06660 U-lb=5.00e-04 (allowed 5.00e-04)  leaves=658 minwidth-leaves=0  evals=249891  15.1s
+alpha<=7e-05 Ly in [2.4e-13,2.45e-13]: U=-0.00268 lb=-0.00318 U-lb=4.99e-04 (allowed 5.00e-04)  leaves=251 minwidth-leaves=0  evals=238603  13.1s
+alpha<=0.00025 Ly in [5e-13,5.3e-13]: U=+0.01984 lb=+0.01934 U-lb=5.00e-04 (allowed 5.00e-04)  leaves=420 minwidth-leaves=0  evals=246697  15.3s
